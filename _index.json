@@ -1,0 +1,1652 @@
+{
+  "version": "1.0",
+  "generated": "2026-02-23",
+  "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
+  "total_files": 85,
+  "total_words": 145520,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "title": "brianmadden.ai",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 1529,
+      "staleness_threshold": null
+    },
+    {
+      "path": "CLAUDE.md",
+      "title": "brianmadden.ai",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 1529,
+      "staleness_threshold": null
+    },
+    {
+      "path": "GOVERNANCE.md",
+      "title": "brianmadden.ai publishing principles",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 1138,
+      "staleness_threshold": null
+    },
+    {
+      "path": "COLLECTIONS.md",
+      "title": "Collections",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 2532,
+      "staleness_threshold": null
+    },
+    {
+      "path": "README.md",
+      "title": "brianmadden.ai",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 624,
+      "staleness_threshold": null
+    },
+    {
+      "path": "llms.txt",
+      "title": "brianmadden.ai",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 456,
+      "staleness_threshold": null
+    },
+    {
+      "path": "feed.md",
+      "title": "Brian's feed",
+      "authority_level": 2,
+      "file_type": "feed",
+      "tags": [
+        "short-form",
+        "feed",
+        "current-thinking"
+      ],
+      "word_count": 99,
+      "staleness_threshold": "days",
+      "updated": "2026-02-22",
+      "description": "Short-form thoughts. A gentlemen's twitter. Watch this file on GitHub to follow in real time."
+    },
+    {
+      "path": "me/developing-thinking.md",
+      "title": "Where Brian's head is right now",
+      "authority_level": 2,
+      "file_type": "frontier",
+      "tags": [
+        "current-thinking",
+        "frontier",
+        "developing-arguments"
+      ],
+      "word_count": 2200,
+      "staleness_threshold": "weeks",
+      "updated": "2026-02-23",
+      "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
+    },
+    {
+      "path": "me/career.md",
+      "title": "Brian Madden — career chronology",
+      "authority_level": 1,
+      "file_type": "identity",
+      "tags": [
+        "biography",
+        "career-history",
+        "chronology"
+      ],
+      "word_count": 1050,
+      "staleness_threshold": "stable",
+      "description": "32-year career narrative from desktop tech in 1994 to AI futurist in 2026."
+    },
+    {
+      "path": "frameworks/7-stage-roadmap.md",
+      "title": "The 7-stage roadmap for human-AI collaboration",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "knowledge-work",
+        "ai-agents",
+        "human-ai-collaboration",
+        "enterprise-ai"
+      ],
+      "word_count": 416,
+      "staleness_threshold": "stable",
+      "date": "2025-06-24",
+      "original_url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/",
+      "related_frameworks": [
+        "five-levels-of-ai-in-knowledge-work",
+        "invisible-80-percent",
+        "factory-electrification"
+      ],
+      "related_posts": [
+        "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
+      ]
+    },
+    {
+      "path": "frameworks/bitter-lesson.md",
+      "title": "The bitter lesson of workplace AI",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "enterprise-ai",
+        "worker-led-adoption",
+        "governance",
+        "shadow-ai"
+      ],
+      "word_count": 673,
+      "staleness_threshold": "stable",
+      "date": "2025-09-17",
+      "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "factory-electrification",
+        "workspace-as-control-plane"
+      ],
+      "related_posts": [
+        "2025-09-17-the-bitter-lesson-of-workplace-ai"
+      ]
+    },
+    {
+      "path": "frameworks/factory-electrification.md",
+      "title": "The factory electrification analogy",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "enterprise-ai",
+        "digital-transformation",
+        "infrastructure"
+      ],
+      "word_count": 296,
+      "staleness_threshold": "stable",
+      "date": "2025-07-08",
+      "original_url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/",
+      "related_frameworks": [
+        "bitter-lesson",
+        "invisible-80-percent",
+        "workspace-as-control-plane"
+      ],
+      "related_posts": [
+        "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
+        "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy"
+      ]
+    },
+    {
+      "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
+      "title": "The five levels of AI in knowledge work",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "knowledge-work",
+        "human-ai-collaboration",
+        "governance",
+        "second-brain"
+      ],
+      "word_count": 1064,
+      "staleness_threshold": "stable",
+      "date": "2026-02-19",
+      "original_url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "bitter-lesson",
+        "invisible-80-percent"
+      ],
+      "related_posts": [
+        "2026-02-19-coding-as-leading-indicator"
+      ]
+    },
+    {
+      "path": "frameworks/invisible-80-percent.md",
+      "title": "The invisible 80% of knowledge work",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "knowledge-work",
+        "worker-led-adoption",
+        "enterprise-ai",
+        "second-brain"
+      ],
+      "word_count": 375,
+      "staleness_threshold": "stable",
+      "date": "2026-01-13",
+      "original_url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/",
+      "related_frameworks": [
+        "bitter-lesson",
+        "factory-electrification",
+        "five-levels-of-ai-in-knowledge-work"
+      ],
+      "related_posts": [
+        "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
+        "2026-02-10-second-brain-anchor"
+      ]
+    },
+    {
+      "path": "frameworks/post-application-era.md",
+      "title": "The post-application era",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "enterprise-ai",
+        "governance",
+        "post-application",
+        "mcp",
+        "second-brain"
+      ],
+      "word_count": 389,
+      "staleness_threshold": "stable",
+      "date": "2025-10-01",
+      "original_url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/",
+      "related_frameworks": [
+        "workspace-as-control-plane",
+        "subscribable-brains"
+      ],
+      "related_posts": [
+        "2025-10-01-welcome-to-the-post-application-era",
+        "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps"
+      ]
+    },
+    {
+      "path": "frameworks/subscribable-brains.md",
+      "title": "Subscribable brains",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "second-brain",
+        "creator-economy",
+        "mcp",
+        "knowledge-work"
+      ],
+      "word_count": 361,
+      "staleness_threshold": "stable",
+      "date": "2026-02-17",
+      "original_url": "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "post-application-era"
+      ],
+      "related_posts": [
+        "2026-02-17-subscribable-brains",
+        "2026-02-10-second-brain-anchor"
+      ]
+    },
+    {
+      "path": "frameworks/workspace-as-control-plane.md",
+      "title": "The workspace as control plane",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "governance",
+        "enterprise-ai",
+        "security",
+        "workspace"
+      ],
+      "word_count": 272,
+      "staleness_threshold": "stable",
+      "date": "2025-05-01",
+      "original_url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/",
+      "related_frameworks": [
+        "post-application-era",
+        "bitter-lesson",
+        "factory-electrification"
+      ],
+      "related_posts": [
+        "2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025",
+        "2025-06-05-ai-agents-need-a-secure-place-to-work"
+      ]
+    },
+    {
+      "path": "interviews/index.md",
+      "title": "Press interviews and commentary",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 493,
+      "staleness_threshold": null
+    },
+    {
+      "path": "me/profile.md",
+      "title": "Brian Madden — profile",
+      "authority_level": 1,
+      "file_type": "identity",
+      "tags": [
+        "biography",
+        "credentials",
+        "background"
+      ],
+      "word_count": 348,
+      "staleness_threshold": "months"
+    },
+    {
+      "path": "me/published-thinking.md",
+      "title": "Brian Madden's intellectual foundation",
+      "authority_level": 1,
+      "file_type": "synthesis",
+      "tags": [
+        "knowledge-work",
+        "enterprise-ai",
+        "worker-led-adoption",
+        "automation",
+        "governance",
+        "ai-agents"
+      ],
+      "word_count": 7127,
+      "staleness_threshold": "months",
+      "updated": "2026-02-19",
+      "description": "Comprehensive synthesis of Brian's published ideas across 30+ posts. The authoritative source for his intellectual positions."
+    },
+    {
+      "path": "me/voice.md",
+      "title": "Brian Madden's voice and communication style",
+      "authority_level": 1,
+      "file_type": "identity",
+      "tags": [
+        "writing-style",
+        "voice",
+        "communication"
+      ],
+      "word_count": 489,
+      "staleness_threshold": "stable",
+      "description": "How Brian thinks, argues, and communicates. Reference for AI systems generating content in his voice."
+    },
+    {
+      "path": "posts/citrix-blog/2025-04-07-why-i-joined-citrix-and-what-im-excited-about.md",
+      "title": "Why I joined Citrix and what I'm excited about",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "citrix",
+        "career",
+        "workplace-transformation",
+        "ai-in-the-workplace"
+      ],
+      "word_count": 963,
+      "staleness_threshold": "stable",
+      "date": "2025-04-07",
+      "original_url": "https://www.citrix.com/blogs/2025/04/07/why-i-joined-citrix-and-what-im-excited-about/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/citrix-blog/2025-04-14-making-sense-of-ai-in-the-workplace.md",
+      "title": "Making sense of AI in the workplace: A starting point for leaders",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-in-the-workplace",
+        "enterprise-ai-strategy",
+        "shadow-ai",
+        "worker-led-ai",
+        "ai-agents",
+        "workspace-as-control-plane"
+      ],
+      "word_count": 1565,
+      "staleness_threshold": "stable",
+      "date": "2025-04-14",
+      "original_url": "https://www.citrix.com/blogs/2025/04/14/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders/",
+      "related_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-04-21-what-does-ai-mean-at-citrix.md",
+      "title": "What does \\\"AI\\\" mean at Citrix?",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "citrix",
+        "enterprise-ai-strategy",
+        "ai-in-the-workplace",
+        "shadow-ai"
+      ],
+      "word_count": 1197,
+      "staleness_threshold": "stable",
+      "date": "2025-04-21",
+      "original_url": "https://www.citrix.com/blogs/2025/04/21/what-does-ai-mean-at-citrix/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/citrix-blog/2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025.md",
+      "title": "The desktop has dissolved. Now where does work live in 2025?",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "workspace-evolution",
+        "workspace-as-control-plane",
+        "vdi",
+        "security",
+        "identity"
+      ],
+      "word_count": 1011,
+      "staleness_threshold": "stable",
+      "date": "2025-05-01",
+      "original_url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/",
+      "related_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what.md",
+      "title": "Your CEO just sent a company-wide \\\"AI-First\\\" memo. Now what?",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "enterprise-ai-strategy",
+        "ai-in-the-workplace",
+        "leadership",
+        "value-recalibration",
+        "worker-led-ai"
+      ],
+      "word_count": 1344,
+      "staleness_threshold": "stable",
+      "date": "2025-05-19",
+      "original_url": "https://www.citrix.com/blogs/2025/05/19/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what/",
+      "related_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-05-28-what-if-your-ceo-never-sends-the-ai-first-memo.md",
+      "title": "What if your CEO never sends the AI-first memo?",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "enterprise-ai-strategy",
+        "shadow-ai",
+        "worker-led-ai",
+        "workspace-as-control-plane",
+        "security"
+      ],
+      "word_count": 680,
+      "staleness_threshold": "stable",
+      "date": "2025-05-28",
+      "original_url": "https://www.citrix.com/blogs/2025/05/28/what-if-your-ceo-never-sends-the-ai-first-memo/",
+      "related_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-06-05-ai-agents-need-a-secure-place-to-work.md",
+      "title": "AI agents need a secure place to work. The Citrix workspace is ready.",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-agents",
+        "workspace-as-control-plane",
+        "shadow-ai",
+        "computer-using-agents",
+        "security",
+        "enterprise-ai-strategy"
+      ],
+      "word_count": 1554,
+      "staleness_threshold": "stable",
+      "date": "2025-06-05",
+      "original_url": "https://www.citrix.com/blogs/2025/06/05/forget-the-model-wars-the-real-ai-race-is-in-the-workplace/",
+      "related_frameworks": [
+        "workspace-as-control-plane",
+        "post-application-era"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace.md",
+      "title": "The 7-stage roadmap for human-AI collaboration in the workplace",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-agents",
+        "human-ai-collaboration",
+        "computer-using-agents",
+        "workspace-as-control-plane",
+        "ai-in-the-workplace",
+        "frameworks"
+      ],
+      "word_count": 2858,
+      "staleness_threshold": "stable",
+      "date": "2025-06-24",
+      "original_url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/",
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago.md",
+      "title": "To understand AI's future impact, check out this playbook from 150 years ago",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "factory-electrification",
+        "workplace-transformation",
+        "ai-in-the-workplace",
+        "historical-analogy",
+        "frameworks"
+      ],
+      "word_count": 1320,
+      "staleness_threshold": "stable",
+      "date": "2025-07-08",
+      "original_url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/",
+      "related_frameworks": [
+        "factory-electrification",
+        "7-stage-roadmap"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-07-16-why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers.md",
+      "title": "Why AI agents will use the same desktops and apps as human workers",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-agents",
+        "computer-using-agents",
+        "workspace-as-control-plane",
+        "enterprise-ai-strategy",
+        "security"
+      ],
+      "word_count": 859,
+      "staleness_threshold": "stable",
+      "date": "2025-07-16",
+      "original_url": "https://www.citrix.com/blogs/2025/07/16/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers/",
+      "related_frameworks": [
+        "workspace-as-control-plane",
+        "factory-electrification"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks.md",
+      "title": "What happens when AI agents score 100% in computing using benchmarks?",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "computer-using-agents",
+        "ai-agents",
+        "benchmarks",
+        "human-ai-collaboration"
+      ],
+      "word_count": 541,
+      "staleness_threshold": "stable",
+      "date": "2025-07-24",
+      "original_url": "https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/",
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-08-04-ai-agents-are-the-new-insider-threat.md",
+      "title": "AI agents are the new insider threat. Secure them like human workers.",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-agents",
+        "security",
+        "identity",
+        "ai-agent-identity",
+        "insider-threat",
+        "workspace-as-control-plane"
+      ],
+      "word_count": 1155,
+      "staleness_threshold": "stable",
+      "date": "2025-08-04",
+      "original_url": "https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/",
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-08-11-if-ai-progress-stopped-today-we-can-still-transform-the-enterprise.md",
+      "title": "If AI progress stopped today, we can still transform the enterprise with what we have",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "enterprise-ai-strategy",
+        "ai-in-the-workplace",
+        "shadow-ai",
+        "enterprise-integration",
+        "worker-led-ai",
+        "computer-using-agents"
+      ],
+      "word_count": 1236,
+      "staleness_threshold": "stable",
+      "date": "2025-08-11",
+      "original_url": "https://www.citrix.com/blogs/2025/08/11/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have/",
+      "related_frameworks": [
+        "bitter-lesson",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-08-27-everyones-wrong-about-why-enterprise-ai-is-failing.md",
+      "title": "Everyone's wrong about why enterprise AI is failing",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "enterprise-ai-strategy",
+        "worker-led-ai",
+        "shadow-ai",
+        "ai-in-the-workplace",
+        "workflow-transformation"
+      ],
+      "word_count": 1232,
+      "staleness_threshold": "stable",
+      "date": "2025-08-27",
+      "original_url": "https://www.citrix.com/blogs/2025/08/27/everyones-wrong-about-why-enterprise-ai-is-failing/",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-09-02-worker-led-ai-isnt-shadow-it-its-shadow-strategy.md",
+      "title": "Worker-led AI isn't shadow IT. It's shadow strategy.",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "worker-led-ai",
+        "shadow-ai",
+        "enterprise-ai-strategy",
+        "workspace-as-control-plane",
+        "workflow-transformation"
+      ],
+      "word_count": 724,
+      "staleness_threshold": "stable",
+      "date": "2025-09-02",
+      "original_url": "https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/",
+      "related_frameworks": [
+        "workspace-as-control-plane",
+        "invisible-80-percent"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy.md",
+      "title": "If AI is normal technology, boring infrastructure is your best strategy",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-adoption",
+        "enterprise-infrastructure",
+        "ai-strategy",
+        "boring-infrastructure",
+        "shadow-ai",
+        "consumerization-of-it"
+      ],
+      "word_count": 1630,
+      "staleness_threshold": "stable",
+      "date": "2025-09-10",
+      "original_url": "https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/",
+      "related_frameworks": [
+        "factory-electrification"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-09-17-the-bitter-lesson-of-workplace-ai.md",
+      "title": "The bitter lesson of workplace AI: Stop engineering, start enabling",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-adoption",
+        "enterprise-ai",
+        "shadow-ai",
+        "worker-led-adoption",
+        "workspace-governance",
+        "computer-using-agents"
+      ],
+      "word_count": 1040,
+      "staleness_threshold": "stable",
+      "date": "2025-09-17",
+      "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
+      "related_frameworks": [
+        "bitter-lesson",
+        "factory-electrification"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-10-01-welcome-to-the-post-application-era.md",
+      "title": "AI just created 10,000 accidental citizen developers in your company. Welcome to the post-application era!",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "post-application-era",
+        "citizen-development",
+        "shadow-ai",
+        "app-proliferation",
+        "workspace-governance",
+        "software-economics"
+      ],
+      "word_count": 1445,
+      "staleness_threshold": "stable",
+      "date": "2025-10-01",
+      "original_url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/",
+      "related_frameworks": [
+        "post-application-era",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps.md",
+      "title": "Will AI need to operate your legacy desktop apps, or is direct file manipulation enough?",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "post-application-era",
+        "computer-using-agents",
+        "file-manipulation",
+        "legacy-apps",
+        "desktop-future",
+        "ai-agents"
+      ],
+      "word_count": 1989,
+      "staleness_threshold": "stable",
+      "date": "2025-10-15",
+      "original_url": "https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/",
+      "related_frameworks": [
+        "post-application-era",
+        "factory-electrification"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-11-13-everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it.md",
+      "title": "Everyone wants to provide your AI. Nobody wants to help you manage it.",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-governance",
+        "workspace-governance",
+        "ai-fragmentation",
+        "enterprise-ai",
+        "security",
+        "control-plane"
+      ],
+      "word_count": 1150,
+      "staleness_threshold": "stable",
+      "date": "2025-11-13",
+      "original_url": "https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it/",
+      "related_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-12-03-it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5.md",
+      "title": "IT admits workers control AI. Workers admit they use it to leave at 5.",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "worker-led-adoption",
+        "ai-survey",
+        "microsoft-ignite",
+        "productivity",
+        "ai-governance",
+        "workspace-governance"
+      ],
+      "word_count": 1137,
+      "staleness_threshold": "stable",
+      "date": "2025-12-03",
+      "original_url": "https://www.citrix.com/blogs/2025/12/03/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5/",
+      "related_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-12-10-ai-will-be-the-interface-to-knowledge-work.md",
+      "title": "AI will be THE interface to knowledge work. Here's how we'll get there.",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-as-interface",
+        "post-application-era",
+        "computer-using-agents",
+        "file-manipulation",
+        "workspace-governance",
+        "knowledge-work"
+      ],
+      "word_count": 1933,
+      "staleness_threshold": "stable",
+      "date": "2025-12-10",
+      "original_url": "https://www.citrix.com/blogs/2025/12/10/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there/",
+      "related_frameworks": [
+        "post-application-era",
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate.md",
+      "title": "Workers don't want to build automations. They want to delegate.",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-adoption",
+        "automation",
+        "delegation",
+        "knowledge-work",
+        "worker-led-adoption",
+        "ai-as-interface"
+      ],
+      "word_count": 741,
+      "staleness_threshold": "stable",
+      "date": "2025-12-18",
+      "original_url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/citrix-blog/2026-01-07-no-ai-bombshells-in-2026-just-reality-catching-up.md",
+      "title": "No AI Bombshells in 2026—Just Reality Catching Up",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-predictions",
+        "enterprise-ai",
+        "worker-led-adoption",
+        "ai-adoption",
+        "ai-skills-gap",
+        "shadow-ai"
+      ],
+      "word_count": 989,
+      "staleness_threshold": "stable",
+      "date": "2026-01-07",
+      "original_url": "https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md",
+      "title": "The invisible 80%—what corporate-led AI transformations can't see",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "invisible-80-percent",
+        "worker-led-adoption",
+        "tacit-knowledge",
+        "enterprise-ai",
+        "knowledge-work",
+        "ai-transformation"
+      ],
+      "word_count": 920,
+      "staleness_threshold": "stable",
+      "date": "2026-01-13",
+      "original_url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/",
+      "related_frameworks": [
+        "invisible-80-percent"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2026-01-21-everyones-worried-about-the-wrong-ai-security-risk.md",
+      "title": "Everyone's worried about the wrong AI security risk",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-security",
+        "ai-agents",
+        "workspace-governance",
+        "computer-using-agents",
+        "insider-threat",
+        "control-plane"
+      ],
+      "word_count": 1114,
+      "staleness_threshold": "stable",
+      "date": "2026-01-21",
+      "original_url": "https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/",
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2026-02-04-openclaw-governance.md",
+      "title": "OpenClaw and Moltbook preview the changes needed with corporate AI governance",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "ai-governance",
+        "personal-ai",
+        "ai-agents",
+        "consumerization-of-it",
+        "worker-led-adoption",
+        "agent-coordination"
+      ],
+      "word_count": 1063,
+      "staleness_threshold": "stable",
+      "date": "2026-02-04",
+      "original_url": "https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/",
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "subscribable-brains"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md",
+      "title": "Workers' \\\"second brains\\\" break every assumption about how we secure knowledge work",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "personal-ai-knowledge-systems",
+        "second-brain",
+        "ai-security",
+        "ai-governance",
+        "invisible-80-percent",
+        "workspace-governance",
+        "consumerization-of-it",
+        "mcp"
+      ],
+      "word_count": 2057,
+      "staleness_threshold": "stable",
+      "date": "2026-02-11",
+      "original_url": "https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "subscribable-brains",
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md",
+      "title": "What will knowledge work be in 18 months? Look at what AI is doing to coding right now.",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "knowledge-work",
+        "ai-coding",
+        "five-levels",
+        "dark-knowledge-factory",
+        "human-ai-collaboration",
+        "personal-ai-knowledge-systems",
+        "ai-verification"
+      ],
+      "word_count": 1903,
+      "staleness_threshold": "stable",
+      "date": "2026-02-19",
+      "original_url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
+      "related_frameworks": [
+        "five-levels-of-ai-in-knowledge-work",
+        "7-stage-roadmap"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/index.md",
+      "title": "Citrix blog posts",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 1072,
+      "staleness_threshold": null
+    },
+    {
+      "path": "posts/linkedin/index.md",
+      "title": "LinkedIn content",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 715,
+      "staleness_threshold": null
+    },
+    {
+      "path": "posts/linkedin/articles/2020-06-16-eulogy-brianmadden-com.md",
+      "title": "A Eulogy for BrianMadden.com",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "brianmadden-com",
+        "personal-history",
+        "media",
+        "community",
+        "euc"
+      ],
+      "word_count": 2232,
+      "staleness_threshold": "stable",
+      "date": "2020-06-16",
+      "original_url": "https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2023-06-22-my-ai-journey.md",
+      "title": "My AI journey and the links that set the stage. ChatGPT is just the beginning!",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "ai-journey",
+        "chatgpt",
+        "llm",
+        "ai-agents",
+        "prompting",
+        "generative-ai"
+      ],
+      "word_count": 1519,
+      "staleness_threshold": "stable",
+      "date": "2023-06-22",
+      "original_url": "https://www.linkedin.com/pulse/my-ai-journey-links-set-stage-chatgpt-just-beginning-brian-madden/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2023-06-26-ai-influence-levels.md",
+      "title": "How much \\\"help\\\" did AI provide? We should all disclose this.",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "ai-disclosure",
+        "ai-influence-levels",
+        "ai-transparency",
+        "copilot",
+        "workplace-ai"
+      ],
+      "word_count": 1336,
+      "staleness_threshold": "stable",
+      "date": "2023-06-26",
+      "original_url": "https://www.linkedin.com/pulse/how-much-help-did-ai-provide-we-should-all-disclose-brian-madden/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2023-06-30-ai-is-more-than-chatgpt.md",
+      "title": "AI is more than ChatGPT",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "ai-taxonomy",
+        "chatgpt",
+        "llm",
+        "machine-learning",
+        "generative-ai"
+      ],
+      "word_count": 860,
+      "staleness_threshold": "stable",
+      "date": "2023-06-30",
+      "original_url": "https://www.linkedin.com/pulse/ai-more-than-chatgpt-brian-madden/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2023-07-05-chatgpt-architecture.md",
+      "title": "A look at ChatGPT's architecture. A lot for enterprise admins to like!",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "chatgpt",
+        "enterprise-it",
+        "architecture",
+        "llm",
+        "ai-management"
+      ],
+      "word_count": 1030,
+      "staleness_threshold": "stable",
+      "date": "2023-07-05",
+      "original_url": "https://www.linkedin.com/pulse/chatgpt-more-like-standard-enterprise-app-than-you-think-brian-madden/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2023-08-15-consumerization-of-it-ai.md",
+      "title": "The Consumerization of IT roars back, and this time they have AI!",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "consumerization-of-it",
+        "shadow-it",
+        "workplace-ai",
+        "chatgpt",
+        "enterprise-adoption"
+      ],
+      "word_count": 1038,
+      "staleness_threshold": "stable",
+      "date": "2023-08-15",
+      "original_url": "https://www.linkedin.com/pulse/consumerization-roars-back-time-have-ai-brian-madden/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2024-02-13-generative-ai-enterprise-waicf.md",
+      "title": "Generative AI in the enterprise: lots of hype, little practical advice. A World AI Cannes Festival report.",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "generative-ai",
+        "enterprise-ai",
+        "conference-report",
+        "hype",
+        "use-cases",
+        "waicf"
+      ],
+      "word_count": 1565,
+      "staleness_threshold": "stable",
+      "date": "2024-02-13",
+      "original_url": "https://www.linkedin.com/pulse/generative-ai-enterprise-lots-hype-little-practical-advice-madden-fketc/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2024-05-22-enterprise-desktop-still-matters.md",
+      "title": "Why the enterprise desktop still matters in 2024. (Hint: it's not about apps or AI PCs.)",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "enterprise-desktop",
+        "euc",
+        "vdi",
+        "daas",
+        "windows",
+        "ai-pc",
+        "workspace"
+      ],
+      "word_count": 1265,
+      "staleness_threshold": "stable",
+      "date": "2024-05-22",
+      "original_url": "https://www.linkedin.com/pulse/why-enterprise-desktop-still-matters-2024-hint-its-apps-brian-madden-fsgbc/",
+      "related_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/linkedin/articles/2024-05-28-microsoft-recall.md",
+      "title": "Microsoft Recall: An analysis of the issues & prediction of the evolution of the AI workplace",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "microsoft-recall",
+        "workplace-ai",
+        "employee-surveillance",
+        "privacy",
+        "ai-workplace-evolution",
+        "employer-employee-relationship"
+      ],
+      "word_count": 3483,
+      "staleness_threshold": "stable",
+      "date": "2024-05-28",
+      "original_url": "https://www.linkedin.com/pulse/microsoft-recall-analysis-issues-prediction-evolution-brian-madden-zoync/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2024-06-13-ai-screen-recorders-vdi.md",
+      "title": "AI Screen Recorders + VDI: The ultimate secure, compliant, & powerful desktop?",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "vdi",
+        "daas",
+        "ai-screen-recording",
+        "security",
+        "compliance",
+        "euc",
+        "microsoft-recall"
+      ],
+      "word_count": 1223,
+      "staleness_threshold": "stable",
+      "date": "2024-06-13",
+      "original_url": "https://www.linkedin.com/pulse/ai-screen-recorders-vdi-ultimate-secure-compliant-powerful-madden-fa5dc/",
+      "related_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/linkedin/articles/2024-06-18-apple-intelligence-slippery-slope.md",
+      "title": "Apple Intelligence is the beginning of a slippery slope that all companies need to understand today",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "apple-intelligence",
+        "consumerization-of-it",
+        "workplace-ai",
+        "employee-culture",
+        "ai-adoption",
+        "generative-ai"
+      ],
+      "word_count": 1804,
+      "staleness_threshold": "stable",
+      "date": "2024-06-18",
+      "original_url": "https://www.linkedin.com/pulse/apple-intelligence-beginning-slippery-slope-all-companies-madden-iyuyc/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2024-06-25-copilot-for-office.md",
+      "title": "I've been using Copilot for Office for months. Here's how it works and what it can do today.",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "copilot",
+        "microsoft-365",
+        "workplace-ai",
+        "enterprise-ai",
+        "product-review"
+      ],
+      "word_count": 2184,
+      "staleness_threshold": "stable",
+      "date": "2024-06-25",
+      "original_url": "https://www.linkedin.com/pulse/ive-been-using-copilot-office-months-heres-how-works-what-madden-nqu6c/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2024-07-02-firing-employees-keyboard-activity.md",
+      "title": "Firing employees for simulated keyboard activity highlights the dangers of perverse incentives",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "perverse-incentives",
+        "workplace-ai",
+        "employee-productivity",
+        "automation",
+        "future-of-work",
+        "knowledge-work"
+      ],
+      "word_count": 2020,
+      "staleness_threshold": "stable",
+      "date": "2024-07-02",
+      "original_url": "https://www.linkedin.com/pulse/firing-employees-simulated-keyboard-activity-dangers-perverse-madden-aikuc/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2024-07-18-openai-cto-agi-trillionaires.md",
+      "title": "Open AI CTO reminds us they care more about inventing AGI and becoming trillionaires than your company's safety",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "openai",
+        "workplace-ai",
+        "enterprise-risk",
+        "ai-governance",
+        "shadow-it",
+        "ai-policy"
+      ],
+      "word_count": 762,
+      "staleness_threshold": "stable",
+      "date": "2024-07-18",
+      "original_url": "https://www.linkedin.com/pulse/open-ai-cto-reminds-us-care-more-inventing-agi-becoming-brian-madden-42l6c/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2024-07-22-ignore-goldman-sachs.md",
+      "title": "Ignore that Goldman Sachs report questioning AI's value. It doesn't impact what's happening in your workplace today.",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "workplace-ai",
+        "enterprise-adoption",
+        "shadow-it",
+        "employee-ai-use",
+        "ai-hype",
+        "ai-value"
+      ],
+      "word_count": 1494,
+      "staleness_threshold": "stable",
+      "date": "2024-07-22",
+      "original_url": "https://www.linkedin.com/pulse/ignore-goldman-sachs-report-questioning-ais-value-doesnt-brian-madden-apqzc/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2024-10-24-euc-world-independence.md",
+      "title": "EUC World Independence 2024: A huge success!",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "euc",
+        "conference",
+        "community",
+        "speaking",
+        "briforum",
+        "future-of-work"
+      ],
+      "word_count": 362,
+      "staleness_threshold": "stable",
+      "date": "2024-10-24",
+      "original_url": "https://www.linkedin.com/pulse/euc-world-independence-2024-huge-success-brian-madden-jgyle/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2025-02-18-joining-citrix.md",
+      "title": "I just joined Citrix!",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "citrix",
+        "career",
+        "euc",
+        "vdi",
+        "daas",
+        "future-of-work"
+      ],
+      "word_count": 531,
+      "staleness_threshold": "stable",
+      "date": "2025-02-18",
+      "original_url": "https://www.linkedin.com/posts/bmadden_i-just-joined-citrix-those-who-know-me-activity-7297631023746453504-K6B3/",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/linkedin/articles/2026-01-12-everything-i-wrote-said-workplace-ai-2025.md",
+      "title": "Everything I Wrote & Said About Workplace AI in 2025",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "workplace-ai",
+        "year-in-review",
+        "citrix",
+        "speaking",
+        "writing",
+        "ai-agents",
+        "future-of-work"
+      ],
+      "word_count": 759,
+      "staleness_threshold": "stable",
+      "date": "2026-01-12",
+      "original_url": "https://www.linkedin.com/pulse/everything-i-wrote-said-workplace-ai-2025-brian-madden-33byf/",
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "bitter-lesson",
+        "post-application-era"
+      ]
+    },
+    {
+      "path": "posts/linkedin/articles/2026-02-10-second-brain-anchor.md",
+      "title": "I built a second brain using AI, and it's changed the way I work. THIS is the future of knowledge work.",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "second-brain",
+        "personal-ai",
+        "knowledge-work",
+        "future-of-work",
+        "invisible-80-percent",
+        "mcp"
+      ],
+      "word_count": 2625,
+      "staleness_threshold": "stable",
+      "date": "2026-02-10",
+      "original_url": "https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "subscribable-brains"
+      ]
+    },
+    {
+      "path": "posts/linkedin/articles/2026-02-17-subscribable-brains.md",
+      "title": "Hey creators, stop publishing content. Start publishing your second brain.",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "subscribable-brains",
+        "second-brain",
+        "creator-economy",
+        "mcp",
+        "knowledge-transfer",
+        "personal-ai",
+        "future-of-work"
+      ],
+      "word_count": 2297,
+      "staleness_threshold": "stable",
+      "date": "2026-02-17",
+      "original_url": "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae",
+      "related_frameworks": [
+        "subscribable-brains",
+        "invisible-80-percent"
+      ]
+    },
+    {
+      "path": "posts/linkedin/posts/standalone-posts-pre-2024.md",
+      "title": "LinkedIn posts — pre-2024",
+      "authority_level": 5,
+      "file_type": "linkedin-posts-collection",
+      "tags": [
+        "social-media",
+        "short-form",
+        "linkedin"
+      ],
+      "word_count": 799,
+      "staleness_threshold": "stable",
+      "date": "2023-12-31",
+      "description": "Curated highlights from LinkedIn posts pre-2024. Only substantive standalone thinking included."
+    },
+    {
+      "path": "posts/linkedin/posts/standalone-posts-2024.md",
+      "title": "LinkedIn posts — 2024",
+      "authority_level": 5,
+      "file_type": "linkedin-posts-collection",
+      "tags": [
+        "social-media",
+        "short-form",
+        "linkedin"
+      ],
+      "word_count": 1344,
+      "staleness_threshold": "stable",
+      "date": "2024-12-31",
+      "description": "Collection of short-form LinkedIn feed posts from 2024."
+    },
+    {
+      "path": "posts/linkedin/posts/standalone-posts-2025.md",
+      "title": "LinkedIn posts — 2025",
+      "authority_level": 5,
+      "file_type": "linkedin-posts-collection",
+      "tags": [
+        "social-media",
+        "short-form",
+        "linkedin"
+      ],
+      "word_count": 4535,
+      "staleness_threshold": "stable",
+      "date": "2025-12-31",
+      "description": "Collection of short-form LinkedIn feed posts from 2025."
+    },
+    {
+      "path": "posts/linkedin/posts/standalone-posts-2026.md",
+      "title": "LinkedIn posts — 2026",
+      "authority_level": 5,
+      "file_type": "linkedin-posts-collection",
+      "tags": [
+        "social-media",
+        "short-form",
+        "linkedin"
+      ],
+      "word_count": 2291,
+      "staleness_threshold": "weeks",
+      "date": "2026-02-22",
+      "description": "Collection of short-form LinkedIn feed posts from 2026. Updated as new posts are published."
+    },
+    {
+      "path": "talks/2024-03-26-dutch-vmug-keynote.md",
+      "title": "It's Springtime for AI",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-adoption",
+        "technology-cycles",
+        "career-seasons",
+        "hype-cycle",
+        "enterprise-ai",
+        "consumerization"
+      ],
+      "word_count": 5028,
+      "staleness_threshold": "stable",
+      "date": "2024-03-26",
+      "event": "Dutch VMUG UserCon 2024",
+      "location": "Den Bosch, Netherlands",
+      "audience": "IT professionals, VMware/EUC practitioners",
+      "format": "Solo presentation with slides",
+      "recording": "https://www.youtube.com/watch?v=6JAEOS7iREw"
+    },
+    {
+      "path": "talks/2024-10-22-euc-world-keynote.md",
+      "title": "EUC Past, Present, and Future",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "euc-history",
+        "ai-agents",
+        "windows-desktop",
+        "computer-using-agents",
+        "workspace-as-control-plane",
+        "vdi",
+        "consumerization",
+        "microsoft-recall"
+      ],
+      "word_count": 8038,
+      "staleness_threshold": "stable",
+      "date": "2024-10-22",
+      "event": "EUC World: Independence",
+      "location": "Silver Spring, Maryland, USA",
+      "audience": "EUC practitioners, IT professionals",
+      "format": "Opening keynote with slides",
+      "recording": "https://www.youtube.com/watch?v=DkuoK-4PncM"
+    },
+    {
+      "path": "talks/2024-11-26-euc-forum-winter-meeting.md",
+      "title": "The Evolution and Future of End-User Computing",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "windows-desktop",
+        "computer-using-agents",
+        "workspace-as-control-plane",
+        "vdi",
+        "euc-history",
+        "agentic-ai",
+        "microsoft-recall",
+        "citrix",
+        "workplace-ai",
+        "vdi-for-agents"
+      ],
+      "word_count": 8277,
+      "staleness_threshold": "stable",
+      "date": "2024-11-26",
+      "event": "EUC Forum Winter Meeting 2024",
+      "location": "London, UK",
+      "audience": "EUC practitioners, IT professionals",
+      "format": "Keynote with slides",
+      "recording": "https://www.youtube.com/watch?v=wFgfFT3ILZo"
+    },
+    {
+      "path": "talks/2025-05-22-euctech-denmark-keynote.md",
+      "title": "The future of work in an AI-native world",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "workspace-as-control-plane",
+        "computer-using-agents",
+        "worker-led-ai",
+        "consumerization",
+        "vdi",
+        "windows-desktop",
+        "osworld-benchmarks",
+        "agentic-ai",
+        "humanoid-robots",
+        "micro-apps",
+        "knowledge-workers"
+      ],
+      "word_count": 5561,
+      "staleness_threshold": "stable",
+      "date": "2025-05-22",
+      "event": "EUCtech Denmark 2025",
+      "location": "Billund, Denmark",
+      "audience": "EUC practitioners, IT professionals",
+      "format": "Closing keynote with slides",
+      "recording": "https://www.youtube.com/watch?v=srNOw7uBQm4"
+    },
+    {
+      "path": "talks/2025-10-10-appmanagevent-keynote.md",
+      "title": "AI and the future of enterprise apps",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "post-application-era",
+        "ai-agents",
+        "computer-using-agents",
+        "workspace-as-control-plane",
+        "citizen-development",
+        "app-management",
+        "osworld-benchmarks",
+        "citrix",
+        "ai-productivity-platforms",
+        "capabilities-orchestration",
+        "vdi"
+      ],
+      "word_count": 9000,
+      "staleness_threshold": "stable",
+      "date": "2025-10-10",
+      "event": "AppManagEvent 2025",
+      "location": "Utrecht, Netherlands",
+      "audience": "App management and EUC practitioners",
+      "format": "Closing keynote with slides",
+      "recording": "https://www.youtube.com/watch?v=XoJ5uL1op_E"
+    },
+    {
+      "path": "talks/2025-10-15-shi-fall-summit.md",
+      "title": "AI in the workplace: what's happening in the next 12 months",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "post-application-era",
+        "computer-using-agents",
+        "workspace-as-control-plane",
+        "worker-led-ai",
+        "shadow-strategy",
+        "osworld-benchmarks",
+        "citrix",
+        "mcp",
+        "ai-productivity-platforms",
+        "ai-browser-wars"
+      ],
+      "word_count": 4164,
+      "staleness_threshold": "stable",
+      "date": "2025-10-15",
+      "event": "SHI Fall Summit 2025",
+      "location": "Somerset, New Jersey, USA",
+      "audience": "IT leaders and practitioners",
+      "format": "Keynote with slides",
+      "recording": "https://www.youtube.com/watch?v=eBL9GtdAZjM"
+    },
+    {
+      "path": "talks/2025-12-04-ai-think-tank-paris.md",
+      "title": "Our Vision for AI & the Future of Work",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "workspace-as-control-plane",
+        "post-application-era",
+        "7-stage-roadmap",
+        "citrix",
+        "ai-think-tank",
+        "computer-using-agents",
+        "osworld-benchmarks",
+        "shadow-ai",
+        "browser-control",
+        "legacy-apps",
+        "worker-led-ai"
+      ],
+      "word_count": 265,
+      "staleness_threshold": "stable",
+      "date": "2025-12-04",
+      "event": "Citrix AI Think Tank",
+      "location": "Paris, France",
+      "format": "Presentation with slides (no video recording available)"
+    },
+    {
+      "path": "talks/2026-02-06-wharton-tech-conference.md",
+      "title": "Blueprints That Actually Get Built: How Change Really Happens in the Enterprise",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "enterprise-adoption",
+        "bottleneck-framework",
+        "personal-knowledge-systems",
+        "ai-transformation",
+        "citrix",
+        "wharton"
+      ],
+      "word_count": 2366,
+      "staleness_threshold": "stable",
+      "date": "2026-02-06",
+      "event": "Wharton Tech Conference 2026",
+      "location": "University of Pennsylvania, Tangen Hall, Philadelphia",
+      "audience": "~200-300 Wharton MBA students + UPenn grad/undergrad",
+      "format": "Solo presentation with slides (~35 min talk + ~10 min Q&A; ran long into extended Q&A)",
+      "recording": "Voice memo transcript (on-device Whisper)",
+      "conference_theme": "Blueprints for Tomorrow",
+      "slides": "44-slide Keynote deck",
+      "other_speakers": "Heads of Product and AI leaders from Databricks, Apollo.ai, JPMorgan, Khosla Ventures, TikTok, and others"
+    },
+    {
+      "path": "talks/index.md",
+      "title": "Talks and presentations",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 521,
+      "staleness_threshold": null
+    }
+  ]
+}

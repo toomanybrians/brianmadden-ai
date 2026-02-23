@@ -1,0 +1,126 @@
+# Sync content to Cloudflare KV
+# ================================
+# AI-generated workflow. (The whole brianmadden.ai publishing system was built with AI.)
+#
+# WHAT THIS IS
+# ------------
+# The brianmadden.ai content lives in two places:
+#
+#   1. This GitHub repo — the source of truth, where content is written and
+#      version-controlled. You're looking at it right now.
+#
+#   2. Cloudflare — where the MCP server actually runs. When you connect to
+#      brianmadden.ai as an MCP server (e.g. from Claude, Cursor, or any
+#      MCP-compatible AI tool), you're talking to a Cloudflare Worker that
+#      reads from Cloudflare KV (a fast key-value store).
+#
+# The problem: when content changes here in GitHub, Cloudflare doesn't
+# automatically know about it. This workflow is the bridge. Every time a
+# markdown or text file changes on the main branch, this workflow detects
+# what changed and pushes those files over to Cloudflare KV so the MCP
+# server always has the latest content.
+#
+# It runs in two modes:
+#   - Automatic (on every push): syncs only the files that changed
+#   - Manual trigger: does a full sync of every file (useful for initial
+#     setup or if things get out of sync)
+#
+# REQUIRED SECRETS (set in GitHub repo settings)
+# -----------------------------------------------
+#   CF_API_TOKEN    — Cloudflare API token with KV write permissions
+#   CF_ACCOUNT_ID   — Cloudflare account ID
+#   KV_NAMESPACE_ID — The KV namespace to write to
+#
+# FOR PEOPLE BUILDING THEIR OWN SUBSCRIBABLE BRAIN
+# --------------------------------------------------
+# You don't need to copy this workflow. Your hosting setup might be
+# completely different — you might use a different cloud provider, a
+# different database, or a different approach entirely. This is just
+# one way to do it that works well with Cloudflare Workers + KV. Ask
+# your AI assistant to help you set up deployment for your own situation.
+
+name: Sync content to Cloudflare KV
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.md'
+      - '**.txt'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      # Determine which content files changed in the latest commit
+      - name: Get changed files
+        id: changed
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' 2>/dev/null || echo "")
+          if [ -z "$CHANGED" ]; then
+            echo "No content files changed"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changed files:"
+            echo "$CHANGED"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "$CHANGED" > /tmp/changed_files.txt
+          fi
+
+      # Incremental sync: upload only changed files to KV
+      # Each file is stored with a key like "file:path/to/document.md"
+      - name: Sync changed files to Cloudflare KV
+        if: steps.changed.outputs.has_changes == 'true'
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
+        run: |
+          while IFS= read -r file; do
+            if [ -f "$file" ]; then
+              KEY="file:${file}"
+              echo "Uploading: $KEY"
+
+              ENCODED_KEY=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$KEY', safe=''))")
+
+              curl -s -X PUT \
+                "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${KV_NAMESPACE_ID}/values/${ENCODED_KEY}" \
+                -H "Authorization: Bearer ${CF_API_TOKEN}" \
+                -H "Content-Type: text/plain" \
+                --data-binary "@${file}" \
+                | python3 -c "import sys,json; r=json.load(sys.stdin); print('  OK' if r.get('success') else f'  FAILED: {r}')"
+            fi
+          done < /tmp/changed_files.txt
+
+          echo "Sync complete"
+
+      # Full sync: upload every .md and .txt file in the repo
+      # Use this for initial setup or if KV gets out of sync
+      - name: Full sync (first run or manual trigger)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
+        run: |
+          find . -name '*.md' -o -name '*.txt' | grep -v node_modules | grep -v .github | while IFS= read -r file; do
+            file="${file#./}"
+            KEY="file:${file}"
+            echo "Uploading: $KEY"
+
+            ENCODED_KEY=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$KEY', safe=''))")
+
+            curl -s -X PUT \
+              "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${KV_NAMESPACE_ID}/values/${ENCODED_KEY}" \
+              -H "Authorization: Bearer ${CF_API_TOKEN}" \
+              -H "Content-Type: text/plain" \
+              --data-binary "@${file}" \
+              | python3 -c "import sys,json; r=json.load(sys.stdin); print('  OK' if r.get('success') else f'  FAILED: {r}')"
+          done
+
+          echo "Full sync complete"

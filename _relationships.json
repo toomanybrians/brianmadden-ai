@@ -1,0 +1,709 @@
+{
+  "frameworks": {
+    "7-stage-roadmap": {
+      "path": "frameworks/7-stage-roadmap.md",
+      "title": "The 7-stage roadmap for human-AI collaboration",
+      "original_url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/",
+      "referenced_in_posts": [
+        "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
+      ],
+      "related_frameworks": [
+        "five-levels-of-ai-in-knowledge-work",
+        "invisible-80-percent",
+        "factory-electrification"
+      ],
+      "referenced_by_posts": [
+        "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace",
+        "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
+        "2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks",
+        "2025-08-04-ai-agents-are-the-new-insider-threat",
+        "2025-12-10-ai-will-be-the-interface-to-knowledge-work",
+        "2026-01-21-everyones-worried-about-the-wrong-ai-security-risk",
+        "2026-02-04-openclaw-governance",
+        "2026-02-11-second-brains-break-security-assumptions",
+        "2026-02-19-coding-as-leading-indicator",
+        "2026-01-12-everything-i-wrote-said-workplace-ai-2025"
+      ],
+      "referenced_by_talks": [
+        "2025-12-04-ai-think-tank-paris"
+      ]
+    },
+    "bitter-lesson": {
+      "path": "frameworks/bitter-lesson.md",
+      "title": "The bitter lesson of workplace AI",
+      "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
+      "referenced_in_posts": [
+        "2025-09-17-the-bitter-lesson-of-workplace-ai"
+      ],
+      "related_frameworks": [
+        "invisible-80-percent",
+        "factory-electrification",
+        "workspace-as-control-plane"
+      ],
+      "referenced_by_posts": [
+        "2025-08-11-if-ai-progress-stopped-today-we-can-still-transform-the-enterprise",
+        "2025-09-17-the-bitter-lesson-of-workplace-ai",
+        "2026-01-12-everything-i-wrote-said-workplace-ai-2025"
+      ],
+      "referenced_by_talks": []
+    },
+    "factory-electrification": {
+      "path": "frameworks/factory-electrification.md",
+      "title": "The factory electrification analogy",
+      "original_url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/",
+      "referenced_in_posts": [
+        "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
+        "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy"
+      ],
+      "related_frameworks": [
+        "bitter-lesson",
+        "invisible-80-percent",
+        "workspace-as-control-plane"
+      ],
+      "referenced_by_posts": [
+        "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
+        "2025-07-16-why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers",
+        "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy",
+        "2025-09-17-the-bitter-lesson-of-workplace-ai",
+        "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps"
+      ],
+      "referenced_by_talks": []
+    },
+    "five-levels-of-ai-in-knowledge-work": {
+      "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
+      "title": "The five levels of AI in knowledge work",
+      "original_url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
+      "referenced_in_posts": [
+        "2026-02-19-coding-as-leading-indicator"
+      ],
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "bitter-lesson",
+        "invisible-80-percent"
+      ],
+      "referenced_by_posts": [
+        "2026-02-19-coding-as-leading-indicator"
+      ],
+      "referenced_by_talks": []
+    },
+    "invisible-80-percent": {
+      "path": "frameworks/invisible-80-percent.md",
+      "title": "The invisible 80% of knowledge work",
+      "original_url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/",
+      "referenced_in_posts": [
+        "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
+        "2026-02-10-second-brain-anchor"
+      ],
+      "related_frameworks": [
+        "bitter-lesson",
+        "factory-electrification",
+        "five-levels-of-ai-in-knowledge-work"
+      ],
+      "referenced_by_posts": [
+        "2025-08-27-everyones-wrong-about-why-enterprise-ai-is-failing",
+        "2025-09-02-worker-led-ai-isnt-shadow-it-its-shadow-strategy",
+        "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
+        "2026-02-11-second-brains-break-security-assumptions",
+        "2026-02-10-second-brain-anchor",
+        "2026-02-17-subscribable-brains"
+      ],
+      "referenced_by_talks": []
+    },
+    "post-application-era": {
+      "path": "frameworks/post-application-era.md",
+      "title": "The post-application era",
+      "original_url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/",
+      "referenced_in_posts": [
+        "2025-10-01-welcome-to-the-post-application-era",
+        "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps"
+      ],
+      "related_frameworks": [
+        "workspace-as-control-plane",
+        "subscribable-brains"
+      ],
+      "referenced_by_posts": [
+        "2025-06-05-ai-agents-need-a-secure-place-to-work",
+        "2025-10-01-welcome-to-the-post-application-era",
+        "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps",
+        "2025-12-10-ai-will-be-the-interface-to-knowledge-work",
+        "2026-01-12-everything-i-wrote-said-workplace-ai-2025"
+      ],
+      "referenced_by_talks": [
+        "2025-10-10-appmanagevent-keynote",
+        "2025-10-15-shi-fall-summit",
+        "2025-12-04-ai-think-tank-paris"
+      ]
+    },
+    "subscribable-brains": {
+      "path": "frameworks/subscribable-brains.md",
+      "title": "Subscribable brains",
+      "original_url": "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae",
+      "referenced_in_posts": [
+        "2026-02-17-subscribable-brains",
+        "2026-02-10-second-brain-anchor"
+      ],
+      "related_frameworks": [
+        "invisible-80-percent",
+        "post-application-era"
+      ],
+      "referenced_by_posts": [
+        "2026-02-04-openclaw-governance",
+        "2026-02-11-second-brains-break-security-assumptions",
+        "2026-02-10-second-brain-anchor",
+        "2026-02-17-subscribable-brains"
+      ],
+      "referenced_by_talks": []
+    },
+    "workspace-as-control-plane": {
+      "path": "frameworks/workspace-as-control-plane.md",
+      "title": "The workspace as control plane",
+      "original_url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/",
+      "referenced_in_posts": [
+        "2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025",
+        "2025-06-05-ai-agents-need-a-secure-place-to-work"
+      ],
+      "related_frameworks": [
+        "post-application-era",
+        "bitter-lesson",
+        "factory-electrification"
+      ],
+      "referenced_by_posts": [
+        "2025-04-14-making-sense-of-ai-in-the-workplace",
+        "2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025",
+        "2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what",
+        "2025-05-28-what-if-your-ceo-never-sends-the-ai-first-memo",
+        "2025-06-05-ai-agents-need-a-secure-place-to-work",
+        "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace",
+        "2025-07-16-why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers",
+        "2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks",
+        "2025-08-04-ai-agents-are-the-new-insider-threat",
+        "2025-08-11-if-ai-progress-stopped-today-we-can-still-transform-the-enterprise",
+        "2025-08-27-everyones-wrong-about-why-enterprise-ai-is-failing",
+        "2025-09-02-worker-led-ai-isnt-shadow-it-its-shadow-strategy",
+        "2025-10-01-welcome-to-the-post-application-era",
+        "2025-11-13-everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it",
+        "2025-12-03-it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5",
+        "2025-12-10-ai-will-be-the-interface-to-knowledge-work",
+        "2026-01-21-everyones-worried-about-the-wrong-ai-security-risk",
+        "2026-02-11-second-brains-break-security-assumptions",
+        "2024-05-22-enterprise-desktop-still-matters",
+        "2024-06-13-ai-screen-recorders-vdi"
+      ],
+      "referenced_by_talks": [
+        "2024-10-22-euc-world-keynote",
+        "2024-11-26-euc-forum-winter-meeting",
+        "2025-05-22-euctech-denmark-keynote",
+        "2025-10-10-appmanagevent-keynote",
+        "2025-10-15-shi-fall-summit",
+        "2025-12-04-ai-think-tank-paris"
+      ]
+    }
+  },
+  "posts": {
+    "2025-04-07-why-i-joined-citrix-and-what-im-excited-about": {
+      "path": "posts/citrix-blog/2025-04-07-why-i-joined-citrix-and-what-im-excited-about.md",
+      "title": "Why I joined Citrix and what I'm excited about",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2025/04/07/why-i-joined-citrix-and-what-im-excited-about/"
+    },
+    "2025-04-14-making-sense-of-ai-in-the-workplace": {
+      "path": "posts/citrix-blog/2025-04-14-making-sense-of-ai-in-the-workplace.md",
+      "title": "Making sense of AI in the workplace: A starting point for leaders",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/04/14/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders/"
+    },
+    "2025-04-21-what-does-ai-mean-at-citrix": {
+      "path": "posts/citrix-blog/2025-04-21-what-does-ai-mean-at-citrix.md",
+      "title": "What does \\\"AI\\\" mean at Citrix?",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2025/04/21/what-does-ai-mean-at-citrix/"
+    },
+    "2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025": {
+      "path": "posts/citrix-blog/2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025.md",
+      "title": "The desktop has dissolved. Now where does work live in 2025?",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/"
+    },
+    "2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what": {
+      "path": "posts/citrix-blog/2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what.md",
+      "title": "Your CEO just sent a company-wide \\\"AI-First\\\" memo. Now what?",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/05/19/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what/"
+    },
+    "2025-05-28-what-if-your-ceo-never-sends-the-ai-first-memo": {
+      "path": "posts/citrix-blog/2025-05-28-what-if-your-ceo-never-sends-the-ai-first-memo.md",
+      "title": "What if your CEO never sends the AI-first memo?",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/05/28/what-if-your-ceo-never-sends-the-ai-first-memo/"
+    },
+    "2025-06-05-ai-agents-need-a-secure-place-to-work": {
+      "path": "posts/citrix-blog/2025-06-05-ai-agents-need-a-secure-place-to-work.md",
+      "title": "AI agents need a secure place to work. The Citrix workspace is ready.",
+      "implements_frameworks": [
+        "workspace-as-control-plane",
+        "post-application-era"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/06/05/forget-the-model-wars-the-real-ai-race-is-in-the-workplace/"
+    },
+    "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace": {
+      "path": "posts/citrix-blog/2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace.md",
+      "title": "The 7-stage roadmap for human-AI collaboration in the workplace",
+      "implements_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/"
+    },
+    "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago": {
+      "path": "posts/citrix-blog/2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago.md",
+      "title": "To understand AI's future impact, check out this playbook from 150 years ago",
+      "implements_frameworks": [
+        "factory-electrification",
+        "7-stage-roadmap"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/"
+    },
+    "2025-07-16-why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers": {
+      "path": "posts/citrix-blog/2025-07-16-why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers.md",
+      "title": "Why AI agents will use the same desktops and apps as human workers",
+      "implements_frameworks": [
+        "workspace-as-control-plane",
+        "factory-electrification"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/07/16/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers/"
+    },
+    "2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks": {
+      "path": "posts/citrix-blog/2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks.md",
+      "title": "What happens when AI agents score 100% in computing using benchmarks?",
+      "implements_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/"
+    },
+    "2025-08-04-ai-agents-are-the-new-insider-threat": {
+      "path": "posts/citrix-blog/2025-08-04-ai-agents-are-the-new-insider-threat.md",
+      "title": "AI agents are the new insider threat. Secure them like human workers.",
+      "implements_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/"
+    },
+    "2025-08-11-if-ai-progress-stopped-today-we-can-still-transform-the-enterprise": {
+      "path": "posts/citrix-blog/2025-08-11-if-ai-progress-stopped-today-we-can-still-transform-the-enterprise.md",
+      "title": "If AI progress stopped today, we can still transform the enterprise with what we have",
+      "implements_frameworks": [
+        "bitter-lesson",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/08/11/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have/"
+    },
+    "2025-08-27-everyones-wrong-about-why-enterprise-ai-is-failing": {
+      "path": "posts/citrix-blog/2025-08-27-everyones-wrong-about-why-enterprise-ai-is-failing.md",
+      "title": "Everyone's wrong about why enterprise AI is failing",
+      "implements_frameworks": [
+        "invisible-80-percent",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/08/27/everyones-wrong-about-why-enterprise-ai-is-failing/"
+    },
+    "2025-09-02-worker-led-ai-isnt-shadow-it-its-shadow-strategy": {
+      "path": "posts/citrix-blog/2025-09-02-worker-led-ai-isnt-shadow-it-its-shadow-strategy.md",
+      "title": "Worker-led AI isn't shadow IT. It's shadow strategy.",
+      "implements_frameworks": [
+        "workspace-as-control-plane",
+        "invisible-80-percent"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/"
+    },
+    "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy": {
+      "path": "posts/citrix-blog/2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy.md",
+      "title": "If AI is normal technology, boring infrastructure is your best strategy",
+      "implements_frameworks": [
+        "factory-electrification"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/"
+    },
+    "2025-09-17-the-bitter-lesson-of-workplace-ai": {
+      "path": "posts/citrix-blog/2025-09-17-the-bitter-lesson-of-workplace-ai.md",
+      "title": "The bitter lesson of workplace AI: Stop engineering, start enabling",
+      "implements_frameworks": [
+        "bitter-lesson",
+        "factory-electrification"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/"
+    },
+    "2025-10-01-welcome-to-the-post-application-era": {
+      "path": "posts/citrix-blog/2025-10-01-welcome-to-the-post-application-era.md",
+      "title": "AI just created 10,000 accidental citizen developers in your company. Welcome to the post-application era!",
+      "implements_frameworks": [
+        "post-application-era",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/"
+    },
+    "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps": {
+      "path": "posts/citrix-blog/2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps.md",
+      "title": "Will AI need to operate your legacy desktop apps, or is direct file manipulation enough?",
+      "implements_frameworks": [
+        "post-application-era",
+        "factory-electrification"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/"
+    },
+    "2025-11-13-everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it": {
+      "path": "posts/citrix-blog/2025-11-13-everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it.md",
+      "title": "Everyone wants to provide your AI. Nobody wants to help you manage it.",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it/"
+    },
+    "2025-12-03-it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5": {
+      "path": "posts/citrix-blog/2025-12-03-it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5.md",
+      "title": "IT admits workers control AI. Workers admit they use it to leave at 5.",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/12/03/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5/"
+    },
+    "2025-12-10-ai-will-be-the-interface-to-knowledge-work": {
+      "path": "posts/citrix-blog/2025-12-10-ai-will-be-the-interface-to-knowledge-work.md",
+      "title": "AI will be THE interface to knowledge work. Here's how we'll get there.",
+      "implements_frameworks": [
+        "post-application-era",
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2025/12/10/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there/"
+    },
+    "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate": {
+      "path": "posts/citrix-blog/2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate.md",
+      "title": "Workers don't want to build automations. They want to delegate.",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/"
+    },
+    "2026-01-07-no-ai-bombshells-in-2026-just-reality-catching-up": {
+      "path": "posts/citrix-blog/2026-01-07-no-ai-bombshells-in-2026-just-reality-catching-up.md",
+      "title": "No AI Bombshells in 2026—Just Reality Catching Up",
+      "implements_frameworks": [],
+      "original_url": "https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx"
+    },
+    "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see": {
+      "path": "posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md",
+      "title": "The invisible 80%—what corporate-led AI transformations can't see",
+      "implements_frameworks": [
+        "invisible-80-percent"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/"
+    },
+    "2026-01-21-everyones-worried-about-the-wrong-ai-security-risk": {
+      "path": "posts/citrix-blog/2026-01-21-everyones-worried-about-the-wrong-ai-security-risk.md",
+      "title": "Everyone's worried about the wrong AI security risk",
+      "implements_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/"
+    },
+    "2026-02-04-openclaw-governance": {
+      "path": "posts/citrix-blog/2026-02-04-openclaw-governance.md",
+      "title": "OpenClaw and Moltbook preview the changes needed with corporate AI governance",
+      "implements_frameworks": [
+        "7-stage-roadmap",
+        "subscribable-brains"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/"
+    },
+    "2026-02-11-second-brains-break-security-assumptions": {
+      "path": "posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md",
+      "title": "Workers' \\\"second brains\\\" break every assumption about how we secure knowledge work",
+      "implements_frameworks": [
+        "invisible-80-percent",
+        "subscribable-brains",
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/"
+    },
+    "2026-02-19-coding-as-leading-indicator": {
+      "path": "posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md",
+      "title": "What will knowledge work be in 18 months? Look at what AI is doing to coding right now.",
+      "implements_frameworks": [
+        "five-levels-of-ai-in-knowledge-work",
+        "7-stage-roadmap"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
+    },
+    "2020-06-16-eulogy-brianmadden-com": {
+      "path": "posts/linkedin/articles/2020-06-16-eulogy-brianmadden-com.md",
+      "title": "A Eulogy for BrianMadden.com",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/"
+    },
+    "2023-06-22-my-ai-journey": {
+      "path": "posts/linkedin/articles/2023-06-22-my-ai-journey.md",
+      "title": "My AI journey and the links that set the stage. ChatGPT is just the beginning!",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/my-ai-journey-links-set-stage-chatgpt-just-beginning-brian-madden/"
+    },
+    "2023-06-26-ai-influence-levels": {
+      "path": "posts/linkedin/articles/2023-06-26-ai-influence-levels.md",
+      "title": "How much \\\"help\\\" did AI provide? We should all disclose this.",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/how-much-help-did-ai-provide-we-should-all-disclose-brian-madden/"
+    },
+    "2023-06-30-ai-is-more-than-chatgpt": {
+      "path": "posts/linkedin/articles/2023-06-30-ai-is-more-than-chatgpt.md",
+      "title": "AI is more than ChatGPT",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/ai-more-than-chatgpt-brian-madden/"
+    },
+    "2023-07-05-chatgpt-architecture": {
+      "path": "posts/linkedin/articles/2023-07-05-chatgpt-architecture.md",
+      "title": "A look at ChatGPT's architecture. A lot for enterprise admins to like!",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/chatgpt-more-like-standard-enterprise-app-than-you-think-brian-madden/"
+    },
+    "2023-08-15-consumerization-of-it-ai": {
+      "path": "posts/linkedin/articles/2023-08-15-consumerization-of-it-ai.md",
+      "title": "The Consumerization of IT roars back, and this time they have AI!",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/consumerization-roars-back-time-have-ai-brian-madden/"
+    },
+    "2024-02-13-generative-ai-enterprise-waicf": {
+      "path": "posts/linkedin/articles/2024-02-13-generative-ai-enterprise-waicf.md",
+      "title": "Generative AI in the enterprise: lots of hype, little practical advice. A World AI Cannes Festival report.",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/generative-ai-enterprise-lots-hype-little-practical-advice-madden-fketc/"
+    },
+    "2024-05-22-enterprise-desktop-still-matters": {
+      "path": "posts/linkedin/articles/2024-05-22-enterprise-desktop-still-matters.md",
+      "title": "Why the enterprise desktop still matters in 2024. (Hint: it's not about apps or AI PCs.)",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.linkedin.com/pulse/why-enterprise-desktop-still-matters-2024-hint-its-apps-brian-madden-fsgbc/"
+    },
+    "2024-05-28-microsoft-recall": {
+      "path": "posts/linkedin/articles/2024-05-28-microsoft-recall.md",
+      "title": "Microsoft Recall: An analysis of the issues & prediction of the evolution of the AI workplace",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/microsoft-recall-analysis-issues-prediction-evolution-brian-madden-zoync/"
+    },
+    "2024-06-13-ai-screen-recorders-vdi": {
+      "path": "posts/linkedin/articles/2024-06-13-ai-screen-recorders-vdi.md",
+      "title": "AI Screen Recorders + VDI: The ultimate secure, compliant, & powerful desktop?",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://www.linkedin.com/pulse/ai-screen-recorders-vdi-ultimate-secure-compliant-powerful-madden-fa5dc/"
+    },
+    "2024-06-18-apple-intelligence-slippery-slope": {
+      "path": "posts/linkedin/articles/2024-06-18-apple-intelligence-slippery-slope.md",
+      "title": "Apple Intelligence is the beginning of a slippery slope that all companies need to understand today",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/apple-intelligence-beginning-slippery-slope-all-companies-madden-iyuyc/"
+    },
+    "2024-06-25-copilot-for-office": {
+      "path": "posts/linkedin/articles/2024-06-25-copilot-for-office.md",
+      "title": "I've been using Copilot for Office for months. Here's how it works and what it can do today.",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/ive-been-using-copilot-office-months-heres-how-works-what-madden-nqu6c/"
+    },
+    "2024-07-02-firing-employees-keyboard-activity": {
+      "path": "posts/linkedin/articles/2024-07-02-firing-employees-keyboard-activity.md",
+      "title": "Firing employees for simulated keyboard activity highlights the dangers of perverse incentives",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/firing-employees-simulated-keyboard-activity-dangers-perverse-madden-aikuc/"
+    },
+    "2024-07-18-openai-cto-agi-trillionaires": {
+      "path": "posts/linkedin/articles/2024-07-18-openai-cto-agi-trillionaires.md",
+      "title": "Open AI CTO reminds us they care more about inventing AGI and becoming trillionaires than your company's safety",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/open-ai-cto-reminds-us-care-more-inventing-agi-becoming-brian-madden-42l6c/"
+    },
+    "2024-07-22-ignore-goldman-sachs": {
+      "path": "posts/linkedin/articles/2024-07-22-ignore-goldman-sachs.md",
+      "title": "Ignore that Goldman Sachs report questioning AI's value. It doesn't impact what's happening in your workplace today.",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/ignore-goldman-sachs-report-questioning-ais-value-doesnt-brian-madden-apqzc/"
+    },
+    "2024-10-24-euc-world-independence": {
+      "path": "posts/linkedin/articles/2024-10-24-euc-world-independence.md",
+      "title": "EUC World Independence 2024: A huge success!",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/pulse/euc-world-independence-2024-huge-success-brian-madden-jgyle/"
+    },
+    "2025-02-18-joining-citrix": {
+      "path": "posts/linkedin/articles/2025-02-18-joining-citrix.md",
+      "title": "I just joined Citrix!",
+      "implements_frameworks": [],
+      "original_url": "https://www.linkedin.com/posts/bmadden_i-just-joined-citrix-those-who-know-me-activity-7297631023746453504-K6B3/"
+    },
+    "2026-01-12-everything-i-wrote-said-workplace-ai-2025": {
+      "path": "posts/linkedin/articles/2026-01-12-everything-i-wrote-said-workplace-ai-2025.md",
+      "title": "Everything I Wrote & Said About Workplace AI in 2025",
+      "implements_frameworks": [
+        "7-stage-roadmap",
+        "bitter-lesson",
+        "post-application-era"
+      ],
+      "original_url": "https://www.linkedin.com/pulse/everything-i-wrote-said-workplace-ai-2025-brian-madden-33byf/"
+    },
+    "2026-02-10-second-brain-anchor": {
+      "path": "posts/linkedin/articles/2026-02-10-second-brain-anchor.md",
+      "title": "I built a second brain using AI, and it's changed the way I work. THIS is the future of knowledge work.",
+      "implements_frameworks": [
+        "invisible-80-percent",
+        "subscribable-brains"
+      ],
+      "original_url": "https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote"
+    },
+    "2026-02-17-subscribable-brains": {
+      "path": "posts/linkedin/articles/2026-02-17-subscribable-brains.md",
+      "title": "Hey creators, stop publishing content. Start publishing your second brain.",
+      "implements_frameworks": [
+        "subscribable-brains",
+        "invisible-80-percent"
+      ],
+      "original_url": "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae"
+    },
+    "standalone-posts-2025": {
+      "path": "posts/linkedin/posts/standalone-posts-2025.md",
+      "title": "LinkedIn posts — 2025",
+      "implements_frameworks": [],
+      "original_url": ""
+    },
+    "standalone-posts-2026": {
+      "path": "posts/linkedin/posts/standalone-posts-2026.md",
+      "title": "LinkedIn posts — 2026",
+      "implements_frameworks": [],
+      "original_url": ""
+    }
+  },
+  "talks": {
+    "2024-03-26-dutch-vmug-keynote": {
+      "path": "talks/2024-03-26-dutch-vmug-keynote.md",
+      "title": "It's Springtime for AI",
+      "event": "Dutch VMUG UserCon 2024",
+      "location": "Den Bosch, Netherlands",
+      "date": "2024-03-26",
+      "recording": "https://www.youtube.com/watch?v=6JAEOS7iREw",
+      "implements_frameworks": []
+    },
+    "2024-10-22-euc-world-keynote": {
+      "path": "talks/2024-10-22-euc-world-keynote.md",
+      "title": "EUC Past, Present, and Future",
+      "event": "EUC World: Independence",
+      "location": "Silver Spring, Maryland, USA",
+      "date": "2024-10-22",
+      "recording": "https://www.youtube.com/watch?v=DkuoK-4PncM",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    "2024-11-26-euc-forum-winter-meeting": {
+      "path": "talks/2024-11-26-euc-forum-winter-meeting.md",
+      "title": "The Evolution and Future of End-User Computing",
+      "event": "EUC Forum Winter Meeting 2024",
+      "location": "London, UK",
+      "date": "2024-11-26",
+      "recording": "https://www.youtube.com/watch?v=wFgfFT3ILZo",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    "2025-05-22-euctech-denmark-keynote": {
+      "path": "talks/2025-05-22-euctech-denmark-keynote.md",
+      "title": "The future of work in an AI-native world",
+      "event": "EUCtech Denmark 2025",
+      "location": "Billund, Denmark",
+      "date": "2025-05-22",
+      "recording": "https://www.youtube.com/watch?v=srNOw7uBQm4",
+      "implements_frameworks": [
+        "workspace-as-control-plane"
+      ]
+    },
+    "2025-10-10-appmanagevent-keynote": {
+      "path": "talks/2025-10-10-appmanagevent-keynote.md",
+      "title": "AI and the future of enterprise apps",
+      "event": "AppManagEvent 2025",
+      "location": "Utrecht, Netherlands",
+      "date": "2025-10-10",
+      "recording": "https://www.youtube.com/watch?v=XoJ5uL1op_E",
+      "implements_frameworks": [
+        "post-application-era",
+        "workspace-as-control-plane"
+      ]
+    },
+    "2025-10-15-shi-fall-summit": {
+      "path": "talks/2025-10-15-shi-fall-summit.md",
+      "title": "AI in the workplace: what's happening in the next 12 months",
+      "event": "SHI Fall Summit 2025",
+      "location": "Somerset, New Jersey, USA",
+      "date": "2025-10-15",
+      "recording": "https://www.youtube.com/watch?v=eBL9GtdAZjM",
+      "implements_frameworks": [
+        "post-application-era",
+        "workspace-as-control-plane"
+      ]
+    },
+    "2025-12-04-ai-think-tank-paris": {
+      "path": "talks/2025-12-04-ai-think-tank-paris.md",
+      "title": "Our Vision for AI & the Future of Work",
+      "event": "Citrix AI Think Tank",
+      "location": "Paris, France",
+      "date": "2025-12-04",
+      "implements_frameworks": [
+        "workspace-as-control-plane",
+        "post-application-era",
+        "7-stage-roadmap"
+      ]
+    },
+    "2026-02-06-wharton-tech-conference": {
+      "path": "talks/2026-02-06-wharton-tech-conference.md",
+      "title": "Blueprints That Actually Get Built: How Change Really Happens in the Enterprise",
+      "event": "Wharton Tech Conference 2026",
+      "location": "University of Pennsylvania, Philadelphia",
+      "date": "2026-02-06",
+      "implements_frameworks": []
+    }
+  },
+  "core": {
+    "me/developing-thinking.md": {
+      "title": "Where Brian's head is right now",
+      "authority_level": 2,
+      "related_frameworks": []
+    },
+    "me/career.md": {
+      "title": "Brian Madden — career chronology",
+      "authority_level": 1,
+      "related_frameworks": []
+    },
+    "me/profile.md": {
+      "title": "Brian Madden — profile",
+      "authority_level": 1,
+      "related_frameworks": []
+    },
+    "me/published-thinking.md": {
+      "title": "Brian Madden's intellectual foundation",
+      "authority_level": 1,
+      "related_frameworks": []
+    },
+    "me/voice.md": {
+      "title": "Brian Madden's voice and communication style",
+      "authority_level": 1,
+      "related_frameworks": []
+    }
+  }
+}
