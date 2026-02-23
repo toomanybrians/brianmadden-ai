@@ -58,18 +58,27 @@ jobs:
           fetch-depth: 2
 
       # Determine which content files changed in the latest commit
+      # Falls back to full sync if HEAD~1 doesn't exist (initial commit)
       - name: Get changed files
         id: changed
         run: |
-          CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' 2>/dev/null || echo "")
-          if [ -z "$CHANGED" ]; then
-            echo "No content files changed"
+          if ! git rev-parse HEAD~1 >/dev/null 2>&1; then
+            echo "Initial commit detected — falling back to full sync"
             echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "needs_full_sync=true" >> $GITHUB_OUTPUT
           else
-            echo "Changed files:"
-            echo "$CHANGED"
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "$CHANGED" > /tmp/changed_files.txt
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' 2>/dev/null || echo "")
+            if [ -z "$CHANGED" ]; then
+              echo "No content files changed"
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+              echo "needs_full_sync=false" >> $GITHUB_OUTPUT
+            else
+              echo "Changed files:"
+              echo "$CHANGED"
+              echo "has_changes=true" >> $GITHUB_OUTPUT
+              echo "needs_full_sync=false" >> $GITHUB_OUTPUT
+              echo "$CHANGED" > /tmp/changed_files.txt
+            fi
           fi
 
       # Incremental sync: upload only changed files to KV
@@ -100,9 +109,9 @@ jobs:
           echo "Sync complete"
 
       # Full sync: upload every .md and .txt file in the repo
-      # Use this for initial setup or if KV gets out of sync
+      # Runs on manual trigger OR when there's no prior commit to diff against
       - name: Full sync (first run or manual trigger)
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || steps.changed.outputs.needs_full_sync == 'true'
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
