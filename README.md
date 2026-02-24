@@ -1,79 +1,66 @@
 # brianmadden.ai
 
-This is my expert knowledge module for AI—structured so you can load it into any AI assistant.
+brianmadden.ai is my published thinking on AI and the future of knowledge work, packaged so any AI assistant can load it and reason with my perspective. Connect it to your AI, and it can draw on my frameworks, arguments, and current thinking during your normal conversations.
 
-## What this is
+I recently wrote about building a [personal AI knowledge system](https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote/) and about why I think [experts should publish structured knowledge modules](https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae) that people can plug into their own AI. brianmadden.ai is that idea, applied to my own work.
 
-I've spent the last year writing about how AI is reshaping knowledge work. 29 Citrix blog posts, three LinkedIn articles, talks at Wharton, press interviews, strategy frameworks. All public.
+It's made of two things:
 
-But published content is packaging for human consumption. A forkable, queryable knowledge repo is the native format for AI-augmented consumption. So I'm publishing my expert knowledge module.
+* All my published content: [Citrix blog posts](https://www.citrix.com/blogs/?s=bmadden&type=author), LinkedIn articles and posts, speech and podcast transcripts, interview transcripts, and my standalone frameworks & big ideas.
+* Files that tell any AI how everything connects. Which ideas are authoritative versus still developing. How a new blog post extends or challenges an earlier argument. What I'm currently thinking about topics I've already written about publicly. A knowledge hierarchy that tells the AI what to prioritize and where to be careful.
 
-This repo contains my frameworks, arguments, positions, and current thinking—structured so any AI can load it and engage with my perspective. Not a chatbot. Not a fine-tuned model. Just a folder of text files and an AI that reads them.
+That second part is what makes this a knowledge *system* rather than a content dump. When I publish a new article and it connects to something I wrote six months ago, that connection gets captured. So it's not just "here's another article," it's "here's how this changes the picture." Instead of searching my content, your AI gets a map to the architecture of my thinking.
 
-## How to use this
+On its own, brianmadden.ai is just text files. It only becomes useful when someone points their own AI at it—Claude, ChatGPT, Copilot, Gemini, whatever you already use. Your AI handles the conversation and applies its own safety guardrails. brianmadden.ai provides the source material. It's very similar to a web server in that regard, serving structured knowledge to AIs rather than web pages to humans.
 
-More details are on https://brianmadden.ai.
+So this is not a chatbot. A chatbot is frozen in time. This updates as my thinking evolves, sometimes several times a day. And it's not a digital twin—it doesn't simulate me or pretend to be me. It's a living reference library that your AI loads and draws from during your normal conversations.
 
-### Load it into your AI
+## Why this exists
 
-Point your AI assistant at this repo. The `CLAUDE.md` / `AGENTS.md` file tells it what to read and in what order. Both files are identical—they exist so any AI tool finds instructions regardless of which convention it follows. Works with Claude, ChatGPT, Gemini, Copilot, Codex, or any AI that can read files.
+Once I started using my personal AI knowledge system, I wanted to add in perspectives from certain coworkers and experts I respect. While hunting down YouTube transcripts and blogs to paste in, I thought, "this would be so much easier if everyone just published their knowledge as modules I could plug in!"
 
-**With Claude Code:**
-```bash
-git clone https://github.com/toomanybrians/brianmadden-ai.git
-cd brianmadden-ai
-claude
+So I decided to do that with my own knowledge and thinking, which is what this repo is.
+## How do you use it? Connect your AI.
+
+brianmadden.ai has a custom MCP server. Add this as a connector in your AI tool's settings:
+
+```
+brianmadden.ai/mcp
 ```
 
-**With any AI that reads files:**
-Upload or paste `CLAUDE.md`, then the files it references. Start with `me/published-thinking.md` and `me/developing-thinking.md` for the core intellectual foundation.
+That's it! Your AI can now draw from my full body of work during normal conversations. There's no app to install, no account to create, and no subscription to manage. (As a future concept, these types of things could be subscription based, but mine is free.)
 
-**With MCP:**
-Connect this repo as an MCP resource. Your AI gets structured access to the full expert knowledge module.
+The brianmadden.ai MCP server draws from all the content in this repo. So you can browse it here if you want to see what's inside. The MCP server is always up to do, so whenever anything new is added or changed, that's also reflected via MCP.
 
-### What you can do with it
+Step-by-step instructions for different tools (Claude, ChatGPT, Copilot, Cursor, and others) are at [brianmadden.ai/connect](https://brianmadden.ai/connect).
 
-- Ask "What would Brian Madden think about X?" and get a genuinely informed answer
-- Apply my frameworks (80/20, workspace-as-control-plane, factory electrification) to your own questions
-- Understand my current thinking, not just my published work
-- Fork it and build on it
+Once you're connected, try things like:
+- "Apply Brian's invisible 80% framework to [your company/industry]"
+- "What would Brian Madden think about [your AI strategy question]?"
+- "What's Brian's current thinking on [enterprise AI, workspace governance, personal AI systems]?"
+- "I'm preparing a presentation on the future of work. What's the most counterintuitive argument I should build around?"
 
-### Stay current
+## What's inside
 
-```bash
-git pull
-```
+- All my published blog posts, Linkedin articles & posts, speech transcripts, podcast transcripts, and interviews from the past several years
+- A 30,000-word synthesis distilling the intellectual foundation across all published work
+- A "current thinking" file that captures where my head is right now—updated frequently
+- AI loading instructions, knowledge hierarchy, and engagement rules
+- A published [governance document](GOVERNANCE.md) that defines what goes in, what stays out, and how the publishing process works
 
-I update `me/developing-thinking.md` as my thinking evolves. The commit history is the real-time evolution of the ideas.
-
-## Why I'm doing this
-
-I wrote about [subscribable brains](https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden/) as the future of knowledge distribution. Experts publish structured knowledge repos. Subscribers integrate them into their own AI systems. The creator's daily maintenance of their own knowledge system *is* the product.
-
-This is me doing the thing I said other people should do.
-
-If someone else can build a "Brian Madden knowledge module" by scraping my public content (and they can), I'd rather build the definitive version myself. With the actual structure, the actual connections between ideas, and the actual frontier thinking that no scraper would capture.
-
-## What's here
-
-- **`me/`** — Who I am, what I believe, how I think (profile, published thinking, developing thinking, career, voice)
-- **`frameworks/`** — The big ideas: structured mental models that underpin my analysis
-- **`posts/`** — Full text of published Citrix blog posts, LinkedIn articles, and LinkedIn posts
-- **`talks/`** — Speech content and transcripts
-- **`interviews/`** — Press interviews and commentary
-- **`feed.md`** — Short form thoughts
+Everything in brianmadden.ai is already public. The module adds structure and AI accessibility, not new content.
 
 ## About me
 
-I'm a technology officer & futurist at Citrix. I've spent 32 years in end-user computing and digital workplace. I've written 6 books, 2,000+ articles, and given 1,000+ talks globally. I'm based in Paris.
+I'm Brian Madden, a technology officer and futurist at Citrix. I have 32 years in end-user computing and digital workplace. I've written 6 books, 2,000+ articles, and given over 1,000 talks globally. Originally from Ohio (Go Browns!), I now live inParis. 🇫🇷
 
 I explore how AI is reshaping knowledge work. My core thesis: the real AI transformation is happening worker-by-worker, not top-down. The invisible 80% of knowledge work—the judgment, reasoning, and tacit expertise that lives in workers' heads—is where the action is. Enterprise AI automates the scaffolding. A second brain amplifies the cognition.
 
-- [LinkedIn](https://www.linkedin.com/in/bmadden/)
-- [Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author)
-- [bmad.com](https://bmad.com)
+- More details about this repo and how to use it: [brianmadden.ai](https://brianmadden.ai) 
+- Follow me on [LinkedIn](https://www.linkedin.com/in/bmadden/)
+- I write about these topics at [Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author)
+- My personal website: [bmad.com](https://bmad.com)
 
 ## License
 
 The ideas are mine. The content is public. Use brianmadden.ai to inform your thinking, apply my frameworks, and build on my work. Attribution appreciated but not required for personal use. If you're publishing or redistributing, credit the source.
-
