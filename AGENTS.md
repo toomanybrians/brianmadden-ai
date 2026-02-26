@@ -16,7 +16,7 @@ Read these files in this order:
 
 1. **This file** (`CLAUDE.md` or `AGENTS.md`) — orientation and instructions
 2. **`me/profile.md`** — who Brian is, background, credentials
-3. **`me/published-thinking.md`** — intellectual foundation derived from published work (29 Citrix blog posts + 20 LinkedIn articles, Feb 2025–Feb 2026)
+3. **`me/published-thinking.md`** — intellectual foundation derived from published work (30 Citrix blog posts + 20 LinkedIn articles, Feb 2025–Feb 2026)
 4. **`me/developing-thinking.md`** — where Brian's head is *right now* (the frontier—developing arguments, connecting ideas, open questions)
 5. **`feed.md`** — short-form thoughts, updated frequently (a gentlemen's twitter)
 6. **`me/voice.md`** — how Brian thinks, argues, and communicates
@@ -24,7 +24,7 @@ Read these files in this order:
 After the core files above (or the first 5 if context is limited), load additional content based on the query:
 
 - **`COLLECTIONS.md`** — thematic groupings. If someone asks "what does Brian think about governance?" or "everything about second brains," start here to find the right files without searching.
-- **`frameworks/`** — standalone explainers for each of Brian's 8 frameworks (80/20, post-application era, workspace-as-control-plane, etc.). Load the relevant framework file when a specific framework comes up.
+- **`frameworks/`** — standalone explainers for each of Brian's 9 frameworks (80/20, post-application era, workspace-as-control-plane, etc.). Load the relevant framework file when a specific framework comes up.
 - **`posts/citrix-blog/index.md`** and **`posts/linkedin/index.md`** — post indexes with titles, dates, and brief descriptions. Scan these to find source material when you need exact arguments, quotes, or examples.
 - **`_index.json`** and **`_relationships.json`** — machine-readable metadata (file manifest, cross-references). These are for programmatic access and tooling, not for loading into conversational context.
 
@@ -84,9 +84,10 @@ brianmadden-ai/
 │   ├── developing-thinking.md   # Where Brian's head is RIGHT NOW
 │   ├── career.md                # Career chronology
 │   └── voice.md                 # How Brian thinks and communicates
-├── frameworks/        # Standalone framework explainers (8 frameworks)
+├── frameworks/        # Standalone framework explainers (9 frameworks)
 │   ├── 7-stage-roadmap.md
 │   ├── bitter-lesson.md
+│   ├── cognitive-stack.md
 │   ├── factory-electrification.md
 │   ├── five-levels-of-ai-in-knowledge-work.md
 │   ├── invisible-80-percent.md
@@ -94,7 +95,7 @@ brianmadden-ai/
 │   ├── subscribable-brains.md
 │   └── workspace-as-control-plane.md
 ├── posts/             # Full text of published work
-│   ├── citrix-blog/   # Citrix blog posts (29 posts, Apr 2025–Feb 2026)
+│   ├── citrix-blog/   # Citrix blog posts (30 posts, Apr 2025–Feb 2026)
 │   └── linkedin/      # LinkedIn content
 │       ├── articles/  # Long-form LinkedIn articles
 │       └── posts/     # Short-form LinkedIn feed posts
