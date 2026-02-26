@@ -43,7 +43,7 @@ For the full file structure, loading order, and design principles, see [AGENTS.m
 
 ## About me
 
-I'm Brian Madden, a technology officer and futurist at Citrix. I have 32 years in end-user computing and digital workplace. I've written 6 books, 2,000+ articles, and given over 1,000 talks globally. Originally from Ohio, I now live in Paris.
+I'm Brian Madden, a futurist at Citrix. I have 32 years in end-user computing and digital workplace. I've written 6 books, 2,000+ articles, and given over 1,000 talks globally. Originally from Ohio, I now live in Paris.
 
 I explore how AI is reshaping knowledge work. My core thesis: the real AI transformation is happening worker-by-worker, not top-down. The invisible 80% of knowledge work—the judgment, reasoning, and tacit expertise that lives in workers' heads—is where the action is. Enterprise AI automates the scaffolding. A second brain amplifies the cognition.
 
@@ -54,4 +54,4 @@ I explore how AI is reshaping knowledge work. My core thesis: the real AI transf
 
 ## License
 
-The ideas are mine. The content is public. Use brianmadden.ai to inform your thinking, apply my frameworks, and build on my work. Attribution appreciated but not required for personal use. If you're publishing or redistributing, credit the source.
+The ideas are mine. The content is public but copyrighted. Use brianmadden.ai to inform your thinking, apply my frameworks, and build on my work. Attribution appreciated but not required for personal use. If you're publishing or redistributing, credit the source.

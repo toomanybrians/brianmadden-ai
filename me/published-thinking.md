@@ -1,6 +1,6 @@
 ---
 title: "Brian Madden's intellectual foundation"
-updated: "2026-02-19"
+updated: "2026-02-25"
 authority_level: 1
 file_type: synthesis
 tags: ["knowledge-work", "enterprise-ai", "worker-led-adoption", "automation", "governance", "ai-agents"]
@@ -12,7 +12,7 @@ description: "Comprehensive synthesis of Brian's published ideas across 30+ post
 
 This document synthesizes the core ideas, frameworks, and arguments from Brian's published work on AI and the future of work (~2023–February 2026). It represents the intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** February 19, 2026 (32 posts through February 19, 2026)
+**Last updated:** February 25, 2026 (33 posts through February 25, 2026)
 
 ---
 
@@ -304,6 +304,27 @@ Adapted from Dan Shapiro's five levels of AI-assisted coding, this framework map
 
 ---
 
+### The cognitive stack
+
+This framework names the full hierarchy from human intent to mechanical execution, explaining why enterprise AI investments focused on agents and automation miss the transformative layer. Builds on Karpathy's "claws" concept (personal AI agents as appendages that serve the brain) and Brian's earlier delegation thesis (Dec 2025).
+
+**Five layers:**
+1. **The worker:** States intent and exercises judgment. The human decides what matters, what's urgent, and what the goal actually is.
+2. **The cognitive extension ("the brain"):** The thing you actually talk to. Holds your full context: who the participants are, the preferred format, what's sensitive, what happened in the last meeting. Plans the approach and sequences the work.
+3. **Skills:** Coherent chunks of capability. Process a meeting transcript, draft an email, research a competitor, check a calendar. Each handles a meaningful piece of work with some autonomy.
+4. **Agentic sub-processes:** The agents that reach into systems, navigate interfaces, call APIs, coordinate with other agents. This is where all the "agent" hype lives—the second-lowest-value layer.
+5. **Workflow automation:** Scripts, RPAs, CUAs, API calls, webhooks. The simplest, most mechanical, most interchangeable commodity infrastructure layer.
+
+**Why this matters:**
+- The enterprise AI industry is spending billions on layers 4 and 5 while the real transformation lives at layer 2
+- Two trajectories are colliding in the middle: automation vendors built bottom-up (simple scripts to intelligent agents), AI companies entered top-down (intent to decomposition). They overlap at skills/agents, but humans prefer to connect at the intelligence layer
+- The cognitive stack mirrors how organizations already work—more thinking at the top, more doing at the bottom. This is the shape intelligence naturally takes when coordinating complex work
+- The brain layer is what a second brain actually *is*: workers start with a cognitive layer that holds their full context, and when it needs to reach into real-world systems, it spawns agents. The agents are disposable. The intelligence is the product.
+
+**Key insight:** Nobody's strategy for building a great organization is to keep making task workers incrementally smarter until one of them figures out how to be the VP—yet that's essentially the enterprise AI strategy of investing in agents and automations and hoping cognition emerges from the bottom up.
+
+---
+
 ### The consumerization parallel (and why it breaks)
 
 **The argument:** Personal AI adoption follows the consumerization-of-IT pattern from the early 2010s: workers want something, IT says no, workers use it anyway, eventually IT provides a sanctioned version. The BYOD playbook.
@@ -359,6 +380,10 @@ Enterprise implications: consulting firms where juniors carry seniors' accumulat
 ## Post-by-post notes (newest first)
 
 The full text of each published post is in `posts/citrix-blog/` and `posts/linkedin/`. For earlier LinkedIn articles (2020-2024), see `posts/linkedin/index.md`.
+
+### February 25, 2026: Understanding the cognitive stack: why your AI strategy is focused on the wrong layer
+[Original post](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/)
+**Major framework post.** Introduces the five-layer cognitive stack: worker, cognitive extension ("the brain"), skills, agentic sub-processes, workflow automation. Three major moves: (1) Uses Karpathy's "claws" concept to reframe agents as invisible infrastructure that serves the brain, not the other way around. From Brian's own experience: once he started using a second brain, he stopped thinking about agents entirely. They still fire constantly—but invisibly. (2) Maps two trajectories colliding: automation vendors building bottom-up (simple scripts to intelligent agents) and AI companies entering top-down (intent to decomposition). They overlap at the skills/agents layer, but humans prefer to connect at the intelligence layer—the whole point of the December delegation article. (3) Delivers the sharpest critique yet of enterprise AI investment: the industry is spending billions on agent marketplaces, orchestration engines, and automation studios—all layers 4-5. "No one's strategy for building a great organization is to keep making the task workers incrementally smarter until one of them figures out how to be the VP." The governed cognitive layer (layer 2) is where the actual transformation happens, and nobody has figured it out yet. Connects directly to the delegation thesis (Dec 2025), the invisible 80% framework, and the five levels framework (Feb 19). Reference when discussing: why agent-focused AI strategies miss the point, what layer of AI investment matters, or the relationship between second brains and agents.
 
 ### February 19, 2026: What will knowledge work be in 18 months? Look at what AI is doing to coding right now.
 [Original post](https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now)
@@ -530,6 +555,15 @@ Zero incremental production effort. The work *is* the product. Flips the creator
 
 **"The career progression from 'doing' to 'directing' used to take 20 years. AI is compressing that to months."**
 From the coding-as-leading-indicator post. Levels 0-3 are "doing." Levels 4-5 are "directing." Most enterprises don't have governance infrastructure for this compression.
+
+**"No one's strategy for building a great organization is to keep making the task workers incrementally smarter until one of them figures out how to be the VP."**
+The absurdity of bottom-up enterprise AI strategy made concrete. Investing in agents and automations and hoping cognition emerges is not a strategy.
+
+**"Agents are disposable. The intelligence is the product."**
+Why second brains matter and agent marketplaces don't. The brain decides what to do; agents are appendages that reach into systems.
+
+**"You have to start at the top."**
+The cognitive stack conclusion: transformation starts from intent and context (the brain), not from automation and execution (the claws).
 
 **"The verification framework is the intellectual property, not the reports themselves."**
 At Level 5 (dark knowledge factory), the value shifts from producing output to defining how output gets evaluated. Who owns the specs? Who defines the rubrics?

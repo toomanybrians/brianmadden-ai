@@ -69,6 +69,23 @@
       ],
       "referenced_by_talks": []
     },
+    "cognitive-stack": {
+      "path": "frameworks/cognitive-stack.md",
+      "title": "The cognitive stack",
+      "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
+      "referenced_in_posts": [
+        "2026-02-25-cognitive-stack"
+      ],
+      "related_frameworks": [
+        "delegation-not-automation",
+        "invisible-80-percent",
+        "five-levels-of-ai-in-knowledge-work"
+      ],
+      "referenced_by_posts": [
+        "2026-02-25-cognitive-stack"
+      ],
+      "referenced_by_talks": []
+    },
     "five-levels-of-ai-in-knowledge-work": {
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
       "title": "The five levels of AI in knowledge work",
@@ -82,7 +99,8 @@
         "invisible-80-percent"
       ],
       "referenced_by_posts": [
-        "2026-02-19-coding-as-leading-indicator"
+        "2026-02-19-coding-as-leading-indicator",
+        "2026-02-25-cognitive-stack"
       ],
       "referenced_by_talks": []
     },
@@ -105,7 +123,8 @@
         "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
         "2026-02-11-second-brains-break-security-assumptions",
         "2026-02-10-second-brain-anchor",
-        "2026-02-17-subscribable-brains"
+        "2026-02-17-subscribable-brains",
+        "2026-02-25-cognitive-stack"
       ],
       "referenced_by_talks": []
     },
@@ -443,6 +462,16 @@
         "7-stage-roadmap"
       ],
       "original_url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
+    },
+    "2026-02-25-cognitive-stack": {
+      "path": "posts/citrix-blog/2026-02-25-cognitive-stack.md",
+      "title": "Understanding the cognitive stack: why your AI strategy is focused on the wrong layer",
+      "implements_frameworks": [
+        "cognitive-stack",
+        "invisible-80-percent",
+        "five-levels-of-ai-in-knowledge-work"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/"
     },
     "2020-06-16-eulogy-brianmadden-com": {
       "path": "posts/linkedin/articles/2020-06-16-eulogy-brianmadden-com.md",

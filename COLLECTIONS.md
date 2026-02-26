@@ -30,6 +30,7 @@ The argument that real AI transformation comes from workers, not corporate manda
 - `posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md` -- The invisible 80%—what corporate-led AI transformations can't see (2026-01-13) (authority: 5)
 - `posts/citrix-blog/2026-02-04-openclaw-governance.md` -- OpenClaw and Moltbook preview the changes needed with corporate AI governance (2026-02-04) (authority: 5)
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
+- `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `talks/2024-03-26-dutch-vmug-keynote.md` -- It's Springtime for AI (2024-03-26) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
 - `talks/2025-10-10-appmanagevent-keynote.md` -- AI and the Future of Enterprise Apps (2025-10-10) (authority: 5)
@@ -61,6 +62,7 @@ The transition from applications to agents. Computer-using agents, the post-appl
 - `posts/linkedin/articles/2026-02-10-second-brain-anchor.md` -- I built a second brain using AI, and it's changed the way I work. THIS is the future of knowledge work. (2026-02-10) (authority: 5)
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
 - `posts/linkedin/articles/2026-02-17-subscribable-brains.md` -- Hey creators, stop publishing content. Start publishing your second brain. (2026-02-17) (authority: 5)
+- `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `talks/2024-10-22-euc-world-keynote.md` -- EUC Past, Present, and Future (2024-10-22) (authority: 5)
 - `talks/2024-11-26-euc-forum-winter-meeting.md` -- The Evolution and Future of End-User Computing (2024-11-26) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
@@ -117,6 +119,7 @@ What knowledge work actually is, why 80% of it is invisible to corporate IT, and
 - `posts/linkedin/articles/2026-02-10-second-brain-anchor.md` -- I built a second brain using AI, and it's changed the way I work. THIS is the future of knowledge work. (2026-02-10) (authority: 5)
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
 - `posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md` -- What will knowledge work be in 18 months? Look at what AI is doing to coding right now. (2026-02-19) (authority: 5)
+- `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 
 ## Second brains and subscribable knowledge
 
@@ -131,6 +134,7 @@ Personal AI knowledge systems, subscribable brains, the creator economy disrupti
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
 - `posts/linkedin/articles/2026-02-17-subscribable-brains.md` -- Hey creators, stop publishing content. Start publishing your second brain. (2026-02-17) (authority: 5)
 - `posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md` -- What will knowledge work be in 18 months? Look at what AI is doing to coding right now. (2026-02-19) (authority: 5)
+- `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 
 ## Enterprise AI strategy
 
@@ -163,6 +167,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `posts/citrix-blog/2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate.md` -- Workers don't want to build automations. They want to delegate. (2025-12-18) (authority: 5)
 - `posts/citrix-blog/2026-01-07-no-ai-bombshells-in-2026-just-reality-catching-up.md` -- No AI Bombshells in 2026—Just Reality Catching Up (2026-01-07) (authority: 5)
 - `posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md` -- The invisible 80%—what corporate-led AI transformations can't see (2026-01-13) (authority: 5)
+- `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `talks/2024-03-26-dutch-vmug-keynote.md` -- It's Springtime for AI (2024-03-26) (authority: 5)
 - `talks/2024-10-22-euc-world-keynote.md` -- EUC Past, Present, and Future (2024-10-22) (authority: 5)
 - `talks/2024-11-26-euc-forum-winter-meeting.md` -- The Evolution and Future of End-User Computing (2024-11-26) (authority: 5)
@@ -182,6 +187,7 @@ How humans and AI work together. The delegation model, the 7-stage roadmap, the 
 - `posts/citrix-blog/2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks.md` -- What happens when AI agents score 100% in computing using benchmarks? (2025-07-24) (authority: 5)
 - `posts/citrix-blog/2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate.md` -- Workers don't want to build automations. They want to delegate. (2025-12-18) (authority: 5)
 - `posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md` -- What will knowledge work be in 18 months? Look at what AI is doing to coding right now. (2026-02-19) (authority: 5)
+- `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
 - `talks/2025-10-15-shi-fall-summit.md` -- AI in the Workplace: What's Happening in the Next 12 Months (2025-10-15) (authority: 5)
 

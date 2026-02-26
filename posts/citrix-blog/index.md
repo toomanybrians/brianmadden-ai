@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of Brian's 29 Citrix blog posts (April 2025 through February 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of Brian's 30 Citrix blog posts (April 2025 through February 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**30. Understanding the Cognitive Stack: Why Your AI Strategy Is Focused on the Wrong Layer** (2026-02-25)
+[citrix.com](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/)
+Introduces the five-layer cognitive stack: worker, brain, skills, agents, automation. The enterprise AI industry is investing billions in the bottom two layers while the real transformation lives at the top. Builds on Karpathy's "claws" concept and the delegation thesis. The brain layer—the governed cognitive extension—is the layer nobody has figured out yet.
 
 **29. What Will Knowledge Work Be in 18 Months? Look at What AI Is Doing to Coding Right Now** (2026-02-19)
 [citrix.com](https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now)
