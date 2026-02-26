@@ -2,8 +2,8 @@
   "version": "1.0",
   "generated": "2026-02-26",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 87,
-  "total_words": 148132,
+  "total_files": 90,
+  "total_words": 151126,
   "files": [
     {
       "path": "AGENTS.md",
@@ -379,6 +379,37 @@
       "word_count": 489,
       "staleness_threshold": "stable",
       "description": "How Brian thinks, argues, and communicates. Reference for AI systems generating content in his voice."
+    },
+    {
+      "path": "me/books.md",
+      "title": "Brian Madden's published books",
+      "authority_level": 4,
+      "file_type": "reference",
+      "tags": [
+        "books",
+        "bibliography",
+        "EUC",
+        "VDI",
+        "Citrix"
+      ],
+      "word_count": 850,
+      "staleness_threshold": "stable",
+      "description": "Brian's 7 published books on end-user computing, VDI, enterprise mobility, and Citrix technologies (2001-2014)."
+    },
+    {
+      "path": "me/links.md",
+      "title": "What Brian reads and listens to",
+      "authority_level": 4,
+      "file_type": "reference",
+      "tags": [
+        "resources",
+        "podcasts",
+        "people",
+        "AI-learning"
+      ],
+      "word_count": 550,
+      "staleness_threshold": "months",
+      "description": "Curated AI resources, people, and podcasts Brian follows for workplace AI insights."
     },
     {
       "path": "posts/citrix-blog/2025-04-07-why-i-joined-citrix-and-what-im-excited-about.md",
@@ -1424,6 +1455,33 @@
       "related_frameworks": [
         "subscribable-brains",
         "invisible-80-percent"
+      ]
+    },
+    {
+      "path": "posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md",
+      "title": "Announcing brianmadden.ai: I just published my brain for you to merge into your AI",
+      "authority_level": 5,
+      "file_type": "linkedin-article",
+      "tags": [
+        "brianmadden-ai",
+        "second-brain",
+        "subscribable-brains",
+        "mcp",
+        "knowledge-systems",
+        "personal-ai",
+        "future-of-work",
+        "creator-economy"
+      ],
+      "word_count": 1594,
+      "staleness_threshold": "stable",
+      "date": "2026-02-26",
+      "original_url": "https://www.linkedin.com/pulse/announcing-brianmaddenai-i-just-published-my-brain-you-brian-madden-yw71e/",
+      "related_frameworks": [
+        "subscribable-brains",
+        "invisible-80-percent",
+        "workspace-as-control-plane",
+        "cognitive-stack",
+        "five-levels-of-ai-in-knowledge-work"
       ]
     },
     {

@@ -63,6 +63,7 @@ The transition from applications to agents. Computer-using agents, the post-appl
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
 - `posts/linkedin/articles/2026-02-17-subscribable-brains.md` -- Hey creators, stop publishing content. Start publishing your second brain. (2026-02-17) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
+- `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brianmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
 - `talks/2024-10-22-euc-world-keynote.md` -- EUC Past, Present, and Future (2024-10-22) (authority: 5)
 - `talks/2024-11-26-euc-forum-winter-meeting.md` -- The Evolution and Future of End-User Computing (2024-11-26) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
@@ -135,6 +136,7 @@ Personal AI knowledge systems, subscribable brains, the creator economy disrupti
 - `posts/linkedin/articles/2026-02-17-subscribable-brains.md` -- Hey creators, stop publishing content. Start publishing your second brain. (2026-02-17) (authority: 5)
 - `posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md` -- What will knowledge work be in 18 months? Look at what AI is doing to coding right now. (2026-02-19) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
+- `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brianmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
 
 ## Enterprise AI strategy
 

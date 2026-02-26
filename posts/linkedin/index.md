@@ -8,6 +8,10 @@ Long-form pieces published as LinkedIn articles. Full text in `articles/`.
 
 ---
 
+**21. Announcing brianmadden.ai: I just published my brain for you to merge into your AI** (2026-02-26)
+[linkedin.com](https://www.linkedin.com/pulse/announcing-brianmaddenai-i-just-published-my-brain-you-brian-madden-yw71e/)
+The public launch of brianmadden.ai. Third in the second brain series. Announces the open-source MCP-enabled knowledge module, explains how to connect, demonstrates use cases, and argues this is the first AI-native knowledge system ever published.
+
 **20. Hey Creators, Stop Publishing Content. Start Publishing Your Second Brain.** (2026-02-17)
 [linkedin.com](https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae)
 Subscribable brains as a new distribution model. Creators publish structured knowledge repos that subscribers integrate into their own AI systems via git and MCP. The creator's maintenance of their own second brain *is* the product—zero incremental production effort.
