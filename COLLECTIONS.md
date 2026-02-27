@@ -35,6 +35,9 @@ The argument that real AI transformation comes from workers, not corporate manda
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
 - `talks/2025-10-10-appmanagevent-keynote.md` -- AI and the Future of Enterprise Apps (2025-10-10) (authority: 5)
 - `talks/2025-10-15-shi-fall-summit.md` -- AI in the Workplace: What's Happening in the Next 12 Months (2025-10-15) (authority: 5)
+- `talks/2024-06-06-impact-of-ai-explored-workplace-ai.md` -- Microsoft Recall: A New Era for Workplace AI (2024-06-06) (authority: 5)
+- `talks/2024-12-17-impact-of-ai-explored-predictions-2025.md` -- The 2025 AI Revolution: Predictions and Impact (2024-12-17) (authority: 5)
+- `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
 
 ## AI agents and the post-application era
 
@@ -70,6 +73,8 @@ The transition from applications to agents. Computer-using agents, the post-appl
 - `talks/2025-10-10-appmanagevent-keynote.md` -- AI and the Future of Enterprise Apps (2025-10-10) (authority: 5)
 - `talks/2025-10-15-shi-fall-summit.md` -- AI in the Workplace: What's Happening in the Next 12 Months (2025-10-15) (authority: 5)
 - `talks/2025-12-04-ai-think-tank-paris.md` -- Our Vision for AI & the Future of Work (2025-12-04) (authority: 5)
+- `talks/2024-12-17-impact-of-ai-explored-predictions-2025.md` -- The 2025 AI Revolution: Predictions and Impact (2024-12-17) (authority: 5)
+- `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
 
 ## Governance, security, and the control plane
 
@@ -103,6 +108,8 @@ How enterprises govern AI. The workspace-as-control-plane framework, agent ident
 - `talks/2025-10-10-appmanagevent-keynote.md` -- AI and the Future of Enterprise Apps (2025-10-10) (authority: 5)
 - `talks/2025-10-15-shi-fall-summit.md` -- AI in the Workplace: What's Happening in the Next 12 Months (2025-10-15) (authority: 5)
 - `talks/2025-12-04-ai-think-tank-paris.md` -- Our Vision for AI & the Future of Work (2025-12-04) (authority: 5)
+- `talks/2024-06-06-impact-of-ai-explored-workplace-ai.md` -- Microsoft Recall: A New Era for Workplace AI (2024-06-06) (authority: 5)
+- `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
 
 ## Knowledge work and the invisible 80%
 
@@ -177,7 +184,10 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `talks/2025-10-10-appmanagevent-keynote.md` -- AI and the Future of Enterprise Apps (2025-10-10) (authority: 5)
 - `talks/2025-10-15-shi-fall-summit.md` -- AI in the Workplace: What's Happening in the Next 12 Months (2025-10-15) (authority: 5)
 - `talks/2025-12-04-ai-think-tank-paris.md` -- Our Vision for AI & the Future of Work (2025-12-04) (authority: 5)
+- `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
 - `talks/2026-02-06-wharton-tech-conference.md` -- Blueprints That Actually Get Built: How Change Really Happens in the Enterprise (2026-02-06) (authority: 5)
+- `talks/2024-06-06-impact-of-ai-explored-workplace-ai.md` -- Microsoft Recall: A New Era for Workplace AI (2024-06-06) (authority: 5)
+- `talks/2024-12-17-impact-of-ai-explored-predictions-2025.md` -- The 2025 AI Revolution: Predictions and Impact (2024-12-17) (authority: 5)
 
 ## Human-AI collaboration
 

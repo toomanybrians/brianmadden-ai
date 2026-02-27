@@ -2,7 +2,7 @@
   "version": "1.0",
   "generated": "2026-02-26",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 90,
+  "total_files": 93,
   "total_words": 151126,
   "files": [
     {
@@ -1545,6 +1545,25 @@
       "description": "Collection of short-form LinkedIn feed posts from 2026. Updated as new posts are published."
     },
     {
+      "path": "talks/2024-06-06-impact-of-ai-explored-workplace-ai.md",
+      "title": "Microsoft Recall: a new era for workplace AI",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "workplace-ai",
+        "microsoft-recall",
+        "vdi",
+        "ai-screen-recording",
+        "productivity-measurement",
+        "shadow-ai",
+        "consumerization",
+        "ai-compliance",
+        "employee-monitoring"
+      ],
+      "word_count": 2800,
+      "staleness_threshold": "stable"
+    },
+    {
       "path": "talks/2024-03-26-dutch-vmug-keynote.md",
       "title": "It's Springtime for AI",
       "authority_level": 5,
@@ -1589,6 +1608,27 @@
       "audience": "EUC practitioners, IT professionals",
       "format": "Opening keynote with slides",
       "recording": "https://www.youtube.com/watch?v=DkuoK-4PncM"
+    },
+    {
+      "path": "talks/2024-12-17-impact-of-ai-explored-predictions-2025.md",
+      "title": "The 2025 AI revolution: predictions and impact",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "computer-using-agents",
+        "windows-desktop",
+        "vdi",
+        "claude-computer-use",
+        "open-source-models",
+        "workplace-ai",
+        "shadow-ai",
+        "ai-predictions",
+        "non-human-licensing",
+        "physical-ai"
+      ],
+      "word_count": 3200,
+      "staleness_threshold": "stable"
     },
     {
       "path": "talks/2024-11-26-euc-forum-winter-meeting.md",
@@ -1698,6 +1738,31 @@
       "audience": "IT leaders and practitioners",
       "format": "Keynote with slides",
       "recording": "https://www.youtube.com/watch?v=eBL9GtdAZjM"
+    },
+    {
+      "path": "talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md",
+      "title": "AI 2026: when agents, browsers, and security collide",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "computer-using-agents",
+        "osworld-benchmarks",
+        "ai-browsers",
+        "enterprise-browser",
+        "mcp",
+        "worker-led-ai",
+        "shadow-strategy",
+        "ai-predictions",
+        "ai-bubble",
+        "workspace-as-control-plane",
+        "second-brain",
+        "multi-agent",
+        "microsoft-ignite",
+        "work-iq"
+      ],
+      "word_count": 4100,
+      "staleness_threshold": "stable"
     },
     {
       "path": "talks/2025-12-04-ai-think-tank-paris.md",
