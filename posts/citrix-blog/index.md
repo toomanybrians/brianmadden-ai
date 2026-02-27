@@ -30,10 +30,6 @@ The real danger is what AI does (execution), not what it learns (exfiltration). 
 [citrix.com](https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/)
 Corporate AI fails because outsiders only see 20% of knowledge work. The 80% (reasoning, judgment, tacit knowledge) lives in workers' heads and can only be unlocked by workers themselves.
 
-**24. No AI Bombshells in 2026—Just Reality Catching Up** (2026-01-07)
-[vmblog.com](https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx)
-Six predictions: worker-led still outpaces corporate, "don't paste sensitive data" acknowledged as not a strategy, workers juggle multiple AIs daily, citizen developers real but concentrated.
-
 **23. Workers Don't Want to Build Automations, They Want to Delegate** (2025-12-18)
 [citrix.com](https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/)
 Critiques the "AI automation studio" vision. Workers think like managers, not programmers—they want to hand off tasks, not design workflows.

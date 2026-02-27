@@ -2,8 +2,8 @@
   "version": "1.0",
   "generated": "2026-02-26",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 93,
-  "total_words": 151126,
+  "total_files": 97,
+  "total_words": 151526,
   "files": [
     {
       "path": "AGENTS.md",
@@ -890,10 +890,11 @@
       "related_frameworks": []
     },
     {
-      "path": "posts/citrix-blog/2026-01-07-no-ai-bombshells-in-2026-just-reality-catching-up.md",
+      "path": "posts/external/2026-01-07-vmblog-no-ai-bombshells.md",
       "title": "No AI Bombshells in 2026—Just Reality Catching Up",
       "authority_level": 5,
-      "file_type": "citrix-blog-post",
+      "file_type": "external-article",
+      "publication": "VMBlog",
       "tags": [
         "ai-predictions",
         "enterprise-ai",
@@ -1765,6 +1766,46 @@
       "staleness_threshold": "stable"
     },
     {
+      "path": "talks/2025-09-01-axess-connect-ai-real-impact.md",
+      "title": "Artificial intelligence, real impact: Brian Madden talks AI in the modern workplace",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "computer-using-agents",
+        "knowledge-work",
+        "workspace-as-control-plane",
+        "euc",
+        "productivity",
+        "build-vs-buy",
+        "second-brain",
+        "custom-gpts",
+        "career-progression",
+        "ai-as-worker"
+      ],
+      "word_count": 3800,
+      "staleness_threshold": "stable"
+    },
+    {
+      "path": "talks/2025-07-01-axess-connect-euc-futurism-ai.md",
+      "title": "What's next for EUC? Brian Madden talks futurism in the age of AI",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "computer-using-agents",
+        "7-stage-roadmap",
+        "mcp",
+        "a2a",
+        "knowledge-work",
+        "workspace-as-control-plane",
+        "euc",
+        "ai-as-worker"
+      ],
+      "word_count": 3200,
+      "staleness_threshold": "stable"
+    },
+    {
       "path": "talks/2025-12-04-ai-think-tank-paris.md",
       "title": "Our Vision for AI & the Future of Work",
       "authority_level": 5,
@@ -1823,6 +1864,39 @@
       "tags": [],
       "word_count": 521,
       "staleness_threshold": null
+    },
+    {
+      "path": "posts/external/index.md",
+      "title": "External articles",
+      "authority_level": null,
+      "file_type": "index",
+      "tags": [],
+      "word_count": 50,
+      "staleness_threshold": null
+    },
+    {
+      "path": "posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md",
+      "title": "2026: The year your AI strategy becomes irrelevant",
+      "authority_level": 5,
+      "file_type": "external-article",
+      "tags": [
+        "invisible-80-percent",
+        "governance",
+        "worker-led-ai",
+        "consumerization",
+        "workspace-as-control-plane",
+        "agentic-ai",
+        "future-of-work"
+      ],
+      "word_count": 350,
+      "staleness_threshold": "stable",
+      "date": "2026-02-27",
+      "original_url": "https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/",
+      "publication": "AI Journal",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "workspace-as-control-plane"
+      ]
     }
   ]
 }

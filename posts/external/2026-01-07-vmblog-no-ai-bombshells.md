@@ -2,7 +2,8 @@
 title: "No AI Bombshells in 2026—Just Reality Catching Up"
 date: "2026-01-07"
 authority_level: 5
-file_type: citrix-blog-post
+file_type: external-article
+publication: VMBlog
 tags: [ai-predictions, enterprise-ai, worker-led-adoption, ai-adoption, ai-skills-gap, shadow-ai]
 related_frameworks: []
 original_url: "https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx"

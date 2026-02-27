@@ -26,7 +26,7 @@ The argument that real AI transformation comes from workers, not corporate manda
 - `posts/citrix-blog/2025-10-01-welcome-to-the-post-application-era.md` -- AI just created 10,000 accidental citizen developers in your company. Welcome to the post-application era! (2025-10-01) (authority: 5)
 - `posts/citrix-blog/2025-12-03-it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5.md` -- IT admits workers control AI. Workers admit they use it to leave at 5. (2025-12-03) (authority: 5)
 - `posts/citrix-blog/2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate.md` -- Workers don't want to build automations. They want to delegate. (2025-12-18) (authority: 5)
-- `posts/citrix-blog/2026-01-07-no-ai-bombshells-in-2026-just-reality-catching-up.md` -- No AI Bombshells in 2026—Just Reality Catching Up (2026-01-07) (authority: 5)
+- `posts/external/2026-01-07-vmblog-no-ai-bombshells.md` -- No AI Bombshells in 2026—Just Reality Catching Up (2026-01-07) (authority: 5)
 - `posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md` -- The invisible 80%—what corporate-led AI transformations can't see (2026-01-13) (authority: 5)
 - `posts/citrix-blog/2026-02-04-openclaw-governance.md` -- OpenClaw and Moltbook preview the changes needed with corporate AI governance (2026-02-04) (authority: 5)
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
@@ -38,6 +38,10 @@ The argument that real AI transformation comes from workers, not corporate manda
 - `talks/2024-06-06-impact-of-ai-explored-workplace-ai.md` -- Microsoft Recall: A New Era for Workplace AI (2024-06-06) (authority: 5)
 - `talks/2024-12-17-impact-of-ai-explored-predictions-2025.md` -- The 2025 AI Revolution: Predictions and Impact (2024-12-17) (authority: 5)
 - `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
+- `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
+- `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+
+- `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 
 ## AI agents and the post-application era
 
@@ -75,6 +79,9 @@ The transition from applications to agents. Computer-using agents, the post-appl
 - `talks/2025-12-04-ai-think-tank-paris.md` -- Our Vision for AI & the Future of Work (2025-12-04) (authority: 5)
 - `talks/2024-12-17-impact-of-ai-explored-predictions-2025.md` -- The 2025 AI Revolution: Predictions and Impact (2024-12-17) (authority: 5)
 - `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
+- `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
+- `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+- `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 
 ## Governance, security, and the control plane
 
@@ -110,6 +117,8 @@ How enterprises govern AI. The workspace-as-control-plane framework, agent ident
 - `talks/2025-12-04-ai-think-tank-paris.md` -- Our Vision for AI & the Future of Work (2025-12-04) (authority: 5)
 - `talks/2024-06-06-impact-of-ai-explored-workplace-ai.md` -- Microsoft Recall: A New Era for Workplace AI (2024-06-06) (authority: 5)
 - `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
+- `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+- `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 
 ## Knowledge work and the invisible 80%
 
@@ -144,6 +153,7 @@ Personal AI knowledge systems, subscribable brains, the creator economy disrupti
 - `posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md` -- What will knowledge work be in 18 months? Look at what AI is doing to coding right now. (2026-02-19) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brianmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
+- `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
 
 ## Enterprise AI strategy
 
@@ -174,7 +184,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `posts/citrix-blog/2025-09-17-the-bitter-lesson-of-workplace-ai.md` -- The bitter lesson of workplace AI: Stop engineering, start enabling (2025-09-17) (authority: 5)
 - `posts/citrix-blog/2025-11-13-everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it.md` -- Everyone wants to provide your AI. Nobody wants to help you manage it. (2025-11-13) (authority: 5)
 - `posts/citrix-blog/2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate.md` -- Workers don't want to build automations. They want to delegate. (2025-12-18) (authority: 5)
-- `posts/citrix-blog/2026-01-07-no-ai-bombshells-in-2026-just-reality-catching-up.md` -- No AI Bombshells in 2026—Just Reality Catching Up (2026-01-07) (authority: 5)
+- `posts/external/2026-01-07-vmblog-no-ai-bombshells.md` -- No AI Bombshells in 2026—Just Reality Catching Up (2026-01-07) (authority: 5)
 - `posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md` -- The invisible 80%—what corporate-led AI transformations can't see (2026-01-13) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `talks/2024-03-26-dutch-vmug-keynote.md` -- It's Springtime for AI (2024-03-26) (authority: 5)
@@ -188,6 +198,9 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `talks/2026-02-06-wharton-tech-conference.md` -- Blueprints That Actually Get Built: How Change Really Happens in the Enterprise (2026-02-06) (authority: 5)
 - `talks/2024-06-06-impact-of-ai-explored-workplace-ai.md` -- Microsoft Recall: A New Era for Workplace AI (2024-06-06) (authority: 5)
 - `talks/2024-12-17-impact-of-ai-explored-predictions-2025.md` -- The 2025 AI Revolution: Predictions and Impact (2024-12-17) (authority: 5)
+- `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
+- `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+- `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 
 ## Human-AI collaboration
 
@@ -202,4 +215,6 @@ How humans and AI work together. The delegation model, the 7-stage roadmap, the 
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
 - `talks/2025-10-15-shi-fall-summit.md` -- AI in the Workplace: What's Happening in the Next 12 Months (2025-10-15) (authority: 5)
+- `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
+- `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
 
