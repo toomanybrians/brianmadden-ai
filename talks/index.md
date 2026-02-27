@@ -16,6 +16,10 @@ Year-end review and 2026 predictions. OSWorld benchmarks cross human parity at 7
 Citrix AI Think Tank, Paris
 Follows the canonical stump speech structure. Covers AI disappointment paradox, shadow strategy, 7-stage evolution, post-application realization, workspace model, and Citrix positioning. Slide-by-slide narrative arc available (no transcript).
 
+**Artificial Intelligence, Real Impact: Brian Madden Talks AI in the Modern Workplace** (2025-09-01)
+Axess Connect podcast (guest appearance, Part 2 of 2)
+Productivity definitions, job compression, career progression disruption, build vs. buy, Bizarro Brian GPT, advisory council concept (early second brain precursor), computer-using agent benchmarks at 45%, 12-18 month prediction for agent IDs and autonomous AI workers in VDI. Full transcript available.
+
 **AI in the Workplace: What's Happening in the Next 12 Months** (2025-10-15)
 SHI Fall Summit, Somerset, New Jersey
 Practical near-term view of AI transforming knowledge work. Covers shadow strategy, AI platforms as gateway to work, computer-using agents, OSWorld benchmarks, post-application realization, and workspace-as-control-plane. Full transcript available.
@@ -23,6 +27,10 @@ Practical near-term view of AI transforming knowledge work. Covers shadow strate
 **AI and the Future of Enterprise Apps** (2025-10-10)
 AppManagEvent, Utrecht, Netherlands
 Closing keynote arguing the concept of applications is dissolving. AI platforms becoming gateway to work, computer-using agents, post-application realization, alternate universe IT, citizen development explosion, and capabilities orchestration. Full transcript available.
+
+**What's Next for EUC? Brian Madden Talks Futurism in the Age of AI** (2025-07-01)
+Axess Connect podcast (guest appearance, Part 1 of 2)
+The futurist role as "scout," 7-stage roadmap, MCP and A2A protocols, tools as the unlock for LLMs, humanoid robot analogy, AI as a worker needing the same tools as humans, the "any worker" extension of EUC's any-any-any strategy. Full transcript available.
 
 **The Future of Work in an AI-Native World** (2025-05-22)
 EUCtech Denmark, Billund, Denmark
