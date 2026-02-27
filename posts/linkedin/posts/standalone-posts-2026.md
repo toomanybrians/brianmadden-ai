@@ -1,6 +1,6 @@
 ---
 title: "LinkedIn posts — 2026"
-date: "2026-02-22"
+date: "2026-02-27"
 authority_level: 5
 file_type: linkedin-posts-collection
 tags: ["social-media", "short-form", "linkedin"]
@@ -9,6 +9,28 @@ description: "Collection of short-form LinkedIn feed posts from 2026. Updated as
 ---
 
 This is a list of LinkedIn posts (actual "posts", not "articles") that I, Brian Madden, VP Technology Officer & Futurist at Citrix have posted to LinkedIn. This list is only "standalone" posts, e.g. ones that are not reposts and that do not link to blog posts, speeches, etc.
+
+---
+
+https://www.linkedin.com/posts/bmadden_salesforce-just-invented-a-metric-to-measure-share-7433078775040569344
+
+Salesforce just invented a metric to measure the value that AI provides that might accidentally kill half its own product's value.
+
+The "Agentic Work Unit" measures tasks completed by AI agents (rather than tokens), so generating documents, booking reservations, closing deals... The idea is to show customers the value they're getting per token spent.
+
+But Salesforce puts a price tag on every task, customers are going to pretty quickly start scrutinizing which tasks are actually worth paying for.
+
+My guess is the "fluff" of human-based knowledge work: status reports, TPS reports, weekly summaries, etc will be the first to go... basically anything summarizing mountains of work assembled for humans. They're vestiges of a world where the only way to move information between people was to package it into documents and meetings.
+
+But AI doesn't need any of that. An AI agent doesn't need a status report to know what's happening—it can just look. It doesn't need a summary document to brief another agent. The entire category of "work about work" exists because humans are bandwidth-constrained. AI isn't.
+
+So when Salesforce starts charging per task and enterprises start tracking cost per Agentic Work Unit, the result is to stop doing the tasks that only existed because humans were running the company. Which means that many humans will no longer be able to run the company. (Or even needed?)
+
+I think one truth that a lot of people don't realize yet is that most of what we call "work" is actually coordination overhead. Charging per task just exposes organizational waste that was previously invisible because human labor made it feel free.
+
+That's the other narrative that's wrong about the SaaSpocalypse. It not about AI replacing software, it's about AI revealing how much of what software automated was never worth doing in the first place.
+
+Feb 2026
 
 ---
 
