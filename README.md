@@ -48,7 +48,7 @@ I'm Brian Madden, a futurist at Citrix. I have 32 years in end-user computing an
 I explore how AI is reshaping knowledge work. My core thesis: the real AI transformation is happening worker-by-worker, not top-down. The invisible 80% of knowledge work—the judgment, reasoning, and tacit expertise that lives in workers' heads—is where the action is. Enterprise AI automates the scaffolding. A second brain amplifies the cognition.
 
 - More details: [brianmadden.ai](https://brianmadden.ai)
-- Follow me on [LinkedIn](https://www.linkedin.com/in/bmadden/)
+- Follow me on [LinkedIn](https://www.linkedin.com/in/bmadden/) and [Bluesky](https://bsky.app/profile/bmad.com)
 - I write about these topics at [Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author)
 - My personal website: [bmad.com](https://bmad.com)
 

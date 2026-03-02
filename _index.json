@@ -2,7 +2,7 @@
   "version": "1.0",
   "generated": "2026-02-26",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 97,
+  "total_files": 99,
   "total_words": 151526,
   "files": [
     {
@@ -1544,6 +1544,30 @@
       "staleness_threshold": "weeks",
       "date": "2026-02-22",
       "description": "Collection of short-form LinkedIn feed posts from 2026. Updated as new posts are published."
+    },
+    {
+      "path": "posts/bluesky/index.md",
+      "title": "Bluesky posts",
+      "authority_level": null,
+      "file_type": "index",
+      "tags": ["social-media", "bluesky"],
+      "word_count": 50,
+      "staleness_threshold": "weeks"
+    },
+    {
+      "path": "posts/bluesky/posts-2026.md",
+      "title": "Bluesky posts — 2026",
+      "authority_level": 5,
+      "file_type": "bluesky-posts-collection",
+      "tags": [
+        "social-media",
+        "short-form",
+        "bluesky"
+      ],
+      "word_count": 50,
+      "staleness_threshold": "weeks",
+      "date": "2026-03-02",
+      "description": "Collection of Bluesky posts from 2026. Updated as new posts are published."
     },
     {
       "path": "talks/2024-06-06-impact-of-ai-explored-workplace-ai.md",
