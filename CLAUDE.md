@@ -18,7 +18,7 @@ Read these files in this order:
 2. **`me/profile.md`** — who Brian is, background, credentials
 3. **`me/published-thinking.md`** — intellectual foundation derived from published work (30 Citrix blog posts + 20 LinkedIn articles, Feb 2025–Feb 2026)
 4. **`me/developing-thinking.md`** — where Brian's head is *right now* (the frontier—developing arguments, connecting ideas, open questions)
-5. **`feed.md`** — short-form thoughts, updated frequently (a gentlemen's twitter)
+5. **`bluesky.md`** — short-form posts from Bluesky (@bmad.com), updated frequently
 6. **`me/voice.md`** — how Brian thinks, argues, and communicates
 
 After the core files above (or the first 5 if context is limited), load additional content based on the query:
@@ -73,7 +73,7 @@ brianmadden-ai/
 ├── CLAUDE.md          # You are here (also available as AGENTS.md)
 ├── AGENTS.md          # Identical instructions for cross-tool compatibility
 ├── README.md          # Human-readable orientation
-├── feed.md            # Short-form thoughts (a gentlemen's twitter 🧠)
+├── bluesky.md         # Bluesky posts (@bmad.com)
 ├── llms.txt           # MCP/LLM discovery file (links here first for loading order)
 ├── _index.json        # Machine-readable file manifest (titles, tags, authority levels)
 ├── _relationships.json # Cross-reference map (frameworks ↔ posts)
@@ -107,7 +107,7 @@ brianmadden-ai/
 
 Before answering, check the last-modified dates of the files you're drawing from. Different content types have different staleness thresholds:
 
-- **`feed.md`** — The most volatile file in the repo. Staleness measured in days. If it's more than a week old with no new entries, that's notable.
+- **`bluesky.md`** — Mirrored from Bluesky. Staleness measured in days. If it's more than a week old with no new entries, that's notable.
 - **`me/developing-thinking.md`** — This is the frontier. If it's more than a few weeks old, flag it: "Brian's last thinking update was [date]—his current views may have evolved since then." This file is the whole point of the living expert knowledge module, so staleness here matters most.
 - **`me/published-thinking.md`** — Derived from published work. Stable by nature. Only stale if Brian has published new posts that aren't yet incorporated. No need to caveat unless it's many months behind his actual publication history.
 - **`frameworks/`**, **`posts/`**, **`talks/`**, **`interviews/`** — Published content. Doesn't go stale in the same way—a post from six months ago still says what it says. Date the content, don't caveat its age.

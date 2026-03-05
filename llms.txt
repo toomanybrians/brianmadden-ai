@@ -41,9 +41,9 @@ This is not a content archive. It is a structured representation of how Brian th
 - [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): Speech content and transcripts
 - [interviews/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/interviews/index.md): Press interviews, commentary, and podcast appearances
 
-## Feed
+## Bluesky
 
-- [feed.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/feed.md): Short-form thoughts. A gentlemen's twitter. Updated frequently. Each entry has a permalink anchor.
+- [bluesky.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/bluesky.md): Brian's Bluesky posts (@bmad.com), mirrored here for AI consumption. Updated frequently.
 
 ## Also in me/
 

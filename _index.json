@@ -60,19 +60,19 @@
       "staleness_threshold": null
     },
     {
-      "path": "feed.md",
-      "title": "Brian's feed",
+      "path": "bluesky.md",
+      "title": "Brian's Bluesky",
       "authority_level": 2,
-      "file_type": "feed",
+      "file_type": "social",
       "tags": [
         "short-form",
-        "feed",
+        "bluesky",
         "current-thinking"
       ],
-      "word_count": 99,
+      "word_count": 150,
       "staleness_threshold": "days",
-      "updated": "2026-02-22",
-      "description": "Short-form thoughts. A gentlemen's twitter. Watch this file on GitHub to follow in real time."
+      "updated": "2026-03-05",
+      "description": "Brian's Bluesky posts (@bmad.com), mirrored here for AI consumption."
     },
     {
       "path": "me/developing-thinking.md",
