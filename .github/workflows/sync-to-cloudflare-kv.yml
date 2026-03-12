@@ -47,6 +47,7 @@ on:
     paths:
       - '**.md'
       - '**.txt'
+      - '**.json'
   workflow_dispatch:
 
 jobs:
@@ -67,7 +68,7 @@ jobs:
             echo "has_changes=false" >> $GITHUB_OUTPUT
             echo "needs_full_sync=true" >> $GITHUB_OUTPUT
           else
-            CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' 2>/dev/null || echo "")
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null || echo "")
             if [ -z "$CHANGED" ]; then
               echo "No content files changed"
               echo "has_changes=false" >> $GITHUB_OUTPUT
@@ -117,7 +118,7 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
         run: |
-          find . -name '*.md' -o -name '*.txt' | grep -v node_modules | grep -v .github | while IFS= read -r file; do
+          find . \( -name '*.md' -o -name '*.txt' -o -name '*.json' \) | grep -v node_modules | grep -v .github | while IFS= read -r file; do
             file="${file#./}"
             KEY="file:${file}"
             echo "Uploading: $KEY"
@@ -133,3 +134,44 @@ jobs:
           done
 
           echo "Full sync complete"
+
+      # Clean up KV keys for files that were deleted in this commit
+      - name: Clean up deleted files from KV
+        if: steps.changed.outputs.has_changes == 'true'
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
+        run: |
+          DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null || echo "")
+          if [ -z "$DELETED" ]; then
+            echo "No files deleted"
+            exit 0
+          fi
+          echo "Deleted files:"
+          echo "$DELETED"
+          echo "$DELETED" | while IFS= read -r file; do
+            KEY="file:${file}"
+            echo "Deleting KV key: $KEY"
+            ENCODED_KEY=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$KEY', safe=''))")
+            curl -s -X DELETE \
+              "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${KV_NAMESPACE_ID}/values/${ENCODED_KEY}" \
+              -H "Authorization: Bearer ${CF_API_TOKEN}" \
+              | python3 -c "import sys,json; r=json.load(sys.stdin); print('  OK' if r.get('success') else f'  FAILED: {r}')"
+          done
+          echo "Cleanup complete"
+
+      # Trigger the server repo to redeploy with the latest content index
+      # This ensures bmad.com's content listing stays in sync with the content repo
+      - name: Trigger server redeploy
+        if: steps.changed.outputs.has_changes == 'true' || github.event_name == 'workflow_dispatch' || steps.changed.outputs.needs_full_sync == 'true'
+        env:
+          DISPATCH_TOKEN: ${{ secrets.SERVER_DISPATCH_TOKEN }}
+        run: |
+          curl -s -X POST \
+            -H "Authorization: token ${DISPATCH_TOKEN}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/toomanybrians/brianmadden-ai-server/dispatches \
+            -d '{"event_type":"content-updated"}' \
+            && echo "Triggered server redeploy" \
+            || echo "Warning: Could not trigger server redeploy (token may not be configured yet)"
