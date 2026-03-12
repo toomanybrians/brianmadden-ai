@@ -24,7 +24,7 @@ A five-layer model showing how intelligence organizes itself to coordinate compl
 2. **The cognitive extension ("the brain"):** The thing the worker actually talks to. Holds full context: who the participants are, preferred formats, what's sensitive, what happened last time. Plans the approach and sequences the work.
 3. **Skills:** What the brain knows how to do. Coherent chunks of capability—process a transcript, draft an email, research a competitor, check a calendar. Each handles a meaningful piece of work with some autonomy.
 4. **Agentic sub-processes:** How skills get executed. The agents that reach into systems, navigate interfaces, call APIs, coordinate with other agents. This is where the "agent" hype lives—and it's the second lowest-value layer.
-5. **Workflow automation:** The simplest, most mechanical layer. Scripts, RPAs, CUAs, API calls, webhooks. Important plumbing, but interchangeable commodity infrastructure.
+5. **Interfaces:** The simplest, most mechanical layer. APIs, MCP, CUA, RPA, A2A, file interfaces, connectors, webhooks, scripts. Important plumbing, but interchangeable commodity infrastructure.
 
 ## Two trajectories colliding
 

@@ -49,7 +49,7 @@ I put together the following diagram to illustrate this. There's a lot going on 
 2. *The cognitive extension ("the brain"):* The thing you actually talk to. It holds your full context: who the participants are, the preferred format, what's sensitive, what happened in the last meeting, etc. It plans the approach and sequences the work.
 3. *Skills:* What the brain knows how to do. Coherent chunks of capability: process a meeting transcript, draft an email, research a competitor, check a calendar. Each one handles a meaningful piece of work with some autonomy.
 4. *Agentic sub-processes:* How skills get executed. The agents that actually reach into systems, navigate interfaces, call APIs, coordinate with other agents. This is where all that "agent" hype lives, and it's the second dumbest / lowest value layer!
-5. *Workflow automation:* Just one possible execution tool. Scripts, RPAs, CUAs, API calls, webhooks... whatever it is, it's the simplest, most mechanical layer. While this is important plumbing, it's an interchangeable commodity infrastructure layer.
+5. *Interfaces:* Just one possible execution tool. APIs, MCP, CUA, RPA, A2A, file interfaces, connectors, webhooks, scripts... whatever it is, it's the simplest, most mechanical layer. While this is important plumbing, it's an interchangeable commodity infrastructure layer.
 
 Interestingly this cognitive stack maps to how organizations already work, [as I touched on last week](https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now).
 
