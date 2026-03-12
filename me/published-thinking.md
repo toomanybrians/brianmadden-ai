@@ -1,6 +1,6 @@
 ---
 title: "Brian Madden's intellectual foundation"
-updated: "2026-02-25"
+updated: "2026-03-12"
 authority_level: 1
 file_type: synthesis
 tags: ["knowledge-work", "enterprise-ai", "worker-led-adoption", "automation", "governance", "ai-agents"]
@@ -10,9 +10,9 @@ description: "Comprehensive synthesis of Brian's published ideas across 30+ post
 
 # Brian Madden's intellectual foundation
 
-This document synthesizes the core ideas, frameworks, and arguments from Brian's published work on AI and the future of work (~2023–February 2026). It represents the intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
+This document synthesizes the core ideas, frameworks, and arguments from Brian's published work on AI and the future of work (~2023–March 2026). It represents the intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** February 25, 2026 (33 posts through February 25, 2026)
+**Last updated:** March 12, 2026 (34 posts through March 12, 2026)
 
 ---
 
@@ -374,12 +374,19 @@ Enterprise implications: consulting firms where juniors carry seniors' accumulat
 - **"A subscribable brain is infrastructure that compounds inside every subscriber's system."**
 - **"The creator's maintenance of their own second brain is also their product."**
 - **"The repo is the product, not the content."**
+- **"Skills appreciate, software depreciates."**
+- **"Apps were always just specs wrapped in a user interface."**
+- **"The question isn't whether to write skills. It's whether you want to be the one writing them or the one being replaced by someone who did."**
 
 ---
 
 ## Post-by-post notes (newest first)
 
 The full text of each published post is in `posts/citrix-blog/` and `posts/linkedin/`. For earlier LinkedIn articles (2020-2024), see `posts/linkedin/index.md`.
+
+### March 12, 2026: Skills are all you need
+[Original post](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/)
+**Major framework post.** Defines skills as plain-English text files that tell AI how to do things, and argues they are the most consequential concept in AI's impact on knowledge work. Three major moves: (1) Skills replace admin consoles, apps, and entire categories of software. Walks through the four-stage realization from the post-application era piece: "We need Excel" to "AI will operate Excel" to "Why does AI need Excel?" to "Just give AI the skill." Apps were always just specs wrapped in a user interface; remove the UI requirement and only the skill remains. (2) Skills don't just eat software ($300-500B)—they eat labor ($4-5T). Cites Sequoia's Julien Bek on services as the new software. Skills are what make the "retiring VP" scenario real, and they're shareable: a junior analyst can layer a senior partner's evaluation skills on top of their own. Connects directly to the subscribable brains thesis. (3) Skills appreciate rather than depreciate. Every AI model improvement makes existing skills more valuable—better AI executes the same instructions with better judgment. This is the bitter lesson applied to enterprise tooling. Also makes the governance case: skills are text files in git, so they're auditable, version-controlled, diffable, and composable. Enterprise compliance skills can override personal preference skills. Skills become the natural governance unit for the cognitive stack. Key signature phrases: "Skills appreciate, software depreciates." "Apps were always just specs wrapped in a user interface." "The question isn't whether to write skills. It's whether you want to be the one writing them or the one being replaced by someone who did." Connects cognitive stack, post-application era, bitter lesson, and subscribable brains frameworks. Reference when discussing: what skills are and why they matter, why software is being replaced by text files, the governance implications of skills, or the appreciating-asset nature of skills vs. depreciating software.
 
 ### February 25, 2026: Understanding the cognitive stack: why your AI strategy is focused on the wrong layer
 [Original post](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/)

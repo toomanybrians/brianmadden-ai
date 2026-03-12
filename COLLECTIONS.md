@@ -31,6 +31,7 @@ The argument that real AI transformation comes from workers, not corporate manda
 - `posts/citrix-blog/2026-02-04-openclaw-governance.md` -- OpenClaw and Moltbook preview the changes needed with corporate AI governance (2026-02-04) (authority: 5)
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
+- `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
 - `talks/2024-03-26-dutch-vmug-keynote.md` -- It's Springtime for AI (2024-03-26) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
 - `talks/2025-10-10-appmanagevent-keynote.md` -- AI and the Future of Enterprise Apps (2025-10-10) (authority: 5)
@@ -70,7 +71,8 @@ The transition from applications to agents. Computer-using agents, the post-appl
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
 - `posts/linkedin/articles/2026-02-17-subscribable-brains.md` -- Hey creators, stop publishing content. Start publishing your second brain. (2026-02-17) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
-- `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brianmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
+- `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
+- `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brainmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
 - `talks/2024-10-22-euc-world-keynote.md` -- EUC Past, Present, and Future (2024-10-22) (authority: 5)
 - `talks/2024-11-26-euc-forum-winter-meeting.md` -- The Evolution and Future of End-User Computing (2024-11-26) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
@@ -110,6 +112,7 @@ How enterprises govern AI. The workspace-as-control-plane framework, agent ident
 - `posts/citrix-blog/2026-01-21-everyones-worried-about-the-wrong-ai-security-risk.md` -- Everyone's worried about the wrong AI security risk (2026-01-21) (authority: 5)
 - `posts/citrix-blog/2026-02-04-openclaw-governance.md` -- OpenClaw and Moltbook preview the changes needed with corporate AI governance (2026-02-04) (authority: 5)
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
+- `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
 - `talks/2024-11-26-euc-forum-winter-meeting.md` -- The Evolution and Future of End-User Computing (2024-11-26) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)
 - `talks/2025-10-10-appmanagevent-keynote.md` -- AI and the Future of Enterprise Apps (2025-10-10) (authority: 5)
@@ -137,6 +140,7 @@ What knowledge work actually is, why 80% of it is invisible to corporate IT, and
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
 - `posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md` -- What will knowledge work be in 18 months? Look at what AI is doing to coding right now. (2026-02-19) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
+- `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
 
 ## Second brains and subscribable knowledge
 
@@ -152,6 +156,7 @@ Personal AI knowledge systems, subscribable brains, the creator economy disrupti
 - `posts/linkedin/articles/2026-02-17-subscribable-brains.md` -- Hey creators, stop publishing content. Start publishing your second brain. (2026-02-17) (authority: 5)
 - `posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md` -- What will knowledge work be in 18 months? Look at what AI is doing to coding right now. (2026-02-19) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
+- `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
 - `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brianmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
 
@@ -187,6 +192,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `posts/external/2026-01-07-vmblog-no-ai-bombshells.md` -- No AI Bombshells in 2026—Just Reality Catching Up (2026-01-07) (authority: 5)
 - `posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md` -- The invisible 80%—what corporate-led AI transformations can't see (2026-01-13) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
+- `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
 - `talks/2024-03-26-dutch-vmug-keynote.md` -- It's Springtime for AI (2024-03-26) (authority: 5)
 - `talks/2024-10-22-euc-world-keynote.md` -- EUC Past, Present, and Future (2024-10-22) (authority: 5)
 - `talks/2024-11-26-euc-forum-winter-meeting.md` -- The Evolution and Future of End-User Computing (2024-11-26) (authority: 5)

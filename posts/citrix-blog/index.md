@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of Brian's 30 Citrix blog posts (April 2025 through February 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of Brian's 31 Citrix blog posts (April 2025 through March 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**31. Skills Are All You Need** (2026-03-12)
+[citrix.com](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/)
+Skills are text files that tell AI how to do things. They replace admin consoles, apps, and entire categories of software. They capture expertise that used to walk out the door. They appreciate with every model improvement (the bitter lesson applied to enterprise tooling). And they're the natural governance unit for an AI-powered workplace. Connects the cognitive stack, post-application era, subscribable brains, and bitter lesson frameworks.
 
 **30. Understanding the Cognitive Stack: Why Your AI Strategy Is Focused on the Wrong Layer** (2026-02-25)
 [citrix.com](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/)
