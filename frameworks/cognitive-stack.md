@@ -7,6 +7,7 @@ tags: ["cognitive-stack", "agents", "delegation", "claws", "skills-hierarchy", "
 related_frameworks: ["delegation-not-automation", "invisible-80-percent", "five-levels-of-ai-in-knowledge-work"]
 related_posts: ["2026-02-25-cognitive-stack", "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate"]
 original_url: "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/"
+description: "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives."
 staleness_threshold: stable
 ---
 

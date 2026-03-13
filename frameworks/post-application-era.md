@@ -7,6 +7,7 @@ tags: ["enterprise-ai", "governance", "post-application", "mcp", "second-brain"]
 related_frameworks: ["workspace-as-control-plane", "subscribable-brains"]
 related_posts: ["2025-10-01-welcome-to-the-post-application-era", "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps"]
 original_url: "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/"
+description: "Software creation costs are approaching zero. The application layer that defined enterprise IT for 30 years is collapsing. What replaces it changes everything."
 staleness_threshold: stable
 ---
 

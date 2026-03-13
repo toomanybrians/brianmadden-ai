@@ -7,6 +7,7 @@ tags: ["knowledge-work", "worker-led-adoption", "enterprise-ai", "second-brain"]
 related_frameworks: ["bitter-lesson", "factory-electrification", "five-levels-of-ai-in-knowledge-work"]
 related_posts: ["2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see", "2026-02-10-second-brain-anchor"]
 original_url: "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/"
+description: "The 80% of knowledge work that only the worker can see is exactly the 80% that corporate AI can't touch. That's why worker-led AI wins."
 staleness_threshold: stable
 ---
 

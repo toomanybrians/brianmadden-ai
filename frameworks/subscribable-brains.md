@@ -7,6 +7,7 @@ tags: ["second-brain", "creator-economy", "mcp", "knowledge-work"]
 related_frameworks: ["invisible-80-percent", "post-application-era"]
 related_posts: ["2026-02-17-subscribable-brains", "2026-02-10-second-brain-anchor"]
 original_url: "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae"
+description: "Stop publishing content. Start publishing your structured knowledge repo—and let subscribers integrate your expertise into their own AI systems."
 staleness_threshold: stable
 ---
 

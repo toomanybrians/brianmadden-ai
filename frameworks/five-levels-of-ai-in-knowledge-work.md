@@ -7,6 +7,7 @@ tags: ["knowledge-work", "human-ai-collaboration", "governance", "second-brain"]
 related_frameworks: ["7-stage-roadmap", "bitter-lesson", "invisible-80-percent"]
 related_posts: ["2026-02-19-coding-as-leading-indicator"]
 original_url: "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
+description: "As AI handles more production work, the human role shifts from doing to directing to verifying. Five levels mapping that evolution."
 staleness_threshold: stable
 ---
 

@@ -7,6 +7,7 @@ tags: ["enterprise-ai", "digital-transformation", "infrastructure"]
 related_frameworks: ["bitter-lesson", "invisible-80-percent", "workspace-as-control-plane"]
 related_posts: ["2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago", "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy"]
 original_url: "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/"
+description: "Early factories wired electric motors to the same belt-drive shafts. It took 30 years to redesign around electricity. AI adoption is following the same arc."
 staleness_threshold: stable
 ---
 

@@ -125,7 +125,8 @@
       ],
       "related_posts": [
         "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
-      ]
+      ],
+      "description": "From \"prompt and paste\" to AI-orchestrated work—seven stages mapping how AI enters knowledge work, and what enterprises need to prepare for at each one."
     },
     {
       "path": "frameworks/bitter-lesson.md",
@@ -149,7 +150,8 @@
       ],
       "related_posts": [
         "2025-09-17-the-bitter-lesson-of-workplace-ai"
-      ]
+      ],
+      "description": "Simple, worker-driven AI adoption beats elaborate IT-engineered solutions. Every time. The endgame is more radical than most enterprises expect."
     },
     {
       "path": "frameworks/factory-electrification.md",
@@ -173,7 +175,8 @@
       "related_posts": [
         "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
         "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy"
-      ]
+      ],
+      "description": "Early factories wired electric motors to the same belt-drive shafts. It took 30 years to redesign around electricity. AI adoption is following the same arc."
     },
     {
       "path": "frameworks/cognitive-stack.md",
@@ -201,7 +204,8 @@
       "related_posts": [
         "2026-02-25-cognitive-stack",
         "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate"
-      ]
+      ],
+      "description": "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives."
     },
     {
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
@@ -225,7 +229,8 @@
       ],
       "related_posts": [
         "2026-02-19-coding-as-leading-indicator"
-      ]
+      ],
+      "description": "As AI handles more production work, the human role shifts from doing to directing to verifying. Five levels mapping that evolution."
     },
     {
       "path": "frameworks/invisible-80-percent.md",
@@ -250,7 +255,8 @@
       "related_posts": [
         "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
         "2026-02-10-second-brain-anchor"
-      ]
+      ],
+      "description": "The 80% of knowledge work that only the worker can see is exactly the 80% that corporate AI cannot touch. That is why worker-led AI wins."
     },
     {
       "path": "frameworks/post-application-era.md",
@@ -275,7 +281,8 @@
       "related_posts": [
         "2025-10-01-welcome-to-the-post-application-era",
         "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps"
-      ]
+      ],
+      "description": "Software creation costs are approaching zero. The application layer that defined enterprise IT for 30 years is collapsing. What replaces it changes everything."
     },
     {
       "path": "frameworks/subscribable-brains.md",
@@ -299,7 +306,8 @@
       "related_posts": [
         "2026-02-17-subscribable-brains",
         "2026-02-10-second-brain-anchor"
-      ]
+      ],
+      "description": "Stop publishing content. Start publishing your structured knowledge repo—and let subscribers integrate your expertise into their own AI systems."
     },
     {
       "path": "frameworks/workspace-as-control-plane.md",
@@ -324,7 +332,8 @@
       "related_posts": [
         "2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025",
         "2025-06-05-ai-agents-need-a-secure-place-to-work"
-      ]
+      ],
+      "description": "AI is showing up everywhere—in apps, browsers, OS, standalone tools. The only place you can govern all of it consistently is the workspace layer."
     },
     {
       "path": "interviews/index.md",
@@ -1567,7 +1576,10 @@
       "title": "Bluesky posts",
       "authority_level": null,
       "file_type": "index",
-      "tags": ["social-media", "bluesky"],
+      "tags": [
+        "social-media",
+        "bluesky"
+      ],
       "word_count": 50,
       "staleness_threshold": "weeks"
     },

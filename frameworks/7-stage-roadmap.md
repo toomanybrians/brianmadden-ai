@@ -7,6 +7,7 @@ tags: ["knowledge-work", "ai-agents", "human-ai-collaboration", "enterprise-ai"]
 related_frameworks: ["five-levels-of-ai-in-knowledge-work", "invisible-80-percent", "factory-electrification"]
 related_posts: ["2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"]
 original_url: "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/"
+description: "From 'prompt and paste' to AI-orchestrated work—seven stages mapping how AI enters knowledge work, and what enterprises need to prepare for at each one."
 staleness_threshold: stable
 ---
 
