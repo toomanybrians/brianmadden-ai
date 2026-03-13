@@ -1,78 +1,495 @@
 [
-  { "title": "Skills are all you need", "url": "https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/", "date": "2026-03-12", "type": "blog" },
-  { "title": "2026: The year your AI strategy becomes irrelevant", "url": "https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/", "date": "2026-02-27", "type": "article" },
-  { "title": "Announcing brianmadden.ai: I just published my brain for you to merge into your AI", "url": "https://www.linkedin.com/pulse/announcing-brianmaddenai-i-just-published-my-brain-you-brian-madden-yw71e/", "date": "2026-02-26", "type": "linkedin" },
-  { "title": "Understanding the cognitive stack: why your AI strategy is focused on the wrong layer", "url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/", "date": "2026-02-25", "type": "blog" },
-  { "title": "What will knowledge work be in 18 months? Look at what AI is doing to coding right now.", "url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now", "date": "2026-02-19", "type": "blog" },
-  { "title": "Hey creators, stop publishing content. Start publishing your second brain.", "url": "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae", "date": "2026-02-17", "type": "linkedin" },
-  { "title": "Workers' \"second brains\" break every assumption about how we secure knowledge work", "url": "https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/", "date": "2026-02-11", "type": "blog" },
-  { "title": "I built a second brain using AI, and it's changed the way I work. THIS is the future of knowledge work.", "url": "https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote", "date": "2026-02-10", "type": "linkedin" },
-  { "title": "OpenClaw and Moltbook preview the changes needed with corporate AI governance", "url": "https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/", "date": "2026-02-04", "type": "blog" },
-  { "title": "Claude Cowork Shows How Unready Workplaces Are for AI Agents", "url": "https://www.reworked.co/collaboration-productivity/claude-cowork-is-a-productivity-test-enterprises-may-fail/", "date": "2026-01-29", "type": "quoted" },
-  { "title": "Everyone's worried about the wrong AI security risk", "url": "https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/", "date": "2026-01-21", "type": "blog" },
-  { "title": "The invisible 80%\u2014what corporate-led AI transformations can't see", "url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/", "date": "2026-01-13", "type": "blog" },
-  { "title": "No AI Bombshells in 2027, Just Reality Catching Up", "url": "https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx", "date": "2026-01-07", "type": "article" },
-  { "title": "7 ways to kill IT's value to the business", "url": "https://www.cio.com/article/4110721/7-ways-to-kill-its-value-to-the-business.html", "date": "2026-01-06", "type": "quoted" },
-  { "title": "Workers don't want to build automations. They want to delegate.", "url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/", "date": "2025-12-18", "type": "blog" },
-  { "title": "AI 2026: When Agents, Browsers, and Security Collide", "url": "https://www.youtube.com/watch?v=9z0eVZEMOwg", "date": "2025-12-16", "type": "podcast" },
-  { "title": "AI will be THE interface to knowledge work. Here's how we'll get there.", "url": "https://www.citrix.com/blogs/2025/12/10/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there/", "date": "2025-12-10", "type": "blog" },
-  { "title": "IT admits workers control AI. Workers admit they use it to leave at 5.", "url": "https://www.citrix.com/blogs/2025/12/03/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5/", "date": "2025-12-03", "type": "blog" },
-  { "title": "Two futurists from Citrix and Microsoft walk into a bar.", "url": "https://ignite.microsoft.com/en-US/sessions/BRKSP486", "date": "2025-11-19", "type": "speech" },
-  { "title": "Everyone wants to provide your AI. Nobody wants to help you manage it.", "url": "https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it", "date": "2025-11-13", "type": "blog" },
-  { "title": "AI in the Workplace: What's happening in the next 12 months", "url": "https://www.youtube.com/watch?v=eBL9GtdAZjM", "date": "2025-10-16", "type": "speech" },
-  { "title": "Will AI need to operate your legacy desktop apps, or is direct file manipulation enough?", "url": "https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/", "date": "2025-10-15", "type": "blog" },
-  { "title": "AI & the future of enterprise apps", "url": "https://www.youtube.com/watch?v=XoJ5uL1op_E", "date": "2025-10-10", "type": "speech" },
-  { "title": "AI just created 10,000 accidental citizen developers in your company. Welcome to the post-application era!", "url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/", "date": "2025-10-01", "type": "blog" },
-  { "title": "The bitter lesson of workplace AI: Stop engineering, start enabling", "url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/", "date": "2025-09-17", "type": "blog" },
-  { "title": "How to Turn Employee AI Use into a Strategic Advantage with Brian Madden", "url": "https://www.marketingaiinstitute.com/blog/marketing-ai-conference-brian-madden", "date": "2025-09-11", "type": "interview" },
-  { "title": "If AI is normal technology, boring infrastructure is your best strategy", "url": "https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/", "date": "2025-09-10", "type": "blog" },
-  { "title": "Artificial Intelligence, Real Impact: Brian Madden talks AI in the modern workplace", "url": "https://axess.systems/information-technology-news/brian-madden-workplace-ai/", "date": "2025-09-02", "type": "podcast" },
-  { "title": "Worker-led AI isn't shadow IT. It's shadow strategy.", "url": "https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/", "date": "2025-09-02", "type": "blog" },
-  { "title": "Friday Coffee w/ Brian Madden", "url": "https://www.youtube.com/watch?v=PilOWKw6kcU?&t=118", "date": "2025-08-29", "type": "speech" },
-  { "title": "Everyone's wrong about why enterprise AI is failing", "url": "https://www.citrix.com/blogs/2025/08/27/everyones-wrong-about-why-enterprise-ai-is-failing/", "date": "2025-08-27", "type": "blog" },
-  { "title": "If AI progress stopped today, we can still transform the enterprise with what we have", "url": "https://www.citrix.com/blogs/2025/08/11/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have/", "date": "2025-08-11", "type": "blog" },
-  { "title": "AI agents are the new insider threat. Secure them like human workers.", "url": "https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/", "date": "2025-08-04", "type": "blog" },
-  { "title": "What's next for EUC? Brian Madden talks Futurism in the age of AI", "url": "https://axess.systems/information-technology-news/whats-next-for-euc-brian-madden-talks-futurism-in-the-age-of-ai/", "date": "2025-07-30", "type": "podcast" },
-  { "title": "What happens when AI agents score 100% in computing using benchmarks?", "url": "https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/", "date": "2025-07-24", "type": "blog" },
-  { "title": "Why AI agents will use the same desktops and apps as human workers", "url": "https://www.citrix.com/blogs/2025/07/16/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers/", "date": "2025-07-16", "type": "blog" },
-  { "title": "To understand AI's future impact, check out this playbook from 150 years ago", "url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/", "date": "2025-07-08", "type": "blog" },
-  { "title": "The 7-stage roadmap for human-AI collaboration in the workplace", "url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace", "date": "2025-06-24", "type": "blog" },
-  { "title": "Forget the model wars. The real AI race is in the workplace.", "url": "https://www.citrix.com/blogs/2025/06/05/forget-the-model-wars-the-real-ai-race-is-in-the-workplace/", "date": "2025-06-05", "type": "blog" },
-  { "title": "What if your CEO never sends the AI-first memo?", "url": "https://www.citrix.com/blogs/2025/05/28/what-if-your-ceo-never-sends-the-ai-first-memo/", "date": "2025-05-28", "type": "blog" },
-  { "title": "The Future of Work in an AI-Native World", "url": "https://www.youtube.com/watch?v=srNOw7uBQm4", "date": "2025-05-22", "type": "speech" },
-  { "title": "Your CEO just sent a company-wide \"AI-First\" memo. Now what?", "url": "https://www.citrix.com/blogs/2025/05/19/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what/", "date": "2025-05-19", "type": "blog" },
-  { "title": "The desktop has dissolved. Now where does work live in 2025?", "url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/", "date": "2025-05-01", "type": "blog" },
-  { "title": "What does \"AI\" mean at Citrix?", "url": "https://www.citrix.com/blogs/2025/04/21/what-does-ai-mean-at-citrix/", "date": "2025-04-21", "type": "blog" },
-  { "title": "Making sense of AI in the workplace: A starting point for leaders", "url": "https://www.citrix.com/blogs/2025/04/14/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders", "date": "2025-04-14", "type": "blog" },
-  { "title": "The first BriForum conference was 20 years ago today!", "url": "https://www.linkedin.com/posts/bmadden_the-first-briforum-conference-was-20-years-activity-7316429841770205184-4EuD", "date": "2025-04-11", "type": "linkedin" },
-  { "title": "Why I joined Citrix and what I'm excited about", "url": "https://www.citrix.com/blogs/2025/04/07/why-i-joined-citrix-and-what-im-excited-about/", "date": "2025-04-07", "type": "blog" },
-  { "title": "I just joined Citrix!", "url": "https://www.linkedin.com/posts/bmadden_i-just-joined-citrix-those-who-know-me-activity-7297631023746453504-K6B3", "date": "2025-02-18", "type": "linkedin" },
-  { "title": "The 2025 AI Revolution: Predictions & Impact", "url": "https://www.youtube.com/watch?v=KJLp-KSbSu8", "date": "2024-12-01", "type": "podcast" },
-  { "title": "The Evolution and Future of End User Computing", "url": "https://youtu.be/wFgfFT3ILZo?t=92", "date": "2024-11-01", "type": "speech" },
-  { "title": "EUC World Chat with Brian Madden", "url": "https://www.youtube.com/watch?v=1WKzjw9cgRg", "date": "2024-11-01", "type": "speech" },
-  { "title": "EUC World Independence 2024: A huge success!", "url": "https://www.linkedin.com/pulse/euc-world-independence-2024-huge-success-brian-madden-jgyle", "date": "2024-10-01", "type": "linkedin" },
-  { "title": "EUC Past, Present, & Future", "url": "https://www.youtube.com/watch?v=DkuoK-4PncM", "date": "2024-10-01", "type": "speech" },
-  { "title": "Ignore that Goldman Sachs report questioning AI's value.", "url": "https://www.linkedin.com/pulse/ignore-goldman-sachs-report-questioning-ais-value-doesnt-brian-madden-apqzc", "date": "2024-07-01", "type": "linkedin" },
-  { "title": "Firing employees for simulated keyboard activity highlights the dangers of perverse incentives", "url": "https://www.linkedin.com/pulse/firing-employees-simulated-keyboard-activity-dangers-perverse-madden-aikuc/", "date": "2024-07-01", "type": "linkedin" },
-  { "title": "I've been using Copilot for Office for months. Here's how it works and what it can do today.", "url": "https://www.linkedin.com/pulse/ive-been-using-copilot-office-months-heres-how-works-what-madden-nqu6c", "date": "2024-06-01", "type": "linkedin" },
-  { "title": "Apple Intelligence is the beginning of a slippery slope that all companies need to understand today", "url": "https://www.linkedin.com/pulse/apple-intelligence-beginning-slippery-slope-all-companies-madden-iyuyc/", "date": "2024-06-01", "type": "linkedin" },
-  { "title": "AI Screen Recorders + VDI: The ultimate secure, compliant, & powerful desktop?", "url": "https://www.linkedin.com/pulse/ai-screen-recorders-vdi-ultimate-secure-compliant-powerful-madden-fa5dc", "date": "2024-06-01", "type": "linkedin" },
-  { "title": "A New Era of Workplace AI", "url": "https://www.youtube.com/watch?v=lzBnEPTgH2A", "date": "2024-06-01", "type": "podcast" },
-  { "title": "Microsoft Recall: An analysis of the issues & prediction of the evolution of the AI workplace", "url": "https://www.linkedin.com/pulse/microsoft-recall-analysis-issues-prediction-evolution-brian-madden-zoync/", "date": "2024-05-01", "type": "linkedin" },
-  { "title": "Why the enterprise desktop still matters in 2024.", "url": "https://www.linkedin.com/pulse/why-enterprise-desktop-still-matters-2024-hint-its-apps-brian-madden-fsgbc/", "date": "2024-05-01", "type": "linkedin" },
-  { "title": "The AI train is leaving the station, and I feel like I missed it!", "url": "https://www.youtube.com/watch?v=6JAEOS7iREw", "date": "2024-04-01", "type": "speech" },
-  { "title": "The Parisian Chronicles: Brian Madden's Story", "url": "https://www.youtube.com/watch?v=jqwXVWeM47k", "date": "2024-03-01", "type": "podcast" },
-  { "title": "Generative AI in the enterprise: lots of hype, little practical advice.", "url": "https://www.linkedin.com/pulse/generative-ai-enterprise-lots-hype-little-practical-advice-madden-fketc", "date": "2024-02-01", "type": "linkedin" },
-  { "title": "The Consumerization of IT roars back, and this time they have AI!", "url": "https://www.linkedin.com/pulse/consumerization-roars-back-time-have-ai-brian-madden", "date": "2023-08-01", "type": "linkedin" },
-  { "title": "A look at ChatGPT's architecture. A lot for enterprise admins to like!", "url": "https://www.linkedin.com/pulse/chatgpt-more-like-standard-enterprise-app-than-you-think-brian-madden", "date": "2023-07-01", "type": "linkedin" },
-  { "title": "AI is more than ChatGPT", "url": "https://www.linkedin.com/pulse/ai-more-than-chatgpt-brian-madden/", "date": "2023-06-01", "type": "linkedin" },
-  { "title": "How much \"help\" did AI provide? We should all disclose this.", "url": "https://www.linkedin.com/pulse/how-much-help-did-ai-provide-we-should-all-disclose-brian-madden", "date": "2023-06-01", "type": "linkedin" },
-  { "title": "My AI journey and the links that set the stage.", "url": "https://www.linkedin.com/pulse/my-ai-journey-links-set-stage-chatgpt-just-beginning-brian-madden", "date": "2023-06-01", "type": "linkedin" },
-  { "title": "20 years ago today, I self-published my first book!", "url": "https://www.linkedin.com/posts/bmadden_20-years-ago-today-i-self-published-my-first-activity-6894332611670495232-JjWK", "date": "2022-01-01", "type": "linkedin" },
-  { "title": "A Eulogy for BrianMadden.com", "url": "https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/", "date": "2020-01-01", "type": "linkedin" },
-  { "title": "Want to give better presentations? Read these two books", "url": "https://www.linkedin.com/pulse/want-give-better-presentations-read-two-books-brian-madden", "date": "2019-01-01", "type": "linkedin" },
-  { "title": "EUC: Past, Present, & Future", "url": "https://www.youtube.com/watch?v=sY5oohpjC_4", "date": "2018-01-01", "type": "speech" },
-  { "title": "Is VDI Dead?", "url": "https://www.youtube.com/watch?v=9Sa7EsDMJto", "date": "2018-01-01", "type": "speech" },
-  { "title": "The liquefaction of hardware", "url": "https://www.economist.com/business/2010/11/18/the-liquefaction-of-hardware", "date": "2010-11-18", "type": "quoted" },
-  { "title": "Microsoft profits due to recent sales", "url": "https://www.marketplace.org/story/2008/01/25/microsoft-profits-due-recent-sales", "date": "2008-01-25", "type": "quoted" }
+  {
+    "title": "Skills are all you need",
+    "url": "https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/",
+    "date": "2026-03-12",
+    "type": "blog",
+    "description": "Why plain-English skill files are replacing software, automations, and entire job categories. Skills appreciate; software depreciates."
+  },
+  {
+    "title": "2026: The year your AI strategy becomes irrelevant",
+    "url": "https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/",
+    "date": "2026-02-27",
+    "type": "article"
+  },
+  {
+    "title": "Announcing brianmadden.ai: I just published my brain for you to merge into your AI",
+    "url": "https://www.linkedin.com/pulse/announcing-brianmaddenai-i-just-published-my-brain-you-brian-madden-yw71e/",
+    "date": "2026-02-26",
+    "type": "linkedin",
+    "description": "A structured knowledge repo served via MCP. Not content but infrastructure that compounds inside your AI system."
+  },
+  {
+    "title": "Understanding the cognitive stack: why your AI strategy is focused on the wrong layer",
+    "url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
+    "date": "2026-02-25",
+    "type": "blog",
+    "description": "A five-layer model of how intelligence coordinates complex work. The enterprise AI industry is spending billions on the bottom two layers."
+  },
+  {
+    "title": "What will knowledge work be in 18 months? Look at what AI is doing to coding right now.",
+    "url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
+    "date": "2026-02-19",
+    "type": "blog",
+    "description": "Software engineering is the leading indicator for all knowledge work. The five levels of human-AI collaboration map the trajectory."
+  },
+  {
+    "title": "Hey creators, stop publishing content. Start publishing your second brain.",
+    "url": "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae",
+    "date": "2026-02-17",
+    "type": "linkedin",
+    "description": "The subscribable brain model: experts maintain knowledge repos that subscribers integrate into their own AI systems."
+  },
+  {
+    "title": "Workers' \"second brains\" break every assumption about how we secure knowledge work",
+    "url": "https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/",
+    "date": "2026-02-11",
+    "type": "blog",
+    "description": "Personal AI knowledge systems change the security threat model entirely. You must assume everything a worker hears or reads enters their knowledge base within seconds."
+  },
+  {
+    "title": "I built a second brain using AI, and it's changed the way I work. THIS is the future of knowledge work.",
+    "url": "https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote",
+    "date": "2026-02-10",
+    "type": "linkedin",
+    "description": "The anchor article. How a second brain works, why it matters, and why this is the most important shift in knowledge work."
+  },
+  {
+    "title": "OpenClaw and Moltbook preview the changes needed with corporate AI governance",
+    "url": "https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/",
+    "date": "2026-02-04",
+    "type": "blog",
+    "description": "Worker-built AI tools are emerging faster than governance frameworks can handle. Two real examples of what is coming."
+  },
+  {
+    "title": "Claude Cowork Shows How Unready Workplaces Are for AI Agents",
+    "url": "https://www.reworked.co/collaboration-productivity/claude-cowork-is-a-productivity-test-enterprises-may-fail/",
+    "date": "2026-01-29",
+    "type": "quoted"
+  },
+  {
+    "title": "Everyone's worried about the wrong AI security risk",
+    "url": "https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/",
+    "date": "2026-01-21",
+    "type": "blog",
+    "description": "The real risk is not secrets leaking into AI models. It is workers building personal knowledge systems that leave with them."
+  },
+  {
+    "title": "The invisible 80%—what corporate-led AI transformations can't see",
+    "url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/",
+    "date": "2026-01-13",
+    "type": "blog",
+    "description": "Corporate AI can only reach the 20% of work that is visible. The other 80% lives in workers' heads, and only they can reach it."
+  },
+  {
+    "title": "No AI Bombshells in 2027, Just Reality Catching Up",
+    "url": "https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx",
+    "date": "2026-01-07",
+    "type": "article"
+  },
+  {
+    "title": "7 ways to kill IT's value to the business",
+    "url": "https://www.cio.com/article/4110721/7-ways-to-kill-its-value-to-the-business.html",
+    "date": "2026-01-06",
+    "type": "quoted"
+  },
+  {
+    "title": "Workers don't want to build automations. They want to delegate.",
+    "url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/",
+    "date": "2025-12-18",
+    "type": "blog",
+    "description": "The 'AI automation studio' vision fails because workers think like managers, not programmers. Delegation beats engineering."
+  },
+  {
+    "title": "AI 2026: When Agents, Browsers, and Security Collide",
+    "url": "https://www.youtube.com/watch?v=9z0eVZEMOwg",
+    "date": "2025-12-16",
+    "type": "podcast"
+  },
+  {
+    "title": "AI will be THE interface to knowledge work. Here's how we'll get there.",
+    "url": "https://www.citrix.com/blogs/2025/12/10/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there/",
+    "date": "2025-12-10",
+    "type": "blog",
+    "description": "AI platforms, not apps, become the primary interface to work. The pathway from copilot to workspace to orchestrator."
+  },
+  {
+    "title": "IT admits workers control AI. Workers admit they use it to leave at 5.",
+    "url": "https://www.citrix.com/blogs/2025/12/03/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5/",
+    "date": "2025-12-03",
+    "type": "blog",
+    "description": "Microsoft Ignite survey confirms: workers control AI adoption, not IT. And workers keep the productivity gains for themselves."
+  },
+  {
+    "title": "Two futurists from Citrix and Microsoft walk into a bar.",
+    "url": "https://ignite.microsoft.com/en-US/sessions/BRKSP486",
+    "date": "2025-11-19",
+    "type": "speech"
+  },
+  {
+    "title": "Everyone wants to provide your AI. Nobody wants to help you manage it.",
+    "url": "https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it",
+    "date": "2025-11-13",
+    "type": "blog",
+    "description": "A typical worker encounters 5+ different AIs daily. The governance gap between AI provision and AI management is widening."
+  },
+  {
+    "title": "AI in the Workplace: What's happening in the next 12 months",
+    "url": "https://www.youtube.com/watch?v=eBL9GtdAZjM",
+    "date": "2025-10-16",
+    "type": "speech"
+  },
+  {
+    "title": "Will AI need to operate your legacy desktop apps, or is direct file manipulation enough?",
+    "url": "https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/",
+    "date": "2025-10-15",
+    "type": "blog",
+    "description": "An epiphany: Claude edited an Excel file without opening Excel. What happens when AI does not need the application at all?"
+  },
+  {
+    "title": "AI & the future of enterprise apps",
+    "url": "https://www.youtube.com/watch?v=XoJ5uL1op_E",
+    "date": "2025-10-10",
+    "type": "speech"
+  },
+  {
+    "title": "AI just created 10,000 accidental citizen developers in your company. Welcome to the post-application era!",
+    "url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/",
+    "date": "2025-10-01",
+    "type": "blog",
+    "description": "The ratio inverted from one app per ten users to ten apps per employee. Software creation costs approaching zero changes everything."
+  },
+  {
+    "title": "The bitter lesson of workplace AI: Stop engineering, start enabling",
+    "url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
+    "date": "2025-09-17",
+    "type": "blog",
+    "description": "Applying Rich Sutton’s bitter lesson to the enterprise: simple, worker-driven AI adoption beats elaborate IT-engineered solutions. Every time."
+  },
+  {
+    "title": "How to Turn Employee AI Use into a Strategic Advantage with Brian Madden",
+    "url": "https://www.marketingaiinstitute.com/blog/marketing-ai-conference-brian-madden",
+    "date": "2025-09-11",
+    "type": "interview"
+  },
+  {
+    "title": "If AI is normal technology, boring infrastructure is your best strategy",
+    "url": "https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/",
+    "date": "2025-09-10",
+    "type": "blog",
+    "description": "If AI takes years to integrate like every other technology wave, stable and flexible infrastructure beats chasing shiny objects."
+  },
+  {
+    "title": "Artificial Intelligence, Real Impact: Brian Madden talks AI in the modern workplace",
+    "url": "https://axess.systems/information-technology-news/brian-madden-workplace-ai/",
+    "date": "2025-09-02",
+    "type": "podcast"
+  },
+  {
+    "title": "Worker-led AI isn't shadow IT. It's shadow strategy.",
+    "url": "https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/",
+    "date": "2025-09-02",
+    "type": "blog",
+    "description": "Reframing worker-led AI adoption from compliance problem to the real innovation engine that enterprises should enable, not contain."
+  },
+  {
+    "title": "Friday Coffee w/ Brian Madden",
+    "url": "https://www.youtube.com/watch?v=PilOWKw6kcU?&t=118",
+    "date": "2025-08-29",
+    "type": "speech"
+  },
+  {
+    "title": "Everyone's wrong about why enterprise AI is failing",
+    "url": "https://www.citrix.com/blogs/2025/08/27/everyones-wrong-about-why-enterprise-ai-is-failing/",
+    "date": "2025-08-27",
+    "type": "blog",
+    "description": "The transformation McKinsey promises with future agents is being attempted right now by workers with today's consumer AI tools."
+  },
+  {
+    "title": "If AI progress stopped today, we can still transform the enterprise with what we have",
+    "url": "https://www.citrix.com/blogs/2025/08/11/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have/",
+    "date": "2025-08-11",
+    "type": "blog",
+    "description": "Even if all AI development stopped today, five-plus years of transformation ahead just integrating what already exists."
+  },
+  {
+    "title": "AI agents are the new insider threat. Secure them like human workers.",
+    "url": "https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/",
+    "date": "2025-08-04",
+    "type": "blog",
+    "description": "AI agents are autonomous workers, not tools. They need identities, access controls, and governance like any other insider."
+  },
+  {
+    "title": "What's next for EUC? Brian Madden talks Futurism in the age of AI",
+    "url": "https://axess.systems/information-technology-news/whats-next-for-euc-brian-madden-talks-futurism-in-the-age-of-ai/",
+    "date": "2025-07-30",
+    "type": "podcast"
+  },
+  {
+    "title": "What happens when AI agents score 100% in computing using benchmarks?",
+    "url": "https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/",
+    "date": "2025-07-24",
+    "type": "blog",
+    "description": "Exploring what perfect CUA benchmark scores mean for enterprise IT. Agents that can operate any application change the governance model."
+  },
+  {
+    "title": "Why AI agents will use the same desktops and apps as human workers",
+    "url": "https://www.citrix.com/blogs/2025/07/16/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers/",
+    "date": "2025-07-16",
+    "type": "blog",
+    "description": "AI operating GUIs is not a bug but a feature. Agents need the same workspace infrastructure as humans."
+  },
+  {
+    "title": "To understand AI's future impact, check out this playbook from 150 years ago",
+    "url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/",
+    "date": "2025-07-08",
+    "type": "blog",
+    "description": "The factory electrification parallel: it took 30 years to redesign factories around electricity. AI adoption is following the same arc."
+  },
+  {
+    "title": "The 7-stage roadmap for human-AI collaboration in the workplace",
+    "url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace",
+    "date": "2025-06-24",
+    "type": "blog",
+    "description": "Seven stages from “prompt and paste” to AI-orchestrated work. Your workers are already in Stage 2. Are you ready for Stage 5?"
+  },
+  {
+    "title": "Forget the model wars. The real AI race is in the workplace.",
+    "url": "https://www.citrix.com/blogs/2025/06/05/forget-the-model-wars-the-real-ai-race-is-in-the-workplace/",
+    "date": "2025-06-05",
+    "type": "blog",
+    "description": "Mary Meeker’s 340-page AI report analyzed through the lens of workplace transformation and why agents need secure workspaces."
+  },
+  {
+    "title": "What if your CEO never sends the AI-first memo?",
+    "url": "https://www.citrix.com/blogs/2025/05/28/what-if-your-ceo-never-sends-the-ai-first-memo/",
+    "date": "2025-05-28",
+    "type": "blog",
+    "description": "Workers are not waiting for strategy memos. The transformation is happening without permission, and that is the point."
+  },
+  {
+    "title": "The Future of Work in an AI-Native World",
+    "url": "https://www.youtube.com/watch?v=srNOw7uBQm4",
+    "date": "2025-05-22",
+    "type": "speech"
+  },
+  {
+    "title": "Your CEO just sent a company-wide \"AI-First\" memo. Now what?",
+    "url": "https://www.citrix.com/blogs/2025/05/19/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what/",
+    "date": "2025-05-19",
+    "type": "blog",
+    "description": "Analyzing the CEO memo trend (Shopify, Duolingo, Box). What these memos get right, what they miss, and what to do next."
+  },
+  {
+    "title": "The desktop has dissolved. Now where does work live in 2025?",
+    "url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/",
+    "date": "2025-05-01",
+    "type": "blog",
+    "description": "The workspace is not a device, OS, or browser. It is a dynamic abstraction where apps, identity, security, and context converge."
+  },
+  {
+    "title": "What does \"AI\" mean at Citrix?",
+    "url": "https://www.citrix.com/blogs/2025/04/21/what-does-ai-mean-at-citrix/",
+    "date": "2025-04-21",
+    "type": "blog",
+    "description": "Three categories: AI in products, AI used internally, and AI reshaping customers' workplaces. The third is the transformation that matters."
+  },
+  {
+    "title": "Making sense of AI in the workplace: A starting point for leaders",
+    "url": "https://www.citrix.com/blogs/2025/04/14/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders",
+    "date": "2025-04-14",
+    "type": "blog",
+    "description": "AI did not wait for strategy memos. Workers do not care about ROI debates. Here is where to actually start."
+  },
+  {
+    "title": "The first BriForum conference was 20 years ago today!",
+    "url": "https://www.linkedin.com/posts/bmadden_the-first-briforum-conference-was-20-years-activity-7316429841770205184-4EuD",
+    "date": "2025-04-11",
+    "type": "linkedin"
+  },
+  {
+    "title": "Why I joined Citrix and what I'm excited about",
+    "url": "https://www.citrix.com/blogs/2025/04/07/why-i-joined-citrix-and-what-im-excited-about/",
+    "date": "2025-04-07",
+    "type": "blog",
+    "description": "After 30 years orbiting Citrix, the reason to join now: we are on the cusp of the greatest workplace transformation of our lives."
+  },
+  {
+    "title": "I just joined Citrix!",
+    "url": "https://www.linkedin.com/posts/bmadden_i-just-joined-citrix-those-who-know-me-activity-7297631023746453504-K6B3",
+    "date": "2025-02-18",
+    "type": "linkedin",
+    "description": "Announcing 30 years of end-user computing experience meeting the AI transformation moment."
+  },
+  {
+    "title": "The 2025 AI Revolution: Predictions & Impact",
+    "url": "https://www.youtube.com/watch?v=KJLp-KSbSu8",
+    "date": "2024-12-01",
+    "type": "podcast"
+  },
+  {
+    "title": "The Evolution and Future of End User Computing",
+    "url": "https://youtu.be/wFgfFT3ILZo?t=92",
+    "date": "2024-11-01",
+    "type": "speech"
+  },
+  {
+    "title": "EUC World Chat with Brian Madden",
+    "url": "https://www.youtube.com/watch?v=1WKzjw9cgRg",
+    "date": "2024-11-01",
+    "type": "speech"
+  },
+  {
+    "title": "EUC World Independence 2024: A huge success!",
+    "url": "https://www.linkedin.com/pulse/euc-world-independence-2024-huge-success-brian-madden-jgyle",
+    "date": "2024-10-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "EUC Past, Present, & Future",
+    "url": "https://www.youtube.com/watch?v=DkuoK-4PncM",
+    "date": "2024-10-01",
+    "type": "speech"
+  },
+  {
+    "title": "Ignore that Goldman Sachs report questioning AI's value.",
+    "url": "https://www.linkedin.com/pulse/ignore-goldman-sachs-report-questioning-ais-value-doesnt-brian-madden-apqzc",
+    "date": "2024-07-01",
+    "type": "linkedin",
+    "description": "Early pushback on AI skepticism. The evidence was already clear to practitioners."
+  },
+  {
+    "title": "Firing employees for simulated keyboard activity highlights the dangers of perverse incentives",
+    "url": "https://www.linkedin.com/pulse/firing-employees-simulated-keyboard-activity-dangers-perverse-madden-aikuc/",
+    "date": "2024-07-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "I've been using Copilot for Office for months. Here's how it works and what it can do today.",
+    "url": "https://www.linkedin.com/pulse/ive-been-using-copilot-office-months-heres-how-works-what-madden-nqu6c",
+    "date": "2024-06-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "Apple Intelligence is the beginning of a slippery slope that all companies need to understand today",
+    "url": "https://www.linkedin.com/pulse/apple-intelligence-beginning-slippery-slope-all-companies-madden-iyuyc/",
+    "date": "2024-06-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "AI Screen Recorders + VDI: The ultimate secure, compliant, & powerful desktop?",
+    "url": "https://www.linkedin.com/pulse/ai-screen-recorders-vdi-ultimate-secure-compliant-powerful-madden-fa5dc",
+    "date": "2024-06-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "A New Era of Workplace AI",
+    "url": "https://www.youtube.com/watch?v=lzBnEPTgH2A",
+    "date": "2024-06-01",
+    "type": "podcast"
+  },
+  {
+    "title": "Microsoft Recall: An analysis of the issues & prediction of the evolution of the AI workplace",
+    "url": "https://www.linkedin.com/pulse/microsoft-recall-analysis-issues-prediction-evolution-brian-madden-zoync/",
+    "date": "2024-05-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "Why the enterprise desktop still matters in 2024.",
+    "url": "https://www.linkedin.com/pulse/why-enterprise-desktop-still-matters-2024-hint-its-apps-brian-madden-fsgbc/",
+    "date": "2024-05-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "The AI train is leaving the station, and I feel like I missed it!",
+    "url": "https://www.youtube.com/watch?v=6JAEOS7iREw",
+    "date": "2024-04-01",
+    "type": "speech"
+  },
+  {
+    "title": "The Parisian Chronicles: Brian Madden's Story",
+    "url": "https://www.youtube.com/watch?v=jqwXVWeM47k",
+    "date": "2024-03-01",
+    "type": "podcast"
+  },
+  {
+    "title": "Generative AI in the enterprise: lots of hype, little practical advice.",
+    "url": "https://www.linkedin.com/pulse/generative-ai-enterprise-lots-hype-little-practical-advice-madden-fketc",
+    "date": "2024-02-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "The Consumerization of IT roars back, and this time they have AI!",
+    "url": "https://www.linkedin.com/pulse/consumerization-roars-back-time-have-ai-brian-madden",
+    "date": "2023-08-01",
+    "type": "linkedin",
+    "description": "The BYOD pattern repeating with AI. Workers adopt better tools, companies try to catch up, the gap persists."
+  },
+  {
+    "title": "A look at ChatGPT's architecture. A lot for enterprise admins to like!",
+    "url": "https://www.linkedin.com/pulse/chatgpt-more-like-standard-enterprise-app-than-you-think-brian-madden",
+    "date": "2023-07-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "AI is more than ChatGPT",
+    "url": "https://www.linkedin.com/pulse/ai-more-than-chatgpt-brian-madden/",
+    "date": "2023-06-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "How much \"help\" did AI provide? We should all disclose this.",
+    "url": "https://www.linkedin.com/pulse/how-much-help-did-ai-provide-we-should-all-disclose-brian-madden",
+    "date": "2023-06-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "My AI journey and the links that set the stage.",
+    "url": "https://www.linkedin.com/pulse/my-ai-journey-links-set-stage-chatgpt-just-beginning-brian-madden",
+    "date": "2023-06-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "20 years ago today, I self-published my first book!",
+    "url": "https://www.linkedin.com/posts/bmadden_20-years-ago-today-i-self-published-my-first-activity-6894332611670495232-JjWK",
+    "date": "2022-01-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "A Eulogy for BrianMadden.com",
+    "url": "https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/",
+    "date": "2020-01-01",
+    "type": "linkedin",
+    "description": "Reflecting on 20 years of building the largest independent community for enterprise IT professionals."
+  },
+  {
+    "title": "Want to give better presentations? Read these two books",
+    "url": "https://www.linkedin.com/pulse/want-give-better-presentations-read-two-books-brian-madden",
+    "date": "2019-01-01",
+    "type": "linkedin"
+  },
+  {
+    "title": "EUC: Past, Present, & Future",
+    "url": "https://www.youtube.com/watch?v=sY5oohpjC_4",
+    "date": "2018-01-01",
+    "type": "speech"
+  },
+  {
+    "title": "Is VDI Dead?",
+    "url": "https://www.youtube.com/watch?v=9Sa7EsDMJto",
+    "date": "2018-01-01",
+    "type": "speech"
+  },
+  {
+    "title": "The liquefaction of hardware",
+    "url": "https://www.economist.com/business/2010/11/18/the-liquefaction-of-hardware",
+    "date": "2010-11-18",
+    "type": "quoted"
+  },
+  {
+    "title": "Microsoft profits due to recent sales",
+    "url": "https://www.marketplace.org/story/2008/01/25/microsoft-profits-due-recent-sales",
+    "date": "2008-01-25",
+    "type": "quoted"
+  }
 ]
