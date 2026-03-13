@@ -10,7 +10,8 @@
     "title": "2026: The year your AI strategy becomes irrelevant",
     "url": "https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/",
     "date": "2026-02-27",
-    "type": "article"
+    "type": "article",
+    "description": "The invisible 80% framework applied to why corporate AI strategies miss what matters. Published in AI Journal."
   },
   {
     "title": "Announcing brianmadden.ai: I just published my brain for you to merge into your AI",
@@ -65,7 +66,8 @@
     "title": "Claude Cowork Shows How Unready Workplaces Are for AI Agents",
     "url": "https://www.reworked.co/collaboration-productivity/claude-cowork-is-a-productivity-test-enterprises-may-fail/",
     "date": "2026-01-29",
-    "type": "quoted"
+    "type": "quoted",
+    "description": "Quoted on why Claude's Cowork launch reveals how unprepared enterprise workplaces are for autonomous AI agents."
   },
   {
     "title": "Everyone's worried about the wrong AI security risk",
@@ -85,13 +87,15 @@
     "title": "No AI Bombshells in 2027, Just Reality Catching Up",
     "url": "https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx",
     "date": "2026-01-07",
-    "type": "article"
+    "type": "article",
+    "description": "Six predictions for the year: AI as real coworker for a minority, worker-led adoption still ahead, and the skills revolution accelerating."
   },
   {
     "title": "7 ways to kill IT's value to the business",
     "url": "https://www.cio.com/article/4110721/7-ways-to-kill-its-value-to-the-business.html",
     "date": "2026-01-06",
-    "type": "quoted"
+    "type": "quoted",
+    "description": "Quoted on the patterns that erode IT's strategic value inside organizations."
   },
   {
     "title": "Workers don't want to build automations. They want to delegate.",
@@ -104,7 +108,8 @@
     "title": "AI 2026: When Agents, Browsers, and Security Collide",
     "url": "https://www.youtube.com/watch?v=9z0eVZEMOwg",
     "date": "2025-12-16",
-    "type": "podcast"
+    "type": "podcast",
+    "description": "Year-end review on Impact of AI: Explored. CUA benchmarks crossing human parity, AI browsers as security concern, and MCP going ubiquitous."
   },
   {
     "title": "AI will be THE interface to knowledge work. Here's how we'll get there.",
@@ -124,7 +129,8 @@
     "title": "Two futurists from Citrix and Microsoft walk into a bar.",
     "url": "https://ignite.microsoft.com/en-US/sessions/BRKSP486",
     "date": "2025-11-19",
-    "type": "speech"
+    "type": "speech",
+    "description": "Joint session with Microsoft's Simon May at Citrix UNITE, exploring how AI transforms the workspace from two vendor perspectives."
   },
   {
     "title": "Everyone wants to provide your AI. Nobody wants to help you manage it.",
@@ -137,7 +143,8 @@
     "title": "AI in the Workplace: What's happening in the next 12 months",
     "url": "https://www.youtube.com/watch?v=eBL9GtdAZjM",
     "date": "2025-10-16",
-    "type": "speech"
+    "type": "speech",
+    "description": "Keynote at SHI Fall Summit on the trajectory of AI in enterprise IT over the next 12 months."
   },
   {
     "title": "Will AI need to operate your legacy desktop apps, or is direct file manipulation enough?",
@@ -150,7 +157,8 @@
     "title": "AI & the future of enterprise apps",
     "url": "https://www.youtube.com/watch?v=XoJ5uL1op_E",
     "date": "2025-10-10",
-    "type": "speech"
+    "type": "speech",
+    "description": "Closing keynote at AppManagEvent on what happens to enterprise applications as AI makes software creation nearly free."
   },
   {
     "title": "AI just created 10,000 accidental citizen developers in your company. Welcome to the post-application era!",
@@ -170,7 +178,8 @@
     "title": "How to Turn Employee AI Use into a Strategic Advantage with Brian Madden",
     "url": "https://www.marketingaiinstitute.com/blog/marketing-ai-conference-brian-madden",
     "date": "2025-09-11",
-    "type": "interview"
+    "type": "interview",
+    "description": "Interview on converting worker-led AI adoption from a compliance problem into a strategic advantage."
   },
   {
     "title": "If AI is normal technology, boring infrastructure is your best strategy",
@@ -183,7 +192,8 @@
     "title": "Artificial Intelligence, Real Impact: Brian Madden talks AI in the modern workplace",
     "url": "https://axess.systems/information-technology-news/brian-madden-workplace-ai/",
     "date": "2025-09-02",
-    "type": "podcast"
+    "type": "podcast",
+    "description": "Axess Connect Part 2: productivity definitions, job compression, career disruption, and precursors to the second brain approach."
   },
   {
     "title": "Worker-led AI isn't shadow IT. It's shadow strategy.",
@@ -196,7 +206,8 @@
     "title": "Friday Coffee w/ Brian Madden",
     "url": "https://www.youtube.com/watch?v=PilOWKw6kcU?&t=118",
     "date": "2025-08-29",
-    "type": "speech"
+    "type": "speech",
+    "description": "Casual conversation covering the current state of AI in enterprise IT and what is coming next."
   },
   {
     "title": "Everyone's wrong about why enterprise AI is failing",
@@ -223,7 +234,8 @@
     "title": "What's next for EUC? Brian Madden talks Futurism in the age of AI",
     "url": "https://axess.systems/information-technology-news/whats-next-for-euc-brian-madden-talks-futurism-in-the-age-of-ai/",
     "date": "2025-07-30",
-    "type": "podcast"
+    "type": "podcast",
+    "description": "Axess Connect Part 1: the 7-stage roadmap and why AI's real impact comes through existing workspaces, not new tools."
   },
   {
     "title": "What happens when AI agents score 100% in computing using benchmarks?",
@@ -271,7 +283,8 @@
     "title": "The Future of Work in an AI-Native World",
     "url": "https://www.youtube.com/watch?v=srNOw7uBQm4",
     "date": "2025-05-22",
-    "type": "speech"
+    "type": "speech",
+    "description": "Closing keynote at EUCtech Denmark on what work looks like when AI is infrastructure, not a feature."
   },
   {
     "title": "Your CEO just sent a company-wide \"AI-First\" memo. Now what?",
@@ -305,7 +318,8 @@
     "title": "The first BriForum conference was 20 years ago today!",
     "url": "https://www.linkedin.com/posts/bmadden_the-first-briforum-conference-was-20-years-activity-7316429841770205184-4EuD",
     "date": "2025-04-11",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Reflecting on the 20th anniversary of the conference that built the independent EUC community."
   },
   {
     "title": "Why I joined Citrix and what I'm excited about",
@@ -325,31 +339,36 @@
     "title": "The 2025 AI Revolution: Predictions & Impact",
     "url": "https://www.youtube.com/watch?v=KJLp-KSbSu8",
     "date": "2024-12-01",
-    "type": "podcast"
+    "type": "podcast",
+    "description": "Predictions for 2025 on Impact of AI: Explored, recorded before joining Citrix."
   },
   {
     "title": "The Evolution and Future of End User Computing",
     "url": "https://youtu.be/wFgfFT3ILZo?t=92",
     "date": "2024-11-01",
-    "type": "speech"
+    "type": "speech",
+    "description": "Keynote at EUC Forum tracing 30 years of end-user computing evolution and where AI takes it next."
   },
   {
     "title": "EUC World Chat with Brian Madden",
     "url": "https://www.youtube.com/watch?v=1WKzjw9cgRg",
     "date": "2024-11-01",
-    "type": "speech"
+    "type": "speech",
+    "description": "Fireside chat at EUC World on the state of end-user computing and AI's accelerating impact."
   },
   {
     "title": "EUC World Independence 2024: A huge success!",
     "url": "https://www.linkedin.com/pulse/euc-world-independence-2024-huge-success-brian-madden-jgyle",
     "date": "2024-10-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Recap of the EUC World: Independence conference and the community energy around end-user computing."
   },
   {
     "title": "EUC Past, Present, & Future",
     "url": "https://www.youtube.com/watch?v=DkuoK-4PncM",
     "date": "2024-10-01",
-    "type": "speech"
+    "type": "speech",
+    "description": "Opening keynote at EUC World: Independence on three decades of desktop evolution and the AI inflection point."
   },
   {
     "title": "Ignore that Goldman Sachs report questioning AI's value.",
@@ -362,61 +381,71 @@
     "title": "Firing employees for simulated keyboard activity highlights the dangers of perverse incentives",
     "url": "https://www.linkedin.com/pulse/firing-employees-simulated-keyboard-activity-dangers-perverse-madden-aikuc/",
     "date": "2024-07-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Why firing employees for fake mouse-jiggling reveals broken incentive structures, not lazy workers."
   },
   {
     "title": "I've been using Copilot for Office for months. Here's how it works and what it can do today.",
     "url": "https://www.linkedin.com/pulse/ive-been-using-copilot-office-months-heres-how-works-what-madden-nqu6c",
     "date": "2024-06-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Hands-on review of Microsoft 365 Copilot after months of daily use. What it actually does and where it falls short."
   },
   {
     "title": "Apple Intelligence is the beginning of a slippery slope that all companies need to understand today",
     "url": "https://www.linkedin.com/pulse/apple-intelligence-beginning-slippery-slope-all-companies-madden-iyuyc/",
     "date": "2024-06-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Why Apple's on-device AI is the start of a pattern every enterprise needs to understand now."
   },
   {
     "title": "AI Screen Recorders + VDI: The ultimate secure, compliant, & powerful desktop?",
     "url": "https://www.linkedin.com/pulse/ai-screen-recorders-vdi-ultimate-secure-compliant-powerful-madden-fa5dc",
     "date": "2024-06-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "How AI screen recording combined with VDI creates a powerful, secure, and compliant desktop architecture."
   },
   {
     "title": "A New Era of Workplace AI",
     "url": "https://www.youtube.com/watch?v=lzBnEPTgH2A",
     "date": "2024-06-01",
-    "type": "podcast"
+    "type": "podcast",
+    "description": "First appearance on Impact of AI: Explored. Covers GPT-4o, Microsoft Recall, and AI reshaping the workplace."
   },
   {
     "title": "Microsoft Recall: An analysis of the issues & prediction of the evolution of the AI workplace",
     "url": "https://www.linkedin.com/pulse/microsoft-recall-analysis-issues-prediction-evolution-brian-madden-zoync/",
     "date": "2024-05-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Analysis of Microsoft Recall's privacy issues and what it signals about the evolution of the AI workplace."
   },
   {
     "title": "Why the enterprise desktop still matters in 2024.",
     "url": "https://www.linkedin.com/pulse/why-enterprise-desktop-still-matters-2024-hint-its-apps-brian-madden-fsgbc/",
     "date": "2024-05-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "The case for why the managed desktop remains critical infrastructure even in a cloud-first world."
   },
   {
     "title": "The AI train is leaving the station, and I feel like I missed it!",
     "url": "https://www.youtube.com/watch?v=6JAEOS7iREw",
     "date": "2024-04-01",
-    "type": "speech"
+    "type": "speech",
+    "description": "Keynote on getting started with AI in the enterprise when it feels like everyone else is already ahead."
   },
   {
     "title": "The Parisian Chronicles: Brian Madden's Story",
     "url": "https://www.youtube.com/watch?v=jqwXVWeM47k",
     "date": "2024-03-01",
-    "type": "podcast"
+    "type": "podcast",
+    "description": "Extended conversation on Brian's career journey from BrianMadden.com through 30 years of end-user computing to AI futurism."
   },
   {
     "title": "Generative AI in the enterprise: lots of hype, little practical advice.",
     "url": "https://www.linkedin.com/pulse/generative-ai-enterprise-lots-hype-little-practical-advice-madden-fketc",
     "date": "2024-02-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Cutting through the enterprise AI noise to identify what actually works for knowledge workers today."
   },
   {
     "title": "The Consumerization of IT roars back, and this time they have AI!",
@@ -429,31 +458,36 @@
     "title": "A look at ChatGPT's architecture. A lot for enterprise admins to like!",
     "url": "https://www.linkedin.com/pulse/chatgpt-more-like-standard-enterprise-app-than-you-think-brian-madden",
     "date": "2023-07-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Breaking down ChatGPT's technical architecture with an eye toward what enterprise IT admins should know."
   },
   {
     "title": "AI is more than ChatGPT",
     "url": "https://www.linkedin.com/pulse/ai-more-than-chatgpt-brian-madden/",
     "date": "2023-06-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Looking beyond the ChatGPT hype to the broader landscape of AI capabilities entering the workplace."
   },
   {
     "title": "How much \"help\" did AI provide? We should all disclose this.",
     "url": "https://www.linkedin.com/pulse/how-much-help-did-ai-provide-we-should-all-disclose-brian-madden",
     "date": "2023-06-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "The case for disclosing AI assistance in professional work. Written when this was still a novel question."
   },
   {
     "title": "My AI journey and the links that set the stage.",
     "url": "https://www.linkedin.com/pulse/my-ai-journey-links-set-stage-chatgpt-just-beginning-brian-madden",
     "date": "2023-06-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "The articles, conversations, and experiences that shaped Brian's thinking about AI in knowledge work."
   },
   {
     "title": "20 years ago today, I self-published my first book!",
     "url": "https://www.linkedin.com/posts/bmadden_20-years-ago-today-i-self-published-my-first-activity-6894332611670495232-JjWK",
     "date": "2022-01-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Reflecting on 20 years since self-publishing the first technical book on terminal server computing."
   },
   {
     "title": "A Eulogy for BrianMadden.com",
@@ -466,30 +500,35 @@
     "title": "Want to give better presentations? Read these two books",
     "url": "https://www.linkedin.com/pulse/want-give-better-presentations-read-two-books-brian-madden",
     "date": "2019-01-01",
-    "type": "linkedin"
+    "type": "linkedin",
+    "description": "Two book recommendations for anyone who wants to give talks that actually land."
   },
   {
     "title": "EUC: Past, Present, & Future",
     "url": "https://www.youtube.com/watch?v=sY5oohpjC_4",
     "date": "2018-01-01",
-    "type": "speech"
+    "type": "speech",
+    "description": "Keynote tracing the arc of end-user computing from fat clients through VDI to the cloud era."
   },
   {
     "title": "Is VDI Dead?",
     "url": "https://www.youtube.com/watch?v=9Sa7EsDMJto",
     "date": "2018-01-01",
-    "type": "speech"
+    "type": "speech",
+    "description": "Examining whether virtual desktop infrastructure still has a role as cloud and SaaS reshape how work gets done."
   },
   {
     "title": "The liquefaction of hardware",
     "url": "https://www.economist.com/business/2010/11/18/the-liquefaction-of-hardware",
     "date": "2010-11-18",
-    "type": "quoted"
+    "type": "quoted",
+    "description": "Early analysis of how virtualization was dissolving the link between hardware and workloads."
   },
   {
     "title": "Microsoft profits due to recent sales",
     "url": "https://www.marketplace.org/story/2008/01/25/microsoft-profits-due-recent-sales",
     "date": "2008-01-25",
-    "type": "quoted"
+    "type": "quoted",
+    "description": "Quoted on Microsoft's market position and revenue dynamics."
   }
 ]
