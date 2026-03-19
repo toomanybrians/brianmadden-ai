@@ -1,5 +1,12 @@
 [
   {
+    "title": "The new cognitive stack",
+    "url": "https://bmad.com/talks/2026-03-18-ducug-the-new-cognitive-stack",
+    "date": "2026-03-18",
+    "type": "speech",
+    "description": "Closing keynote at DUCUG #28. Introduces the cognitive stack, demonstrates a live second brain, presents token economics, and maps the governance argument. Slides available."
+  },
+  {
     "title": "Skills are all you need",
     "url": "https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/",
     "date": "2026-03-12",
@@ -54,6 +61,13 @@
     "date": "2026-02-10",
     "type": "linkedin",
     "description": "The anchor article. How a second brain works, why it matters, and why this is the most important shift in knowledge work."
+  },
+  {
+    "title": "Blueprints that actually get built: how change really happens in the enterprise",
+    "url": "https://bmad.com/talks/2026-02-06-wharton-tech-conference",
+    "date": "2026-02-06",
+    "type": "speech",
+    "description": "Wharton Tech Conference keynote. Three historical case studies prove the bottleneck is never the technology. Closes with a live second brain demo. Slides available."
   },
   {
     "title": "OpenClaw and Moltbook preview the changes needed with corporate AI governance",
@@ -117,6 +131,13 @@
     "date": "2025-12-10",
     "type": "blog",
     "description": "AI platforms, not apps, become the primary interface to work. The pathway from copilot to workspace to orchestrator."
+  },
+  {
+    "title": "Our vision for AI and the future of work",
+    "url": "https://bmad.com/talks/2025-12-04-ai-think-tank-paris",
+    "date": "2025-12-04",
+    "type": "speech",
+    "description": "Citrix AI Think Tank, Paris. The pre-November stump speech: AI disappointment paradox, post-application era, workspace as control plane. Slides available."
   },
   {
     "title": "IT admits workers control AI. Workers admit they use it to leave at 5.",
