@@ -1,6 +1,6 @@
 ---
 title: "Brian Madden's intellectual foundation"
-updated: "2026-03-12"
+updated: "2026-03-18"
 authority_level: 1
 file_type: synthesis
 tags: ["knowledge-work", "enterprise-ai", "worker-led-adoption", "automation", "governance", "ai-agents"]
@@ -12,7 +12,7 @@ description: "Comprehensive synthesis of Brian's published ideas across 30+ post
 
 This document synthesizes the core ideas, frameworks, and arguments from Brian's published work on AI and the future of work (~2023–March 2026). It represents the intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** March 12, 2026 (34 posts through March 12, 2026)
+**Last updated:** March 18, 2026 (34 posts + DUCUG talk through March 18, 2026)
 
 ---
 
@@ -383,6 +383,10 @@ Enterprise implications: consulting firms where juniors carry seniors' accumulat
 ## Post-by-post notes (newest first)
 
 The full text of each published post is in `posts/citrix-blog/` and `posts/linkedin/`. For earlier LinkedIn articles (2020-2024), see `posts/linkedin/index.md`.
+
+### March 18, 2026: The New Cognitive Stack (DUCUG talk)
+[Talk notes](talks/2026-03-18-ducug-the-new-cognitive-stack.md)
+**Major talk. Complete overhaul of the stump speech.** 60-minute closing session at the Dutch Citrix User Group Conference #28 (Echteld, Netherlands). Built from scratch in one day after the December 2025 stump speech became entirely outdated. The cognitive stack replaces the 7-stage evolution model as the organizing framework for Brian's entire public narrative. Five major moves: (1) Opens with the AI paradox (companies see no ROI) and explains it via the 80/20 split—enterprise AI targets the visible 20%, missing the invisible 80% where value lives. (2) Establishes the November 2025 model inflection (Opus 4.5, Gemini 3, GPT 5.2) as the moment everything changed, with practitioner evidence (Karpathy, Ford, Cherny, Willison). Uses the coding-as-canary Mad Libs technique to bridge from developers to knowledge workers. (3) Introduces the cognitive stack, then walks down it layer by layer using his own second brain as the through-line: the brain (morning with Claude, loading CLAUDE.md), skills (real skill files demonstrated), agents (the automations rant—"I hate automations"), interfaces (four pathways with live screenshots). (4) Presents real token economics data: 285M tokens in 3 weeks, 5-10M/day post-second brain vs. 100K/day before. The Excel routing example shows the same task costing 200K tokens or 1K depending on the path. (5) Closes with the governance argument: who routes these decisions? Not Microsoft (sells tokens), not AI labs (consumes them). A neutral workspace provider. Key new formulations: "Which half of my job do you want me to not do?" "The company that spends the most tokens in the most smart way is going to win." "Skills are sort of almost discovered as opposed to invented." "Legacy applications is like all of them." Also demonstrated model portability (Claude → Gemini switch) and multi-person brain communication via git submodules. Reference when discussing: the cognitive stack as a complete framework, token economics and governance, why automations are irrelevant, the second brain in practice, or the current state of Brian's thinking delivered to a technical audience.
 
 ### March 12, 2026: Skills are all you need
 [Original post](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/)

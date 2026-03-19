@@ -1,6 +1,6 @@
 ---
 title: "Where Brian's head is right now"
-updated: "2026-02-27"
+updated: "2026-03-18"
 authority_level: 2
 file_type: frontier
 tags: ["current-thinking", "frontier", "developing-arguments"]
@@ -12,7 +12,7 @@ description: "The frontier of Brian's thinking. Arguments forming, connections e
 
 This is the frontier map. `me/published-thinking.md` captures what I've published. This captures where my head is *today*—the arguments forming, the connections emerging, the questions I'm chewing on.
 
-**Last updated:** February 27, 2026
+**Last updated:** March 18, 2026
 
 **Why this file exists and why it's public:** Anyone who publishes regularly—blogs, LinkedIn, tweets—is already doing this. They share half-formed ideas, ask questions, show threads developing, change their mind. Scroll their feed and you can piece together what they're thinking about and where their arguments are heading. This file is just that process made explicit. The difference is that instead of being scattered across a social media timeline where old posts get buried by new ones, it's a single living document. When my thinking evolves, I edit it in place rather than adding another entry to a chronological list. *Arguments get sharper, not longer.* Things I was wrong about get removed, not corrected with a follow-up post. If you want to know what I've *concluded*, read my published work in `me/published-thinking.md`. If you want to know what I'm *working through right now*, this is it.
 
@@ -32,8 +32,14 @@ The knowledge capture angle adds a new dimension: enterprise AI doesn't just *fa
 
 **New evidence (Feb 25):** The token pricing gap makes this structural, not temporary. Heavy personal AI usage runs roughly $200/month on consumer plans. The same usage at enterprise pricing runs 10x or more. If the consumer can buy unlimited tokens and the company limits you to a fraction of that, you will never be as cognitively augmented at work as you are personally. Unlike BYOD, this gap may be permanent—Jevons paradox means enterprise demand grows with supply, governance overhead adds cost, and consumer/enterprise providers have different incentive structures.
 
-### The cognitive stack (newly published)
-The [five-layer cognitive stack](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/) published Feb 25 formalizes what I've been circling: worker → brain → skills → agents → automation. The enterprise AI industry is spending billions on the bottom two layers (agents, automation) while the transformative layer is the brain—the cognitive extension where context lives and intent gets translated into action. Karpathy's "claws" framing nails it: agents are appendages that serve the brain, not the other way around. Automation vendors built bottom-up, AI companies entered top-down—they collide in the middle (skills/agents) but humans prefer to connect at the intelligence layer. What remains unpublished: the deeper implication that agents "don't look like agents" to enterprise buyers—a person with a second brain just looks like someone who's better at their job. The invisible 80% applied to the agent hype cycle.
+### The cognitive stack (published, now road-tested live)
+The [five-layer cognitive stack](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/) published Feb 25 formalizes what I've been circling: worker → brain → skills → agents → interfaces. The enterprise AI industry is spending billions on the bottom two layers (agents, interfaces) while the transformative layer is the brain—the cognitive extension where context lives and intent gets translated into action. Karpathy's "claws" framing nails it: agents are appendages that serve the brain, not the other way around. Automation vendors built bottom-up, AI companies entered top-down—they collide in the middle (skills/agents) but humans prefer to connect at the intelligence layer.
+
+**March 18 update:** Delivered "The New Cognitive Stack" as a full 60-minute closing session at DUCUG (Dutch Citrix User Group). The cognitive stack is now the organizing framework for the entire stump speech, replacing the 7-stage evolution model. The talk walks down the stack layer by layer using my own second brain as the through-line: brain (morning with Claude), skills (real skill files), agents (why automations are irrelevant), interfaces (four pathways: APIs/MCP, browser control, CUA, direct file access). The most effective rhetorical move: building up the audience's expectation for "automations" then deflating it. "I hate automations. How repeatable are your jobs that you're automating all this kind of stuff?" When you have the brain, the claws figure themselves out.
+
+New formulation from the talk: "I can AI the crap out of the bottom of the stack, I can do it perfectly. And I still haven't really changed the way the thinking happens, which is where all the money is." Also: "This is just a warm-up act. This is not the main event." These landed well with a technical Citrix audience.
+
+What remains unpublished: the deeper implication that agents "don't look like agents" to enterprise buyers—a person with a second brain just looks like someone who's better at their job. The invisible 80% applied to the agent hype cycle.
 
 ### Post-application era entering evidence phase
 The thesis (AI doesn't need apps, just data) has moved from speculation to evidence: 4% of GitHub commits from Claude Code, $285B SaaSpocalypse, MCP at 97M monthly SDK downloads, every company racing for agent orchestration.
@@ -44,10 +50,14 @@ The thesis (AI doesn't need apps, just data) has moved from speculation to evide
 
 The next frontier: what *does* work look like when apps dissolve? The second brain is the individual answer. Context graphs might be the enterprise answer. MCP connections replace application access as the governance perimeter.
 
-### Compute scarcity as hidden constraint
-Token consumption goes from ~100K/day (email fixes) to 10-50M/day (full cognitive augmentation). The consumption ladder is now clearer: 1B tokens/year (current heavy user) → 10B (near-term with agents, ~18 months) → 100B (agentic systems per worker). Google disclosed 1.3 quadrillion tokens/month—a 130x increase in just over a year. Supply is contracted to hyperscalers for ~4 years. Memory costs alone adding 40-60% to inference infrastructure in H1 2026 (TrendForce). If second brains go mainstream, demand explodes against fixed supply. This makes the workspace that brokers compute allocation *critical infrastructure*—and nobody is talking about this yet.
+### Compute scarcity and token governance (hardened with real data)
+Token consumption goes from ~100K/day (email fixes) to 5-10M/day (full cognitive augmentation)—this is now my actual measured usage, not a projection. In a 3-week period (Jan 29–Feb 18), I consumed 285 million tokens across 96 sessions. At enterprise API rates, that would cost ~$954/month. The consumption ladder is now clearer: 1B tokens/year (current heavy user) → 10B (near-term with agents, ~18 months) → 100B (agentic systems per worker). Google disclosed 1.3 quadrillion tokens/month—a 130x increase in just over a year. Supply is contracted to hyperscalers for ~4 years. Memory costs alone adding 40-60% to inference infrastructure in H1 2026 (TrendForce). If second brains go mainstream, demand explodes against fixed supply. This makes the workspace that brokers compute allocation *critical infrastructure*.
 
-New angle: efficiency as capacity *multiplier*, not just cost reducer. In a zero-sum compute environment, an enterprise that uses 50% fewer tokens has twice the effective capacity, not just lower bills. The routing layer—the intelligence that decides where workloads run—may be the most durable competitive advantage in enterprise AI.
+**March 18 update: token routing as governance.** Delivered the "Excel routing example" on stage for the first time at DUCUG: the same task (an Excel-like operation) can cost 200K expensive tokens (CUA operating Excel), 100K (browser control), 50K (read the .xlsx directly), 25K (write a script), 10K (reason in context), or zero (just pop open Excel for the user). Multiply by thousands of workers, hundreds of requests per day, and this becomes a CFO/COO conversation, not CIO. Someone has to route every request by complexity, sensitivity, and nature—in near real-time. Not Microsoft (sells the tokens). Not AI labs (consumes them). A neutral party with workspace context.
+
+The competitive framing landed well: "The company that spends the most tokens in the most smart way is going to win. If you're spending 5 trillion tokens and your competitor is spending 6 trillion, they will win." And: "Which half of my job do you want me to not do?" (on what happens when a company limits token allocation). Microsoft is already advertising to potential employees: come work here, we give you more tokens than you'll get anywhere else. Tokens as recruiting tool.
+
+Efficiency as capacity *multiplier*, not just cost reducer. In a zero-sum compute environment, an enterprise that uses 50% fewer tokens has twice the effective capacity, not just lower bills. The routing layer—the intelligence that decides where workloads run—may be the most durable competitive advantage in enterprise AI.
 
 ---
 
@@ -66,6 +76,12 @@ Things I'm noticing that don't have a home yet:
 **"Humans in control, AI as reach" vs. "autonomous agents" is a framing choice with massive implications.** The dominant enterprise AI frame is agent autonomy + guardrails. The second brain frame is human control + extended reach. These lead to completely different product architectures, governance models, and go-to-market narratives. Amodei's "Adolescence of Technology" essay argues AI trends toward *full substitution* rather than "human + tool." If he's right, the augmentation bet only wins for high-judgment work (the invisible 80%). Routine work (the visible 20%) gets substituted.
 
 **The cognitive stack reframes the entire agent conversation.** Agents are claws (layers 4-5), not the brain (layer 2). The enterprise AI industry is building from the wrong end—you can't make task workers incrementally smarter until one of them figures out how to be the VP. No amount of investment at the bottom produces the cognitive layer where transformation actually happens. The question every enterprise AI strategy should start with: "who's building the brain layer?"
+
+**Model portability is proven, not theoretical.** Claude was down one day. Switched to Gemini, pointed it at the same folder. Gemini had never seen these files before. Within minutes, fully functioning cognitive extension. Different personality, same capability. Demonstrated this on stage at DUCUG. The model is a pluggable component. The brain (the files, the skills, the context) is the durable asset. This is the strongest evidence yet that the second brain architecture is model-agnostic by design, not just in theory.
+
+**Multiple Citrix employees are already working this way.** At least 15 people independently discovered second-brain-style AI usage. They weren't told to—the models reached a point where curious knowledge workers started finding it on their own. Several have wired their brains together via git submodules and shared folders. Communication happens brain-to-brain: dictate something, AI routes it to the right person's brain, their AI decides how to surface it. This is not a future scenario. It's live inside Citrix today. The fact that it emerged organically, without top-down direction, is the strongest validation of the worker-led adoption thesis.
+
+**"Legacy applications is like all of them."** Once you're working through a cognitive extension, every traditional application becomes a compatibility layer. Word is for sending documents to colleagues who don't have brains yet. Excel is a file format AI reads directly. Outlook and Teams are messaging APIs. Even Keynote feels like an unnecessary translation layer. This isn't a theoretical position—it's a lived experience that multiple second brain users report independently.
 
 **Token economics are the emerging macro constraint.** Three dimensions forming: (1) The consumer/enterprise pricing gap is structural and may be permanent—heavy users burn $200/month at consumer rates vs. 10x at enterprise pricing. (2) Token equivalency for human work is becoming calculable—your daily knowledge output has a token equivalent, and if 3M Sonnet tokens costs $400, you'd better be worth more than $400/day. (3) Model quality as class stratifier—who gets access to the frontier model? Government agencies on legacy models vs. executives on Opus. Not just token quantity but model quality as economic divide. The math will be done whether we like it or not.
 
