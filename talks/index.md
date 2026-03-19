@@ -1,12 +1,12 @@
 # Talks and presentations
 
-Brian has delivered 1,000+ talks globally over 32 years. This directory captures the ones with available content.
+I've delivered 1,000+ talks globally over 32 years. This directory captures the ones with available content.
 
 ## Available content
 
 **The New Cognitive Stack** (2026-03-18)
 DUCUG — Dutch Citrix User Group Conference #28, Echteld, Netherlands
-Introduces the cognitive stack as a framework for understanding AI's impact on knowledge work. Demonstrates Brian's second brain live, walks down the stack layer by layer (brain, skills, agents, interfaces), argues automations are irrelevant, presents token economics with real personal data, and maps governance implications to workspace management. Full narrative arc available.
+Introduces the cognitive stack as a framework for understanding AI's impact on knowledge work. Demonstrates my second brain live, walks down the stack layer by layer (brain, skills, agents, interfaces), argues automations are irrelevant, presents token economics with real personal data, and maps governance implications to workspace management. Full narrative arc available.
 
 **Blueprints That Actually Get Built: How Change Really Happens in the Enterprise** (2026-02-06)
 Wharton Tech Conference
@@ -54,11 +54,11 @@ Opening keynote in the same building where BriForum started 20 years earlier. Tr
 
 **Microsoft Recall: A New Era for Workplace AI** (2024-06-06)
 Impact of AI: Explored podcast (guest appearance)
-Brian's first podcast guest appearance for this show. Coins "workplace AI" as a category. AI screen recording + VDI as compliance machine. Productivity measurement breaks with AI. Fiduciary duty to adopt AI. "Faster horses" problem. Even if AI stops, enough exists to transform work. Full transcript available.
+My first podcast guest appearance for this show. Coins "workplace AI" as a category. AI screen recording + VDI as compliance machine. Productivity measurement breaks with AI. Fiduciary duty to adopt AI. "Faster horses" problem. Even if AI stops, enough exists to transform work. Full transcript available.
 
 **It's Springtime for AI** (2024-03-26)
 Dutch VMUG UserCon, Den Bosch, Netherlands
-Brian's return to enterprise tech after the pinball industry. Introduces the "seasons" framework for technology and career cycles. Argues everyone is in AI springtime together and now is the time to start exploring. Full transcript available.
+My return to enterprise tech after the pinball industry. Introduces the "seasons" framework for technology and career cycles. Argues everyone is in AI springtime together and now is the time to start exploring. Full transcript available.
 
 ## Upcoming/accepted
 
@@ -72,7 +72,7 @@ Brian's return to enterprise tech after the pinball industry. Introduces the "se
 
 ## Speaking topics
 
-Brian typically speaks on:
+I typically speak on:
 - How AI is reshaping knowledge work (the invisible 80%, worker-led adoption)
 - The post-application era and what comes after traditional enterprise apps
 - Second brains, personal AI knowledge systems, and subscribable expertise

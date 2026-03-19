@@ -13,7 +13,7 @@ staleness_threshold: stable
 
 # The 7-stage roadmap for human-AI collaboration
 
-Brian's most comprehensive framework for understanding how AI enters knowledge work. Each stage builds on the previous.
+My most comprehensive framework for understanding how AI enters knowledge work. Each stage builds on the previous.
 
 *Published: June 24, 2025 — [Original post](https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/)*
 

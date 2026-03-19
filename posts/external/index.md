@@ -5,7 +5,7 @@ file_type: index
 
 # External articles
 
-Brian's bylined articles published on third-party platforms (not Citrix blog or LinkedIn).
+My bylined articles published on third-party platforms (not Citrix blog or LinkedIn).
 
 ## Articles
 

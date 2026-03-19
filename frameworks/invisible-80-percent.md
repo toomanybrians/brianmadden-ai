@@ -13,7 +13,7 @@ staleness_threshold: stable
 
 # The invisible 80% of knowledge work
 
-Brian's core argument for why corporate AI fails and worker-led AI succeeds.
+My core argument for why corporate AI fails and worker-led AI succeeds.
 
 *Published: January 13, 2026 — [Original post](https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/); expanded in [February 10, 2026 LinkedIn article](https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote)*
 

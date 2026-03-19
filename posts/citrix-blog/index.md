@@ -1,6 +1,6 @@
 # Citrix blog posts
 
-Full text of Brian's 31 Citrix blog posts (April 2025 through March 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 31 Citrix blog posts (April 2025 through March 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 

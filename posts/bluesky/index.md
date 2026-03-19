@@ -1,6 +1,6 @@
 # Bluesky posts
 
-Brian's Bluesky posts (@bmad.com). Short-form thinking on workplace AI, second brains, and the future of knowledge work. Listed newest first. Yearly files in this directory.
+My Bluesky posts (@bmad.com). Short-form thinking on workplace AI, second brains, and the future of knowledge work. Listed newest first. Yearly files in this directory.
 
 **Profile:** [bsky.app/profile/bmad.com](https://bsky.app/profile/bmad.com)
 

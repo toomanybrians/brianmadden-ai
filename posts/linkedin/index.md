@@ -1,6 +1,6 @@
 # LinkedIn content
 
-Brian's LinkedIn content, separated into articles (long-form) and posts (short-form feed posts). Listed newest first.
+My LinkedIn content, separated into articles (long-form) and posts (short-form feed posts). Listed newest first.
 
 ## Articles
 
@@ -18,15 +18,15 @@ Subscribable brains as a new distribution model. Creators publish structured kno
 
 **19. I Built a Second Brain Using AI, and It's Changed the Way I Work** (2026-02-10)
 [linkedin.com](https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote)
-Brian's self-described "most important thing I've written." The 80/20 framework: corporate AI operates on the visible 20%, second brains reach the invisible 80%. A second brain gives everyone a staff.
+My self-described "most important thing I've written." The 80/20 framework: corporate AI operates on the visible 20%, second brains reach the invisible 80%. A second brain gives everyone a staff.
 
 **18. Everything I Wrote & Said About Workplace AI in 2025** (2026-01-12)
 [linkedin.com](https://www.linkedin.com/pulse/everything-i-wrote-said-workplace-ai-2025-brian-madden-33byf/)
-Comprehensive retrospective of Brian's first year writing and speaking about AI's impact on the workplace. Links to all 24 Citrix blog posts and major talks.
+Comprehensive retrospective of my first year writing and speaking about AI's impact on the workplace. Links to all 24 Citrix blog posts and major talks.
 
 **17. I just joined Citrix!** (2025-02-18)
 [linkedin.com](https://www.linkedin.com/posts/bmadden_i-just-joined-citrix-those-who-know-me-activity-7297631023746453504-K6B3/)
-Brian announces joining Citrix after 30 years orbiting the company. "Secure the work—regardless of the worker, app, or platform."
+Announces joining Citrix after 30 years orbiting the company. "Secure the work—regardless of the worker, app, or platform."
 
 **16. EUC World Independence 2024: A huge success!** (2024-10-24)
 [linkedin.com](https://www.linkedin.com/pulse/euc-world-independence-2024-huge-success-brian-madden-jgyle/)
@@ -86,7 +86,7 @@ Proposes AI influence levels as a disclosure framework. When AI assists in creat
 
 **2. My AI journey and the links that set the stage** (2023-06-22)
 [linkedin.com](https://www.linkedin.com/pulse/my-ai-journey-links-set-stage-chatgpt-just-beginning-brian-madden/)
-Brian's personal AI journey. The foundational readings and experiences that shaped his thinking about AI in the workplace.
+My personal AI journey. The foundational readings and experiences that shaped my thinking about AI in the workplace.
 
 **1. A Eulogy for BrianMadden.com** (2020-06-16)
 [linkedin.com](https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/)

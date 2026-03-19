@@ -1,6 +1,6 @@
 # Press interviews and commentary
 
-Brian is regularly quoted and interviewed on AI's impact on knowledge work, enterprise governance, and the future of work.
+I'm regularly quoted and interviewed on AI's impact on knowledge work, enterprise governance, and the future of work.
 
 ## Published interviews and quotes
 
@@ -10,7 +10,7 @@ Anthropic's Claude Cowork launch exposes how few enterprises have governance inf
 
 **7 Ways to Kill IT's Value to the Business** (Jan 2026)
 CIO (quoted) | [Read](https://www.cio.com/article/4110721/7-ways-to-kill-its-value-to-the-business.html)
-Brian quoted on how blocking worker-chosen AI tools destroys IT's credibility and strategic value.
+Quoted on how blocking worker-chosen AI tools destroys IT's credibility and strategic value.
 
 **No AI Bombshells in 2027, Just Reality Catching Up** (Jan 2026)
 VMblog | [Read](https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx)
@@ -18,7 +18,7 @@ Six predictions for 2026: worker-led AI outpaces corporate, "don't paste sensiti
 
 **How to Turn Employee AI Use into a Strategic Advantage** (Sept 2025)
 Marketing AI Institute | [Read](https://www.marketingaiinstitute.com/blog/marketing-ai-conference-brian-madden)
-Brian makes the case that worker-led AI adoption is the real transformation engine, and enterprises should enable it rather than fight it.
+I make the case that worker-led AI adoption is the real transformation engine, and enterprises should enable it rather than fight it.
 
 **The Liquefaction of Hardware** (Nov 2010)
 The Economist (quoted) | [Read](https://www.economist.com/business/2010/11/18/the-liquefaction-of-hardware)
@@ -48,11 +48,11 @@ Predictions for how AI would reshape enterprise work in 2025—most of which pro
 
 **The Parisian Chronicles: Brian Madden's Story** (March 2024)
 Let's Talk Shop | [Watch](https://www.youtube.com/watch?v=jqwXVWeM47k)
-Brian's career arc from independent consultant through BriForum, VMware, and the move to Paris. Context for understanding his perspective.
+My career arc from independent consultant through BriForum, VMware, and the move to Paris. Context for understanding my perspective.
 
 ## Key themes across press commentary
 
-Brian's interviews consistently return to:
+My interviews consistently return to:
 
 - Workers adopt AI tools bottom-up, whether IT is ready or not
 - The real security risk is AI acting at the worker's permission level, not classic data loss
@@ -62,4 +62,4 @@ Brian's interviews consistently return to:
 
 ## Contact
 
-For press inquiries, reach Brian via [LinkedIn](https://www.linkedin.com/in/bmadden/) or through Citrix PR.
+For press inquiries, reach me via [LinkedIn](https://www.linkedin.com/in/bmadden/) or through Citrix PR.
