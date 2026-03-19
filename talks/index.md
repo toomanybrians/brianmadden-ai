@@ -4,6 +4,10 @@ Brian has delivered 1,000+ talks globally over 32 years. This directory captures
 
 ## Available content
 
+**The New Cognitive Stack** (2026-03-18)
+DUCUG — Dutch Citrix User Group Conference #28, Echteld, Netherlands
+Introduces the cognitive stack as a framework for understanding AI's impact on knowledge work. Demonstrates Brian's second brain live, walks down the stack layer by layer (brain, skills, agents, interfaces), argues automations are irrelevant, presents token economics with real personal data, and maps governance implications to workspace management. Full narrative arc available.
+
 **Blueprints That Actually Get Built: How Change Really Happens in the Enterprise** (2026-02-06)
 Wharton Tech Conference
 Argues that enterprise transformation follows predictable patterns from technology history. Includes a "Build Your Own Second Brain" starter prompt that went viral. Talk notes + starter prompt available.
@@ -58,9 +62,13 @@ Brian's return to enterprise tech after the pinball industry. Introduces the "se
 
 ## Upcoming/accepted
 
-| Date | Event | Title |
-|------|-------|-------|
-| 2026-06-03 | EUCTech 2026 (Oslo-Kiel cruise) | The Last Chapter of End-User Computing |
+| Date       | Event                               | Title                                   |
+| ---------- | ----------------------------------- | --------------------------------------- |
+| 2026-04-21 | BWI Architecture Summit (Nuremberg) | TBD                                     |
+| 2026-06-03 | EUCTech 2026 (Oslo-Kiel cruise)     | The Last Chapter of End-User Computing  |
+| 2026-06-03 | EUCTech 2026 (Oslo-Kiel cruise)     | I Built a Second Brain and Published It |
+| 2026-10-09 | AppManagEvent (Utrecht)             | Opening keynote, TBD                    |
+| 2026-11-17 | Microsoft Ignite (San Francisco)    | TBD                                     |
 
 ## Speaking topics
 

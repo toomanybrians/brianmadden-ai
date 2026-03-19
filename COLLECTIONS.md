@@ -202,6 +202,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `talks/2025-12-04-ai-think-tank-paris.md` -- Our Vision for AI & the Future of Work (2025-12-04) (authority: 5)
 - `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
 - `talks/2026-02-06-wharton-tech-conference.md` -- Blueprints That Actually Get Built: How Change Really Happens in the Enterprise (2026-02-06) (authority: 5)
+- `talks/2026-03-18-ducug-the-new-cognitive-stack.md` -- The New Cognitive Stack (2026-03-18) (authority: 5)
 - `talks/2024-06-06-impact-of-ai-explored-workplace-ai.md` -- Microsoft Recall: A New Era for Workplace AI (2024-06-06) (authority: 5)
 - `talks/2024-12-17-impact-of-ai-explored-predictions-2025.md` -- The 2025 AI Revolution: Predictions and Impact (2024-12-17) (authority: 5)
 - `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)

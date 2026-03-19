@@ -1885,6 +1885,30 @@
       "format": "Presentation with slides (no video recording available)"
     },
     {
+      "path": "talks/2026-03-18-ducug-the-new-cognitive-stack.md",
+      "title": "The New Cognitive Stack",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "cognitive-stack",
+        "second-brain",
+        "skills",
+        "token-economics",
+        "personal-knowledge-systems",
+        "ai-transformation",
+        "citrix",
+        "post-application-era"
+      ],
+      "word_count": 2800,
+      "staleness_threshold": "stable",
+      "date": "2026-03-18",
+      "event": "DUCUG — Dutch Citrix User Group Conference #28",
+      "location": "Oude Duikenburg, Echteld, Netherlands",
+      "audience": "Dutch Citrix User Group — admins, architects, IT pros",
+      "format": "60-minute closing session",
+      "recording": "Audio transcript"
+    },
+    {
       "path": "talks/2026-02-06-wharton-tech-conference.md",
       "title": "Blueprints That Actually Get Built: How Change Really Happens in the Enterprise",
       "authority_level": 5,
