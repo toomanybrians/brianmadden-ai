@@ -41,6 +41,7 @@ The argument that real AI transformation comes from workers, not corporate manda
 - `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
 - `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+- `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
 
 - `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 
@@ -83,6 +84,7 @@ The transition from applications to agents. Computer-using agents, the post-appl
 - `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
 - `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+- `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
 - `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 
 ## Governance, security, and the control plane
@@ -121,6 +123,7 @@ How enterprises govern AI. The workspace-as-control-plane framework, agent ident
 - `talks/2024-06-06-impact-of-ai-explored-workplace-ai.md` -- Microsoft Recall: A New Era for Workplace AI (2024-06-06) (authority: 5)
 - `talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md` -- AI 2026: When Agents, Browsers, and Security Collide (2025-12-16) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+- `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
 - `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 
 ## Knowledge work and the invisible 80%
@@ -141,6 +144,7 @@ What knowledge work actually is, why 80% of it is invisible to corporate IT, and
 - `posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md` -- What will knowledge work be in 18 months? Look at what AI is doing to coding right now. (2026-02-19) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
+- `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
 
 ## Second brains and subscribable knowledge
 
@@ -159,6 +163,7 @@ Personal AI knowledge systems, subscribable brains, the creator economy disrupti
 - `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
 - `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brianmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+- `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
 
 ## Enterprise AI strategy
 
@@ -208,6 +213,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
 - `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
+- `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
 
 ## Human-AI collaboration
 

@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-03-12",
+  "generated": "2026-04-01",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 100,
-  "total_words": 152976,
+  "total_files": 101,
+  "total_words": 154776,
   "files": [
     {
       "path": "AGENTS.md",
@@ -1883,6 +1883,32 @@
       "event": "Citrix AI Think Tank",
       "location": "Paris, France",
       "format": "Presentation with slides (no video recording available)"
+    },
+    {
+      "path": "talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md",
+      "title": "You can't automate your way to intelligence",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "cognitive-stack",
+        "second-brain",
+        "invisible-80-percent",
+        "worker-led-ai",
+        "vdi-delusion",
+        "applications-as-compatibility-layers",
+        "ai-security",
+        "dlp",
+        "mcp",
+        "coding-as-canary",
+        "enterprise-ai-roi",
+        "shadow-strategy"
+      ],
+      "word_count": 1800,
+      "staleness_threshold": "stable",
+      "date": "2026-03-31",
+      "event": "Liquidware Chats podcast",
+      "format": "Podcast guest appearance",
+      "recording": "https://www.youtube.com/watch?v=GfHOvJFGkAY"
     },
     {
       "path": "talks/2026-03-18-ducug-the-new-cognitive-stack.md",

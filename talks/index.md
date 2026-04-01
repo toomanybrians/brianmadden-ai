@@ -4,6 +4,10 @@ I've delivered 1,000+ talks globally over 32 years. This directory captures the 
 
 ## Available content
 
+**You Can't Automate Your Way to Intelligence** (2026-03-31)
+Liquidware Chats podcast (guest appearance)
+Most complete public articulation of the cognitive stack framework. VDI Delusion parallels to AI, the 80/20 invisible knowledge work problem, why corporate AI ROI disappoints while individual workers thrive, applications as compatibility layers, second brain sharing via GitHub submodules, software development as canary in the coal mine, security implications (tokens not packets, DLP reimagined), and the core thesis: you can't automate the bottom of the stack and expect intelligence to emerge at the top. Full transcript available.
+
 **The New Cognitive Stack** (2026-03-18)
 DUCUG — Dutch Citrix User Group Conference #28, Echteld, Netherlands
 Introduces the cognitive stack as a framework for understanding AI's impact on knowledge work. Demonstrates my second brain live, walks down the stack layer by layer (brain, skills, agents, interfaces), argues automations are irrelevant, presents token economics with real personal data, and maps governance implications to workspace management. Full narrative arc available.
