@@ -1,6 +1,6 @@
 # brianmadden.ai
 
-> Brian Madden's expert knowledge module for AI — v2.0 (85 files, ~148k words, 8 frameworks, 49 posts, updated 2026-02-22)
+> Brian Madden's expert knowledge module for AI — v3.0 (101 files, ~155k words, 10 frameworks, 52 posts, 15 talks, updated 2026-04-01)
 
 Contains his frameworks, arguments, positions, and current thinking on how AI is reshaping knowledge work and the enterprise. Brian is VP Technology Officer & Futurist at Citrix, with 32 years in end-user computing, 6 books, 2,000+ articles, and 1,000+ talks globally.
 
@@ -25,20 +25,22 @@ This is not a content archive. It is a structured representation of how Brian th
 
 ## Frameworks
 
+- [frameworks/cognitive-stack.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/cognitive-stack.md): The cognitive stack—five layers from worker intent to interfaces. The industry invests at the bottom; transformation lives at the top.
 - [frameworks/invisible-80-percent.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/invisible-80-percent.md): The invisible 80%—most knowledge work is judgment, reasoning, and tacit expertise that lives in workers' heads
+- [frameworks/delegation-not-automation.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/delegation-not-automation.md): Workers delegate, not automate. The skills hierarchy: worker, cognitive extension, skills, agents, interfaces.
 - [frameworks/workspace-as-control-plane.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/workspace-as-control-plane.md): Workspace as control plane for AI-era governance
 - [frameworks/factory-electrification.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/factory-electrification.md): Factory electrification analogy for AI adoption
 - [frameworks/post-application-era.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/post-application-era.md): The post-application era—AI agents replacing traditional applications
-- [frameworks/7-stage-roadmap.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/7-stage-roadmap.md): 7-stage enterprise AI roadmap
-- [frameworks/subscribable-brains.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/subscribable-brains.md): Subscribable brains—the future of knowledge distribution
 - [frameworks/bitter-lesson.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/bitter-lesson.md): Stop engineering, start enabling—the lesson enterprise AI keeps ignoring
 - [frameworks/five-levels-of-ai-in-knowledge-work.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/five-levels-of-ai-in-knowledge-work.md): From spicy search engine to dark knowledge factory—five levels of AI maturity
+- [frameworks/7-stage-roadmap.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/7-stage-roadmap.md): 7-stage enterprise AI roadmap
+- [frameworks/subscribable-brains.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/subscribable-brains.md): Subscribable brains—the future of knowledge distribution
 
 ## Published work
 
-- [posts/citrix-blog/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/citrix-blog/index.md): Index of 29 Citrix blog posts with summaries and links to full text
-- [posts/linkedin/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/linkedin/index.md): Index of LinkedIn articles and posts
-- [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): Speech content and transcripts
+- [posts/citrix-blog/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/citrix-blog/index.md): Index of 31 Citrix blog posts with summaries and links to full text
+- [posts/linkedin/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/linkedin/index.md): Index of 21 LinkedIn articles and posts
+- [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): 15 speech and podcast transcripts
 - [interviews/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/interviews/index.md): Press interviews, commentary, and podcast appearances
 
 ## Bluesky
@@ -51,6 +53,7 @@ This is not a content archive. It is a structured representation of how Brian th
 
 ## Optional
 
-- [posts/citrix-blog/](https://github.com/toomanybrians/brianmadden-ai/tree/main/posts/citrix-blog): Full text of all 29 Citrix blog posts—load individual posts when you need exact arguments or source material
-- [posts/linkedin/articles/](https://github.com/toomanybrians/brianmadden-ai/tree/main/posts/linkedin/articles): Full text of LinkedIn long-form articles
+- [posts/citrix-blog/](https://github.com/toomanybrians/brianmadden-ai/tree/main/posts/citrix-blog): Full text of all 31 Citrix blog posts—load individual posts when you need exact arguments or source material
+- [posts/linkedin/articles/](https://github.com/toomanybrians/brianmadden-ai/tree/main/posts/linkedin/articles): Full text of 21 LinkedIn long-form articles
 - [posts/linkedin/posts/](https://github.com/toomanybrians/brianmadden-ai/tree/main/posts/linkedin/posts): LinkedIn feed posts compiled by year
+- [talks/](https://github.com/toomanybrians/brianmadden-ai/tree/main/talks): Full transcripts of speeches and podcast appearances
