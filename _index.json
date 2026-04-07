@@ -3,7 +3,7 @@
   "generated": "2026-04-07",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
   "total_files": 101,
-  "total_words": 172018,
+  "total_words": 179266,
   "files": [
     {
       "path": "AGENTS.md",
@@ -1521,10 +1521,10 @@
         "short-form",
         "linkedin"
       ],
-      "word_count": 799,
+      "word_count": 2201,
       "staleness_threshold": "stable",
       "date": "2023-12-31",
-      "description": "Curated highlights from LinkedIn posts pre-2024. Only substantive standalone thinking included."
+      "description": "Collection of notable short-form LinkedIn feed posts from 2009 to 2023."
     },
     {
       "path": "posts/linkedin/posts/standalone-posts-2024.md",
@@ -1536,7 +1536,7 @@
         "short-form",
         "linkedin"
       ],
-      "word_count": 1344,
+      "word_count": 3746,
       "staleness_threshold": "stable",
       "date": "2024-12-31",
       "description": "Collection of short-form LinkedIn feed posts from 2024."
@@ -1551,7 +1551,7 @@
         "short-form",
         "linkedin"
       ],
-      "word_count": 4535,
+      "word_count": 8066,
       "staleness_threshold": "stable",
       "date": "2025-12-31",
       "description": "Collection of short-form LinkedIn feed posts from 2025."
