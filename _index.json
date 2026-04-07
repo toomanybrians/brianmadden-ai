@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-04-01",
+  "generated": "2026-04-07",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
   "total_files": 101,
-  "total_words": 154776,
+  "total_words": 172018,
   "files": [
     {
       "path": "AGENTS.md",
@@ -1566,9 +1566,9 @@
         "short-form",
         "linkedin"
       ],
-      "word_count": 2291,
+      "word_count": 4560,
       "staleness_threshold": "weeks",
-      "date": "2026-02-22",
+      "date": "2026-04-07",
       "description": "Collection of short-form LinkedIn feed posts from 2026. Updated as new posts are published."
     },
     {

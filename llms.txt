@@ -1,6 +1,6 @@
 # brianmadden.ai
 
-> Brian Madden's expert knowledge module for AI — v3.0 (101 files, ~155k words, 10 frameworks, 52 posts, 15 talks, updated 2026-04-01)
+> Brian Madden's expert knowledge module for AI — v3.0 (101 files, ~172k words, 10 frameworks, 52 posts, 15 talks, updated 2026-04-07)
 
 Contains his frameworks, arguments, positions, and current thinking on how AI is reshaping knowledge work and the enterprise. Brian is VP Technology Officer & Futurist at Citrix, with 32 years in end-user computing, 6 books, 2,000+ articles, and 1,000+ talks globally.
 

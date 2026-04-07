@@ -73,7 +73,7 @@ The transition from applications to agents. Computer-using agents, the post-appl
 - `posts/linkedin/articles/2026-02-17-subscribable-brains.md` -- Hey creators, stop publishing content. Start publishing your second brain. (2026-02-17) (authority: 5)
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
-- `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brainmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
+- `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brianmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
 - `talks/2024-10-22-euc-world-keynote.md` -- EUC Past, Present, and Future (2024-10-22) (authority: 5)
 - `talks/2024-11-26-euc-forum-winter-meeting.md` -- The Evolution and Future of End-User Computing (2024-11-26) (authority: 5)
 - `talks/2025-05-22-euctech-denmark-keynote.md` -- The Future of Work in an AI-Native World (2025-05-22) (authority: 5)

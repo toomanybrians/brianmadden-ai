@@ -96,7 +96,7 @@ Farewell to BrianMadden.com after 17 years. The site that defined independent an
 
 Short-form LinkedIn feed posts—standalone thinking, not reposts or blog promos. Curated for original arguments and frameworks. Collected in yearly files in `posts/`.
 
-- `posts/standalone-posts-2026.md` — 17 posts (Feb 2026, updated as new posts are published)
+- `posts/standalone-posts-2026.md` — 29 posts (Jan–Apr 2026, updated as new posts are published)
 - `posts/standalone-posts-2025.md` — 26 posts (Feb–Dec 2025)
 - `posts/standalone-posts-2024.md` — 13 posts (Feb–Dec 2024)
 - `posts/standalone-posts-pre-2024.md` — 8 highlights (2012–2023)
