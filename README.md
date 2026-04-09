@@ -30,8 +30,8 @@ Once you're connected, try things like:
 
 ## What's inside
 
-- 31 published [Citrix blog posts](https://www.citrix.com/blogs/?s=bmadden&type=author), 21 LinkedIn articles & posts, 15 speech and podcast transcripts, and interviews
-- 10 standalone frameworks (cognitive stack, invisible 80%, delegation not automation, post-application era, workspace-as-control-plane, and more)
+- 32 published [Citrix blog posts](https://www.citrix.com/blogs/?s=bmadden&type=author), 25 LinkedIn articles & posts, 15 speech and podcast transcripts, 3 external articles, and interviews
+- 9 standalone frameworks (cognitive stack, invisible 80%, bitter lesson, post-application era, workspace-as-control-plane, and more)
 - A 30,000-word synthesis distilling the intellectual foundation across all published work
 - A "current thinking" file that captures where my head is right now—updated frequently
 - AI loading instructions, knowledge hierarchy, and engagement rules

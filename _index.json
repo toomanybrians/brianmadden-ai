@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-04-07",
+  "generated": "2026-04-09",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 101,
-  "total_words": 179266,
+  "total_files": 102,
+  "total_words": 180636,
   "files": [
     {
       "path": "AGENTS.md",
@@ -1030,6 +1030,32 @@
       "related_frameworks": [
         "five-levels-of-ai-in-knowledge-work",
         "7-stage-roadmap"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2026-04-09-whats-left-for-humans.md",
+      "title": "What's left for humans?",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "future-of-work",
+        "governance",
+        "enterprise-invariants",
+        "economics",
+        "judgment",
+        "cognitive-stack",
+        "post-application-era",
+        "bitter-lesson"
+      ],
+      "word_count": 1370,
+      "staleness_threshold": "stable",
+      "date": "2026-04-09",
+      "original_url": "https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/",
+      "related_frameworks": [
+        "enterprise-invariants",
+        "cognitive-stack",
+        "bitter-lesson",
+        "post-application-era"
       ]
     },
     {

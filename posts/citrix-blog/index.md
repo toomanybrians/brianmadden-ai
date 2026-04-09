@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of my 31 Citrix blog posts (April 2025 through March 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 32 Citrix blog posts (April 2025 through April 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**32. What's Left for Humans?** (2026-04-09)
+[citrix.com](https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/)
+Addresses "if AI does everything, what's left for humans?" by reframing the question: the answer is always a point-in-time snapshot, not a destination. Governance scope explodes (500 agents per compliance officer, multi-entity identity, AI-synthesized sensitive data). Economics get quantified (human vs. AI cost per task, "work about work" disappears). Judgment and relationships remain human for now, but the boundary shifts continuously. The bitter lesson pattern: the bottleneck always shifts.
 
 **31. Skills Are All You Need** (2026-03-12)
 [citrix.com](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/)
