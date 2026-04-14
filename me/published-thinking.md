@@ -429,7 +429,7 @@ Response to Claude Cowork launch. Wrong risk: "secrets absorbed into model." Rea
 **Major argument post.** Explains why corporate AI fails: outsiders only see 20% of work (outputs). The 80% (reasoning, pattern recognition, tacit knowledge) lives in workers' heads. AJ insurance negotiator example. "Workers are their own anthropologists." The 80% can only be unlocked by the people who already have it.
 
 ### January 7, 2026: No AI bombshells in 2026
-[Original post](https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx)
+[Original post](https://vmblog.com/prediction/no-ai-bombshells-in-2026-just-reality-catching-up/)
 Six predictions: (1) AI real coworker for minority, barely present for majority, (2) worker-led still outpaces corporate, (3) "AI skills" becomes personal/performance topic, (4) "don't paste sensitive data" acknowledged as not a strategy, (5) workers juggle multiple AIs daily, (6) citizen developers real but concentrated. Key: "No bombshells. Just reality catching up."
 
 ### December 18, 2025: Workers don't want to build automations, they want to delegate

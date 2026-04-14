@@ -13,7 +13,7 @@ CIO (quoted) | [Read](https://www.cio.com/article/4110721/7-ways-to-kill-its-val
 Quoted on how blocking worker-chosen AI tools destroys IT's credibility and strategic value.
 
 **No AI Bombshells in 2027, Just Reality Catching Up** (Jan 2026)
-VMblog | [Read](https://vmblog.com/archive/2026/01/07/no-ai-bombshells-in-2027-just-reality-catching-up.aspx)
+VMblog | [Read](https://vmblog.com/prediction/no-ai-bombshells-in-2026-just-reality-catching-up/)
 Six predictions for 2026: worker-led AI outpaces corporate, "don't paste sensitive data" acknowledged as not a strategy, citizen developers concentrated in the top few percent.
 
 **How to Turn Employee AI Use into a Strategic Advantage** (Sept 2025)
