@@ -4,6 +4,10 @@ I've delivered 1,000+ talks globally over 32 years. This directory captures the 
 
 ## Available content
 
+**The Cognitive Stack: What Comes After Building AI Platforms** (2026-04-21)
+BWI Architecture Summit 2026, Nuremberg, Germany
+Condensed 20-minute cognitive stack talk for ~150 German military IT architects. Same core frameworks (80/20 invisible knowledge work, cognitive stack, anti-automation, token routing) reframed for infrastructure architects who have built AI platforms and need to think about what goes on top. Includes Q&A on AI trust: treat AI like a colleague, apply the same guardrails you apply to humans. Slides available.
+
 **You Can't Automate Your Way to Intelligence** (2026-03-31)
 Liquidware Chats podcast (guest appearance)
 Most complete public articulation of the cognitive stack framework. VDI Delusion parallels to AI, the 80/20 invisible knowledge work problem, why corporate AI ROI disappoints while individual workers thrive, applications as compatibility layers, second brain sharing via GitHub submodules, software development as canary in the coal mine, security implications (tokens not packets, DLP reimagined), and the core thesis: you can't automate the bottom of the stack and expect intelligence to emerge at the top. Full transcript available.
@@ -68,7 +72,6 @@ My return to enterprise tech after the pinball industry. Introduces the "seasons
 
 | Date       | Event                               | Title                                   |
 | ---------- | ----------------------------------- | --------------------------------------- |
-| 2026-04-21 | BWI Architecture Summit (Nuremberg) | TBD                                     |
 | 2026-06-03 | EUCTech 2026 (Oslo-Kiel cruise)     | The Last Chapter of End-User Computing  |
 | 2026-06-03 | EUCTech 2026 (Oslo-Kiel cruise)     | I Built a Second Brain and Published It |
 | 2026-10-09 | AppManagEvent (Utrecht)             | Opening keynote, TBD                    |

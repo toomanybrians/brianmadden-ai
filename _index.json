@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-04-09",
+  "generated": "2026-04-21",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 102,
-  "total_words": 180636,
+  "total_files": 103,
+  "total_words": 181486,
   "files": [
     {
       "path": "AGENTS.md",
@@ -1984,6 +1984,17 @@
       "conference_theme": "Blueprints for Tomorrow",
       "slides": "44-slide Keynote deck",
       "other_speakers": "Heads of Product and AI leaders from Databricks, Apollo.ai, JPMorgan, Khosla Ventures, TikTok, and others"
+    },
+    {
+      "path": "talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md",
+      "title": "The cognitive stack: what comes after building AI platforms",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": ["cognitive-stack", "second-brain", "knowledge-work", "token-economics", "ai-governance", "enterprise-ai"],
+      "word_count": 850,
+      "staleness_threshold": "stable",
+      "date": "2026-04-21",
+      "related_frameworks": ["cognitive-stack", "invisible-80-percent", "bitter-lesson"]
     },
     {
       "path": "talks/index.md",

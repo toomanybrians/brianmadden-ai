@@ -43,6 +43,7 @@ The argument that real AI transformation comes from workers, not corporate manda
 - `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
 - `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
+- `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
 
 - `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 
@@ -148,6 +149,7 @@ What knowledge work actually is, why 80% of it is invisible to corporate IT, and
 - `posts/citrix-blog/2026-02-25-cognitive-stack.md` -- Understanding the cognitive stack: why your AI strategy is focused on the wrong layer (2026-02-25) (authority: 5)
 - `posts/citrix-blog/2026-03-12-skills-are-all-you-need.md` -- Skills are all you need (2026-03-12) (authority: 5)
 - `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
+- `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
 
 ## Second brains and subscribable knowledge
 
@@ -167,6 +169,7 @@ Personal AI knowledge systems, subscribable brains, the creator economy disrupti
 - `posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md` -- Announcing brianmadden.ai: I just published my brain for you to merge into your AI (2026-02-26) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
 - `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
+- `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
 
 ## Enterprise AI strategy
 
@@ -217,6 +220,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
 - `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 - `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
+- `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
 
 ## Human-AI collaboration
 
@@ -233,4 +237,5 @@ How humans and AI work together. The delegation model, the 7-stage roadmap, the 
 - `talks/2025-10-15-shi-fall-summit.md` -- AI in the Workplace: What's Happening in the Next 12 Months (2025-10-15) (authority: 5)
 - `talks/2025-07-01-axess-connect-euc-futurism-ai.md` -- What's next for EUC? Brian Madden talks futurism in the age of AI (2025-07-01) (authority: 5)
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
+- `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
 
