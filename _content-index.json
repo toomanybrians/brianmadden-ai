@@ -1,5 +1,12 @@
 [
   {
+    "title": "The SaaSpocalypse won't touch the enterprise software moat",
+    "url": "https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/",
+    "date": "2026-04-22",
+    "type": "blog",
+    "description": "AI isn't eating software as a category — it's eating a specific layer. Three tiers: shallow UX-as-moat SaaS is toast, middle horizontal enterprise SaaS is squeezed, the deep layer of vertical regulated systems of record (Epic, SAP, Amadeus, bank cores, industrial control) doesn't move. AI dissolves UIs, not systems of record."
+  },
+  {
     "title": "The cognitive stack: what comes after building AI platforms",
     "url": "https://bmad.com/talks/2026-04-21-bwi-architecture-summit-cognitive-stack",
     "date": "2026-04-21",

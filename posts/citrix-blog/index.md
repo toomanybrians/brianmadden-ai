@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of my 32 Citrix blog posts (April 2025 through April 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 33 Citrix blog posts (April 2025 through April 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**33. The SaaSpocalypse Won't Touch the Enterprise Software Moat** (2026-04-22)
+[citrix.com](https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/)
+Response to Daniel Miessler's *The Fire of Fires* and the broader SaaSpocalypse narrative. AI isn't eating software as a category — it's eating a specific layer. Three tiers: shallow UX-as-moat horizontal SaaS (Miessler's list, fully burnable), middle horizontal enterprise SaaS without deep moats (Salesforce, Workday, Snowflake, Zoom — squeezed), and the deep layer of vertical regulated systems of record (Epic, SAP, Amadeus, Guidewire, industrial control, bank cores, clinical trials, tax compliance, aerospace CAD, government mainframes). The deep layer doesn't move because of regulation, data gravity, decades of workflow encoding, mission-critical tolerance, and because "rebuild it yourself" doesn't scale past one user. Sharpens the post-application thesis: AI dissolves UIs, not systems of record.
 
 **32. What's Left for Humans?** (2026-04-09)
 [citrix.com](https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/)

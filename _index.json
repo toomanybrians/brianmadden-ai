@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-04-21",
+  "generated": "2026-04-22",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 103,
-  "total_words": 181486,
+  "total_files": 104,
+  "total_words": 185402,
   "files": [
     {
       "path": "AGENTS.md",
@@ -370,10 +370,10 @@
         "governance",
         "ai-agents"
       ],
-      "word_count": 7127,
+      "word_count": 9584,
       "staleness_threshold": "months",
-      "updated": "2026-02-19",
-      "description": "Comprehensive synthesis of Brian's published ideas across 30+ posts. The authoritative source for his intellectual positions."
+      "updated": "2026-04-22",
+      "description": "Comprehensive synthesis of Brian's published ideas across 36+ posts. The authoritative source for his intellectual positions."
     },
     {
       "path": "me/voice.md",
@@ -1030,6 +1030,27 @@
       "related_frameworks": [
         "five-levels-of-ai-in-knowledge-work",
         "7-stage-roadmap"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2026-04-22-saaspocalypse-wont-touch-enterprise-software-moat.md",
+      "title": "The SaaSpocalypse won't touch the enterprise software moat",
+      "authority_level": 4,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "post-application-era",
+        "saaspocalypse",
+        "enterprise-software",
+        "boring-infrastructure",
+        "systems-of-record"
+      ],
+      "word_count": 1459,
+      "staleness_threshold": "stable",
+      "date": "2026-04-22",
+      "original_url": "https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/",
+      "related_frameworks": [
+        "post-application-era",
+        "bitter-lesson"
       ]
     },
     {
