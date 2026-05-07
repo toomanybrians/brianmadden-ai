@@ -12,7 +12,7 @@ description: "Comprehensive synthesis of my published ideas across 37+ posts. Th
 
 This document synthesizes the core ideas, frameworks, and arguments from my published work on AI and the future of work (~2023–March 2026). It represents my intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** May 7, 2026 (37 posts + DUCUG talk through May 7, 2026)
+**Last updated:** May 7, 2026 (37 posts + key talks through May 7, 2026)
 
 ---
 
