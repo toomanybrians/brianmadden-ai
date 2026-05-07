@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-04-22",
+  "generated": "2026-05-07",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 104,
-  "total_words": 185402,
+  "total_files": 105,
+  "total_words": 187789,
   "files": [
     {
       "path": "AGENTS.md",
@@ -370,10 +370,10 @@
         "governance",
         "ai-agents"
       ],
-      "word_count": 9584,
+      "word_count": 10256,
       "staleness_threshold": "months",
-      "updated": "2026-04-22",
-      "description": "Comprehensive synthesis of Brian's published ideas across 36+ posts. The authoritative source for his intellectual positions."
+      "updated": "2026-05-07",
+      "description": "Comprehensive synthesis of Brian's published ideas across 37+ posts. The authoritative source for his intellectual positions."
     },
     {
       "path": "me/voice.md",
@@ -1033,6 +1033,29 @@
       ]
     },
     {
+      "path": "posts/citrix-blog/2026-05-07-why-enterprise-ai-agents-disappoint.md",
+      "title": "Why enterprise AI agents disappoint (and why the fix is not 'better agents')",
+      "authority_level": 5,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "agents",
+        "cognitive-stack",
+        "crawl-walk-run",
+        "skills",
+        "second-brain",
+        "token-routing"
+      ],
+      "word_count": 1280,
+      "staleness_threshold": "stable",
+      "date": "2026-05-07",
+      "original_url": "https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/",
+      "related_frameworks": [
+        "cognitive-stack",
+        "delegation-not-automation",
+        "7-stage-roadmap"
+      ]
+    },
+    {
       "path": "posts/citrix-blog/2026-04-22-saaspocalypse-wont-touch-enterprise-software-moat.md",
       "title": "The SaaSpocalypse won't touch the enterprise software moat",
       "authority_level": 4,
@@ -1127,7 +1150,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 1072,
+      "word_count": 1507,
       "staleness_threshold": null
     },
     {

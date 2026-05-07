@@ -1,18 +1,18 @@
 ---
 title: "My intellectual foundation"
-updated: "2026-04-09"
+updated: "2026-05-07"
 authority_level: 1
 file_type: synthesis
 tags: ["knowledge-work", "enterprise-ai", "worker-led-adoption", "automation", "governance", "ai-agents"]
 staleness_threshold: months
-description: "Comprehensive synthesis of my published ideas across 30+ posts. The authoritative source for my intellectual positions."
+description: "Comprehensive synthesis of my published ideas across 37+ posts. The authoritative source for my intellectual positions."
 ---
 
 # My intellectual foundation
 
 This document synthesizes the core ideas, frameworks, and arguments from my published work on AI and the future of work (~2023–March 2026). It represents my intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** April 22, 2026 (36 posts + DUCUG talk through April 22, 2026)
+**Last updated:** May 7, 2026 (37 posts + DUCUG talk through May 7, 2026)
 
 ---
 
@@ -384,6 +384,10 @@ Enterprise implications: consulting firms where juniors carry seniors' accumulat
 
 The full text of each published post is in `posts/citrix-blog/` and `posts/linkedin/`. For earlier LinkedIn articles (2020-2024), see `posts/linkedin/index.md`.
 
+### May 7, 2026: Why enterprise AI agents disappoint (and why the fix is not "better agents")
+[Original post](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/)
+**Major argument post. Publishes the crawl/walk/run pedagogy for the cognitive stack and the layer-selection thesis for AI in the enterprise.** Frames the current discourse: Google Next, OpenAI workspace agents, Anthropic Cowork enterprise controls, and Microsoft's agent posts all promise autonomous AI doing real work, but customers report stalled pilots and conference demos that don't translate. Three major moves: (1) **Diagnoses agent disappointment as a missing-step problem.** Crawl is using AI via chat (where most are). Run is autonomous agents doing real work (what everyone's racing to). What's missing is walking — teaching AI how you actually work, what context matters, what good looks like, building skills, capturing decision-making, giving AI persistent memory. Companies are skipping from crawl to run, which is why their agents fail. Reuses the agents-as-workers thesis: deploying an agent without context, judgment, or knowledge of how things get done is "like handing a new hire a laptop & login and saying, 'Now go do my job.'" (2) **Pivots to the deeper argument: even after you can run, you still mostly walk.** Most knowledge work doesn't need an agent. Successful AI use is choosing the right cognitive-stack layer per task — each layer down costs more than the one above it while requiring the layers above. (3) **Publishes the four-layer Excel example with token costs.** Do-it-yourself ($0, fast, reliable). Reason in context (~1K tokens). Use a skill (~1K + maintenance dependency, plus required higher-layer context). Send a CUA agent to operate Excel (~200K tokens, slower, error-prone, AND only works if the layers above are in place). Connects directly to: the cognitive stack (layer assignment per task), skills (the middle-layer scaffolding), the 7-stage roadmap (you can't skip stages), the second brain anchor (capturing how you work), and the invisible 80% (making your work legible to AI). Tagline that crystallizes the whole thesis: "Crawl before you walk. Walk before you run. Run fast when you need to, but never forget how to walk and crawl." Reference when discussing: why enterprise agent pilots stall, how to think about layer selection in AI work, the published version of token routing as task selection, or the case for the middle layers of the cognitive stack.
+
 ### April 22, 2026: The SaaSpocalypse won't touch the enterprise software moat
 [Original post](https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/)
 **Major framework post.** Direct response to Daniel Miessler's *The Fire of Fires* and the broader SaaSpocalypse narrative in WSJ, NYT, and Fortune. Three major moves: (1) **Introduces the three-tier software framework.** Shallow layer: developer-facing horizontal SaaS founded post-2010, UX wrappers around commodity cores (Miessler's list — Zapier, Resend, Figma, Canva, Browserbase, Supabase). Fully burnable. Middle layer: legit enterprise horizontal SaaS with real data and integrations but not industry-specific (Salesforce, Workday, Snowflake, Zoom, Asana, Monday, Smartsheet, Box, Dropbox, Atlassian, parts of Adobe). Selectively vulnerable — Salesforce and ServiceNow are deeply wired enough to survive, most of the rest are squeezed. Deep layer: vertical regulated systems of record (Epic, SAP, Oracle EBS/Fusion, Amadeus/Sabre/Travelport, Guidewire/Duck Creek, ABB/Honeywell/Siemens/Rockwell industrial control, FIS/Fiserv/Jack Henry/Temenos bank cores, Veeva/Medidata, Vertex/Avalara, Dassault/Siemens NX/PTC, government mainframes). Doesn't move. (2) **Enumerates five reasons the deep layer endures:** regulation (HIPAA, FDA 21 CFR Part 11, SOX, FAA, IATA, PCI), mountains of data (250M patient records in Epic, fare rules in Amadeus, decade+ of SAP transactions), decades of encoded workflow (state-specific claims rules, country tax codes, drug interaction checks), customers can't afford these to break ("you can A/B test your CRM — you can't A/B test a hospital"), and rebuild-it-yourself doesn't scale past one user (Miessler's weekend vs. healthcare network rebuilding Epic for 80K employees). (3) **Sharpens the post-application era thesis.** "AI dissolves UIs, not systems of record." The Epic UI is replaceable; the Epic database is not. The SAP screens are replaceable; thirty years of tax logic and supply chain integrations are not. The mainframe green-screen is replaceable; the Social Security backend is not. The real post-application era for Tier 3 work has AI sitting between the worker and the system of record — the AI reads, reasons, proposes, commits; the system stays. Honest concession: eventually AI may eat the deep layer too, but "eventually" is doing a lot of work. Enterprise planning horizons are three to five years; even optimistic deep-layer replacement is a decade of migration running *inside* the old systems. Reference when discussing: the SaaSpocalypse reaction, post-application thesis for regulated industries, why Citrix's installed base is structurally protected, or the difference between interface dissolution and system-of-record dissolution.
@@ -620,6 +624,28 @@ The time-horizon rebuttal to the SaaSpocalypse narrative. Yes, AI might eventual
 
 **"The deep layer the real economy runs on needs AI to work alongside it, not instead of it."**
 The thesis statement for Tier 3 software in the AI era. Not replacement. Augmentation, brokered by governed infrastructure.
+
+---
+
+## 8. New signature phrases (May 2026)
+
+**"Crawl before you walk. Walk before you run. Run fast when you need to, but never forget how to walk and crawl."**
+The closer for the agent-disappointment post and the new compact form of the cognitive stack pedagogy. Crawl = chat, walk = context/skills/judgment, run = autonomous agents. Even after you can run, most work is still walking and crawling.
+
+**"They're skipping from crawl to run."**
+The diagnosis of why enterprise agent pilots stall. They tell AI what they want (crawl) and they've empowered AI with logins, agency, and tools (run), but they haven't given AI the skills or context (walk).
+
+**"Even after you learn how to run, you still mostly walk everywhere."**
+The deeper argument behind the pedagogy. Running is fastest but tiring, sweaty, and easier to fall. Most tasks don't need an agent — successful AI use is picking the right cognitive-stack layer per task.
+
+**"Each layer down costs more than the one above it while also requiring the layers above it."**
+The cost calculus of the cognitive stack made explicit. Excel example: do-it-yourself is free, in-context reasoning is ~1K tokens, a skill is ~1K + maintenance, a CUA agent is ~200K tokens. Agents only work if the layers above are in place.
+
+**"Deploying an agent without [context, guidance on judgement, understanding of the established way of working] is like handing a new hire a laptop & login and saying, 'Now go do my job.'"**
+The reusable one-liner version of the agents-as-workers thesis. Why agent pilots fail for the same reasons rushed onboarding fails.
+
+**"The future of AI in the enterprise isn't about racing to deploy agents. It's balancing the right effort, the right tool, and the right type of token for each task."**
+The published, executive-ready form of the token routing argument. Layer selection, not agent count, is the competitive variable.
 
 ---
 

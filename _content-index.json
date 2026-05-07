@@ -1,5 +1,12 @@
 [
   {
+    "title": "Why enterprise AI agents disappoint (and why the fix is not 'better agents')",
+    "url": "https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/",
+    "date": "2026-05-07",
+    "type": "blog",
+    "description": "Enterprise agent pilots are stalling because companies are skipping from 'crawl' (chat) to 'run' (autonomous agents) without 'walk' (context, skills, judgment). Even after you can run, you still mostly walk — successful AI use is choosing the right cognitive-stack layer per task. Includes the four-layer Excel example with token costs."
+  },
+  {
     "title": "The SaaSpocalypse won't touch the enterprise software moat",
     "url": "https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/",
     "date": "2026-04-22",

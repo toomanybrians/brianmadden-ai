@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of my 33 Citrix blog posts (April 2025 through April 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 34 Citrix blog posts (April 2025 through May 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**34. Why Enterprise AI Agents Disappoint (and Why the Fix Is Not "Better Agents")** (2026-05-07)
+[citrix.com](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/)
+Enterprise agent pilots are stalling because companies are skipping from "crawl" (chat interfaces) to "run" (autonomous agents) without "walk" (context, skills, judgment). The crawl/walk/run pedagogy maps onto the cognitive stack and explains why agent demos don't translate to production. The deeper move: even after you can run, you still mostly walk — successful AI use is choosing the right cognitive-stack layer per task. Concrete Excel example with token costs: do-it-yourself ($0), reason-in-context (~1K), use a skill (~1K + maintenance), CUA agent (~200K, slow, error-prone). Agents only work when the layers above are in place. "Crawl before you walk. Walk before you run. Run fast when you need to, but never forget how to walk and crawl."
 
 **33. The SaaSpocalypse Won't Touch the Enterprise Software Moat** (2026-04-22)
 [citrix.com](https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/)
