@@ -2,6 +2,10 @@
 
 I've delivered 1,000+ talks globally over 32 years. This directory captures the ones with available content.
 
+## Podcast
+
+I co-host the **Citrix AI Hotsheet** with Dave Brear — a monthly podcast on AI entering real enterprises. Full episode content (description + transcript + links) is in `podcast/`. See `podcast/index.md` for the show page and all subscription links.
+
 ## Available content
 
 **The Cognitive Stack: What Comes After Building AI Platforms** (2026-04-21)
