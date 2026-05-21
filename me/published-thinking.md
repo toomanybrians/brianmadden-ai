@@ -12,7 +12,7 @@ description: "Comprehensive synthesis of my published ideas across 37+ posts. Th
 
 This document synthesizes the core ideas, frameworks, and arguments from my published work on AI and the future of work (~2023–March 2026). It represents my intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** May 7, 2026 (37 posts + key talks through May 7, 2026)
+**Last updated:** May 21, 2026 (38 posts + key talks through May 21, 2026)
 
 ---
 
@@ -383,6 +383,10 @@ Enterprise implications: consulting firms where juniors carry seniors' accumulat
 ## Post-by-post notes (newest first)
 
 The full text of each published post is in `posts/citrix-blog/` and `posts/linkedin/`. For earlier LinkedIn articles (2020-2024), see `posts/linkedin/index.md`.
+
+### May 21, 2026: Announcing our new podcast: the Citrix AI Hotsheet
+[Original post](https://www.citrix.com/blogs/2026/05/21/aihotsheet/)
+Launch announcement for the Citrix AI Hotsheet podcast, co-hosted with Dave Brear. Brian (futurist: where things are going) + Dave (architect: what customers are dealing with today) covering AI entering the enterprise workspace for IT leaders in regulated environments. Not a hype podcast — two practitioners with a combined 50 years of enterprise IT experience. Episode 1 covers CUAs, semantic primitives vs. screenshots (80% token reduction), second brains / context vaults, and connecting two public second brains via MCP.
 
 ### May 7, 2026: Why enterprise AI agents disappoint (and why the fix is not "better agents")
 [Original post](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/)

@@ -1,8 +1,8 @@
 {
   "version": "1.0",
-  "generated": "2026-05-07",
+  "generated": "2026-05-21",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 105,
+  "total_files": 106,
   "total_words": 187789,
   "files": [
     {
@@ -1030,6 +1030,28 @@
       "related_frameworks": [
         "five-levels-of-ai-in-knowledge-work",
         "7-stage-roadmap"
+      ]
+    },
+    {
+      "path": "posts/citrix-blog/2026-05-21-announcing-citrix-ai-hotsheet.md",
+      "title": "Announcing our new podcast: the Citrix AI Hotsheet",
+      "authority_level": 4,
+      "file_type": "citrix-blog-post",
+      "tags": [
+        "podcast",
+        "second-brain",
+        "computer-use-agents",
+        "context-vault",
+        "mcp",
+        "enterprise-ai"
+      ],
+      "word_count": 380,
+      "staleness_threshold": "stable",
+      "date": "2026-05-21",
+      "original_url": "https://www.citrix.com/blogs/2026/05/21/aihotsheet/",
+      "related_frameworks": [
+        "cognitive-stack",
+        "invisible-80-percent"
       ]
     },
     {

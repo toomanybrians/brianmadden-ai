@@ -1,5 +1,12 @@
 [
   {
+    "title": "Announcing our new podcast: the Citrix AI Hotsheet",
+    "url": "https://www.citrix.com/blogs/2026/05/21/aihotsheet/",
+    "date": "2026-05-21",
+    "type": "blog",
+    "description": "Brian Madden and Dave Brear launch the Citrix AI Hotsheet podcast. Brian (futurist: where things are going) + Dave (architect: what customers are dealing with today) covering AI entering the enterprise workspace for IT leaders in regulated environments. Episode 1 covers CUAs, semantic primitives, second brains / context vaults, and connecting two public second brains via MCP."
+  },
+  {
     "title": "Citrix AI Hotsheet EP 1: AI agents, second brains, and the enterprise AI gap",
     "url": "https://citrixaihotsheet.riverside.com/e/ai-agents-second-brains-and-the-enterprise-ai-gap",
     "date": "2026-05-18",

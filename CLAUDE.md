@@ -16,7 +16,7 @@ Read these files in this order:
 
 1. **This file** (`CLAUDE.md` or `AGENTS.md`) — orientation and instructions
 2. **`me/profile.md`** — who Brian is, background, credentials
-3. **`me/published-thinking.md`** — intellectual foundation derived from published work (34 Citrix blog posts + 21 LinkedIn articles, Apr 2025–May 2026)
+3. **`me/published-thinking.md`** — intellectual foundation derived from published work (35 Citrix blog posts + 21 LinkedIn articles, Apr 2025–May 2026)
 4. **`me/developing-thinking.md`** — where Brian's head is *right now* (the frontier—developing arguments, connecting ideas, open questions)
 5. **`bluesky.md`** — short-form posts from Bluesky (@bmad.com), updated frequently
 6. **`me/voice.md`** — how Brian thinks, argues, and communicates

@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of my 34 Citrix blog posts (April 2025 through May 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 35 Citrix blog posts (April 2025 through May 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**35. Announcing our new podcast: the Citrix AI Hotsheet** (2026-05-21)
+[citrix.com](https://www.citrix.com/blogs/2026/05/21/aihotsheet/)
+Launch announcement for the Citrix AI Hotsheet podcast, co-hosted with Dave Brear. Brian (futurist: where things are going) + Dave (architect: what customers are dealing with today) covering AI entering the enterprise workspace for IT leaders in regulated environments. Not a hype show — two practitioners with a combined 50 years of enterprise IT experience. Episode 1: CUAs and semantic primitives, Dave's "context vaults" (second brains), and connecting two public second brains via MCP so listeners can try it themselves.
 
 **34. Why Enterprise AI Agents Disappoint (and Why the Fix Is Not "Better Agents")** (2026-05-07)
 [citrix.com](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/)
