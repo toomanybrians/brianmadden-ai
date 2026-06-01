@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-05-21",
+  "generated": "2026-06-01",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
   "total_files": 106,
-  "total_words": 187789,
+  "total_words": 193634,
   "files": [
     {
       "path": "AGENTS.md",
@@ -84,9 +84,9 @@
         "frontier",
         "developing-arguments"
       ],
-      "word_count": 2200,
+      "word_count": 8045,
       "staleness_threshold": "weeks",
-      "updated": "2026-02-23",
+      "updated": "2026-06-01",
       "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
     },
     {
