@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-06-01",
+  "generated": "2026-06-10",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 106,
-  "total_words": 193634,
+  "total_files": 108,
+  "total_words": 195034,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2061,6 +2061,29 @@
       "staleness_threshold": "stable",
       "date": "2026-04-21",
       "related_frameworks": ["cognitive-stack", "invisible-80-percent", "bitter-lesson"]
+    },
+    {
+      "path": "talks/2026-06-01-future-of-less-work-ai-brain-resume.md",
+      "title": "How AI is changing who performs best at work",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "second-brain",
+        "byoai",
+        "invisible-80-percent",
+        "worker-led-ai",
+        "knowledge-work-ownership",
+        "consumerization",
+        "subscribable-brains",
+        "human-plus-ai",
+        "ai-performance"
+      ],
+      "word_count": 1200,
+      "staleness_threshold": "stable",
+      "date": "2026-06-01",
+      "event": "The Future of Less Work podcast",
+      "format": "Podcast guest appearance",
+      "recording": "https://www.youtube.com/watch?v=YLw72rtP3Ms"
     },
     {
       "path": "talks/index.md",

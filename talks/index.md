@@ -8,6 +8,11 @@ I co-host the **Citrix AI Hotsheet** with Dave Brear — a monthly podcast on AI
 
 ## Available content
 
+**How AI is changing who performs best at work** (2026-06-01)
+The Future of Less Work podcast (guest appearance, host: Nirit Cohen)
+[Watch](https://www.youtube.com/watch?v=YLw72rtP3Ms) | [Episode page](https://workfutures.niritcohen.com/podcast/how-ai-is-changing-who-performs-best-at-work-with-brian-madden/)
+The new unit of work is human + AI system. The inverse labor threat: companies keeping workers' AI brains after they're fired—AI finally captures the invisible cognitive work that always lived only in workers' heads. BYOAI as the new BYOD—same consumerization pattern, different stakes. AI as co-thinking partner on the invisible 80%. Joy/satisfaction as the individual calibration metric. Timeline compression: 2027+ predictions were live in January 2026. Full transcript available.
+
 **The Cognitive Stack: What Comes After Building AI Platforms** (2026-04-21)
 BWI Architecture Summit 2026, Nuremberg, Germany
 Condensed 20-minute cognitive stack talk for ~150 German military IT architects. Same core frameworks (80/20 invisible knowledge work, cognitive stack, anti-automation, token routing) reframed for infrastructure architects who have built AI platforms and need to think about what goes on top. Includes Q&A on AI trust: treat AI like a colleague, apply the same guardrails you apply to humans. Slides available.
