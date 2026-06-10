@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of my 35 Citrix blog posts (April 2025 through May 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 36 Citrix blog posts (April 2025 through June 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**36. The 7-stage roadmap for human-AI collaboration (2026 Edition)** (2026-06-10)
+[citrix.com](https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/)
+Major update to the original June 2025 roadmap. The key reframe: the 2025 version focused on what AI does at each stage; this version focuses on what the worker does and becomes. Timelines were off by ~3x—predictions made for 2027+ were live by January 2026. Stage 3 (AI as Cognitive Extension—the second brain / context vault) is entirely new, only viable since January 2026. Stage 7 shifts from "AI-orchestrated work" to "The Published Self"—the optional fork of publishing your second brain for others to connect to. Stage 6 (AI as a Pod) makes explicit that the unit of work stops being one human for one 8-hour day and becomes a small team running continuously. Brian's self-reported position: deep in Stage 3, just entering Stage 4, fully in Stage 7.
 
 **35. Announcing our new podcast: the Citrix AI Hotsheet** (2026-05-21)
 [citrix.com](https://www.citrix.com/blogs/2026/05/21/aihotsheet/)

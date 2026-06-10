@@ -2,8 +2,8 @@
   "version": "1.0",
   "generated": "2026-06-10",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 108,
-  "total_words": 195034,
+  "total_files": 109,
+  "total_words": 196734,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2061,6 +2061,18 @@
       "staleness_threshold": "stable",
       "date": "2026-04-21",
       "related_frameworks": ["cognitive-stack", "invisible-80-percent", "bitter-lesson"]
+    },
+    {
+      "path": "posts/citrix-blog/2026-06-10-the-7-stage-roadmap-2026-edition.md",
+      "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
+      "authority_level": 5,
+      "file_type": "blog-post",
+      "tags": ["7-stage-roadmap", "cognitive-extension", "second-brain", "ai-fleet", "published-self", "worker-led-ai", "human-plus-ai"],
+      "word_count": 1700,
+      "staleness_threshold": "stable",
+      "date": "2026-06-10",
+      "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
+      "related_frameworks": ["cognitive-stack", "invisible-80-percent", "delegation-not-automation", "five-levels-of-ai-in-knowledge-work"]
     },
     {
       "path": "talks/2026-06-01-future-of-less-work-ai-brain-resume.md",
