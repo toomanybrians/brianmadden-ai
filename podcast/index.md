@@ -26,3 +26,5 @@ The show covers what's actually changing for enterprise AI: agentic systems and 
 
 - **EP 1: AI agents, second brains, and the enterprise AI gap** (May 18, 2026) — `podcast/ep1.md`
   Brian's thesis that AI will enter the enterprise by using the same desktops and applications human workers already use, and Dave's introduction to context vaults (second brains) and why this practice is already happening quietly across knowledge workers.
+- **EP 2: The Last Chapter of EUC** (June 13, 2026 — special solo edition) — `podcast/ep2.md`
+  Brian shares his EUCTech keynote. Where the end-user computing industry is in 2026 (capabilities vs. diffusion), the invisible 80% of knowledge work, the updated seven-step roadmap for how AI enters work, an audit of every EUC primitive translated into its AI-era successor, and why this is the last chapter of book one — not the end of the story.

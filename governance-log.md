@@ -4,6 +4,40 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-06-14 — New podcast EP 2 + keynote: The Last Chapter of EUC
+
+**What was synced:**
+- Created `podcast/ep2.md` (Citrix AI Hotsheet EP 2 — special solo edition, the EUCTech keynote: metadata, subscription links, description, topics, full transcript)
+- Created `talks/2026-06-03-euctech-the-last-chapter-of-euc.md` (standalone narrative-arc talk record)
+- Updated `podcast/index.md` (EP 2 entry) and `talks/index.md` (added to Available content; removed the two now-past EUCTech rows from Upcoming/accepted)
+- Updated `COLLECTIONS.md` (added EP 2 and the talk to AI agents / post-application era, knowledge work / invisible 80%, human-AI collaboration, second brains collections)
+- Updated `_index.json` (added the talk entry; total_files 109→110, total_words 197308→198520, generated → 2026-06-14). Podcast episode files are not tracked in `_index.json` (consistent with ep1.md).
+- Updated `_content-index.json` (added EP 2 podcast card and the keynote speech card for bmad.com homepage)
+- Updated `README.md` and `llms.txt` stats (talks 15→18, files/words refreshed to match `_index.json`, frameworks corrected 10→9 in llms.txt, version v3.3→v3.4, date → 2026-06-14)
+
+**Automated checks:**
+- Wiki-links (`[[`): none found — CLEAR
+- Internal names (Nancy, Hector, Sridhar, Aidrien, Kireeti, Abhilash, Eltjo, Kevin Nardone): none found — CLEAR (genericized "Aidrien" → "the AI that helps me interface with my Citrix environment" and "Nancy" → "my coworker/my manager" in the public transcript)
+- bmad/ path references: none found — CLEAR
+- Spaced/triple em-dashes: none found — CLEAR
+- Heading case: sentence case throughout — CLEAR
+
+**Tone checks:**
+- Colleague test: content is a publicly-delivered keynote and a publicly-released podcast; consistent with Brian's published voice — CLEAR
+- Competitor test: no competitive positioning that would embarrass; Microsoft/AI labs referenced only as in published work — CLEAR
+- Journalist test: no unpublished Citrix strategy; the EUC-audit primitives are Brian's public framing — CLEAR
+- Fossil record test: accurate as of publish date
+- Register test: conversational keynote register, consistent with other talk/podcast transcripts
+
+**Manual review notes:**
+- EP 2 is the EUCTech keynote, already delivered publicly (June 3) and released as a podcast (June 13) on YouTube/Apple/Spotify/Riverside — fully public content
+- The transcript was lightly cleaned for readability (transcription garbles, punctuation) without changing substance
+- "OpenClaw" reference kept (real, ties to the published OpenClaw governance post); "Claude Fable / Mythos" model names kept per author confirmation
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-06-14 — Update 7-stage roadmap framework explainer to 2026 edition
 
 **What was synced:**

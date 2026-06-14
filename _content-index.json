@@ -1,10 +1,24 @@
 [
   {
+    "title": "Citrix AI Hotsheet EP 2: The Last Chapter of EUC",
+    "url": "https://www.youtube.com/watch?v=Bgxx4UCtb6k",
+    "date": "2026-06-13",
+    "type": "podcast",
+    "description": "Citrix AI Hotsheet, Episode 2 (special solo edition). Brian Madden shares his EUCTech keynote, 'The Last Chapter of EUC': where end-user computing stands in 2026 (capabilities vs. diffusion), the invisible 80% of knowledge work, the updated seven-step roadmap for how AI enters work, an audit of every EUC primitive translated into its AI-era successor, and why this is the last chapter of book one, not the end of the story."
+  },
+  {
     "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
     "url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
     "date": "2026-06-10",
     "type": "blog",
     "description": "Major update to the original 2025 roadmap. Reframed around what the worker becomes, not what AI does. Stage 3 (AI as Cognitive Extension / second brain) is entirely new for 2026. Stage 7 is now The Published Self. Timelines were off by 3x—stages arrived much faster than predicted."
+  },
+  {
+    "title": "The Last Chapter of EUC",
+    "url": "https://bmad.com/talks/2026-06-03-euctech-the-last-chapter-of-euc",
+    "date": "2026-06-03",
+    "type": "speech",
+    "description": "EUCTech 2026 keynote (Oslo-Kiel cruise). Where end-user computing stands in 2026 and where it's heading: capabilities vs. diffusion, the invisible 80% of knowledge work, the updated seven-step roadmap for how AI enters work, three emerging worker types, and an honest audit of every EUC primitive translated into its AI-era successor. The last chapter of book one — and EUC pros get to write book two. Also published as Citrix AI Hotsheet EP 2."
   },
   {
     "title": "How AI is changing who performs best at work",

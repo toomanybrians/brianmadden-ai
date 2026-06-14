@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-06-12",
+  "generated": "2026-06-14",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 109,
-  "total_words": 197308,
+  "total_files": 110,
+  "total_words": 198520,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2143,6 +2143,32 @@
         "invisible-80-percent",
         "workspace-as-control-plane"
       ]
+    },
+    {
+      "path": "talks/2026-06-03-euctech-the-last-chapter-of-euc.md",
+      "title": "The Last Chapter of EUC",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "euc",
+        "end-user-computing",
+        "7-stage-roadmap",
+        "second-brain",
+        "cognitive-extension",
+        "post-application-era",
+        "token-economics",
+        "ai-diffusion",
+        "invisible-80-percent",
+        "future-of-work"
+      ],
+      "word_count": 1212,
+      "staleness_threshold": "stable",
+      "date": "2026-06-03",
+      "event": "EUCTech 2026 (Oslo-Kiel cruise)",
+      "location": "Aboard the Oslo-Kiel cruise, Norway",
+      "audience": "EUC veterans, admins, architects, IT pros",
+      "format": "~45-minute keynote (Day 1)",
+      "recording": "Audio/video transcript (also published as Citrix AI Hotsheet EP 2)"
     }
   ]
 }

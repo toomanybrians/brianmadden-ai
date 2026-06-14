@@ -1,6 +1,6 @@
 # brianmadden.ai
 
-> Brian Madden's expert knowledge module for AI — v3.3 (106 files, ~188k words, 10 frameworks, 56 posts, 15 talks, updated 2026-05-21)
+> Brian Madden's expert knowledge module for AI — v3.4 (110 files, ~199k words, 9 frameworks, 56 posts, 18 talks, updated 2026-06-14)
 
 Contains his frameworks, arguments, positions, and current thinking on how AI is reshaping knowledge work and the enterprise. Brian is VP Technology Officer & Futurist at Citrix, with 32 years in end-user computing, 6 books, 2,000+ articles, and 1,000+ talks globally.
 
@@ -40,7 +40,7 @@ This is not a content archive. It is a structured representation of how Brian th
 
 - [posts/citrix-blog/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/citrix-blog/index.md): Index of 31 Citrix blog posts with summaries and links to full text
 - [posts/linkedin/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/linkedin/index.md): Index of 21 LinkedIn articles and posts
-- [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): 15 speech and podcast transcripts
+- [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): 18 speech and podcast transcripts
 - [interviews/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/interviews/index.md): Press interviews, commentary, and podcast appearances
 
 ## Bluesky

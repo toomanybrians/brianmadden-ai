@@ -8,6 +8,10 @@ I co-host the **Citrix AI Hotsheet** with Dave Brear — a monthly podcast on AI
 
 ## Available content
 
+**The Last Chapter of EUC** (2026-06-03)
+EUCTech 2026 keynote (Oslo-Kiel cruise) — also published as Citrix AI Hotsheet Episode 2
+Where the end-user computing industry stands in 2026 and where it's heading. The "AI isn't worth it" narrative became "AI is too expensive" — both are diffusion stories, not capability stories. The invisible 80% of knowledge work. The updated seven-step roadmap for how AI enters work (faster search, thinking partner, cognitive extension, multi-tool agent, fleet, pod, published self) and three emerging worker types (cognitive owners, operators, curators). An honest audit of every EUC primitive translated into its AI-era successor (VDI, image/skill management, profile/context management, group/agent policy, session recording/cognitive observability, performance/token management, the cognitive workspace, the control plane). The close: this is the last chapter of book one, and EUC pros get to write book two. Full transcript available.
+
 **How AI is changing who performs best at work** (2026-06-01)
 The Future of Less Work podcast (guest appearance, host: Nirit Cohen)
 [Watch](https://www.youtube.com/watch?v=YLw72rtP3Ms) | [Episode page](https://workfutures.niritcohen.com/podcast/how-ai-is-changing-who-performs-best-at-work-with-brian-madden/)
@@ -81,8 +85,6 @@ My return to enterprise tech after the pinball industry. Introduces the "seasons
 
 | Date       | Event                               | Title                                   |
 | ---------- | ----------------------------------- | --------------------------------------- |
-| 2026-06-03 | EUCTech 2026 (Oslo-Kiel cruise)     | The Last Chapter of End-User Computing  |
-| 2026-06-03 | EUCTech 2026 (Oslo-Kiel cruise)     | I Built a Second Brain and Published It |
 | 2026-10-09 | AppManagEvent (Utrecht)             | Opening keynote, TBD                    |
 | 2026-11-17 | Microsoft Ignite (San Francisco)    | TBD                                     |
 
