@@ -2,17 +2,20 @@
   "frameworks": {
     "7-stage-roadmap": {
       "path": "frameworks/7-stage-roadmap.md",
-      "title": "The 7-stage roadmap for human-AI collaboration",
-      "original_url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/",
+      "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
+      "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
       "referenced_in_posts": [
+        "2026-06-10-the-7-stage-roadmap-2026-edition",
         "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
       ],
       "related_frameworks": [
         "five-levels-of-ai-in-knowledge-work",
+        "cognitive-stack",
         "invisible-80-percent",
         "factory-electrification"
       ],
       "referenced_by_posts": [
+        "2026-06-10-the-7-stage-roadmap-2026-edition",
         "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace",
         "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
         "2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks",

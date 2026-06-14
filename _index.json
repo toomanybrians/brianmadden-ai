@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-06-10",
+  "generated": "2026-06-12",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
   "total_files": 109,
-  "total_words": 196734,
+  "total_words": 197308,
   "files": [
     {
       "path": "AGENTS.md",
@@ -105,28 +105,33 @@
     },
     {
       "path": "frameworks/7-stage-roadmap.md",
-      "title": "The 7-stage roadmap for human-AI collaboration",
+      "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
       "authority_level": 4,
       "file_type": "framework",
       "tags": [
         "knowledge-work",
         "ai-agents",
         "human-ai-collaboration",
-        "enterprise-ai"
+        "enterprise-ai",
+        "second-brain",
+        "cognitive-extension",
+        "published-self"
       ],
-      "word_count": 416,
+      "word_count": 990,
       "staleness_threshold": "stable",
-      "date": "2025-06-24",
-      "original_url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/",
+      "date": "2026-06-10",
+      "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
       "related_frameworks": [
         "five-levels-of-ai-in-knowledge-work",
+        "cognitive-stack",
         "invisible-80-percent",
         "factory-electrification"
       ],
       "related_posts": [
+        "2026-06-10-the-7-stage-roadmap-2026-edition",
         "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
       ],
-      "description": "From \"prompt and paste\" to AI-orchestrated work—seven stages mapping how AI enters knowledge work, and what enterprises need to prepare for at each one."
+      "description": "From faster search to the published self—seven stages mapping how AI enters knowledge work, reframed in 2026 around what the worker does and becomes. Stage 3 (AI as a cognitive extension / second brain) is new for this version."
     },
     {
       "path": "frameworks/bitter-lesson.md",

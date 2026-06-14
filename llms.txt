@@ -33,7 +33,7 @@ This is not a content archive. It is a structured representation of how Brian th
 - [frameworks/post-application-era.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/post-application-era.md): The post-application era—AI agents replacing traditional applications
 - [frameworks/bitter-lesson.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/bitter-lesson.md): Stop engineering, start enabling—the lesson enterprise AI keeps ignoring
 - [frameworks/five-levels-of-ai-in-knowledge-work.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/five-levels-of-ai-in-knowledge-work.md): From spicy search engine to dark knowledge factory—five levels of AI maturity
-- [frameworks/7-stage-roadmap.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/7-stage-roadmap.md): 7-stage enterprise AI roadmap
+- [frameworks/7-stage-roadmap.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/7-stage-roadmap.md): The 7-stage roadmap for human-AI collaboration (2026 Edition)—from faster search to the published self, reframed around what the worker becomes
 - [frameworks/subscribable-brains.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/subscribable-brains.md): Subscribable brains—the future of knowledge distribution
 
 ## Published work
