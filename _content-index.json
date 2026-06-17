@@ -1,5 +1,12 @@
 [
   {
+    "title": "The near future of work",
+    "url": "https://bmad.com/talks/2026-06-17-danofficeit-future-of-citrix",
+    "date": "2026-06-17",
+    "type": "speech",
+    "description": "DanofficeIT partner event, Copenhagen. Intimate format (~25 people) with extended Q&A. Covers capabilities vs. diffusion, the invisible 80%, the seven-phase roadmap, and the full EUC primitives audit. New angles: second brain data integrity (selection bias in what gets captured), why agents don't have privacy rights so session recording covers them 100%, explicit token consumption by phase (100K to 10B per user per day), and why consulting's PDF-at-project-close model is dead."
+  },
+  {
     "title": "Citrix AI Hotsheet EP 2: The Last Chapter of EUC",
     "url": "https://www.youtube.com/watch?v=Bgxx4UCtb6k",
     "date": "2026-06-13",

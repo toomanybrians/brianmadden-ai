@@ -1,8 +1,8 @@
 {
   "version": "1.0",
-  "generated": "2026-06-14",
+  "generated": "2026-06-17",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 110,
+  "total_files": 111,
   "total_words": 198520,
   "files": [
     {
@@ -2169,6 +2169,35 @@
       "audience": "EUC veterans, admins, architects, IT pros",
       "format": "~45-minute keynote (Day 1)",
       "recording": "Audio/video transcript (also published as Citrix AI Hotsheet EP 2)"
+    },
+    {
+      "path": "talks/2026-06-17-danofficeit-future-of-citrix.md",
+      "title": "The near future of work",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "euc",
+        "end-user-computing",
+        "7-stage-roadmap",
+        "second-brain",
+        "cognitive-extension",
+        "token-economics",
+        "ai-diffusion",
+        "invisible-80-percent",
+        "future-of-work",
+        "cognitive-stack",
+        "ai-governance",
+        "consulting",
+        "data-integrity"
+      ],
+      "word_count": 1843,
+      "staleness_threshold": "stable",
+      "date": "2026-06-17",
+      "event": "DanofficeIT — The Future of Citrix",
+      "location": "Copenhagen, Denmark",
+      "audience": "DanofficeIT partners, customers, and IT professionals (~25 people, intimate roundtable format)",
+      "format": "~60-minute talk with integrated Q&A",
+      "recording": "Full transcript available"
     }
   ]
 }

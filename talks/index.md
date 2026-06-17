@@ -8,6 +8,10 @@ I co-host the **Citrix AI Hotsheet** with Dave Brear — a monthly podcast on AI
 
 ## Available content
 
+**The near future of work** (2026-06-17)
+DanofficeIT — The Future of Citrix, Copenhagen, Denmark
+Intimate partner event (~25 people). Similar core material to the EUCTech keynote but delivered in an interactive format with extended Q&A. Notable additions: second brain data integrity deep dive (selection bias in what gets captured creates systematic distortion in the AI's model of relationships); "the days of a consultant leaving a PDF after a project are dead" — consulting shifts to a living second brain clients plug into; "you can only see one step ahead" as the mechanism behind AI skepticism; session recording applied to agents (agents don't have privacy rights — record everything they do); token consumption mapped explicitly to all seven phases (100K → 1M → 10M → 100M → 1B → 10B per user per day). Full transcript available.
+
 **The Last Chapter of EUC** (2026-06-03)
 EUCTech 2026 keynote (Oslo-Kiel cruise) — also published as Citrix AI Hotsheet Episode 2
 Where the end-user computing industry stands in 2026 and where it's heading. The "AI isn't worth it" narrative became "AI is too expensive" — both are diffusion stories, not capability stories. The invisible 80% of knowledge work. The updated seven-step roadmap for how AI enters work (faster search, thinking partner, cognitive extension, multi-tool agent, fleet, pod, published self) and three emerging worker types (cognitive owners, operators, curators). An honest audit of every EUC primitive translated into its AI-era successor (VDI, image/skill management, profile/context management, group/agent policy, session recording/cognitive observability, performance/token management, the cognitive workspace, the control plane). The close: this is the last chapter of book one, and EUC pros get to write book two. Full transcript available.
