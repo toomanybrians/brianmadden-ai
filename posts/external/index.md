@@ -11,5 +11,6 @@ My bylined articles published on third-party platforms (not Citrix blog or Linke
 
 | Date | Title | Publication |
 |------|-------|-------------|
+| 2026-06-22 | [The AI second brain: The future of knowledge work](https://www.techradar.com/pro/the-ai-second-brain-the-future-of-knowledge-work) | TechRadar Pro |
 | 2026-02-27 | [2026: The year your AI strategy becomes irrelevant](https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/) | AI Journal |
 | 2026-01-07 | [No AI Bombshells in 2026—Just Reality Catching Up](https://vmblog.com/prediction/no-ai-bombshells-in-2026-just-reality-catching-up/) | VMBlog |
