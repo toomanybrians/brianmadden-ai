@@ -4,7 +4,8 @@
     "url": "https://www.techradar.com/pro/the-ai-second-brain-the-future-of-knowledge-work",
     "date": "2026-06-22",
     "type": "article",
-    "description": "Corporate AI is aimed at the wrong 20% of knowledge work. The invisible 80%—thinking, processing, judging—is where transformation happens. A practical guide to building a second brain to reach it, plus the enterprise tradeoffs. Published in TechRadar Pro."
+    "publication": "TechRadar Pro",
+    "description": "Corporate AI is aimed at the wrong 20% of knowledge work. The invisible 80%—thinking, processing, judging—is where transformation happens. A practical guide to building a second brain to reach it, plus the enterprise tradeoffs."
   },
   {
     "title": "The near future of work",
@@ -116,7 +117,8 @@
     "url": "https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/",
     "date": "2026-02-27",
     "type": "article",
-    "description": "The invisible 80% framework applied to why corporate AI strategies miss what matters. Published in AI Journal."
+    "publication": "AI Journal",
+    "description": "The invisible 80% framework applied to why corporate AI strategies miss what matters."
   },
   {
     "title": "Announcing brianmadden.ai: I just published my brain for you to merge into your AI",
@@ -200,6 +202,7 @@
     "url": "https://vmblog.com/prediction/no-ai-bombshells-in-2026-just-reality-catching-up/",
     "date": "2026-01-07",
     "type": "article",
+    "publication": "VMBlog",
     "description": "Six predictions for the year: AI as real coworker for a minority, worker-led adoption still ahead, and the skills revolution accelerating."
   },
   {
