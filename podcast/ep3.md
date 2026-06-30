@@ -16,10 +16,11 @@ staleness_threshold: stable
 
 ## Listen
 
-- **Show home:** TBD after publish
-- **Apple Podcasts:** TBD
-- **Spotify:** TBD
-- **YouTube:** TBD
+- **Show home:** https://citrixaihotsheet.riverside.com/e/second-brains-hit-the-enterprise-wall-and-why-ai-automations-won-t-lead-to-ai-utopia
+- **Apple Podcasts:** https://podcasts.apple.com/podcast/id1896776524
+- **Spotify:** https://open.spotify.com/show/033jRLrUknFhvyEVCgzc3f
+- **Amazon Music:** https://music.amazon.com/podcasts/c527d556-b9a1-42e9-b4f8-88062d81af4f/citrix-ai-hotsheet
+- **YouTube:** https://www.youtube.com/watch?v=FjVOnYfJYRo
 
 ## Description
 
