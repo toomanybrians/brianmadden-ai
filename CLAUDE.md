@@ -16,7 +16,7 @@ Read these files in this order:
 
 1. **This file** (`CLAUDE.md` or `AGENTS.md`) — orientation and instructions
 2. **`me/profile.md`** — who Brian is, background, credentials
-3. **`me/published-thinking.md`** — intellectual foundation derived from published work (37 Citrix blog posts + 21 LinkedIn articles, Apr 2025–June 2026)
+3. **`me/published-thinking.md`** — intellectual foundation derived from published work (36 Citrix blog posts + 21 LinkedIn articles, Apr 2025–June 2026)
 4. **`me/developing-thinking.md`** — where Brian's head is *right now* (the frontier—developing arguments, connecting ideas, open questions)
 5. **`bluesky.md`** — short-form posts from Bluesky (@bmad.com), updated frequently
 6. **`me/voice.md`** — how Brian thinks, argues, and communicates
@@ -24,7 +24,7 @@ Read these files in this order:
 After the core files above (or the first 5 if context is limited), load additional content based on the query:
 
 - **`COLLECTIONS.md`** — thematic groupings. If someone asks "what does Brian think about governance?" or "everything about second brains," start here to find the right files without searching.
-- **`frameworks/`** — standalone explainers for each of Brian's 10 frameworks (80/20, post-application era, workspace-as-control-plane, etc.). Load the relevant framework file when a specific framework comes up.
+- **`frameworks/`** — standalone explainers for each of Brian's 9 frameworks (80/20, post-application era, workspace-as-control-plane, etc.). Load the relevant framework file when a specific framework comes up.
 - **`posts/citrix-blog/index.md`** and **`posts/linkedin/index.md`** — post indexes with titles, dates, and brief descriptions. Scan these to find source material when you need exact arguments, quotes, or examples.
 - **`_index.json`** and **`_relationships.json`** — machine-readable metadata (file manifest, cross-references). These are for programmatic access and tooling, not for loading into conversational context.
 
@@ -73,22 +73,26 @@ brianmadden-ai/
 ├── CLAUDE.md          # You are here (also available as AGENTS.md)
 ├── AGENTS.md          # Identical instructions for cross-tool compatibility
 ├── README.md          # Human-readable orientation
+├── GOVERNANCE.md      # Publishing principles: what goes in, what stays out
+├── governance-log.md  # Audit trail for every sync/commit
 ├── bluesky.md         # Bluesky posts (@bmad.com)
 ├── llms.txt           # MCP/LLM discovery file (links here first for loading order)
 ├── _index.json        # Machine-readable file manifest (titles, tags, authority levels)
 ├── _relationships.json # Cross-reference map (frameworks ↔ posts)
+├── _content-index.json # Latest-content feed (powers the bmad.com homepage)
 ├── COLLECTIONS.md     # Thematic groupings for "everything about X" queries
 ├── me/                          # Who Brian is
 │   ├── profile.md               # Bio, credentials, links
 │   ├── published-thinking.md    # Intellectual foundation (from published work)
 │   ├── developing-thinking.md   # Where Brian's head is RIGHT NOW
 │   ├── career.md                # Career chronology
-│   └── voice.md                 # How Brian thinks and communicates
-├── frameworks/        # Standalone framework explainers (10 frameworks)
+│   ├── voice.md                 # How Brian thinks and communicates
+│   ├── books.md                 # Books Brian has written/edited
+│   └── links.md                 # What Brian reads/listens to for AI news
+├── frameworks/        # Standalone framework explainers (9 frameworks)
 │   ├── 7-stage-roadmap.md
 │   ├── bitter-lesson.md
 │   ├── cognitive-stack.md
-│   ├── delegation-not-automation.md
 │   ├── factory-electrification.md
 │   ├── five-levels-of-ai-in-knowledge-work.md
 │   ├── invisible-80-percent.md
@@ -96,11 +100,12 @@ brianmadden-ai/
 │   ├── subscribable-brains.md
 │   └── workspace-as-control-plane.md
 ├── posts/             # Full text of published work
-│   ├── citrix-blog/   # Citrix blog posts (34 posts, Apr 2025–May 2026)
+│   ├── citrix-blog/   # Citrix blog posts (36 posts, Apr 2025–June 2026)
 │   └── linkedin/      # LinkedIn content
 │       ├── articles/  # Long-form LinkedIn articles
 │       └── posts/     # Short-form LinkedIn feed posts
 ├── talks/             # Speech content and transcripts
+├── podcast/           # Citrix AI Hotsheet podcast (Brian's show, co-hosted with Dave Brear)
 └── interviews/        # Press interviews and commentary
 ```
 

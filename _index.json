@@ -202,7 +202,6 @@
       "date": "2026-02-25",
       "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
       "related_frameworks": [
-        "delegation-not-automation",
         "invisible-80-percent",
         "five-levels-of-ai-in-knowledge-work"
       ],
@@ -1078,7 +1077,6 @@
       "original_url": "https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/",
       "related_frameworks": [
         "cognitive-stack",
-        "delegation-not-automation",
         "7-stage-roadmap"
       ]
     },
@@ -1123,7 +1121,6 @@
       "date": "2026-04-09",
       "original_url": "https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/",
       "related_frameworks": [
-        "enterprise-invariants",
         "cognitive-stack",
         "bitter-lesson",
         "post-application-era"
@@ -1166,7 +1163,6 @@
       "date": "2026-02-25",
       "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
       "related_frameworks": [
-        "delegation-not-automation",
         "invisible-80-percent",
         "five-levels-of-ai-in-knowledge-work"
       ]
@@ -2077,7 +2073,7 @@
       "staleness_threshold": "stable",
       "date": "2026-06-10",
       "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
-      "related_frameworks": ["cognitive-stack", "invisible-80-percent", "delegation-not-automation", "five-levels-of-ai-in-knowledge-work"]
+      "related_frameworks": ["cognitive-stack", "invisible-80-percent", "five-levels-of-ai-in-knowledge-work"]
     },
     {
       "path": "posts/citrix-blog/2026-06-30-how-a-futurist-reads-ai-news.md",

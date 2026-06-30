@@ -4,7 +4,7 @@ date: "2026-04-09"
 authority_level: 5
 file_type: citrix-blog-post
 tags: [future-of-work, governance, enterprise-invariants, economics, judgment, cognitive-stack, post-application-era, bitter-lesson]
-related_frameworks: [enterprise-invariants, cognitive-stack, bitter-lesson, post-application-era]
+related_frameworks: [cognitive-stack, bitter-lesson, post-application-era]
 original_url: "https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/"
 staleness_threshold: stable
 ---

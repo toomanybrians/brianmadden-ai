@@ -4,6 +4,32 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-06-30 — Documentation accuracy audit and fix
+
+**What was synced:**
+- Fixed `posts/citrix-blog/index.md`: header claimed 37 posts but the numbering had a gap (jumped 25 → 23, skipping #24), leaving only 36 actual entries. Renumbered #25–37 down to #24–36 so numbering is contiguous 1–36, matching the 36 files on disk. Fixed header count 37 → 36.
+- Removed `delegation-not-automation` — a framework that was referenced as a real file in `CLAUDE.md`, `AGENTS.md`, `llms.txt`, `_index.json` (4 entries), and `_relationships.json`, and in the `related_frameworks` frontmatter of `frameworks/cognitive-stack.md` and `posts/citrix-blog/2026-02-25-cognitive-stack.md` — but `frameworks/delegation-not-automation.md` never existed. The idea was folded into `frameworks/cognitive-stack.md` (which still credits it in prose: "Extends: the delegation-not-automation thesis"), but the phantom file reference was never cleaned up. Removed it everywhere it pointed at a nonexistent file; kept the prose credit.
+- Removed `enterprise-invariants` from the `related_frameworks` frontmatter of `posts/citrix-blog/2026-04-09-whats-left-for-humans.md` and the matching `_index.json` entry — same phantom-reference bug, caught by the new CI check below. `frameworks/enterprise-invariants.md` never existed; left it in the post's `tags` array since that's a legitimate topical tag, not a file link.
+- Updated `CLAUDE.md` and `AGENTS.md`: fixed stale Citrix post count (37 → 36) and framework count (10 → 9, since the tree listed the phantom `delegation-not-automation.md`); added missing top-level entries to the repo-structure tree (`GOVERNANCE.md`, `governance-log.md`, `_content-index.json`, `podcast/`) and missing `me/` files (`books.md`, `links.md`).
+- Updated `README.md`: fixed Citrix post count (37 → 36) and talk count (18 → 19); dropped an unverifiable "3 external articles" claim that didn't correspond to anything in the repo.
+- Updated `llms.txt`: removed the phantom `delegation-not-automation` framework entry; fixed Citrix post count (31 → 36, two places); fixed talk count (18 → 19); added missing references to `podcast/index.md`, `GOVERNANCE.md`, `governance-log.md`, `_content-index.json`, `AGENTS.md`, `me/books.md`, `me/links.md`.
+- Added `scripts/check_doc_accuracy.py` and `.github/workflows/check-docs.yml` — a CI check that runs on every push/PR to catch this category of drift automatically (post-count mismatches, numbering gaps, phantom framework references, repo-structure-tree omissions). See script docstring for what it checks.
+- Updated `GOVERNANCE.md`'s automated-checks section to reference the new CI check.
+
+**Automated checks:**
+- Wiki-links (`[[`): none found — CLEAR
+- Internal names: none found — CLEAR
+- bmad/ path references: none found — CLEAR
+- This was a documentation-accuracy pass, not new content — no tone/register checks apply
+
+**Manual review notes:**
+- Triggered by a manual audit request, not a content sync. No new ideas or positions were added; this only corrects counts, a numbering bug, and a dangling file reference to match what's actually in the repo.
+- The numbering gap at #24 in `posts/citrix-blog/index.md` predates this fix and isn't explained by any git history of a deleted post — appears to be a manual-edit slip that was never caught.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-06-30 — New blog post: How a futurist reads AI news
 
 **What was synced:**

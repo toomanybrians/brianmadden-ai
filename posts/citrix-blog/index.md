@@ -1,60 +1,60 @@
 # Citrix blog posts
 
-Full text of my 37 Citrix blog posts (April 2025 through June 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 36 Citrix blog posts (April 2025 through June 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
 
-**37. How a futurist reads AI news. (Hint: ignore most of it.)** (2026-06-30)
+**36. How a futurist reads AI news. (Hint: ignore most of it.)** (2026-06-30)
 [citrix.com](https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/)
 Meta-post on how I think about AI news. A futurist's job isn't to predict the future but to narrow the cone of uncertainty—identify what's common across all plausible futures and ignore the story paths that aren't likely. Two techniques: (1) move your starting point further up the cone by living 6+ months ahead of the mainstream, which narrows everything downstream ("I don't have to be smarter to see further, I just need to stand closer"); (2) ask what stays the same across every scenario (Bezos), and build for those invariants. Two-question filter for any AI news story: does it shift the cone of plausible futures, or just add another dot inside the existing cloud? Does it change any of the invariants? If the answer to both is no, file it under "interesting" and move on. (Probably 95% of headlines.) Fuses Alan Kay + William Gibson: "The best way to predict the future is to start living it."
 
-**36. The 7-stage roadmap for human-AI collaboration (2026 Edition)** (2026-06-10)
+**35. The 7-stage roadmap for human-AI collaboration (2026 Edition)** (2026-06-10)
 [citrix.com](https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/)
 Major update to the original June 2025 roadmap. The key reframe: the 2025 version focused on what AI does at each stage; this version focuses on what the worker does and becomes. Timelines were off by ~3x—predictions made for 2027+ were live by January 2026. Stage 3 (AI as Cognitive Extension—the second brain / context vault) is entirely new, only viable since January 2026. Stage 7 shifts from "AI-orchestrated work" to "The Published Self"—the optional fork of publishing your second brain for others to connect to. Stage 6 (AI as a Pod) makes explicit that the unit of work stops being one human for one 8-hour day and becomes a small team running continuously. Brian's self-reported position: deep in Stage 3, just entering Stage 4, fully in Stage 7.
 
-**35. Announcing our new podcast: the Citrix AI Hotsheet** (2026-05-21)
+**34. Announcing our new podcast: the Citrix AI Hotsheet** (2026-05-21)
 [citrix.com](https://www.citrix.com/blogs/2026/05/21/aihotsheet/)
 Launch announcement for the Citrix AI Hotsheet podcast, co-hosted with Dave Brear. Brian (futurist: where things are going) + Dave (architect: what customers are dealing with today) covering AI entering the enterprise workspace for IT leaders in regulated environments. Not a hype show — two practitioners with a combined 50 years of enterprise IT experience. Episode 1: CUAs and semantic primitives, Dave's "context vaults" (second brains), and connecting two public second brains via MCP so listeners can try it themselves.
 
-**34. Why Enterprise AI Agents Disappoint (and Why the Fix Is Not "Better Agents")** (2026-05-07)
+**33. Why Enterprise AI Agents Disappoint (and Why the Fix Is Not "Better Agents")** (2026-05-07)
 [citrix.com](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/)
 Enterprise agent pilots are stalling because companies are skipping from "crawl" (chat interfaces) to "run" (autonomous agents) without "walk" (context, skills, judgment). The crawl/walk/run pedagogy maps onto the cognitive stack and explains why agent demos don't translate to production. The deeper move: even after you can run, you still mostly walk — successful AI use is choosing the right cognitive-stack layer per task. Concrete Excel example with token costs: do-it-yourself ($0), reason-in-context (~1K), use a skill (~1K + maintenance), CUA agent (~200K, slow, error-prone). Agents only work when the layers above are in place. "Crawl before you walk. Walk before you run. Run fast when you need to, but never forget how to walk and crawl."
 
-**33. The SaaSpocalypse Won't Touch the Enterprise Software Moat** (2026-04-22)
+**32. The SaaSpocalypse Won't Touch the Enterprise Software Moat** (2026-04-22)
 [citrix.com](https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/)
 Response to Daniel Miessler's *The Fire of Fires* and the broader SaaSpocalypse narrative. AI isn't eating software as a category — it's eating a specific layer. Three tiers: shallow UX-as-moat horizontal SaaS (Miessler's list, fully burnable), middle horizontal enterprise SaaS without deep moats (Salesforce, Workday, Snowflake, Zoom — squeezed), and the deep layer of vertical regulated systems of record (Epic, SAP, Amadeus, Guidewire, industrial control, bank cores, clinical trials, tax compliance, aerospace CAD, government mainframes). The deep layer doesn't move because of regulation, data gravity, decades of workflow encoding, mission-critical tolerance, and because "rebuild it yourself" doesn't scale past one user. Sharpens the post-application thesis: AI dissolves UIs, not systems of record.
 
-**32. What's Left for Humans?** (2026-04-09)
+**31. What's Left for Humans?** (2026-04-09)
 [citrix.com](https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/)
 Addresses "if AI does everything, what's left for humans?" by reframing the question: the answer is always a point-in-time snapshot, not a destination. Governance scope explodes (500 agents per compliance officer, multi-entity identity, AI-synthesized sensitive data). Economics get quantified (human vs. AI cost per task, "work about work" disappears). Judgment and relationships remain human for now, but the boundary shifts continuously. The bitter lesson pattern: the bottleneck always shifts.
 
-**31. Skills Are All You Need** (2026-03-12)
+**30. Skills Are All You Need** (2026-03-12)
 [citrix.com](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/)
 Skills are text files that tell AI how to do things. They replace admin consoles, apps, and entire categories of software. They capture expertise that used to walk out the door. They appreciate with every model improvement (the bitter lesson applied to enterprise tooling). And they're the natural governance unit for an AI-powered workplace. Connects the cognitive stack, post-application era, subscribable brains, and bitter lesson frameworks.
 
-**30. Understanding the Cognitive Stack: Why Your AI Strategy Is Focused on the Wrong Layer** (2026-02-25)
+**29. Understanding the Cognitive Stack: Why Your AI Strategy Is Focused on the Wrong Layer** (2026-02-25)
 [citrix.com](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/)
 Introduces the five-layer cognitive stack: worker, brain, skills, agents, automation. The enterprise AI industry is investing billions in the bottom two layers while the real transformation lives at the top. Builds on Karpathy's "claws" concept and the delegation thesis. The brain layer—the governed cognitive extension—is the layer nobody has figured out yet.
 
-**29. What Will Knowledge Work Be in 18 Months? Look at What AI Is Doing to Coding Right Now** (2026-02-19)
+**28. What Will Knowledge Work Be in 18 Months? Look at What AI Is Doing to Coding Right Now** (2026-02-19)
 [citrix.com](https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now)
 Software engineering is the leading indicator for all knowledge work. Five levels from "spicy search engine" to "dark knowledge factory." The unsolved verification problem at Levels 4-5 is a governance question nobody has a playbook for.
 
-**28. Workers' Second Brains Break Every Assumption About How We Secure Knowledge Work** (2026-02-11)
+**27. Workers' Second Brains Break Every Assumption About How We Secure Knowledge Work** (2026-02-11)
 [citrix.com](https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/)
 One-year anniversary piece. Brian publicly corrects his year-one frameworks as "faster horse" thinking. Second brains reach the invisible 80% of knowledge work that no enterprise AI tool touches.
 
-**27. OpenClaw and Moltbook Preview the Changes Needed with Corporate AI Governance** (2026-02-04)
+**26. OpenClaw and Moltbook Preview the Changes Needed with Corporate AI Governance** (2026-02-04)
 [citrix.com](https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/)
 Worker-led AI is accelerating beyond what governance frameworks can handle. The top 0.1% are working in a fundamentally different way—a structural gap, not a capabilities gap.
 
-**26. Everyone's Worried About the Wrong AI Security Risk** (2026-01-21)
+**25. Everyone's Worried About the Wrong AI Security Risk** (2026-01-21)
 [citrix.com](https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/)
 The real danger is what AI does (execution), not what it learns (exfiltration). AI agents act at the worker's permission level. Governance must happen at the workspace level.
 
-**25. The Invisible 80%—What Corporate-Led AI Transformations Can't See** (2026-01-13)
+**24. The Invisible 80%—What Corporate-Led AI Transformations Can't See** (2026-01-13)
 [citrix.com](https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/)
 Corporate AI fails because outsiders only see 20% of knowledge work. The 80% (reasoning, judgment, tacit knowledge) lives in workers' heads and can only be unlocked by workers themselves.
 
