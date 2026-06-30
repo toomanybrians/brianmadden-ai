@@ -1,5 +1,12 @@
 [
   {
+    "title": "How a futurist reads AI news. (Hint: ignore most of it.)",
+    "url": "https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/",
+    "date": "2026-06-30",
+    "type": "blog",
+    "description": "Most of what you read about AI doesn't matter — not because it's wrong, but because it's noise. A futurist's job isn't to predict the future; it's to narrow the cone of uncertainty and identify what's common across every plausible future. Two techniques: live 6+ months ahead of the mainstream (so your starting point sits further up the cone), and ask what stays the same across every scenario (Bezos invariants). A two-question filter for any AI news story: does it shift the cone of plausible futures, or just add another dot? Does it change any of the invariants? If neither, it's part of the 95% you can ignore."
+  },
+  {
     "title": "The AI second brain: The future of knowledge work",
     "url": "https://www.techradar.com/pro/the-ai-second-brain-the-future-of-knowledge-work",
     "date": "2026-06-22",

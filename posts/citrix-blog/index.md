@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of my 36 Citrix blog posts (April 2025 through June 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 37 Citrix blog posts (April 2025 through June 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**37. How a futurist reads AI news. (Hint: ignore most of it.)** (2026-06-30)
+[citrix.com](https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/)
+Meta-post on how I think about AI news. A futurist's job isn't to predict the future but to narrow the cone of uncertainty—identify what's common across all plausible futures and ignore the story paths that aren't likely. Two techniques: (1) move your starting point further up the cone by living 6+ months ahead of the mainstream, which narrows everything downstream ("I don't have to be smarter to see further, I just need to stand closer"); (2) ask what stays the same across every scenario (Bezos), and build for those invariants. Two-question filter for any AI news story: does it shift the cone of plausible futures, or just add another dot inside the existing cloud? Does it change any of the invariants? If the answer to both is no, file it under "interesting" and move on. (Probably 95% of headlines.) Fuses Alan Kay + William Gibson: "The best way to predict the future is to start living it."
 
 **36. The 7-stage roadmap for human-AI collaboration (2026 Edition)** (2026-06-10)
 [citrix.com](https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/)

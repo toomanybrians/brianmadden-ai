@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-06-17",
+  "generated": "2026-06-30",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 111,
-  "total_words": 198520,
+  "total_files": 112,
+  "total_words": 200125,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2078,6 +2078,18 @@
       "date": "2026-06-10",
       "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
       "related_frameworks": ["cognitive-stack", "invisible-80-percent", "delegation-not-automation", "five-levels-of-ai-in-knowledge-work"]
+    },
+    {
+      "path": "posts/citrix-blog/2026-06-30-how-a-futurist-reads-ai-news.md",
+      "title": "How a futurist reads AI news. (Hint: ignore most of it.)",
+      "authority_level": 5,
+      "file_type": "blog-post",
+      "tags": ["futurism", "methodology", "cone-of-uncertainty", "invariants", "second-brain", "cognitive-stack", "7-stage-roadmap"],
+      "word_count": 1605,
+      "staleness_threshold": "stable",
+      "date": "2026-06-30",
+      "original_url": "https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/",
+      "related_frameworks": ["7-stage-roadmap", "cognitive-stack"]
     },
     {
       "path": "talks/2026-06-01-future-of-less-work-ai-brain-resume.md",

@@ -1,18 +1,18 @@
 ---
 title: "My intellectual foundation"
-updated: "2026-05-07"
+updated: "2026-06-30"
 authority_level: 1
 file_type: synthesis
 tags: ["knowledge-work", "enterprise-ai", "worker-led-adoption", "automation", "governance", "ai-agents"]
 staleness_threshold: months
-description: "Comprehensive synthesis of my published ideas across 37+ posts. The authoritative source for my intellectual positions."
+description: "Comprehensive synthesis of my published ideas across 40 posts. The authoritative source for my intellectual positions."
 ---
 
 # My intellectual foundation
 
-This document synthesizes the core ideas, frameworks, and arguments from my published work on AI and the future of work (~2023–March 2026). It represents my intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
+This document synthesizes the core ideas, frameworks, and arguments from my published work on AI and the future of work (~2023–June 2026). It represents my intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** May 21, 2026 (38 posts + key talks through May 21, 2026)
+**Last updated:** June 30, 2026 (40 posts + key talks through June 30, 2026)
 
 ---
 
@@ -384,6 +384,14 @@ Enterprise implications: consulting firms where juniors carry seniors' accumulat
 
 The full text of each published post is in `posts/citrix-blog/` and `posts/linkedin/`. For earlier LinkedIn articles (2020-2024), see `posts/linkedin/index.md`.
 
+### June 30, 2026: How a futurist reads AI news. (Hint: ignore most of it.)
+[Original post](https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/)
+**Meta-post on my futurist methodology.** First time I publish the actual thinking framework I use to filter AI news. Three major moves: (1) **Reframes what a futurist does.** Not predicting which future arrives, but identifying which elements are common across all plausible futures and helping decision-makers invest there. Uses the hurricane forecasting analogy — the job is to narrow the cone of uncertainty, not to call the landfall. Every news story is a single data point; the futurist looks at the direction the dots are moving, not any one dot. (2) **Introduces "move your starting point further up the cone" as the technique.** Living 6+ months ahead of the mainstream narrows the cone everywhere downstream — you don't need to be smarter than the people forecasting, you just need to stand closer to where the future already is. Fuses Alan Kay ("the best way to predict the future is to invent it") and William Gibson ("the future is already here, just unevenly distributed") into my own version: "the best way to predict the future is to start living it." "Most peoples' 'future of work' is just another Tuesday for me." Connects to the podcast (EP3) point that you can only see one stage ahead of where you currently live on the 7-stage roadmap. (3) **Lands on the Bezos invariants technique.** Rather than asking what will change, ask what stays the same — then build for the constants. Explicitly extends the April 9 *What's left for humans?* post. The AI-specific invariants list: authentication, agent governance, data protection, auditability, regulation/compliance, geopolitical/regulatory volatility. Ends with a two-question filter readers can apply to any AI news story: does it shift the cone of plausible futures, or just add another data point inside the existing cloud? Does it change any of the invariants? If both answers are no, file it under "interesting" and move on. (Probably 95% of headlines.) Reference when discussing: the futurist methodology, why daily AI news doesn't usually matter, how to think about invariants in AI strategy, or the value of being further up the cone (the case for living the future rather than studying it).
+
+### June 10, 2026: The 7-stage roadmap for human-AI collaboration (2026 Edition)
+[Original post](https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/)
+**Major framework update.** Replaces the original June 2025 roadmap. The key reframe: the 2025 version focused on what AI does at each stage; this version focuses on what the worker does and becomes. Timelines were off by ~3x (2027+ predictions were live by January 2026). Stage 3 (AI as a Cognitive Extension — the second brain / context vault) is entirely new to this version and reflects what became possible in January 2026. Stage 7 shifts from "AI-orchestrated work" to "The Published Self" — the optional fork of publishing your second brain for others to connect to. Stages 1-2 are relatively unchanged. Most significant addition: Stage 6 (AI as a Pod) makes explicit that the unit of work stops being "one human for one 8-hour day" and becomes a small team of one human plus a fleet of agents running continuously. Self-reported as deep in Stage 3, just entering Stage 4, and fully in Stage 7. Reference whenever the roadmap is cited — this version supersedes the 2025 original for any use after June 2026.
+
 ### May 21, 2026: Announcing our new podcast: the Citrix AI Hotsheet
 [Original post](https://www.citrix.com/blogs/2026/05/21/aihotsheet/)
 Launch announcement for the Citrix AI Hotsheet podcast, co-hosted with Dave Brear. Brian (futurist: where things are going) + Dave (architect: what customers are dealing with today) covering AI entering the enterprise workspace for IT leaders in regulated environments. Not a hype podcast — two practitioners with a combined 50 years of enterprise IT experience. Episode 1 covers CUAs, semantic primitives vs. screenshots (80% token reduction), second brains / context vaults, and connecting two public second brains via MCP.
@@ -650,6 +658,31 @@ The reusable one-liner version of the agents-as-workers thesis. Why agent pilots
 
 **"The future of AI in the enterprise isn't about racing to deploy agents. It's balancing the right effort, the right tool, and the right type of token for each task."**
 The published, executive-ready form of the token routing argument. Layer selection, not agent count, is the competitive variable.
+
+---
+
+## 9. New signature phrases (June 2026)
+
+**"The best way to predict the future is to start living it."**
+My fusion of Alan Kay ("the best way to predict the future is to invent it") and William Gibson ("the future is already here, it's just not evenly distributed"). The thesis of the futurist methodology post — and the throughline of how my positioning differs from analyst-style prediction.
+
+**"I don't have to be smarter to see further, I just need to stand closer."**
+The compact form of the "move your starting point up the cone" argument. Why living 6+ months ahead of the mainstream narrows the cone of uncertainty everywhere downstream, without requiring superhuman forecasting.
+
+**"Most peoples' 'future of work' is just another Tuesday for me."**
+The receipt for the live-the-future approach. When you're already at Stage 3-4 of the 7-stage roadmap, you're not forecasting — you're describing daily life.
+
+**"Does this shift the cone of plausible futures, or just add another data point inside the existing cloud?"**
+The first of the two-question filter for AI news. If the story doesn't change the range of likely outcomes, it's noise no matter how loud the headline.
+
+**"Does it change any of the invariants?"**
+The second of the two-question filter. The invariants are the things you believe to be true no matter which future shows up — authentication, agent governance, data protection, auditability, regulation. If the news doesn't move any of them, file it under "interesting" and move on.
+
+**"95% of AI headlines are noise."**
+The simple version of the futurist filter. Most news is true but doesn't matter; the work is figuring out which 5% does.
+
+**"It's not a ladder, it's a palace."**
+From the podcast (EP 3), now referenced in the futurist post. The 7-stage roadmap isn't something you climb past — Stage 3 (the second brain / cognitive extension) is the permanent foundation; later stages augment what you do there.
 
 ---
 

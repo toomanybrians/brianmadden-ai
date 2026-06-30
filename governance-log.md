@@ -4,6 +4,43 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-06-30 — New blog post: How a futurist reads AI news
+
+**What was synced:**
+- Created `posts/citrix-blog/2026-06-30-how-a-futurist-reads-ai-news.md` (full post text, frontmatter with authority/file_type/staleness/tags)
+- Updated `posts/citrix-blog/index.md` (added entry #37, bumped header count 36 → 37)
+- Updated `me/published-thinking.md` (added June 30 entry to post-by-post notes, added missing June 10 entry, added "Section 9. New signature phrases (June 2026)", bumped header count 38 → 40, updated date/description)
+- Updated `_index.json` (added new post file entry, total_files 111 → 112, total_words 198520 → 200125, generated → 2026-06-30)
+- Updated `_content-index.json` (added blog card for bmad.com homepage)
+- Updated `llms.txt` (files 111 → 112, posts 56 → 57, date → 2026-06-30)
+- Updated `README.md` (Citrix blog posts 35 → 37)
+- Updated `CLAUDE.md` and `AGENTS.md` (35 → 37 Citrix blog posts, date range May 2026 → June 2026)
+
+**Automated checks:**
+- Wiki-links (`[[`) in new post: none found — CLEAR
+- Internal names (Nancy, Hector, Sridhar, Aidrien, Kireeti, David Jack, Saikat, Brian Hune, Eltjo, Komal): none found — CLEAR
+- bmad/ path references in new post: none found — CLEAR
+- Spaced/triple em-dashes (`---`, ` — `): none found in body — CLEAR (only frontmatter `---` delimiters present)
+- Heading case: sentence case throughout — CLEAR
+
+**Tone checks:**
+- Colleague test: published Citrix blog post; consistent with Brian's published voice — CLEAR
+- Competitor test: no competitive positioning that would embarrass — CLEAR
+- Journalist test: no unpublished strategy; the futurist methodology is the explicit subject — CLEAR
+- Fossil record test: accurate as of publish date
+- Register test: conversational explanatory register, consistent with other blog posts
+
+**Manual review notes:**
+- Post is the externalization of methodology Brian has used internally for years; first time it's been published
+- Three diagram placeholders preserved as `*[Diagram: ...]*` notes (images were on the live blog but not pasted into the source)
+- Explicitly references and extends the April 9 *What's left for humans?* post (Bezos invariants)
+- Cross-references the Citrix AI Hotsheet EP 3 (the one-stage-ahead point from the podcast)
+- Added missing June 10 7-stage roadmap entry to bmad reference index and brianmadden-ai published-thinking — these had been omitted in prior syncs and the count was drifting
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-06-14 — New podcast EP 2 + keynote: The Last Chapter of EUC
 
 **What was synced:**
