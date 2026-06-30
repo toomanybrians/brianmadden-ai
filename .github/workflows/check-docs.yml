@@ -1,0 +1,19 @@
+name: Check doc accuracy
+
+# Catches stated counts (Citrix posts, LinkedIn articles, frameworks, talks),
+# index numbering, and the CLAUDE.md repo-structure tree drifting out of
+# sync with what's actually in the repo. See scripts/check_doc_accuracy.py.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run doc accuracy checks
+        run: python3 scripts/check_doc_accuracy.py

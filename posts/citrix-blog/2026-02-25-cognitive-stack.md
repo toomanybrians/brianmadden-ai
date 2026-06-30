@@ -4,7 +4,7 @@ date: "2026-02-25"
 authority_level: 5
 file_type: citrix-blog-post
 tags: [cognitive-stack, agents, delegation, claws, skills-hierarchy, enterprise-ai-strategy, personal-ai-knowledge-systems, second-brain]
-related_frameworks: [delegation-not-automation, invisible-80-percent, five-levels-of-ai-in-knowledge-work]
+related_frameworks: [invisible-80-percent, five-levels-of-ai-in-knowledge-work]
 original_url: "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/"
 staleness_threshold: stable
 ---

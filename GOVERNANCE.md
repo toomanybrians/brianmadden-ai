@@ -104,7 +104,7 @@ Content in this repo should pass the following tests:
 
 Before any content is committed to this repo:
 
-1. **Automated checks.** Grep for: `[[` (wiki-links), internal names, `bmad/` paths, product codenames, internal tool URLs, email addresses, phone numbers.
+1. **Automated checks.** Grep for: `[[` (wiki-links), internal names, `bmad/` paths, product codenames, internal tool URLs, email addresses, phone numbers. Also run `python3 scripts/check_doc_accuracy.py` (or let the `check-docs` GitHub Action do it) — it catches stated counts, index numbering, and the `CLAUDE.md` repo-structure tree drifting out of sync with what's actually in the repo. This class of drift (a stale post count, a framework referenced in frontmatter that was never actually written as a file) doesn't leak anything sensitive, but it quietly degrades what an AI loading this repo can trust.
 
 2. **Manual review.** Read through filtered content looking for: internal strategy framed as public insight, casual references to internal people or projects, tone that doesn't match the public register, half-formed ideas stated as established positions.
 
