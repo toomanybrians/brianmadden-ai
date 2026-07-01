@@ -54,7 +54,8 @@
     "url": "https://www.youtube.com/watch?v=YLw72rtP3Ms",
     "date": "2026-06-01",
     "type": "podcast",
-    "description": "Guest on The Future of Less Work (Nirit Cohen). The new unit of work is human + AI system. The inverse labor threat: companies keeping workers' AI brains after firing them. BYOAI as the new BYOD—same pattern, different stakes. Joy/satisfaction as the individual calibration metric. Timeline compression: 2027 predictions were live in January 2026."
+    "description": "Guest on The Future of Less Work (Nirit Cohen). The new unit of work is human + AI system. The inverse labor threat: companies keeping workers' AI brains after firing them. BYOAI as the new BYOD—same pattern, different stakes. Joy/satisfaction as the individual calibration metric. Timeline compression: 2027 predictions were live in January 2026.",
+    "publication": "The Future of Less Work"
   },
   {
     "title": "Announcing our new podcast: the Citrix AI Hotsheet",
@@ -110,7 +111,8 @@
     "url": "https://www.youtube.com/watch?v=GfHOvJFGkAY",
     "date": "2026-03-31",
     "type": "podcast",
-    "description": "Guest on Liquidware Chats. Full cognitive stack walkthrough, VDI Delusion parallels, the invisible 80% of knowledge work, applications as compatibility layers, and why automating the bottom of the stack won't produce intelligence at the top."
+    "description": "Guest on Liquidware Chats. Full cognitive stack walkthrough, VDI Delusion parallels, the invisible 80% of knowledge work, applications as compatibility layers, and why automating the bottom of the stack won't produce intelligence at the top.",
+    "publication": "Liquidware Chats"
   },
   {
     "title": "The new cognitive stack",
@@ -238,7 +240,8 @@
     "url": "https://www.youtube.com/watch?v=9z0eVZEMOwg",
     "date": "2025-12-16",
     "type": "podcast",
-    "description": "Year-end review on Impact of AI: Explored. CUA benchmarks crossing human parity, AI browsers as security concern, and MCP going ubiquitous."
+    "description": "Year-end review on Impact of AI: Explored. CUA benchmarks crossing human parity, AI browsers as security concern, and MCP going ubiquitous.",
+    "publication": "Impact of AI: Explored"
   },
   {
     "title": "AI will be THE interface to knowledge work. Here's how we'll get there.",
@@ -329,7 +332,8 @@
     "url": "https://axess.systems/information-technology-news/brian-madden-workplace-ai/",
     "date": "2025-09-02",
     "type": "podcast",
-    "description": "Axess Connect Part 2: productivity definitions, job compression, career disruption, and precursors to the second brain approach."
+    "description": "Axess Connect Part 2: productivity definitions, job compression, career disruption, and precursors to the second brain approach.",
+    "publication": "Axess Connect"
   },
   {
     "title": "Worker-led AI isn't shadow IT. It's shadow strategy.",
@@ -371,7 +375,8 @@
     "url": "https://axess.systems/information-technology-news/whats-next-for-euc-brian-madden-talks-futurism-in-the-age-of-ai/",
     "date": "2025-07-30",
     "type": "podcast",
-    "description": "Axess Connect Part 1: the 7-stage roadmap and why AI's real impact comes through existing workspaces, not new tools."
+    "description": "Axess Connect Part 1: the 7-stage roadmap and why AI's real impact comes through existing workspaces, not new tools.",
+    "publication": "Axess Connect"
   },
   {
     "title": "What happens when AI agents score 100% in computing using benchmarks?",
@@ -476,7 +481,8 @@
     "url": "https://www.youtube.com/watch?v=KJLp-KSbSu8",
     "date": "2024-12-01",
     "type": "podcast",
-    "description": "Predictions for 2025 on Impact of AI: Explored, recorded before joining Citrix."
+    "description": "Predictions for 2025 on Impact of AI: Explored, recorded before joining Citrix.",
+    "publication": "Impact of AI: Explored"
   },
   {
     "title": "The Evolution and Future of End User Computing",
@@ -546,7 +552,8 @@
     "url": "https://www.youtube.com/watch?v=lzBnEPTgH2A",
     "date": "2024-06-01",
     "type": "podcast",
-    "description": "First appearance on Impact of AI: Explored. Covers GPT-4o, Microsoft Recall, and AI reshaping the workplace."
+    "description": "First appearance on Impact of AI: Explored. Covers GPT-4o, Microsoft Recall, and AI reshaping the workplace.",
+    "publication": "Impact of AI: Explored"
   },
   {
     "title": "Microsoft Recall: An analysis of the issues & prediction of the evolution of the AI workplace",
@@ -574,7 +581,8 @@
     "url": "https://www.youtube.com/watch?v=jqwXVWeM47k",
     "date": "2024-03-01",
     "type": "podcast",
-    "description": "Extended conversation on Brian's career journey from BrianMadden.com through 30 years of end-user computing to AI futurism."
+    "description": "Extended conversation on Brian's career journey from BrianMadden.com through 30 years of end-user computing to AI futurism.",
+    "publication": "The Parisian Chronicles"
   },
   {
     "title": "Generative AI in the enterprise: lots of hype, little practical advice.",
