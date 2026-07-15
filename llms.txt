@@ -46,7 +46,7 @@ This is not a content archive. It is a structured representation of how Brian th
 - [posts/citrix-blog/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/citrix-blog/index.md): Index of 36 Citrix blog posts with summaries and links to full text
 - [posts/linkedin/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/linkedin/index.md): Index of 21 LinkedIn articles and posts
 - [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): 19 speech and podcast-appearance transcripts
-- [podcast/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/podcast/index.md): Citrix AI Hotsheet—Brian's own podcast, co-hosted with Dave Brear. Show page plus 3 episode transcripts.
+- [podcast/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/podcast/index.md): Citrix AI Hotsheet—Brian's own podcast, co-hosted with Dave Brear. Show page plus 4 episode transcripts.
 - [interviews/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/interviews/index.md): Press interviews, commentary, and podcast guest appearances
 
 ## Bluesky
