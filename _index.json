@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-07-15",
+  "generated": "2026-07-22",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 117,
-  "total_words": 233459,
+  "total_files": 118,
+  "total_words": 235225,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2209,6 +2209,18 @@
       "date": "2026-06-10",
       "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
       "related_frameworks": ["cognitive-stack", "invisible-80-percent", "five-levels-of-ai-in-knowledge-work"]
+    },
+    {
+      "path": "posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md",
+      "title": "How to build an AI strategy that survives the bubble pop",
+      "authority_level": 5,
+      "file_type": "blog-post",
+      "tags": ["ai-bubble", "invariants", "open-weight-models", "second-brain", "knowledge-factory", "workspace-as-control-plane", "token-economics", "data-portability", "futurism"],
+      "word_count": 1766,
+      "staleness_threshold": "stable",
+      "date": "2026-07-20",
+      "original_url": "https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/",
+      "related_frameworks": ["7-stage-roadmap", "workspace-as-control-plane"]
     },
     {
       "path": "posts/citrix-blog/2026-06-30-how-a-futurist-reads-ai-news.md",

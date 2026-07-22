@@ -4,6 +4,42 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-07-22 — New blog post: How to build an AI strategy that survives the bubble pop
+
+**What was synced:**
+- Created `posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md` (full post text, published 2026-07-20)
+- Updated `posts/citrix-blog/index.md` (added #37, count 36→37, date range → July 2026)
+- Updated `me/published-thinking.md` (added "Plan for the invariants, not the bubble" key argument, July 20 post-by-post note, "New signature phrases (July 2026)" section, date/count → 41 posts / July 20 2026)
+- Updated `_content-index.json` (added blog entry at top, newest first)
+- Updated `_index.json` (added file entry; total_files 117→118, total_words 233459→235225, generated → 2026-07-22)
+- Updated `llms.txt` (version line: 112→118 files, ~200k→~235k words, 57→58 posts, date → 2026-07-22)
+- Updated `README.md` (36→37 Citrix blog posts)
+- Updated `CLAUDE.md` and `AGENTS.md` (37 blog posts, Apr 2025–July 2026; kept the two files identical except the self-reference line)
+
+**Automated checks:**
+- Wiki-links (`[[`): none found — CLEAR
+- Internal names (Nancy, Hector, Sridhar, Saikat, Abhilash, Kireeti, etc.): none found. Only "Dave Brear" appears (public podcast co-host, in pre-existing EP entries) — CLEAR
+- bmad/ path references: none (grep hits were the `second-brain` tag and blog URL slugs, not filesystem paths) — CLEAR
+- Em-dashes: no inline `---`/`--`; new post uses colons and parentheses per Brian's style — CLEAR
+- Heading case: sentence case throughout — CLEAR
+- JSON validity: `_index.json` and `_content-index.json` both parse — CLEAR
+
+**Tone checks:**
+- Colleague test: public-facing, consistent with Brian's published voice
+- Competitor test: no competitive positioning that would embarrass — CLEAR
+- Journalist test: no unpublished Citrix strategy; content is the published blog post — CLEAR
+- Fossil record test: model names and open-weight landscape are timestamped to the post's publish date; accurate as of then
+- Register test: direct and plainspoken, consistent with other blog posts
+
+**Manual review notes:**
+- The post is already published on citrix.com; this sync mirrors public content
+- New public argument: open-weight models as the reliable planning floor + the invariants-based do-now checklist. Consistent with the June 30 futurist post and the compute-scarcity/token-routing thesis already on the record
+- "corpus" appears once in the post body — preserved because it's the author's published wording (the internal voice rule against "corpus" governs new writing, not faithful archival of published posts)
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-06-30 — Documentation accuracy audit and fix
 
 **What was synced:**

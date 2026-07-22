@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of my 36 Citrix blog posts (April 2025 through June 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 37 Citrix blog posts (April 2025 through July 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**37. How to build an AI strategy that survives the bubble pop** (2026-07-20)
+[citrix.com](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/)
+Applies the invariants method (from the futurist-reads-AI-news post) to the AI bubble question: a well-built AI strategy shouldn't care whether or when the bubble pops, because it's built on what's true in every future. A pop means capabilities stop increasing and/or costs stop decreasing, and the "we'll keep the infrastructure" comfort (railroads, dark fiber) isn't guaranteed here—serving today's models may be unprofitable, governments may restrict frontier access on national-security grounds (precedent: US controls on Mythos, Fable, GPT-5.6), and progress may pause. The reliable planning floor is open-weight models, whose weights are already released and servable regardless of whether the lab survives. Today's best open-weight models sit between Sonnet and Opus (GLM-5.2 from Z.ai, MIT-licensed; Kimi K3 and Qwen3.8 with weights promised), so assume anything you can do with Sonnet today survives the pop—and Sonnet-class is already the enterprise workhorse because real AI ROI is orchestrating admin/work processes, not frontier magic. The five moves that pay off in every scenario: build your second brain, build the organizational knowledge factory, govern the workspace not the model, get serious about model routing and token economics, and keep your data portable. Caveats: full-speed open-weight models need ~$300K+ datacenter hardware; subsidized token prices today aren't tomorrow's.
 
 **36. How a futurist reads AI news. (Hint: ignore most of it.)** (2026-06-30)
 [citrix.com](https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/)

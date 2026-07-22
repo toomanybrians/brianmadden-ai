@@ -12,7 +12,7 @@ description: "Comprehensive synthesis of my published ideas across 40 posts. The
 
 This document synthesizes the core ideas, frameworks, and arguments from my published work on AI and the future of work (~2023–June 2026). It represents my intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** June 30, 2026 (40 posts + key talks through June 30, 2026)
+**Last updated:** July 20, 2026 (41 posts + key talks through July 20, 2026)
 
 ---
 
@@ -353,6 +353,18 @@ Enterprise implications: consulting firms where juniors carry seniors' accumulat
 
 ---
 
+### Plan for the invariants, not the bubble
+
+Whether there's an AI investment bubble, and when or if it bursts, shouldn't change a well-built AI strategy at all. A futurist's job is to work out what's true across all plausible futures (the invariants) and build for those. Applied to the bubble question: don't bet on the pop, build on what survives every version of it.
+
+A pop means AI capabilities stop increasing and/or costs stop decreasing. The reassuring "we'll at least keep the infrastructure" analogy (railroads left the rails, dot-com left the dark fiber) isn't guaranteed here: even if the chips, datacenters, and models still exist, whoever remains may not serve them as they do today. Serving frontier models may be unprofitable, governments may restrict frontier access on national-security grounds, and progress may pause.
+
+The only reliable planning floor is open-weight models, whose weights are already released and can be served regardless of whether the lab that made them survives. Today's best open-weight models sit between Sonnet and Opus, so assume anything you can do with Sonnet today survives a pop. That's not a downgrade: real enterprise AI ROI today comes from AI orchestrating administrative and work processes, and Sonnet-class models are the workhorse for exactly that.
+
+The five moves that pay off in every scenario: build your second brain (portable by design), build the organizational knowledge factory, govern the workspace not the model, get serious about model routing and token economics (subsidized prices today aren't tomorrow's), and keep your data portable so the same corpus can point at a frontier API today or a self-hosted open model tomorrow. This converts the invariants method into a concrete, do-it-now checklist. See `posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md`.
+
+---
+
 ## Signature phrases
 
 - **"Shadow strategy, not shadow IT"** — worker-led AI isn't a compliance problem, it's the innovation engine
@@ -383,6 +395,10 @@ Enterprise implications: consulting firms where juniors carry seniors' accumulat
 ## Post-by-post notes (newest first)
 
 The full text of each published post is in `posts/citrix-blog/` and `posts/linkedin/`. For earlier LinkedIn articles (2020-2024), see `posts/linkedin/index.md`.
+
+### July 20, 2026: How to build an AI strategy that survives the bubble pop
+[Original post](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/)
+**Applies the invariants method (June 30) to the AI bubble question.** The through-line: a well-built AI strategy shouldn't care whether or when a bubble pops, because it's built on what's true in every future. Three major moves: (1) **Defines what a pop actually is.** AI progress is "capabilities up, costs down, no end in sight," so a burst means capabilities stop increasing and/or costs stop decreasing. Dismantles the comforting "we'll at least keep the infrastructure" analogy (railroads → rails, dot-com → dark fiber): even if chips, datacenters, and models still exist, whoever's left may not serve them as they do today. Serving frontier models may be unprofitable (access gets orders of magnitude more expensive or slower); governments may restrict frontier access on national-security grounds; progress may pause; or some combination (mid-tier models for the public, frontier reserved for government/favored use). (2) **Names open-weight models as the only reliable planning floor.** Weights already released can be downloaded and served regardless of whether the lab survives. Today's best open-weight models sit between Sonnet and Opus (GLM-5.2 from Z.ai, MIT-licensed, leads; Kimi K3 from Moonshot and Alibaba's Qwen3.8 have weights promised but not yet released; US open-weight from Thinking Machines/NVIDIA/Google is improving but behind the Chinese models today). So assume anything you can do with Sonnet today survives the pop. This isn't a downgrade: real enterprise AI ROI today is AI orchestrating administrative and work processes, not frontier magic synthesis, and Sonnet-class is the perfect balance of capability, speed, and cost. Two caveats: full-speed open-weight models need ~$300K+ datacenter-class hardware (hyperscaler/hosting/large-enterprise territory, not a basement), and token prices are subsidized for commercial/geopolitical reasons, so today's price isn't tomorrow's. (3) **Delivers the do-it-now checklist that pays off in every scenario:** build your second brain (portable by design), build the organizational knowledge factory, govern the workspace not the model (the workspace-as-control-plane thesis, ~18 months on the record), get serious about model routing and token economics, and keep your data portable so the same corpus can point at a frontier API today or a self-hosted open model tomorrow. Connects directly to the June 30 futurist post (invariants), the compute-scarcity/token-routing position, the second brain and knowledge factory frameworks, and workspace-as-control-plane. Reference when discussing: the AI bubble, open-weight models as a planning floor, model-portability as strategy, or converting the invariants method into a concrete action list.
 
 ### June 30, 2026: How a futurist reads AI news. (Hint: ignore most of it.)
 [Original post](https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/)
@@ -683,6 +699,25 @@ The simple version of the futurist filter. Most news is true but doesn't matter;
 
 **"It's not a ladder, it's a palace."**
 From the podcast (EP 3), now referenced in the futurist post. The 7-stage roadmap isn't something you climb past — Stage 3 (the second brain / cognitive extension) is the permanent foundation; later stages augment what you do there.
+
+---
+
+## New signature phrases (July 2026)
+
+**"If you're planning for the future properly, whether there's a bubble, and when or if it bursts, shouldn't change your strategy at all."**
+The thesis of the bubble-pop post. A strategy built on invariants is indifferent to the headline. If the news changes your plan, your plan wasn't built on invariants.
+
+**"Stop planning for the hypothetical future capabilities of AI. Start planning for what you can do with the models you can assume will exist after a pop."**
+The pivot from betting on progress to building on the floor. Those models are the open-weight ones, already released and servable no matter what happens to the labs.
+
+**"Assume anything you can do with Sonnet today, you can still do after the bubble pops."**
+The concrete planning floor. Today's best open-weight models sit between Sonnet and Opus, so Sonnet-class capability is the safe baseline for every future scenario.
+
+**"AI models no one can take away from you, running on hardware you can own, working against data you control and context you've built."**
+The definition of an AI strategy built on invariants. Everything on the do-now checklist ladders up to this.
+
+**"Don't assume the price you pay today is the price you'll pay tomorrow."**
+Tokens are subsidized for commercial and geopolitical reasons, even for open-weight hosting. Token economics is an invariant precisely because the price is not.
 
 ---
 

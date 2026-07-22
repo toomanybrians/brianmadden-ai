@@ -1,5 +1,12 @@
 [
   {
+    "title": "How to build an AI strategy that survives the bubble pop",
+    "url": "https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/",
+    "date": "2026-07-20",
+    "type": "blog",
+    "description": "Whether or when an AI investment bubble pops shouldn't change a well-built AI strategy, because a good one is built on invariants: what's true in every future. A pop means capabilities stop increasing and/or costs stop decreasing, and the 'we'll keep the infrastructure' comfort isn't guaranteed here. The reliable planning floor is open-weight models, whose weights are already released and servable no matter what happens to the labs. Today's best sit between Sonnet and Opus, so assume anything you can do with Sonnet today survives the pop. The five moves that pay off in every scenario: build your second brain, build the organizational knowledge factory, govern the workspace not the model, get serious about model routing and token economics, and keep your data portable."
+  },
+  {
     "title": "Citrix AI Hotsheet EP 4: OSWorld 2.0, AI reconciliation maps, and the futurist's playbook",
     "url": "https://www.youtube.com/watch?v=iRokb-q-gsA",
     "date": "2026-07-15",
