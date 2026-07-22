@@ -4,6 +4,40 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-07-22 — New talk: What is a worker in 2031? (Arrow Forum 2026)
+
+**What was synced:**
+- Created `talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md` — public talk record, reconstructed from the slide deck (no recording exists). Stripped of wiki-links, internal file paths, and the internal editorial "inference flags" section that appears in the private bmad copy
+- Updated `talks/index.md` (added entry at top of Available content)
+- Updated `_index.json` (added talk entry; total_files 118→119, total_words 235225→237026)
+- Updated `COLLECTIONS.md` (added the talk to Enterprise AI strategy, AI agents / post-application era, Knowledge work and the invisible 80%, Human-AI collaboration; also added the 2026-07-20 bubble-pop blog post to Enterprise AI strategy, which the prior sync had missed)
+- Updated `llms.txt` (119 files, ~237k words, 20 talks)
+- Updated `README.md` (19→20 speech/podcast transcripts)
+
+**Automated checks:**
+- Wiki-links (`[[`): none — CLEAR
+- Internal names: none in new content. Only "Dave Brear" appears (public podcast co-host, pre-existing line in talks/index.md) — CLEAR
+- Internal path leaks (handoff/, me/thinking, reference/speeches, work/arcs, govern-dont-build): none in the public talk file — CLEAR
+- Em-dashes: no inline `--`/`---` (only YAML frontmatter delimiters); prose uses spaced em-dashes consistent with other public talks — CLEAR
+- Heading case: sentence case throughout — CLEAR
+- JSON validity: `_index.json` parses — CLEAR
+
+**Tone checks:**
+- Colleague test: public-facing keynote content, consistent with Brian's published voice
+- Competitor test: names vendors (Palantir, OpenAI, Anthropic, AWS, Microsoft) only in the context of publicly reported FDE investments — no disparagement, no non-public claims — CLEAR
+- Journalist test: no internal Citrix strategy; the Citrix content is the EUC-primitive audit already public in the EUCTech/DanofficeIT talks — CLEAR
+- Fossil record test: the model-name and news-headline timeline is explicitly dated to the talk (July 16, 2026); accurate as of then. The "reconstructed from slides" provenance is stated in frontmatter so future readers know it's not a verbatim transcript
+- Register test: keynote-summary register, consistent with the other reconstructed/summarized talk records
+
+**Manual review notes:**
+- This is a reconstruction from the slide deck, not a transcript. The private bmad copy carries explicit inference flags (the FDE-as-80%-extraction reading, connective transitions, audience descriptor); the public copy omits the editorial flags but keeps the honest "reconstructed from slides; no recording" provenance in frontmatter and the intro
+- All company/model/dollar figures come directly from the slides
+- No bmad.com website pieces done in this pass (no video recording exists): no `_content-index.json` speech entry, no bmad.com talk page, no R2 slide upload, no speaking-page video card. Held pending Brian's decision on whether to surface a recording-less talk on the site
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-07-22 — New blog post: How to build an AI strategy that survives the bubble pop
 
 **What was synced:**

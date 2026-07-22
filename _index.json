@@ -2,8 +2,8 @@
   "version": "1.0",
   "generated": "2026-07-22",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 118,
-  "total_words": 235225,
+  "total_files": 119,
+  "total_words": 237026,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2324,6 +2324,33 @@
       "audience": "EUC veterans, admins, architects, IT pros",
       "format": "~45-minute keynote (Day 1)",
       "recording": "Audio/video transcript (also published as Citrix AI Hotsheet EP 2)"
+    },
+    {
+      "path": "talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md",
+      "title": "What is a worker in 2031?",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "euc-2031",
+        "ai-bubble",
+        "open-weight-models",
+        "forward-deployed-engineers",
+        "diffusion-gap",
+        "7-stage-roadmap",
+        "second-brain",
+        "knowledge-factory",
+        "token-economics",
+        "invisible-80-percent",
+        "futurism"
+      ],
+      "word_count": 1801,
+      "staleness_threshold": "stable",
+      "date": "2026-07-16",
+      "event": "Arrow Forum 2026",
+      "location": "Germany",
+      "audience": "Arrow channel partners, resellers, and enterprise IT",
+      "format": "~40-minute keynote",
+      "recording": "Reconstructed from slides; no recording"
     },
     {
       "path": "talks/2026-06-17-danofficeit-future-of-citrix.md",

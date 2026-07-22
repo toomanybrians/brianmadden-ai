@@ -95,6 +95,7 @@ The transition from applications to agents. Computer-using agents, the post-appl
 - `podcast/ep3.md` -- Citrix AI Hotsheet EP 3: Second brains hit the enterprise wall — and why AI automations won't save you (2026-06-19) (authority: 5)
 - `talks/2026-06-03-euctech-the-last-chapter-of-euc.md` -- The Last Chapter of EUC (2026-06-03) (authority: 5)
 - `talks/2026-06-17-danofficeit-future-of-citrix.md` -- The near future of work (2026-06-17) (authority: 5)
+- `talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md` -- What is a worker in 2031? (2026-07-16) (authority: 5)
 
 ## Governance, security, and the control plane
 
@@ -157,6 +158,7 @@ What knowledge work actually is, why 80% of it is invisible to corporate IT, and
 - `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
 - `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
 - `talks/2026-06-03-euctech-the-last-chapter-of-euc.md` -- The Last Chapter of EUC (2026-06-03) (authority: 5)
+- `talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md` -- What is a worker in 2031? (2026-07-16) (authority: 5)
 
 ## Second brains and subscribable knowledge
 
@@ -232,6 +234,8 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 - `talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md` -- You can't automate your way to intelligence (2026-03-31) (authority: 5)
 - `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
+- `posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md` -- How to build an AI strategy that survives the bubble pop (2026-07-20) (authority: 5)
+- `talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md` -- What is a worker in 2031? (2026-07-16) (authority: 5)
 
 ## Human-AI collaboration
 
@@ -250,4 +254,5 @@ How humans and AI work together. The delegation model, the 7-stage roadmap, the 
 - `talks/2025-09-01-axess-connect-ai-real-impact.md` -- Artificial intelligence, real impact (2025-09-01) (authority: 5)
 - `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
 - `talks/2026-06-03-euctech-the-last-chapter-of-euc.md` -- The Last Chapter of EUC (2026-06-03) (authority: 5)
+- `talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md` -- What is a worker in 2031? (2026-07-16) (authority: 5)
 

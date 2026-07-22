@@ -8,6 +8,10 @@ I co-host the **Citrix AI Hotsheet** with Dave Brear — a monthly podcast on AI
 
 ## Available content
 
+**What is a worker in 2031?** (2026-07-16)
+Arrow Forum 2026, Germany — ~40-minute channel keynote (reconstructed from slides; no recording)
+The main-stage version of the "AI strategy that survives the bubble pop" argument. Frames the next five years as a set of assumptions to stress-test: AI capabilities keep climbing, but frontier access is now a government-and-bubble variable, so the only guaranteed floor is Sonnet-class open-weight models (GLM-5.2, Opus 4.8 / GPT-5.5 class). Diffusion is slow, but forward-deployed engineers can close the gap — and Palantir, OpenAI, Anthropic, AWS, and Microsoft are pouring billions into them. The move: figure out what an FDE does (reach the invisible 80% and make it visible) and do it in-house. Walks the seven-stage roadmap, the three worker types (cognitive owners, operators, curators), the per-worker token ladder (100K → 10B/day), and the EUC-primitive audit. Close: build your own brain — "you have to feel it before you can govern it; you have to have one before you can manage thousands."
+
 **The near future of work** (2026-06-17)
 DanofficeIT — The Future of Citrix, Copenhagen, Denmark
 Intimate partner event (~25 people). Similar core material to the EUCTech keynote but delivered in an interactive format with extended Q&A. Notable additions: second brain data integrity deep dive (selection bias in what gets captured creates systematic distortion in the AI's model of relationships); "the days of a consultant leaving a PDF after a project are dead" — consulting shifts to a living second brain clients plug into; "you can only see one step ahead" as the mechanism behind AI skepticism; session recording applied to agents (agents don't have privacy rights — record everything they do); token consumption mapped explicitly to all seven phases (100K → 1M → 10M → 100M → 1B → 10B per user per day). Full transcript available.
