@@ -7,6 +7,13 @@
     "description": "Whether or when an AI investment bubble pops shouldn't change a well-built AI strategy, because a good one is built on invariants: what's true in every future. A pop means capabilities stop increasing and/or costs stop decreasing, and the 'we'll keep the infrastructure' comfort isn't guaranteed here. The reliable planning floor is open-weight models, whose weights are already released and servable no matter what happens to the labs. Today's best sit between Sonnet and Opus, so assume anything you can do with Sonnet today survives the pop. The five moves that pay off in every scenario: build your second brain, build the organizational knowledge factory, govern the workspace not the model, get serious about model routing and token economics, and keep your data portable."
   },
   {
+    "title": "What is a worker in 2031?",
+    "url": "https://bmad.com/talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031",
+    "date": "2026-07-16",
+    "type": "speech",
+    "description": "Arrow Forum 2026 keynote, Germany (~40 min). The main-stage version of the bubble-pop argument. Stress-tests the assumptions behind the next five years of work: AI capabilities keep climbing, but frontier access is now a government-and-bubble variable, so the only guaranteed floor is Sonnet-class open-weight models (GLM-5.2). Diffusion is slow, but forward-deployed engineers close the gap — and Palantir, OpenAI, Anthropic, AWS, and Microsoft are pouring billions into them; the move is to do the FDE's job in-house (reach the invisible 80% and make it visible). Walks the seven-stage roadmap, the three worker types, the per-worker token ladder (100K to 10B/day), and an audit of every EUC primitive translated into its cognitive-era successor. Reconstructed from slides; not recorded."
+  },
+  {
     "title": "Citrix AI Hotsheet EP 4: OSWorld 2.0, AI reconciliation maps, and the futurist's playbook",
     "url": "https://www.youtube.com/watch?v=iRokb-q-gsA",
     "date": "2026-07-15",
