@@ -4,6 +4,67 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-08-05 — Add missing delegation-not-automation framework; update voice.md
+
+**What was synced:**
+- Created `frameworks/delegation-not-automation.md` — a framework that had been authoritative in the private source since March, referenced by both the December 2025 and February 2026 blog posts it's built from, but never actually published here as a standalone explainer
+- Updated `_index.json`, `_relationships.json`, `COLLECTIONS.md` for the new framework entry
+- Updated `README.md`, `CLAUDE.md`, `AGENTS.md`, `llms.txt` (framework count 9 → 10)
+- Updated `me/voice.md`: added the "substrate"/"corpus" word-avoidance rule and the "median slop" phrase — both real rules that existed privately but had never made it into the public voice guide (frozen since this repo's launch)
+
+**Automated checks:**
+- Wiki-links (`[[`): none found — CLEAR
+- Internal names: none found — CLEAR
+- bmad/ path references: none found — CLEAR
+- Em-dashes: no inline `---`/`--` substitutions — CLEAR
+- Heading case: sentence case throughout — CLEAR
+- JSON validity: both `_index.json` and `_relationships.json` parse — CLEAR
+
+**Tone checks:**
+- Colleague test: CLEAR
+- Competitor test: CLEAR — no competitive content
+- Journalist test: CLEAR
+- Fossil record test: CLEAR — framework is dated to its original December 2025 post
+- Register test: CLEAR
+
+**Manual review notes:**
+- One line in the source material referenced an internal work example (a prep-task deadline) as an illustration inside the framework's skills-hierarchy walkthrough — replaced with a generic example before publishing. Everything else is a direct copy.
+- `me/voice.md` had drifted from the private version since this repo's launch; only added the two substantive rules, left the rest of the file's structure and register as-is rather than overwriting a deliberate earlier edit.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
+## 2026-08-05 — Sync developing-thinking.md: two-month backlog (June 1 → August 5)
+
+**What was synced:**
+- Updated `me/developing-thinking.md` with 9 new frontier-thinking items and updated token-consumption numbers in the compute-scarcity argument (word count 8,045 → 8,946; last public update was June 1)
+- Updated `_index.json` (file entry word count, generated date, total_words 237,026 → 237,927)
+- Updated `llms.txt` (version v3.5 → v3.6, word count, date)
+
+**Automated checks:**
+- Wiki-links (`[[`): none found — CLEAR
+- Internal names: none found — CLEAR
+- bmad/ path references: none found — CLEAR
+- Em-dashes: no inline `---`/`--` substitutions — CLEAR
+- Heading case: sentence case throughout — CLEAR
+- JSON validity: `_index.json` parses — CLEAR
+
+**Tone checks:**
+- Colleague test: CLEAR — no identifiable colleague in the added material
+- Competitor test: CLEAR — nothing added is competitive positioning
+- Journalist test: CLEAR — no quotable line creates a problem
+- Fossil record test: CLEAR — all additions are frontier/developing, not framed as settled
+- Register test: CLEAR — reads as public frontier thinking
+
+**Manual review notes:**
+- This closes a real two-month gap in the public frontier file. Most of the private source material from the same window was Citrix-internal and correctly excluded — the public-safe yield (9 items) was smaller than the raw private volume, which is expected and by design, not a sign of thin content.
+- New items: the distinction between AI reconstructing what versus why, one corpus/many renders, second-brain selection bias (already public via a prior talk), session recording's privacy asymmetry for agents, the "leave a PDF" consulting model, the "one step ahead" mechanism of AI skepticism, the PC deployment analogy for shared knowledge systems, and hallucination's two root causes.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-07-22 — New talk: What is a worker in 2031? (Arrow Forum 2026)
 
 **What was synced:**
