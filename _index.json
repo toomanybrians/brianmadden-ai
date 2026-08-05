@@ -2,8 +2,8 @@
   "version": "1.0",
   "generated": "2026-08-05",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 119,
-  "total_words": 237927,
+  "total_files": 120,
+  "total_words": 238939,
   "files": [
     {
       "path": "AGENTS.md",
@@ -212,6 +212,33 @@
       "description": "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives."
     },
     {
+      "path": "frameworks/delegation-not-automation.md",
+      "title": "Delegation, not automation",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "delegation",
+        "automation",
+        "skills-hierarchy",
+        "agents",
+        "cognitive-stack",
+        "enterprise-ai-strategy"
+      ],
+      "word_count": 950,
+      "staleness_threshold": "stable",
+      "date": "2025-12-18",
+      "original_url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/",
+      "related_frameworks": [
+        "cognitive-stack",
+        "invisible-80-percent"
+      ],
+      "related_posts": [
+        "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
+        "2026-02-25-cognitive-stack"
+      ],
+      "description": "Workers don't think like programmers, they think like managers. They want to hand off tasks, not build workflows. The industry is investing at the wrong layer of the stack."
+    },
+    {
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
       "title": "The five levels of AI in knowledge work",
       "authority_level": 4,
@@ -389,7 +416,7 @@
         "voice",
         "communication"
       ],
-      "word_count": 489,
+      "word_count": 551,
       "staleness_threshold": "stable",
       "description": "How Brian thinks, argues, and communicates. Reference for AI systems generating content in his voice."
     },

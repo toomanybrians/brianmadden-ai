@@ -38,11 +38,13 @@ He thinks like a practitioner, not an analyst. 32 years of watching enterprise t
 - "It's wild."
 - "And, for real, ..."
 - "Heck, ..."
+- "median slop" (for generic AI output)
 - Self-deprecating: "I pontificate", "rambling", "yapping about it"
 
 ## Words Brian avoids
 
 - Corporate buzzwords: "leverage" (verb), "synergy", "best-in-class", "holistic", "empower", "unlock", "democratize"
+- "Substrate" and "corpus"—AI-flavored words for what should just be "shared knowledge base," "the company's knowledge," or "the shared brain"
 - Fear-mongering without substance
 - Hedging that undermines the point
 - Obvious statements dressed up as insights

@@ -93,6 +93,24 @@
       ],
       "referenced_by_talks": []
     },
+    "delegation-not-automation": {
+      "path": "frameworks/delegation-not-automation.md",
+      "title": "Delegation, not automation",
+      "original_url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/",
+      "referenced_in_posts": [
+        "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
+        "2026-02-25-cognitive-stack"
+      ],
+      "related_frameworks": [
+        "cognitive-stack",
+        "invisible-80-percent"
+      ],
+      "referenced_by_posts": [
+        "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
+        "2026-02-25-cognitive-stack"
+      ],
+      "referenced_by_talks": []
+    },
     "five-levels-of-ai-in-knowledge-work": {
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
       "title": "The five levels of AI in knowledge work",
