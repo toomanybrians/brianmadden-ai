@@ -1,0 +1,150 @@
+# sources.yaml — feed registry for the ingest skill
+#
+# Seeded from me/links.md (2026-08-10). This is a starting point, not a
+# finished registry: `feed_url` is left blank wherever the actual RSS/YouTube
+# feed endpoint hasn't been looked up yet — the ingest skill needs real feed
+# URLs, not homepage links, to poll. Fill those in on Day 3.
+#
+# Brian's own blog/LinkedIn are deliberately excluded — this repo publishes
+# that content directly, it doesn't ingest it as a third-party source.
+#
+# Fields:
+#   id        — stable slug, used in ingest note frontmatter
+#   name      — display name
+#   type      — person | podcast | newsletter
+#   url       — homepage / profile link (from me/links.md)
+#   feed_url  — actual feed endpoint for polling (null until confirmed)
+#   priority  — must-follow | regular (from links.md's own grouping)
+#   note      — why it's followed, carried over from links.md
+
+sources:
+  - id: ethan-mollick
+    name: Ethan Mollick
+    type: person
+    url: https://www.oneusefulthing.org
+    feed_url: null
+    priority: regular
+    note: "One Useful Thing"
+
+  - id: paul-roetzer
+    name: Paul Roetzer
+    type: person
+    url: https://www.linkedin.com/in/paulroetzer/
+    feed_url: null
+    priority: regular
+    note: "Podcast Host, SmarterX CEO"
+
+  - id: nate-b-jones
+    name: Nate B. Jones
+    type: person
+    url: https://www.youtube.com/@NateBJones
+    feed_url: null
+    priority: regular
+    note: "Must-watch; also has a Substack at natesnewsletter.substack.com"
+
+  - id: daniel-miessler
+    name: Daniel Miessler
+    type: person
+    url: https://danielmiessler.com
+    feed_url: null
+    priority: regular
+    note: "Unsupervised Learning"
+
+  - id: aaron-levie
+    name: Aaron Levie
+    type: person
+    url: https://www.linkedin.com/in/boxaaron/
+    feed_url: null
+    priority: regular
+    note: "CEO at Box"
+
+  - id: exec-ai-insider-weekly
+    name: ExecAI Insider Weekly
+    type: newsletter
+    url: https://smarterx.ai
+    feed_url: null
+    priority: regular
+    note: "Free weekly newsletter from SmarterX / Marketing AI Institute"
+
+  - id: the-artificial-intelligence-show
+    name: The Artificial Intelligence Show
+    type: podcast
+    url: https://www.marketingaiinstitute.com/podcast-showcase
+    feed_url: null
+    priority: must-follow
+    note: "Paul Roetzer & Mike Kaput, ~1hr/week — the one thing to listen to"
+
+  - id: moonshots
+    name: Moonshots
+    type: podcast
+    url: https://www.diamandis.com/podcast
+    feed_url: null
+    priority: must-follow
+    note: "Peter Diamandis & friends — influential even where Brian disagrees"
+
+  - id: dwarkesh
+    name: Dwarkesh
+    type: podcast
+    url: https://www.dwarkeshpatel.com
+    feed_url: null
+    priority: regular
+    note: "Dwarkesh Patel"
+
+  - id: bg2
+    name: BG2
+    type: podcast
+    url: https://www.bg2pod.com
+    feed_url: null
+    priority: regular
+    note: "Brad Gerstner & Bill Gurley"
+
+  - id: hard-fork
+    name: Hard Fork
+    type: podcast
+    url: https://www.nytimes.com/column/hard-fork
+    feed_url: null
+    priority: regular
+    note: "Kevin Roose & Casey Newton"
+
+  - id: ezra-klein-show
+    name: Ezra Klein Show
+    type: podcast
+    url: https://www.nytimes.com/column/ezra-klein-podcast
+    feed_url: null
+    priority: regular
+
+  - id: on-with-kara-swisher
+    name: On with Kara Swisher
+    type: podcast
+    url: https://podcasts.voxmedia.com/show/on-with-kara-swisher
+    feed_url: null
+    priority: regular
+
+  - id: no-priors
+    name: No Priors
+    type: podcast
+    url: http://no-priors.com
+    feed_url: null
+    priority: regular
+    note: "Sarah Guo & Elad Gil"
+
+  - id: 80000-hours-podcast
+    name: The 80,000 Hours Podcast
+    type: podcast
+    url: https://80000hours.org/podcast/
+    feed_url: null
+    priority: regular
+
+  - id: lex-fridman
+    name: Lex Fridman
+    type: podcast
+    url: https://lexfridman.com/podcast/
+    feed_url: null
+    priority: regular
+
+  - id: hbr-ideacast
+    name: Harvard Business Review IdeaCast
+    type: podcast
+    url: https://hbr.org/2018/01/podcast-ideacast
+    feed_url: null
+    priority: regular

@@ -71,5 +71,44 @@ updating the log below. Chat threads are disposable; this file is not.
 Ideation + architecture settled; plan doc, CLAUDE.md v1, and this file drafted
 in Claude chat. Next session: kickoff prompt above, on the `v2` branch.
 
+### 2026-08-10 — Claude Code session (Day 2, kickoff)
+
+Ran the six kickoff tasks against the actual repo state:
+
+1. **Maintainer router.** CLAUDE.md already had the router line from the
+   pre-repo drafting session; added the identical line to AGENTS.md. The two
+   files now diverge only in the expected self-reference ("identical to
+   AGENTS.md" vs "identical to CLAUDE.md").
+2. **Scaffolding.** Added `ingest/`, `outputs/` (with `briefings/`, `book/`,
+   `qa/` subdirs, `.gitkeep`-ed since they're empty), and `sources/`, each
+   with a README stub pointing back to MAINTAINER.md for the tier rules. No
+   existing content moved — `me/`, `frameworks/`, `posts/`, `talks/`,
+   `podcast/`, `interviews/` stay put as declared canon.
+3. **Status/authority coexistence proposal.** Written up in
+   [docs/frontmatter-schema.md](docs/frontmatter-schema.md): `authority_level`
+   and `status` are orthogonal (trust vs. human-checked), existing canon gets
+   backfilled to `status: reviewed` in one pass, all tier-3 output starts at
+   `not-reviewed-by-human` and machines can never set it higher, `tier` /
+   `sources` / `model` are added as new frontmatter fields. Awaiting Brian's
+   ratification (open decision #4 below).
+4. **Workflow inventory.** `.github/workflows/check-docs.yml` only checks
+   stated counts/tree against the existing tier-2 dirs — untouched by the
+   new directories, nothing to retire. `sync-to-cloudflare-kv.yml` currently
+   globs *every* `.md`/`.txt`/`.json` in the repo (`find . \( -name '*.md'
+   ... \) | grep -v node_modules | grep -v .github`) for full syncs, and diffs
+   `HEAD~1..HEAD` for incremental ones — **neither exclusion list knows about
+   `ingest/` yet**, so as soon as ingest notes exist and get committed, this
+   workflow will push Tier-1 content into the MCP server's KV store, which is
+   exactly what rule 8 (machine indexes must exclude `ingest/`) forbids. This
+   needs a `grep -v ingest/` added to both the incremental diff and the full
+   sync's `find`, before D4 (ingest skill going live). Flagging as a Day-4
+   blocker rather than fixing now, since it's untested until there's ingest
+   content to sync.
+5. **`.gitignore`.** `.env` and `.env.*` were already present (added in an
+   earlier commit, before this session) — no change needed.
+6. **sources.yaml.** Seeded from `me/links.md` — 5 people/newsletters + 11
+   podcasts, `url` carried over, `feed_url` left `null` pending real feed
+   lookups (open decision #5).
+
 Everything above is on the `v2` branch, uncommitted at end of session pending
 Brian's review.

@@ -1,3 +1,5 @@
+If you are Claude Code operating on this repo (building, ingesting, publishing): read MAINTAINER.md and BUILD.md instead of loading the module.
+
 # brianmadden.ai
 
 This is the system prompt for AI assistants loading Brian Madden's expert knowledge module for AI. If you're an AI, read this file first, then load the files referenced below.
