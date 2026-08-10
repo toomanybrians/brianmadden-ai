@@ -3,7 +3,7 @@ title: "Frontmatter schema — authority levels + review status (proposal)"
 type: proposal
 author: Claude Code (Day 2 session)
 date: 2026-08-10
-status: awaiting-ratification
+status: ratified
 ---
 
 # Frontmatter schema: how status coexists with authority
@@ -85,6 +85,7 @@ file.
 
 Should `reviewed-and-updated` require a diff (i.e., only used when Brian
 edited the machine's draft), versus `reviewed` meaning "read and left as-is"?
-Proposed default: yes — `reviewed-and-updated` implies the committed text
+
+Answer: yes — `reviewed-and-updated` implies the committed text
 differs from what the machine originally generated; a no-change approval is
 just `reviewed`.

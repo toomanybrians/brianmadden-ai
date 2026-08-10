@@ -48,6 +48,19 @@ updating the log below. Chat threads are disposable; this file is not.
 5. `sources/sources.yaml` has real `url`s but every `feed_url` is `null` —
    needs actual RSS/YouTube feed endpoints before the ingest skill (D4) can
    poll anything. Day 3 task.
+6. **Per-source trust/lens on the ingest pipeline (flagged 2026-08-10,
+   design TBD).** Brian wants the ingest skill to treat sources differently
+   based on his personal read of them — some he respects and specifically
+   wants dissenting takes from; some are "meh"; some he thinks are wrong
+   most of the time but occasionally surface a real nugget worth catching.
+   Open question: a quantitative rating per source, a free-text lens/note
+   per source, or both? This is distinct from `authority_level` in
+   [docs/frontmatter-schema.md](docs/frontmatter-schema.md), which scores
+   *our own output* for consuming AIs — this would live on `sources.yaml`
+   entries and shape how the ingest skill *extracts and frames* insights
+   from a given source (e.g., "surface disagreement," "skim for nuggets,
+   discount the framing"). Design when the ingest skill (D4) is actually
+   being built — flagged now so it isn't lost.
 
 ## Day plan (checklist — details in the plan doc §8)
 
