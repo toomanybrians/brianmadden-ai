@@ -120,9 +120,11 @@ as a template to re-run.
    function with the intended shape documented (poll Gmail API against
    `brain@` for known sender addresses, normalize to the same entry shape
    `fetch_entries()` returns so the extraction/write pipeline downstream is
-   unchanged) but it raises `NotImplementedError` — no mailbox exists yet
-   (D1/D8 not done). Still genuinely blocked on Workspace setup, not a
-   design gap anymore; (b) going forward Brian plans to subscribe to *new*
+   unchanged) but it raises `NotImplementedError`. **Unblocked 2026-08-11:**
+   D1 is done — Brian has Google Workspace running with `brain@brianmadden.ai`
+   live. The stub can become real whenever this gets picked up (needs a
+   Gmail API app key/credentials for `brain@`, not part of this session);
+   (b) going forward Brian plans to subscribe to *new*
    sources via the `brianmaddenai` Substack account rather than his
    personal one (per the plan doc §6 — "the follow list becomes the public
    source registry"). Mechanism confirmed same-day: a Substack profile's
