@@ -435,3 +435,46 @@ sources:
     url: https://claudemythos.substack.com
     feed_url: https://claudemythos.substack.com/feed
     priority: regular
+
+  # --- Remaining "genuinely unsure" batch resolved, 2026-08-10 (Brian's call) ---
+  # Excluded: Babylon Burns, Beauty is truth, But This Time It's Different,
+  # The Digital Contrarian, Graphomane. The five below are in.
+
+  - id: jasmine-sun
+    name: "@jasmine's substack"
+    type: person
+    url: https://jasmi.news
+    feed_url: https://jasmi.news/feed
+    priority: regular
+    note: "Jasmine Sun — tech culture"
+
+  - id: ghosts-of-electricity
+    name: Ghosts of Electricity
+    type: person
+    url: https://aleximas.substack.com
+    feed_url: https://aleximas.substack.com/feed
+    priority: regular
+    note: "Alex Imas"
+
+  - id: hard-reset
+    name: Hard Reset
+    type: newsletter
+    url: https://www.hardresetmedia.com
+    feed_url: https://www.hardresetmedia.com/feed
+    priority: regular
+
+  - id: kuns-field-notes
+    name: Kun's Field Notes
+    type: person
+    url: https://blog.kunchenguid.com
+    feed_url: https://blog.kunchenguid.com/feed
+    priority: regular
+    note: "Kun Chen"
+
+  - id: the-wake-up-call
+    name: The Wake Up Call
+    type: person
+    url: https://thewakeupcallnewsletter.substack.com
+    feed_url: https://thewakeupcallnewsletter.substack.com/feed
+    priority: regular
+    note: "Scott Barker"

@@ -248,3 +248,24 @@ Notes, The Wake Up Call. Revisit next time sources.yaml comes up, or drop
 them — they've been sitting for one session already.
 
 Files still uncommitted, holding per Brian's request.
+
+### 2026-08-10 — Claude Code session (Day 3 close-out, last ambiguous batch + commit)
+
+Brian ruled on the rest of the ambiguous list: **excluded** Babylon Burns,
+Beauty is truth, But This Time It's Different, The Digital Contrarian,
+Graphomane; **included** the other five — jasmine's substack, Ghosts of
+Electricity, Hard Reset, Kun's Field Notes, The Wake Up Call — each added
+with a verified `feed_url`. `sources.yaml` is now 56 entries, 55 with a live
+feed. Every subscription from the original 62-item Substack pull is now
+either added or explicitly declined — nothing left unresolved from that
+batch.
+
+D3 is done. Committed both sessions' `sources.yaml`/`BUILD.md` work as
+[98c406e](../../commit/98c406e) (feed lookups + first Substack import
+batch), then this closing batch as a follow-up commit. Moving Substack
+follows over to the `brianmaddenai` account itself is still Brian's manual
+action — tracked under open decision #7, not a blocker for anything else.
+
+Next: frontmatter backfill (`status: reviewed` across the 114 existing
+canon files, per the ratified schema — mechanical, no open design
+questions left).
