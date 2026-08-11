@@ -1091,3 +1091,44 @@ confirmed going without images deliberately, no image needed either way).
 "The Taft test" (Brian's reference, explained after being asked) — a
 screed against filler blog-hero images, named for the test "could this
 image be a photo of President Taft with no loss of meaning."
+
+**The footer button, and the first real end-to-end publish cycle.** Brian
+sent a screenshot of Substack's actual "Footer for all posts" editor —
+richer than assumed, with a native Button block (not just rich text).
+Redesigned the recommendation around it: one strong CTA button ("Connect
+your AI directly into my brain," Brian's own phrasing, → brianmadden.ai)
+rather than splitting focus across two buttons, with "Who's Brian?" as a
+quieter inline text link to bmad.com instead of competing for the click.
+Did not touch `publish.py`'s `FOOTER` constant — Brian's explicit
+instruction was to hold the pipeline unchanged until he confirms whether
+Substack's global footer setting (which its own naming suggests is
+email-specific) also renders on the actual web post.
+
+Regenerated and committed today's `-published.md` with the new title
+guidance and subtitle before Brian's real edit, specifically so
+`render.py`'s git-diff status detection wouldn't mistake that
+regeneration for a human edit. Then Brian finished his actual first
+edit — inline commentary on the launch framing (a `[Brian's AI second
+brain]` self-link, a note that this first post covers 30 days but future
+ones will be daily), several wording tightenings, and one very on-theme
+catch: turning "judgment and governance stay human longest" into "...will
+stay human the longest." First real run of `render.py` against a genuine
+human edit: correctly detected the diff, flipped `status` to
+`reviewed-and-updated`, committed
+([b8ef9fc](../../commit/b8ef9fc)), and rendered the HTML — the full
+workflow designed earlier this session working end to end for real, not
+just in the sandbox test.
+
+**A second style-guide entry, same day it started growing.** Brian's own
+edit above was also the example: asked what the "AI writes present tense,
+I'd write future tense" pattern is called. Answer given with appropriate
+hedging — the grammatical term is *futurate present* (present tense with
+future reference, e.g. "the train leaves at 5"); no single well-known term
+for this specific rhetorical misuse of it, but the mechanism is real:
+present tense borrows the certainty of an already-happening fact and
+lends it to what's actually just a forecast. Added to
+`me/style-guide.md` as a second entry ("Tense" section) — placed there
+rather than `voice.md` since it's a concrete, teachable grammar rule like
+the em-dash entry, even though its effect is calibration/honesty. Flagged
+that placement as a judgment call, not a settled one, since the two-file
+split is still being worked out together.

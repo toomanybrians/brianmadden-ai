@@ -24,6 +24,7 @@ demand, not repo content.
 """
 
 import argparse
+import re
 import subprocess
 import sys
 from datetime import datetime
@@ -42,13 +43,29 @@ STYLE = """<meta name="color-scheme" content="light">
   html, body { background: #ffffff; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
          max-width: 640px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1a1a1a; }
-  h1 { font-size: 1.8em; }
-  h2 { font-size: 1.3em; margin-top: 1.5em; }
+  h1 { font-size: 1.3em; margin-top: 1.5em; }
   a { color: #d4622a; }
   blockquote { border-left: 3px solid #ddd; margin-left: 0; padding-left: 1em; color: #555; }
   hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
   em { color: #555; }
 </style>"""
+
+
+def strip_title_and_promote_headings(body: str) -> str:
+    """Drop the leading `# Title` line — Substack has its own title field,
+    the body shouldn't repeat it — and promote the remaining `##`-`######`
+    section headings up one level, since without a competing H1 in the
+    body, the day's `##` section breaks are the top heading level now."""
+    body = body.lstrip("\n")
+    if body.startswith("# "):
+        body = body.split("\n", 1)[1] if "\n" in body else ""
+        body = body.lstrip("\n")
+    return re.sub(
+        r"^(#{2,6}) (.+)$",
+        lambda m: "#" * (len(m.group(1)) - 1) + " " + m.group(2),
+        body,
+        flags=re.MULTILINE,
+    )
 
 
 def find_published(brief_date: str) -> Path:
@@ -109,6 +126,7 @@ def main() -> None:
         sync_status_and_commit(md_path)
 
     _, body = read_frontmatter_and_body(md_path)
+    body = strip_title_and_promote_headings(body)
     html_body = markdown.markdown(body, extensions=["extra"])
     full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{html_body}\n</body>\n</html>\n"
 

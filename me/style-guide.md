@@ -28,3 +28,15 @@ output), not pre-populated speculatively.
 - **Em dashes have no surrounding spaces.** `word—word`, not `word — word`.
   (Brian's correction, 2026-08-11 — caught while editing a published
   draft, replacing a spaced em-dash aside with parentheses.)
+
+## Tense
+
+- **Predictions and forecasts use explicit future tense ("will"), not the
+  futurate present.** "This will play out as X," not "This plays out as
+  X." The futurate present borrows the certainty of an already-happening
+  fact and lends it to something that's actually just a forecast — it
+  makes a prediction read as more inevitable than it has any right to be.
+  Reserve present tense for facts and things already true; use "will" for
+  anything that's actually a forecast. (Brian's correction, 2026-08-11 —
+  caught in his own edit: "judgment and governance stay human longest" →
+  "judgment and governance will stay human the longest.")
