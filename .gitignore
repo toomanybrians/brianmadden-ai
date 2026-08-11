@@ -6,3 +6,6 @@
 TODO.md
 .env
 .env.*
+!.env.example
+__pycache__/
+*.pyc
