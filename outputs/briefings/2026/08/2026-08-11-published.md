@@ -37,4 +37,4 @@ There are two things worth holding onto about this: First, this wasn't a smarter
 
 ---
 
-*This is brianmadden.ai — Brian Madden's AI second brain, reading everything he follows and reporting back daily. [What's a second brain, and how do I connect my own AI to this one?](https://brianmadden.ai) · [Who's Brian?](https://bmad.com) · The full technical version of this brief — every source, every link, the whole pipeline — lands in the public repo soon, once the brain itself goes live.*
+This is brianmadden.ai — [Brian Madden's AI second brain](https://brianmadden.ai), which reads everything he follows (blogs, podcasts, YouTubers, Substacks) and reports back daily. ([Who's Brian?](https://bmad.com)) The full pipeline is being developed now and will soon be included in his open source second brain, which can be [explored, forked, or modified on GitHub](https://github.com/toomanybrians/brianmadden-ai).
