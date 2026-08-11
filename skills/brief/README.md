@@ -135,14 +135,24 @@ stdout at the end of the run. The post's actual title is just its H1 in
 the body — Fable's job, the one part that has to be written fresh daily.
 
 A fixed `FOOTER` (not model-written — see `publish.py`) gets appended to
-every post: real links to `brianmadden.ai` ("what's a second brain / how
-to connect your AI") and `bmad.com` ("who's Brian"), both live today, plus
-an unlinked "full pipeline lands here soon" line for the one thing that
-genuinely isn't public yet (`outputs/` is `v2`-branch-only, not on `main`).
-If Brian sets an equivalent footer in Substack's own global email
-header/footer setting, this may become redundant for the emailed copy —
-unconfirmed whether that setting also covers the web post page, so don't
-remove `FOOTER` here until that's verified.
+every post — real links to `brianmadden.ai`, `bmad.com`, and the GitHub
+repo root (Brian's own final wording, 2026-08-11). **This lives in the
+post body, not Substack's global "footer for all posts" setting** —
+confirmed 2026-08-11 (Brian checked live) that the global setting only
+renders in the emailed copy, not the web post page, so `FOOTER` here is
+the only footer readers of the actual post ever see. The GitHub link
+points at the repo root, not an `outputs/` path — the repo itself has
+been public throughout (`main` has the canon content), so it resolves
+today even though a link into `outputs/` (`v2`-branch-only) wouldn't.
+
+**The "connect your AI" button is a manual, per-post step, not something
+this pipeline can generate.** Substack's Button block is a proprietary
+widget (their editor is Tiptap/ProseMirror, which explicitly doesn't
+support custom HTML/CSS on paste), so there's no way to paste one in the
+way the rest of the post's rich text pastes in — confirmed by research,
+not assumed. Brian adds it by hand via Substack's toolbar each post:
+label **"Connect your AI directly into my brain"**, linking to
+`https://brianmadden.ai`.
 
 **This generates the draft only — it does not post to Substack.** That's
 Day 7 (a live `brianmaddenai` Substack account plus the session-cookie

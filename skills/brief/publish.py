@@ -34,20 +34,22 @@ DEFAULT_MODEL = "claude-fable-5"  # prose, not synthesis — Brian's call, 2026-
 
 # Fixed, not model-generated (MAINTAINER.md: boilerplate is plain code,
 # model calls are for judgment) — identical on every post rather than
-# reworded each run. brianmadden.ai and bmad.com are both live today (the
-# pre-v2 sites) and already say almost exactly this — verified 2026-08-11.
-# The pipeline repo itself (ingest/, outputs/, the source list) isn't live
-# yet (v2 not pushed), so that line stays real but unlinked rather than a
-# dead GitHub link — swap in a real link once v2 ships.
+# reworded each run. Lives in the post body itself, not Substack's global
+# "footer for all posts" setting — confirmed 2026-08-11 (Brian checked
+# live) that setting only renders in the emailed copy, not the web post
+# page. Brian's own final wording, 2026-08-11. GitHub link is the repo
+# root, not a specific outputs/ path — the repo itself has been public
+# throughout (main has the canon content), so this resolves today, unlike
+# a link into outputs/ (v2-branch-only) would.
 FOOTER = (
     "\n\n---\n\n"
-    "*This is brianmadden.ai — Brian Madden's AI second brain, reading "
-    "everything he follows and reporting back daily. "
-    "[What's a second brain, and how do I connect my own AI to this "
-    "one?](https://brianmadden.ai) · [Who's Brian?](https://bmad.com) · "
-    "The full technical version of this brief — every source, every "
-    "link, the whole pipeline — lands in the public repo soon, once the "
-    "brain itself goes live.*\n"
+    "This is brianmadden.ai — [Brian Madden's AI second brain]"
+    "(https://brianmadden.ai), which reads everything he follows (blogs, "
+    "podcasts, YouTubers, Substacks) and reports back daily. "
+    "([Who's Brian?](https://bmad.com)) The full pipeline is being "
+    "developed now and will soon be included in his open source second "
+    "brain, which can be [explored, forked, or modified on GitHub]"
+    "(https://github.com/toomanybrians/brianmadden-ai).\n"
 )
 
 

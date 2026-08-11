@@ -1132,3 +1132,40 @@ rather than `voice.md` since it's a concrete, teachable grammar rule like
 the em-dash entry, even though its effect is calibration/honesty. Flagged
 that placement as a judgment call, not a settled one, since the two-file
 split is still being worked out together.
+
+**render.py fix: title/heading levels for the body-only paste.** Brian's
+feedback on the rendered copy-paste: he only pastes into Substack's body
+field (title is a separate field there), so the rendered HTML shouldn't
+include a redundant `<h1>` title, and the day's `##` section breaks
+should promote to `<h1>` once there's no competing title-level heading in
+the body. Added `strip_title_and_promote_headings()` to `render.py` and
+adjusted its CSS to match. Verified visually (screenshot) before telling
+Brian it was fixed rather than just asserting the regex was right.
+
+**The footer question resolved for real, with a concrete answer.** Brian
+checked live: Substack's global "footer for all posts" setting (the one
+with the Button block) only renders in the **emailed** copy, not the web
+post page — confirming the caution flagged earlier this session rather
+than assuming either way. That settles it: `publish.py`'s in-post
+`FOOTER` stays, and is now the *only* footer actual post readers see.
+Updated `FOOTER` to Brian's own final wording (written directly in
+Substack while finishing today's post) and added a real GitHub link —
+resolves fine since it points at the repo root (`main`, public
+throughout), not an `outputs/` path. Also reconciled the already-committed
+`-published.md`: Brian's footer edit happened in Substack's editor, not
+in the repo file, so the two had silently diverged — updated the file to
+match and ran it through `render.py`'s normal sync-and-commit path so git
+history still matches what's actually published. Worth naming as a real
+gap in the workflow as designed: edits made directly in Substack (as
+opposed to in the `.md` before pasting) don't automatically flow back to
+the repo — this time it was caught and fixed by hand, not automatically.
+
+**The button stays manual, confirmed rather than hacked around.**
+Checked whether pasted HTML could synthesize Substack's Button block
+(would have let the pipeline generate a fully self-contained, one-paste
+post): no — their editor (Tiptap/ProseMirror) explicitly doesn't support
+custom HTML/CSS on paste, so a proprietary widget like their Button
+almost certainly can't be paste-created, only added via their own
+toolbar. Documented in `skills/brief/README.md` as a real, permanent
+manual step (label + URL given there) rather than something worth
+building a workaround for.
