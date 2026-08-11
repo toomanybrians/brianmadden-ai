@@ -24,6 +24,13 @@ Item content (fetched for this extraction only — do not reproduce it):
 {{ENTRY_CONTENT}}
 ---
 
+Ground everything below ONLY in the content between those `---` markers.
+Even if you recognize this source or episode from training data, do not
+draw on what you know about it — use only what's actually in front of you.
+If the content above is a stub, paywall notice, or otherwise too thin to
+support real insights (roughly under 100 words of substance), say so
+plainly instead of inventing or inferring what the piece probably covers.
+
 ## Your task
 
 First, decide relevance: is this item at all about AI, the future of work,
@@ -40,6 +47,9 @@ Otherwise, write a tier-1 ingest note body in Markdown with this shape:
   not a re-summary of the whole piece, the parts worth remembering
 - Neutral, analytical third person. Do not adopt Brian's voice or opinions —
   this is raw material for a later synthesis step, not a finished take.
+- If a framework below genuinely applies, cite it by name and say how.
+  If none genuinely applies, cite none and don't mention the absence —
+  silence, not a hedge.
 {{LENS_INSTRUCTION}}
 
 ## Quote
