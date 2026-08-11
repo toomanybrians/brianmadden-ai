@@ -261,12 +261,19 @@ as a template to re-run.
       (anthropic/openrouter) and last-run tracking built ahead of schedule,
       first full-registry run committed (96 notes across 55 sources, see
       session log)
-- [x] D5 — briefing skill built, validated against a real 97-note batch
-      (voice iteration continues — see session log; first real draft is
-      Brian's to react to)
+- [x] D5 — briefing skill built, validated against a real 97-note batch,
+      voice iteration genuinely underway (style-guide.md started, title
+      guidance tuned, byline voice tuned twice) — this is ongoing by
+      nature, not a one-time close-out
 - [ ] Weekend — back-catalog bootstrap batch job
 - [ ] D6 — workflows automated (workflow_dispatch during build; cron via main)
-- [ ] D7 — Substack publication + draft-push client tested
+- [~] D7 — Substack publication live, **first real post published**
+      2026-08-11 (manually, end to end: generate → Brian edits → status
+      synced → rendered → pasted in by hand) — ahead of schedule, same
+      pattern as D4/D5 landing early. What's still actually D7: the
+      session-cookie draft-push client (posting is 100% manual right
+      now) and moving Brian's Substack follows to the `brianmaddenai`
+      account (open decision #7, still outstanding)
 - [ ] D8 — email lanes wired
 - [ ] D9 — 10–15 core canon assets seeded
 - [ ] D10 → launch — daily dry run, review over coffee
@@ -1169,3 +1176,52 @@ almost certainly can't be paste-created, only added via their own
 toolbar. Documented in `skills/brief/README.md` as a real, permanent
 manual step (label + URL given there) rather than something worth
 building a workaround for.
+
+**Two more one-offs, deliberately not committed.** Substack's new
+AI-content-scanner feature surfaced a "How I make this" statement field
+(shown to readers who scan a post for AI text) — drafted three options in
+the AI's own byline voice, leaning into the disclosure rather than
+hedging it (matches the whole project's transparency-as-the-product
+stance). Brian picked one and pasted it in directly; no file, nothing to
+track — it's Substack UI content, not repo content. Separately, drafted
+the `brianmaddenai` Substack About page — this one deliberately in
+Brian's own human voice (not the AI's), since About/manifesto content is
+the human-byline bucket per the plan doc's §6 split — covering what the
+publication is, the two-byline system, why it's published this way, and
+the transparency commitment, closing with real links to `brianmadden.ai`
+and `bmad.com`. Rendered to HTML the same way as the daily posts for
+clean copy-paste. Brian confirmed both are live.
+
+**Session close, 2026-08-11.** First real day the pipeline produced
+something genuinely public: a live Substack post, an About page, and an
+AI-disclosure statement, on a domain that's actually been announced
+(`brianmaddenai.substack.com`). Everything upstream of that (D1-D5) was
+internal/local until today. What's actually left open, in priority
+order a next session might reasonably pick up:
+
+1. **Voice iteration keeps going** — `me/voice.md` and `me/style-guide.md`
+   both grew today from real edits; expect more of both as daily posts
+   accumulate. Not a task, just the expected shape of the next few weeks
+   before launch (Brian's own framing).
+2. **The human-review-ritual idea** (source quality, brief quality,
+   publish quality) — floated, not scoped. Needs a quick conversation
+   about mechanism (checklist vs. scheduled reminder vs. something else)
+   before it's buildable.
+3. **Day 6 (automation)** — still fully manual. Worth letting the manual
+   cadence run a few more real days first, per the existing plan, before
+   wiring up cron.
+4. **Day 7's actual remaining piece** — the session-cookie draft-push
+   client. Posting is 100% hand-pasted right now, which is fine at this
+   volume but won't scale to unattended daily publishing.
+5. **Open decision #8** (canon governance — `developing-thinking.md`
+   pruning, `frameworks/` retirement) — still not picked up, flagged
+   again in the D4 session, still waiting for a dedicated pass.
+6. **The wordsmithing-diff-mining idea** (logged in
+   `skills/brief/README.md`'s limitations) — real git history exists now
+   to mine; nobody's built the tool that reads it yet.
+
+None of these are urgent for tomorrow specifically — the immediate next
+real-world event is just: does tomorrow's `brief.py` run look
+meaningfully different (shorter, less dense) against a real ~24h window
+instead of the 30-day catch-up batch. That's Brian's own test, not a
+build task.
