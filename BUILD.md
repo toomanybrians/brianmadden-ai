@@ -5,7 +5,15 @@ Claude Code) starts by reading `CLAUDE.md`, this file, and
 `docs/brianmadden-ai-v2-architecture-and-launch-plan.md` — and ends by
 updating the log below. Chat threads are disposable; this file is not.
 
-## Kickoff prompt (first Claude Code session)
+## Kickoff prompts (by session)
+
+General pattern for any new thread: **"Read MAINTAINER.md and BUILD.md, then
+let's pick up where we left off."** MAINTAINER.md has the operating rules;
+BUILD.md's session log has the actual state. The specific prompts below are
+kept as a historical record of what each day's session was asked to do, not
+as a template to re-run.
+
+### Day 2 (first Claude Code session)
 
 > Read MAINTAINER.md, BUILD.md, and docs/brianmadden-ai-v2-architecture-and-
 > launch-plan.md. Note: CLAUDE.md/AGENTS.md are consumer-facing module
@@ -18,6 +26,23 @@ updating the log below. Chat threads are disposable; this file is not.
 > levels; (4) inventory .github/workflows and flag what v2 retires;
 > (5) append .env and .env.* to .gitignore; (6) seed sources/sources.yaml
 > from me/links.md. Update BUILD.md before we stop.
+
+### Day 4 (next session)
+
+> Read MAINTAINER.md and BUILD.md. D3 is closed — sources.yaml has 56
+> sources with verified feed_urls, and the frontmatter backfill is done
+> (107 of 114 canon files have status/tier). Day 4 task, per the plan doc
+> §8: build the ingest skill — pull from sources.yaml's feeds, write
+> tier-1 notes to ingest/ (source, link, date, extracted insights in our
+> own words, never full-text reprints — see MAINTAINER.md rule 2). Run it
+> manually first, tune the insight-extraction prompt. Two things to check
+> before or during this: (1) open decision #6 (per-source trust/lens) and
+> #7 (email-newsletter ingestion path) need at least a first-pass design,
+> since the ingest skill is where both actually get used; (2) the Day-2
+> session flagged that sync-to-cloudflare-kv.yml doesn't exclude ingest/
+> yet — fix that before any ingest note gets committed, or Tier-1 content
+> will leak into the public MCP server (MAINTAINER.md rule 8). Update
+> BUILD.md before we stop.
 
 ## Decisions made (Aug 9, 2026)
 
