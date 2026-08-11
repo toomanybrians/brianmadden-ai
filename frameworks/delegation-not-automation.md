@@ -1,3 +1,18 @@
+---
+title: "Delegation, not automation"
+date: 2025-12-18
+authority_level: 4
+file_type: framework
+tags: ["delegation", "automation-fallacy", "cognitive-stack", "agents", "enterprise-ai-strategy"]
+related_frameworks: ["cognitive-stack"]
+related_posts: ["2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate", "2026-02-25-cognitive-stack"]
+original_url: "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/"
+description: "Workers don't think like programmers, they think like managers — they want to delegate, not build automations. The industry keeps investing at the wrong layer of the stack."
+staleness_threshold: stable
+tier: 2
+status: reviewed
+---
+
 # Delegation, not automation
 
 Workers don't think like programmers. They think like managers. They don't want to build workflows—they want to hand off tasks. The entire enterprise AI industry is investing at the wrong layer of the stack.

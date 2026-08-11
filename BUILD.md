@@ -299,3 +299,26 @@ but on pre-existing drift unrelated to this change (llms.txt counts stale
 against actual framework/post/talk counts, and CLAUDE.md's repo-structure
 tree not yet updated for the v2 dirs). Not caused by the backfill; not fixed
 here — separate cleanup.
+
+Brian ruled on the 3 flagged oversight files same-session: `date: 2025-12-18`
+confirmed for `delegation-not-automation.md`; no recording for the DUCUG
+talk; `podcast/ep2.md` confirmed as the recorded version of the EUCTech
+talk (YouTube link pulled from ep2's Listen section). All three now have
+full frontmatter matching their siblings' conventions, including
+`status`/`tier`. That brings the running total to 107 of 114 canon files
+with `status`/`tier` set (104 from the original backfill + these 3). The
+remaining 7 are the index/reference-list pages flagged in the prior entry —
+still an open call for whoever owns the schema, not touched.
+
+Also answered Brian's questions about (a) whether the 104-file backfill
+implies a currency audit is needed — no, `status: reviewed` is about
+provenance not freshness, and the existing `staleness_threshold` field
+already covers that; spot-checked `me/developing-thinking.md` (updated Aug
+5, within its `weeks` threshold) and `me/published-thinking.md` (updated
+Jul 22, within its `months` threshold) — both current, no action needed;
+and (b) fleshing out the `brianmaddenai` Substack account — not
+programmatic (no API for profile setup or following), so drafted a bio and
+sent Brian the full 56-source URL list from `sources.yaml` to click through
+manually while logged in as `brianmaddenai`. That part is on Brian, not
+tracked further here unless it surfaces new sources to add back to
+`sources.yaml`.

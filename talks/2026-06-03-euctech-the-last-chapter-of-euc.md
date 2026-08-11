@@ -1,3 +1,18 @@
+---
+title: "The Last Chapter of EUC"
+date: "2026-06-03"
+event: EUCTech 2026 (Oslo-Kiel cruise)
+location: Aboard the Oslo-Kiel cruise, Norway
+format: Keynote (~45 minutes, Day 1)
+recording: https://www.youtube.com/watch?v=Bgxx4UCtb6k
+authority_level: 5
+file_type: talk
+tags: [euc-history, invisible-80-percent, 7-stage-roadmap, token-economics, ai-diffusion, workspace-as-control-plane, second-brain]
+staleness_threshold: stable
+tier: 2
+status: reviewed
+---
+
 # The Last Chapter of EUC
 
 **Event:** EUCTech 2026 (Oslo-Kiel cruise)
