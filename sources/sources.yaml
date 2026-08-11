@@ -25,6 +25,22 @@
 #   feed_url  — actual feed endpoint for polling (null until confirmed)
 #   priority  — must-follow | regular (from links.md's own grouping)
 #   note      — why it's followed, carried over from links.md
+#   lens      — optional short tag, Brian's personal read of the source
+#               (e.g. "skeptical-but-useful"). Free-form, not a fixed enum —
+#               deliberately open so new tags can be invented over time
+#               rather than requiring a code change. Blank = no particular
+#               lens, treat neutrally.
+#   pov       — optional longer freeform field, written like a mini-prompt:
+#               fed directly to the ingest skill's extraction prompt as
+#               framing instruction (e.g. "surface where he disagrees with
+#               consensus"). Also intended for reuse by the Day-5 briefing
+#               skill, not just ingest. Blank = no framing applied.
+#
+# lens/pov added Day 4 (2026-08-10), resolving BUILD.md open decision #6.
+# Both fields are optional and mostly unset — Brian expects to steer them in
+# over time rather than have all 56 sources opinionated at once. Backfilled
+# here only for the two sources whose `note` already carried implicit lens
+# language (moonshots, marcus-on-ai) as worked examples.
 
 sources:
   - id: ethan-mollick
@@ -74,6 +90,11 @@ sources:
     feed_url: https://feeds.megaphone.fm/DVVTS2890392624
     priority: must-follow
     note: "Peter Diamandis & friends — influential even where Brian disagrees"
+    lens: influential-disagree
+    pov: >
+      Don't always agree with the worldview here, but they're extremely
+      influential, so it's worth knowing what they're thinking even when
+      the takeaway is where Brian departs from it.
 
   - id: dwarkesh
     name: Dwarkesh
@@ -325,6 +346,12 @@ sources:
     feed_url: https://garymarcus.substack.com/feed
     priority: regular
     note: "Gary Marcus — prominent AI skeptic, good for dissenting takes"
+    lens: skeptical-but-useful
+    pov: >
+      Reflexively skeptical of AI hype, but that's the point — read him for
+      the dissenting case and the places he's actually right, not as a
+      source to agree with by default. Surface where he disagrees with
+      consensus rather than discounting him outright.
 
   - id: metatrends
     name: Metatrends
@@ -478,3 +505,59 @@ sources:
     feed_url: https://thewakeupcallnewsletter.substack.com/feed
     priority: regular
     note: "Scott Barker"
+
+  # --- New follows found on the brianmaddenai Substack account, 2026-08-10 ---
+  # Brian subscribed to these directly (not from the personal-account pull),
+  # picked up from Substack's "you might also like" recommendations while
+  # setting up the account. Diffed substack.com/@brianmaddenai/reads (49
+  # follows) against sources.yaml — these 6 were the only ones not already
+  # tracked. Added without the earlier relevance filtering pass, since
+  # subscribing on the dedicated brianmaddenai account is itself a stronger
+  # signal of intent than the personal-account import was.
+
+  - id: 80000-hours-substack
+    name: 80,000 Hours
+    type: newsletter
+    url: https://80000hours.substack.com
+    feed_url: https://80000hours.substack.com/feed
+    priority: regular
+    note: "Substack companion to the 80,000 Hours Podcast, tracked separately above"
+
+  - id: after-babel
+    name: After Babel
+    type: person
+    url: https://www.afterbabel.com
+    feed_url: https://www.afterbabel.com/feed
+    priority: regular
+    note: "Jonathan Haidt"
+
+  - id: ai-as-normal-technology
+    name: AI as Normal Technology
+    type: person
+    url: https://www.normaltech.ai
+    feed_url: https://www.normaltech.ai/feed
+    priority: regular
+    note: "Sayash Kapoor"
+
+  - id: ai-frontiers
+    name: AI Frontiers
+    type: newsletter
+    url: https://newsletter.ai-frontiers.org
+    feed_url: https://newsletter.ai-frontiers.org/feed
+    priority: regular
+
+  - id: chinai-newsletter
+    name: ChinAI Newsletter
+    type: person
+    url: https://chinai.substack.com
+    feed_url: https://chinai.substack.com/feed
+    priority: regular
+    note: "Jeffrey Ding — AI development in China"
+
+  - id: tech-empires
+    name: TECH EMPIRES
+    type: person
+    url: https://techempires.substack.com
+    feed_url: https://techempires.substack.com/feed
+    priority: regular
+    note: "Sasha Fegan"
