@@ -103,6 +103,37 @@ looks). Override with `--llm-model` / `LLM_MODEL`, or switch providers
 entirely with `--provider` — same mechanism as `skills/ingest/`, see
 [skills/lib/llm.py](../lib/llm.py).
 
+## Publishing a condensed version
+
+`publish.py` reads an already-written dense brief and condenses it into a
+Substack-ready draft — 2-4 items, ~400-700 words, written for a general
+subscriber rather than an AI or an insider. It does not re-read the raw
+ingest notes or canon; it only re-renders `brief.py`'s output, so there's
+one place judgment happens, not two synthesis passes that could drift
+apart. Every link it keeps is reused verbatim from the dense brief (never
+invented), and it closes with a footer link back to the dense brief on
+GitHub.
+
+```bash
+python3 skills/brief/publish.py                    # today's brief
+python3 skills/brief/publish.py --date 2026-08-11   # a specific date
+python3 skills/brief/publish.py --dry-run           # read output without writing
+```
+
+Defaults to `claude-fable-5` (Brian's call, 2026-08-11 — prose, not
+synthesis, so a different model than `brief.py`'s Opus default).
+Overridable the same way as every other skill (`--llm-model`, `--provider`).
+
+Writes `outputs/briefings/YYYY/MM/YYYY-MM-DD-published.md` — same tier-3
+frontmatter shape as the dense brief, `sources:` pointing back at it.
+
+**This generates the draft only — it does not post to Substack.** That's
+Day 7 (a live `brianmaddenai` Substack account plus the session-cookie
+draft-push client, neither of which exists yet). The footer's GitHub link
+also won't resolve until `v2` is actually pushed/merged — `outputs/` is
+branch-local today, unlike `me/`/`frameworks/`/`posts/`/`talks/`/`podcast/`
+which are already live on `main`.
+
 ## Known limitations (v1)
 
 - **Thread matching is exact-slug only.** If the model calls the same

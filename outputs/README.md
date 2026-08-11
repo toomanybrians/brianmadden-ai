@@ -28,6 +28,11 @@ and canon); it's committed for audit, not treated as truth.
   without a home in canon, appended to by the machine, promoted to
   `me/developing-thinking.md` only by Brian editing it in himself. Nothing
   in `promotion-candidates.md` is canon until that happens.
+  `YYYY-MM-DD-published.md` is
+  [skills/brief/publish.py](../skills/brief/publish.py)'s condensed,
+  Substack-voiced rendering of that same day's dense brief — same
+  tier/status rules, a draft for eventual Substack posting (Day 7), not a
+  second independent synthesis.
 - **`book/`** — Living book chapters/editions with changelog.
 - **`qa/`** — Drafted replies to the `ask@` inbox lane, queued for human
   approval before sending.
