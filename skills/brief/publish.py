@@ -25,13 +25,30 @@ sys.path.insert(0, str(ROOT / "skills"))
 from lib import llm  # noqa: E402
 
 from brief import (  # noqa: E402 — reuse brief.py's helpers rather than duplicating them
-    GITHUB_BASE,
     OUTPUT_ROOT,
     load_dotenv,
     read_frontmatter_and_body,
 )
 
 DEFAULT_MODEL = "claude-fable-5"  # prose, not synthesis — Brian's call, 2026-08-11
+
+# Fixed, not model-generated (MAINTAINER.md: boilerplate is plain code,
+# model calls are for judgment) — identical on every post rather than
+# reworded each run. brianmadden.ai and bmad.com are both live today (the
+# pre-v2 sites) and already say almost exactly this — verified 2026-08-11.
+# The pipeline repo itself (ingest/, outputs/, the source list) isn't live
+# yet (v2 not pushed), so that line stays real but unlinked rather than a
+# dead GitHub link — swap in a real link once v2 ships.
+FOOTER = (
+    "\n\n---\n\n"
+    "*This is brianmadden.ai — Brian Madden's AI second brain, reading "
+    "everything he follows and reporting back daily. "
+    "[What's a second brain, and how do I connect my own AI to this "
+    "one?](https://brianmadden.ai) · [Who's Brian?](https://bmad.com) · "
+    "The full technical version of this brief — every source, every "
+    "link, the whole pipeline — lands in the public repo soon, once the "
+    "brain itself goes live.*\n"
+)
 
 
 def find_brief(brief_date: str) -> Path:
@@ -42,12 +59,11 @@ def find_brief(brief_date: str) -> Path:
     return path
 
 
-def build_prompt(template: str, dense_body: str, dense_url: str) -> str:
+def build_prompt(template: str, dense_body: str) -> str:
     voice = (ROOT / "me" / "voice.md").read_text(encoding="utf-8")
     replacements = {
         "{{VOICE}}": voice,
         "{{DENSE_BRIEF}}": dense_body,
-        "{{DENSE_BRIEF_URL}}": dense_url,
     }
     text = template
     for key, value in replacements.items():
@@ -109,12 +125,12 @@ def main() -> None:
         print(f"{llm.required_env_var(provider)} not set for provider '{provider}'.", file=sys.stderr)
         sys.exit(1)
 
-    dense_url = GITHUB_BASE + dense_path.relative_to(ROOT).as_posix()
     template = (Path(__file__).parent / "publish-prompt.md").read_text(encoding="utf-8")
-    prompt_text = build_prompt(template, dense_body, dense_url)
+    prompt_text = build_prompt(template, dense_body)
 
     print(f"calling {provider}/{model} to condense {dense_path.relative_to(ROOT)}...")
     post_body = llm.generate(prompt_text, provider=provider, model=model, max_tokens=4096).strip()
+    post_body += FOOTER
 
     write_published(brief_date, post_body, dense_path, model=model, dry_run=args.dry_run)
 

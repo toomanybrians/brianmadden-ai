@@ -43,11 +43,10 @@ Rules:
 - Skip the internal machinery (thread tracker, "what this confirms" as a
   literal section header, anything written for a future AI reader rather
   than a human subscriber today). Write it as a piece, not a report.
-- End with a short, clearly-marked footer: one line noting this is a
-  condensed version, plus a Markdown link (using the URL given below) to
-  the full technical brief for anyone who wants the whole thing.
-
-Full brief link for the footer: {{DENSE_BRIEF_URL}}
+- Don't write your own sign-off, footer, or "that's it for today" closing
+  line — end on your last real point. A footer gets appended
+  automatically after your output, so anything you add yourself would be
+  a second, redundant one.
 
 Output the post itself in Markdown, starting directly with a title line
-(`# ...`) — no preamble, nothing after the footer.
+(`# ...`) — no preamble, nothing after your last content point.

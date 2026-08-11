@@ -959,6 +959,29 @@ transcripts (already logged as a separate future item); automating the
 "run again in 24h" cadence Brian asked for (Day 6 — cron/GitHub Actions;
 for now this is a manual re-run, same as ingest).
 
+**Same-session follow-up: a real footer, made deterministic.** Brian asked
+whether to actually publish today's post for real (zero followers, but
+starting real dated history before launch), which surfaced that the
+committed published draft's footer linked to
+`github.com/.../outputs/briefings/...` — dead today, since `outputs/`
+isn't on `main`. Checked what's actually live at the two existing domains
+before guessing at footer copy: **`bmad.com`** is the current full
+human-facing site (bio, all posts, frameworks, podcast) and
+**`brianmadden.ai`** already explains exactly what Brian's footer wanted —
+what a second brain is, how to connect your own AI via MCP, FAQ, links to
+this same GitHub repo. Both real, both live, today.
+
+Moved the footer out of the model's job entirely — `publish-prompt.md` no
+longer asks Fable to write one; `publish.py` appends a fixed `FOOTER`
+constant instead (MAINTAINER.md's "boilerplate is plain code, judgment is
+the model's job" applied to something that should read identically post
+to post, not be reworded each run). Footer links `brianmadden.ai` ("what's
+a second brain / connect your AI") and `bmad.com` ("who's Brian") — both
+real — plus an unlinked "the full pipeline repo lands here soon" line for
+the one thing that's genuinely not public yet. Regenerated and overwrote
+today's `-published.md` with the new footer before anything gets posted
+anywhere.
+
 **Where things stand:** D5 (brief + publish) is built, real-output-
 validated, and committed. Next natural checkpoints: a real ~24h-window
 brief run (to see the density question resolve or not, per Brian's own
