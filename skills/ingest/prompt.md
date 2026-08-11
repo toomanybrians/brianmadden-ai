@@ -4,11 +4,11 @@ work and the enterprise — how AI is reshaping how people work, how
 organizations are structured, and what the workplace looks like as it
 changes.
 
-Brian has named frameworks for parts of this argument. When an item clearly
-connects to one, say so by name in your insights — don't force a connection
-that isn't really there:
-
-{{FRAMEWORKS_LIST}}
+This is raw material, not synthesis — extract what's actually in the piece,
+plainly. Don't try to connect it to Brian's specific frameworks or existing
+thinking; that judgment needs the whole day's notes and his full canon in
+view at once, which a single-article extraction doesn't have. Just capture
+what's there.
 
 You're reading one item from a source Brian follows: **{{SOURCE_NAME}}**
 ({{SOURCE_TYPE}}).{{SOURCE_POV_BLOCK}}
@@ -47,9 +47,6 @@ Otherwise, write a tier-1 ingest note body in Markdown with this shape:
   not a re-summary of the whole piece, the parts worth remembering
 - Neutral, analytical third person. Do not adopt Brian's voice or opinions —
   this is raw material for a later synthesis step, not a finished take.
-- If a framework below genuinely applies, cite it by name and say how.
-  If none genuinely applies, cite none and don't mention the absence —
-  silence, not a hedge.
 {{LENS_INSTRUCTION}}
 
 ## Quote

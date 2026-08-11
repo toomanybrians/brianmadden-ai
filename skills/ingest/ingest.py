@@ -43,25 +43,6 @@ def load_sources(path: Path) -> list[dict]:
     return data.get("sources", [])
 
 
-def load_frameworks_list(root: Path) -> str:
-    """
-    Builds the {{FRAMEWORKS_LIST}} block from frameworks/*.md's own
-    frontmatter (title + description) — read fresh every run, so it can
-    never drift the way a hardcoded summary would as frameworks get added
-    or renamed. This is how the extraction prompt knows Brian's actual
-    named arguments instead of a generic paraphrase of his interests.
-    """
-    lines = []
-    for path in sorted((root / "frameworks").glob("*.md")):
-        fm = read_frontmatter(path)
-        if not fm:
-            continue
-        title = fm.get("title", path.stem)
-        description = fm.get("description", "")
-        lines.append(f"- **{title}** ({path.stem}): {description}")
-    return "\n".join(lines) if lines else "(no frameworks found)"
-
-
 # ------------------------------------------------------------------ .env --
 
 def load_dotenv(root: Path) -> None:
@@ -222,7 +203,7 @@ def load_ingested_urls(ingest_root: Path) -> set[str]:
 
 # -------------------------------------------------------------- prompting --
 
-def build_prompt(template: str, source: dict, entry: dict, framework_list: str) -> str:
+def build_prompt(template: str, source: dict, entry: dict) -> str:
     pov = (source.get("pov") or "").strip()
     lens = (source.get("lens") or "").strip()
 
@@ -234,7 +215,6 @@ def build_prompt(template: str, source: dict, entry: dict, framework_list: str) 
     )
 
     replacements = {
-        "{{FRAMEWORKS_LIST}}": framework_list,
         "{{SOURCE_NAME}}": source.get("name", source.get("id", "unknown")),
         "{{SOURCE_TYPE}}": source.get("type", "source"),
         "{{SOURCE_POV_BLOCK}}": pov_block,
@@ -255,14 +235,13 @@ def extract(
     template: str,
     source: dict,
     entry: dict,
-    framework_list: str,
     provider: str | None = None,
     model: str | None = None,
 ) -> str | None:
-    prompt_text = build_prompt(template, source, entry, framework_list)
-    # 1024 wasn't enough headroom for longer pieces once the framework list
-    # made the prompt more involved — two truncated notes out of 16 in a
-    # spot-check (2026-08-11 Opus eval). 2048 gives real margin.
+    prompt_text = build_prompt(template, source, entry)
+    # 1024 wasn't enough headroom for longer pieces during the framework-
+    # aware prompt experiment (2026-08-11) — kept at 2048 even after
+    # reverting that experiment, since it's just a safer margin regardless.
     text = llm.generate(prompt_text, provider=provider, model=model, max_tokens=2048)
     if text == "NOT_RELEVANT" or text.startswith("NOT_RELEVANT"):
         return None
@@ -360,7 +339,6 @@ def main() -> None:
         )
 
     template = (Path(__file__).parent / "prompt.md").read_text(encoding="utf-8")
-    framework_list = load_frameworks_list(ROOT)
 
     since_days, since_reason = resolve_since_days(args.since_days)
     print(f"window: {since_days:.2f} days ({since_reason})\n")
@@ -388,7 +366,7 @@ def main() -> None:
 
         for entry in new_entries:
             body = extract(
-                template, source, entry, framework_list,
+                template, source, entry,
                 provider=args.provider, model=args.llm_model,
             )
             if body is None:
