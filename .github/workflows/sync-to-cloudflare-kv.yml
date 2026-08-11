@@ -60,6 +60,9 @@ jobs:
 
       # Determine which content files changed in the latest commit
       # Falls back to full sync if HEAD~1 doesn't exist (initial commit)
+      # ingest/ is excluded everywhere below: it's Tier-1 quarantined content
+      # (MAINTAINER.md rule 8) and must never reach the public MCP server's KV
+      # store, only canon (Tier 2) and outputs (Tier 3) do.
       - name: Get changed files
         id: changed
         run: |
@@ -68,7 +71,7 @@ jobs:
             echo "has_changes=false" >> $GITHUB_OUTPUT
             echo "needs_full_sync=true" >> $GITHUB_OUTPUT
           else
-            CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null || echo "")
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null | grep -v '^ingest/' || echo "")
             if [ -z "$CHANGED" ]; then
               echo "No content files changed"
               echo "has_changes=false" >> $GITHUB_OUTPUT
@@ -118,7 +121,7 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
         run: |
-          find . \( -name '*.md' -o -name '*.txt' -o -name '*.json' \) | grep -v node_modules | grep -v .github | while IFS= read -r file; do
+          find . \( -name '*.md' -o -name '*.txt' -o -name '*.json' \) | grep -v node_modules | grep -v .github | grep -v './ingest/' | while IFS= read -r file; do
             file="${file#./}"
             KEY="file:${file}"
             echo "Uploading: $KEY"
@@ -143,7 +146,7 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
         run: |
-          DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null || echo "")
+          DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null | grep -v '^ingest/' || echo "")
           if [ -z "$DELETED" ]; then
             echo "No files deleted"
             exit 0
