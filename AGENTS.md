@@ -74,15 +74,19 @@ Everything here is already public or intentionally shared. It represents his gen
 brianmadden-ai/
 ├── CLAUDE.md          # You are here (also available as AGENTS.md)
 ├── AGENTS.md          # Identical instructions for cross-tool compatibility
+├── MAINTAINER.md      # Operating constitution for the maintaining AI (Claude Code sessions, pipeline)
+├── BUILD.md           # v2 rebuild session journal
 ├── README.md          # Human-readable orientation
 ├── GOVERNANCE.md      # Publishing principles: what goes in, what stays out
 ├── governance-log.md  # Audit trail for every sync/commit
 ├── bluesky.md         # Bluesky posts (@bmad.com)
 ├── llms.txt           # MCP/LLM discovery file (links here first for loading order)
+├── requirements.txt   # Python deps for skills/ and scripts/ pipeline code
 ├── _index.json        # Machine-readable file manifest (titles, tags, authority levels)
 ├── _relationships.json # Cross-reference map (frameworks ↔ posts)
 ├── _content-index.json # Latest-content feed (powers the bmad.com homepage)
 ├── COLLECTIONS.md     # Thematic groupings for "everything about X" queries
+├── docs/               # Architecture, launch plan, frontmatter schema
 ├── me/                          # Who Brian is
 │   ├── profile.md               # Bio, credentials, links
 │   ├── published-thinking.md    # Intellectual foundation (from published work)
@@ -108,7 +112,11 @@ brianmadden-ai/
 │       └── posts/     # Short-form LinkedIn feed posts
 ├── talks/             # Speech content and transcripts
 ├── podcast/           # Citrix AI Hotsheet podcast (Brian's show, co-hosted with Dave Brear)
-└── interviews/        # Press interviews and commentary
+├── interviews/        # Press interviews and commentary
+├── sources/           # Feed registry (sources.yaml) the ingest skill polls
+├── ingest/            # Tier-1 quarantined machine notes on third-party content — never indexed
+├── outputs/           # Tier-3 generated artifacts (briefings, book, Q&A) — regenerable, committed for audit
+└── skills/            # Pipeline skills (ingest, brief, book-build, qa-draft, backfill-distill)
 ```
 
 ## Freshness and staleness
