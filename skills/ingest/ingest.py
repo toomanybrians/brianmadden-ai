@@ -11,6 +11,7 @@ call per new entry is where judgment (extraction, relevance, framing) lives
 import argparse
 import calendar
 import html
+import json
 import os
 import re
 import sys
@@ -27,6 +28,9 @@ from lib import llm  # noqa: E402  (needs sys.path set first)
 
 USER_AGENT = "brianmadden-ai-ingest/0.1 (+https://brianmadden.ai)"
 MAX_CONTENT_CHARS = 8000
+LAST_RUN_PATH = ROOT / "ingest" / ".last_run.json"
+DEFAULT_SINCE_DAYS = 7.0  # fallback when there's no recorded prior run
+MIN_SINCE_DAYS = 0.1      # floor (~2.4h), avoids a zero-width window on rapid reruns
 
 FOCUS = (
     "AI's impact on knowledge work and the enterprise — how AI is reshaping "
@@ -59,6 +63,39 @@ def load_dotenv(root: Path) -> None:
         os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
 
 
+# -------------------------------------------------------------- last run --
+
+def read_last_run() -> datetime | None:
+    if not LAST_RUN_PATH.exists():
+        return None
+    try:
+        data = json.loads(LAST_RUN_PATH.read_text(encoding="utf-8"))
+        return datetime.fromisoformat(data["last_run_utc"])
+    except (json.JSONDecodeError, KeyError, ValueError):
+        return None
+
+
+def write_last_run(when: datetime) -> None:
+    LAST_RUN_PATH.parent.mkdir(parents=True, exist_ok=True)
+    LAST_RUN_PATH.write_text(
+        json.dumps({"last_run_utc": when.isoformat()}, indent=2) + "\n", encoding="utf-8"
+    )
+
+
+def resolve_since_days(explicit: float | None) -> tuple[float, str]:
+    """Returns (since_days, reason) for logging."""
+    if explicit is not None:
+        return explicit, "explicit --since-days"
+
+    last_run = read_last_run()
+    if last_run is None:
+        return DEFAULT_SINCE_DAYS, "no recorded prior run, using default"
+
+    elapsed_hours = (datetime.now(timezone.utc) - last_run).total_seconds() / 3600
+    since_days = max(elapsed_hours / 24, MIN_SINCE_DAYS)
+    return since_days, f"auto — {elapsed_hours:.1f}h since last run ({last_run.isoformat()})"
+
+
 # -------------------------------------------------------------- fetching --
 
 def strip_html(text: str) -> str:
@@ -67,7 +104,7 @@ def strip_html(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def fetch_entries(source: dict, since_days: int, max_per_source: int):
+def fetch_entries(source: dict, since_days: float, max_per_source: int):
     """Returns (entries, error). entries is [] on error."""
     feed_url = source.get("feed_url")
     if not feed_url:
@@ -271,7 +308,12 @@ def main() -> None:
         description="Pull feeds from sources.yaml, extract insights, write tier-1 notes to ingest/."
     )
     parser.add_argument("--source", help="only process this one source id")
-    parser.add_argument("--since-days", type=int, default=7, help="only entries published in the last N days (default 7)")
+    parser.add_argument(
+        "--since-days", type=float, default=None,
+        help="only entries published in the last N days. Default: auto — "
+             "time since the last full run (ingest/.last_run.json), or "
+             f"{DEFAULT_SINCE_DAYS:g} days if there's no recorded prior run",
+    )
     parser.add_argument("--max-per-source", type=int, default=5, help="cap entries considered per source (default 5)")
     parser.add_argument("--dry-run", action="store_true", help="print notes instead of writing them (still calls the API)")
     parser.add_argument("--provider", choices=sorted(llm.REQUIRED_ENV_VARS), help="override LLM_PROVIDER for this run (default: env LLM_PROVIDER, else anthropic)")
@@ -302,6 +344,9 @@ def main() -> None:
 
     template = (Path(__file__).parent / "prompt.md").read_text(encoding="utf-8")
 
+    since_days, since_reason = resolve_since_days(args.since_days)
+    print(f"window: {since_days:.2f} days ({since_reason})\n")
+
     total_new = 0
     total_written = 0
     for source in sources:
@@ -309,7 +354,7 @@ def main() -> None:
             print(f"[{source['id']}] skipped — no feed_url")
             continue
 
-        entries, err = fetch_entries(source, args.since_days, args.max_per_source)
+        entries, err = fetch_entries(source, since_days, args.max_per_source)
         if err:
             print(f"[{source['id']}] {err}")
             continue
@@ -338,6 +383,14 @@ def main() -> None:
     if not ready:
         summary += f" — extraction skipped, {llm.required_env_var(provider)} not set"
     print(summary)
+
+    # Only a full-registry, non-dry run advances the "last run" clock — a
+    # --source test run or a --dry-run preview shouldn't make the *next*
+    # real run think everything else was just covered too.
+    if not args.dry_run and not args.source:
+        run_time = datetime.now(timezone.utc)
+        write_last_run(run_time)
+        print(f"recorded last run: {run_time.isoformat()}")
 
 
 if __name__ == "__main__":

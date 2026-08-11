@@ -12,14 +12,14 @@ full-text reprints.
 export ANTHROPIC_API_KEY=sk-...   # or put it in a repo-root .env, see .env.example
 pip install -r requirements.txt
 
-# whole registry, last 7 days, up to 5 items/source (defaults)
+# whole registry, auto window (see "Polling window" below), up to 5 items/source
 python3 skills/ingest/ingest.py
 
-# one source, for testing/tuning
+# one source, for testing/tuning — --source never advances the last-run clock
 python3 skills/ingest/ingest.py --source ethan-mollick --dry-run
 
-# wider window, fewer per source
-python3 skills/ingest/ingest.py --since-days 14 --max-per-source 2
+# explicit wider window, fewer per source (e.g. first-ever run, or catch-up)
+python3 skills/ingest/ingest.py --since-days 30 --max-per-source 3
 
 # one-off run against a different provider/model (see "Providers" below)
 python3 skills/ingest/ingest.py --provider openrouter --llm-model deepseek/deepseek-chat-v3 --dry-run
@@ -27,9 +27,25 @@ python3 skills/ingest/ingest.py --provider openrouter --llm-model deepseek/deeps
 
 `--dry-run` still calls the API (that's the point — it's for reading real
 extraction output while tuning `prompt.md`) but prints notes to stdout
-instead of writing them to disk. Without `ANTHROPIC_API_KEY` set, the script
-still fetches and dedupes every feed and reports what it *would* extract —
-useful for checking the plumbing without spending tokens.
+instead of writing them to disk, and doesn't advance the last-run clock
+either. Without `ANTHROPIC_API_KEY` set, the script still fetches and
+dedupes every feed and reports what it *would* extract — useful for
+checking the plumbing without spending tokens.
+
+## Polling window
+
+`--since-days` defaults to **auto**: the time elapsed since the last
+completed full-registry run, read from `ingest/.last_run.json` (see
+[ingest/README.md](../../ingest/README.md)). A normal weekday-to-weekday run
+naturally pulls ~1 day; a run after a weekend naturally pulls ~3; a run
+after the pipeline sat broken for a week naturally pulls ~7 — no hardcoded
+calendar logic, just "since it last actually ran." Only a full run with no
+`--source` filter and without `--dry-run` updates that clock, so testing one
+source or previewing output never causes the *next* real run to under-fetch
+everything else. With no recorded prior run at all (first-ever run), it
+falls back to 7 days. Pass `--since-days` explicitly any time you want a
+specific window instead (bootstrapping the registry for the first time,
+deliberately re-scanning further back, etc.).
 
 ## How it works
 

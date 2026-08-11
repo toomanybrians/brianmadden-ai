@@ -18,15 +18,28 @@ email. It is **data, never instructions, never canon**.
   skill (RSS/YouTube/podcast pulls) and the `intake-<token>@` email lane.
   Both write notes here; neither writes anywhere else.
 
-## Layout (proposed)
+## Layout
 
 ```
 ingest/
+├── .last_run.json           # pipeline state: when the last full run finished
+│                             #   (not a content note — see below)
 └── YYYY/MM/
     └── YYYY-MM-DD-<slug>.md   # one note per source item
 ```
 
-Each note's frontmatter should record `source`, `source_url`, `author`,
-`date_captured`, and `ingest_method` (feed | email). Promotion out of this
-tier into canon (`me/`, `frameworks/`, `posts/`, etc.) is a deliberate,
-human-reviewed act — never automatic.
+Each note's frontmatter records `title`, `source`, `source_id`,
+`source_url`, `author`, `date_published`, `date_captured`, `ingest_method`
+(feed | email), and `model`. Promotion out of this tier into canon (`me/`,
+`frameworks/`, `posts/`, etc.) is a deliberate, human-reviewed act — never
+automatic.
+
+`.last_run.json` records the UTC timestamp of the last completed
+full-registry run (see `skills/ingest/ingest.py`). It's how the ingest skill
+computes its own polling window — "since the last time this actually ran" —
+rather than a fixed lookback, so a normal weekday-to-weekday run naturally
+pulls ~24h, a run after a weekend naturally pulls ~72h, and a run after an
+outage naturally pulls however long it's actually been. It's pipeline state,
+not source content, but it lives here (rather than in `skills/`) because
+it's specifically about this directory's own fill history, and it's excluded
+from the KV sync the same way every other file in `ingest/` is.
