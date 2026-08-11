@@ -170,10 +170,14 @@ already owned. **Total well under $100/mo.**
 
 ### Week 1 (Aug 10–16) — foundation
 
-- **Day 1 — decisions + accounts.** Naming locked (§1); repo public settled
-  (`v2` pushed Aug 10). Still to lock: briefing cadence (weekdays vs daily).
-  Set up Workspace per §5 (brian@ first as admin, then brain@, aliases, MX,
-  DKIM).
+- **Day 1 — decisions + accounts.** Naming locked (§1); repo itself is
+  public (github.com/toomanybrians/brianmadden-ai), but `v2` is a local
+  branch only — never pushed to `origin` (corrected 2026-08-11; earlier
+  notes here claimed it had been, checked and that was wrong). Nothing on
+  `v2` is actually visible to anyone until it's pushed or merged, which
+  isn't scheduled until the launch cutover. Still to lock: briefing cadence
+  (weekdays vs daily). Set up Workspace per §5 (brian@ first as admin, then
+  brain@, aliases, MX, DKIM).
 - **Day 2 — scaffold the repo.** Directory structure, CLAUDE.md constitution
   v1, frontmatter conventions, status taxonomy.
 - **Day 3 — source registry.** Curate sources.yaml; move Substack consumption
@@ -220,10 +224,19 @@ refresh against the new canon · AI-voiced audio brief.
 ## 9. Open decisions
 
 1. Commit `ingest/` tier-1 notes publicly, or keep them pipeline-local and
-   publish only tier 2/3? (Full transparency vs. noise + rights caution.)
+   publish only tier 2/3? Partially resolved 2026-08-11: committing to
+   local git history is fine either way (v2 isn't pushed, so nothing's
+   actually public yet — see below) and worth doing for the audit
+   trail/trend-analysis value regardless. The real open question is
+   narrower now: include `ingest/` when `v2` eventually gets pushed or
+   merged, or scrub/gitignore it at that point? Revisit closer to the
+   actual push, with real output to judge instead of a handful of examples.
 2. Daily Brief cadence: 7 days or weekdays only?
 
-Resolved since v1: repo stayed public throughout (`v2` branch pushed Aug 10).
+Resolved since v1: the GitHub repo itself has been public throughout, but
+`v2` is a local-only branch, never pushed to `origin` — corrected
+2026-08-11, this doc previously (and incorrectly) said it had been pushed
+Aug 10. Nothing on `v2` is visible to anyone until it's pushed or merged.
 Naming locked Aug 10 — public entity **brianmadden.ai** (handle
 `brianmaddenai`), mailbox The Brain <brain@brianmadden.ai>, human byline
 Brian Madden, "bmad" = the private layer only.

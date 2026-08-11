@@ -63,7 +63,16 @@ as a template to re-run.
 
 ## Open decisions
 
-1. Commit `ingest/` Tier-1 notes publicly, or keep pipeline-local?
+1. ~~Commit `ingest/` Tier-1 notes publicly, or keep pipeline-local?~~ —
+   **narrowed 2026-08-11.** Turns out this wasn't as urgent as it read: `v2`
+   has never actually been pushed to `origin` (see the correction in the
+   decisions-made note below), so committing to local git history carries
+   zero public exposure today regardless of the answer, and is worth doing
+   anyway for the audit-trail/trend-analysis value. First real batch (97
+   notes) committed locally 2026-08-11. What's still open: include
+   `ingest/` when `v2` eventually gets pushed/merged, or scrub it at that
+   point? Revisit closer to the actual push — there'll be months of real
+   output to judge by then instead of a couple of examples.
 2. Daily Brief cadence: weekdays.
 3. Exact briefing publish time (Paris morning? US-morning for reach?).
 4. ~~Ratify or amend the frontmatter proposal~~ — **resolved 2026-08-10**,
@@ -128,7 +137,7 @@ as a template to re-run.
 
 ## Day plan (checklist — details in the plan doc §8)
 
-- [ ] D1 — Workspace + aliases + MX · lock naming · carve-out note sent
+- [x] D1 — Workspace + aliases + MX · lock naming · carve-out note sent
 - [x] D2 — scaffold structure on `v2` · CLAUDE.md reviewed by Brian
       (scaffolding done; Brian's review of CLAUDE.md/AGENTS.md still open)
 - [x] D3 — sources.yaml curated (51 sources, 50 with a live feed_url)
@@ -451,3 +460,94 @@ along in that commit since it captured the working tree at commit time;
 everything else from this session (`ingest/` skill, workflow fix, tree
 updates, `lib/llm.py`) is separate and still uncommitted, per usual — held
 for Brian's review.
+
+### 2026-08-11 — same session, continued (real run, last-run tracking, a factual correction)
+
+Committed everything from the entry above in 5 logical commits (workflow
+fix, sources/README.md doc, the ingest skill + provider layer, the
+CLAUDE.md/AGENTS.md tree fix, this journal). Caught and fixed a real bug
+while staging: `.gitignore`'s `.env.*` rule was silently also excluding
+`.env.example`, which would have kept it from ever being committed — added
+a `!.env.example` negation. Also caught `skills/lib/__pycache__/` getting
+swept into `git add skills/` — removed it and added `__pycache__/`/`*.pyc`
+to `.gitignore` before it could land in a commit.
+
+Brian then asked the real next-step question: should `v2` get published,
+should GitHub Actions secrets get set, and he wants provider-swapping to be
+easy (OpenRouter etc.), not hardcoded to Anthropic. Answered: no to
+publishing (nothing's been dry-run/seeded, `main` stays untouched until
+the actual cutover per MAINTAINER.md) and no to secrets yet (D4 is
+deliberately manual, Day 6 is when automation — and secrets — arrive). Built
+the provider-swap layer now rather than waiting for D6, since D5's briefing
+skill would otherwise hardcode Anthropic too — see `skills/lib/llm.py`
+below.
+
+Walked Brian through getting a real `ANTHROPIC_API_KEY` into the repo-root
+`.env` (Claude never handled the key value itself — only verified its
+presence/format after Brian added it). First real extraction call
+succeeded: one Ethan Mollick post, dry-run then a real non-dry write,
+producing the pipeline's first actual tier-1 note. Output quality looked
+right — neutral third-person insight bullets, one attributed quote well
+under the 25-word cap.
+
+**Built the provider-swap layer** (`skills/lib/llm.py` + `skills/lib/__init__.py`):
+one `generate()` entry point so no skill imports an LLM SDK directly.
+Provider/model chosen via `LLM_PROVIDER`/`LLM_MODEL` env vars or
+`--provider`/`--llm-model` CLI flags. Ships with `anthropic` (default,
+native SDK) and `openrouter` (OpenAI-compatible HTTP via `requests`,
+already a dependency — no new package) for the post-launch open-weight
+comparison runs. `skills/ingest/ingest.py` refactored to go through it;
+re-verified the dry-run still works post-refactor, including that
+`--provider openrouter` correctly reports `OPENROUTER_API_KEY` (not the
+Anthropic key) as missing.
+
+**Built last-run tracking**, per Brian's ask: rather than a fixed
+`--since-days`, poll "since the time actually elapsed since the last
+completed full run." `ingest/.last_run.json` records the UTC timestamp of
+the last full-registry, non-dry run; `resolve_since_days()` in `ingest.py`
+computes the window from it (falls back to 7 days with no recorded prior
+run). This gets Brian's stated cadence — ~24h on a normal weekday run, ~72h
+after a weekend gap, longer after an outage — for free, with no hardcoded
+calendar logic, since a weekend gap or an outage both just show up as more
+elapsed hours since the last run. Only a full run (no `--source` filter,
+not `--dry-run`) advances the clock, so single-source testing or dry-run
+previews can't cause the *next* real run to under-fetch everything else.
+Committed separately from the note-writing logic.
+
+**First real full-registry run**: `--since-days 30 --max-per-source 3`
+(explicit override, chosen deliberately wide for this first real batch per
+Brian — future runs will use the auto window). 113 new entries found
+across 55 of 62 sources (7 had nothing in the 30-day window); 96 notes
+written, 17 skipped as `NOT_RELEVANT` — the relevance filter doing exactly
+what it was built for (off-topic items from broad-interest feeds: Ezra
+Klein's Thiel/DSA politics AMA, Lex Fridman's Civil War history episode,
+Prof G's "Take a break" and GLP-1s episodes, a couple of Big by Matt
+Stoller's non-AI antitrust pieces, After Babel's social-media-policy
+pieces, and others). Spot-checked the `marcus-on-ai` note specifically,
+since that source has `lens`/`pov` set — the extraction visibly used the
+framing ("useful skeptical-but-correct point... matters for any org
+evaluating vendor claims"), not just a generic summary. Confirms the D4
+open decision #6 design actually works, not just that it parses.
+
+**A factual correction, caught by Brian:** BUILD.md's own summaries (and
+this session's earlier claim to Brian) said "`v2` pushed Aug 10" — checked
+via `git fetch` + `git branch -r`, and that's wrong. `origin` only has
+`main` and one unrelated feature branch; `v2` has never been pushed. The
+repo itself is public, but nothing on `v2` — including everything built in
+this entire D4 session — has ever been visible to anyone outside this
+machine. Corrected in `docs/brianmadden-ai-v2-architecture-and-launch-plan.md`
+(§8 Day 1, §9) and in open decision #1 above. This also resolved open
+decision #1 more than expected: since nothing is actually public until a
+push happens, "commit ingest/ notes or not" and "are they public or not"
+turned out to be two different questions, not one — committing locally is
+safe and valuable (audit trail, the trend-analysis use case Brian raised —
+"when did people start talking about X" is exactly what dated git history
+gives you) regardless of when/whether `ingest/` ends up in whatever gets
+pushed at launch. Committed the 97 notes + `.last_run.json` locally with
+Brian's explicit go-ahead once this was laid out.
+
+**Where things stand:** D4 is fully done — skill built, prompt validated
+against real output, 97 real notes in `ingest/`, provider-swap layer in
+place ahead of schedule, last-run tracking built ahead of D6. Next real
+session is D5 (briefing skill) or continuing to let the ingest skill run
+and accumulate more real output first — Brian's call.
