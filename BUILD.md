@@ -144,9 +144,10 @@ as a template to re-run.
       (Substack follows → brianmaddenai account is a manual action on
       Brian's Substack, not Claude Code work — still outstanding, tracked
       in open decision #7)
-- [x] D4 — ingest skill built, feed-fetch/dedup verified against all 56
-      sources; extraction itself untested end-to-end pending an API key
-      (see session log)
+- [x] D4 — ingest skill built and running for real: provider-swap layer
+      (anthropic/openrouter) and last-run tracking built ahead of schedule,
+      first full-registry run committed (96 notes across 55 sources, see
+      session log)
 - [ ] D5 — briefing skill, voice iteration
 - [ ] Weekend — back-catalog bootstrap batch job
 - [ ] D6 — workflows automated (workflow_dispatch during build; cron via main)
