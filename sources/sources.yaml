@@ -1,9 +1,18 @@
 # sources.yaml — feed registry for the ingest skill
 #
-# Seeded from me/links.md (2026-08-10). This is a starting point, not a
-# finished registry: `feed_url` is left blank wherever the actual RSS/YouTube
-# feed endpoint hasn't been looked up yet — the ingest skill needs real feed
-# URLs, not homepage links, to poll. Fill those in on Day 3.
+# Seeded from me/links.md (2026-08-10). Day 3 (2026-08-10): feed_url values
+# looked up and verified (HTTP 200) for every source with a real feed —
+# podcast feeds confirmed via the iTunes Search API's feedUrl field, blog/
+# newsletter feeds by checking the standard /feed paths, Nate B. Jones's
+# YouTube feed by resolving his channel ID and hitting the YouTube RSS
+# endpoint. Paul Roetzer and Aaron Levie were dropped from this list (Day 3)
+# — personal LinkedIn profiles don't expose RSS, and both are covered
+# indirectly (Roetzer via the-artificial-intelligence-show and
+# exec-ai-insider-weekly; Levie may resurface if a non-LinkedIn feed turns
+# up, e.g. X/Twitter — flagged, not yet looked up). ExecAI Insider Weekly is
+# kept with feed_url: null — it's a real, wanted source, just email-only
+# (arrives by email, no discoverable RSS), so it needs the email-ingestion
+# path being designed under BUILD.md open decision #7, not a feed poll.
 #
 # Brian's own blog/LinkedIn are deliberately excluded — this repo publishes
 # that content directly, it doesn't ingest it as a third-party source.
@@ -22,55 +31,39 @@ sources:
     name: Ethan Mollick
     type: person
     url: https://www.oneusefulthing.org
-    feed_url: null
+    feed_url: https://www.oneusefulthing.org/feed
     priority: regular
     note: "One Useful Thing"
-
-  - id: paul-roetzer
-    name: Paul Roetzer
-    type: person
-    url: https://www.linkedin.com/in/paulroetzer/
-    feed_url: null
-    priority: regular
-    note: "Podcast Host, SmarterX CEO"
 
   - id: nate-b-jones
     name: Nate B. Jones
     type: person
     url: https://www.youtube.com/@NateBJones
-    feed_url: null
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ
     priority: regular
-    note: "Must-watch; also has a Substack at natesnewsletter.substack.com"
+    note: "Must-watch. Also has a Substack — natesnewsletter.substack.com/feed (verified live) — if the ingest skill wants the newsletter instead of/in addition to video."
 
   - id: daniel-miessler
     name: Daniel Miessler
     type: person
     url: https://danielmiessler.com
-    feed_url: null
+    feed_url: https://danielmiessler.com/feed.rss
     priority: regular
     note: "Unsupervised Learning"
-
-  - id: aaron-levie
-    name: Aaron Levie
-    type: person
-    url: https://www.linkedin.com/in/boxaaron/
-    feed_url: null
-    priority: regular
-    note: "CEO at Box"
 
   - id: exec-ai-insider-weekly
     name: ExecAI Insider Weekly
     type: newsletter
-    url: https://smarterx.ai
+    url: https://academy.smarterx.ai/exec-ai-newsletter
     feed_url: null
     priority: regular
-    note: "Free weekly newsletter from SmarterX / Marketing AI Institute"
+    note: "Free weekly newsletter from SmarterX / Marketing AI Institute. No RSS discoverable on the signup page — email-only; may need a subscribed inbox in the loop rather than a feed poll."
 
   - id: the-artificial-intelligence-show
     name: The Artificial Intelligence Show
     type: podcast
     url: https://www.marketingaiinstitute.com/podcast-showcase
-    feed_url: null
+    feed_url: https://feeds.megaphone.fm/marketingai
     priority: must-follow
     note: "Paul Roetzer & Mike Kaput, ~1hr/week — the one thing to listen to"
 
@@ -78,7 +71,7 @@ sources:
     name: Moonshots
     type: podcast
     url: https://www.diamandis.com/podcast
-    feed_url: null
+    feed_url: https://feeds.megaphone.fm/DVVTS2890392624
     priority: must-follow
     note: "Peter Diamandis & friends — influential even where Brian disagrees"
 
@@ -86,7 +79,7 @@ sources:
     name: Dwarkesh
     type: podcast
     url: https://www.dwarkeshpatel.com
-    feed_url: null
+    feed_url: https://apple.dwarkesh-podcast.workers.dev/feed.rss
     priority: regular
     note: "Dwarkesh Patel"
 
@@ -94,7 +87,7 @@ sources:
     name: BG2
     type: podcast
     url: https://www.bg2pod.com
-    feed_url: null
+    feed_url: https://anchor.fm/s/f06c2370/podcast/rss
     priority: regular
     note: "Brad Gerstner & Bill Gurley"
 
@@ -102,7 +95,7 @@ sources:
     name: Hard Fork
     type: podcast
     url: https://www.nytimes.com/column/hard-fork
-    feed_url: null
+    feed_url: https://feeds.simplecast.com/6HKOhNgS
     priority: regular
     note: "Kevin Roose & Casey Newton"
 
@@ -110,21 +103,21 @@ sources:
     name: Ezra Klein Show
     type: podcast
     url: https://www.nytimes.com/column/ezra-klein-podcast
-    feed_url: null
+    feed_url: https://feeds.simplecast.com/kEKXbjuJ
     priority: regular
 
   - id: on-with-kara-swisher
     name: On with Kara Swisher
     type: podcast
     url: https://podcasts.voxmedia.com/show/on-with-kara-swisher
-    feed_url: null
+    feed_url: https://feeds.megaphone.fm/VMP1684715893
     priority: regular
 
   - id: no-priors
     name: No Priors
     type: podcast
     url: http://no-priors.com
-    feed_url: null
+    feed_url: https://feeds.megaphone.fm/nopriors
     priority: regular
     note: "Sarah Guo & Elad Gil"
 
@@ -132,19 +125,313 @@ sources:
     name: The 80,000 Hours Podcast
     type: podcast
     url: https://80000hours.org/podcast/
-    feed_url: null
+    feed_url: https://feeds.transistor.fm/80000-hours-podcast
     priority: regular
 
   - id: lex-fridman
     name: Lex Fridman
     type: podcast
     url: https://lexfridman.com/podcast/
-    feed_url: null
+    feed_url: https://lexfridman.com/feed/podcast/
     priority: regular
 
   - id: hbr-ideacast
     name: Harvard Business Review IdeaCast
     type: podcast
     url: https://hbr.org/2018/01/podcast-ideacast
-    feed_url: null
+    feed_url: http://feeds.harvardbusiness.org/harvardbusiness/ideacast
+    priority: regular
+
+  # --- Imported from Brian's Substack subscriber page ---
+  # (substack.com/@briansmadden/reads, 62 total subscriptions, pulled via
+  # browser 2026-08-10). Filtered down to AI/futurism/future-of-work
+  # relevance — personal-interest follows (geopolitics, comedy, Paris,
+  # self-help, food) excluded per Brian. All feed_urls below verified
+  # HTTP 200 at <domain>/feed. A chunk of ambiguous ones weren't added —
+  # see BUILD.md open decision #7 / session log for the list Brian still
+  # needs to sort. Three already-tracked sources were skipped as dupes:
+  # One Useful Thing (Mollick, already above), Dwarkesh (already above,
+  # same person/content as the podcast entry), and Nate's Substack
+  # (already noted on the nate-b-jones entry above).
+
+  - id: algorithmic-bridge
+    name: The Algorithmic Bridge
+    type: person
+    url: https://www.thealgorithmicbridge.com
+    feed_url: https://www.thealgorithmicbridge.com/feed
+    priority: regular
+    note: "Alberto Romero"
+
+  - id: exponential-view
+    name: Exponential View
+    type: person
+    url: https://www.exponentialview.co
+    feed_url: https://www.exponentialview.co/feed
+    priority: regular
+    note: "Azeem Azhar"
+
+  - id: ahead-of-ai
+    name: Ahead of AI
+    type: person
+    url: https://magazine.sebastianraschka.com
+    feed_url: https://magazine.sebastianraschka.com/feed
+    priority: regular
+    note: "Sebastian Raschka, PhD — ML/AI technical deep dives"
+
+  - id: ai-futures-project
+    name: AI Futures Project
+    type: newsletter
+    url: https://blog.aifutures.org
+    feed_url: https://blog.aifutures.org/feed
+    priority: regular
+    note: "Daniel Kokotajlo's org — AI 2027 forecasting"
+
+  - id: ai-realist
+    name: The AI Realist
+    type: person
+    url: https://www.airealist.ai
+    feed_url: https://www.airealist.ai/feed
+    priority: regular
+    note: "Julien Simon"
+
+  - id: david-shapiro
+    name: David Shapiro's Substack
+    type: person
+    url: https://daveshap.substack.com
+    feed_url: https://daveshap.substack.com/feed
+    priority: regular
+
+  - id: demis-hassabis
+    name: Demis Hassabis
+    type: person
+    url: https://demishassabis.substack.com
+    feed_url: https://demishassabis.substack.com/feed
+    priority: regular
+    note: "Google DeepMind CEO"
+
+  - id: fei-fei-li
+    name: Dr. Fei-Fei Li
+    type: person
+    url: https://drfeifei.substack.com
+    feed_url: https://drfeifei.substack.com/feed
+    priority: regular
+
+  - id: emerging-ai
+    name: Emerging AI
+    type: newsletter
+    url: https://emergingai.substack.com
+    feed_url: https://emergingai.substack.com/feed
+    priority: regular
+    note: "by Opinion AI — practical/builder-focused AI newsletter"
+
+  - id: emerging-physical-ai
+    name: Emerging Physical AI
+    type: newsletter
+    url: https://emergingphysicalai.substack.com
+    feed_url: https://emergingphysicalai.substack.com/feed
+    priority: regular
+
+  - id: extended-brain
+    name: Extended_Brain
+    type: newsletter
+    url: https://extendedbrain.substack.com
+    feed_url: https://extendedbrain.substack.com/feed
+    priority: regular
+    note: "Adjacent to Brian's own second-brain/subscribable-brains framework"
+
+  - id: forked-lightning
+    name: Forked Lightning
+    type: person
+    url: https://forklightning.substack.com
+    feed_url: https://forklightning.substack.com/feed
+    priority: regular
+    note: "David Deming — labor economics, future of work"
+
+  - id: the-generalist
+    name: The Generalist
+    type: person
+    url: https://www.generalist.com
+    feed_url: https://www.generalist.com/feed
+    priority: regular
+    note: "Mario Gabriele — tech/startups"
+
+  - id: hyperdimensional
+    name: Hyperdimensional
+    type: person
+    url: https://www.hyperdimensional.co
+    feed_url: https://www.hyperdimensional.co/feed
+    priority: regular
+    note: "Dean W. Ball — AI policy"
+
+  - id: import-ai
+    name: Import AI
+    type: person
+    url: https://importai.substack.com
+    feed_url: https://importai.substack.com/feed
+    priority: regular
+    note: "Jack Clark (Anthropic)"
+
+  - id: esther-dyson
+    name: In the pool with Esther
+    type: person
+    url: https://estherdyson.substack.com
+    feed_url: https://estherdyson.substack.com/feed
+    priority: regular
+    note: "Esther Dyson"
+
+  - id: interconnects-ai
+    name: Interconnects AI
+    type: person
+    url: https://www.interconnects.ai
+    feed_url: https://www.interconnects.ai/feed
+    priority: regular
+    note: "Nathan Lambert"
+
+  - id: kevin-roose
+    name: Kevin Roose
+    type: person
+    url: https://kevinroose.substack.com
+    feed_url: https://kevinroose.substack.com/feed
+    priority: regular
+    note: "Also Hard Fork co-host, tracked separately above"
+
+  - id: kinder-futures
+    name: "Kinder Futures: Dispatches on AI, Work & What Comes Next"
+    type: person
+    url: https://mollykinder2.substack.com
+    feed_url: https://mollykinder2.substack.com/feed
+    priority: regular
+    note: "Molly Kinder — AI's effect on labor markets"
+
+  - id: labor-matters
+    name: Labor Matters
+    type: person
+    url: https://gadlevanon.substack.com
+    feed_url: https://gadlevanon.substack.com/feed
+    priority: regular
+    note: "Gad Levanon — labor economics"
+
+  - id: last-week-in-ai
+    name: Last Week in AI
+    type: newsletter
+    url: https://lastweekin.ai
+    feed_url: https://lastweekin.ai/feed
+    priority: regular
+
+  - id: marcus-on-ai
+    name: Marcus on AI
+    type: person
+    url: https://garymarcus.substack.com
+    feed_url: https://garymarcus.substack.com/feed
+    priority: regular
+    note: "Gary Marcus — prominent AI skeptic, good for dissenting takes"
+
+  - id: metatrends
+    name: Metatrends
+    type: person
+    url: https://metatrends.substack.com
+    feed_url: https://metatrends.substack.com/feed
+    priority: regular
+    note: "Peter Diamandis's newsletter — also tracked via the Moonshots podcast above"
+
+  - id: not-boring
+    name: Not Boring
+    type: person
+    url: https://www.notboring.co
+    feed_url: https://www.notboring.co/feed
+    priority: regular
+    note: "Packy McCormick"
+
+  - id: prof-g-media
+    name: Prof G Media
+    type: person
+    url: https://www.profgmedia.com
+    feed_url: https://www.profgmedia.com/feed
+    priority: regular
+    note: "Scott Galloway"
+
+  - id: semianalysis
+    name: SemiAnalysis
+    type: person
+    url: https://newsletter.semianalysis.com
+    feed_url: https://newsletter.semianalysis.com/feed
+    priority: regular
+    note: "Dylan Patel — AI chips/infra"
+
+  - id: simon-willison
+    name: Simon Willison's Newsletter
+    type: person
+    url: https://simonw.substack.com
+    feed_url: https://simonw.substack.com/feed
+    priority: regular
+
+  - id: theory-of-the-game
+    name: Theory of the Game
+    type: person
+    url: https://reidhoffman.substack.com
+    feed_url: https://reidhoffman.substack.com/feed
+    priority: regular
+    note: "Reid Hoffman"
+
+  - id: work-evolved
+    name: Work Evolved
+    type: person
+    url: https://workevolved.substack.com
+    feed_url: https://workevolved.substack.com/feed
+    priority: regular
+    note: "Robyn Agoston — future of work"
+
+  - id: center-for-humane-technology
+    name: Center for Humane Technology
+    type: newsletter
+    url: https://centerforhumanetechnology.substack.com
+    feed_url: https://centerforhumanetechnology.substack.com/feed
+    priority: regular
+
+  # --- Resolved from the "genuinely unsure" batch, 2026-08-10 (Brian's call) ---
+
+  - id: big-by-matt-stoller
+    name: BIG by Matt Stoller
+    type: person
+    url: https://www.thebignewsletter.com
+    feed_url: https://www.thebignewsletter.com/feed
+    priority: regular
+    note: "Antitrust/tech policy"
+
+  - id: rutger-bregman
+    name: Rutger Bregman
+    type: person
+    url: https://rutgerbregman.substack.com
+    feed_url: https://rutgerbregman.substack.com/feed
+    priority: regular
+    note: "UBI, future of work, humanism"
+
+  - id: forecasting-research-institute
+    name: Forecasting Research Institute
+    type: newsletter
+    url: https://forecastingresearch.substack.com
+    feed_url: https://forecastingresearch.substack.com/feed
+    priority: regular
+
+  - id: cory-doctorow
+    name: Cory Doctorow
+    type: person
+    url: https://doctorow.substack.com
+    feed_url: https://doctorow.substack.com/feed
+    priority: regular
+    note: "Tech/digital rights, 'enshittification.' Primary site is pluralistic.net — this is his native Substack cross-post feed, which is what's actually followed."
+
+  - id: claude-cowork
+    name: Claude Cowork
+    type: newsletter
+    url: https://www.coworkoperator.com
+    feed_url: https://www.coworkoperator.com/feed
+    priority: regular
+    note: "Substack handle @claudedesktop, publication domain coworkoperator.com"
+
+  - id: claude-mythos
+    name: Claude Mythos
+    type: newsletter
+    url: https://claudemythos.substack.com
+    feed_url: https://claudemythos.substack.com/feed
     priority: regular
