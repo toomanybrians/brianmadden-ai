@@ -1024,3 +1024,70 @@ today"):**
   Purpose is clear though: dial in source quality (`sources.yaml`'s
   `lens`/`pov` fields are the existing lever for that) and voice over the
   next few weeks before launch, deliberately, not by accident.
+
+**Same-session follow-up: the real publish workflow, first Substack post
+in progress.** Brian described the actual end-to-end flow he wants —
+generate → he hand-edits the `-published.md` (his `[Note from Brian the
+Human: ...]` convention, e.g. an inline correction to a post his AI
+flagged as wrong) → ping Claude → Claude syncs status + commits so git
+history matches what's actually published → Claude renders a copy-paste
+HTML version, since Substack's editor doesn't interpret pasted Markdown
+but does preserve pasted rich text. Built `skills/brief/render.py` for
+the last two steps: `sync_status_and_commit()` diffs the file against
+`HEAD`, and only if there's a real diff, flips `status` to
+`reviewed-and-updated` (the exact rule already ratified in
+`docs/frontmatter-schema.md`) and commits, printing the diff first for
+visibility. Verified the mechanism in an isolated `/tmp` git sandbox
+rather than testing against Brian's real file — a fabricated test edit
+committed with a "Brian's edits to..." message would have been a real
+dishonesty in permanent history, not just test noise, so this was worth
+the extra care. Confirmed: no-diff → no-op, diff → correct status flip +
+clean commit. `markdown` (already installed locally) added to
+`requirements.txt` for the HTML rendering; output is gitignored
+(`outputs/briefings/**/*-published.html`) — a copy-paste convenience, not
+repo content.
+
+**A real house-style vs. voice split, at Brian's suggestion.** He caught
+two things while setting up his first real Substack post: an em-dash
+spacing convention he wants followed (`word—word`, no spaces), and — more
+interestingly — his own question of whether that kind of mechanical rule
+belongs in `me/voice.md` at all, given voice.md is about reasoning/tone,
+not typography. Agreed and split it out: new
+[me/style-guide.md](../me/style-guide.md) (tier 2, `authority_level: 1`,
+same shape as voice.md) for mechanics, first entry the em-dash rule.
+Wired `{{STYLE_GUIDE}}` into both `prompt.md` and `publish-prompt.md`
+alongside `{{VOICE}}`. Brian also floated a bigger idea — mining his
+wordsmithing diffs generally (not just explicit style callouts) for voice
+signal over time — logged in `skills/brief/README.md`'s limitations
+section as a real future direction (git history already has the raw
+material; nothing scans it yet) rather than built now.
+
+**Title guidance, and a deterministic subtitle.** Brian's critique of
+today's Fable-written title ("The agents built their own message board")
+was specific and correct: it names the event, not why an
+enterprise/future-of-work reader should care — and the real angle was one
+sentence buried in the body. Added a Title section to
+`publish-prompt.md`: promote that "why it matters" sentence into the
+headline itself; a title that could run unchanged on a generic AI-news
+site isn't sharp enough. Also added `substack_subtitle()` to
+`publish.py` — fully deterministic (`"Daily Briefing for [date], from
+Brian Madden's AI second brain"`, Brian's exact framing), stored in
+frontmatter and printed at the end of every run, so it's never
+hand-composed. Not yet applied to today's already-in-progress post — held
+off rather than silently swapping content out from under Brian mid-setup;
+his call whether to regenerate or carry the current draft through and
+apply improvements starting tomorrow.
+
+**Substack mechanics researched, not guessed.** Before answering Brian's
+questions about title/subtitle structure, the post footer setting, and
+social-card behavior, checked Substack's actual help docs rather than
+answering from possibly-stale memory — confirmed a real, documented
+"Edit email header & footer" setting exists (Settings → Emails), confirmed
+it's *specifically the email copy* per Substack's own naming (unverified
+whether it also covers the web post page — flagged to Brian rather than
+assumed), and confirmed the default social-share image is the post's
+first image if any (behavior with zero images undocumented — Brian
+confirmed going without images deliberately, no image needed either way).
+"The Taft test" (Brian's reference, explained after being asked) — a
+screed against filler blog-hero images, named for the test "could this
+image be a photo of President Taft with no loss of meaning."

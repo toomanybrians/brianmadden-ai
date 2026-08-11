@@ -25,6 +25,10 @@ connects to what, what doesn't fit anywhere yet.
 
 {{VOICE}}
 
+## Reference: formatting/mechanical style guide (follow exactly — this is mechanics, not tone)
+
+{{STYLE_GUIDE}}
+
 ## Reference: Brian's published thinking (highest authority — what he's actually argued)
 
 {{PUBLISHED_THINKING}}

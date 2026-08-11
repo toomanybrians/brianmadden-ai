@@ -265,6 +265,7 @@ def append_promotion_candidates(promoted: list[dict], run_date: str) -> None:
 
 def build_prompt(template: str, notes: list[dict], tracker: list[dict], brief_date: str) -> str:
     voice = (ROOT / "me" / "voice.md").read_text(encoding="utf-8")
+    style_guide = (ROOT / "me" / "style-guide.md").read_text(encoding="utf-8")
     published = (ROOT / "me" / "published-thinking.md").read_text(encoding="utf-8")
     developing = (ROOT / "me" / "developing-thinking.md").read_text(encoding="utf-8")
 
@@ -281,6 +282,7 @@ def build_prompt(template: str, notes: list[dict], tracker: list[dict], brief_da
 
     replacements = {
         "{{VOICE}}": voice,
+        "{{STYLE_GUIDE}}": style_guide,
         "{{PUBLISHED_THINKING}}": published,
         "{{DEVELOPING_THINKING}}": developing,
         "{{DEVELOPING_THINKING_URL}}": GITHUB_BASE + "me/developing-thinking.md",
@@ -331,7 +333,7 @@ def write_brief(brief_date: str, brief_body: str, tracker: list[dict], notes: li
         "model": model,
         "sources": sources,
     }
-    fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True).strip()
+    fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True, width=1000).strip()
     tracked_section = render_tracked_threads_section(tracker)
     full_text = f"---\n{fm_yaml}\n---\n\n{brief_body}\n\n{tracked_section}\n"
 

@@ -61,14 +61,25 @@ def find_brief(brief_date: str) -> Path:
 
 def build_prompt(template: str, dense_body: str) -> str:
     voice = (ROOT / "me" / "voice.md").read_text(encoding="utf-8")
+    style_guide = (ROOT / "me" / "style-guide.md").read_text(encoding="utf-8")
     replacements = {
         "{{VOICE}}": voice,
+        "{{STYLE_GUIDE}}": style_guide,
         "{{DENSE_BRIEF}}": dense_body,
     }
     text = template
     for key, value in replacements.items():
         text = text.replace(key, value)
     return text
+
+
+def substack_subtitle(brief_date: str) -> str:
+    # Deterministic, not model-generated — Brian's exact framing
+    # (2026-08-11): names the AI byline directly so a reader landing mid-
+    # archive knows who/what wrote it, without eating into the title's
+    # job of carrying the day's actual hook.
+    date_formatted = datetime.strptime(brief_date, "%Y-%m-%d").strftime("%B %-d, %Y")
+    return f"Daily Briefing for {date_formatted}, from Brian Madden's AI second brain"
 
 
 def write_published(brief_date: str, post_body: str, dense_path: Path, model: str, dry_run: bool) -> Path:
@@ -84,9 +95,13 @@ def write_published(brief_date: str, post_body: str, dense_path: Path, model: st
         "status": "not-reviewed-by-human",
         "authority_level": 2,
         "model": model,
+        # Substack's own subtitle field — deterministic, so it's never
+        # re-derived by hand. The Substack *title* is the post's own H1
+        # in the body below (Fable's job, not duplicated here).
+        "substack_subtitle": substack_subtitle(brief_date),
         "sources": [dense_path.relative_to(ROOT).as_posix()],
     }
-    fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True).strip()
+    fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True, width=1000).strip()
     full_text = f"---\n{fm_yaml}\n---\n\n{post_body}\n"
 
     if dry_run:
@@ -133,6 +148,7 @@ def main() -> None:
     post_body += FOOTER
 
     write_published(brief_date, post_body, dense_path, model=model, dry_run=args.dry_run)
+    print(f"\nSubstack subtitle field: {substack_subtitle(brief_date)}")
 
 
 if __name__ == "__main__":

@@ -111,8 +111,10 @@ subscriber rather than an AI or an insider. It does not re-read the raw
 ingest notes or canon; it only re-renders `brief.py`'s output, so there's
 one place judgment happens, not two synthesis passes that could drift
 apart. Every link it keeps is reused verbatim from the dense brief (never
-invented), and it closes with a footer link back to the dense brief on
-GitHub.
+invented). The model doesn't write its own headline-and-nothing-else
+either — `publish-prompt.md`'s Title section pushes toward the
+enterprise/future-of-work angle specifically (Brian's beat), not just
+naming the underlying AI-news event.
 
 ```bash
 python3 skills/brief/publish.py                    # today's brief
@@ -125,14 +127,72 @@ synthesis, so a different model than `brief.py`'s Opus default).
 Overridable the same way as every other skill (`--llm-model`, `--provider`).
 
 Writes `outputs/briefings/YYYY/MM/YYYY-MM-DD-published.md` — same tier-3
-frontmatter shape as the dense brief, `sources:` pointing back at it.
+frontmatter shape as the dense brief, `sources:` pointing back at it, plus
+a deterministic `substack_subtitle` field (`substack_subtitle()` in
+`publish.py` — "Daily Briefing for [date], from Brian Madden's AI second
+brain") for pasting into Substack's own subtitle field; also printed to
+stdout at the end of the run. The post's actual title is just its H1 in
+the body — Fable's job, the one part that has to be written fresh daily.
+
+A fixed `FOOTER` (not model-written — see `publish.py`) gets appended to
+every post: real links to `brianmadden.ai` ("what's a second brain / how
+to connect your AI") and `bmad.com` ("who's Brian"), both live today, plus
+an unlinked "full pipeline lands here soon" line for the one thing that
+genuinely isn't public yet (`outputs/` is `v2`-branch-only, not on `main`).
+If Brian sets an equivalent footer in Substack's own global email
+header/footer setting, this may become redundant for the emailed copy —
+unconfirmed whether that setting also covers the web post page, so don't
+remove `FOOTER` here until that's verified.
 
 **This generates the draft only — it does not post to Substack.** That's
 Day 7 (a live `brianmaddenai` Substack account plus the session-cookie
-draft-push client, neither of which exists yet). The footer's GitHub link
-also won't resolve until `v2` is actually pushed/merged — `outputs/` is
-branch-local today, unlike `me/`/`frameworks/`/`posts/`/`talks/`/`podcast/`
-which are already live on `main`.
+draft-push client, neither of which exists yet).
+
+## Finalizing edits and rendering for Substack
+
+Substack's editor doesn't interpret pasted Markdown (`**`/`#` show up
+literally) but does preserve formatting pasted as rich text/HTML. The
+actual publish workflow: Brian hand-edits the committed
+`...-published.md` directly (e.g. an inline `[Note from Brian the Human:
+...]`), then `render.py`:
+
+```bash
+python3 skills/brief/render.py                    # today's post
+python3 skills/brief/render.py --date 2026-08-11   # a specific date
+```
+
+1. **Finalizes.** Diffs the file against `HEAD` (`git diff --quiet HEAD --
+   <path>`). No diff, nothing happens. A diff means Brian edited it by
+   hand — the frontmatter `status` flips from `not-reviewed-by-human` to
+   `reviewed-and-updated` (the rule already ratified in
+   `docs/frontmatter-schema.md`: that status specifically means the
+   committed text differs from what the machine generated) and the change
+   is committed, with the diff printed first so it's visible before it's
+   locked in. This only ever moves status *toward* more-reviewed — it
+   can't downgrade anything, matching MAINTAINER.md rule 4. Skip this
+   check with `--no-status-sync` if you just want a render.
+2. **Renders.** Converts the (now-finalized) body to a small styled HTML
+   file — `outputs/briefings/YYYY-MM-DD-published.html`, **gitignored**,
+   not repo content, just a copy-paste convenience regenerated on demand.
+   Select-all and copy from the *rendered* page (open it in a browser),
+   not the HTML source, so Substack's paste picks up formatting.
+
+## Voice and style guide
+
+Two separate references, loaded into both `prompt.md` and
+`publish-prompt.md`:
+
+- **[me/voice.md](../../me/voice.md)** — how Brian *thinks and argues*
+  (reasoning style, phrases, tone).
+- **[me/style-guide.md](../../me/style-guide.md)** — mechanical formatting
+  rules (currently: no spaces around em dashes) that apply to any
+  generated text regardless of whose voice it's in. Deliberately kept
+  separate from voice.md rather than folded in — mechanics and reasoning
+  are different kinds of feedback, and mixing them would make voice.md
+  harder to use for its actual job. Grows the same opportunistic way
+  `sources.yaml`'s `lens`/`pov` fields do: add a rule when Brian actually
+  states one (often caught while he's hand-editing a published draft),
+  not speculatively.
 
 ## Known limitations (v1)
 
@@ -151,3 +211,12 @@ which are already live on `main`.
   pruning / frameworks retirement). The promotion-candidates queue feeds
   *into* that file over time but doesn't do anything about the file's
   existing staleness problem — that's a separate, deferred piece of work.
+- **Wordsmithing diffs aren't mined for voice signal yet.** When Brian
+  hand-edits a published draft, `render.py` captures *that a change
+  happened* (status flip) but nothing yet looks at *what* changed to
+  propose new `voice.md`/`style-guide.md` entries. The git history already
+  has every such diff sitting in it (`git log -p` on any
+  `*-published.md`) — a future pass (flagged 2026-08-11, not built) could
+  periodically mine that history and propose additions the way the
+  promotion-candidates queue proposes canon additions: surfaced, never
+  auto-applied.

@@ -18,6 +18,10 @@ not for claiming a human reaction. Don't write "this stopped me" /
 something. You're an AI describing what's significant, not a person
 describing how something landed emotionally.
 
+## Reference: formatting/mechanical style guide (follow exactly — this is mechanics, not tone)
+
+{{STYLE_GUIDE}}
+
 ## The full technical brief you're condensing
 
 {{DENSE_BRIEF}}
@@ -25,9 +29,21 @@ describing how something landed emotionally.
 ## Your task
 
 Don't re-synthesize from scratch and don't try to cover everything above —
-that brief already exists, in full, linked in your footer. Your job is
-picking the 2-4 things a smart subscriber would actually want to read
-about today, and making them land in a few minutes, not twenty.
+that brief already exists, in full, elsewhere. Your job is picking the 2-4
+things a smart subscriber would actually want to read about today, and
+making them land in a few minutes, not twenty.
+
+## Title
+
+Brian's whole beat is what AI does to work, organizations, and knowledge
+work — not AI news for its own sake. The title has to carry that angle,
+not just name the event. "The agents built their own message board" names
+a cool thing that happened; it doesn't say why an enterprise/future-of-work
+reader should care. If the piece has a line like "...and here's why it's
+interesting" — that "why" is usually the real title, not a sentence buried
+in paragraph two. Promote it. A useful test: could this exact title run
+on a general AI-news site with no changes? If yes, it's not sharp enough
+yet — find the angle that's specifically Brian's.
 
 Rules:
 - Roughly 400-700 words. If you're reaching 700, cut an item rather than

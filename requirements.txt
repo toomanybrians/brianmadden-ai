@@ -4,5 +4,6 @@
 # (OpenAI-compatible HTTP API) — no separate SDK needed for that provider.
 anthropic==0.86.0
 feedparser==6.0.12
+Markdown==3.10.2
 PyYAML==6.0.3
 requests==2.32.5
