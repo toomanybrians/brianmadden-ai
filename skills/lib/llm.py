@@ -72,11 +72,19 @@ def _generate_anthropic(prompt: str, model: str, max_tokens: int) -> str:
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY not set")
     client = anthropic.Anthropic(api_key=api_key)
-    message = client.messages.create(
+    # Streaming, not .create() — the SDK refuses a non-streaming call above
+    # a per-model token/time threshold ("Streaming is required for
+    # operations that may take longer than 10 minutes"), which a large
+    # max_tokens budget (e.g. skills/brief's cross-note synthesis call) can
+    # trip. Streaming has no such ceiling and .get_final_message() gives the
+    # same Message object .create() would have, so callers don't need to
+    # know the difference.
+    with client.messages.stream(
         model=model,
         max_tokens=max_tokens,
         messages=[{"role": "user", "content": prompt}],
-    )
+    ) as stream:
+        message = stream.get_final_message()
     return "".join(block.text for block in message.content if block.type == "text").strip()
 
 

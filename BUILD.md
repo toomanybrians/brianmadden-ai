@@ -261,7 +261,9 @@ as a template to re-run.
       (anthropic/openrouter) and last-run tracking built ahead of schedule,
       first full-registry run committed (96 notes across 55 sources, see
       session log)
-- [ ] D5 — briefing skill, voice iteration
+- [x] D5 — briefing skill built, validated against a real 97-note batch
+      (voice iteration continues — see session log; first real draft is
+      Brian's to react to)
 - [ ] Weekend — back-catalog bootstrap batch job
 - [ ] D6 — workflows automated (workflow_dispatch during build; cron via main)
 - [ ] D7 — Substack publication + draft-push client tested
@@ -743,3 +745,182 @@ Two threads now open for whoever picks up next: D5 (briefing skill,
 kickoff prompt rewritten to reflect everything above) and open decision
 #8 (canon governance — no kickoff prompt written yet, pick a session type
 when it's actually being picked up).
+
+### 2026-08-11 — Claude Code session (Day 5, briefing skill)
+
+Built `skills/brief/` — the cross-note, whole-canon synthesis skill D5's
+kickoff prompt called "the central design problem," not a side detail.
+Before writing any code, skimmed ~14 ingest notes beyond the handful
+already read closely (spanning Marcus, Miessler, Narayanan, Exponential
+View, Hard Fork, Interconnects, Emerging AI, David Shapiro, Center for
+Humane Technology, Labor Matters, and others) to confirm the raw material
+was consistently usable — it was: neutral third person, grounded, no
+repeat of the truncation/hallucination bugs from the prior session.
+
+**Model: Opus 5, Brian's explicit call.** Asked directly (this is the
+hardest judgment call in the pipeline, and it's one call/day not one/
+article like ingest, so the cost multiplier is smaller than it sounds) —
+Brian chose Opus over Sonnet. `skills/brief/brief.py` defaults to
+`claude-opus-5`, still overridable via `--llm-model`/`LLM_MODEL`/
+`--provider`, same mechanism as ingest.
+
+**Design, per the rewritten kickoff prompt:**
+- `skills/brief/prompt.md` — one call per run, given full canon
+  (`me/voice.md`, `me/published-thinking.md`, `me/developing-thinking.md`,
+  a lightweight `frameworks/*.md` title+description list — not full
+  framework text) plus every ingest note captured since the last briefing
+  run, all at once. Explicitly asks for three things: what confirms
+  existing threads (cite by name), what doesn't fit anywhere yet, and a
+  short "worth Brian's attention" pull.
+- **Byline/voice, a real design call, not just plumbing:** the plan doc's
+  §6 two-byline convention (Brian Madden = human, brianmadden.ai = AI) was
+  already decided but not yet applied anywhere. `prompt.md` instructs the
+  model to write as itself in first person ("I read N items today...")
+  and refer to Brian in the third person, informed by `voice.md`'s tone
+  without impersonating him. This is a first-pass interpretation — flagged
+  in `skills/brief/README.md` as the thing most likely to change once
+  Brian reacts to real output, same as ingest's prompt got tuned after
+  seeing real extractions.
+- **The promotion-loop feedback mechanism** BUILD.md asked to have
+  "designed in": deterministic (not model-judged) thread tracking.
+  `prompt.md` asks the model for a `---THREAD-SIGNALS---` JSON block
+  alongside the brief (which tracked slugs recurred, what new patterns are
+  worth watching); plain Python (`update_tracker()` in `brief.py`) owns
+  the actual bookkeeping in `outputs/briefings/.thread_tracker.json` and
+  decides when a thread has recurred enough (3 runs, `PROMOTION_THRESHOLD`)
+  to get queued in `outputs/briefings/promotion-candidates.md` — a
+  human-review-only file. Nothing is ever written into
+  `me/developing-thinking.md` automatically; that file only changes when
+  Brian edits it himself, mirroring the private-overlay promotion
+  ceremony. Matches MAINTAINER.md's "deterministic plumbing is code, model
+  calls are for judgment" convention, and keeps this session's version
+  honest about being v1: thread matching is exact-slug only, no fuzzy
+  merging of near-duplicate slugs for the same idea (documented in
+  `skills/brief/README.md`'s known-limitations section, same pattern as
+  ingest's).
+
+**Two real bugs found and fixed while getting the first real output:**
+1. `max_tokens=6144` (a guess, sized like ingest's extraction call) wasn't
+   remotely enough — Opus 5's extended thinking on the ~98-note/full-canon
+   prompt consumed the *entire* budget as thinking tokens before emitting
+   any answer text (`stop_reason: "max_tokens"`, zero text blocks, caught
+   by inspecting the raw response after the first dry run came back
+   empty). Raised to 32000, which left room for both thinking and the
+   actual brief.
+2. That larger `max_tokens` then tripped the Anthropic SDK's non-streaming
+   long-request guard ("Streaming is required for operations that may
+   take longer than 10 minutes"). Fixed in `skills/lib/llm.py` itself
+   (not just `brief.py`) — `_generate_anthropic()` now uses
+   `client.messages.stream()` + `get_final_message()` instead of
+   `.create()`. Same return shape, no call-site changes needed anywhere,
+   and it means any future skill that wants a large `max_tokens` budget
+   through the shared client doesn't hit this wall either.
+
+**First real run**, against the full 97-note catch-up batch (all captured
+2026-08-11, spanning a 30-day publish window — the briefing skill selects
+by `date_captured`, so this is the correct "process what's new" behavior,
+not a bug): ~154s runtime, ~108K input tokens. Output quality was real —
+not a recap. It named a specific factual error in Brian's own July 20 post
+(Kimi K3 hardware cost: published ~$300K, actual deployment cost per
+ChinAI's reporting ~$2.4M — "the recipe is truly free, but the kitchen is
+truly unaffordable"), connected the OpenAI/Hugging Face incident to three
+separate canon positions by name, flagged one item (Labor Matters' wage
+data) as a potential problem for the invisible-80% framework's sequencing
+and said plainly "I don't know if the data holds," and separately noted
+worker-led "shadow strategy" framing may have the adoption gradient
+backwards per Shapiro's numbers (usage runs top-down, hiding runs
+universal). Four new threads flagged to the tracker (non-professional wage
+inversion, AI-siting-as-public-legitimacy-constraint,
+portability-contested-commercially, open-ended-research-failure-shape) —
+none crossed the promotion threshold on this first run, as expected (they
+all start at count 1).
+
+Written to `outputs/briefings/2026/08/2026-08-11.md` (`tier: 3`,
+`status: not-reviewed-by-human`, `authority_level: 2`, `sources:` lists
+every ingest note + canon file drawn on). `outputs/briefings/.last_run.json`
+and `.thread_tracker.json` created. `promotion-candidates.md` not yet
+created (nothing queued yet — expected on a first run).
+`outputs/README.md` updated to document the three new state/queue files.
+
+**Not done, deliberately:** nothing from this session is committed —
+same as every other session, held for Brian's review, especially with
+"voice iteration" explicitly still open. The brief itself is the thing to
+react to before calling any of `prompt.md`'s choices settled: the AI-vs-
+Brian voice split, section structure, how much technical detail vs. how
+opinionated, whether Opus's output is worth its cost relative to Sonnet on
+a normal (non-catch-up) day. No automation (Day 6). Not integrated with
+open decision #8 (canon governance) — the promotion-candidates queue feeds
+into `developing-thinking.md` over time but does nothing about that file's
+existing staleness problem, which is still its own deferred piece of work.
+
+**Where things stand:** D5's build is done and real-output-validated.
+What's left under the D5 umbrella is Brian reading the actual brief and
+iterating on voice/structure — a conversation, not a coding task. Next
+session after that lands: Day 6 (automate — cron, GitHub Actions secrets)
+is the natural next infrastructure step, or open decision #8 (canon
+governance) if Brian wants to pick that up first instead.
+
+**Same-session follow-up: linking.** Brian's first reaction to the real
+brief, plus a batch of open questions posted together — addressing the
+one clear, scoped ask now; the rest logged as open design questions for
+next time rather than built blind.
+
+Added required linking to `prompt.md`/`brief.py`: every ingest-source
+mention now links to that note's real `source_url` (added to the notes
+block, which previously only had title/source/date); every reference to
+Brian's own published work reuses the inline links already present in
+`published-thinking.md`/`developing-thinking.md`'s text (both already
+link out to real posts where relevant — the model just wasn't told to
+reuse them); named frameworks link via a `original_url` now added to
+`load_frameworks_list()`'s output; anything with no other public URL
+falls back to a GitHub blob link (`GITHUB_BASE` constant) — confirmed
+`me/`, `frameworks/`, `posts/`, `talks/`, `podcast/` are already live on
+`main` (pre-v2 public brain), so these resolve today even though
+`ingest/`/`outputs/`/`skills/` (v2-branch-only) would not.
+
+Regenerated the same day's brief with the new prompt (`--dry-run
+--since-days 2` against the same 97-note batch, since `.last_run.json`
+was already today) to validate before trusting it. Spot-checked two links
+for hallucination risk before accepting the output: one YouTube link
+attached to the "agents rebuilt the deleted channel" claim looked
+suspicious in isolation (why would a Substack-sourced fact link to
+YouTube?) — checked, and it's real: a same-day Nate B. Jones video
+independently covers the identical detail, correctly and specifically
+cited over the Substack source it could have used instead. Second check:
+a line presented as "Brian's line" ("agents are disposable, the
+intelligence is the product") — confirmed verbatim in both
+`published-thinking.md` and the actual cognitive-stack blog post, not
+fabricated. No hallucinated links found in this pass.
+
+Replaced (not appended alongside) the original unlinked
+`outputs/briefings/2026/08/2026-08-11.md` with the linked regeneration —
+spliced the already-fetched response back through `parse_response()` /
+`update_tracker()` / `write_brief()` rather than paying for a third
+identical Opus call. Tracker now has 8 watched threads (the original 4 +
+4 new ones this pass surfaced independently, since Opus's output isn't
+deterministic run to run) — worth noting the same-day re-run guard in
+`update_tracker()` worked exactly as designed here: the original 4 stayed
+at `count: 1` instead of double-counting from being regenerated twice
+today, since they'd already been "seen" today by the first run.
+
+**Brian's open questions, not yet acted on — recommendations given in
+chat, decisions still his:**
+- **Prose density.** Likely partly a 97-note-catch-up-batch artifact, not
+  necessarily the steady-state voice — recommended waiting for a real
+  ~24h-window brief before tuning `prompt.md` for length/tone, since right
+  now batch-size and voice are confounded and we can't isolate which one
+  needs fixing.
+- **Real transcripts** (podcast audio, YouTube) instead of RSS show-notes
+  only. Confirmed not built — same v1 limitation flagged in
+  `skills/ingest/README.md` since D4. Real, separate scope (transcription
+  pipeline), not something to bolt onto today's session.
+- **Two-tier publishing** — a full/technical brief (what exists today,
+  for `outputs/` audit + future AI ingestion) plus a lighter version
+  specifically for the `brianmaddenai` Substack. Recommended: don't build
+  a second from-scratch synthesis pipeline: a cheap second pass that
+  condenses the already-synthesized brief for Substack, once Day 7's
+  draft-push client exists, keeps one source of truth instead of two
+  independent judgment calls that could drift apart.
+- **"True top-of-mind" flagging** (3-5 things vs. a longer tracked list).
+  Brian explicitly ties this to open decision #8 (canon governance) —
+  logged here as input for whenever #8 gets picked up, not a D5 change.

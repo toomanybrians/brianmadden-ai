@@ -19,7 +19,15 @@ and canon); it's committed for audit, not treated as truth.
 ## Subdirectories
 
 - **`briefings/`** — Daily Brief editions (synthesis over the latest
-  `ingest/` batch through the canon lens).
+  `ingest/` batch through the canon lens), written by
+  [skills/brief/](../skills/brief/). `YYYY/MM/YYYY-MM-DD.md` is the brief
+  itself; `.last_run.json` and `.thread_tracker.json` are pipeline state,
+  not content (git-tracked so a fresh checkout doesn't lose the tracker's
+  history, but not meant to be read as canon). `promotion-candidates.md`
+  is a human-review queue — threads the brief has flagged as recurring
+  without a home in canon, appended to by the machine, promoted to
+  `me/developing-thinking.md` only by Brian editing it in himself. Nothing
+  in `promotion-candidates.md` is canon until that happens.
 - **`book/`** — Living book chapters/editions with changelog.
 - **`qa/`** — Drafted replies to the `ask@` inbox lane, queued for human
   approval before sending.
