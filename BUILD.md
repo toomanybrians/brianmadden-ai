@@ -46,31 +46,58 @@ as a template to re-run.
 
 ### Day 5 (next session)
 
-> Read MAINTAINER.md and BUILD.md. D4 is closed and then some: the ingest
-> skill is running for real (96 notes committed from a 30-day catch-up
-> batch, `ingest/.last_run.json` anchoring the auto window for future
-> runs), the provider-swap layer (`skills/lib/llm.py`, anthropic/openrouter)
-> and the framework-aware extraction prompt (reads real
-> title/description straight from `frameworks/*.md`, not a hardcoded
-> paraphrase) both landed ahead of D6's schedule. D1 is also done — Google
-> Workspace is live, `brain@brianmadden.ai` exists (`fetch_entries_email()`
-> in `ingest.py` is still a stub, just no longer blocked on infrastructure).
-> Day 5 task, per the plan doc §8: build the briefing skill — synthesis
-> through the canon lens, "what does today's feed do to my worldview,"
-> including a contradiction-detection segment, reading `ingest/` notes +
-> canon (`me/voice.md` for tone, `me/published-thinking.md` +
-> `me/developing-thinking.md` for what Brian's actually argued/thinking
-> right now, `frameworks/` for named touchstones — same pattern the
-> ingest skill's `load_frameworks_list()` already established, reuse it
-> rather than re-inventing). Iterate on voice. Likely wants its own
-> `skills/lib/llm.py` call (already provider-agnostic, no new plumbing
-> needed there) and probably its own prompt-as-template-file the way
-> `skills/ingest/prompt.md` works, for the same "tune it without touching
-> code" reason. Output goes to `outputs/briefings/` (tier 3 — starts at
-> `status: not-reviewed-by-human` per the ratified frontmatter schema,
-> never higher, machine can't self-upgrade it). Before starting, skim a
-> broader sample of the 96 existing ingest notes for quality/tone — only a
-> handful got a close read last session. Update BUILD.md before we stop.
+> Read MAINTAINER.md and BUILD.md. D4 is closed: the ingest skill is
+> running for real (96 notes committed from a 30-day catch-up batch,
+> `ingest/.last_run.json` anchoring the auto window for future runs), the
+> provider-swap layer (`skills/lib/llm.py`, anthropic/openrouter) landed
+> ahead of D6's schedule, and D1 is done — Google Workspace is live,
+> `brain@brianmadden.ai` exists (`fetch_entries_email()` in `ingest.py` is
+> still a stub, just no longer blocked on infrastructure).
+>
+> **Important design note carried into D5, not just background:** a
+> same-day experiment tried making ingest-time extraction cite Brian's
+> named `frameworks/` by name when relevant. An Opus eval of 18 real
+> before/after pairs found real value (one genuinely sharp catch —
+> correctly distinguishing Sutton's "Bitter Lesson" from Brian's own
+> "bitter lesson of workplace AI" as similarly-named but different things)
+> but also real cost: 3 of 7 citations were filler ("doesn't connect to
+> anything," wasting a bullet), 1 was forced onto a near-content-free
+> stub, plus it surfaced two real bugs (truncation from token-budget
+> pressure, and one hallucination — a note describing content that wasn't
+> in the actual source, model drawing on trained knowledge of "what this
+> podcast is usually about" instead of the ~1,300 characters it was
+> actually given). The bugs got fixed (`max_tokens` raised to 2048, an
+> explicit "ground only in the provided content" instruction added — both
+> kept). The framework-citation feature itself got **reverted** — Brian's
+> call, and the right one: frameworks are rare and formal (10 in ~2 years)
+> against thinking that's fluid and daily, and "does this connect to what
+> Brian's actually thinking about" is a cross-note, whole-canon judgment
+> that a single-article extraction call structurally can't make well. That
+> judgment belongs in the briefing skill, not ingest. Ingest is back to
+> plain neutral extraction — see `skills/ingest/prompt.md`.
+>
+> **This is now D5's central design problem, not a side detail:** build
+> the briefing skill so it actually does that cross-note, whole-canon
+> synthesis — reading the day's `ingest/` notes *together* (not one at a
+> time) against full canon (`me/voice.md` for tone, `me/published-
+> thinking.md` + `me/developing-thinking.md` for what Brian's actually
+> argued/thinking right now, `frameworks/` for named touchstones where
+> they genuinely fit), explicitly looking for both confirmation of
+> existing threads *and* things that don't fit anything yet — that second
+> part is the real answer to Brian's question "how do I trust the system
+> to find what I care about, even things I don't know I care about yet."
+> Also worth designing in: a feedback loop where recurring new threads the
+> briefing notices get *proposed* for promotion into
+> `me/developing-thinking.md` itself (mirroring this repo's existing
+> promotion-ceremony pattern — deliberate, human-reviewed, never
+> automatic), so that file stays fed by the pipeline over time instead of
+> only Brian's manual edits. Likely wants its own prompt-as-template-file
+> the way `skills/ingest/prompt.md` works, and reuses `skills/lib/llm.py`
+> as-is (already provider-agnostic). Output goes to `outputs/briefings/`
+> (tier 3 — starts at `status: not-reviewed-by-human`, never higher,
+> machine can't self-upgrade it). Before starting, skim a broader sample
+> of the 96 existing ingest notes for quality/tone — only a handful got a
+> close read so far. Update BUILD.md before we stop.
 
 ## Decisions made (Aug 9, 2026)
 
