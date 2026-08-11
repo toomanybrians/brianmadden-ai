@@ -83,19 +83,20 @@ as a template to re-run.
    account, is still outstanding — manual action on Brian's Substack
    account, not something this session can do. See #7 — the Substack
    picture just got bigger.
-6. **Per-source trust/lens on the ingest pipeline (flagged 2026-08-10,
-   design TBD).** Brian wants the ingest skill to treat sources differently
-   based on his personal read of them — some he respects and specifically
-   wants dissenting takes from; some are "meh"; some he thinks are wrong
-   most of the time but occasionally surface a real nugget worth catching.
-   Open question: a quantitative rating per source, a free-text lens/note
-   per source, or both? This is distinct from `authority_level` in
-   [docs/frontmatter-schema.md](docs/frontmatter-schema.md), which scores
-   *our own output* for consuming AIs — this would live on `sources.yaml`
-   entries and shape how the ingest skill *extracts and frames* insights
-   from a given source (e.g., "surface disagreement," "skim for nuggets,
-   discount the framing"). Design when the ingest skill (D4) is actually
-   being built — flagged now so it isn't lost.
+6. ~~Per-source trust/lens on the ingest pipeline~~ — **resolved
+   2026-08-10 (D4 session).** Brian's steer: wants both a short
+   programmatically-parseable field and a longer freeform field that acts
+   like a mini-prompt conveying his POV, both optional/blank-safe since
+   he'll steer them in over time rather than opinionating all 56 sources at
+   once. Landed as two new `sources.yaml` fields: `lens` (short free-form
+   tag, deliberately not a fixed enum — new tags can be invented without a
+   code change) and `pov` (longer freeform text, fed directly into the
+   ingest skill's extraction prompt as framing instruction when present).
+   Backfilled only on the two sources that already carried implicit lens
+   language in `note` (moonshots, marcus-on-ai) as worked examples; the
+   other 54 are blank by design. Also designed for reuse by the future
+   Day-5 briefing skill, per Brian's own framing ("the AI which builds the
+   daily newsletter") — not ingest-only.
 7. **Substack + email newsletter ingestion (flagged 2026-08-10, design
    TBD; partially actioned same day — see session log).** Brian has a
    personal Substack account with a bunch of subscriptions, now largely
@@ -105,7 +106,14 @@ as a template to re-run.
    app key (Gmail API, consistent with §5's existing plan for the
    `ask@`/intake lanes) rather than RSS polling — the ingest skill needs an
    email-source path alongside the feed-poll path, not just more
-   `sources.yaml` rows; (b) going forward Brian plans to subscribe to *new*
+   `sources.yaml` rows. **First-pass design landed 2026-08-10 (D4
+   session):** `skills/ingest/ingest.py` has a `fetch_entries_email()`
+   function with the intended shape documented (poll Gmail API against
+   `brain@` for known sender addresses, normalize to the same entry shape
+   `fetch_entries()` returns so the extraction/write pipeline downstream is
+   unchanged) but it raises `NotImplementedError` — no mailbox exists yet
+   (D1/D8 not done). Still genuinely blocked on Workspace setup, not a
+   design gap anymore; (b) going forward Brian plans to subscribe to *new*
    sources via the `brianmaddenai` Substack account rather than his
    personal one (per the plan doc §6 — "the follow list becomes the public
    source registry"). Mechanism confirmed same-day: a Substack profile's
@@ -127,7 +135,9 @@ as a template to re-run.
       (Substack follows → brianmaddenai account is a manual action on
       Brian's Substack, not Claude Code work — still outstanding, tracked
       in open decision #7)
-- [ ] D4 — ingest skill running manually
+- [x] D4 — ingest skill built, feed-fetch/dedup verified against all 56
+      sources; extraction itself untested end-to-end pending an API key
+      (see session log)
 - [ ] D5 — briefing skill, voice iteration
 - [ ] Weekend — back-catalog bootstrap batch job
 - [ ] D6 — workflows automated (workflow_dispatch during build; cron via main)
@@ -347,3 +357,97 @@ sent Brian the full 56-source URL list from `sources.yaml` to click through
 manually while logged in as `brianmaddenai`. That part is on Brian, not
 tracked further here unless it surfaces new sources to add back to
 `sources.yaml`.
+
+### 2026-08-10 — Claude Code session (Day 4, ingest skill)
+
+Built the ingest skill. Six pieces, in order:
+
+1. **Fixed the standing `sync-to-cloudflare-kv.yml` blocker** flagged since
+   the Day-2 session — added `grep -v ingest/` to the incremental diff, the
+   full-sync `find`, and the deleted-file cleanup diff, plus a comment
+   explaining why (MAINTAINER.md rule 8: Tier-1 content must never reach the
+   public MCP server's KV store). Done before anything else so it couldn't
+   be forgotten once real ingest notes exist.
+2. **Resolved open decision #6** (per-source lens) — see the updated entry
+   above. Added `lens` + `pov` fields to `sources.yaml`, backfilled on
+   `moonshots` and `marcus-on-ai` only, documented in both `sources.yaml`'s
+   header comment and `sources/README.md`.
+3. **Built `skills/ingest/`** — `ingest.py` (feed fetch via
+   `requests`+`feedparser`, dedup against existing `ingest/**/*.md`
+   frontmatter with no separate state file, one `claude-sonnet-5` call per
+   new entry using `prompt.md` as an editable template, `NOT_RELEVANT`
+   sentinel so broad-interest feeds don't pollute `ingest/` with off-topic
+   entries, frontmatter-tagged note writer), `prompt.md` (the extraction
+   prompt, kept as a separate file specifically so it's easy to iterate on
+   per BUILD.md's "tune the insight-extraction prompt"), `README.md`
+   (usage + how-it-works + known v1 limitations). Also gave open decision
+   #7a (email ingestion) a first-pass design: `fetch_entries_email()` is a
+   documented stub that raises `NotImplementedError` — the intended Gmail-
+   API shape is written down, but it can't actually run until `brain@`
+   exists (D1/D8).
+4. **Added repo-level plumbing that didn't exist yet**: `requirements.txt`
+   (first dependency manifest in the repo — pins `anthropic`, `feedparser`,
+   `PyYAML`, `requests` to what's already installed locally) and
+   `.env.example` (documents `ANTHROPIC_API_KEY` as required-now, notes
+   `OPENROUTER_API_KEY`/Gmail creds as future/not-yet-needed).
+5. **Updated CLAUDE.md + AGENTS.md's repo-structure tree** to include the
+   v2 dirs that existed on disk but weren't listed
+   (`MAINTAINER.md`, `BUILD.md`, `requirements.txt`, `docs/`, `sources/`,
+   `ingest/`, `outputs/`, `skills/`) — scoped narrowly to the tree block,
+   since adding `skills/` this session would otherwise have made the
+   pre-existing `check_doc_accuracy.py` drift (flagged, not fixed, in the
+   frontmatter-backfill session) worse.
+6. **Verified the plumbing end to end minus the actual LLM call.** No
+   `ANTHROPIC_API_KEY` in this shell, so extraction itself is untested —
+   flagging that plainly rather than claiming a full dry run. What *is*
+   confirmed: `python3 scripts/check_doc_accuracy.py` now clears the
+   top-level-tree and CLAUDE/AGENTS-parity checks (only the unrelated,
+   pre-existing `llms.txt` count drift remains, out of scope); a full
+   `--since-days 3 --max-per-source 1 --dry-run` pass against all 56
+   sources completed in ~2 minutes with zero crashes and correct per-source
+   dedup/skip behavior — blogs, Substacks, podcast RSS, and YouTube feeds
+   all normalize correctly, the one email-only source
+   (exec-ai-insider-weekly) skips cleanly, and one clearly off-topic entry
+   surfaced (a California-politics episode from On with Kara Swisher) that
+   the `NOT_RELEVANT` filter is specifically there to catch once a real key
+   is in place.
+
+**Next session, before D5:** export `ANTHROPIC_API_KEY` (repo-root `.env` or
+shell) and run `python3 skills/ingest/ingest.py --source ethan-mollick
+--dry-run` to see and tune real extraction output — that's the "tune the
+insight-extraction prompt" step BUILD.md called for, genuinely blocked on a
+key this session didn't have. Once the prompt looks right, a real (non-dry)
+run will start populating `ingest/` for real, and `sources.yaml`'s
+`lens`/`pov` fields can be filled in incrementally as Brian actually forms
+opinions on more sources.
+
+**Same-session follow-up: provider abstraction.** Brian asked (a) whether
+v2 should be published/cut over to `main` yet, (b) whether to set GitHub
+Actions secrets now, and (c) said he wants it easy to swap AI providers
+(OpenRouter etc.), not hardcoded to Anthropic. Answered (a)/(b) directly —
+no to both: `main` stays untouched until the actual launch-window cutover
+per MAINTAINER.md (nothing's been dry-run or seeded yet, Days 5–10 aren't
+done), and Actions secrets aren't needed until Day 6 automates anything —
+D4 was deliberately manual/local so the prompt gets tuned by a human before
+it's wired to run unattended. For (c), built it now rather than waiting for
+Day 6, since Day 5's briefing skill would otherwise hardcode Anthropic too:
+`skills/lib/llm.py`, one `generate()` entry point, provider chosen via
+`LLM_PROVIDER`/`LLM_MODEL` env vars or `--provider`/`--llm-model` CLI flags,
+supporting `anthropic` (default, native SDK) and `openrouter`
+(OpenAI-compatible HTTP via `requests`, already a dependency — no new
+package). `skills/ingest/ingest.py` refactored to call `lib.llm` instead of
+importing the Anthropic SDK directly; re-verified dry-run still passes
+post-refactor, including that `--provider openrouter` correctly reports
+`OPENROUTER_API_KEY` as the missing key rather than the Anthropic one.
+`.env.example` and the skill's README updated to match. This means the
+open-weight comparison run in the post-launch backlog (§8 of the plan doc)
+is now a `--provider openrouter --llm-model <id>` flag away, not a rewrite.
+
+Note: `sources/sources.yaml` picked up a concurrent, separately-committed
+change this session (Brian added 6 more sources via the `brianmaddenai`
+Substack account directly — 56 → 62 entries, see commit `05e84f1`). This
+session's `lens`/`pov` additions to `moonshots` and `marcus-on-ai` rode
+along in that commit since it captured the working tree at commit time;
+everything else from this session (`ingest/` skill, workflow fix, tree
+updates, `lib/llm.py`) is separate and still uncommitted, per usual — held
+for Brian's review.
