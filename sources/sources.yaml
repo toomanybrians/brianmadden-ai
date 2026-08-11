@@ -571,3 +571,63 @@ sources:
     feed_url: https://asimovaddendum.substack.com/feed
     priority: regular
     note: "Tim O'Reilly & Ilan Strauss — participatory/decentralized AI markets, human oversight"
+
+  # --- New follows found on the brianmaddenai Substack account, 2026-08-11 ---
+  # Second diff pass: substack.com/@brianmaddenai/reads went from 49 to 57
+  # follows since the last check. 8 new names appeared; 1 (Asimov's
+  # Addendum) was already tracked (added separately, see above). The other
+  # 7 below are genuinely new.
+
+  - id: the-ai-report
+    name: The AI Report
+    type: newsletter
+    url: https://theaireport.substack.com
+    feed_url: https://theaireport.substack.com/feed
+    priority: regular
+
+  - id: economics-of-ai
+    name: The Economics of AI
+    type: newsletter
+    url: https://economicsofai.substack.com
+    feed_url: https://economicsofai.substack.com/feed
+    priority: regular
+    note: "OpenAI Economic Research team — AI's effect on work, productivity, economic opportunity"
+
+  - id: eu-ai-act-newsletter
+    name: The EU AI Act Newsletter
+    type: person
+    url: https://artificialintelligenceact.substack.com
+    feed_url: https://artificialintelligenceact.substack.com/feed
+    priority: regular
+    note: "Risto Uuk — EU AI Act policy tracking"
+
+  - id: guardrailnow
+    name: GuardRailNow
+    type: newsletter
+    url: https://guardrailnow.substack.com
+    feed_url: https://guardrailnow.substack.com/feed
+    priority: regular
+    note: "The AI Risk Network — AI safety"
+
+  - id: metr
+    name: METR
+    type: newsletter
+    url: https://metr.substack.com
+    feed_url: https://metr.substack.com/feed
+    priority: regular
+    note: "AI model evals/capabilities research org"
+
+  - id: openai-global-affairs
+    name: "The Prompt: Insights from OpenAI Global Affairs"
+    type: newsletter
+    url: https://openaiglobalaffairs.substack.com
+    feed_url: https://openaiglobalaffairs.substack.com/feed
+    priority: regular
+
+  - id: quantum-of-solis
+    name: A Quantum of Solis
+    type: person
+    url: https://briansolis.substack.com
+    feed_url: https://briansolis.substack.com/feed
+    priority: regular
+    note: "Brian Solis"
