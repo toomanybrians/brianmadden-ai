@@ -32,12 +32,6 @@ LAST_RUN_PATH = ROOT / "ingest" / ".last_run.json"
 DEFAULT_SINCE_DAYS = 7.0  # fallback when there's no recorded prior run
 MIN_SINCE_DAYS = 0.1      # floor (~2.4h), avoids a zero-width window on rapid reruns
 
-FOCUS = (
-    "AI's impact on knowledge work and the enterprise — how AI is reshaping "
-    "how people work, how organizations are structured, and what the "
-    "workplace looks like as it changes"
-)
-
 TAG_RE = re.compile(r"<[^>]+>")
 SLUG_RE = re.compile(r"[^a-z0-9]+")
 
@@ -47,6 +41,25 @@ SLUG_RE = re.compile(r"[^a-z0-9]+")
 def load_sources(path: Path) -> list[dict]:
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     return data.get("sources", [])
+
+
+def load_frameworks_list(root: Path) -> str:
+    """
+    Builds the {{FRAMEWORKS_LIST}} block from frameworks/*.md's own
+    frontmatter (title + description) — read fresh every run, so it can
+    never drift the way a hardcoded summary would as frameworks get added
+    or renamed. This is how the extraction prompt knows Brian's actual
+    named arguments instead of a generic paraphrase of his interests.
+    """
+    lines = []
+    for path in sorted((root / "frameworks").glob("*.md")):
+        fm = read_frontmatter(path)
+        if not fm:
+            continue
+        title = fm.get("title", path.stem)
+        description = fm.get("description", "")
+        lines.append(f"- **{title}** ({path.stem}): {description}")
+    return "\n".join(lines) if lines else "(no frameworks found)"
 
 
 # ------------------------------------------------------------------ .env --
@@ -209,7 +222,7 @@ def load_ingested_urls(ingest_root: Path) -> set[str]:
 
 # -------------------------------------------------------------- prompting --
 
-def build_prompt(template: str, source: dict, entry: dict) -> str:
+def build_prompt(template: str, source: dict, entry: dict, framework_list: str) -> str:
     pov = (source.get("pov") or "").strip()
     lens = (source.get("lens") or "").strip()
 
@@ -221,7 +234,7 @@ def build_prompt(template: str, source: dict, entry: dict) -> str:
     )
 
     replacements = {
-        "{{FOCUS}}": FOCUS,
+        "{{FRAMEWORKS_LIST}}": framework_list,
         "{{SOURCE_NAME}}": source.get("name", source.get("id", "unknown")),
         "{{SOURCE_TYPE}}": source.get("type", "source"),
         "{{SOURCE_POV_BLOCK}}": pov_block,
@@ -242,10 +255,11 @@ def extract(
     template: str,
     source: dict,
     entry: dict,
+    framework_list: str,
     provider: str | None = None,
     model: str | None = None,
 ) -> str | None:
-    prompt_text = build_prompt(template, source, entry)
+    prompt_text = build_prompt(template, source, entry, framework_list)
     text = llm.generate(prompt_text, provider=provider, model=model, max_tokens=1024)
     if text == "NOT_RELEVANT" or text.startswith("NOT_RELEVANT"):
         return None
@@ -343,6 +357,7 @@ def main() -> None:
         )
 
     template = (Path(__file__).parent / "prompt.md").read_text(encoding="utf-8")
+    framework_list = load_frameworks_list(ROOT)
 
     since_days, since_reason = resolve_since_days(args.since_days)
     print(f"window: {since_days:.2f} days ({since_reason})\n")
@@ -369,7 +384,10 @@ def main() -> None:
             continue
 
         for entry in new_entries:
-            body = extract(template, source, entry, provider=args.provider, model=args.llm_model)
+            body = extract(
+                template, source, entry, framework_list,
+                provider=args.provider, model=args.llm_model,
+            )
             if body is None:
                 print(f"    skipped (not relevant): {entry['title']}")
                 continue
