@@ -97,3 +97,11 @@ runs in BUILD.md's post-launch backlog — not the default).
   mailbox doesn't exist yet (BUILD.md Day 1/8). Tracked as open decision #7a.
 - **No automation yet.** This runs manually from a terminal. Cron/GitHub
   Actions wiring is Day 6.
+- **Paywalled sources only get the free preview, even from the feed.**
+  Most feeds (confirmed for Substack's `content:encoded` and several
+  non-Substack blogs) carry genuine full-text, not a truncated snippet —
+  `MAX_CONTENT_CHARS` exists as a generous safety cap (50000 chars), not a
+  real limit in practice. But a paywalled publication's feed only ever
+  contains its own free preview (confirmed on SemiAnalysis — the feed
+  content itself ends mid-thought at "Read more"). No fix for this within
+  RSS; the note will reflect only what the preview covers.

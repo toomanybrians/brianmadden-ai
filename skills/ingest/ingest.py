@@ -27,7 +27,12 @@ sys.path.insert(0, str(ROOT / "skills"))
 from lib import llm  # noqa: E402  (needs sys.path set first)
 
 USER_AGENT = "brianmadden-ai-ingest/0.1 (+https://brianmadden.ai)"
-MAX_CONTENT_CHARS = 8000
+# Substack's content:encoded (and most other feeds checked) carry genuine
+# full-text, not a truncated preview — 8000 was an arbitrary guess that cut
+# 35-67% off real posts (confirmed 2026-08-11: Mollick, SemiAnalysis,
+# Interconnects all exceeded it). Raised with real headroom; still finite
+# as a safety valve against a malformed feed dumping something absurd.
+MAX_CONTENT_CHARS = 50000
 LAST_RUN_PATH = ROOT / "ingest" / ".last_run.json"
 DEFAULT_SINCE_DAYS = 7.0  # fallback when there's no recorded prior run
 MIN_SINCE_DAYS = 0.1      # floor (~2.4h), avoids a zero-width window on rapid reruns
