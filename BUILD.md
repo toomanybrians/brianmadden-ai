@@ -192,6 +192,62 @@ as a template to re-run.
    rather than a manual one-off each time. Until then, the fallback Brian
    suggested — just telling Claude to add specific ones — works fine.
 
+8. **Canon governance: `developing-thinking.md` needs pruning/dating,
+   `frameworks/` needs a retirement path (flagged 2026-08-11, design TBD,
+   not started).** Raised by Brian at the end of the D4 session, after the
+   framework-in-ingest detour above made both problems concrete. Not
+   picked up this session — deliberately deferred to a dedicated pass,
+   whether that's before/alongside D5 or later. Findings so far, so the
+   next session doesn't have to re-derive them:
+
+   - `me/developing-thinking.md` is ~9,000 words. Its "What's connecting"
+     section has ~50 ungrouped bullets and "Scratchpad" has ~40 more —
+     **90 items, none dated.** No way to tell if something was added
+     yesterday or five months ago without digging. Only the "big
+     arguments" section has partial dating (some sub-updates say "March
+     18 update," most don't). Brian's framing: his daily thinking is
+     "fresh and fluid," but the file has no mechanism to distinguish
+     still-active threads from ones that quietly died, so it just grows.
+   - `frameworks/` (10 files): dates range from 2 months old
+     (`7-stage-roadmap.md`) to 15 months old (`workspace-as-control-
+     plane.md`); half are 6+ months old. No retirement mechanism exists —
+     once a framework is canon, it stays canon regardless of whether the
+     field has moved past it. Brian's read: "frameworks from 6 months ago
+     have a very good chance of not being relevant today," and he
+     explicitly does not want to just delete history — wants an archive
+     path that preserves it.
+
+   **Proposed direction (not agreed, not built — starting point for the
+   next session):**
+   1. Backfill approximate dates for existing `developing-thinking.md`
+      content via `git blame`/`git log -p` (every bullet landed in some
+      commit — reconstruct roughly when, rather than making Brian
+      manually re-date 90 items). Going forward, a light convention
+      (new entries carry a date) keeps it current for free.
+   2. A staleness-triage tool (script or skill) that periodically scans
+      both files, flags anything past a threshold as a candidate, and
+      hands Brian a short list — not an auto-pruner. He makes the actual
+      call per item: keep (still developing), promote (into
+      `published-thinking.md` or graduate into a real framework), or
+      drop/retire. Matches this repo's existing pattern everywhere else:
+      the system surfaces, a human decides, nothing gets upgraded
+      automatically.
+   3. Frameworks get a `status: archived`-style flag (or a
+      `frameworks/archive/` directory) rather than deletion — pulled out
+      of active indexes (`llms.txt`, `_index.json`, whatever D5's
+      briefing skill and future consumers read) but the file and its git
+      history stay. "What I used to think" has real value, including for
+      the same trend-analysis use case that motivated committing
+      `ingest/` notes locally (BUILD.md open decision #1).
+
+   Open questions for whoever picks this up: what thresholds actually
+   make sense (scratchpad-tier vs. developed-argument vs. framework tier
+   probably want different windows); whether the triage tool does an
+   LLM-assisted first pass (propose promote/drop/keep with reasoning) or
+   is purely a dumb date-scanner that leaves all judgment to Brian; how
+   `check_doc_accuracy.py`'s framework-counting logic should handle an
+   archived tier.
+
 ## Day plan (checklist — details in the plan doc §8)
 
 - [x] D1 — Workspace + aliases + MX · lock naming · carve-out note sent
@@ -609,3 +665,81 @@ against real output, 97 real notes in `ingest/`, provider-swap layer in
 place ahead of schedule, last-run tracking built ahead of D6. Next real
 session is D5 (briefing skill) or continuing to let the ingest skill run
 and accumulate more real output first — Brian's call.
+
+### 2026-08-11 — same session, continued (the framework detour, an RSS bug, and canon governance)
+
+Brian asked to clean up three loose ends from the session above: confirmed
+D1 (Workspace/`brain@`) is actually done, asked for the `llms.txt` fix, and
+asked how to spot-check ingest note quality — which surfaced the real gap
+driving everything below: the extraction prompt's "focus" was a generic
+one-liner Claude wrote, not grounded in anything of Brian's. Fixed the
+first two directly (`llms.txt`'s missing `delegation-not-automation.md`
+entry and stale counts, the stale "blocked on Workspace" note). The third
+became a real detour.
+
+**The framework-aware extraction experiment.** Tried fixing the "generic
+focus" gap by having extraction cite Brian's named `frameworks/` by name
+when relevant (`load_frameworks_list()`, reading title/description live
+from `frameworks/*.md`). Brian then asked for a rigorous check rather than
+trusting a couple of spot-checked examples: re-extracted 18 real
+already-ingested entries with the new prompt, had Opus blind-judge the
+18 old/new pairs. Findings: real value (one genuinely sharp catch —
+correctly distinguishing Sutton's "Bitter Lesson" from Brian's own "bitter
+lesson of workplace AI" as similarly-named but different things) but real
+cost (3 of 7 citations were filler, 1 forced onto a near-empty stub), plus
+two actual bugs: truncation (2 of 16 new notes cut off mid-sentence — a
+longer prompt left less token headroom, `max_tokens=1024` wasn't enough)
+and hallucination (a Hard Fork note described content — White House AI
+framework, rogue agents, METR — that doesn't exist anywhere in the
+episode's actual ~1,300-character show notes; the model drew on trained
+knowledge of "what this podcast is usually about" instead of what it was
+actually given). Both bugs fixed (`max_tokens` → 2048, explicit
+"ground only in the provided content" instruction added) and verified on
+the two specific failing cases.
+
+**Then reverted the feature itself**, on reflection with Brian: frameworks
+are rare and formal (10 in ~2 years) against thinking that's fluid and
+daily, and "does this connect to what Brian's actually thinking about" is
+a cross-note, whole-canon judgment that a single-article extraction call
+structurally can't make well — that's the briefing skill's job (D5), not
+ingest's. `load_frameworks_list()` and all `framework_list`/
+`FRAMEWORKS_LIST` threading removed from `ingest.py`/`prompt.md`; ingest
+is back to plain neutral extraction. The `max_tokens` bump and grounding
+instruction were kept — correctness fixes independent of the framework
+question. **Net effect on D5:** its kickoff prompt (above) got rewritten
+mid-session, since the first version told D5 to reuse a pattern that no
+longer exists — now it correctly frames cross-note/whole-canon synthesis
+as D5's central design problem, including the `developing-thinking.md`
+promotion-loop idea.
+
+**A real RSS content bug, separately.** Brian asked whether feeds
+truncate content before extraction even sees it. Checked empirically:
+Substack's `content:encoded` (and several non-Substack blogs) carry
+genuine full-text, not a preview — but `MAX_CONTENT_CHARS=8000` was an
+arbitrary guess of Claude's that cut real posts by 35-67% (Mollick
+13022→8000 chars, SemiAnalysis 24310→8000, Interconnects 9340→8000).
+Raised to 50000. Separately confirmed SemiAnalysis is genuinely paywalled
+at the source — even the raw feed content is only the free preview (ends
+mid-thought at "Read more") — documented as a known limitation, not
+fixable from the RSS side. Note: some of the 96 already-committed notes
+may have been extracted from truncated content under the old cap;
+not re-run this session, flagged to Brian as an open call (nothing
+downstream depends on them yet).
+
+**Canon governance, deferred.** Brian's response to the framework detour
+went deeper: `developing-thinking.md` has grown into an unpruned,
+undated ~9,000-word file, and `frameworks/` has no retirement path despite
+some entries being 15 months old in a fast-moving field. Real, separate
+problem from anything ingest-related. Investigated and wrote up findings
++ a proposed direction as open decision #8 above, rather than design or
+build it in an already-long session — Brian's call to stop here and pick
+it up fresh, "whether tomorrow in D5 or some other time."
+
+**Where things stand, updated:** D4 remains fully done and now
+bug-fixed (truncation, hallucination, RSS content cap). The
+framework-citation experiment was a real, worthwhile detour — it found
+and fixed two genuine bugs even though its own premise got reverted.
+Two threads now open for whoever picks up next: D5 (briefing skill,
+kickoff prompt rewritten to reflect everything above) and open decision
+#8 (canon governance — no kickoff prompt written yet, pick a session type
+when it's actually being picked up).
