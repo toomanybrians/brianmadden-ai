@@ -6,6 +6,8 @@ tags: [ai-bubble, invariants, open-weight-models, second-brain, knowledge-factor
 authority_level: 5
 file_type: blog
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # How to build an AI strategy that survives the bubble pop

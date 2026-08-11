@@ -7,6 +7,8 @@ tags: [workplace-ai, enterprise-adoption, shadow-it, employee-ai-use, ai-hype, a
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/ignore-goldman-sachs-report-questioning-ais-value-doesnt-brian-madden-apqzc/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Ignore that Goldman Sachs report questioning AI's value. It doesn't impact what's happening in your workplace today.

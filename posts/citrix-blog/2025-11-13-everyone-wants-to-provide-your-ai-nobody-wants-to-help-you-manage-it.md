@@ -7,6 +7,8 @@ tags: [ai-governance, workspace-governance, ai-fragmentation, enterprise-ai, sec
 related_frameworks: [workspace-as-control-plane]
 original_url: "https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Everyone wants to provide your AI. Nobody wants to help you manage it.

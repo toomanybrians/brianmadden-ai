@@ -269,3 +269,33 @@ action — tracked under open decision #7, not a blocker for anything else.
 Next: frontmatter backfill (`status: reviewed` across the 114 existing
 canon files, per the ratified schema — mechanical, no open design
 questions left).
+
+### 2026-08-10 — Claude Code session (frontmatter backfill)
+
+Backfilled `tier: 2` and `status: reviewed` into every existing canon file
+that already had YAML frontmatter — 104 of 114 files across `me/`,
+`frameworks/`, `posts/`, `talks/`, `podcast/`, `interviews/`, done via a
+script that appends the two fields only where missing (idempotent, ran a
+verification pass after — no broken frontmatter, no double-delimiters).
+
+10 files have no frontmatter at all and were **left untouched** rather than
+guessed at:
+- 5 are navigational index pages (`interviews/index.md`, `talks/index.md`,
+  `posts/citrix-blog/index.md`, `posts/linkedin/index.md`,
+  `posts/bluesky/index.md`) — TOCs, not standalone content assets; probably
+  don't need `status`/`tier` at all, but that's a call for whoever owns the
+  schema, not something to assume.
+- 2 are reference lists (`me/books.md`, `me/links.md`) — same question.
+- 3 look like straightforward oversights, since sibling files in the same
+  directory all have full frontmatter: `frameworks/delegation-not-automation.md`,
+  `talks/2026-03-18-ducug-the-new-cognitive-stack.md`,
+  `talks/2026-06-03-euctech-the-last-chapter-of-euc.md`. These probably want
+  the same `title`/`authority_level`/`file_type`/`tags` treatment as their
+  neighbors, not just a bolted-on `status` field — worth a small follow-up
+  pass, flagged here so it isn't lost.
+
+Ran `scripts/check_doc_accuracy.py` afterward as a sanity check — it fails,
+but on pre-existing drift unrelated to this change (llms.txt counts stale
+against actual framework/post/talk counts, and CLAUDE.md's repo-structure
+tree not yet updated for the v2 dirs). Not caused by the backfill; not fixed
+here — separate cleanup.

@@ -9,6 +9,8 @@ related_posts: ["2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-i
 original_url: "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/"
 description: "AI is showing up everywhere—in apps, browsers, OS, standalone tools. The only place you can govern all of it consistently is the workspace layer."
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The workspace as control plane

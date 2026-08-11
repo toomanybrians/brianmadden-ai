@@ -7,6 +7,8 @@ file_type: blog-post
 tags: [post-application-era, saaspocalypse, enterprise-software, boring-infrastructure, systems-of-record]
 staleness_threshold: stable
 description: "AI is eating software — but only a specific layer of it. The deep layer of vertical regulated systems of record (Epic, SAP, Amadeus, industrial control, bank cores) isn't going anywhere. AI dissolves UIs, not systems of record."
+tier: 2
+status: reviewed
 ---
 
 # The SaaSpocalypse won't touch the enterprise software moat

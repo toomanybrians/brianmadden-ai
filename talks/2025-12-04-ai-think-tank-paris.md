@@ -8,6 +8,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, workspace-as-control-plane, post-application-era, 7-stage-roadmap, citrix, ai-think-tank, computer-using-agents, osworld-benchmarks, shadow-ai, browser-control, legacy-apps, worker-led-ai]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Citrix AI Think Tank Paris — December 2025

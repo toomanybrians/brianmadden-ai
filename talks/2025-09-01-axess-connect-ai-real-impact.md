@@ -9,6 +9,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, computer-using-agents, knowledge-work, workspace-as-control-plane, euc, productivity, build-vs-buy, second-brain, custom-gpts, career-progression, ai-as-worker]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Axess Connect — Artificial intelligence, real impact: Brian Madden talks AI in the modern workplace

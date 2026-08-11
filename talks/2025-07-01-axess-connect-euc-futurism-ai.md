@@ -9,6 +9,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, computer-using-agents, 7-stage-roadmap, mcp, a2a, knowledge-work, workspace-as-control-plane, euc, ai-as-worker]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Axess Connect — What's next for EUC? Brian Madden talks futurism in the age of AI

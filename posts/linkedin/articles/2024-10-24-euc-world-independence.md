@@ -7,6 +7,8 @@ tags: [euc, conference, community, speaking, briforum, future-of-work]
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/euc-world-independence-2024-huge-success-brian-madden-jgyle/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # EUC World Independence 2024: A huge success!

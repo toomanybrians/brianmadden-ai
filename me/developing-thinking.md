@@ -6,6 +6,8 @@ file_type: frontier
 tags: ["current-thinking", "frontier", "developing-arguments"]
 staleness_threshold: weeks
 description: "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
+tier: 2
+status: reviewed
 ---
 
 # Where my thinking is right now

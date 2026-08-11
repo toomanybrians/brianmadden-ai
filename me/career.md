@@ -8,6 +8,8 @@ tags:
   - chronology
 staleness_threshold: stable
 description: 32-year career narrative from desktop tech in 1994 to AI futurist in 2026.
+tier: 2
+status: reviewed
 ---
 
 # Who is this guy?

@@ -9,6 +9,8 @@ audience: Arrow channel partners, resellers, and enterprise IT
 format: ~40-minute keynote
 source: Reconstructed from the slide deck; no recording exists
 tags: [euc-2031, ai-bubble, open-weight-models, forward-deployed-engineers, diffusion-gap, seven-stage-roadmap, second-brain, knowledge-factory, token-economics, invisible-80-percent, futurism]
+tier: 2
+status: reviewed
 ---
 
 # What is a worker in 2031?

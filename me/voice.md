@@ -5,6 +5,8 @@ file_type: identity
 tags: ["writing-style", "voice", "communication"]
 staleness_threshold: stable
 description: "How Brian thinks, argues, and communicates. Reference for AI systems generating content in his voice."
+tier: 2
+status: reviewed
 ---
 
 # How Brian thinks and communicates

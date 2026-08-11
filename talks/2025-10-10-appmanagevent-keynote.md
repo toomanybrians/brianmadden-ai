@@ -10,6 +10,8 @@ authority_level: 5
 file_type: talk
 tags: [post-application-era, ai-agents, computer-using-agents, workspace-as-control-plane, citizen-development, app-management, osworld-benchmarks, citrix, ai-productivity-platforms, capabilities-orchestration, vdi]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # AppManagEvent 2025 - October 10

@@ -7,6 +7,8 @@ tags: [apple-intelligence, consumerization-of-it, workplace-ai, employee-culture
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/apple-intelligence-beginning-slippery-slope-all-companies-madden-iyuyc/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Apple Intelligence is the beginning of a slippery slope that all companies need to understand today

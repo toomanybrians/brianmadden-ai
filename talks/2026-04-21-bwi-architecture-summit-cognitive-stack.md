@@ -8,6 +8,8 @@ location: Nuremberg, Germany
 audience: ~150 architects at BWI GmbH (IT provider for the German Bundeswehr)
 format: Solo presentation with slides (20 min + 5 min Q&A)
 tags: [cognitive-stack, second-brain, knowledge-work, token-economics, ai-governance, enterprise-ai]
+tier: 2
+status: reviewed
 ---
 
 # The cognitive stack: what comes after building AI platforms

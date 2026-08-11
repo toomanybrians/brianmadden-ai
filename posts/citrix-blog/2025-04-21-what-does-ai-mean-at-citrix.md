@@ -7,6 +7,8 @@ tags: [citrix, enterprise-ai-strategy, ai-in-the-workplace, shadow-ai]
 related_frameworks: []
 original_url: "https://www.citrix.com/blogs/2025/04/21/what-does-ai-mean-at-citrix/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # What does "AI" mean at Citrix?

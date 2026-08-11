@@ -7,6 +7,8 @@ tags: [consumerization-of-it, shadow-it, workplace-ai, chatgpt, enterprise-adopt
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/consumerization-roars-back-time-have-ai-brian-madden/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The Consumerization of IT roars back, and this time they have AI!

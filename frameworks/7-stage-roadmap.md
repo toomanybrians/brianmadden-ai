@@ -9,6 +9,8 @@ related_posts: ["2026-06-10-the-7-stage-roadmap-2026-edition", "2025-06-24-the-7
 original_url: "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/"
 description: "From faster search to the published self—seven stages mapping how AI enters knowledge work, reframed in 2026 around what the worker does and becomes. Stage 3 (AI as a cognitive extension / second brain) is new for this version."
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The 7-stage roadmap for human-AI collaboration (2026 Edition)

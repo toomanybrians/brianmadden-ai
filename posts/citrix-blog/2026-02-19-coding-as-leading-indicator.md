@@ -7,6 +7,8 @@ tags: [knowledge-work, ai-coding, five-levels, dark-knowledge-factory, human-ai-
 related_frameworks: [five-levels-of-ai-in-knowledge-work, 7-stage-roadmap]
 original_url: "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # What will knowledge work be in 18 months? Look at what AI is doing to coding right now.

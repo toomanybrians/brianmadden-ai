@@ -7,6 +7,8 @@ tags: [ai-as-interface, post-application-era, computer-using-agents, file-manipu
 related_frameworks: [post-application-era, 7-stage-roadmap, workspace-as-control-plane]
 original_url: "https://www.citrix.com/blogs/2025/12/10/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # AI will be THE interface to knowledge work. Here's how we'll get there.

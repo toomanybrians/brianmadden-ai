@@ -9,6 +9,8 @@ related_posts: ["2026-01-13-the-invisible-80-what-corporate-led-ai-transformatio
 original_url: "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/"
 description: "The 80% of knowledge work that only the worker can see is exactly the 80% that corporate AI can't touch. That's why worker-led AI wins."
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The invisible 80% of knowledge work

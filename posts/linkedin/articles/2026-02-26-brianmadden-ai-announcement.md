@@ -7,6 +7,8 @@ tags: [brianmadden-ai, second-brain, subscribable-brains, mcp, knowledge-systems
 related_frameworks: [subscribable-brains, invisible-80-percent, workspace-as-control-plane, cognitive-stack, five-levels-of-ai-in-knowledge-work]
 original_url: "https://www.linkedin.com/pulse/announcing-brianmaddenai-i-just-published-my-brain-you-brian-madden-yw71e/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Announcing brianmadden.ai: I just published my brain for you to merge into your AI

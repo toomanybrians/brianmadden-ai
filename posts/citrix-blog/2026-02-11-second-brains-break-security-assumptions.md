@@ -7,6 +7,8 @@ tags: [personal-ai-knowledge-systems, second-brain, ai-security, ai-governance, 
 related_frameworks: [invisible-80-percent, subscribable-brains, 7-stage-roadmap, workspace-as-control-plane]
 original_url: "https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Workers' "second brains" break every assumption about how we secure knowledge work

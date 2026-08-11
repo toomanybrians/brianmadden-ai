@@ -17,6 +17,8 @@ related_frameworks:
   - invisible-80-percent
   - cognitive-stack
   - subscribable-brains
+tier: 2
+status: reviewed
 ---
 
 # The AI second brain: The future of knowledge work

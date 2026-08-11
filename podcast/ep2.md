@@ -8,6 +8,8 @@ authority_level: 5
 file_type: podcast
 tags: [euc, end-user-computing, second-brain, cognitive-extension, context-vault, 7-stage-roadmap, post-application-era, token-economics, token-routing, ai-diffusion, invisible-80-percent, vdi, published-self, future-of-work]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # EP 2: The Last Chapter of EUC

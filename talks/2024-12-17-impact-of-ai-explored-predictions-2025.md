@@ -10,6 +10,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, computer-using-agents, windows-desktop, vdi, claude-computer-use, open-source-models, workplace-ai, shadow-ai, ai-predictions, non-human-licensing, physical-ai]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Impact of AI: Explored - December 17, 2024

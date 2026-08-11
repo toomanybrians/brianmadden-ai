@@ -10,6 +10,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, windows-desktop, computer-using-agents, workspace-as-control-plane, vdi, euc-history, agentic-ai, microsoft-recall, citrix, workplace-ai, vdi-for-agents]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # EUC Forum Winter Meeting 2024 — November 26

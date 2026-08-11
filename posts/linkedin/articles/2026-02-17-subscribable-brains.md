@@ -7,6 +7,8 @@ tags: [subscribable-brains, second-brain, creator-economy, mcp, knowledge-transf
 related_frameworks: [subscribable-brains, invisible-80-percent]
 original_url: "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Hey creators, stop publishing content. Start publishing your second brain.

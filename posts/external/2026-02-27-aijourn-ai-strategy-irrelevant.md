@@ -17,6 +17,8 @@ staleness_threshold: stable
 related_frameworks:
   - invisible-80-percent
   - workspace-as-control-plane
+tier: 2
+status: reviewed
 ---
 
 # 2026: The year your AI strategy becomes irrelevant

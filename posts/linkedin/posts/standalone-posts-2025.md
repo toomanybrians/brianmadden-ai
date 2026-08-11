@@ -6,6 +6,8 @@ file_type: linkedin-posts-collection
 tags: ["social-media", "short-form", "linkedin"]
 staleness_threshold: stable
 description: "Collection of short-form LinkedIn feed posts from 2025."
+tier: 2
+status: reviewed
 ---
 
 This is a list of LinkedIn posts (actual "posts", not "articles") that I, Brian Madden, VP Technology Officer & Futurist at Citrix have posted to LinkedIn. This list is only "standalone" posts, e.g. ones that are not reposts and that do not link to blog posts, speeches, etc.

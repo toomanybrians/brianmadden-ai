@@ -9,6 +9,8 @@ related_posts: ["2026-02-25-cognitive-stack", "2025-12-18-workers-dont-want-to-b
 original_url: "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/"
 description: "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives."
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The cognitive stack

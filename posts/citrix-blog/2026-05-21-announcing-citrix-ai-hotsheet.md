@@ -7,6 +7,8 @@ file_type: blog-post
 tags: [podcast, second-brain, computer-use-agents, context-vault, mcp, enterprise-ai]
 staleness_threshold: stable
 description: "Brian Madden and Dave Brear launch the Citrix AI Hotsheet podcast. Brian (futurist: where things are going) + Dave (architect: what customers deal with today) covering AI entering the enterprise workspace. Episode 1: CUAs, semantic primitives vs. screenshots, second brains / context vaults, and connecting two public second brains via MCP."
+tier: 2
+status: reviewed
 ---
 
 # Announcing our new podcast: the Citrix AI Hotsheet

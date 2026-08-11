@@ -4,6 +4,8 @@ authority_level: 1
 file_type: identity
 tags: ["biography", "credentials", "background"]
 staleness_threshold: months
+tier: 2
+status: reviewed
 ---
 
 # Brian Madden

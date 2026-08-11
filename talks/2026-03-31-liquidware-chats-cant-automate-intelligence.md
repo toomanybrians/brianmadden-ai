@@ -9,6 +9,8 @@ authority_level: 5
 file_type: talk
 tags: [cognitive-stack, second-brain, invisible-80-percent, worker-led-ai, vdi-delusion, applications-as-compatibility-layers, ai-security, dlp, mcp, coding-as-canary, enterprise-ai-roi, shadow-strategy]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Liquidware Chats - March 31, 2026

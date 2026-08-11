@@ -7,6 +7,8 @@ file_type: blog-post
 tags: [7-stage-roadmap, cognitive-extension, second-brain, ai-fleet, published-self, worker-led-ai, human-plus-ai, knowledge-work-future]
 staleness_threshold: stable
 description: "2026 update to the 7-stage roadmap for human-AI collaboration. Key reframe: the 2025 version focused on what AI does; this version focuses on what the worker does and becomes. Stage 3 (AI as Cognitive Extension / second brain) is entirely new, only viable since January 2026. Stage 7 is now The Published Self rather than AI-orchestrated work. Brian's self-reported position: deep in Stage 3, entering Stage 4, fully in Stage 7."
+tier: 2
+status: reviewed
 ---
 
 # The 7-stage roadmap for human-AI collaboration (2026 Edition)

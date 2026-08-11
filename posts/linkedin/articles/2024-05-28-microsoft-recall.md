@@ -7,6 +7,8 @@ tags: [microsoft-recall, workplace-ai, employee-surveillance, privacy, ai-workpl
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/microsoft-recall-analysis-issues-prediction-evolution-brian-madden-zoync/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Microsoft Recall: An analysis of the issues & prediction of the evolution of the AI workplace

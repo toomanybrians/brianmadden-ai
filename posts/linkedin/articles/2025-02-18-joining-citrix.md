@@ -7,6 +7,8 @@ tags: [citrix, career, euc, vdi, daas, future-of-work]
 related_frameworks: []
 original_url: "https://www.linkedin.com/posts/bmadden_i-just-joined-citrix-those-who-know-me-activity-7297631023746453504-K6B3/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # LinkedIn announcement from when I joined Citrix

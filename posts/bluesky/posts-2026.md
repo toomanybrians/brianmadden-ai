@@ -6,6 +6,8 @@ file_type: bluesky-posts-collection
 tags: ["social-media", "short-form", "bluesky"]
 staleness_threshold: weeks
 description: "Collection of Bluesky posts from 2026. Updated as new posts are published."
+tier: 2
+status: reviewed
 ---
 
 Brian Madden's Bluesky posts (@bmad.com) from 2026. Short-form thinking on workplace AI, second brains, the future of knowledge work, and the post-application era.

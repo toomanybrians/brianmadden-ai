@@ -9,6 +9,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, computer-using-agents, osworld-benchmarks, ai-browsers, enterprise-browser, mcp, worker-led-ai, shadow-strategy, ai-predictions, ai-bubble, workspace-as-control-plane, second-brain, multi-agent, microsoft-ignite, work-iq]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Impact of AI: Explored - December 16, 2025

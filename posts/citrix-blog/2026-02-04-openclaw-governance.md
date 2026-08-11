@@ -7,6 +7,8 @@ tags: [ai-governance, personal-ai, ai-agents, consumerization-of-it, worker-led-
 related_frameworks: [7-stage-roadmap, subscribable-brains]
 original_url: "https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # OpenClaw and Moltbook preview the changes needed with corporate AI governance

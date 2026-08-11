@@ -13,6 +13,8 @@ authority_level: 5
 file_type: talk
 tags: [enterprise-adoption, bottleneck-framework, personal-knowledge-systems, ai-transformation, citrix, wharton]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Wharton Tech Conference 2026 - February 6

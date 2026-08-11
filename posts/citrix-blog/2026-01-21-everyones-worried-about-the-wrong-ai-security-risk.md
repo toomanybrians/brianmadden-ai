@@ -7,6 +7,8 @@ tags: [ai-security, ai-agents, workspace-governance, computer-using-agents, insi
 related_frameworks: [7-stage-roadmap, workspace-as-control-plane]
 original_url: "https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Everyone's worried about the wrong AI security risk

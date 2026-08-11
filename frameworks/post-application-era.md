@@ -9,6 +9,8 @@ related_posts: ["2025-10-01-welcome-to-the-post-application-era", "2025-10-15-wi
 original_url: "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/"
 description: "Software creation costs are approaching zero. The application layer that defined enterprise IT for 30 years is collapsing. What replaces it changes everything."
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The post-application era
