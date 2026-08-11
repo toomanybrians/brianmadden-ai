@@ -44,6 +44,34 @@ as a template to re-run.
 > will leak into the public MCP server (MAINTAINER.md rule 8). Update
 > BUILD.md before we stop.
 
+### Day 5 (next session)
+
+> Read MAINTAINER.md and BUILD.md. D4 is closed and then some: the ingest
+> skill is running for real (96 notes committed from a 30-day catch-up
+> batch, `ingest/.last_run.json` anchoring the auto window for future
+> runs), the provider-swap layer (`skills/lib/llm.py`, anthropic/openrouter)
+> and the framework-aware extraction prompt (reads real
+> title/description straight from `frameworks/*.md`, not a hardcoded
+> paraphrase) both landed ahead of D6's schedule. D1 is also done — Google
+> Workspace is live, `brain@brianmadden.ai` exists (`fetch_entries_email()`
+> in `ingest.py` is still a stub, just no longer blocked on infrastructure).
+> Day 5 task, per the plan doc §8: build the briefing skill — synthesis
+> through the canon lens, "what does today's feed do to my worldview,"
+> including a contradiction-detection segment, reading `ingest/` notes +
+> canon (`me/voice.md` for tone, `me/published-thinking.md` +
+> `me/developing-thinking.md` for what Brian's actually argued/thinking
+> right now, `frameworks/` for named touchstones — same pattern the
+> ingest skill's `load_frameworks_list()` already established, reuse it
+> rather than re-inventing). Iterate on voice. Likely wants its own
+> `skills/lib/llm.py` call (already provider-agnostic, no new plumbing
+> needed there) and probably its own prompt-as-template-file the way
+> `skills/ingest/prompt.md` works, for the same "tune it without touching
+> code" reason. Output goes to `outputs/briefings/` (tier 3 — starts at
+> `status: not-reviewed-by-human` per the ratified frontmatter schema,
+> never higher, machine can't self-upgrade it). Before starting, skim a
+> broader sample of the 96 existing ingest notes for quality/tone — only a
+> handful got a close read last session. Update BUILD.md before we stop.
+
 ## Decisions made (Aug 9, 2026)
 
 - Architecture flipped: this repo is the public base layer; private Citrix
