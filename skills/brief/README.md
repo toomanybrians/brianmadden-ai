@@ -111,10 +111,7 @@ subscriber rather than an AI or an insider. It does not re-read the raw
 ingest notes or canon; it only re-renders `brief.py`'s output, so there's
 one place judgment happens, not two synthesis passes that could drift
 apart. Every link it keeps is reused verbatim from the dense brief (never
-invented). The model doesn't write its own headline-and-nothing-else
-either — `publish-prompt.md`'s Title section pushes toward the
-enterprise/future-of-work angle specifically (Brian's beat), not just
-naming the underlying AI-news event.
+invented).
 
 ```bash
 python3 skills/brief/publish.py                    # today's brief
@@ -126,13 +123,32 @@ Defaults to `claude-fable-5` (Brian's call, 2026-08-11 — prose, not
 synthesis, so a different model than `brief.py`'s Opus default).
 Overridable the same way as every other skill (`--llm-model`, `--provider`).
 
-Writes `outputs/briefings/YYYY/MM/YYYY-MM-DD-published.md` — same tier-3
-frontmatter shape as the dense brief, `sources:` pointing back at it, plus
-a deterministic `substack_subtitle` field (`substack_subtitle()` in
-`publish.py` — "Daily Briefing for [date], from Brian Madden's AI second
-brain") for pasting into Substack's own subtitle field; also printed to
-stdout at the end of the run. The post's actual title is just its H1 in
-the body — Fable's job, the one part that has to be written fresh daily.
+### Title and subtitle (redesigned 2026-08-12)
+
+Substack surfaces the **subtitle**, not a body excerpt, as preview text in
+the inbox and feed — discovered from the real first post, not assumed
+going in. That flips what each field should do:
+
+- **`substack_title`** — fully deterministic (`substack_title()` in
+  `publish.py`): `"Daily Briefing: August 12, 2026"`. A single arbitrary
+  story's headline was both misleading (only one of 2-4 stories) and
+  wasted the field readers actually see as a preview, so it's just the
+  date now.
+- **`substack_subtitle`** — the model's actual judgment call, parsed from
+  its response (see `parse_response()` / `SUBTITLE_DELIMITER` in
+  `publish.py`, `publish-prompt.md`'s Subtitle section for the exact
+  instruction). One sentence naming every section's angle, not just the
+  first — Brian's own real example, from a 3-section post: "AI agents are
+  now building second brains on their own, execs are using shadow AI more
+  than their workers, and AI might now be better at judgement than
+  humans." If the model's response is missing the delimiter, `main()`
+  falls back to a generic line rather than publishing with a blank
+  subtitle.
+
+Both fields land in frontmatter and are printed to stdout at the end of
+the run — that's what you copy into Substack's Title/Subtitle fields by
+hand. The post body itself has no title line anymore (see `publish-prompt.md`);
+section headers carry the "why this matters" job instead (see below).
 
 A fixed `FOOTER` (not model-written — see `publish.py`) gets appended to
 every post — real links to `brianmadden.ai`, `bmad.com`, and the GitHub
@@ -150,9 +166,9 @@ this pipeline can generate.** Substack's Button block is a proprietary
 widget (their editor is Tiptap/ProseMirror, which explicitly doesn't
 support custom HTML/CSS on paste), so there's no way to paste one in the
 way the rest of the post's rich text pastes in — confirmed by research,
-not assumed. Brian adds it by hand via Substack's toolbar each post:
-label **"Connect your AI directly into my brain"**, linking to
-`https://brianmadden.ai`.
+not assumed. Brian adds it by hand via Substack's toolbar each post —
+his own final label on the first post was **"Connect your AI to Brian's
+AI brain,"** linking to `https://brianmadden.ai`.
 
 **This generates the draft only — it does not post to Substack.** That's
 Day 7 (a live `brianmaddenai` Substack account plus the session-cookie
@@ -181,9 +197,15 @@ python3 skills/brief/render.py --date 2026-08-11   # a specific date
    locked in. This only ever moves status *toward* more-reviewed — it
    can't downgrade anything, matching MAINTAINER.md rule 4. Skip this
    check with `--no-status-sync` if you just want a render.
-2. **Renders.** Converts the (now-finalized) body to a small styled HTML
-   file — `outputs/briefings/YYYY-MM-DD-published.html`, **gitignored**,
-   not repo content, just a copy-paste convenience regenerated on demand.
+2. **Renders.** `normalize_body()` drops a leading `# Title` line if
+   present (legacy posts only — see Title/subtitle above, the body has no
+   title line going forward) and normalizes every heading to `###`
+   regardless of what level the model wrote, since Substack renders `h1`
+   too large for a section break at this scale (Brian's call, 2026-08-12,
+   after manually fixing the first post's headings by hand). Then
+   converts to a small styled HTML file —
+   `outputs/briefings/YYYY-MM-DD-published.html`, **gitignored**, not
+   repo content, just a copy-paste convenience regenerated on demand.
    Select-all and copy from the *rendered* page (open it in a browser),
    not the HTML source, so Substack's paste picks up formatting.
 

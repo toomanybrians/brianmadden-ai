@@ -1225,3 +1225,81 @@ real-world event is just: does tomorrow's `brief.py` run look
 meaningfully different (shorter, less dense) against a real ~24h window
 instead of the 30-day catch-up batch. That's Brian's own test, not a
 build task.
+
+### 2026-08-12 — Claude Code session (post-launch iteration, day 2)
+
+Real feedback from the first live post, sourced by actually reading it
+(fetched `brianmaddenai.substack.com/p/the-ai-insider-threat-just-grew-a`
+directly rather than trusting the repo's copy — good thing, since Brian
+had made further edits live that never made it back to the file).
+
+**Title/subtitle redesign.** Brian's own observation, from watching the
+real post render: Substack shows the *subtitle* as inbox/feed preview
+text, not a body excerpt — so the old design (one arbitrary story's
+headline as Title, a generic date line as Subtitle) had it backwards.
+Picking one of 2-4 stories to be "the" title misrepresented the post, and
+the field readers actually see as a preview was wasted on boilerplate.
+Redesigned: `substack_title()` in `publish.py` is now fully deterministic
+("Daily Briefing: August 12, 2026" — matches the format Brian actually
+used on the first post), and the subtitle is now the model's real
+judgment call — one sentence naming every section's angle, parsed from a
+new `---SUBTITLE---` delimiter in the response (`publish-prompt.md`'s new
+Subtitle section gives the model Brian's own real example as a model to
+follow). The post body no longer opens with a title line at all — no
+field needs it anymore. Verified the parsing logic against a synthetic
+response before trusting it (delimiter found → correct split; missing →
+clean fallback rather than a blank subtitle), rather than waiting to find
+out on a real API call.
+
+**Heading level: h3, not h1.** Brian manually fixed the first post's
+section headings in Substack (too large at `h1`) and asked for `h3`
+going forward. `render.py`'s `normalize_body()` (renamed from
+`strip_title_and_promote_headings`) now normalizes *every* heading in the
+body to `###` outright, rather than relatively promoting whatever level
+the model happened to write — more robust regardless of what the model
+outputs. Confirmed visually (screenshot) after the change, same
+discipline as yesterday's heading fix.
+
+**Reconciled yesterday's post with what's actually live, a second time.**
+Brian made more edits directly in Substack after the render.py sync
+already ran once — renamed the third section header ("The human judgment
+moat is under direct pressure" → "AI may be better then humans at
+judgement" [Brian's own phrasing/spelling]), fixed a real typo
+("inagural" → "inaugural"), converted an inline "First... Second..."
+sentence into an actual bulleted list, and reworded "worth holding onto"
+to "worth noting." Updated the repo file to match by hand (there's no
+way to pull Substack's post content back automatically) and ran it
+through `render.py`'s normal sync path so status/commit history stays
+honest. **This is the second time this exact gap has surfaced** — edits
+made directly in Substack's editor, after the copy-paste, don't flow
+back to the repo automatically. Worth naming plainly: this is a real,
+recurring seam in the workflow as designed, not a one-off. No fix
+attempted yet (would need either scraping the live post or Brian
+adopting a stricter "always edit the .md, never the Substack editor,
+even for final polish" discipline) — flagged for whenever it's annoying
+enough to be worth solving.
+
+**Docs updated to match**, including the button's actual final label
+("Connect your AI to Brian's AI brain" — Brian's own live choice, not
+what was originally suggested).
+
+**Confirmed still open, not newly built:** real podcast/YouTube
+transcript ingestion and Gmail-based email ingestion — both already
+tracked (ingest README's limitations, open decision #7a respectively).
+Answered Brian's direct question about email ingestion with the actual
+constraint: `fetch_entries_email()` is designed to poll `brain@`
+specifically, per MAINTAINER.md's rule that the human mailbox is never
+programmatically readable — so it needs newsletters pointed at `brain@`,
+not a general read of Brian's personal inbox. Concrete blocker is Gmail
+API credentials for `brain@`, which is Brian-side Workspace/Cloud Console
+setup, not something buildable from this session.
+
+**A bigger strategic question raised, not yet acted on:** Brian is
+thinking `brianmaddenai.substack.com` could become the single home for
+everything — frameworks, podcast/event/blog posts, monthly/quarterly/
+year-in-review, potentially replacing `bmad.com` outright — and has
+already added the Brian Madden (human) account as an admin/public
+contributor to the Substack so both bylines can post there. Explicitly
+wants to brainstorm before committing; nothing built or changed (About
+page, AI-disclosure statement, footer) pending that conversation. See
+chat for the actual discussion/tradeoffs raised.

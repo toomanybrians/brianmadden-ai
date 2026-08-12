@@ -43,7 +43,7 @@ STYLE = """<meta name="color-scheme" content="light">
   html, body { background: #ffffff; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
          max-width: 640px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1a1a1a; }
-  h1 { font-size: 1.3em; margin-top: 1.5em; }
+  h3 { font-size: 1.15em; margin-top: 1.5em; }
   a { color: #d4622a; }
   blockquote { border-left: 3px solid #ddd; margin-left: 0; padding-left: 1em; color: #555; }
   hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
@@ -51,18 +51,24 @@ STYLE = """<meta name="color-scheme" content="light">
 </style>"""
 
 
-def strip_title_and_promote_headings(body: str) -> str:
-    """Drop the leading `# Title` line — Substack has its own title field,
-    the body shouldn't repeat it — and promote the remaining `##`-`######`
-    section headings up one level, since without a competing H1 in the
-    body, the day's `##` section breaks are the top heading level now."""
+def normalize_body(body: str) -> str:
+    """Drop a leading `# Title` line if present (legacy posts written
+    before the 2026-08-12 title/subtitle redesign — Substack's title
+    field is populated separately and deterministically now, so a body
+    title line would just be a redundant, unstyled duplicate) and
+    normalize every remaining heading to h3 (`###`), regardless of what
+    level the model happened to write — Brian's call, 2026-08-12: h1
+    rendered too large for a section break at this scale; h3 is what he
+    set by hand on the first post. Normalizing to a fixed level rather
+    than a relative promote/demote is robust either way, whatever the
+    model's raw heading level was."""
     body = body.lstrip("\n")
-    if body.startswith("# "):
+    if body.startswith("# ") and not body.startswith("## "):
         body = body.split("\n", 1)[1] if "\n" in body else ""
         body = body.lstrip("\n")
     return re.sub(
-        r"^(#{2,6}) (.+)$",
-        lambda m: "#" * (len(m.group(1)) - 1) + " " + m.group(2),
+        r"^#{1,6} (.+)$",
+        r"### \1",
         body,
         flags=re.MULTILINE,
     )
@@ -126,7 +132,7 @@ def main() -> None:
         sync_status_and_commit(md_path)
 
     _, body = read_frontmatter_and_body(md_path)
-    body = strip_title_and_promote_headings(body)
+    body = normalize_body(body)
     html_body = markdown.markdown(body, extensions=["extra"])
     full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{html_body}\n</body>\n</html>\n"
 

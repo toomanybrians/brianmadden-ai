@@ -31,6 +31,7 @@ from brief import (  # noqa: E402 — reuse brief.py's helpers rather than dupli
 )
 
 DEFAULT_MODEL = "claude-fable-5"  # prose, not synthesis — Brian's call, 2026-08-11
+SUBTITLE_DELIMITER = "---SUBTITLE---"
 
 # Fixed, not model-generated (MAINTAINER.md: boilerplate is plain code,
 # model calls are for judgment) — identical on every post rather than
@@ -75,16 +76,30 @@ def build_prompt(template: str, dense_body: str) -> str:
     return text
 
 
-def substack_subtitle(brief_date: str) -> str:
-    # Deterministic, not model-generated — Brian's exact framing
-    # (2026-08-11): names the AI byline directly so a reader landing mid-
-    # archive knows who/what wrote it, without eating into the title's
-    # job of carrying the day's actual hook.
+def substack_title(brief_date: str) -> str:
+    # Deterministic, not model-generated (2026-08-12 redesign, Brian's
+    # call after seeing Substack surface the *subtitle* as preview text
+    # in the inbox/feed, not a body excerpt — a single arbitrary story's
+    # headline as the title was both misleading (only one of 2-4 stories)
+    # and wasted the one field readers actually see as preview text.
+    # Title now just anchors the date; the model's real "what's the hook"
+    # job moved to the subtitle below. Format matches what Brian actually
+    # used on the first post: "Daily Briefing: August 11, 2026".
     date_formatted = datetime.strptime(brief_date, "%Y-%m-%d").strftime("%B %-d, %Y")
-    return f"Daily Briefing for {date_formatted}, from Brian Madden's AI second brain"
+    return f"Daily Briefing: {date_formatted}"
 
 
-def write_published(brief_date: str, post_body: str, dense_path: Path, model: str, dry_run: bool) -> Path:
+def parse_response(text: str) -> tuple[str, str]:
+    """Returns (post_body, subtitle). Empty subtitle if the model didn't
+    include the delimiter — caller should fall back rather than publish
+    with a blank subtitle."""
+    if SUBTITLE_DELIMITER not in text:
+        return text.strip(), ""
+    body, _, subtitle = text.partition(SUBTITLE_DELIMITER)
+    return body.strip(), subtitle.strip()
+
+
+def write_published(brief_date: str, post_body: str, subtitle: str, dense_path: Path, model: str, dry_run: bool) -> Path:
     year, month, _ = brief_date.split("-")
     out_dir = OUTPUT_ROOT / year / month
     out_path = out_dir / f"{brief_date}-published.md"
@@ -97,10 +112,13 @@ def write_published(brief_date: str, post_body: str, dense_path: Path, model: st
         "status": "not-reviewed-by-human",
         "authority_level": 2,
         "model": model,
-        # Substack's own subtitle field — deterministic, so it's never
-        # re-derived by hand. The Substack *title* is the post's own H1
-        # in the body below (Fable's job, not duplicated here).
-        "substack_subtitle": substack_subtitle(brief_date),
+        # Substack's own title/subtitle fields — title is deterministic
+        # (see substack_title()), subtitle is the model's actual judgment
+        # call (parsed from its response, see parse_response()) since
+        # summarizing "what's in today's batch" in one sentence is
+        # exactly the kind of thing that needs to be written fresh daily.
+        "substack_title": substack_title(brief_date),
+        "substack_subtitle": subtitle,
         "sources": [dense_path.relative_to(ROOT).as_posix()],
     }
     fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True, width=1000).strip()
@@ -146,11 +164,16 @@ def main() -> None:
     prompt_text = build_prompt(template, dense_body)
 
     print(f"calling {provider}/{model} to condense {dense_path.relative_to(ROOT)}...")
-    post_body = llm.generate(prompt_text, provider=provider, model=model, max_tokens=4096).strip()
+    response = llm.generate(prompt_text, provider=provider, model=model, max_tokens=4096)
+    post_body, subtitle = parse_response(response)
+    if not subtitle:
+        print("warning: model didn't return a subtitle (missing delimiter) — falling back to a generic one", file=sys.stderr)
+        subtitle = "Today's AI and future-of-work reading, from Brian Madden's AI second brain."
     post_body += FOOTER
 
-    write_published(brief_date, post_body, dense_path, model=model, dry_run=args.dry_run)
-    print(f"\nSubstack subtitle field: {substack_subtitle(brief_date)}")
+    write_published(brief_date, post_body, subtitle, dense_path, model=model, dry_run=args.dry_run)
+    print(f"\nSubstack title field: {substack_title(brief_date)}")
+    print(f"Substack subtitle field: {subtitle}")
 
 
 if __name__ == "__main__":
