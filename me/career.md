@@ -77,6 +77,14 @@ Joined as VP Technology Officer & Futurist. Focus: how AI is reshaping knowledge
 - Developed core frameworks: 7-stage roadmap, workspace-as-control-plane, invisible 80%, post-application era, subscribable brains
 - Built a personal second brain using Claude Code + plain text files
 - Published brianmadden.ai as proof of concept for subscribable knowledge systems
+- Launched bmad.com (~2024) as a deliberately thin personal site for the AI-focused
+  era — a bio plus links out to where the actual content lives, not an archive in
+  its own right. Distinct from **BrianMadden.com** (2003—2016, above): that
+  domain was sold to TechTarget along with the company and BriForum, and the
+  site itself is gone — the URL is dead today. Brian holds a local archive of
+  those ~2,000 EUC-era posts but has deliberately kept them out of this
+  repo: different focus, different era, not something to blend into current
+  thinking (clarified 2026-08-12).
 
 ## Why the history matters
 

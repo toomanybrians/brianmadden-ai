@@ -1303,3 +1303,44 @@ contributor to the Substack so both bylines can post there. Explicitly
 wants to brainstorm before committing; nothing built or changed (About
 page, AI-disclosure statement, footer) pending that conversation. See
 chat for the actual discussion/tradeoffs raised.
+
+**Same-session follow-up: the brainstorm turned into a real plan,
+written down.** Brian confirmed the direction (agreed the ownership/
+portability tension is real but resolvable, since the repo stays the
+actual source of truth either way) and added concrete new facts: he has
+the private repo that renders `bmad.com`/`brianmadden.ai` and Cloudflare
+API access, so the MCP-subdomain work is genuinely doable soon, just not
+in *this* session (this session doesn't have that repo open). Also
+clarified real history — `brianmadden.com` (2003-2016, sold to
+TechTarget, dead today) is distinct from `bmad.com` (~2024, deliberately
+thin, launched for the AI-era pivot) — captured in
+[me/career.md](../me/career.md) under "The AI writing years," since that
+file already tells the `BrianMadden.com` story in detail and the
+distinction belongs right next to it.
+
+Researched (not assumed) three real Substack mechanics before writing
+the plan: **CSV bulk import exists** (confirms Brian's "simulate their
+import feature" idea is technically real, not speculative), **YouTube
+embeds auto-detect from a bare pasted URL** (untested whether that
+detection also fires on CSV-imported content — flagged as a pilot-batch
+test, not assumed either way), and **edits never re-email
+subscribers, even with a changed publish date** — which directly answers
+Brian's open question about frameworks-as-posts: silently editing in
+place would defeat the point of an update (nobody following by email
+would know), so the recommendation is real revisions become new,
+superseding posts, not in-place edits — same spirit as this repo's own
+dated-commit-history discipline.
+
+Wrote all of this up as
+[docs/substack-as-primary-home.md](../docs/substack-as-primary-home.md)
+rather than growing this file further — a genuinely new initiative with
+its own workstreams (A: MCP subdomain/Cloudflare, needs the private repo;
+B: `bmad.com` static page, needs the private repo; C: content migration
+to Substack, ~90 items across podcast/talks/linkedin/citrix-blog/
+frameworks, doesn't need the private repo since all source content is
+already here; D: human-byline posts about the system itself, Brian's own
+idea) each with a suggested model/effort and note on which needs the
+private repo attached. Recommended piloting Workstream C with just the 4
+podcast episodes before committing to the full ~90-item conversion, given
+Substack has no posting API and every single import still needs a human
+to actually publish it.
