@@ -48,7 +48,7 @@ An update to the seven-stage roadmap Brian first published in June 2025. Every w
 4. Multi-tool agent — connect the AI to the world: MCP, connectors, browser control, and computer-using agents for desktop apps. OSWorld: median human ~72-74, AIs now in the 80s. Not to automate — to extend the knowledge worker's reach across all their tools and data.
 5. Fleet of AIs — multiple AIs working and talking to each other and to other systems' AIs.
 6. The pod — the new unit of work: a worker plus their AIs. Work is no longer bounded to business hours; AIs act, flag, and escalate on their own. Three worker types emerge: cognitive owners (context and judgment, the source of expertise), cognitive operators (run the fleet), and cognitive curators (maintain context and skills).
-7. The published self — an optional fork: publish your context vault so others can subscribe (brianmadden.ai, MCP at brianmadden.ai/mcp). Underpins a future of blended expert contexts inside companies.
+7. The published self — an optional fork: publish your context vault so others can subscribe (brianmadden.ai, MCP at mcp.brianmadden.ai). Underpins a future of blended expert contexts inside companies.
 
 ### The current EUC model and the audit
 The current model assumes one person, one screen, one set of apps, one set of hours. AI breaks those assumptions. But most of EUC transitions over rather than disappearing. Each primitive translated into its AI-era successor:
