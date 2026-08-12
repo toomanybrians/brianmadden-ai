@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-publish.py — condense an existing Daily Brief (outputs/briefings/) into a
-shorter, Substack-ready draft. See skills/brief/README.md.
+publish.py — condense an existing Daily Brief (outputs/technical-briefings/)
+into a shorter, Substack-ready draft (outputs/published/). See
+skills/brief/README.md.
 
 This is a rendering step over brief.py's output, not a resynthesis — it
 reads the already-written dense brief (not the raw ingest notes or full
@@ -15,7 +16,7 @@ quietly disagree with each other.
 import argparse
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import yaml
@@ -26,6 +27,7 @@ from lib import llm  # noqa: E402
 
 from brief import (  # noqa: E402 — reuse brief.py's helpers rather than duplicating them
     OUTPUT_ROOT,
+    PUBLISHED_ROOT,
     load_dotenv,
     read_frontmatter_and_body,
 )
@@ -62,13 +64,37 @@ def find_brief(brief_date: str) -> Path:
     return path
 
 
-def build_prompt(template: str, dense_body: str) -> str:
+def find_recent_published(brief_date: str, lookback_days: int = 5) -> tuple[str, str] | None:
+    """The most recent published post strictly before brief_date, within
+    lookback_days — so the model can see what it already said recently
+    and either avoid mechanically repeating the same framing verbatim, or
+    lean into genuine continuity on purpose ("for the second day
+    running..."). Returns (date, body) or None if there isn't one within
+    the lookback window (first-ever post, or a real gap)."""
+    d = datetime.strptime(brief_date, "%Y-%m-%d")
+    for i in range(1, lookback_days + 1):
+        candidate_date = (d - timedelta(days=i)).strftime("%Y-%m-%d")
+        year, month, _ = candidate_date.split("-")
+        path = PUBLISHED_ROOT / year / month / f"{candidate_date}.md"
+        if path.exists():
+            _, body = read_frontmatter_and_body(path)
+            return candidate_date, body
+    return None
+
+
+def build_prompt(template: str, dense_body: str, recent: tuple[str, str] | None) -> str:
     voice = (ROOT / "me" / "voice.md").read_text(encoding="utf-8")
     style_guide = (ROOT / "me" / "style-guide.md").read_text(encoding="utf-8")
+    if recent:
+        recent_date, recent_body = recent
+        recent_block = f"Published {recent_date}:\n\n{recent_body}"
+    else:
+        recent_block = "(none within the last few days — first post, or there's been a gap)"
     replacements = {
         "{{VOICE}}": voice,
         "{{STYLE_GUIDE}}": style_guide,
         "{{DENSE_BRIEF}}": dense_body,
+        "{{RECENT_PUBLISHED}}": recent_block,
     }
     text = template
     for key, value in replacements.items():
@@ -101,8 +127,8 @@ def parse_response(text: str) -> tuple[str, str]:
 
 def write_published(brief_date: str, post_body: str, subtitle: str, dense_path: Path, model: str, dry_run: bool) -> Path:
     year, month, _ = brief_date.split("-")
-    out_dir = OUTPUT_ROOT / year / month
-    out_path = out_dir / f"{brief_date}-published.md"
+    out_dir = PUBLISHED_ROOT / year / month
+    out_path = out_dir / f"{brief_date}.md"
 
     frontmatter = {
         "title": f"Daily Brief (published) — {brief_date}",
@@ -160,8 +186,9 @@ def main() -> None:
         print(f"{llm.required_env_var(provider)} not set for provider '{provider}'.", file=sys.stderr)
         sys.exit(1)
 
+    recent = find_recent_published(brief_date)
     template = (Path(__file__).parent / "publish-prompt.md").read_text(encoding="utf-8")
-    prompt_text = build_prompt(template, dense_body)
+    prompt_text = build_prompt(template, dense_body, recent)
 
     print(f"calling {provider}/{model} to condense {dense_path.relative_to(ROOT)}...")
     response = llm.generate(prompt_text, provider=provider, model=model, max_tokens=4096)

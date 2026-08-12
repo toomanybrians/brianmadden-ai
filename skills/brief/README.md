@@ -3,8 +3,8 @@
 Reads the `ingest/` notes captured since the last briefing run *together*,
 against full canon (`me/voice.md`, `me/published-thinking.md`,
 `me/developing-thinking.md`, `frameworks/`), and writes a Daily Brief to
-`outputs/briefings/`. See [MAINTAINER.md](../../MAINTAINER.md) for the tier
-rules this exists inside.
+`outputs/technical-briefings/`. See [MAINTAINER.md](../../MAINTAINER.md) for
+the tier rules this exists inside.
 
 This is the cross-note, whole-canon synthesis step that ingest-time
 extraction deliberately doesn't do — see BUILD.md's D5 kickoff and the
@@ -37,7 +37,7 @@ last-run clock — same contract as `skills/ingest/`'s `--dry-run`.
 
 ## Polling window
 
-`--since-days` defaults to **auto**, using `outputs/briefings/.last_run.json`
+`--since-days` defaults to **auto**, using `outputs/technical-briefings/.last_run.json`
 the same way `skills/ingest/` uses `ingest/.last_run.json` — the window is
 "however long since the briefing skill last actually ran," so a normal
 day-to-day cadence naturally covers ~1 day, a weekend gap naturally covers
@@ -58,7 +58,7 @@ were all captured today, even though they span a 30-day publish window.
    `frameworks/*.md` titles + descriptions (not full text — the model
    doesn't need the whole framework, just enough to cite one by name where
    it genuinely fits).
-3. Load `outputs/briefings/.thread_tracker.json` — patterns flagged as
+3. Load `outputs/technical-briefings/.thread_tracker.json` — patterns flagged as
    "doesn't fit yet" on previous runs, being watched for recurrence.
 4. One call through `skills/lib/llm.py`, `prompt.md` as the template. The
    model gets everything from steps 1-3 at once and returns two parts: the
@@ -68,13 +68,13 @@ were all captured today, even though they span a 30-day publish window.
 5. Plain code (not the model) updates the tracker: increments recurrence
    counts, adds new watched threads, and — this is the promotion-ceremony
    feedback loop BUILD.md's D5 kickoff asked for — appends an entry to
-   `outputs/briefings/promotion-candidates.md` for any thread that's
+   `outputs/technical-briefings/promotion-candidates.md` for any thread that's
    recurred `PROMOTION_THRESHOLD` (3) times. That file is a human-review
    queue only. **Nothing is ever written into `me/developing-thinking.md`
    automatically** — a candidate becomes canon only if Brian deliberately
    edits it in himself, same as the private-overlay promotion ceremony in
    MAINTAINER.md.
-6. Writes `outputs/briefings/YYYY/MM/YYYY-MM-DD.md` — frontmatter
+6. Writes `outputs/technical-briefings/YYYY/MM/YYYY-MM-DD.md` — frontmatter
    (`tier: 3`, `status: not-reviewed-by-human`, `model`, `sources`: every
    ingest note + canon file the brief drew on) plus the model's brief body
    plus a deterministically-rendered "Threads being tracked" section (not
@@ -106,12 +106,27 @@ entirely with `--provider` — same mechanism as `skills/ingest/`, see
 ## Publishing a condensed version
 
 `publish.py` reads an already-written dense brief and condenses it into a
-Substack-ready draft — 2-4 items, ~400-700 words, written for a general
-subscriber rather than an AI or an insider. It does not re-read the raw
-ingest notes or canon; it only re-renders `brief.py`'s output, so there's
-one place judgment happens, not two synthesis passes that could drift
-apart. Every link it keeps is reused verbatim from the dense brief (never
-invented).
+Substack-ready draft — written for a general subscriber rather than an AI
+or an insider. It does not re-read the raw ingest notes or canon; it only
+re-renders `brief.py`'s output, so there's one place judgment happens, not
+two synthesis passes that could drift apart. Every link it keeps is reused
+verbatim from the dense brief (never invented).
+
+**No fixed story count or word target** (loosened 2026-08-12, Brian's
+call) — `publish-prompt.md`'s Rules section budgets ~150-250 words per
+story and lets the day's actual content set both the count and the total
+length, rather than forcing every day into the same 2-4-items/400-700-word
+shape. A thin day might be one story; a dense day might be five.
+
+**Cross-day continuity.** `find_recent_published()` loads the most recent
+prior published post (looking back up to 5 days, so a weekend or a gap
+doesn't break it) and passes it to the model as `{{RECENT_PUBLISHED}}` —
+so a story that's genuinely continuing from a recent post ("Brian has
+argued for X that Y") either gets flagged as such ("for the second day
+running...") instead of silently re-deriving the same framing from
+scratch, or the phrasing is varied enough not to read as a repeat. Caught
+2026-08-12 when both day-1 and day-2 posts opened with near-identical
+"Brian has argued..." framing for the same underlying story.
 
 ```bash
 python3 skills/brief/publish.py                    # today's brief
@@ -178,9 +193,10 @@ draft-push client, neither of which exists yet).
 
 Substack's editor doesn't interpret pasted Markdown (`**`/`#` show up
 literally) but does preserve formatting pasted as rich text/HTML. The
-actual publish workflow: Brian hand-edits the committed
-`...-published.md` directly (e.g. an inline `[Note from Brian the Human:
-...]`), then `render.py`:
+actual publish workflow (settled 2026-08-12): `publish.py` writes and
+commits `outputs/published/YYYY/MM/YYYY-MM-DD.md`, then **stops** — no
+HTML yet. Brian reviews the committed file, hand-edits it directly (e.g.
+an inline `[Note from Brian the Human: ...]`), and pings. Only then:
 
 ```bash
 python3 skills/brief/render.py                    # today's post
@@ -202,12 +218,15 @@ python3 skills/brief/render.py --date 2026-08-11   # a specific date
    title line going forward) and normalizes every heading to `###`
    regardless of what level the model wrote, since Substack renders `h1`
    too large for a section break at this scale (Brian's call, 2026-08-12,
-   after manually fixing the first post's headings by hand). Then
-   converts to a small styled HTML file —
-   `outputs/briefings/YYYY-MM-DD-published.html`, **gitignored**, not
-   repo content, just a copy-paste convenience regenerated on demand.
-   Select-all and copy from the *rendered* page (open it in a browser),
-   not the HTML source, so Substack's paste picks up formatting.
+   after manually fixing the first post's headings by hand). A small
+   `render_fields_block()` box showing the Substack title/subtitle in
+   plain text sits above the body in the rendered page too, so both are
+   visible right there instead of needing frontmatter or console output.
+   Converts to a small styled HTML file —
+   `outputs/published/YYYY-MM-DD.html`, **gitignored**, not repo content,
+   just a copy-paste convenience regenerated on demand. Select-all and
+   copy from the *rendered* page (open it in a browser), not the HTML
+   source, so Substack's paste picks up formatting.
 
 ## Voice and style guide
 
@@ -247,8 +266,8 @@ Two separate references, loaded into both `prompt.md` and
   hand-edits a published draft, `render.py` captures *that a change
   happened* (status flip) but nothing yet looks at *what* changed to
   propose new `voice.md`/`style-guide.md` entries. The git history already
-  has every such diff sitting in it (`git log -p` on any
-  `*-published.md`) — a future pass (flagged 2026-08-11, not built) could
+  has every such diff sitting in it (`git log -p` on anything under
+  `outputs/published/`) — a future pass (flagged 2026-08-11, not built) could
   periodically mine that history and propose additions the way the
   promotion-candidates queue proposes canon additions: surfaced, never
   auto-applied.

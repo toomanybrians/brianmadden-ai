@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 brief.py — read the ingest/ notes since the last briefing run together
-against full canon, and write a Daily Brief to outputs/briefings/. See
+against full canon, and write a Daily Brief to outputs/technical-briefings/. See
 skills/brief/README.md for usage.
 
 This is the whole-canon, cross-note synthesis step that ingest-time
@@ -45,7 +45,14 @@ PROMOTION_THRESHOLD = 3  # distinct briefing runs a thread must recur in before 
 GITHUB_BASE = "https://github.com/toomanybrians/brianmadden-ai/blob/main/"
 
 INGEST_ROOT = ROOT / "ingest"
-OUTPUT_ROOT = ROOT / "outputs" / "briefings"
+# Split 2026-08-12 (Brian's call): the dense brief and the Substack draft
+# serve different audiences — technical-briefings/ is AI-facing (full
+# detail, audit trail, what MCP-connecting AIs would actually want) and
+# published/ is human-facing (Substack-bound, condensed). Filenames in
+# published/ no longer need a "-published" suffix now that the directory
+# says it.
+OUTPUT_ROOT = ROOT / "outputs" / "technical-briefings"
+PUBLISHED_ROOT = ROOT / "outputs" / "published"
 LAST_RUN_PATH = OUTPUT_ROOT / ".last_run.json"
 TRACKER_PATH = OUTPUT_ROOT / ".thread_tracker.json"
 CANDIDATES_PATH = OUTPUT_ROOT / "promotion-candidates.md"
@@ -127,7 +134,7 @@ def load_previously_briefed_paths() -> set[str]:
     the ~27 actually new since the last run)."""
     seen = set()
     for path in sorted(OUTPUT_ROOT.rglob("*.md")):
-        if path.name in ("promotion-candidates.md",) or path.name.endswith("-published.md"):
+        if path.name == "promotion-candidates.md":
             continue
         fm, _ = read_frontmatter_and_body(path)
         for src in fm.get("sources") or []:
@@ -213,7 +220,7 @@ def render_tracked_threads_section(tracker: list[dict]) -> str:
         "## Threads being tracked\n\n"
         "Patterns flagged as \"doesn't fit yet\" on a previous day, being watched "
         f"for recurrence. A thread that recurs {PROMOTION_THRESHOLD}+ times gets "
-        "queued in `outputs/briefings/promotion-candidates.md` for Brian to "
+        "queued in `outputs/technical-briefings/promotion-candidates.md` for Brian to "
         "review — nothing here is ever written into `me/developing-thinking.md` "
         "automatically.\n\n" + body
     )
@@ -389,7 +396,7 @@ def main() -> None:
     )
     parser.add_argument("--since-days", type=float, default=None,
                          help="only ingest notes captured in the last N days. Default: auto — "
-                              "time since the last briefing run (outputs/briefings/.last_run.json), "
+                              "time since the last briefing run (outputs/technical-briefings/.last_run.json), "
                               f"or {DEFAULT_SINCE_DAYS:g} day if there's no recorded prior run")
     parser.add_argument("--dry-run", action="store_true", help="print the brief instead of writing it (still calls the API, still calls the tracker logic in-memory only)")
     parser.add_argument("--provider", choices=sorted(llm.REQUIRED_ENV_VARS), help="override LLM_PROVIDER for this run")

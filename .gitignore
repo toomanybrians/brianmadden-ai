@@ -13,4 +13,4 @@ __pycache__/
 # Copy-paste renderings of published drafts (skills/brief/render.py) —
 # a convenience for pasting into Substack's rich-text editor, not repo
 # content. The committed .md is the source of truth.
-outputs/briefings/**/*-published.html
+outputs/published/**/*.html

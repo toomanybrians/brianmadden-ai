@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-render.py — finalize a hand-edited published draft (outputs/briefings/)
+render.py — finalize a hand-edited published draft (outputs/published/)
 and render it to a standalone HTML file for copy-pasting into Substack's
 rich-text editor. See skills/brief/README.md.
 
@@ -37,7 +37,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
 
-from brief import OUTPUT_ROOT, read_frontmatter_and_body  # noqa: E402
+from brief import PUBLISHED_ROOT, read_frontmatter_and_body  # noqa: E402
 
 STYLE = """<meta name="color-scheme" content="light">
 <style>
@@ -95,7 +95,7 @@ def normalize_body(body: str) -> str:
 
 def find_published(brief_date: str) -> Path:
     year, month, _ = brief_date.split("-")
-    path = OUTPUT_ROOT / year / month / f"{brief_date}-published.md"
+    path = PUBLISHED_ROOT / year / month / f"{brief_date}.md"
     if not path.exists():
         raise SystemExit(f"no published draft found at {path.relative_to(ROOT)} — run publish.py for this date first")
     return path
