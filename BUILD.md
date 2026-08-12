@@ -1398,5 +1398,67 @@ new ones were added, all without crossing the promotion threshold yet
 (as expected on day 2).
 
 Committed the fix, the 27 new ingest notes, and the corrected dense
-brief together. Next: `publish.py` + `render.py` to finish today's
-Substack draft.
+brief together. Ran `publish.py` + `render.py` to finish — new
+title/subtitle design worked correctly on its first real run
+(deterministic date title, model-written multi-story subtitle), h3
+headings clean, real thread-tracker continuity across days (several
+threads correctly bumped to `seen 2x`).
+
+**Workflow refinement, Brian's own framing.** No auto-HTML render right
+after `publish.py` anymore — Brian reviews and edits the committed
+`.md` first, pings, *then* gets the render. `render.py` unchanged in
+mechanism, just no longer chained automatically. Also folded the
+Substack title/subtitle into the rendered HTML page itself (a small
+dashed-border box above the body) per his ask, so both are visible right
+on the copy-paste page instead of needing frontmatter or console output.
+
+**Cross-day repetition, caught by Brian, fixed properly.** He noticed
+day-1 and day-2 posts both opened with near-identical "Brian has argued
+[for a year/since August] that agents are insider threats" — not a
+coincidence, the same underlying Hugging Face story genuinely continued
+day to day, but the model had no memory of its own prior framing.
+`publish.py` now loads the most recent published post (`find_recent_published()`,
+looking back up to 5 days) and passes it to the model, instructed to
+either name the continuity directly ("for the second day running...") or
+vary the phrasing — not silently re-derive the same argument from
+scratch.
+
+**No more fixed 2-4/400-700 target.** Also loosened at Brian's request:
+`publish-prompt.md` now budgets ~150-250 words per story and lets the
+day's real content set both count and length, instead of forcing every
+day into the same shape.
+
+**outputs/briefings/ split into technical-briefings/ + published/.**
+Brian's observation: the dense brief (AI-facing, full detail) and the
+Substack draft (human-facing, condensed) were sharing one folder under a
+`-published` suffix, which made the distinction unclear to both humans
+and AIs browsing the repo — and he was already thinking about future
+content types (frameworks, monthly/quarterly) that would want the same
+clarity. Executed the split: `outputs/technical-briefings/YYYY/MM/YYYY-MM-DD.md`
+(was `outputs/briefings/.../YYYY-MM-DD.md`) and
+`outputs/published/YYYY/MM/YYYY-MM-DD.md` (was `...-published.md` — the
+suffix is redundant now that the folder says it). `git mv`'d everything
+to preserve history, updated `OUTPUT_ROOT`/new `PUBLISHED_ROOT` in
+`brief.py` (the shared constants module), threaded through
+`publish.py`/`render.py`, fixed the `.gitignore` pattern for the
+gitignored HTML render, updated both READMEs. Verified with a real
+`render.py` run against the new paths before committing, not just a
+compile check. (Landed alongside an unrelated but welcome discovery:
+Brian had already updated `README.md`/`podcast/ep2.md` to reference
+`mcp.brianmadden.ai` himself — Workstream A from
+`docs/substack-as-primary-home.md` moving on its own, committed
+separately so the history stays honest about whose change was whose.)
+
+**A real broken link, caught by Brian, root-caused before fixing.** He
+flagged `podcast.smarterx.ai` (the podcast's bare homepage, not the
+episode) in today's published post. Confirmed via the actual raw feed
+(`feeds.megaphone.fm/marketingai`) that this source's RSS `<link>` field
+never carries a per-episode URL, for any entry — not a code bug, a real
+feed limitation. Found the actual permalink pattern by search
+(`podcast.smarterx.ai/shownotes/N`, verified against three different
+episode numbers) and added `fix_episode_link()` to `ingest.py` — a
+source-scoped override keyed by episode number parsed from the "#N:"
+title prefix, not a general mechanism (no premature abstraction for
+sources that don't have this problem). Corrected the two already-affected
+ingest notes (227, 230) and today's already-published output, not just
+future runs.
