@@ -2,7 +2,7 @@
 title: '#227: How Good Karma Brands Got Serious About AI and Made It Stick'
 source: The Artificial Intelligence Show
 source_id: the-artificial-intelligence-show
-source_url: https://podcast.smarterx.ai/
+source_url: https://podcast.smarterx.ai/shownotes/227
 author: Paul Roetzer and Mike Kaput
 date_published: '2026-07-30'
 date_captured: '2026-08-11'

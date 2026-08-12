@@ -103,6 +103,28 @@ def strip_html(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+# Sources whose RSS <link> is always the podcast homepage, never the
+# episode page, even though the site has real per-episode permalinks —
+# confirmed 2026-08-12 (Brian caught a dead-end link in a published post;
+# the actual pattern was findable by search, feeds.megaphone.fm/marketingai
+# just doesn't expose it). {source_id: URL template with {n} for episode
+# number, extracted from a "#N: ..." title prefix.}
+EPISODE_URL_OVERRIDES = {
+    "the-artificial-intelligence-show": "https://podcast.smarterx.ai/shownotes/{n}",
+}
+EPISODE_NUMBER_RE = re.compile(r"^#(\d+):")
+
+
+def fix_episode_link(source_id: str, title: str, link: str) -> str:
+    template = EPISODE_URL_OVERRIDES.get(source_id)
+    if not template:
+        return link
+    m = EPISODE_NUMBER_RE.match(title)
+    if not m:
+        return link
+    return template.format(n=m.group(1))
+
+
 def fetch_entries(source: dict, since_days: float, max_per_source: int):
     """Returns (entries, error). entries is [] on error."""
     feed_url = source.get("feed_url")
@@ -144,9 +166,13 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
         if truncated:
             content += " […truncated…]"
 
+        title = (raw.get("title") or "").strip()
+        link = (raw.get("link") or "").strip()
+        link = fix_episode_link(source["id"], title, link)
+
         entries.append({
-            "title": (raw.get("title") or "").strip(),
-            "link": (raw.get("link") or "").strip(),
+            "title": title,
+            "link": link,
             "author": (raw.get("author") or "").strip(),
             "date_published": date_published,
             "published_dt": published_dt,

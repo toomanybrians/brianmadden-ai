@@ -3,7 +3,7 @@ title: '#230: Big Google AI Leadership Shakeups, New Details of OpenAI’s Agent
   White House AI Framework & OpenAI’s Astra Model Delayed'
 source: The Artificial Intelligence Show
 source_id: the-artificial-intelligence-show
-source_url: https://podcast.smarterx.ai
+source_url: https://podcast.smarterx.ai/shownotes/230
 author: Paul Roetzer and Mike Kaput
 date_published: '2026-08-11'
 date_captured: '2026-08-12'
