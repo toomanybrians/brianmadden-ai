@@ -45,7 +45,7 @@ A special edition of the Citrix AI Hotsheet. Instead of the regular conversation
 ## Links mentioned
 
 - [Brian's Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author) — the 7-stage roadmap (2026 edition), "the SaaSpocalypse won't touch the enterprise software moat," "skills are all you need"
-- [brianmadden.ai](https://brianmadden.ai) — Brian's published second brain (MCP at brianmadden.ai/mcp)
+- [brianmadden.ai](https://brianmadden.ai) — Brian's published second brain (MCP at mcp.brianmadden.ai)
 - [Build your own AI second brain](https://gist.github.com/toomanybrians/4c64f3f6774caee6feff9b0b12172867) — starter prompt
 
 ---
