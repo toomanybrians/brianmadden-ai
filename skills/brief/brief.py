@@ -114,11 +114,37 @@ def read_frontmatter_and_body(path: Path) -> tuple[dict, str]:
     return fm, parts[2].strip()
 
 
+def load_previously_briefed_paths() -> set[str]:
+    """Every ingest/ note path already listed in some prior dense brief's
+    `sources:`. No separate state file — the committed briefs *are* the
+    state, same pattern skills/ingest/ uses for its own URL dedup. This is
+    the real guard against double-processing; `since_days` below is only
+    a coarse pre-filter and, on its own, isn't reliable — date_captured
+    has day granularity, so a since_days window that crosses a calendar
+    boundary (e.g. 26 hours) rounds up to the whole previous day and can
+    re-include everything captured that day, not just the last N hours of
+    it (caught 2026-08-12: a 1.1-day window pulled in 124 notes instead of
+    the ~27 actually new since the last run)."""
+    seen = set()
+    for path in sorted(OUTPUT_ROOT.rglob("*.md")):
+        if path.name in ("promotion-candidates.md",) or path.name.endswith("-published.md"):
+            continue
+        fm, _ = read_frontmatter_and_body(path)
+        for src in fm.get("sources") or []:
+            if isinstance(src, str) and src.startswith("ingest/"):
+                seen.add(src)
+    return seen
+
+
 def load_recent_notes(since_days: float) -> list[dict]:
     cutoff = (datetime.now(timezone.utc) - timedelta(days=since_days)).date()
+    already_briefed = load_previously_briefed_paths()
     notes = []
     for path in sorted(INGEST_ROOT.rglob("*.md")):
         if path.name == "README.md":
+            continue
+        rel_path = path.relative_to(ROOT).as_posix()
+        if rel_path in already_briefed:
             continue
         fm, body = read_frontmatter_and_body(path)
         date_captured = fm.get("date_captured")
@@ -131,7 +157,7 @@ def load_recent_notes(since_days: float) -> list[dict]:
         if captured < cutoff:
             continue
         notes.append({
-            "path": path.relative_to(ROOT).as_posix(),
+            "path": rel_path,
             "title": fm.get("title", "(untitled)"),
             "source": fm.get("source", fm.get("source_id", "unknown")),
             "source_url": fm.get("source_url", ""),

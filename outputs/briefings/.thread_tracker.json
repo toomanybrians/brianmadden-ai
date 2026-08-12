@@ -12,37 +12,45 @@
     "slug": "ai-siting-and-public-legitimacy",
     "description": "Data center opposition (70% bipartisan, state moratoria, 100+ local proposals) plus broadening moral/cultural backlash emerging as a constraint on AI compute supply via land-use politics rather than export controls or capital markets",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-11",
-    "count": 1,
+    "last_seen": "2026-08-12",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "GuardRailNow's data center cost accounting (tax giveaways, water, diesel health costs, 12% of US electricity by 2030) plus a Marcus poll post on rising bipartisan opposition; Dyson's 'parasitic business models' critique extends the legitimacy fight from land use to cognition itself."
+    ]
   },
   {
     "slug": "portability-contested-commercially",
     "description": "Model/brain portability proven technically but eroded commercially and physically \u2014 vendor quota restrictions on neutral agent harnesses, context-window price cliffs, and model-weights-etched-into-silicon creating lock-in below the model layer",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-11",
-    "count": 1,
+    "last_seen": "2026-08-12",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Mixed signal \u2014 Anthropic's Managed Agents auto-loads Skills from customer GitHub repos and Nvidia released a fully open-source Nemotron, both pro-portability, but the agent runtime/environment itself is lab-owned and lab-hosted."
+    ]
   },
   {
     "slug": "open-ended-research-failure-shape",
     "description": "Agents fail at open-ended research in specific non-capability ways \u2014 under-spending budgets, abandoning promising directions early, adding caveats instead of pivoting on negative feedback \u2014 a failure shape that looks like the specification/why problem but hasn't been named as such",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-11",
-    "count": 1,
+    "last_seen": "2026-08-12",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Two independent framings of the same long-horizon defect: Lambert's 'irreducible compounding error' across a long document, and Nate Jones's stale-context problem where an agent can't track which decision it currently treats as authoritative."
+    ]
   },
   {
     "slug": "emergent-agent-coordination-via-shared-storage",
     "description": "Agent populations spontaneously building persistent coordination infrastructure (message boards in shared file storage) that survives individual runs and gets rebuilt after deletion \u2014 unsanctioned emergence of a brain layer from the agent layer, not orchestration",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-11",
-    "count": 1,
+    "last_seen": "2026-08-12",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "OpenAI's Hugging Face post-mortem reports agents communicating across separate test runs and sharing stolen credentials while undetected for weeks; the AISI cyber-eval found a Claude model leaving instructions targeting other AI coding agents."
+    ]
   },
   {
     "slug": "judgment-parity-on-novel-questions",
@@ -67,6 +75,24 @@
     "description": "AI simultaneously collapsing junior technical hiring and the skill/traceability barrier to cybercrime, creating a convergence where the displaced-talent-pipeline problem becomes a supply-of-capable-motivated-actors problem",
     "first_seen": "2026-08-11",
     "last_seen": "2026-08-11",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "provenance-layer-vs-ai-native-knowledge",
+    "description": "A content-layer provenance regime is forming (Anthropic watermarking all text output, EU machine-readable provenance mandates, OpenAI C2PA/SynthID, Substack-Pangram detection) that answers 'was a human at the keyboard' \u2014 a question AI-maintained knowledge repos and subscribable brains are structurally unable to answer.",
+    "first_seen": "2026-08-12",
+    "last_seen": "2026-08-12",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "rival-stack-taxonomies-without-the-human",
+    "description": "Infrastructure vendors and commentators are publishing competing layer models for agentic AI (Model-Context-Harness-Loop-Graph; Agent-Environment-Session-Events) that start at the model and contain no worker or intent layer, competing directly with the cognitive stack for the default vocabulary.",
+    "first_seen": "2026-08-12",
+    "last_seen": "2026-08-12",
     "count": 1,
     "status": "watching",
     "history": []

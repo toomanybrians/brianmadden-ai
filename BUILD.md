@@ -1344,3 +1344,59 @@ private repo attached. Recommended piloting Workstream C with just the 4
 podcast episodes before committing to the full ~90-item conversion, given
 Substack has no posting API and every single import still needs a human
 to actually publish it.
+
+### 2026-08-12 — same session, continued (the real 24h test, and a real bug)
+
+Brian asked to run the pipeline for real against yesterday's actual
+volume — the test everyone's been waiting for since the 97-note catch-up
+batch. Decided to do it in this same conversation rather than a new one:
+unlike Workstreams A/B above, routine daily pipeline operation needs
+nothing this session doesn't already have (this repo, the API key,
+working skills) — the "separate conversation" recommendation was for work
+needing the *private* repo, not for running the thing just built today.
+
+**Ran `ingest.py` for real**, auto window (37.1h since the last real run):
+27 new notes across 62 sources, clean run, no issues.
+
+**Then `brief.py` — and caught a real bug before showing Brian anything.**
+The auto window reported "1.11 days" but pulled in **124** notes, not the
+~27 actually new. Root cause: `load_recent_notes()` compared a `.date()`-
+truncated cutoff against `date_captured` (which itself only has day
+granularity — `ingest.py`'s `write_note()` never stored a time
+component). Any window that crosses a calendar boundary — and 26.7 hours
+always will — rounds up to the whole previous day, silently re-including
+everything captured that day. Yesterday's entire 97-note catch-up batch
+(`date_captured: 2026-08-11`) got pulled back in alongside today's 27 new
+notes. This would have produced a second brief that looked almost
+identical in scope to yesterday's, defeating the entire point of the test
+Brian was waiting to see — and would have kept recurring on every future
+run with a sub-48-hour gap, not just today.
+
+**Fixed properly, not patched around the symptom.** Added
+`load_previously_briefed_paths()`: scans every committed dense brief's
+`sources:` frontmatter for `ingest/`-prefixed paths already used, and
+`load_recent_notes()` now excludes anything already in that set —
+regardless of what the date window computes. No new state file; the
+committed briefs *are* the state, same pattern `skills/ingest/` already
+uses for its own URL dedup (deliberately reused, not reinvented). The
+`since_days` window stays as a coarse pre-filter, but correctness no
+longer depends on it.
+
+**Recovery, since nothing was committed yet:** `git checkout --` the two
+state files the flawed run had touched (`outputs/briefings/.last_run.json`,
+`.thread_tracker.json` — restoring committed values, not discarding real
+work), deleted the flawed `2026-08-12.md`, applied the fix, re-ran clean.
+Second run: 27 notes, matching reality.
+
+**The real 24h-window brief is genuinely different from the 97-note
+batch** — shorter, and honest about signal quality in a way worth
+noting: it opens "I read 27 items today. Five of them are stubs with no
+substance... so the real batch is closer to 22." Thread-tracker
+continuity worked correctly across days too — several threads flagged
+yesterday recurred today and correctly incremented to `seen 2x`, and two
+new ones were added, all without crossing the promotion threshold yet
+(as expected on day 2).
+
+Committed the fix, the 27 new ingest notes, and the corrected dense
+brief together. Next: `publish.py` + `render.py` to finish today's
+Substack draft.
