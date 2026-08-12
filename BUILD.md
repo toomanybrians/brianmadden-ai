@@ -1462,3 +1462,25 @@ title prefix, not a general mechanism (no premature abstraction for
 sources that don't have this problem). Corrected the two already-affected
 ingest notes (227, 230) and today's already-published output, not just
 future runs.
+
+**Substack's real subtitle limit found the hard way: 200 characters,
+mid-word, no ellipsis.** Brian pasted today's subtitle in and it cut off
+at "...and a frontier researcher wr" — the original was 258 chars, cut to
+exactly 200. Not documented anywhere findable, so this number is from the
+actual observed cut, not a guess. Fixed at two levels, not just prompted
+around: `publish-prompt.md`'s Subtitle section now states the hard limit
+explicitly (target under 180) instead of the old "~160, going over is
+fine" guidance, which was backwards given what actually happens past 200;
+and `truncate_subtitle()` in `publish.py` is a deterministic safety net
+that always enforces the 200-char limit at a word boundary regardless of
+what the model writes, so this can't recur even if the prompt guidance
+gets ignored on some future day. For today's actual post, hand-wrote a
+properly condensed subtitle rather than trusting the mechanical
+truncation on already-generated content — a clean word-boundary cut still
+left the sentence reading unfinished ("...and a frontier researcher").
+
+Also caught and fixed three stale `outputs/briefings/` references left
+over from the `technical-briefings/`/`published/` split earlier this
+session (a `sources:` frontmatter pointer and two hardcoded strings baked
+into already-generated brief bodies) — cosmetic, not broken links, but
+worth being accurate now that they were noticed.
