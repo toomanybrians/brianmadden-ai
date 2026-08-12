@@ -15,7 +15,7 @@ I recently wrote about building a [personal AI knowledge system](https://www.lin
 brianmadden.ai has a custom MCP server. Add this as a connector in your AI tool's settings:
 
 ```
-brianmadden.ai/mcp
+mcp.brianmadden.ai
 ```
 
 Then just ask your AI about my published work, frameworks, or current thinking. Your AI synthesizes across the full connected body of work—not keyword searching, but reasoning with the architecture of the thinking.

@@ -28,7 +28,7 @@ You can connect to it right now. It takes about 10 seconds.
 
 brianmadden.ai is available as an MCP server (Model Context Protocol, the open standard for connecting AI tools to external data.) In whatever AI tool you use (Claude, ChatGPT, Copilot, Gemini), go to settings, find connectors or extensions or MCP, and add:
 
-brianmadden.ai/mcp
+mcp.brianmadden.ai
 
 That's it. Your AI can now draw on my full body of work during your normal conversations. There's no app to install, no account to create, and no subscription to manage. (Step-by-step instructions for specific tools are at brianmadden.ai/connect.)
 
