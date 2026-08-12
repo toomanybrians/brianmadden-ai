@@ -34,6 +34,12 @@ from brief import (  # noqa: E402 — reuse brief.py's helpers rather than dupli
 
 DEFAULT_MODEL = "claude-fable-5"  # prose, not synthesis — Brian's call, 2026-08-11
 SUBTITLE_DELIMITER = "---SUBTITLE---"
+# Substack's real limit, confirmed empirically 2026-08-12: a 258-char
+# subtitle got silently cut to exactly 200 chars, mid-word, no ellipsis.
+# Not documented anywhere findable — this number is from the actual cut,
+# not a guess. The prompt targets well under this so the truncation below
+# is a safety net, not the normal path.
+SUBTITLE_MAX_CHARS = 200
 
 # Fixed, not model-generated (MAINTAINER.md: boilerplate is plain code,
 # model calls are for judgment) — identical on every post rather than
@@ -113,6 +119,19 @@ def substack_title(brief_date: str) -> str:
     # used on the first post: "Daily Briefing: August 11, 2026".
     date_formatted = datetime.strptime(brief_date, "%Y-%m-%d").strftime("%B %-d, %Y")
     return f"Daily Briefing: {date_formatted}"
+
+
+def truncate_subtitle(subtitle: str, max_chars: int = SUBTITLE_MAX_CHARS) -> str:
+    """Deterministic safety net — the prompt asks the model to stay well
+    under max_chars, but this guarantees it regardless, truncating at the
+    last word boundary rather than Substack's mid-word cut."""
+    if len(subtitle) <= max_chars:
+        return subtitle
+    truncated = subtitle[:max_chars]
+    last_space = truncated.rfind(" ")
+    if last_space > 0:
+        truncated = truncated[:last_space]
+    return truncated.rstrip(" ,.;:")
 
 
 def parse_response(text: str) -> tuple[str, str]:
@@ -196,6 +215,10 @@ def main() -> None:
     if not subtitle:
         print("warning: model didn't return a subtitle (missing delimiter) — falling back to a generic one", file=sys.stderr)
         subtitle = "Today's AI and future-of-work reading, from Brian Madden's AI second brain."
+    original_subtitle = subtitle
+    subtitle = truncate_subtitle(subtitle)
+    if subtitle != original_subtitle:
+        print(f"warning: subtitle was {len(original_subtitle)} chars, truncated to {len(subtitle)} (Substack's real limit is {SUBTITLE_MAX_CHARS})", file=sys.stderr)
     post_body += FOOTER
 
     write_published(brief_date, post_body, subtitle, dense_path, model=model, dry_run=args.dry_run)

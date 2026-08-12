@@ -74,8 +74,15 @@ for a post that covered three stories: "AI agents are now building second
 brains on their own, execs are using shadow AI more than their workers,
 and AI might now be better at judgement than humans." One clause per
 section, roughly — if there are two sections, two clauses; four sections,
-four clauses. Aim for under ~160 characters if you can; going over is
-better than leaving a section out.
+four clauses.
+
+**Hard limit: 200 characters.** This isn't a style preference — Substack
+silently truncates past it, mid-word, no ellipsis (confirmed the hard
+way: a 258-character subtitle got cut off mid-sentence at "...and a
+frontier researcher wr"). Target **under 180** so you have margin, and if
+you're going to run long, cut a clause rather than let one trail off
+unfinished. A truncation safety net exists in code too, but don't rely on
+it — a subtitle you wrote to fit reads better than one that got cut.
 
 ## Rules
 
