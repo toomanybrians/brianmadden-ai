@@ -24,6 +24,7 @@ demand, not repo content.
 """
 
 import argparse
+import html
 import re
 import subprocess
 import sys
@@ -48,7 +49,25 @@ STYLE = """<meta name="color-scheme" content="light">
   blockquote { border-left: 3px solid #ddd; margin-left: 0; padding-left: 1em; color: #555; }
   hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
   em { color: #555; }
+  .substack-fields { border: 1px dashed #bbb; border-radius: 6px; padding: 12px 16px; margin-bottom: 32px; background: #fafafa; }
+  .substack-fields .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 0 0 2px; }
+  .substack-fields .value { margin: 0 0 12px; font-size: 1.05em; }
+  .substack-fields .value:last-child { margin-bottom: 0; }
 </style>"""
+
+
+def render_fields_block(title: str, subtitle: str) -> str:
+    """A visually separate box above the body — not part of the post
+    content, just Title/Subtitle shown plainly so Brian can copy each
+    into Substack's own (separate, plain-text) Title/Subtitle fields
+    without hunting through frontmatter or console output for them."""
+    parts = ['<div class="substack-fields">']
+    if title:
+        parts.append(f'<p class="label">Substack title</p><p class="value">{html.escape(title)}</p>')
+    if subtitle:
+        parts.append(f'<p class="label">Substack subtitle</p><p class="value">{html.escape(subtitle)}</p>')
+    parts.append("</div>")
+    return "\n".join(parts) if len(parts) > 2 else ""
 
 
 def normalize_body(body: str) -> str:
@@ -131,10 +150,11 @@ def main() -> None:
     if not args.no_status_sync:
         sync_status_and_commit(md_path)
 
-    _, body = read_frontmatter_and_body(md_path)
+    fm, body = read_frontmatter_and_body(md_path)
     body = normalize_body(body)
     html_body = markdown.markdown(body, extensions=["extra"])
-    full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{html_body}\n</body>\n</html>\n"
+    fields_block = render_fields_block(fm.get("substack_title", ""), fm.get("substack_subtitle", ""))
+    full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{fields_block}\n{html_body}\n</body>\n</html>\n"
 
     out_path = md_path.with_suffix(".html")
     out_path.write_text(full_html, encoding="utf-8")
