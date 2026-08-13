@@ -35,12 +35,24 @@
 #               framing instruction (e.g. "surface where he disagrees with
 #               consensus"). Also intended for reuse by the Day-5 briefing
 #               skill, not just ingest. Blank = no framing applied.
+#   ingest_method — "email" routes this source through fetch_entries_email()
+#               (polls brain@brianmadden.ai via Gmail API) instead of the
+#               feed_url poll. Omit for normal RSS/Atom sources.
+#   sender    — required when ingest_method: email. The newsletter's
+#               from-address, used to build the Gmail search query. Left
+#               null until the newsletter is actually subscribed to brain@
+#               and a real message reveals the real address — not guessed.
 #
 # lens/pov added Day 4 (2026-08-10), resolving BUILD.md open decision #6.
 # Both fields are optional and mostly unset — Brian expects to steer them in
 # over time rather than have all 56 sources opinionated at once. Backfilled
 # here only for the two sources whose `note` already carried implicit lens
 # language (moonshots, marcus-on-ai) as worked examples.
+#
+# ingest_method/sender added 2026-08-12, resolving open decision #7a's
+# design (see BUILD.md) — code is real, but exec-ai-insider-weekly still
+# needs (a) actually being subscribed to brain@brianmadden.ai and (b) its
+# `sender` filled in from a real received message before it can run.
 
 sources:
   - id: ethan-mollick
@@ -72,8 +84,10 @@ sources:
     type: newsletter
     url: https://academy.smarterx.ai/exec-ai-newsletter
     feed_url: null
+    ingest_method: email
+    sender: null  # fill in from a real received message once subscribed to brain@
     priority: regular
-    note: "Free weekly newsletter from SmarterX / Marketing AI Institute. No RSS discoverable on the signup page — email-only; may need a subscribed inbox in the loop rather than a feed poll."
+    note: "Free weekly newsletter from SmarterX / Marketing AI Institute. No RSS discoverable on the signup page — email-only. Ingestion code is real (fetch_entries_email(), 2026-08-12) but blocked on (1) subscribing this newsletter to brain@brianmadden.ai and (2) filling in `sender` above from a real received message."
 
   - id: the-artificial-intelligence-show
     name: The Artificial Intelligence Show

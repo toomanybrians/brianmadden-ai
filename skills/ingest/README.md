@@ -49,10 +49,12 @@ deliberately re-scanning further back, etc.).
 
 ## How it works
 
-1. Load `sources/sources.yaml`. Skip any source with no `feed_url` (email-only
-   sources like ExecAI Insider Weekly — see `fetch_entries_email()` below).
+1. Load `sources/sources.yaml`. A source with `ingest_method: email` routes
+   through `fetch_entries_email()` (polls `brain@brianmadden.ai` via the
+   Gmail API); everything else needs a `feed_url` or is skipped.
 2. Fetch each feed (`requests` + `feedparser`), filter to entries published
-   within `--since-days`, cap at `--max-per-source`.
+   within `--since-days`, cap at `--max-per-source`. Email sources use the
+   same window via Gmail's `after:` search operator instead.
 3. Dedupe against every `source_url` already present in `ingest/**/*.md`
    frontmatter — no separate state file, the notes on disk *are* the state.
 4. For each new entry, one call through `skills/lib/llm.py` using
@@ -86,15 +88,37 @@ function in `llm.py`, not a change to every skill that calls it. Today:
 (OpenAI-compatible HTTP API via `requests`, for the open-weight comparison
 runs in BUILD.md's post-launch backlog — not the default).
 
+## Email-only sources (brain@)
+
+`fetch_entries_email()` polls `brain@brianmadden.ai` via the Gmail API for
+mail from a source's `sender` (set in its `sources.yaml` entry). Needs
+`GMAIL_CLIENT_ID` / `GMAIL_CLIENT_SECRET` / `GMAIL_REFRESH_TOKEN` in `.env`
+— see BUILD.md's brain@ Gmail walkthrough for the Cloud Console steps, and
+`skills/lib/gmail_get_refresh_token.py` for the one-time local OAuth step
+that produces the refresh token. Read-only scope (`gmail.readonly`) — this
+can never send, modify, or delete mail. A source without `sender` set, or a
+missing credential, fails that one source cleanly (same `(entries, error)`
+shape as a broken feed) rather than crashing the whole run.
+
+The one source currently wired this way, `exec-ai-insider-weekly`, still
+needs to actually be subscribed to `brain@` and have its `sender` filled in
+from a real received message before it does anything — the code path is
+real, the source isn't live yet.
+
 ## Known limitations (v1)
 
 - **Podcasts and YouTube get whatever text their RSS show-notes provide** —
   no audio transcription. A thin show-notes entry produces a thin note.
-  Real transcript-based ingestion is future work, not this skill.
-- **Email-only sources aren't ingested yet.** `fetch_entries_email()` in
-  `ingest.py` is a stub — it documents the intended Gmail-API path against
-  `brain@brianmadden.ai` but raises `NotImplementedError`, since that
-  mailbox doesn't exist yet (BUILD.md Day 1/8). Tracked as open decision #7a.
+  Real transcript-based ingestion is future work — see
+  `docs/full-source-text-ingestion.md`.
+- **Email ingestion supports one sender per source, day-granularity
+  windowing only** (Gmail search's `after:` operator, same coarseness as
+  everywhere else this pipeline already does date filtering). Fine for a
+  weekly newsletter; would need widening (an `OR` sender query) if a source
+  ever needs multiple known addresses.
+- **The `ask@` read-only Q&A lane (MAINTAINER.md rule 5, D8) isn't built.**
+  It's expected to reuse the same Gmail credentials as `brain@` ingestion
+  once it exists, but nothing here does that yet.
 - **No automation yet.** This runs manually from a terminal. Cron/GitHub
   Actions wiring is Day 6.
 - **Paywalled sources only get the free preview, even from the feed.**

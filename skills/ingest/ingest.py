@@ -9,6 +9,7 @@ call per new entry is where judgment (extraction, relevance, framing) lives
 """
 
 import argparse
+import base64
 import calendar
 import html
 import json
@@ -186,24 +187,140 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
     return entries[:max_per_source], None
 
 
-def fetch_entries_email(source: dict, since_days: int, max_per_source: int):
-    """
-    Stub for BUILD.md open decision #7a — non-Substack email newsletters
-    (e.g. exec-ai-insider-weekly, feed_url: null) ingested by polling
-    brain@brianmadden.ai via the Gmail API, rather than RSS.
+GMAIL_USER = "brain@brianmadden.ai"
+GMAIL_TOKEN_URL = "https://oauth2.googleapis.com/token"
+GMAIL_API_BASE = f"https://gmail.googleapis.com/gmail/v1/users/{GMAIL_USER}/messages"
+GMAIL_ENV_VARS = ("GMAIL_CLIENT_ID", "GMAIL_CLIENT_SECRET", "GMAIL_REFRESH_TOKEN")
 
-    Not implemented: the brain@ mailbox doesn't exist yet (Workspace setup
-    is BUILD.md Day 1/8, not done). When it exists, this should:
-      1. Poll the Gmail API for mail from this source's known sender(s) in
-         brain@'s inbox.
-      2. Extract the message body (plain text preferred over HTML).
-      3. Return entries in the same shape fetch_entries() returns, so the
-         extract()/write_note() pipeline below is unchanged.
+
+def gmail_is_configured() -> bool:
+    return all(os.environ.get(v) for v in GMAIL_ENV_VARS)
+
+
+def _gmail_access_token() -> str:
+    resp = requests.post(GMAIL_TOKEN_URL, data={
+        "client_id": os.environ["GMAIL_CLIENT_ID"],
+        "client_secret": os.environ["GMAIL_CLIENT_SECRET"],
+        "refresh_token": os.environ["GMAIL_REFRESH_TOKEN"],
+        "grant_type": "refresh_token",
+    }, timeout=15)
+    resp.raise_for_status()
+    return resp.json()["access_token"]
+
+
+def _gmail_find_part(payload: dict, mime_type: str) -> str | None:
+    """Depth-first search of a Gmail API message payload for a part with
+    the given MIME type, returning its base64url body data if found."""
+    if payload.get("mimeType") == mime_type:
+        data = payload.get("body", {}).get("data")
+        if data:
+            return data
+    for sub in payload.get("parts", []) or []:
+        found = _gmail_find_part(sub, mime_type)
+        if found:
+            return found
+    return None
+
+
+def _gmail_decode(data: str) -> str:
+    padded = data.replace("-", "+").replace("_", "/")
+    padded += "=" * (-len(padded) % 4)
+    return base64.b64decode(padded).decode("utf-8", errors="replace")
+
+
+def _gmail_extract_body(payload: dict) -> str:
+    """Prefers text/plain across the whole MIME tree; falls back to
+    stripped text/html if no plain part exists."""
+    plain = _gmail_find_part(payload, "text/plain")
+    if plain:
+        return _gmail_decode(plain).strip()
+    html_data = _gmail_find_part(payload, "text/html")
+    if html_data:
+        return strip_html(_gmail_decode(html_data))
+    return ""
+
+
+def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     """
-    raise NotImplementedError(
-        "Email ingestion not built yet — needs brain@brianmadden.ai "
-        "(BUILD.md open decision #7a, Day 1/8)."
+    Polls brain@brianmadden.ai for mail from this source's known sender
+    (BUILD.md open decision #7a) — the email-source counterpart to
+    fetch_entries(), same (entries, error) contract.
+
+    Needs GMAIL_CLIENT_ID/SECRET/REFRESH_TOKEN (see .env.example and the
+    brain@ Gmail walkthrough in BUILD.md) and a 'sender' field on the
+    source's sources.yaml entry — this doesn't guess a from-address.
+    """
+    if not gmail_is_configured():
+        return [], "GMAIL_CLIENT_ID/SECRET/REFRESH_TOKEN not set — see .env.example"
+
+    sender = source.get("sender")
+    if not sender:
+        return [], "no 'sender' set in sources.yaml for this email source"
+
+    try:
+        access_token = _gmail_access_token()
+    except requests.RequestException as e:
+        return [], f"gmail auth failed: {e}"
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=since_days)
+    # Gmail search's after: is day-granularity, same as this pipeline's
+    # existing date_captured handling elsewhere.
+    query = f"from:{sender} after:{cutoff.strftime('%Y/%m/%d')}"
+    headers = {"Authorization": f"Bearer {access_token}"}
+
+    try:
+        resp = requests.get(
+            GMAIL_API_BASE, headers=headers,
+            params={"q": query, "maxResults": max_per_source}, timeout=15,
+        )
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        return [], f"gmail list failed: {e}"
+
+    entries = []
+    for msg_ref in resp.json().get("messages", []):
+        msg_id = msg_ref["id"]
+        try:
+            msg_resp = requests.get(
+                f"{GMAIL_API_BASE}/{msg_id}", headers=headers,
+                params={"format": "full"}, timeout=15,
+            )
+            msg_resp.raise_for_status()
+        except requests.RequestException as e:
+            print(f"    gmail: failed to fetch message {msg_id}: {e}")
+            continue
+
+        message = msg_resp.json()
+        payload = message.get("payload", {})
+        header_map = {h["name"]: h["value"] for h in payload.get("headers", [])}
+
+        published_dt = None
+        date_published = None
+        internal_date = message.get("internalDate")
+        if internal_date:
+            published_dt = datetime.fromtimestamp(int(internal_date) / 1000, tz=timezone.utc)
+            date_published = published_dt.strftime("%Y-%m-%d")
+
+        content = _gmail_extract_body(payload)
+        truncated = len(content) > MAX_CONTENT_CHARS
+        content = content[:MAX_CONTENT_CHARS]
+        if truncated:
+            content += " […truncated…]"
+
+        entries.append({
+            "title": header_map.get("Subject", "(no subject)").strip(),
+            "link": f"https://mail.google.com/mail/u/0/#inbox/{msg_id}",
+            "author": header_map.get("From", sender).strip(),
+            "date_published": date_published,
+            "published_dt": published_dt,
+            "content": content,
+        })
+
+    entries.sort(
+        key=lambda e: e["published_dt"] or datetime.min.replace(tzinfo=timezone.utc),
+        reverse=True,
     )
+    return entries[:max_per_source], None
 
 
 # ----------------------------------------------------------------- dedup --
@@ -287,7 +404,8 @@ def slugify(text: str, max_len: int = 60) -> str:
 
 
 def write_note(
-    ingest_root: Path, source: dict, entry: dict, body: str, dry_run: bool, model: str
+    ingest_root: Path, source: dict, entry: dict, body: str, dry_run: bool, model: str,
+    ingest_method: str = "feed",
 ) -> Path:
     now = datetime.now(timezone.utc)
     date_captured = now.strftime("%Y-%m-%d")
@@ -304,7 +422,7 @@ def write_note(
         "author": entry.get("author") or source.get("name", source["id"]),
         "date_published": entry.get("date_published"),
         "date_captured": date_captured,
-        "ingest_method": "feed",
+        "ingest_method": ingest_method,
         "model": model,
     }
     fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True).strip()
@@ -377,11 +495,15 @@ def main() -> None:
     total_new = 0
     total_written = 0
     for source in sources:
-        if not source.get("feed_url"):
+        is_email = source.get("ingest_method") == "email"
+        if not is_email and not source.get("feed_url"):
             print(f"[{source['id']}] skipped — no feed_url")
             continue
 
-        entries, err = fetch_entries(source, since_days, args.max_per_source)
+        if is_email:
+            entries, err = fetch_entries_email(source, since_days, args.max_per_source)
+        else:
+            entries, err = fetch_entries(source, since_days, args.max_per_source)
         if err:
             print(f"[{source['id']}] {err}")
             continue
@@ -403,7 +525,10 @@ def main() -> None:
             if body is None:
                 print(f"    skipped (not relevant): {entry['title']}")
                 continue
-            write_note(ingest_root, source, entry, body, args.dry_run, model=model_used)
+            write_note(
+                ingest_root, source, entry, body, args.dry_run, model=model_used,
+                ingest_method="email" if is_email else "feed",
+            )
             seen_urls.add(entry["link"])
             total_written += 1
 
