@@ -78,18 +78,45 @@ applied to a new content shape.
   free, but a third provider/credential to manage for a feature this
   pipeline doesn't currently need (nobody's asked for "who said what").
 
-Recommendation, not a decision: start with the OpenAI Whisper API for the
-same reason `ANTHROPIC_API_KEY` was the right first move for text — cheap,
-simple, no infrastructure to stand up, easy to swap later behind its own
-small abstraction (`skills/lib/transcribe.py`, mirroring how `lib/llm.py`
-already keeps providers swappable) if it turns out to be wrong.
+**Decided 2026-08-12: OpenAI Whisper API for now, built swappable from
+day one.** Same pattern as `skills/lib/llm.py` — a new
+`skills/lib/transcribe.py` with one `transcribe()` entry point, provider
+chosen via `TRANSCRIBE_PROVIDER` env var / `--transcribe-provider` CLI
+flag (mirroring `LLM_PROVIDER`), `openai` as the first and only real
+provider for now. Call sites (`skills/ingest/ingest.py`) never import an
+SDK directly, same discipline as the text-generation path. Not yet
+built — waiting on Brian's OpenAI API key. Whether OpenRouter can serve
+as a second provider later depends on it actually exposing a
+Whisper-compatible transcription endpoint, which hasn't been checked —
+note the abstraction doesn't require deciding that now, only that adding
+a provider later is one function + one registry entry, not a rewrite of
+call sites (exactly how `lib/llm.py already works for `openrouter`
+alongside `anthropic`).
+
+**Podcast-by-podcast transcript check, 2026-08-12 (real research, not
+assumed):**
+
+| Source | Transcript? | How |
+|---|---|---|
+| `80000-hours-podcast` | **Yes, confirmed** | RSS feed itself carries a `<podcast:transcript url="..." type="text/plain"/>` tag per episode — direct plain-text URL, easiest possible case, no parsing needed |
+| `dwarkesh` | **Yes, confirmed** | Publishes transcripts on dwarkesh.com itself (not in the RSS feed — needs fetching the episode page, not just the feed) |
+| `lex-fridman` | **Yes, confirmed** | Publishes transcripts on lexfridman.com itself, same shape as Dwarkesh — own site, not the RSS feed |
+| `ezra-klein-show` | **Yes, confirmed** | NYT posts transcripts at nytimes.com/ezra-klein-podcast |
+| `hard-fork` | **Unclear** | No first-party NYT transcript page found in this pass; only third-party transcript sites turned up. Worth a closer look, not ruled out |
+| `the-artificial-intelligence-show` | **No** | Confirmed no `<podcast:transcript>` tag in the feed — this is the source that prompted the whole check, and it's show-notes-only |
+| `moonshots`, `bg2`, `on-with-kara-swisher`, `no-priors`, `hbr-ideacast` | **Not yet checked** | RSS feeds don't carry the `<podcast:transcript>` tag (checked); whether any publish transcripts on their own sites wasn't checked in this pass |
+
+So at minimum 4 of 11 (80000-hours-podcast, dwarkesh, lex-fridman,
+ezra-klein-show) are real, buildable-now candidates with no new
+credentials — a good pilot batch, similar spirit to Workstream C's
+podcast-episodes-first recommendation in the Substack plan.
 
 **sources.yaml additions needed:** a `transcript_mode` field per podcast
 source (`published` / `transcribe` / `none`), and for `published` sources,
 however the transcript is actually reachable (a URL pattern, or a flag to
-check the RSS feed's `<podcast:transcript>` tag). Needs a source-by-source
-pass across the 11 podcast entries to find out which are which — not
-assumed, needs to actually be checked.
+check the RSS feed's `<podcast:transcript>` tag) — the table above is a
+real starting point, not a guess, but the 5 unchecked sources still need
+the same pass before this field can be filled in completely.
 
 **Cost/latency reality check:** transcribing adds real time and money per
 episode that RSS-only ingest doesn't have today — a 60-90 minute episode
@@ -99,25 +126,44 @@ happen, not assuming it's negligible.
 
 ## Workstream F — X / Twitter
 
+**Decided 2026-08-12: yes, pursue this. Brian is setting up a paid X
+developer account and API key** (separate from the OpenAI key above),
+under the `brianmaddenai` account — mirrors how that account already
+follows Substack publications as the public source registry (open
+decision #7 in `BUILD.md`); same pattern, second platform.
+
 **The real cost picture (researched 2026-08-12, not assumed):** the free
 tier closed and the flat $200/mo (Basic) and $5,000/mo (Pro) tiers closed
-to new signups as of February 2026. Pay-per-use is now the default for a
-new developer account: $0.005 per post read, capped at 2M reads/month.
-For light use — a handful of specific people, checked once a day — this
-is probably genuinely cheap (rough estimate: ~$10-15/month at realistic
-volume), not the $200-5,000/mo figures that get quoted around the web,
-since those are the now-closed legacy tiers. Still real friction though:
-a paid developer account from day one (no free trial), a payment method
-on file, and real integration work (per-person timeline polling,
-pagination, since-last-checked tracking similar to `ingest.py`'s existing
-dedup).
+to new signups as of February 2026. Pay-per-use is now the default:
+general reads are $0.005/post, but reads of *your own account's data* —
+which the home timeline counts as — are priced separately and lower,
+$0.001/resource, under what X calls "Owned Reads." Real friction either
+way: a paid developer account from day one (no free trial), a payment
+method on file.
 
-**Design, if pursued:** treat each tracked X account the same way
-`sources.yaml` treats a podcast or blog — `type: x`, a handle, and the
-same `lens`/`pov` fields already available to every source. Polling is a
-new `fetch_entries_x()` function alongside the existing `fetch_entries()`
-and the still-stubbed `fetch_entries_email()`, normalized to the same
-entry shape so the extraction/write pipeline downstream doesn't change.
+**The key finding: one endpoint replaces per-person polling entirely.**
+X API v2's `GET /2/users/:id/timelines/reverse_chronological` — the
+"home timeline" — returns posts from the accounts the authenticated user
+follows, exactly like opening the X app. Confirmed available under the
+current pricing model, and priced at the cheaper Owned Reads rate. This
+means: `brianmaddenai` follows the right people once (a curation task,
+same shape as the Substack follow list), and ingest polls *one* endpoint
+per run rather than one call per tracked person — no per-person
+`fetch_entries_x_user()` loop needed, no separate list of handles to
+maintain in `sources.yaml` beyond "these are the people the account
+follows." Simpler than the per-user-polling design floated before this
+was checked.
+
+**Design, updated:** `fetch_entries_x()` in `skills/ingest/ingest.py`
+polls the home timeline once per run (same `since_days`-style windowing
+`fetch_entries()` already does for RSS, applied to the timeline's own
+chronological order), normalized to the same entry shape everything else
+uses. Not yet built — waiting on the X developer account and key. Who
+`brianmaddenai` follows *is* the source list here, unlike every other
+source type where `sources.yaml` is the registry — worth deciding whether
+that's tracked in `sources.yaml` too (a `type: x` entry per person, for
+`lens`/`pov` and consistency) or left implicit in the X follow list
+itself. Not decided.
 
 **Fallback (Brian's own suggestion): manual daily paste.** If the API
 route doesn't happen or a specific person isn't worth automating for,
@@ -132,23 +178,30 @@ worth automating.
 ## What's actually blocked vs. buildable now
 
 - **Buildable now, no new credentials:** published-transcript podcast
-  ingestion (Workstream E, path 1); the manual-paste fallback (Workstream
-  F). Both can happen in this repo, this session, whenever picked up.
-- **Blocked on Brian provisioning a credential:** audio transcription
-  (needs a transcription service API key — his call which service first)
-  and the X API path (needs a paid X developer account set up). Neither
-  needs a *different repo* the way the MCP/Cloudflare work does — unlike
-  Workstreams A/B in `docs/substack-as-primary-home.md`, this doesn't
-  strictly need a new conversation, just needs Brian to have the
-  credential in hand first. Can pick back up in whatever session is
-  convenient once that's done.
+  ingestion for the 4 confirmed sources (80000-hours-podcast, dwarkesh,
+  lex-fridman, ezra-klein-show); the manual-paste fallback for X. Both
+  can happen in this repo, this session, whenever picked up.
+- **Blocked on Brian provisioning a credential — in progress as of
+  2026-08-12, not done yet:** audio transcription (OpenAI API key,
+  decided) and the X home-timeline path (paid X developer account +
+  key, decided). Neither needs a *different repo* the way the MCP/
+  Cloudflare work does — unlike Workstreams A/B in
+  `docs/substack-as-primary-home.md`, this doesn't strictly need a new
+  conversation, just needs the credentials in hand first. Explicitly
+  fine to pick up in a different thread once they're ready, per Brian's
+  own preference — this doc is written so that thread doesn't need this
+  conversation's context.
 
 ## Open, not decided
 
-- Transcription service choice (Whisper API vs. local vs. a dedicated
-  service).
-- Which of the 11 podcast sources actually publish transcripts already —
-  needs a real per-source check, not assumed either way.
-- Which specific people Brian wants tracked on X, and whether that's
-  worth the API integration per-person vs. just using the manual-paste
-  fallback for a small number of accounts.
+- Whether `hard-fork` publishes a real transcript anywhere first-party —
+  not ruled out, just not confirmed in this pass.
+- Whether `moonshots`, `bg2`, `on-with-kara-swisher`, `no-priors`, and
+  `hbr-ideacast` publish transcripts on their own sites (RSS feeds
+  checked and don't carry the tag; websites not checked).
+- Whether OpenRouter (or another provider) is worth adding to
+  `skills/lib/transcribe.py` later — not needed to start building with
+  `openai` as the only provider.
+- Whether X-followed people get their own `sources.yaml` entries (for
+  `lens`/`pov` parity with every other source type) or stay implicit in
+  the X follow list itself.

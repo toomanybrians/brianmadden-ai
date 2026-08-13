@@ -1512,3 +1512,38 @@ there's no strict need for a new conversation, just picking back up once
 those exist. Recommended starting with whichever podcast sources already
 publish transcripts (needs a real per-source check, not assumed) as the
 one piece buildable today.
+
+**Same-session follow-up: both decided, real research done, transcript
+check actually run.** Brian decided both open questions from the doc
+above: OpenAI Whisper API for transcription (built swappable from day
+one — `skills/lib/transcribe.py`, mirroring `lib/llm.py`'s
+provider-registry pattern, not built yet, waiting on the key), and yes to
+X (paid developer account, under the `brianmaddenai` handle — same
+account, same follow-the-right-people pattern already used for
+Substack).
+
+**Real finding on X, not assumed:** asked whether the API could pull
+every followed account automatically — checked, and yes: X API v2's
+reverse-chronological home-timeline endpoint does exactly this in one
+call, and it's priced under X's cheaper "Owned Reads" tier ($0.001/read)
+rather than the general $0.005 rate. Genuinely simplifies the design from
+"poll each tracked person separately" to "poll one endpoint," since who
+`brianmaddenai` follows *is* the source list.
+
+**Ran the actual podcast-by-podcast transcript check** across all 11
+sources rather than leaving it as a TODO: confirmed
+`80000-hours-podcast` carries a direct `<podcast:transcript>` plain-text
+URL right in its RSS feed (easiest possible case); confirmed `dwarkesh`,
+`lex-fridman`, and `ezra-klein-show` all publish transcripts on their own
+sites (not in the feed, needs fetching the episode page separately);
+confirmed `the-artificial-intelligence-show` has no transcript tag
+(consistent with today's show-notes-only note that started this whole
+thread); `hard-fork` unclear (only third-party transcript sites found);
+5 sources not yet checked beyond confirming their RSS feeds don't carry
+the tag. Full table in `docs/full-source-text-ingestion.md`. That's 4 of
+11 sources confirmed as a real, buildable-now pilot batch once the doc
+gets picked back up.
+
+Both credentials are Brian's to set up between sessions — doc is written
+so a fresh thread can pick this up without re-deriving today's
+conversation.
