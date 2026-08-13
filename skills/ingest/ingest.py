@@ -16,6 +16,7 @@ import json
 import os
 import re
 import sys
+import tempfile
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -25,7 +26,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
-from lib import llm  # noqa: E402  (needs sys.path set first)
+from lib import llm, transcribe  # noqa: E402  (needs sys.path set first)
 
 USER_AGENT = "brianmadden-ai-ingest/0.1 (+https://brianmadden.ai)"
 # Substack's content:encoded (and most other feeds checked) carry genuine
@@ -171,10 +172,272 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
         link = (raw.get("link") or "").strip()
         link = fix_episode_link(source["id"], title, link)
 
+        # feedparser surfaces the Podcasting 2.0 <podcast:transcript> tag
+        # as podcast_transcript automatically (confirmed 2026-08-12, not
+        # assumed) — {'url': ..., 'type': ...}. Audio enclosure is the
+        # standard RSS <enclosure>. Both optional; only used if the
+        # source's transcript_mode asks for them (see enrich_with_transcript()).
+        transcript_tag = raw.get("podcast_transcript") or {}
+        audio_url = None
+        for enc in raw.get("enclosures", []) or []:
+            if (enc.get("type") or "").startswith("audio/"):
+                audio_url = enc.get("href")
+                break
+
         entries.append({
             "title": title,
             "link": link,
             "author": (raw.get("author") or "").strip(),
+            "date_published": date_published,
+            "published_dt": published_dt,
+            "content": content,
+            "podcast_transcript_url": transcript_tag.get("url"),
+            "audio_url": audio_url,
+        })
+
+    entries.sort(
+        key=lambda e: e["published_dt"] or datetime.min.replace(tzinfo=timezone.utc),
+        reverse=True,
+    )
+    return entries[:max_per_source], None
+
+
+TRANSCRIPT_MAX_BYTES = 300 * 1024 * 1024  # ~300MB safety valve against a malformed enclosure
+
+
+def enrich_with_transcript(entry: dict, source: dict) -> None:
+    """Mutates entry['content'] in place with a real transcript, per the
+    source's transcript_mode (docs/full-source-text-ingestion.md):
+      - "published": fetch entry['podcast_transcript_url'] directly (the
+        one confirmed case, 80000-hours-podcast, gives plain text for
+        free — no transcription cost).
+      - "transcribe": download entry['audio_url'] to a real OS temp file
+        (never the repo working tree — MAINTAINER.md rule 2 extended to
+        audio, see the planning doc), transcribe it, delete the file
+        immediately after, transcribed or not.
+      - anything else (unset, "none"): no-op, leaves show-notes content.
+    Falls back to the existing show-notes content on any failure rather
+    than crashing the run over one episode.
+    """
+    mode = source.get("transcript_mode")
+    if mode not in ("published", "transcribe"):
+        return
+
+    if mode == "published":
+        url = entry.get("podcast_transcript_url")
+        if not url:
+            print(f"    transcript_mode=published but no transcript URL on this episode — using show notes")
+            return
+        try:
+            resp = requests.get(url, timeout=30, headers={"User-Agent": USER_AGENT})
+            resp.raise_for_status()
+        except requests.RequestException as e:
+            print(f"    transcript fetch failed ({e}) — using show notes")
+            return
+        text = resp.text
+        truncated = len(text) > MAX_CONTENT_CHARS
+        entry["content"] = text[:MAX_CONTENT_CHARS] + (" […truncated…]" if truncated else "")
+        print(f"    fetched published transcript ({len(text)} chars)")
+        return
+
+    # mode == "transcribe"
+    audio_url = entry.get("audio_url")
+    if not audio_url:
+        print(f"    transcript_mode=transcribe but no audio enclosure on this episode — using show notes")
+        return
+    if not transcribe.is_configured():
+        print(f"    {transcribe.required_env_var()} not set — using show notes instead of transcribing")
+        return
+
+    tmp_path = None
+    try:
+        # Stage 1: download. Errors here are about the audio fetch, not
+        # transcription — kept in its own try/except so the two failure
+        # modes get accurate messages rather than being conflated (both
+        # stages can raise the same requests exception types, so telling
+        # them apart requires separating the stages, not the exception
+        # class).
+        try:
+            with requests.get(audio_url, timeout=60, stream=True, headers={"User-Agent": USER_AGENT}) as resp:
+                resp.raise_for_status()
+                suffix = Path(audio_url.split("?")[0]).suffix or ".mp3"
+                with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
+                    tmp_path = Path(tmp.name)
+                    downloaded = 0
+                    for chunk in resp.iter_content(chunk_size=1024 * 1024):
+                        downloaded += len(chunk)
+                        if downloaded > TRANSCRIPT_MAX_BYTES:
+                            raise ValueError(f"audio enclosure exceeded {TRANSCRIPT_MAX_BYTES} bytes, aborting")
+                        tmp.write(chunk)
+        except (requests.RequestException, ValueError) as e:
+            print(f"    audio download failed ({e}) — using show notes")
+            return
+
+        # Stage 2: transcription.
+        try:
+            print(f"    downloaded audio ({downloaded / 1_000_000:.1f}MB) — transcribing via {transcribe.current_provider()}/{transcribe.resolve_model()}...")
+            text = transcribe.transcribe(tmp_path)
+        except requests.RequestException as e:
+            print(f"    transcription API call failed ({e}) — using show notes")
+            return
+
+        truncated = len(text) > MAX_CONTENT_CHARS
+        entry["content"] = text[:MAX_CONTENT_CHARS] + (" […truncated…]" if truncated else "")
+        print(f"    transcribed ({len(text)} chars)")
+    finally:
+        if tmp_path and tmp_path.exists():
+            tmp_path.unlink()
+
+
+X_API_BASE = "https://api.x.com/2"
+X_TOKEN_URL = "https://api.x.com/2/oauth2/token"
+X_ENV_VARS = ("X_CLIENT_ID", "X_CLIENT_SECRET", "X_ACCESS_TOKEN", "X_REFRESH_TOKEN")
+EXTERNAL_LINK_MAX_CHARS = 20000  # per linked article — keeps one long page from dominating an entry
+
+
+def x_is_configured() -> bool:
+    return all(os.environ.get(v) for v in X_ENV_VARS)
+
+
+def _update_env_var(key: str, value: str) -> None:
+    """Rewrites one KEY=value line in the repo-root .env in place. Used
+    when X rotates the refresh token on use (standard OAuth 2.0 practice)
+    so the next run doesn't fail with a now-invalid one. .env is
+    gitignored and local-only; this never touches anything committed."""
+    env_path = ROOT / ".env"
+    if not env_path.exists():
+        return
+    lines = env_path.read_text(encoding="utf-8").splitlines()
+    for i, line in enumerate(lines):
+        if line.strip().startswith(f"{key}="):
+            lines[i] = f"{key}={value}"
+            break
+    else:
+        lines.append(f"{key}={value}")
+    env_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def _x_refresh_access_token() -> str:
+    resp = requests.post(
+        X_TOKEN_URL,
+        auth=(os.environ["X_CLIENT_ID"], os.environ["X_CLIENT_SECRET"]),
+        data={"grant_type": "refresh_token", "refresh_token": os.environ["X_REFRESH_TOKEN"]},
+        timeout=15,
+    )
+    resp.raise_for_status()
+    tokens = resp.json()
+    new_refresh = tokens.get("refresh_token")
+    if new_refresh and new_refresh != os.environ["X_REFRESH_TOKEN"]:
+        _update_env_var("X_REFRESH_TOKEN", new_refresh)
+        os.environ["X_REFRESH_TOKEN"] = new_refresh
+    return tokens["access_token"]
+
+
+def _fetch_external_link_content(url: str) -> str:
+    """Best-effort fetch + strip of an external link's page text — Brian's
+    ask (2026-08-12): if a post links to something, pull in what it's
+    actually talking about, not just the post's own text. Never raises —
+    one broken/paywalled/slow link shouldn't sink the whole run."""
+    try:
+        resp = requests.get(url, timeout=15, headers={"User-Agent": USER_AGENT})
+        resp.raise_for_status()
+    except requests.RequestException:
+        return ""
+    return strip_html(resp.text)[:EXTERNAL_LINK_MAX_CHARS]
+
+
+def fetch_entries_x(source: dict, since_days: float, max_per_source: int):
+    """Polls the authenticated X account's reverse-chronological home
+    timeline — everyone it follows, in one call, rather than polling each
+    person separately (docs/full-source-text-ingestion.md Workstream F).
+    Same (entries, error) contract as fetch_entries(). For retweets/
+    quotes, folds in the full referenced post's text, not just the
+    wrapper; for posts linking elsewhere, fetches that page's content too.
+    Both are ephemeral input to the one extraction call downstream, same
+    as everything else — never persisted raw (MAINTAINER.md rule 2).
+    """
+    if not x_is_configured():
+        return [], "X_CLIENT_ID/SECRET/ACCESS_TOKEN/REFRESH_TOKEN not set — see .env.example"
+
+    try:
+        access_token = _x_refresh_access_token()
+    except requests.RequestException as e:
+        return [], f"X auth failed: {e}"
+
+    headers = {"Authorization": f"Bearer {access_token}"}
+
+    try:
+        me_resp = requests.get(f"{X_API_BASE}/users/me", headers=headers, timeout=15)
+        me_resp.raise_for_status()
+    except requests.RequestException as e:
+        return [], f"X 'get my user id' call failed: {e}"
+    user_id = me_resp.json()["data"]["id"]
+
+    start_time = (datetime.now(timezone.utc) - timedelta(days=since_days)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    try:
+        resp = requests.get(
+            f"{X_API_BASE}/users/{user_id}/timelines/reverse_chronological",
+            headers=headers,
+            params={
+                "max_results": min(max(max_per_source, 5), 100),  # X requires 5-100; sliced to max_per_source below
+                "start_time": start_time,
+                "tweet.fields": "created_at,author_id,entities,referenced_tweets,text",
+                "expansions": "author_id,referenced_tweets.id,referenced_tweets.id.author_id",
+                "user.fields": "username,name",
+            },
+            timeout=30,
+        )
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        return [], f"X timeline fetch failed: {e}"
+
+    payload = resp.json()
+    tweets = payload.get("data", []) or []
+    included_tweets = {t["id"]: t for t in payload.get("includes", {}).get("tweets", [])}
+    included_users = {u["id"]: u for u in payload.get("includes", {}).get("users", [])}
+
+    entries = []
+    for tw in tweets:
+        author = included_users.get(tw.get("author_id"), {})
+        username = author.get("username", "unknown")
+
+        created_at = tw.get("created_at")
+        published_dt = datetime.fromisoformat(created_at.replace("Z", "+00:00")) if created_at else None
+        date_published = published_dt.strftime("%Y-%m-%d") if published_dt else None
+
+        content_parts = [tw.get("text", "")]
+
+        # Retweets/quotes: fold in the full referenced post, not just the wrapper.
+        for ref in tw.get("referenced_tweets", []) or []:
+            ref_tweet = included_tweets.get(ref.get("id"))
+            if ref_tweet:
+                ref_author = included_users.get(ref_tweet.get("author_id"), {})
+                content_parts.append(
+                    f"[{ref.get('type', 'referenced')} post by @{ref_author.get('username', 'unknown')}]: "
+                    f"{ref_tweet.get('text', '')}"
+                )
+
+        # External links: fetch the linked page too. Skip links back to X
+        # itself — those are already covered by the referenced_tweets
+        # expansion above, not a separate external source.
+        for url_entity in (tw.get("entities", {}) or {}).get("urls", []) or []:
+            expanded = url_entity.get("expanded_url", "")
+            if not expanded or "x.com/" in expanded or "twitter.com/" in expanded:
+                continue
+            linked_text = _fetch_external_link_content(expanded)
+            if linked_text:
+                content_parts.append(f"[linked page: {expanded}]: {linked_text}")
+
+        content = "\n\n".join(p for p in content_parts if p)
+        truncated = len(content) > MAX_CONTENT_CHARS
+        content = content[:MAX_CONTENT_CHARS]
+        if truncated:
+            content += " […truncated…]"
+
+        entries.append({
+            "title": tw.get("text", "")[:80].strip(),
+            "link": f"https://x.com/{username}/status/{tw['id']}",
+            "author": f"@{username}",
             "date_published": date_published,
             "published_dt": published_dt,
             "content": content,
@@ -495,13 +758,17 @@ def main() -> None:
     total_new = 0
     total_written = 0
     for source in sources:
-        is_email = source.get("ingest_method") == "email"
-        if not is_email and not source.get("feed_url"):
+        ingest_method = source.get("ingest_method")
+        is_email = ingest_method == "email"
+        is_x = ingest_method == "x"
+        if not is_email and not is_x and not source.get("feed_url"):
             print(f"[{source['id']}] skipped — no feed_url")
             continue
 
         if is_email:
             entries, err = fetch_entries_email(source, since_days, args.max_per_source)
+        elif is_x:
+            entries, err = fetch_entries_x(source, since_days, args.max_per_source)
         else:
             entries, err = fetch_entries(source, since_days, args.max_per_source)
         if err:
@@ -518,6 +785,7 @@ def main() -> None:
             continue
 
         for entry in new_entries:
+            enrich_with_transcript(entry, source)
             body = extract(
                 template, source, entry,
                 provider=args.provider, model=args.llm_model,
@@ -527,7 +795,7 @@ def main() -> None:
                 continue
             write_note(
                 ingest_root, source, entry, body, args.dry_run, model=model_used,
-                ingest_method="email" if is_email else "feed",
+                ingest_method="email" if is_email else ("x" if is_x else "feed"),
             )
             seen_urls.add(entry["link"])
             total_written += 1

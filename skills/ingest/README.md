@@ -105,12 +105,57 @@ needs to actually be subscribed to `brain@` and have its `sender` filled in
 from a real received message before it does anything — the code path is
 real, the source isn't live yet.
 
+## Podcast transcripts
+
+`enrich_with_transcript()` replaces show-notes content with a real
+transcript, per a podcast source's `transcript_mode` in `sources.yaml`
+(`docs/full-source-text-ingestion.md`):
+
+- **`published`** — fetches `entry['podcast_transcript_url']` directly.
+  `feedparser` surfaces the Podcasting 2.0 `<podcast:transcript>` RSS tag
+  automatically as `podcast_transcript` (confirmed 2026-08-12, not
+  assumed) — no scraping, no transcription cost. Currently only
+  `80000-hours-podcast` has this.
+- **`transcribe`** — downloads the audio enclosure to a real OS temp file
+  (`tempfile`, outside the repo working tree — the same MAINTAINER.md
+  rule 2 discipline as everything else, extended to audio: never
+  persisted, deleted immediately after transcription whether it succeeds
+  or fails) and transcribes it via `skills/lib/transcribe.py`
+  (`OPENAI_API_KEY`, `gpt-4o-transcribe` by default). The other 10
+  podcast sources use this.
+
+Both fall back cleanly to the existing show-notes content on any failure
+(bad URL, download error, missing credential) rather than crashing the
+run over one episode.
+
+## X (brianmaddenai home timeline)
+
+`fetch_entries_x()` polls the reverse-chronological home timeline for the
+one `x-timeline` source in `sources.yaml` — everyone the `brianmaddenai`
+account follows, in one call, rather than per-person polling (who it
+follows *is* the source list here). Needs `X_CLIENT_ID` / `X_CLIENT_SECRET`
+/ `X_ACCESS_TOKEN` / `X_REFRESH_TOKEN` in `.env`. Access tokens are
+refreshed automatically each run; if X rotates the refresh token (standard
+OAuth 2.0 practice), the new one is written back into `.env` in place so
+the next run doesn't fail with a stale one.
+
+Two enrichments, both validated against real timeline data (2026-08-12):
+retweets and quote-posts pull in the **full referenced post's text**, not
+just the wrapper (`expansions=referenced_tweets.id` in the API call); and
+posts that link elsewhere get **that page's content fetched too** (Brian's
+ask), skipping links back to X itself since those are already covered by
+the referenced-post expansion. Both are ephemeral input to the one
+extraction call, never persisted raw, same as everything else.
+
 ## Known limitations (v1)
 
-- **Podcasts and YouTube get whatever text their RSS show-notes provide** —
-  no audio transcription. A thin show-notes entry produces a thin note.
-  Real transcript-based ingestion is future work — see
-  `docs/full-source-text-ingestion.md`.
+- **Podcast transcription adds real cost and latency per episode** — a
+  60-90 minute episode is a meaningfully bigger, slower fetch than parsing
+  show notes. `--max-per-source` is the only current throttle; watch
+  actual cost/time once this runs for real at volume.
+- **X's external-link fetch is best-effort, no paywall handling.** A
+  linked article behind a paywall just yields empty/thin content, same as
+  every other paywalled source this pipeline already deals with.
 - **Email ingestion supports one sender per source, day-granularity
   windowing only** (Gmail search's `after:` operator, same coarseness as
   everywhere else this pipeline already does date filtering). Fine for a

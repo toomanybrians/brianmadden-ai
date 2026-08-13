@@ -1,10 +1,10 @@
 ---
-title: "Full-text source ingestion — podcast transcripts and X — planning doc"
-type: proposal, in progress
+title: "Full-text source ingestion — podcast transcripts and X"
+type: implemented
 author: Brian + Claude
 date: 2026-08-12
-status: brainstorming, not decided
-tier: canon (candidate — planning doc, not yet a settled architecture)
+status: built and validated against real data, 2026-08-12
+tier: canon (candidate)
 ---
 
 # Full-text source ingestion: podcast transcripts and X
@@ -187,22 +187,37 @@ insight note is. This is worth building as a small standalone entry point
 whether the API path happens, since it's useful for any source that isn't
 worth automating.
 
-## What's actually blocked vs. buildable now
+## Status: built and validated, 2026-08-12
 
-- **Buildable now, no new credentials:** published-transcript podcast
-  ingestion for the 4 confirmed sources (80000-hours-podcast, dwarkesh,
-  lex-fridman, ezra-klein-show); the manual-paste fallback for X. Both
-  can happen in this repo, this session, whenever picked up.
-- **Blocked on Brian provisioning a credential — in progress as of
-  2026-08-12, not done yet:** audio transcription (OpenAI API key,
-  decided) and the X home-timeline path (paid X developer account +
-  key, decided). Neither needs a *different repo* the way the MCP/
-  Cloudflare work does — unlike Workstreams A/B in
-  `docs/substack-as-primary-home.md`, this doesn't strictly need a new
-  conversation, just needs the credentials in hand first. Explicitly
-  fine to pick up in a different thread once they're ready, per Brian's
-  own preference — this doc is written so that thread doesn't need this
-  conversation's context.
+Both workstreams are real now, not just planned:
+
+- **`skills/lib/transcribe.py`** — swappable transcription client
+  (`openai`/`gpt-4o-transcribe` as the first provider), mirrors
+  `lib/llm.py`'s shape exactly.
+- **`enrich_with_transcript()` in `ingest.py`** — wired to all 11 podcast
+  sources via `transcript_mode` in `sources.yaml` (1 `published`, 10
+  `transcribe`). Validated the `published` path against
+  `80000-hours-podcast`: fetched a real 114,213-character transcript
+  versus 3,225 characters of show notes for the same episode.
+- **`fetch_entries_x()` in `ingest.py`** — polls the `brianmaddenai`
+  home timeline in one call. Validated against real timeline data: 18 of
+  19 entries correctly expanded retweet/quote wrappers into the full
+  referenced post's text; 1 of 19 contained an external link, and that
+  page's content was correctly fetched and folded in (entry length
+  jumped from a typical few hundred characters to 8,068). Access-token
+  refresh, including handling X's refresh-token rotation by writing the
+  new one back to `.env`, is built but hasn't hit a real rotation yet in
+  testing (rotation happens on X's schedule, not observable on demand).
+
+**Not done:** the manual-paste fallback for X (still useful for one-off
+sources not worth automating, not built this session); the `--paste`
+mode idea from Workstream F. Scraping first-party transcript pages for
+`dwarkesh`/`lex-fridman`/`ezra-klein-show`/`hard-fork` was considered and
+explicitly not pursued — those 4 sources use audio transcription instead
+for now, since building and maintaining 3-4 different site-specific
+scrapers was judged more fragile than one uniform transcription path;
+revisit if transcription cost/quality makes the scraping investment worth
+it later.
 
 ## X developer account setup — what Brian needs to do, 2026-08-12
 

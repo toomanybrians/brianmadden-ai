@@ -37,11 +37,20 @@
 #               skill, not just ingest. Blank = no framing applied.
 #   ingest_method — "email" routes this source through fetch_entries_email()
 #               (polls brain@brianmadden.ai via Gmail API) instead of the
-#               feed_url poll. Omit for normal RSS/Atom sources.
+#               feed_url poll. "x" routes through fetch_entries_x() instead
+#               (polls the brianmaddenai account's home timeline — see the
+#               x-timeline entry below). Omit for normal RSS/Atom sources.
 #   sender    — required when ingest_method: email. The newsletter's
 #               from-address, used to build the Gmail search query. Left
 #               null until the newsletter is actually subscribed to brain@
 #               and a real message reveals the real address — not guessed.
+#   transcript_mode — podcast sources only. "published" fetches a real
+#               transcript URL (currently only 80000-hours-podcast has one,
+#               via its feed's <podcast:transcript> tag). "transcribe"
+#               downloads the audio enclosure and runs it through
+#               skills/lib/transcribe.py (OpenAI Whisper). Omit/unset for
+#               show-notes-only (the old behavior). See
+#               docs/full-source-text-ingestion.md.
 #
 # lens/pov added Day 4 (2026-08-10), resolving BUILD.md open decision #6.
 # Both fields are optional and mostly unset — Brian expects to steer them in
@@ -55,6 +64,21 @@
 # `sender` filled in from a real received message before it can run.
 
 sources:
+  - id: x-timeline
+    name: X (brianmaddenai home timeline)
+    type: x
+    url: https://x.com/brianmaddenai
+    feed_url: null
+    ingest_method: x
+    priority: must-follow
+    note: >
+      Everyone brianmaddenai follows on X, pulled via the reverse-chronological
+      home timeline endpoint in one call — the follow list itself is the
+      source list here, not individual entries in this file (see
+      docs/full-source-text-ingestion.md Workstream F). Retweets/quotes pull
+      in the full referenced post; links to external pages get that page's
+      content fetched too.
+
   - id: ethan-mollick
     name: Ethan Mollick
     type: person
@@ -95,6 +119,7 @@ sources:
     url: https://www.marketingaiinstitute.com/podcast-showcase
     feed_url: https://feeds.megaphone.fm/marketingai
     priority: must-follow
+    transcript_mode: transcribe  # no first-party transcript found (checked 2026-08-12)
     note: "Paul Roetzer & Mike Kaput, ~1hr/week — the one thing to listen to"
 
   - id: moonshots
@@ -103,6 +128,7 @@ sources:
     url: https://www.diamandis.com/podcast
     feed_url: https://feeds.megaphone.fm/DVVTS2890392624
     priority: must-follow
+    transcript_mode: transcribe  # no first-party transcript found (checked 2026-08-12)
     note: "Peter Diamandis & friends — influential even where Brian disagrees"
     lens: influential-disagree
     pov: >
@@ -116,6 +142,7 @@ sources:
     url: https://www.dwarkeshpatel.com
     feed_url: https://apple.dwarkesh-podcast.workers.dev/feed.rss
     priority: regular
+    transcript_mode: transcribe  # publishes transcripts on dwarkesh.com itself, but not in the feed — scraping that page isn't built, so this uses audio transcription for now (see docs/full-source-text-ingestion.md)
     note: "Dwarkesh Patel"
 
   - id: bg2
@@ -124,6 +151,7 @@ sources:
     url: https://www.bg2pod.com
     feed_url: https://anchor.fm/s/f06c2370/podcast/rss
     priority: regular
+    transcript_mode: transcribe  # no first-party transcript found (checked 2026-08-12)
     note: "Brad Gerstner & Bill Gurley"
 
   - id: hard-fork
@@ -132,6 +160,7 @@ sources:
     url: https://www.nytimes.com/column/hard-fork
     feed_url: https://feeds.simplecast.com/6HKOhNgS
     priority: regular
+    transcript_mode: transcribe  # no first-party transcript page found (checked 2026-08-12)
     note: "Kevin Roose & Casey Newton"
 
   - id: ezra-klein-show
@@ -140,6 +169,7 @@ sources:
     url: https://www.nytimes.com/column/ezra-klein-podcast
     feed_url: https://feeds.simplecast.com/kEKXbjuJ
     priority: regular
+    transcript_mode: transcribe  # NYT posts transcripts at nytimes.com, but not in the feed and likely paywalled — audio transcription for now (see docs/full-source-text-ingestion.md)
 
   - id: on-with-kara-swisher
     name: On with Kara Swisher
@@ -147,6 +177,7 @@ sources:
     url: https://podcasts.voxmedia.com/show/on-with-kara-swisher
     feed_url: https://feeds.megaphone.fm/VMP1684715893
     priority: regular
+    transcript_mode: transcribe  # no first-party transcript found (checked 2026-08-12)
 
   - id: no-priors
     name: No Priors
@@ -154,6 +185,7 @@ sources:
     url: http://no-priors.com
     feed_url: https://feeds.megaphone.fm/nopriors
     priority: regular
+    transcript_mode: transcribe  # no first-party transcript found (checked 2026-08-12)
     note: "Sarah Guo & Elad Gil"
 
   - id: 80000-hours-podcast
@@ -162,6 +194,7 @@ sources:
     url: https://80000hours.org/podcast/
     feed_url: https://feeds.transistor.fm/80000-hours-podcast
     priority: regular
+    transcript_mode: published  # RSS feed carries a real <podcast:transcript> plain-text URL per episode — confirmed 2026-08-12, no transcription needed
 
   - id: lex-fridman
     name: Lex Fridman
@@ -169,6 +202,7 @@ sources:
     url: https://lexfridman.com/podcast/
     feed_url: https://lexfridman.com/feed/podcast/
     priority: regular
+    transcript_mode: transcribe  # publishes transcripts on lexfridman.com itself, but not in the feed — scraping that page isn't built, so this uses audio transcription for now (see docs/full-source-text-ingestion.md)
 
   - id: hbr-ideacast
     name: Harvard Business Review IdeaCast
@@ -176,6 +210,7 @@ sources:
     url: https://hbr.org/2018/01/podcast-ideacast
     feed_url: http://feeds.harvardbusiness.org/harvardbusiness/ideacast
     priority: regular
+    transcript_mode: transcribe  # no first-party transcript found (checked 2026-08-12)
 
   # --- Imported from Brian's Substack subscriber page ---
   # (substack.com/@briansmadden/reads, 62 total subscriptions, pulled via
