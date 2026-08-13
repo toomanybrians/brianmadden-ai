@@ -88,22 +88,68 @@ function in `llm.py`, not a change to every skill that calls it. Today:
 (OpenAI-compatible HTTP API via `requests`, for the open-weight comparison
 runs in BUILD.md's post-launch backlog — not the default).
 
-## Email-only sources (brain@)
+## Email inbox (brain@)
 
-`fetch_entries_email()` polls `brain@brianmadden.ai` via the Gmail API for
-mail from a source's `sender` (set in its `sources.yaml` entry). Needs
-`GMAIL_CLIENT_ID` / `GMAIL_CLIENT_SECRET` / `GMAIL_REFRESH_TOKEN` in `.env`
-— see BUILD.md's brain@ Gmail walkthrough for the Cloud Console steps, and
-`skills/lib/gmail_get_refresh_token.py` for the one-time local OAuth step
-that produces the refresh token. Read-only scope (`gmail.readonly`) — this
-can never send, modify, or delete mail. A source without `sender` set, or a
-missing credential, fails that one source cleanly (same `(entries, error)`
-shape as a broken feed) rather than crashing the whole run.
+`fetch_entries_email()` polls the **whole** `brain@brianmadden.ai` inbox
+via the Gmail API — every message not yet labeled ingested/skipped,
+regardless of sender. There's exactly one `sources.yaml` entry for this,
+`brain-inbox`. Needs `GMAIL_CLIENT_ID` / `GMAIL_CLIENT_SECRET` /
+`GMAIL_REFRESH_TOKEN` in `.env` — see BUILD.md's brain@ Gmail walkthrough
+for the Cloud Console steps, and `skills/lib/gmail_get_refresh_token.py`
+for the one-time local OAuth step that produces the refresh token. Uses
+`gmail.modify` scope: read + label/archive/trash, never send, never
+permanent bypass-Trash deletion. A missing credential fails cleanly (same
+`(entries, error)` shape as a broken feed) rather than crashing the run.
 
-The one source currently wired this way, `exec-ai-insider-weekly`, still
-needs to actually be subscribed to `brain@` and have its `sender` filled in
-from a real received message before it does anything — the code path is
-real, the source isn't live yet.
+**Design, corrected 2026-08-13 (Brian's call, real design fix not just a
+tweak):** an earlier version required a `sender` field per newsletter and
+only looked at pre-approved senders, plus a separate "unrecognized sender"
+check to surface anything else. Both removed. Subscribing a newsletter to
+`brain@` already *is* the curation step — a second sender allowlist on top
+of that was solving a problem that didn't exist. Relevance is now judged
+exactly like every other source: the extraction prompt's `NOT_RELEVANT`
+sentinel, validated live against a real inbox (correctly skipped a "Welcome
+to your Google Cloud Free Trial" email while extracting real notes from
+three different newsletters, each correctly attributed from its own From
+header — no registry lookup involved). Each note's `author` field comes
+straight from the message, so there's no need to identify or pre-register
+what a newsletter even is before it can be ingested.
+
+**Processed-mail bookkeeping — fully automatic, no Gmail-side setup.**
+Every message this pipeline touches gets one of two Gmail labels applied
+via `gmail_apply_label()` (best-effort — a labeling failure is logged, not
+raised, since the note or the not-relevant decision it's marking is
+already final by the time this runs):
+
+- **`AI/Ingested`** — became a real tier-1 note. Also **archived**
+  (`archive=True` removes the `INBOX` label — Gmail's own definition of
+  archived) so handled mail clears out of the inbox on its own.
+- **`AI/Skipped`** — seen, judged not relevant, no note written. Labeled
+  but deliberately left **in the inbox** (not archived) — Brian can see
+  what got judged not relevant and correct a bad call, and it also avoids
+  a boring newsletter issue getting re-judged not-relevant (wasting a
+  model call) every single run forever.
+
+`fetch_entries_email()`'s query excludes both labels on top of the
+existing frontmatter-based dedup, so a message never gets re-fetched once
+handled either way. **Corrected 2026-08-13, Brian's call:** the earlier
+design had Brian manually set up a Gmail filter (`AI/Inbox`, auto-archive
+on arrival) — dropped. It was extra upkeep on his end for something the
+pipeline can just do itself once it knows the outcome (ingested vs.
+skipped) per message; a filter set on arrival can't know that yet anyway.
+
+**`sources.yaml` auto-registration.** When a real note gets written from
+an email whose sender isn't already documented in `sources.yaml`,
+`auto_register_email_source()` appends a new entry for it — `id` (slugified
+display name), `name`, `sender`, a `note` marking it auto-discovered and
+not yet reviewed. Never for skipped/not-relevant mail, so the registry
+doesn't fill up with junk. This is a **plain text append, never a full
+YAML re-serialize** — re-dumping the file with PyYAML would silently
+strip every hand-written comment in it. Per Brian's 2026-08-13 framing:
+`sources.yaml` for email isn't a gate (the whole inbox is scanned
+regardless of what's registered) — it's a reporting list of what's
+actually feeding the brain, populated by what actually gets ingested
+rather than maintained by hand ahead of time.
 
 ## Podcast transcripts
 

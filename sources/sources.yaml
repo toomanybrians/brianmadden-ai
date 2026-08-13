@@ -40,10 +40,6 @@
 #               feed_url poll. "x" routes through fetch_entries_x() instead
 #               (polls the brianmaddenai account's home timeline — see the
 #               x-timeline entry below). Omit for normal RSS/Atom sources.
-#   sender    — required when ingest_method: email. The newsletter's
-#               from-address, used to build the Gmail search query. Left
-#               null until the newsletter is actually subscribed to brain@
-#               and a real message reveals the real address — not guessed.
 #   transcript_mode — podcast sources only. "published" fetches a real
 #               transcript URL (currently only 80000-hours-podcast has one,
 #               via its feed's <podcast:transcript> tag). "transcribe"
@@ -58,10 +54,16 @@
 # here only for the two sources whose `note` already carried implicit lens
 # language (moonshots, marcus-on-ai) as worked examples.
 #
-# ingest_method/sender added 2026-08-12, resolving open decision #7a's
-# design (see BUILD.md) — code is real, but exec-ai-insider-weekly still
-# needs (a) actually being subscribed to brain@brianmadden.ai and (b) its
-# `sender` filled in from a real received message before it can run.
+# ingest_method: email added 2026-08-12, resolving open decision #7a's
+# design (see BUILD.md). Originally gated on a per-source `sender` field
+# (only look at pre-approved senders) — reverted 2026-08-13, Brian's call:
+# subscribing something to brain@ already *is* the curation step, so a
+# second sender allowlist was solving a problem that didn't exist. There is
+# now exactly one email source below, `brain-inbox`, which scans everything
+# arriving there — whatever's there is fair game for the same NOT_RELEVANT
+# extraction judgment every other source already gets. No per-newsletter
+# entries needed; each note's real sender comes from the message's own
+# From header, not a registry lookup.
 
 sources:
   - id: x-timeline
@@ -103,15 +105,23 @@ sources:
     priority: regular
     note: "Unsupervised Learning"
 
-  - id: exec-ai-insider-weekly
-    name: ExecAI Insider Weekly
+  - id: brain-inbox
+    name: brain@ inbox (curated newsletters)
     type: newsletter
-    url: https://academy.smarterx.ai/exec-ai-newsletter
+    url: null
     feed_url: null
     ingest_method: email
-    sender: null  # fill in from a real received message once subscribed to brain@
-    priority: regular
-    note: "Free weekly newsletter from SmarterX / Marketing AI Institute. No RSS discoverable on the signup page — email-only. Ingestion code is real (fetch_entries_email(), 2026-08-12) but blocked on (1) subscribing this newsletter to brain@brianmadden.ai and (2) filling in `sender` above from a real received message."
+    priority: must-follow
+    note: >
+      Whatever's arriving at brain@brianmadden.ai, scanned as one whole
+      inbox rather than per-newsletter (2026-08-13, Brian's call —
+      subscribing something to that address is itself the curation step,
+      so there's no separate per-sender allowlist here). Currently
+      receiving The Deep View, AlphaSignal, and a Beehiiv-hosted
+      "Superintelligence" newsletter, with ExecAI Insider Weekly
+      (academy.smarterx.ai/exec-ai-newsletter) subscribed and expected
+      soon (weekly cadence). Each note's real source/author comes straight
+      from that message's own From header, not from an entry here.
 
   - id: the-artificial-intelligence-show
     name: The Artificial Intelligence Show
@@ -680,3 +690,30 @@ sources:
     feed_url: https://briansolis.substack.com/feed
     priority: regular
     note: "Brian Solis"
+
+  - id: the-deep-view
+    name: "The Deep View"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: newsletter@thedeepview.co
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-13 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: alphasignal
+    name: "AlphaSignal"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: news@alphasignal.ai
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-13 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: superintelligence
+    name: "Superintelligence"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: superintel@mail.beehiiv.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-13 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."

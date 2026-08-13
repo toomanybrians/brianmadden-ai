@@ -608,12 +608,23 @@ def _gmail_get_label_id(name: str, access_token: str) -> str | None:
         return None
 
 
-def gmail_apply_label(msg_id: str | None, label_name: str) -> None:
+def gmail_apply_label(msg_id: str | None, label_name: str, archive: bool = False) -> None:
     """Applies one of GMAIL_PROCESSED_LABELS to a message so it's excluded
     from future fetch_entries_email() queries and visibly marked in Gmail
-    itself as either ingested or skipped. Best-effort — a labeling failure
-    is logged, not raised, since the note (or the not-relevant decision)
-    it's marking is already final by the time this runs."""
+    itself as either ingested or skipped.
+
+    archive=True also removes the INBOX label — Gmail's own definition of
+    "archived," there's no separate action. Per Brian's 2026-08-13 design:
+    ingested mail gets archived automatically (out of the way, nothing to
+    maintain); skipped mail deliberately stays in the inbox so Brian can
+    see what the pipeline judged not relevant and correct it if it got one
+    wrong — replaces the earlier plan of a manually-maintained Gmail
+    filter, which needed upkeep for no real benefit once the pipeline can
+    just do this itself.
+
+    Best-effort — a labeling failure is logged, not raised, since the note
+    (or the not-relevant decision) it's marking is already final by the
+    time this runs."""
     if not msg_id or not gmail_is_configured():
         return
     try:
@@ -626,11 +637,15 @@ def gmail_apply_label(msg_id: str | None, label_name: str) -> None:
     if not label_id:
         return
 
+    body = {"addLabelIds": [label_id]}
+    if archive:
+        body["removeLabelIds"] = ["INBOX"]
+
     try:
         resp = requests.post(
             f"{GMAIL_API_BASE}/{msg_id}/modify",
             headers={"Authorization": f"Bearer {access_token}"}, timeout=15,
-            json={"addLabelIds": [label_id]},
+            json=body,
         )
         resp.raise_for_status()
     except requests.RequestException as e:
@@ -643,23 +658,30 @@ def _gmail_exclude_processed_clause() -> str:
 
 def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     """
-    Polls brain@brianmadden.ai for mail from this source's known sender
-    (BUILD.md open decision #7a) — the email-source counterpart to
-    fetch_entries(), same (entries, error) contract. Entries carry an
-    extra 'gmail_msg_id' key (not written to note frontmatter — write_note()
-    only reads specific known keys) so the caller can label the message
-    afterward via gmail_apply_label().
+    Polls the whole brain@brianmadden.ai inbox — every message not yet
+    labeled ingested/skipped, regardless of sender (BUILD.md open decision
+    #7a). Same (entries, error) contract as fetch_entries().
+
+    Design, per Brian (2026-08-13): subscribing something to brain@ *is*
+    the curation step — there's no separate sender allowlist to maintain
+    on top of that. Relevance is judged the same way as every other
+    source: the extraction prompt's NOT_RELEVANT sentinel, not a
+    pre-approved sender list. (Earlier version of this function required a
+    'sender' field per sources.yaml entry and only looked at known
+    senders — reverted; see the git history / BUILD.md for why.)
+
+    Entries carry an extra 'gmail_msg_id' key (not written to note
+    frontmatter — write_note() only reads specific known keys) so the
+    caller can label the message afterward via gmail_apply_label(). The
+    real sender is read from each message's own From header into the
+    entry's 'author' field — not from a registry — so note attribution is
+    always accurate even for a source this file has never heard of.
 
     Needs GMAIL_CLIENT_ID/SECRET/REFRESH_TOKEN (see .env.example and the
-    brain@ Gmail walkthrough in BUILD.md) and a 'sender' field on the
-    source's sources.yaml entry — this doesn't guess a from-address.
+    brain@ Gmail walkthrough in BUILD.md).
     """
     if not gmail_is_configured():
         return [], "GMAIL_CLIENT_ID/SECRET/REFRESH_TOKEN not set — see .env.example"
-
-    sender = source.get("sender")
-    if not sender:
-        return [], "no 'sender' set in sources.yaml for this email source"
 
     try:
         access_token = _gmail_access_token()
@@ -671,12 +693,8 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     # existing date_captured handling elsewhere. -label excludes anything a
     # prior run already labeled (ingested or skipped), on top of the
     # frontmatter-based dedup every source type already gets from
-    # load_ingested_urls(). from: is Gmail's own search operator — it
-    # matches against the whole From header (name and address), not just
-    # an exact address, so `sender` can be a domain or a name fragment when
-    # an ESP's exact sending address varies per send (see sources.yaml's
-    # field docs).
-    query = f'from:{sender} after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
+    # load_ingested_urls(). No from: filter — whole inbox, see docstring.
+    query = f'after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
     headers = {"Authorization": f"Bearer {access_token}"}
 
     try:
@@ -721,7 +739,7 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
         entries.append({
             "title": header_map.get("Subject", "(no subject)").strip(),
             "link": f"https://mail.google.com/mail/u/0/#inbox/{msg_id}",
-            "author": header_map.get("From", sender).strip(),
+            "author": header_map.get("From", "(unknown sender)").strip(),
             "date_published": date_published,
             "published_dt": published_dt,
             "content": content,
@@ -735,65 +753,78 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     return entries[:max_per_source], None
 
 
-def check_unrecognized_email_senders(sources: list[dict], since_days: float) -> None:
-    """Safety net for Brian's Q: 'I'll eventually get random who-knows-what
-    at brain@ — should the pipeline figure out relevance across the whole
-    inbox?' Answer landed on: no auto-ingest of unknown senders (too easy
-    for spam or a stray CC to become a permanent tier-1 note), but yes,
-    surface them — same 'system flags, human decides' pattern as the
-    promotion-candidates queue. Scans the whole mailbox (not scoped to any
-    one source's sender), diffs against every known email source's
-    `sender`, and prints anything left over. Never writes a note, never
-    applies either GMAIL_PROCESSED_LABELS label — stays visible next run
-    too until Brian either adds the sender to sources.yaml or deals with it
-    by hand.
+FROM_HEADER_RE = re.compile(r'^\s*"?([^"<]*)"?\s*<([^>]+)>\s*$')
+
+
+def _parse_sender_header(from_header: str) -> tuple[str, str]:
+    """Splits a From header like 'The Deep View <newsletter@thedeepview.co>'
+    into (display_name, address). Falls back to using the whole header as
+    both if it doesn't match the usual "Name <addr>" shape."""
+    m = FROM_HEADER_RE.match(from_header or "")
+    if m:
+        name = m.group(1).strip() or m.group(2)
+        return name, m.group(2).lower()
+    stripped = (from_header or "").strip()
+    return stripped, stripped.lower()
+
+
+def load_known_email_senders(sources_path: Path) -> set[str]:
+    return {s["sender"].lower() for s in load_sources(sources_path) if s.get("sender")}
+
+
+def auto_register_email_source(
+    from_header: str, sources_path: Path, known_senders: set[str]
+) -> None:
+    """Appends a new sources.yaml entry for a real newsletter the pipeline
+    just ingested, if its sender isn't already documented there.
+
+    Per Brian's 2026-08-13 design: sources.yaml for email isn't a gate
+    (see fetch_entries_email() — the whole inbox is scanned regardless).
+    It's a reporting list of what's actually arriving, populated by what
+    actually gets ingested rather than maintained by hand ahead of time.
+    Only called for messages that produced a real note — never for
+    skipped/not-relevant mail — so the registry doesn't fill up with junk
+    senders that happened to reach brain@.
+
+    Mutates known_senders in place (adds the new address) so a second new
+    sender appearing later in the same run doesn't also get added twice.
+
+    Deliberately a plain text append, never a full YAML re-serialize —
+    re-dumping the whole file with PyYAML would silently strip every
+    hand-written comment in it (70+ sources' worth of curation history).
     """
-    email_sources = [s for s in sources if s.get("ingest_method") == "email"]
-    if not email_sources or not gmail_is_configured():
-        return
-    known_senders = {s["sender"].lower() for s in email_sources if s.get("sender")}
-
-    try:
-        access_token = _gmail_access_token()
-    except requests.RequestException as e:
-        print(f"\n[unrecognized-sender check] skipped — gmail auth failed: {e}")
+    name, address = _parse_sender_header(from_header)
+    if not address or address in known_senders:
         return
 
-    cutoff = datetime.now(timezone.utc) - timedelta(days=since_days)
-    query = f'after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
-    headers = {"Authorization": f"Bearer {access_token}"}
+    existing_ids = {s["id"] for s in load_sources(sources_path)}
+    base_id = slugify(name) or "unknown-newsletter"
+    source_id = base_id
+    n = 2
+    while source_id in existing_ids:
+        source_id = f"{base_id}-{n}"
+        n += 1
 
-    try:
-        resp = requests.get(
-            GMAIL_API_BASE, headers=headers,
-            params={"q": query, "maxResults": 50}, timeout=15,
-        )
-        resp.raise_for_status()
-    except requests.RequestException as e:
-        print(f"\n[unrecognized-sender check] skipped — gmail list failed: {e}")
-        return
-
-    unrecognized = []
-    for msg_ref in resp.json().get("messages", []):
-        msg_id = msg_ref["id"]
-        try:
-            msg_resp = requests.get(
-                f"{GMAIL_API_BASE}/{msg_id}", headers=headers, timeout=15,
-                params={"format": "metadata", "metadataHeaders": ["From", "Subject"]},
-            )
-            msg_resp.raise_for_status()
-        except requests.RequestException:
-            continue
-        header_map = {h["name"]: h["value"] for h in msg_resp.json().get("payload", {}).get("headers", [])}
-        from_header = header_map.get("From", "")
-        if not any(known in from_header.lower() for known in known_senders):
-            unrecognized.append((from_header, header_map.get("Subject", "(no subject)")))
-
-    if unrecognized:
-        print(f"\n[unrecognized-sender check] {len(unrecognized)} message(s) at brain@ from senders not in sources.yaml:")
-        for from_header, subject in unrecognized:
-            print(f"    from: {from_header} — subject: {subject}")
-        print("    add a 'sender' to a sources.yaml email source if wanted, or ignore/archive manually.")
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    note = (
+        f"Auto-discovered from a real brain@ ingestion on {today} — "
+        f"documentation only, not a gate (see the header comment above "
+        f"'sources:'). Not yet reviewed by Brian."
+    )
+    entry_yaml = (
+        f"\n  - id: {source_id}\n"
+        f"    name: {json.dumps(name, ensure_ascii=False)}\n"
+        f"    type: newsletter\n"
+        f"    url: null  # not looked up — auto-added, fill in if known\n"
+        f"    feed_url: null\n"
+        f"    sender: {address}\n"
+        f"    priority: regular\n"
+        f"    note: {json.dumps(note, ensure_ascii=False)}\n"
+    )
+    with sources_path.open("a", encoding="utf-8") as f:
+        f.write(entry_yaml)
+    known_senders.add(address)
+    print(f"    sources.yaml: auto-added new source '{source_id}' ({address})")
 
 
 # ----------------------------------------------------------------- dedup --
@@ -940,7 +971,8 @@ def main() -> None:
 
     load_dotenv(ROOT)
 
-    sources = load_sources(ROOT / "sources" / "sources.yaml")
+    sources_path = ROOT / "sources" / "sources.yaml"
+    sources = load_sources(sources_path)
     if args.source:
         sources = [s for s in sources if s["id"] == args.source]
         if not sources:
@@ -965,6 +997,7 @@ def main() -> None:
     since_days, since_reason = resolve_since_days(args.since_days)
     print(f"window: {since_days:.2f} days ({since_reason})\n")
 
+    known_email_senders = load_known_email_senders(sources_path)
     total_new = 0
     total_written = 0
     for source in sources:
@@ -1013,11 +1046,10 @@ def main() -> None:
                 ingest_method="email" if is_email else ("x" if is_x else "feed"),
             )
             if is_email and not args.dry_run:
-                gmail_apply_label(entry.get("gmail_msg_id"), GMAIL_LABEL_INGESTED)
+                gmail_apply_label(entry.get("gmail_msg_id"), GMAIL_LABEL_INGESTED, archive=True)
+                auto_register_email_source(entry["author"], sources_path, known_email_senders)
             seen_urls.add(entry["link"])
             total_written += 1
-
-    check_unrecognized_email_senders(sources, since_days)
 
     summary = f"\n{total_new} new entries found; {total_written} notes written"
     if args.dry_run:
