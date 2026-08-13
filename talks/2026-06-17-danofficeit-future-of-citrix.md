@@ -48,7 +48,7 @@ Every worker is somewhere on this path. Key framing: **you can only see one step
 4. **Multi-tool agent** — the cognitive extension connects into actual tools: MCP, browser control, desktop computer-using agents. OSWorld benchmark: humans score ~72, models now 80-85 including mid-tier models. Not automation — extended reach.
 5. **Fleet of AIs** — multiple AI systems talking to each other. Your AI talking to your organization's AI. A partner like DanofficeIT building a bot that talks to Aidrien, to Citrix APIs, and carries all of DanofficeIT's accumulated best practices for their customer base.
 6. **The pod** — the new atomic unit of knowledge work: one worker plus their AI fleet, context vault, and skills, operating continuously. Three worker types emerge: cognitive owners (context and judgment, the source of expertise), cognitive operators (run the fleet), cognitive curators (maintain the skill and context libraries). The bottom two look a lot like advanced IT work.
-7. **The published self (optional fork)** — take your context vault and make it subscribable. Brianmadden.ai/mcp does this: any AI tool can connect and access the full knowledge base.
+7. **The published self (optional fork)** — take your context vault and make it subscribable. mcp.brianmadden.ai does this: any AI tool can connect and access the full knowledge base.
 
 ## Why automations aren't the path
 
