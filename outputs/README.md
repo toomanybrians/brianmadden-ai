@@ -44,3 +44,11 @@ and canon); it's committed for audit, not treated as truth.
 - **`book/`** — Living book chapters/editions with changelog.
 - **`qa/`** — Drafted replies to the `ask@` inbox lane, queued for human
   approval before sending.
+- **`substack-migration/`** — one-off drafts for Workstream C
+  (`docs/substack-as-primary-home.md`): moving the ~90-item back catalog
+  (podcast, talks, LinkedIn, Citrix blog, frameworks) onto Substack.
+  Hand-built per content type, not a pipeline output — no `brief.py`/
+  `publish.py` involved, each file is drafted directly from the matching
+  canon source and hand-pasted into Substack by Brian. Started 2026-08-12
+  with one pilot draft per type, per the treatment table in the Workstream
+  C doc, before deciding whether the rest is worth automating.
