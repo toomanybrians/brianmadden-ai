@@ -1680,26 +1680,21 @@ follow-up entry below for what prompted the correction.
 7. Run `python3 skills/lib/gmail_get_refresh_token.py` locally. It opens a
    browser — sign in as `brain@brianmadden.ai`, click Allow, and the
    script prints `GMAIL_REFRESH_TOKEN=...` to paste into `.env`.
-8. **One-time Gmail-side filter, not a Cloud Console step** (Gmail
-   Settings → Filters and Blocked Addresses → Create a new filter): match
-   **To: `brain@brianmadden.ai`** (deliberately blanket, not per-sender —
-   that address should only ever receive things meant for this pipeline,
-   so nothing here needs updating as new sources get added), then choose
-   **Skip Inbox (Archive it)** and **Apply label** → create a new label
-   `AI/Inbox`. This is the closest Gmail equivalent to "give it its own
-   folder" — keeps newsletters out of your normal inbox view
-   automatically. Separate from this, the pipeline itself applies one of
-   two labels to each message once it's actually handled — `AI/Ingested`
-   if it became a note, `AI/Skipped` if judged not relevant (Brian's call,
-   2026-08-12: separate labels so you can tell the two apart at a glance,
-   not just "seen") — see the follow-up entry below for why labels rather
-   than deleting anything.
-9. Separately: subscribe ExecAI Insider Weekly
+8. **No Gmail-side filter needed** — **removed 2026-08-13**, see the
+   follow-up entry below. The pipeline itself applies one of two labels
+   to each message once it's actually handled: `AI/Ingested` (also
+   archived out of the inbox automatically) if it became a note,
+   `AI/Skipped` (left visible in the inbox on purpose, so Brian can catch
+   and correct a bad not-relevant call) if not. Nothing to configure in
+   Gmail beyond the credentials above.
+9. To add a newsletter: just subscribe it to `brain@brianmadden.ai` with
+   whatever address the signup form wants. No `sources.yaml` edit needed
+   first — the pipeline discovers and documents it automatically the
+   first time it actually ingests something from that sender (see the
+   follow-up entry below). ExecAI Insider Weekly
    ([academy.smarterx.ai/exec-ai-newsletter](https://academy.smarterx.ai/exec-ai-newsletter))
-   to `brain@brianmadden.ai`. Once a real email arrives, grab its actual
-   From address and fill it into `sender:` for `exec-ai-insider-weekly` in
-   `sources/sources.yaml` — that unblocks the one source that's already
-   wired up to use it.
+   is already subscribed this way, weekly cadence, first delivery still
+   pending as of 2026-08-13.
 
 Committed as [c44d626](../../commit/c44d626) — landed directly (not a
 `git commit` this session ran itself; Brian committed the working-tree
@@ -2024,3 +2019,154 @@ Not yet confirmed: whether "Internal" actually shows as available once he
 reaches the Audience tab (depends on the Cloud project being properly
 associated with the `brianmadden.ai` Workspace org) — flagged to watch for
 in his next message rather than assumed fine.
+
+### 2026-08-13 — same session, continued (Internal confirmed; first real Gmail call; a real design correction)
+
+"Internal" did show up fine on the Audience tab — no issue there. Brian
+finished the whole walkthrough (App name `brianmadden.ai Ingest Pipeline`,
+picked deliberately distinct from the `brianmadden-ai` project/org name to
+avoid confusion later), got `GMAIL_CLIENT_ID`/`GMAIL_CLIENT_SECRET` into
+`.env` himself, ran `skills/lib/gmail_get_refresh_token.py` himself in his
+own terminal (deliberately not through this session — same "don't print
+secrets into your memory" instruction he gave for the first two), and
+pasted `GMAIL_REFRESH_TOKEN` in. Verified presence of all three with a
+masked `grep` (`sed 's/=.+/=<set>/'`) rather than ever reading the actual
+values — confirmed set, values never seen.
+
+**First real Gmail API call, and it worked.** `--source exec-ai-insider-weekly
+--dry-run` (chosen because the unrecognized-sender check back then didn't
+need a configured `sender`) hit the real API successfully and surfaced
+something concrete: brain@ already had 5 messages, 4 of them real AI-news
+newsletters Brian had independently subscribed there — The Deep View (x2),
+AlphaSignal, and a Beehiiv-hosted "Superintelligence" — none of them
+ExecAI Insider Weekly yet (that one's now subscribed too, weekly cadence,
+expected in a few days). Researched actual homepages for the first two
+before adding them (thedeepview.co, alphasignal.ai — both confirmed);
+flagged the third's homepage as an unverified guess rather than asserting
+it, since several different "Superintelligence"-named newsletters exist on
+Beehiiv and only the sender address was actually confirmed from the real
+message.
+
+**Then Brian caught a real design flaw, not a small tweak.** He asked why
+this session was trying to identify *which* Superintelligence newsletter
+it was via web search, when the actual content would just be sitting in
+the inbox anyway — and reframed the whole model: subscribing something to
+`brain@` already *is* the curation step (a deliberate act — typing that
+address into a signup form). A second sender allowlist in `sources.yaml`
+on top of that was solving a problem that didn't exist, and was the direct
+cause of the wasted Superintelligence research (guessing "what is this
+newsletter" instead of just letting the extraction step read the real
+content once it arrives, same as everything else already does).
+
+**Redesigned and rebuilt, verified against live data, same session:**
+- `fetch_entries_email()` no longer takes/requires a `sender` — the Gmail
+  query dropped `from:{sender}` entirely, now just
+  `after:{date} -label:"AI/Ingested" -label:"AI/Skipped"` (whole inbox,
+  date + label filtering only, same server-side efficiency as before).
+- `check_unrecognized_email_senders()` deleted outright — it existed to
+  answer "should the AI figure out relevance across the whole inbox," and
+  the answer changed from "no, surface, don't auto-ingest" to "yes,
+  that's the design now" (via the same `NOT_RELEVANT` extraction judgment
+  every other source already uses, not a new mechanism). Its call site in
+  `main()` and the `all_sources`/`sources` split that existed only to feed
+  it were removed too.
+- `sources.yaml`'s four email entries (`exec-ai-insider-weekly`,
+  `the-deep-view`, `alphasignal`, `superintelligence-beehiiv`) collapsed
+  into one: `brain-inbox`. Field docs for the now-removed `sender` field
+  deleted from the header comment.
+- Note attribution (`author`) still comes from each message's real `From`
+  header, same as before — this part of the original design was already
+  right, matching the existing `x-timeline` pattern (one aggregate
+  registry entry, per-item identity read from the real data, not a
+  catalog). `source`/`source_id` in note frontmatter are now generically
+  `brain-inbox` for every email-sourced note, same tradeoff `x-timeline`
+  already made and already validated as fine.
+
+**Re-verified against the same real inbox, not just re-compiled:**
+`--source brain-inbox --dry-run` correctly skipped "Welcome to your Google
+Cloud Free Trial" as `NOT_RELEVANT` (proving the extraction judgment
+alone handles junk filtering, no sender list needed) and correctly
+extracted and attributed real notes from all three live newsletters
+(The Deep View x2, AlphaSignal, Superintelligence), each `author` field
+pulled straight from the real message, matching what a sender-gated
+lookup would have produced but without ever needing to pre-identify any
+of them. RSS (`ethan-mollick`) and the `x-timeline`/`brain-inbox` pair in
+`sources.yaml` re-checked clean after the refactor.
+
+Updated `skills/ingest/README.md`'s email section to match (new "Design,
+corrected 2026-08-13" paragraph explaining the reversal plainly, not
+hiding that an earlier version of this same day got it wrong).
+
+**Where things stand:** brain@ ingestion is live, real, and validated
+against real mail — genuinely done, not just coded. Nothing blocking
+except time (ExecAI Insider Weekly's first delivery) and the Gmail filter
+(`AI/Inbox`, step 8 of the walkthrough — not yet confirmed whether Brian's
+actually set that up).
+
+### 2026-08-13 — same session, continued (the Gmail filter itself gets designed out; auto-registering sources)
+
+Brian pushed back on the Gmail filter before setting it up: "more work for
+me, and I have to maintain it" — asked why a human-configured filter was
+needed at all, and proposed the pipeline should just do the archiving
+itself based on what it actually decides (ingested vs. skipped), not a
+blanket rule set in advance on arrival. Separately, revisited what
+`sources.yaml` should even be for now that it's not a gate: he wants it
+kept, but purely as a reporting/documentation list ("showing people what
+email newsletters I subscribe to"), populated automatically as real
+ingestion happens rather than maintained by hand ahead of time — "if I
+subscribe to a new newsletter... it just randomly shows up, and you're
+gonna say, oh, this is relevant, I'm gonna ingest it, I'm gonna tag it...
+I'm gonna add it to the sources."
+
+Both are real design corrections, not small tweaks, and both landed:
+
+**No more Gmail filter, no more manual setup at all.**
+`gmail_apply_label()` gained an `archive: bool` param — when true, the
+same `messages.modify` call that adds the label also does
+`removeLabelIds: ["INBOX"]`, which is Gmail's own definition of
+"archived" (no separate action exists). Ingested messages now get
+`AI/Ingested` *and* archived, automatically, no filter needed. Skipped
+messages get `AI/Skipped` but stay in the inbox on purpose — Brian
+explicitly wants to see what got judged not relevant so he can catch and
+correct a bad call ("let's make sure we ingest this one too"), which a
+pre-set filter could never do since it can't know the outcome before the
+pipeline decides it. The walkthrough's step 8 rewritten to say plainly
+there's nothing left to configure in Gmail.
+
+**`sources.yaml` auto-registration, built as a plain text append.** New
+`auto_register_email_source()`: after a real note gets written from an
+email source, parses the sender's real From header
+(`_parse_sender_header()`, handles the standard `"Name" <addr>` shape),
+checks it against every `sender` already documented
+(`load_known_email_senders()`, loaded once per run), and if new, appends a
+fresh entry — `id` slugified from the display name (collision-suffixed if
+needed, reusing the existing `slugify()`), `sender`, and a `note` marking
+it auto-discovered and not yet reviewed. Deliberately never a full YAML
+re-serialize (`yaml.safe_dump()` on the whole file) — that would silently
+destroy 70+ sources' worth of hand-written comments, a real risk with a
+file this heavily annotated. Only fires for messages that actually
+produced a note, never for skipped mail, so the registry can't fill up
+with junk senders that happened to reach brain@ but weren't relevant.
+
+**Ran for real, not just dry-run — this is genuinely live now.** With
+Brian's go-ahead implicit in "let's do that," ran
+`ingest.py --source brain-inbox` (no `--dry-run`) against his actual
+inbox: 4 real notes written to `ingest/2026/08/`, the "Welcome to your
+Google Cloud Free Trial" email correctly labeled `AI/Skipped` and left in
+the inbox, the four newsletter messages labeled `AI/Ingested` and
+archived out of it, and three new `sources.yaml` entries auto-appended
+(`the-deep-view`, `alphasignal`, `superintelligence`) — confirmed by
+reading the file afterward that every existing comment survived untouched
+(the append-only approach working as designed, not just in theory). Caught
+and fixed one real cosmetic bug from this same run: `json.dumps()` defaults
+to escaping non-ASCII, so the auto-written notes had `—` instead of a
+literal em-dash — added `ensure_ascii=False`, then cleaned up the three
+entries already written rather than leaving the escaped version as a
+"first run" artifact.
+
+**Where things stand, updated:** brain@ ingestion is fully live, fully
+automatic, zero Gmail-side configuration required beyond the one-time
+OAuth credential setup. `sources.yaml` now has real auto-discovered
+entries from real mail. Next real-world event to watch: whether ExecAI
+Insider Weekly's first delivery gets picked up and auto-registered the
+same way once it arrives.
