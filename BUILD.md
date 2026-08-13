@@ -1484,3 +1484,31 @@ over from the `technical-briefings/`/`published/` split earlier this
 session (a `sources:` frontmatter pointer and two hardcoded strings baked
 into already-generated brief bodies) — cosmetic, not broken links, but
 worth being accurate now that they were noticed.
+
+**Same-session follow-up: full-text source ingestion — podcasts and X,
+planned not built.** Brian asked whether today's Artificial Intelligence
+Show note was based only on show notes — checked, confirmed yes (a
+breadth-first list of ~6 topics with no depth on any one, the exact
+shape of a show-notes-only extraction). Wrote up
+[docs/full-source-text-ingestion.md](../docs/full-source-text-ingestion.md)
+covering two workstreams: **E** (podcast transcripts — two source shapes,
+published-transcript sources are buildable now with no new credentials,
+audio-only sources need a transcription service Brian hasn't picked yet)
+and **F** (X/Twitter — researched, not assumed: the free tier and flat
+$200/$5,000-per-month tiers closed to new signups in February 2026,
+pay-per-use is now the default at $0.005/read, which is probably cheap
+at Brian's actual light-volume use case despite the scary legacy numbers
+still quoted around the web). Both extend MAINTAINER.md rule 2's existing
+architecture (ephemeral fetch → extraction → discard raw, never commit
+third-party full text) rather than needing a new policy — the one real
+new wrinkle is audio files needing true scratch-space handling (outside
+the repo, deleted after transcription) since even a temporary local MP3
+copy is still a full copy of copyrighted audio.
+
+Unlike Workstreams A/B in the Substack plan, neither of these needs a
+*different repo* — both are blocked only on Brian provisioning a
+credential (a transcription API key; a paid X developer account), so
+there's no strict need for a new conversation, just picking back up once
+those exist. Recommended starting with whichever podcast sources already
+publish transcripts (needs a real per-source check, not assumed) as the
+one piece buildable today.
