@@ -102,14 +102,26 @@ assumed):**
 | `dwarkesh` | **Yes, confirmed** | Publishes transcripts on dwarkesh.com itself (not in the RSS feed — needs fetching the episode page, not just the feed) |
 | `lex-fridman` | **Yes, confirmed** | Publishes transcripts on lexfridman.com itself, same shape as Dwarkesh — own site, not the RSS feed |
 | `ezra-klein-show` | **Yes, confirmed** | NYT posts transcripts at nytimes.com/ezra-klein-podcast |
-| `hard-fork` | **Unclear** | No first-party NYT transcript page found in this pass; only third-party transcript sites turned up. Worth a closer look, not ruled out |
+| `hard-fork` | **No first-party source found** | Only third-party transcript sites turned up, no NYT-hosted transcript page |
 | `the-artificial-intelligence-show` | **No** | Confirmed no `<podcast:transcript>` tag in the feed — this is the source that prompted the whole check, and it's show-notes-only |
-| `moonshots`, `bg2`, `on-with-kara-swisher`, `no-priors`, `hbr-ideacast` | **Not yet checked** | RSS feeds don't carry the `<podcast:transcript>` tag (checked); whether any publish transcripts on their own sites wasn't checked in this pass |
+| `moonshots` | **No first-party source found** | Only third-party sites (podscripts.co, podscribe) turned up |
+| `bg2` | **No first-party source found** | Only third-party sites (spoken.md, metacast.app) turned up |
+| `on-with-kara-swisher` | **No first-party source found** | Only a third-party site (podscripts.co) turned up |
+| `no-priors` | **No first-party source found** | Only third-party sites (metacast.app, podscribe) turned up |
+| `hbr-ideacast` | **No first-party source found** | Only a third-party site (metacast.app) turned up |
 
-So at minimum 4 of 11 (80000-hours-podcast, dwarkesh, lex-fridman,
-ezra-klein-show) are real, buildable-now candidates with no new
-credentials — a good pilot batch, similar spirit to Workstream C's
-podcast-episodes-first recommendation in the Substack plan.
+Check complete, 2026-08-12: 4 of 11 sources (80000-hours-podcast,
+dwarkesh, lex-fridman, ezra-klein-show) have real first-party transcripts
+— buildable now, no new credentials, a good pilot batch (similar spirit
+to Workstream C's podcast-episodes-first recommendation in the Substack
+plan). The other 7 all fall into the "transcribe" bucket once that path
+exists (audio → Whisper), not the "published" bucket. Third-party
+transcript sites exist for most of the 7 (podscripts.co, spoken.md,
+metacast.app, podscribe) but weren't evaluated as a source — using
+someone else's transcription of the audio raises its own questions
+(accuracy, their terms of service, another dependency) rather than being
+a clean substitute for either a first-party transcript or running our
+own transcription; not pursued in this pass.
 
 **sources.yaml additions needed:** a `transcript_mode` field per podcast
 source (`published` / `transcribe` / `none`), and for `published` sources,
@@ -192,16 +204,51 @@ worth automating.
   own preference — this doc is written so that thread doesn't need this
   conversation's context.
 
+## X developer account setup — what Brian needs to do, 2026-08-12
+
+Researched, not guessed (X's developer portal has changed shape several
+times). Two things need to happen at `console.x.com`, logged in as the
+`brianmaddenai` account:
+
+1. **Sign up for developer access and add a payment method** (no free
+   tier since Feb 2026 — see Workstream F above). Create a **Project**,
+   then an **App** inside it.
+2. **In the App's "User authentication settings," enable OAuth 2.0**,
+   set app permissions to **Read** (no write/post access needed for
+   this), app type **confidential client** (a script/server, not a
+   public/mobile app), and set a callback/redirect URL (any placeholder
+   works if there's no real web server yet — e.g. `http://localhost:8080/callback`).
+   Under "Keys and tokens," this generates a **Client ID** and
+   **Client Secret** — these can be grabbed today and dropped in `.env`
+   (new vars, e.g. `X_CLIENT_ID` / `X_CLIENT_SECRET`, matching the
+   existing `.env.example` convention).
+
+**What's still open, and likely needs a short follow-up together rather
+than being a solo portal task:** the home-timeline endpoint needs a
+*user-context* access token — one actually authorized by the
+`brianmaddenai` account, not just an app-level credential. Since
+`brianmaddenai` is both the account being read *and* the account that
+owns the app, X's portal may let the OAuth authorization happen
+entirely within the same session (self-authorizing your own app) without
+a real external redirect — but this isn't confirmed for the current
+portal UI. If it does work that way, grab the resulting **Access Token**
+and **Refresh Token** (request the `tweet.read`, `users.read`, and
+`offline.access` scopes — that last one is what keeps the integration
+from needing manual re-authorization every couple of hours) and those go
+in `.env` too. If the portal instead requires a full external OAuth
+redirect flow, that's better done together via a short script than
+guessed at blind — flag it here rather than now.
+
 ## Open, not decided
 
-- Whether `hard-fork` publishes a real transcript anywhere first-party —
-  not ruled out, just not confirmed in this pass.
-- Whether `moonshots`, `bg2`, `on-with-kara-swisher`, `no-priors`, and
-  `hbr-ideacast` publish transcripts on their own sites (RSS feeds
-  checked and don't carry the tag; websites not checked).
 - Whether OpenRouter (or another provider) is worth adding to
   `skills/lib/transcribe.py` later — not needed to start building with
   `openai` as the only provider.
 - Whether X-followed people get their own `sources.yaml` entries (for
   `lens`/`pov` parity with every other source type) or stay implicit in
   the X follow list itself.
+- Whether any of the 7 no-first-party-transcript podcast sources are
+  worth transcribing via Whisper given the cost/latency reality, or
+  better left as show-notes-only indefinitely — a per-source judgment
+  call once the transcription path actually exists and its real
+  cost/time per episode is known.

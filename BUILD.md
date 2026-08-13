@@ -1547,3 +1547,33 @@ gets picked back up.
 Both credentials are Brian's to set up between sessions — doc is written
 so a fresh thread can pick this up without re-deriving today's
 conversation.
+
+**Same-session follow-up: finished the transcript check, researched real
+X setup steps.** Checked the remaining 5 podcast sources (moonshots,
+bg2, on-with-kara-swisher, no-priors, hbr-ideacast) — none have a
+first-party published transcript; all that turned up were third-party
+transcription sites (podscripts.co, spoken.md, metacast.app, podscribe).
+Noted explicitly in the doc that using someone else's transcription
+raises its own questions (accuracy, their ToS, another dependency) and
+wasn't pursued as a substitute for either a first-party transcript or
+running Brian's own transcription. Check is now complete across all 11
+sources: 4 confirmed real (buildable now), 7 need the transcription path
+once it exists.
+
+**Researched (not guessed) the actual X developer portal steps**, since
+the UI has changed shape multiple times and getting this wrong would
+waste Brian's time. Two real findings: the reverse-chronological
+home-timeline endpoint needs a *user-context* OAuth 2.0 token, not just
+an app-level credential — confirmed via X's own docs, not assumed; and
+because `brianmaddenai` is both the app owner and the account being
+read, the portal may allow self-authorization within the same session
+rather than a full external OAuth redirect, though this isn't confirmed
+for the current portal specifically. Gave Brian a concrete two-part
+answer: what he can do solo right now (developer signup, Project/App
+creation, OAuth 2.0 permissions, grab Client ID/Secret) vs. what's
+likely worth doing together as a short follow-up (the actual user-context
+token, which needs either self-authorization or a real OAuth flow).
+Added the new env vars to `.env.example` (`OPENAI_API_KEY` for
+transcription; `X_CLIENT_ID`/`X_CLIENT_SECRET`/`X_ACCESS_TOKEN`/
+`X_REFRESH_TOKEN` for X), matching the existing commented-out-until-used
+convention `GMAIL_CLIENT_ID` etc. already established.
