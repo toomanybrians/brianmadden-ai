@@ -1640,28 +1640,61 @@ a key" session has flagged.
 "I can't click your OAuth consent for you" boundary as every credential
 setup so far):
 
+**Corrected 2026-08-13** — Brian actually ran this and got stuck: Google
+renamed "OAuth consent screen" to **Google Auth Platform** in 2024, split
+into Branding/Audience/Data Access/Clients tabs. Steps below verified
+against Google's current docs (`developers.google.com/workspace/guides/
+configure-oauth-consent`, `.../create-credentials`), not memory — see the
+follow-up entry below for what prompted the correction.
+
 1. Go to [console.cloud.google.com](https://console.cloud.google.com)
    signed in as **`brain@brianmadden.ai` specifically** (not a personal
-   account) — this is what makes "Internal" available as the OAuth
-   consent screen's user type, which matters: Internal apps are scoped to
-   your own Workspace org and skip Google's verification/security-
-   assessment process entirely, even for a sensitive scope like
-   `gmail.readonly`. Signing in as a personal Google account would force
-   the harder "External" path.
-2. Create a new project (e.g. `brianmadden-ai-ingest`).
-3. **APIs & Services → Library** → search "Gmail API" → Enable.
-4. **APIs & Services → OAuth consent screen** → User Type: **Internal** →
-   fill in an app name and support email → Save.
-5. Add scope `https://www.googleapis.com/auth/gmail.readonly`.
-6. **APIs & Services → Credentials → Create Credentials → OAuth client
-   ID** → Application type: **Desktop app** → name it → Create. Copy the
-   **Client ID** and **Client Secret** straight into your own `.env` as
-   `GMAIL_CLIENT_ID` / `GMAIL_CLIENT_SECRET` — same as every other key,
-   Claude never handles the value itself.
+   account) — this is what makes "Internal" available as the Google Auth
+   Platform's user type, which matters: Internal apps are scoped to your
+   own Workspace org and skip Google's verification/security-assessment
+   process entirely, even for a sensitive scope like `gmail.modify`.
+   Signing in as a personal Google account would force the harder
+   "External" path.
+2. Create a new project (e.g. `brianmadden-ai-ingest` — Brian's actual
+   project is `brianmadden-ai`, name doesn't matter).
+3. **APIs & Services → Library** → search "Gmail API" → click it → **Enable**.
+4. **APIs & Services → Google Auth Platform** → click **Get Started**:
+   - **Branding** tab: app name (e.g. "brianmadden-ai ingest"), support
+     email → Next.
+   - **Audience** tab: User Type **Internal** → Next.
+   - Contact info: an email for notifications → Next.
+   - Accept the Google API Services User Data Policy → Continue → Create.
+5. **Data Access** tab → **Add or Remove Scopes** → add
+   `https://www.googleapis.com/auth/gmail.modify` — **updated 2026-08-12**
+   from the originally-planned `gmail.readonly`, once the pipeline started
+   applying `AI/Ingested`/`AI/Skipped` labels to messages it's handled (see
+   the same-session follow-up entry below). `gmail.modify` covers read +
+   label/archive/trash; it can never send mail or bypass Trash for
+   permanent deletion. Google's own docs note scopes aren't always shown
+   for Internal-only apps — if this step looks different than described,
+   it's fine, the refresh-token script requests the scope directly.
+6. **Clients** tab → **Create Client** → Application type: **Desktop app**
+   → name it → Create. Copy the **Client ID** and **Client Secret** shown
+   straight into your own `.env` as `GMAIL_CLIENT_ID` / `GMAIL_CLIENT_SECRET`
+   — same as every other key, Claude never handles the value itself.
 7. Run `python3 skills/lib/gmail_get_refresh_token.py` locally. It opens a
    browser — sign in as `brain@brianmadden.ai`, click Allow, and the
    script prints `GMAIL_REFRESH_TOKEN=...` to paste into `.env`.
-8. Separately (not a Cloud Console step): subscribe ExecAI Insider Weekly
+8. **One-time Gmail-side filter, not a Cloud Console step** (Gmail
+   Settings → Filters and Blocked Addresses → Create a new filter): match
+   **To: `brain@brianmadden.ai`** (deliberately blanket, not per-sender —
+   that address should only ever receive things meant for this pipeline,
+   so nothing here needs updating as new sources get added), then choose
+   **Skip Inbox (Archive it)** and **Apply label** → create a new label
+   `AI/Inbox`. This is the closest Gmail equivalent to "give it its own
+   folder" — keeps newsletters out of your normal inbox view
+   automatically. Separate from this, the pipeline itself applies one of
+   two labels to each message once it's actually handled — `AI/Ingested`
+   if it became a note, `AI/Skipped` if judged not relevant (Brian's call,
+   2026-08-12: separate labels so you can tell the two apart at a glance,
+   not just "seen") — see the follow-up entry below for why labels rather
+   than deleting anything.
+9. Separately: subscribe ExecAI Insider Weekly
    ([academy.smarterx.ai/exec-ai-newsletter](https://academy.smarterx.ai/exec-ai-newsletter))
    to `brain@brianmadden.ai`. Once a real email arrives, grab its actual
    From address and fill it into `sender:` for `exec-ai-insider-weekly` in
@@ -1824,3 +1857,170 @@ happen.
 `docs/full-source-text-ingestion.md` updated from "planned" to "built and
 validated." Not done: the manual-paste fallback for X (still useful,
 not built this session).
+
+### 2026-08-12 — same session, continued (brain@ processed-mail bookkeeping)
+
+Brian asked the real operational question about brain@ before actually
+running the walkthrough above: once random newsletters start arriving,
+should a Gmail filter tag them by sender for the pipeline to look for, or
+is it easy enough to just have AI triage the whole inbox — and separately,
+what happens to a message after the pipeline reads it (delete it, move it
+somewhere)?
+
+**Answered both, then built it, not just discussed it.** Landed on: keep
+`sources.yaml`'s `sender` field as the single registry (no duplicate
+sender list in Gmail filters to keep in sync); add a real safety net that
+scans the whole mailbox each run and *surfaces* anything from an
+unrecognized sender rather than either ignoring it or auto-ingesting it
+(same system-surfaces-human-decides pattern as the promotion-candidates
+queue). For "where does processed mail go" — Gmail doesn't really have
+folders, everything is a label — so the pipeline now applies an
+`AI/Processed` label to every message it touches (note written, or judged
+not relevant), and Brian sets up one blanket Gmail filter (not
+per-sender, since nothing but this pipeline's newsletters should ever
+arrive at brain@) that auto-archives + labels anything addressed to
+`brain@brianmadden.ai` as `AI/Inbox`. Two labels, no deletion, is the
+entire state model.
+
+**Real consequence, flagged plainly:** labeling is a write operation, so
+this needed `gmail.modify` instead of the `gmail.readonly` scope from
+earlier this session — `skills/lib/gmail_get_refresh_token.py`'s `SCOPE`
+constant updated, and the walkthrough above corrected in place (step 5)
+rather than left stale, with a note that anyone who already created the
+OAuth consent screen with only `gmail.readonly` just needs to add the
+wider scope, not start over. `gmail.modify` still can't send mail or
+permanently bypass Trash — relevant since Brian never asked for either.
+
+**Built in `skills/ingest/ingest.py`:**
+- `_gmail_get_label_id()` — looks up a label by name, creates it if
+  missing (Gmail labels are created lazily, not provisioned ahead of
+  time), cached at module level so a run with many messages doesn't
+  re-list/re-create per message.
+- `gmail_mark_processed(msg_id)` — applies `AI/Processed`. Best-effort:
+  logs and moves on rather than raising, since by the time this runs the
+  actual note (or not-relevant decision) is already final — a labeling
+  hiccup shouldn't retroactively fail a real write.
+- `fetch_entries_email()`'s query now excludes `-label:"AI/Processed"` on
+  top of the existing frontmatter-based dedup (belt and suspenders, and
+  it's what keeps the mailbox from being re-scanned message-by-message
+  forever as it grows). Entries carry a new internal `gmail_msg_id` key
+  (not written to note frontmatter — confirmed `write_note()` only reads
+  specific known keys, so the extra key is inert everywhere else).
+- `main()`'s email branch now calls `gmail_mark_processed()` in **both**
+  branches of the extract-or-skip decision — a not-relevant newsletter
+  issue needs labeling too, or it gets re-fetched and re-judged
+  not-relevant every single run forever, silently wasting a model call
+  each time.
+- `check_unrecognized_email_senders()` — runs once per full run (only if
+  at least one `ingest_method: email` source exists and Gmail is
+  configured), scans everything in the window not yet labeled processed,
+  diffs From addresses against every known source's `sender`, prints
+  what's left over. Never writes a note, never labels — stays visible
+  next run too until Brian acts on it.
+
+**Verified, not just written:** `--source exec-ai-insider-weekly
+--dry-run` and `--source ethan-mollick --dry-run` both still degrade
+cleanly with no Gmail credentials set (same as the earlier check this
+session, re-run after these changes to confirm nothing broke); a full
+`--since-days 0.01 --max-per-source 1 --dry-run` registry run (62+
+sources) completed with exit code 0 and no crashes, confirming the
+`is_email`/`is_x`/feed routing and the new post-loop unrecognized-sender
+check all coexist with the concurrent X/transcription thread's changes
+that landed in this same file mid-session (`fetch_entries_x`,
+`enrich_with_transcript`, the `x-timeline` source) — read the current
+file in full before editing rather than trusting a stale mental model of
+it, given both sessions are working the same checkout in real time. Real
+Gmail API calls (label creation, the modify call itself) remain untested
+— no credentials exist yet, same honest caveat as everything else Gmail
+this session.
+
+Updated `skills/ingest/README.md` (new "Processed-mail bookkeeping" and
+"Unrecognized-sender safety net" paragraphs under the email-sources
+section) and `.env.example`'s Gmail comment block to note the
+`gmail.modify` requirement. Not committed — held for Brian's review, same
+as the rest of this session's Gmail work before it was committed
+directly (see the note earlier in this entry about that).
+
+**Where things stand:** Gmail brain@ ingestion — fetch, extract, dedupe,
+label, and surface-unrecognized-senders — is fully designed and coded.
+Nothing further to build until Brian completes the walkthrough (steps 1-9
+above) and a real message exists to test against.
+
+### 2026-08-12 — same session, continued (two labels instead of one; fuzzier sender matching)
+
+Two quick refinements from Brian, both landed:
+
+1. **Split `AI/Processed` into `AI/Ingested` and `AI/Skipped`.** His
+   framing: which messages actually became a note vs. which were seen and
+   judged not relevant are different things worth telling apart at a
+   glance in Gmail, not lumped into one "seen" label. `GMAIL_LABEL_INGESTED`
+   / `GMAIL_LABEL_SKIPPED` replace the single `GMAIL_PROCESSED_LABEL`
+   constant; `gmail_mark_processed()` generalized to `gmail_apply_label(msg_id,
+   label_name)` so both call sites in `main()` just pass whichever label
+   fits; both `fetch_entries_email()`'s and
+   `check_unrecognized_email_senders()`'s Gmail queries now exclude both
+   labels via a small `_gmail_exclude_processed_clause()` helper instead of
+   one hardcoded `-label:`. The walkthrough (step 8 above) and
+   `skills/ingest/README.md`'s bookkeeping section updated to match.
+2. **Fuzzier sender matching, documented not just coded.** Brian's read:
+   newsletters will likely arrive from randomized/ESP sending addresses
+   that vary per send, not one stable address he can pin down ahead of
+   time — asked whether the pipeline could match on name or "whatever"
+   instead of requiring an exact address. Turned out this needed
+   documentation more than code: Gmail's own `from:` search operator
+   already matches against the whole From header (display name and
+   address, not exact-match-only), and `check_unrecognized_email_senders()`
+   already did a Python-side substring check
+   (`known in from_header.lower()`), not exact equality. Updated
+   `sources.yaml`'s `sender` field docs to say so explicitly and recommend
+   using the sending *domain* (e.g. `smarterx.ai`) or a stable display-name
+   fragment rather than a specific mailbox local-part when the exact
+   address isn't predictable — no behavior change needed, just correcting
+   the field's documented semantics from "the from-address" (implying
+   exact) to "text that should appear in the From header."
+
+Verified both changes: `--source exec-ai-insider-weekly --dry-run` and
+`--source ethan-mollick --dry-run` re-run clean after the label split;
+`sources.yaml` re-parsed fine after the doc edit (71 sources).
+
+**Also answered, in chat, not requiring a doc:** Brian asked whether
+choosing France vs. USA as the country on Google Cloud's Terms of Service
+screen (mid-walkthrough) makes a difference. Short version given: it
+mainly affects which Google contracting entity governs the account
+(EU entity + GDPR framework for France vs. Google LLC/US law for USA) and
+billing/tax defaults if a billing account ever gets added later — for
+Gmail API usage at this volume (free, no billing account required),
+there's no functional difference to the pipeline either way. Recommended
+matching his actual residency (Paris, France, per `me/profile.md`) for
+consistency with his other account settings, not because the pipeline
+cares.
+
+**Where things stand, updated:** Same as above — fully coded, waiting on
+Brian's Cloud Console walkthrough and a real message.
+
+### 2026-08-13 — new session (walkthrough terminology corrected against Brian's actual screen)
+
+Brian hit the walkthrough for real and got stuck — sent a screenshot of
+the Cloud Console landing page for his new `brianmadden-ai` project
+(project number `332009713445`), said he couldn't find the links the
+steps described. Root cause: the walkthrough said "OAuth consent screen,"
+but Google renamed that to **Google Auth Platform** back in 2024, split
+into Branding/Audience/Data Access/Clients tabs — stale terminology from
+whenever that step was originally written, not verified against Google's
+current docs at the time.
+
+Fixed by actually checking, not re-guessing: pulled
+`developers.google.com/workspace/guides/configure-oauth-consent` and
+searched for the current Client-ID creation flow rather than trusting
+memory a second time. The brain@ walkthrough above (steps 1-9) rewritten
+in place with the verified current path — Library → Enable for the API
+(unchanged), then Google Auth Platform's four tabs (Branding → Audience →
+Data Access → Clients) for consent/scope/credentials, replacing the old
+single "OAuth consent screen" step. Confirmed his project is already
+correctly created (`brianmadden-ai`, fine that it doesn't match the
+walkthrough's suggested name — name was always just an example).
+
+Not yet confirmed: whether "Internal" actually shows as available once he
+reaches the Audience tab (depends on the Cloud project being properly
+associated with the `brianmadden.ai` Workspace org) — flagged to watch for
+in his next message rather than assumed fine.

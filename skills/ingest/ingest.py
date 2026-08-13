@@ -15,6 +15,8 @@ import html
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
 from datetime import datetime, timedelta, timezone
@@ -203,6 +205,38 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
 
 
 TRANSCRIPT_MAX_BYTES = 300 * 1024 * 1024  # ~300MB safety valve against a malformed enclosure
+# OpenAI's transcription API caps uploads at 25MB (whisper-1 and
+# gpt-4o-transcribe alike) and gpt-4o-transcribe additionally caps
+# duration at 1500s/25min regardless of file size — confirmed 2026-08-12
+# the hard way (both test episodes, 74MB/114MB, failed transcription
+# outright). 900s (15min) segments re-encoded to 64kbps mono/16kHz give a
+# predictable ~7.2MB per chunk — safely under both limits with real
+# margin, not a bitrate-dependent guess. Mono/16kHz is standard practice
+# for speech transcription (no quality loss that matters for this).
+AUDIO_CHUNK_SECONDS = 900
+
+
+def _split_audio_for_transcription(audio_path: Path, workdir: Path) -> list[Path]:
+    """Re-encodes + splits audio_path into AUDIO_CHUNK_SECONDS chunks via
+    ffmpeg, written into workdir (caller's temp dir, cleaned up by the
+    caller). Returns chunk paths in order. Raises FileNotFoundError if
+    ffmpeg isn't on PATH — caller decides the fallback."""
+    if not shutil.which("ffmpeg"):
+        raise FileNotFoundError("ffmpeg not found on PATH")
+    pattern = str(workdir / "chunk_%03d.mp3")
+    result = subprocess.run(
+        [
+            "ffmpeg", "-y", "-i", str(audio_path),
+            "-ac", "1", "-ar", "16000", "-b:a", "64k",
+            "-f", "segment", "-segment_time", str(AUDIO_CHUNK_SECONDS),
+            "-reset_timestamps", "1",
+            pattern,
+        ],
+        capture_output=True, text=True, timeout=600,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"ffmpeg failed: {result.stderr[-500:]}")
+    return sorted(workdir.glob("chunk_*.mp3"))
 
 
 def enrich_with_transcript(entry: dict, source: dict) -> None:
@@ -273,13 +307,39 @@ def enrich_with_transcript(entry: dict, source: dict) -> None:
             print(f"    audio download failed ({e}) — using show notes")
             return
 
-        # Stage 2: transcription.
+        # Stage 2: transcription. OpenAI's API caps uploads at 25MB (and
+        # gpt-4o-transcribe separately caps duration at 25min) — confirmed
+        # 2026-08-12 the hard way, both real test episodes (74MB/114MB)
+        # failed outright at the full-file size. Split into safe chunks
+        # via ffmpeg first; if ffmpeg isn't available, fall back to
+        # attempting the whole file (works fine for naturally-short audio,
+        # fails the same way as before for anything large).
+        print(f"    downloaded audio ({downloaded / 1_000_000:.1f}MB)")
+        chunk_dir = None
         try:
-            print(f"    downloaded audio ({downloaded / 1_000_000:.1f}MB) — transcribing via {transcribe.current_provider()}/{transcribe.resolve_model()}...")
-            text = transcribe.transcribe(tmp_path)
-        except requests.RequestException as e:
-            print(f"    transcription API call failed ({e}) — using show notes")
-            return
+            chunk_dir = Path(tempfile.mkdtemp())
+            try:
+                chunks = _split_audio_for_transcription(tmp_path, chunk_dir)
+            except FileNotFoundError:
+                print("    ffmpeg not found — attempting the full file directly (will fail if it's over OpenAI's 25MB/25min caps)")
+                chunks = [tmp_path]
+            except RuntimeError as e:
+                print(f"    audio splitting failed ({e}) — using show notes")
+                return
+
+            print(f"    transcribing {len(chunks)} chunk(s) via {transcribe.current_provider()}/{transcribe.resolve_model()}...")
+            texts = []
+            try:
+                for i, chunk in enumerate(chunks, 1):
+                    texts.append(transcribe.transcribe(chunk))
+                    print(f"      chunk {i}/{len(chunks)} done ({len(texts[-1])} chars)")
+            except requests.RequestException as e:
+                print(f"    transcription API call failed on chunk {len(texts) + 1}/{len(chunks)} ({e}) — using show notes")
+                return
+            text = " ".join(texts)
+        finally:
+            if chunk_dir and chunk_dir.exists():
+                shutil.rmtree(chunk_dir, ignore_errors=True)
 
         truncated = len(text) > MAX_CONTENT_CHARS
         entry["content"] = text[:MAX_CONTENT_CHARS] + (" […truncated…]" if truncated else "")
@@ -452,8 +512,20 @@ def fetch_entries_x(source: dict, since_days: float, max_per_source: int):
 
 GMAIL_USER = "brain@brianmadden.ai"
 GMAIL_TOKEN_URL = "https://oauth2.googleapis.com/token"
-GMAIL_API_BASE = f"https://gmail.googleapis.com/gmail/v1/users/{GMAIL_USER}/messages"
+GMAIL_USER_BASE = f"https://gmail.googleapis.com/gmail/v1/users/{GMAIL_USER}"
+GMAIL_API_BASE = f"{GMAIL_USER_BASE}/messages"
 GMAIL_ENV_VARS = ("GMAIL_CLIENT_ID", "GMAIL_CLIENT_SECRET", "GMAIL_REFRESH_TOKEN")
+# Applied to every brain@ message this pipeline touches, so it never gets
+# reconsidered and so Brian has a visual "the AI already saw this, and here's
+# what it did" signal in Gmail itself — two labels, not one, per Brian's
+# 2026-08-12 call: which messages actually became a note vs. which were seen
+# and judged not relevant are different things worth being able to tell
+# apart at a glance. Needs gmail.modify (not just gmail.readonly) — see
+# BUILD.md's brain@ walkthrough.
+GMAIL_LABEL_INGESTED = "AI/Ingested"
+GMAIL_LABEL_SKIPPED = "AI/Skipped"
+GMAIL_PROCESSED_LABELS = (GMAIL_LABEL_INGESTED, GMAIL_LABEL_SKIPPED)
+_gmail_label_id_cache: dict[str, str] = {}
 
 
 def gmail_is_configured() -> bool:
@@ -503,11 +575,80 @@ def _gmail_extract_body(payload: dict) -> str:
     return ""
 
 
+def _gmail_get_label_id(name: str, access_token: str) -> str | None:
+    """Looks up a Gmail label by name, creating it if it doesn't exist yet
+    (labels.create is idempotent-ish — Gmail rejects a duplicate name with
+    a 409, treated the same as "already exists, look it up"). Cached at
+    module level so a run with many messages doesn't re-list/re-create per
+    message. Returns None (never raises) on any API failure — a label miss
+    should never sink note-writing, which already happened by the time
+    this is called."""
+    if name in _gmail_label_id_cache:
+        return _gmail_label_id_cache[name]
+
+    headers = {"Authorization": f"Bearer {access_token}"}
+    try:
+        resp = requests.get(f"{GMAIL_USER_BASE}/labels", headers=headers, timeout=15)
+        resp.raise_for_status()
+        for label in resp.json().get("labels", []):
+            if label["name"] == name:
+                _gmail_label_id_cache[name] = label["id"]
+                return label["id"]
+
+        resp = requests.post(
+            f"{GMAIL_USER_BASE}/labels", headers=headers, timeout=15,
+            json={"name": name, "labelListVisibility": "labelShow", "messageListVisibility": "show"},
+        )
+        resp.raise_for_status()
+        label_id = resp.json()["id"]
+        _gmail_label_id_cache[name] = label_id
+        return label_id
+    except requests.RequestException as e:
+        print(f"    gmail: couldn't look up/create label '{name}': {e}")
+        return None
+
+
+def gmail_apply_label(msg_id: str | None, label_name: str) -> None:
+    """Applies one of GMAIL_PROCESSED_LABELS to a message so it's excluded
+    from future fetch_entries_email() queries and visibly marked in Gmail
+    itself as either ingested or skipped. Best-effort — a labeling failure
+    is logged, not raised, since the note (or the not-relevant decision)
+    it's marking is already final by the time this runs."""
+    if not msg_id or not gmail_is_configured():
+        return
+    try:
+        access_token = _gmail_access_token()
+    except requests.RequestException as e:
+        print(f"    gmail: couldn't get a token to label message {msg_id}: {e}")
+        return
+
+    label_id = _gmail_get_label_id(label_name, access_token)
+    if not label_id:
+        return
+
+    try:
+        resp = requests.post(
+            f"{GMAIL_API_BASE}/{msg_id}/modify",
+            headers={"Authorization": f"Bearer {access_token}"}, timeout=15,
+            json={"addLabelIds": [label_id]},
+        )
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        print(f"    gmail: couldn't apply label '{label_name}' to message {msg_id}: {e}")
+
+
+def _gmail_exclude_processed_clause() -> str:
+    return " ".join(f'-label:"{name}"' for name in GMAIL_PROCESSED_LABELS)
+
+
 def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     """
     Polls brain@brianmadden.ai for mail from this source's known sender
     (BUILD.md open decision #7a) — the email-source counterpart to
-    fetch_entries(), same (entries, error) contract.
+    fetch_entries(), same (entries, error) contract. Entries carry an
+    extra 'gmail_msg_id' key (not written to note frontmatter — write_note()
+    only reads specific known keys) so the caller can label the message
+    afterward via gmail_apply_label().
 
     Needs GMAIL_CLIENT_ID/SECRET/REFRESH_TOKEN (see .env.example and the
     brain@ Gmail walkthrough in BUILD.md) and a 'sender' field on the
@@ -527,8 +668,15 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=since_days)
     # Gmail search's after: is day-granularity, same as this pipeline's
-    # existing date_captured handling elsewhere.
-    query = f"from:{sender} after:{cutoff.strftime('%Y/%m/%d')}"
+    # existing date_captured handling elsewhere. -label excludes anything a
+    # prior run already labeled (ingested or skipped), on top of the
+    # frontmatter-based dedup every source type already gets from
+    # load_ingested_urls(). from: is Gmail's own search operator — it
+    # matches against the whole From header (name and address), not just
+    # an exact address, so `sender` can be a domain or a name fragment when
+    # an ESP's exact sending address varies per send (see sources.yaml's
+    # field docs).
+    query = f'from:{sender} after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
     headers = {"Authorization": f"Bearer {access_token}"}
 
     try:
@@ -577,6 +725,7 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
             "date_published": date_published,
             "published_dt": published_dt,
             "content": content,
+            "gmail_msg_id": msg_id,
         })
 
     entries.sort(
@@ -584,6 +733,67 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
         reverse=True,
     )
     return entries[:max_per_source], None
+
+
+def check_unrecognized_email_senders(sources: list[dict], since_days: float) -> None:
+    """Safety net for Brian's Q: 'I'll eventually get random who-knows-what
+    at brain@ — should the pipeline figure out relevance across the whole
+    inbox?' Answer landed on: no auto-ingest of unknown senders (too easy
+    for spam or a stray CC to become a permanent tier-1 note), but yes,
+    surface them — same 'system flags, human decides' pattern as the
+    promotion-candidates queue. Scans the whole mailbox (not scoped to any
+    one source's sender), diffs against every known email source's
+    `sender`, and prints anything left over. Never writes a note, never
+    applies either GMAIL_PROCESSED_LABELS label — stays visible next run
+    too until Brian either adds the sender to sources.yaml or deals with it
+    by hand.
+    """
+    email_sources = [s for s in sources if s.get("ingest_method") == "email"]
+    if not email_sources or not gmail_is_configured():
+        return
+    known_senders = {s["sender"].lower() for s in email_sources if s.get("sender")}
+
+    try:
+        access_token = _gmail_access_token()
+    except requests.RequestException as e:
+        print(f"\n[unrecognized-sender check] skipped — gmail auth failed: {e}")
+        return
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=since_days)
+    query = f'after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
+    headers = {"Authorization": f"Bearer {access_token}"}
+
+    try:
+        resp = requests.get(
+            GMAIL_API_BASE, headers=headers,
+            params={"q": query, "maxResults": 50}, timeout=15,
+        )
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        print(f"\n[unrecognized-sender check] skipped — gmail list failed: {e}")
+        return
+
+    unrecognized = []
+    for msg_ref in resp.json().get("messages", []):
+        msg_id = msg_ref["id"]
+        try:
+            msg_resp = requests.get(
+                f"{GMAIL_API_BASE}/{msg_id}", headers=headers, timeout=15,
+                params={"format": "metadata", "metadataHeaders": ["From", "Subject"]},
+            )
+            msg_resp.raise_for_status()
+        except requests.RequestException:
+            continue
+        header_map = {h["name"]: h["value"] for h in msg_resp.json().get("payload", {}).get("headers", [])}
+        from_header = header_map.get("From", "")
+        if not any(known in from_header.lower() for known in known_senders):
+            unrecognized.append((from_header, header_map.get("Subject", "(no subject)")))
+
+    if unrecognized:
+        print(f"\n[unrecognized-sender check] {len(unrecognized)} message(s) at brain@ from senders not in sources.yaml:")
+        for from_header, subject in unrecognized:
+            print(f"    from: {from_header} — subject: {subject}")
+        print("    add a 'sender' to a sources.yaml email source if wanted, or ignore/archive manually.")
 
 
 # ----------------------------------------------------------------- dedup --
@@ -792,13 +1002,22 @@ def main() -> None:
             )
             if body is None:
                 print(f"    skipped (not relevant): {entry['title']}")
+                # Label it even when skipped — otherwise a not-relevant
+                # newsletter issue gets re-fetched and re-judged
+                # not-relevant every single run forever.
+                if is_email and not args.dry_run:
+                    gmail_apply_label(entry.get("gmail_msg_id"), GMAIL_LABEL_SKIPPED)
                 continue
             write_note(
                 ingest_root, source, entry, body, args.dry_run, model=model_used,
                 ingest_method="email" if is_email else ("x" if is_x else "feed"),
             )
+            if is_email and not args.dry_run:
+                gmail_apply_label(entry.get("gmail_msg_id"), GMAIL_LABEL_INGESTED)
             seen_urls.add(entry["link"])
             total_written += 1
+
+    check_unrecognized_email_senders(sources, since_days)
 
     summary = f"\n{total_new} new entries found; {total_written} notes written"
     if args.dry_run:

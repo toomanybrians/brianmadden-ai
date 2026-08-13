@@ -6,11 +6,15 @@ GMAIL_REFRESH_TOKEN for brain@brianmadden.ai (BUILD.md open decision #7a).
 Run once, after creating a Desktop-app OAuth client in Google Cloud Console
 (BUILD.md's brain@ Gmail walkthrough) and setting GMAIL_CLIENT_ID /
 GMAIL_CLIENT_SECRET in the repo-root .env. Opens a browser for you to sign
-in as brain@brianmadden.ai and grant read-only Gmail access, then prints
-the refresh token to paste into .env as GMAIL_REFRESH_TOKEN.
+in as brain@brianmadden.ai and grant Gmail access, then prints the refresh
+token to paste into .env as GMAIL_REFRESH_TOKEN.
 
-Requests gmail.readonly only — no send/modify/delete access. Nothing here
-touches the mailbox itself; it only completes the OAuth handshake.
+Requests gmail.modify (upgraded from gmail.readonly 2026-08-12, once
+ingest.py started applying an "AI/Processed" label to messages it's
+handled). gmail.modify covers read + label/archive/trash, but never send
+and never permanent, bypass-Trash deletion — nothing here can email on
+Brian's behalf or destroy anything unrecoverably. This script itself only
+completes the OAuth handshake; it doesn't touch the mailbox.
 """
 
 import os
@@ -25,7 +29,7 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent.parent
 REDIRECT_PORT = 8080
 REDIRECT_URI = f"http://localhost:{REDIRECT_PORT}/"
-SCOPE = "https://www.googleapis.com/auth/gmail.readonly"
+SCOPE = "https://www.googleapis.com/auth/gmail.modify"
 AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 
@@ -82,7 +86,7 @@ def main() -> None:
         "login_hint": "brain@brianmadden.ai",
     }
     url = f"{AUTH_URL}?{urllib.parse.urlencode(auth_params)}"
-    print("Opening your browser to authorize Gmail read-only access.")
+    print("Opening your browser to authorize Gmail access (read + label/archive).")
     print("IMPORTANT: sign in as brain@brianmadden.ai, not your personal account.\n")
     print(url, "\n")
     webbrowser.open(url)
