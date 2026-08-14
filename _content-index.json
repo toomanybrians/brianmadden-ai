@@ -15,7 +15,7 @@
   },
   {
     "title": "Citrix AI Hotsheet EP 4: OSWorld 2.0, AI reconciliation maps, and the futurist's playbook",
-    "url": "https://www.youtube.com/watch?v=iRokb-q-gsA",
+    "url": "https://youtu.be/iRokb-q-gsA",
     "date": "2026-07-15",
     "type": "podcast",
     "description": "Citrix AI Hotsheet, Episode 4. Four topics: OSWorld 2.0 (the computer-use benchmark got 20x harder now that AI saturated the original, and cost is a first-class metric); Dave's new 'reconciliation map' — the workflow step you need when you connect your second brain into contradictory enterprise data sources; why organizational AI maturity is a treehouse, not a ladder; and the futurist's four-axis playbook for planning under AI uncertainty (acceleration, diffusion, bubble pop, geopolitics). The takeaway: open-weight Sonnet-class models will exist no matter what, so do the second-brain and knowledge-factory work today — it pays off in every scenario."
@@ -37,7 +37,7 @@
   },
   {
     "title": "Citrix AI Hotsheet EP 3: Second brains hit the enterprise wall — and why AI automations won't save you",
-    "url": "https://www.youtube.com/watch?v=FjVOnYfJYRo",
+    "url": "https://youtu.be/FjVOnYfJYRo",
     "date": "2026-06-19",
     "type": "podcast",
     "description": "Citrix AI Hotsheet, Episode 3. Brian and Dave reframe the 7-stage roadmap: it's not a ladder, it's a palace, with the second brain as the permanent foundation. Brian argues that the dominant 'audit your tasks and build automations' narrative is RPA thinking applied to the wrong problem — the real move is connecting the second brain into all the apps and data sources humans already use. Dave tells the glass-ceiling story: what changed when he moved his second brain from a personal laptop into a sanctioned Citrix VDI."
@@ -51,7 +51,7 @@
   },
   {
     "title": "Citrix AI Hotsheet EP 2: The Last Chapter of EUC",
-    "url": "https://www.youtube.com/watch?v=Bgxx4UCtb6k",
+    "url": "https://youtu.be/Bgxx4UCtb6k",
     "date": "2026-06-13",
     "type": "podcast",
     "description": "Citrix AI Hotsheet, Episode 2 (special solo edition). Brian Madden shares his EUCTech keynote, 'The Last Chapter of EUC': where end-user computing stands in 2026 (capabilities vs. diffusion), the invisible 80% of knowledge work, the updated seven-step roadmap for how AI enters work, an audit of every EUC primitive translated into its AI-era successor, and why this is the last chapter of book one, not the end of the story."
@@ -72,7 +72,7 @@
   },
   {
     "title": "How AI is changing who performs best at work",
-    "url": "https://www.youtube.com/watch?v=YLw72rtP3Ms",
+    "url": "https://youtu.be/YLw72rtP3Ms",
     "date": "2026-06-01",
     "type": "podcast",
     "description": "Guest on The Future of Less Work (Nirit Cohen). The new unit of work is human + AI system. The inverse labor threat: companies keeping workers' AI brains after firing them. BYOAI as the new BYOD—same pattern, different stakes. Joy/satisfaction as the individual calibration metric. Timeline compression: 2027 predictions were live in January 2026.",
@@ -87,7 +87,7 @@
   },
   {
     "title": "Citrix AI Hotsheet EP 1: AI agents, second brains, and the enterprise AI gap",
-    "url": "https://www.youtube.com/watch?v=55y_XUWGUnQ",
+    "url": "https://youtu.be/55y_XUWGUnQ",
     "date": "2026-05-18",
     "type": "podcast",
     "description": "Citrix AI Hotsheet, Episode 1. Brian Madden and Dave Brear launch the show: how AI is actually entering the enterprise, why computer-using agents are coming for the same desktops human workers already use, and why so many knowledge workers are quietly building second brains their employers can't see."
@@ -129,7 +129,7 @@
   },
   {
     "title": "You can't automate your way to intelligence",
-    "url": "https://www.youtube.com/watch?v=GfHOvJFGkAY",
+    "url": "https://youtu.be/GfHOvJFGkAY",
     "date": "2026-03-31",
     "type": "podcast",
     "description": "Guest on Liquidware Chats. Full cognitive stack walkthrough, VDI Delusion parallels, the invisible 80% of knowledge work, applications as compatibility layers, and why automating the bottom of the stack won't produce intelligence at the top.",
@@ -258,7 +258,7 @@
   },
   {
     "title": "AI 2026: When Agents, Browsers, and Security Collide",
-    "url": "https://www.youtube.com/watch?v=9z0eVZEMOwg",
+    "url": "https://youtu.be/9z0eVZEMOwg",
     "date": "2025-12-16",
     "type": "podcast",
     "description": "Year-end review on Impact of AI: Explored. CUA benchmarks crossing human parity, AI browsers as security concern, and MCP going ubiquitous.",
@@ -301,7 +301,7 @@
   },
   {
     "title": "AI in the Workplace: What's happening in the next 12 months",
-    "url": "https://www.youtube.com/watch?v=eBL9GtdAZjM",
+    "url": "https://youtu.be/eBL9GtdAZjM",
     "date": "2025-10-16",
     "type": "speech",
     "description": "Keynote at SHI Fall Summit on the trajectory of AI in enterprise IT over the next 12 months."
@@ -315,7 +315,7 @@
   },
   {
     "title": "AI & the future of enterprise apps",
-    "url": "https://www.youtube.com/watch?v=XoJ5uL1op_E",
+    "url": "https://youtu.be/XoJ5uL1op_E",
     "date": "2025-10-10",
     "type": "speech",
     "description": "Closing keynote at AppManagEvent on what happens to enterprise applications as AI makes software creation nearly free."
@@ -365,7 +365,7 @@
   },
   {
     "title": "Friday Coffee w/ Brian Madden",
-    "url": "https://www.youtube.com/watch?v=PilOWKw6kcU&t=118",
+    "url": "https://youtu.be/PilOWKw6kcU?t=118",
     "date": "2025-08-29",
     "type": "speech",
     "description": "Casual conversation covering the current state of AI in enterprise IT and what is coming next."
@@ -443,7 +443,7 @@
   },
   {
     "title": "The Future of Work in an AI-Native World",
-    "url": "https://www.youtube.com/watch?v=srNOw7uBQm4",
+    "url": "https://youtu.be/srNOw7uBQm4",
     "date": "2025-05-22",
     "type": "speech",
     "description": "Closing keynote at EUCtech Denmark on what work looks like when AI is infrastructure, not a feature."
@@ -499,7 +499,7 @@
   },
   {
     "title": "The 2025 AI Revolution: Predictions & Impact",
-    "url": "https://www.youtube.com/watch?v=KJLp-KSbSu8",
+    "url": "https://youtu.be/KJLp-KSbSu8",
     "date": "2024-12-01",
     "type": "podcast",
     "description": "Predictions for 2025 on Impact of AI: Explored, recorded before joining Citrix.",
@@ -514,7 +514,7 @@
   },
   {
     "title": "EUC World Chat with Brian Madden",
-    "url": "https://www.youtube.com/watch?v=1WKzjw9cgRg",
+    "url": "https://youtu.be/1WKzjw9cgRg",
     "date": "2024-11-01",
     "type": "speech",
     "description": "Fireside chat at EUC World on the state of end-user computing and AI's accelerating impact."
@@ -528,7 +528,7 @@
   },
   {
     "title": "EUC Past, Present, & Future",
-    "url": "https://www.youtube.com/watch?v=DkuoK-4PncM",
+    "url": "https://youtu.be/DkuoK-4PncM",
     "date": "2024-10-01",
     "type": "speech",
     "description": "Opening keynote at EUC World: Independence on three decades of desktop evolution and the AI inflection point."
@@ -570,7 +570,7 @@
   },
   {
     "title": "A New Era of Workplace AI",
-    "url": "https://www.youtube.com/watch?v=lzBnEPTgH2A",
+    "url": "https://youtu.be/lzBnEPTgH2A",
     "date": "2024-06-01",
     "type": "podcast",
     "description": "First appearance on Impact of AI: Explored. Covers GPT-4o, Microsoft Recall, and AI reshaping the workplace.",
@@ -592,14 +592,14 @@
   },
   {
     "title": "The AI train is leaving the station, and I feel like I missed it!",
-    "url": "https://www.youtube.com/watch?v=6JAEOS7iREw",
+    "url": "https://youtu.be/6JAEOS7iREw",
     "date": "2024-04-01",
     "type": "speech",
     "description": "Keynote on getting started with AI in the enterprise when it feels like everyone else is already ahead."
   },
   {
     "title": "The Parisian Chronicles: Brian Madden's Story",
-    "url": "https://www.youtube.com/watch?v=jqwXVWeM47k",
+    "url": "https://youtu.be/jqwXVWeM47k",
     "date": "2024-03-01",
     "type": "podcast",
     "description": "Extended conversation on Brian's career journey from BrianMadden.com through 30 years of end-user computing to AI futurism.",
@@ -670,14 +670,14 @@
   },
   {
     "title": "EUC: Past, Present, & Future",
-    "url": "https://www.youtube.com/watch?v=sY5oohpjC_4",
+    "url": "https://youtu.be/sY5oohpjC_4",
     "date": "2018-01-01",
     "type": "speech",
     "description": "Keynote tracing the arc of end-user computing from fat clients through VDI to the cloud era."
   },
   {
     "title": "Is VDI Dead?",
-    "url": "https://www.youtube.com/watch?v=9Sa7EsDMJto",
+    "url": "https://youtu.be/9Sa7EsDMJto",
     "date": "2018-01-01",
     "type": "speech",
     "description": "Examining whether virtual desktop infrastructure still has a role as cloud and SaaS reshape how work gets done."
