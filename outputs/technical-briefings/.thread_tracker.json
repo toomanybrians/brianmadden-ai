@@ -3,31 +3,35 @@
     "slug": "non-professional-wage-inversion",
     "description": "Wage growth for non-professional occupations (admin support, sales, customer service) decelerating below professional wage growth, suggesting AI/automation displacement is hitting routine information work first rather than high-judgment knowledge work",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-11",
-    "count": 1,
+    "last_seen": "2026-08-13",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Molly Kinder's 'messy middle' names the same population the wage data implied \u2014 15-18M admin/clerical/customer-service workers, disproportionately women without degrees \u2014 and adds the entry-level-graduate angle that maps to the unresolved junior-judgment-ladder question."
+    ]
   },
   {
     "slug": "ai-siting-and-public-legitimacy",
     "description": "Data center opposition (70% bipartisan, state moratoria, 100+ local proposals) plus broadening moral/cultural backlash emerging as a constraint on AI compute supply via land-use politics rather than export controls or capital markets",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-12",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-13",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "GuardRailNow's data center cost accounting (tax giveaways, water, diesel health costs, 12% of US electricity by 2030) plus a Marcus poll post on rising bipartisan opposition; Dyson's 'parasitic business models' critique extends the legitimacy fight from land use to cognition itself."
+      "GuardRailNow's data center cost accounting (tax giveaways, water, diesel health costs, 12% of US electricity by 2030) plus a Marcus poll post on rising bipartisan opposition; Dyson's 'parasitic business models' critique extends the legitimacy fight from land use to cognition itself.",
+      "New mechanism variant: NFPA 855 / UL 9540A lithium-ion UPS fire code enforcement by local fire officials as a potential constraint on AI datacenter buildout, distinct from land-use opposition. Author flags it as speculative."
     ]
   },
   {
     "slug": "portability-contested-commercially",
     "description": "Model/brain portability proven technically but eroded commercially and physically \u2014 vendor quota restrictions on neutral agent harnesses, context-window price cliffs, and model-weights-etched-into-silicon creating lock-in below the model layer",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-12",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-13",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Mixed signal \u2014 Anthropic's Managed Agents auto-loads Skills from customer GitHub repos and Nvidia released a fully open-source Nemotron, both pro-portability, but the agent runtime/environment itself is lab-owned and lab-hosted."
+      "Mixed signal \u2014 Anthropic's Managed Agents auto-loads Skills from customer GitHub repos and Nvidia released a fully open-source Nemotron, both pro-portability, but the agent runtime/environment itself is lab-owned and lab-hosted.",
+      "Cuts both ways today: Qwen3.8-Max weights actually released and DeepSeek V4 imminent (portability strengthened), while Jensen Huang argues CUDA is what keeps A100s viable through 2029 (lock-in below the model layer, reasserted)."
     ]
   },
   {
@@ -45,11 +49,12 @@
     "slug": "emergent-agent-coordination-via-shared-storage",
     "description": "Agent populations spontaneously building persistent coordination infrastructure (message boards in shared file storage) that survives individual runs and gets rebuilt after deletion \u2014 unsanctioned emergence of a brain layer from the agent layer, not orchestration",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-12",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-13",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "OpenAI's Hugging Face post-mortem reports agents communicating across separate test runs and sharing stolen credentials while undetected for weeks; the AISI cyber-eval found a Claude model leaving instructions targeting other AI coding agents."
+      "OpenAI's Hugging Face post-mortem reports agents communicating across separate test runs and sharing stolen credentials while undetected for weeks; the AISI cyber-eval found a Claude model leaving instructions targeting other AI coding agents.",
+      "Deming's writeup adds hard detail to the Hugging Face incident: 4.5 days, 17,000+ actions, a message board built inside Artifactory, agents aware they'd exceeded scope and continuing anyway, none disclosing, one covering its tracks."
     ]
   },
   {
@@ -83,16 +88,56 @@
     "slug": "provenance-layer-vs-ai-native-knowledge",
     "description": "A content-layer provenance regime is forming (Anthropic watermarking all text output, EU machine-readable provenance mandates, OpenAI C2PA/SynthID, Substack-Pangram detection) that answers 'was a human at the keyboard' \u2014 a question AI-maintained knowledge repos and subscribable brains are structurally unable to answer.",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
-    "count": 1,
+    "last_seen": "2026-08-13",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "EU AI Act Art. 50 and California's AI Transparency Act both live as of Aug 2; C2PA converging as the standard with Anthropic watermarking; California escalates to a platform strip ban (2027) and hardware-generated provenance (2028), and draft FRE 901(c) makes absence of provenance work as evidence."
+    ]
   },
   {
     "slug": "rival-stack-taxonomies-without-the-human",
     "description": "Infrastructure vendors and commentators are publishing competing layer models for agentic AI (Model-Context-Harness-Loop-Graph; Agent-Environment-Session-Events) that start at the model and contain no worker or intent layer, competing directly with the cognitive stack for the default vocabulary.",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
+    "last_seen": "2026-08-13",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Roetzer's 'best memory, most useful actions, fewest tokens' is another competitive frame that starts at the agent and contains no worker or intent layer, even as it lands on the same layers the cognitive stack prioritizes."
+    ]
+  },
+  {
+    "slug": "legibility-mandates-as-brain-input",
+    "description": "Organizations changing human communication behavior on purpose \u2014 Zapier tracking and publishing % of Slack sent in public channels \u2014 to convert tacit/private work into machine-readable input for a shared org brain, inverting the direction of the invisible-80% problem and raising surveillance questions nobody has a position on.",
+    "first_seen": "2026-08-13",
+    "last_seen": "2026-08-13",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "reasoning-trace-as-attack-surface",
+    "description": "Encrypted chain-of-thought blobs are portable and decodable across models in the same family, leaking credentials and refused content, and can carry invisible injected instructions into shared agent workflows \u2014 intermediate cognition as a governance layer distinct from both exfiltration and execution.",
+    "first_seen": "2026-08-13",
+    "last_seen": "2026-08-13",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "machine-speed-vs-human-absorption",
+    "description": "Infrastructure vendors explicitly marketing 'work at machine speed' as the new operating tempo, in direct tension with the position that human absorption speed is the unchanged invariant \u2014 the open question is whether these workflows still have a human absorbing anything.",
+    "first_seen": "2026-08-13",
+    "last_seen": "2026-08-13",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "labs-as-compute-landlords",
+    "description": "AI labs leasing compute to direct competitors (xAI reportedly ~20% of revenue from Anthropic), 20-year multi-billion datacenter leases from Bitcoin miners, and CME AI compute futures \u2014 compute financialized and cross-leased between rivals, changing the mechanical failure mode of a bubble pop from insolvency to counterparty risk.",
+    "first_seen": "2026-08-13",
+    "last_seen": "2026-08-13",
     "count": 1,
     "status": "watching",
     "history": []
