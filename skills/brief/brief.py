@@ -247,12 +247,22 @@ def update_tracker(tracker: list[dict], signals: dict, run_date: str) -> tuple[l
 
     for item in signals.get("new_threads", []) or []:
         slug = item.get("slug")
+        description = (item.get("description") or "").strip()
         if not slug or slug in by_slug:
             continue  # exact-slug dedup only (v1 limitation — see README): near-duplicate
             # slugs for the same underlying idea won't merge automatically.
+        if not description:
+            # Confirmed real 2026-08-14: Opus's own THREAD-SIGNALS JSON
+            # sometimes emits a new_threads item with a blank description
+            # (valid JSON, so parse_response() doesn't catch it) — a thread
+            # with no description can't be watched or rendered
+            # meaningfully (" — (seen 1x...)" with nothing between the dash
+            # and the parenthetical), so drop it here rather than seed
+            # permanent dead weight into the tracker.
+            continue
         entry = {
             "slug": slug,
-            "description": item.get("description", ""),
+            "description": description,
             "first_seen": run_date,
             "last_seen": run_date,
             "count": 1,

@@ -40,3 +40,29 @@ Notes from each recurrence:
 - New mechanism variant: NFPA 855 / UL 9540A lithium-ion UPS fire code enforcement by local fire officials as a potential constraint on AI datacenter buildout, distinct from land-use opposition. Author flags it as speculative.
 
 **Status: not yet reviewed by Brian.**
+
+## `rival-stack-taxonomies-without-the-human` — flagged 2026-08-14
+
+Infrastructure vendors and commentators are publishing competing layer models for agentic AI (Model-Context-Harness-Loop-Graph; Agent-Environment-Session-Events) that start at the model and contain no worker or intent layer, competing directly with the cognitive stack for the default vocabulary.
+
+First seen 2026-08-12, recurred 3 times through 2026-08-14.
+
+Notes from each recurrence:
+
+- Roetzer's 'best memory, most useful actions, fewest tokens' is another competitive frame that starts at the agent and contains no worker or intent layer, even as it lands on the same layers the cognitive stack prioritizes.
+- Emerging AI publishes a Prompt-Context-Harness-Loop-Graph five-layer model that again starts at the model and contains no worker or intent layer; adds 'Graph Architect' as a proposed job title for the top layer.
+
+**Status: not yet reviewed by Brian.**
+
+## `provenance-layer-vs-ai-native-knowledge` — flagged 2026-08-14
+
+A content-layer provenance regime is forming (Anthropic watermarking all text output, EU machine-readable provenance mandates, OpenAI C2PA/SynthID, Substack-Pangram detection) that answers 'was a human at the keyboard' — a question AI-maintained knowledge repos and subscribable brains are structurally unable to answer.
+
+First seen 2026-08-12, recurred 3 times through 2026-08-14.
+
+Notes from each recurrence:
+
+- EU AI Act Art. 50 and California's AI Transparency Act both live as of Aug 2; C2PA converging as the standard with Anthropic watermarking; California escalates to a platform strip ban (2027) and hardware-generated provenance (2028), and draft FRE 901(c) makes absence of provenance work as evidence.
+- Inverted this week: The Dissent assigns fake human bylines to AI aggregation agents, deliberately manufacturing the appearance of human authorship rather than failing to prove it.
+
+**Status: not yet reviewed by Brian.**

@@ -88,22 +88,24 @@
     "slug": "provenance-layer-vs-ai-native-knowledge",
     "description": "A content-layer provenance regime is forming (Anthropic watermarking all text output, EU machine-readable provenance mandates, OpenAI C2PA/SynthID, Substack-Pangram detection) that answers 'was a human at the keyboard' \u2014 a question AI-maintained knowledge repos and subscribable brains are structurally unable to answer.",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-08-13",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-14",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "EU AI Act Art. 50 and California's AI Transparency Act both live as of Aug 2; C2PA converging as the standard with Anthropic watermarking; California escalates to a platform strip ban (2027) and hardware-generated provenance (2028), and draft FRE 901(c) makes absence of provenance work as evidence."
+      "EU AI Act Art. 50 and California's AI Transparency Act both live as of Aug 2; C2PA converging as the standard with Anthropic watermarking; California escalates to a platform strip ban (2027) and hardware-generated provenance (2028), and draft FRE 901(c) makes absence of provenance work as evidence.",
+      "Inverted this week: The Dissent assigns fake human bylines to AI aggregation agents, deliberately manufacturing the appearance of human authorship rather than failing to prove it."
     ]
   },
   {
     "slug": "rival-stack-taxonomies-without-the-human",
     "description": "Infrastructure vendors and commentators are publishing competing layer models for agentic AI (Model-Context-Harness-Loop-Graph; Agent-Environment-Session-Events) that start at the model and contain no worker or intent layer, competing directly with the cognitive stack for the default vocabulary.",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-08-13",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-14",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Roetzer's 'best memory, most useful actions, fewest tokens' is another competitive frame that starts at the agent and contains no worker or intent layer, even as it lands on the same layers the cognitive stack prioritizes."
+      "Roetzer's 'best memory, most useful actions, fewest tokens' is another competitive frame that starts at the agent and contains no worker or intent layer, even as it lands on the same layers the cognitive stack prioritizes.",
+      "Emerging AI publishes a Prompt-Context-Harness-Loop-Graph five-layer model that again starts at the model and contains no worker or intent layer; adds 'Graph Architect' as a proposed job title for the top layer."
     ]
   },
   {
@@ -128,18 +130,22 @@
     "slug": "machine-speed-vs-human-absorption",
     "description": "Infrastructure vendors explicitly marketing 'work at machine speed' as the new operating tempo, in direct tension with the position that human absorption speed is the unchanged invariant \u2014 the open question is whether these workflows still have a human absorbing anything.",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
-    "count": 1,
+    "last_seen": "2026-08-14",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "GPT-5.6 Sol Ultrafast (750 tokens/sec on Cerebras, framed as no intelligence tradeoff) sharpens the tension: if the value proposition is purely tempo, the open question is who or what is absorbing the output on the other end."
+    ]
   },
   {
     "slug": "labs-as-compute-landlords",
     "description": "AI labs leasing compute to direct competitors (xAI reportedly ~20% of revenue from Anthropic), 20-year multi-billion datacenter leases from Bitcoin miners, and CME AI compute futures \u2014 compute financialized and cross-leased between rivals, changing the mechanical failure mode of a bubble pop from insolvency to counterparty risk.",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
-    "count": 1,
+    "last_seen": "2026-08-14",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "[recurrence note not recovered \u2014 a 2026-08-14 tracker-file edit accidentally reverted this run's in-memory update before the raw model note was captured; count/last_seen below are accurate, reconstructed from the day's rendered brief and promotion-candidates.md, but this specific day's one-line evidence note was lost]"
+    ]
   }
 ]
