@@ -74,23 +74,34 @@ def normalize_body(body: str) -> str:
     """Drop a leading `# Title` line if present (legacy posts written
     before the 2026-08-12 title/subtitle redesign — Substack's title
     field is populated separately and deterministically now, so a body
-    title line would just be a redundant, unstyled duplicate) and
-    normalize every remaining heading to h3 (`###`), regardless of what
-    level the model happened to write — Brian's call, 2026-08-12: h1
-    rendered too large for a section break at this scale; h3 is what he
-    set by hand on the first post. Normalizing to a fixed level rather
-    than a relative promote/demote is robust either way, whatever the
-    model's raw heading level was."""
+    title line would just be a redundant, unstyled duplicate), then shift
+    every remaining heading so the *shallowest* level present becomes h3
+    — preserving whatever relative hierarchy exists rather than
+    flattening every heading to the same level. Originally just forced
+    everything to h3 outright (2026-08-12: h1 rendered too large for a
+    section break at this scale) — fine when the source only ever had one
+    heading level (the Fable-condensed posts this was built for do), but
+    generalized 2026-08-13 when publishing the dense technical brief
+    directly started being a real option: that source can have real
+    sub-structure, and Brian's call was h3 for the top level, h4 for
+    sub-heads, not everything flattened to h3. A relative shift keeps that
+    intact while still landing exactly on h3 for the single-level case —
+    no behavior change for existing posts."""
     body = body.lstrip("\n")
     if body.startswith("# ") and not body.startswith("## "):
         body = body.split("\n", 1)[1] if "\n" in body else ""
         body = body.lstrip("\n")
-    return re.sub(
-        r"^#{1,6} (.+)$",
-        r"### \1",
-        body,
-        flags=re.MULTILINE,
-    )
+
+    levels = [len(m.group(1)) for m in re.finditer(r"^(#{1,6}) .+$", body, flags=re.MULTILINE)]
+    if not levels:
+        return body
+    offset = 3 - min(levels)
+
+    def shift(m: re.Match) -> str:
+        new_level = max(1, min(6, len(m.group(1)) + offset))
+        return f"{'#' * new_level} {m.group(2)}"
+
+    return re.sub(r"^(#{1,6}) (.+)$", shift, body, flags=re.MULTILINE)
 
 
 def find_published(brief_date: str) -> Path:

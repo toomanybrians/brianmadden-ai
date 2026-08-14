@@ -103,40 +103,52 @@ looks). Override with `--llm-model` / `LLM_MODEL`, or switch providers
 entirely with `--provider` — same mechanism as `skills/ingest/`, see
 [skills/lib/llm.py](../lib/llm.py).
 
-## Publishing a condensed version
+## Publishing
 
-`publish.py` reads an already-written dense brief and condenses it into a
-Substack-ready draft — written for a general subscriber rather than an AI
-or an insider. It does not re-read the raw ingest notes or canon; it only
-re-renders `brief.py`'s output, so there's one place judgment happens, not
-two synthesis passes that could drift apart. Every link it keeps is reused
-verbatim from the dense brief (never invented).
+`publish.py` turns an already-written dense brief into
+`outputs/published/`. It does not re-read the raw ingest notes or canon —
+whichever mode below, judgment about what matters already happened in
+`brief.py`, so there's one place that happens, not two synthesis passes
+that could drift apart.
 
-**No fixed story count or word target** (loosened 2026-08-12, Brian's
-call) — `publish-prompt.md`'s Rules section budgets ~150-250 words per
-story and lets the day's actual content set both the count and the total
-length, rather than forcing every day into the same 2-4-items/400-700-word
-shape. A thin day might be one story; a dense day might be five.
+**Default (2026-08-14): publish the dense brief close to verbatim.**
+Opus's own prose from `brief.py`, unchanged except one section rename
+(`## Worth Brian's attention` → `## Worth your attention`) and dropping
+the leading title line (Substack's title field is separate, see below).
+One small model call handles just the subtitle
+(`publish-dense-subtitle-prompt.md`). This replaced Fable-condensing as
+the default after a real side-by-side comparison (BUILD.md 2026-08-13/14
+— the condensed rewrite consistently read as generic filler next to the
+dense brief's own text; two real LLM passes in the whole pipeline,
+extraction + synthesis, reads better than three).
 
-**Cross-day continuity.** `find_recent_published()` loads the most recent
-prior published post (looking back up to 5 days, so a weekend or a gap
-doesn't break it) and passes it to the model as `{{RECENT_PUBLISHED}}` —
-so a story that's genuinely continuing from a recent post ("Brian has
-argued for X that Y") either gets flagged as such ("for the second day
-running...") instead of silently re-deriving the same framing from
-scratch, or the phrasing is varied enough not to read as a repeat. Caught
-2026-08-12 when both day-1 and day-2 posts opened with near-identical
-"Brian has argued..." framing for the same underlying story.
+**`--condensed`: the original behavior**, still available. Asks a
+prose-focused model to pick the sharpest items from the dense brief and
+rewrite them for a general Substack audience rather than an AI or an
+insider. Every link it keeps is reused verbatim from the dense brief
+(never invented). No fixed story count or word target (loosened
+2026-08-12) — `publish-prompt.md`'s Rules section budgets ~150-250 words
+per story and lets the day's actual content set both the count and the
+total length. Cross-day continuity: `find_recent_published()` loads the
+most recent prior published post (looking back up to 5 days) and passes
+it to the model as `{{RECENT_PUBLISHED}}`, so a story genuinely
+continuing from a recent post either gets flagged as such ("for the
+second day running...") or the phrasing is varied enough not to read as
+a repeat — caught 2026-08-12 when two days running opened with
+near-identical framing for the same underlying story.
 
 ```bash
-python3 skills/brief/publish.py                    # today's brief
+python3 skills/brief/publish.py                    # today's brief, dense (default)
+python3 skills/brief/publish.py --condensed         # today's brief, Fable-condensed instead
 python3 skills/brief/publish.py --date 2026-08-11   # a specific date
 python3 skills/brief/publish.py --dry-run           # read output without writing
 ```
 
 Defaults to `claude-fable-5` (Brian's call, 2026-08-11 — prose, not
-synthesis, so a different model than `brief.py`'s Opus default).
-Overridable the same way as every other skill (`--llm-model`, `--provider`).
+synthesis, so a different model than `brief.py`'s Opus default) for
+whichever call actually runs (the subtitle-only call by default, the full
+condensing call under `--condensed`). Overridable the same way as every
+other skill (`--llm-model`, `--provider`).
 
 ### Title and subtitle (redesigned 2026-08-12)
 

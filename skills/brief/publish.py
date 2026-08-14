@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """
-publish.py — condense an existing Daily Brief (outputs/technical-briefings/)
-into a shorter, Substack-ready draft (outputs/published/). See
-skills/brief/README.md.
+publish.py — turn an existing Daily Brief (outputs/technical-briefings/)
+into a Substack-ready draft (outputs/published/). See skills/brief/README.md.
 
-This is a rendering step over brief.py's output, not a resynthesis — it
-reads the already-written dense brief (not the raw ingest notes or full
-canon again) and asks a prose-focused model to pick the sharpest 2-4 items
-and write them for a general Substack audience. Judgment about what
-matters already happened in brief.py; this step only re-renders it, so
-there's one source of truth instead of two synthesis passes that could
+Default (as of 2026-08-14): publishes the dense brief's own prose close to
+verbatim (Opus's writing from brief.py, unchanged) plus one small model
+call for the subtitle. Two real LLM passes in the whole pipeline —
+per-article extraction (ingest.py) and cross-note synthesis (brief.py) —
+is the shape that actually reads well; a third pass that rewrote the
+synthesis into "general audience" prose (still available via
+--condensed) consistently read as generic filler next to the dense
+brief's own text, Brian's call after comparing both for real (BUILD.md
+2026-08-13/14). Either way, judgment about what matters already happened
+in brief.py — this step never re-reads the raw ingest notes or full canon,
+so there's one source of truth, not two synthesis passes that could
 quietly disagree with each other.
 """
 
@@ -50,6 +54,29 @@ SUBTITLE_MAX_CHARS = 200
 # root, not a specific outputs/ path — the repo itself has been public
 # throughout (main has the canon content), so this resolves today, unlike
 # a link into outputs/ (v2-branch-only) would.
+# Section headers that read fine for an AI/audit-trail reader of the dense
+# brief but assume the wrong audience once that same text is published
+# straight to Substack subscribers. Deliberately a small, explicit map —
+# not a general rewrite — since Brian's ask (2026-08-13) was this one
+# rename, not a rephrase of the whole document.
+DENSE_SECTION_RENAMES = {
+    "## Worth Brian's attention": "## Worth your attention",
+}
+
+
+def strip_leading_title(body: str) -> str:
+    """Drops a leading `# Title` line if present — every other published
+    post has no title line in the body (Substack's title field is set
+    separately, see substack_title()), so the dense brief's own `# Daily
+    Brief — YYYY-MM-DD` line would be a redundant, unstyled duplicate if
+    carried through as-is."""
+    body = body.lstrip("\n")
+    if body.startswith("# ") and not body.startswith("## "):
+        body = body.split("\n", 1)[1] if "\n" in body else ""
+        body = body.lstrip("\n")
+    return body
+
+
 FOOTER = (
     "\n\n---\n\n"
     "This is brianmadden.ai — [Brian Madden's AI second brain]"
@@ -181,9 +208,17 @@ def write_published(brief_date: str, post_body: str, subtitle: str, dense_path: 
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Condense a dense Daily Brief into a Substack-ready draft.")
+    parser = argparse.ArgumentParser(description="Publish today's Daily Brief to outputs/published/.")
     parser.add_argument("--date", default=None, help="brief date YYYY-MM-DD (default: today)")
     parser.add_argument("--dry-run", action="store_true", help="print the draft instead of writing it")
+    parser.add_argument(
+        "--condensed", action="store_true",
+        help="Fable-condense the dense brief into a shorter, general-audience rewrite, instead of "
+             "publishing the dense brief itself. This was the only behavior before 2026-08-14 — "
+             "flipped to opt-in (Brian's call: the condensed rewrite consistently read as generic "
+             "filler next to the dense brief's own prose, see BUILD.md 2026-08-13/14). Makes a full "
+             "condensing call in addition to the subtitle call.",
+    )
     parser.add_argument("--provider", choices=sorted(llm.REQUIRED_ENV_VARS))
     parser.add_argument("--llm-model", help=f"override the model id (default: env LLM_MODEL, else {DEFAULT_MODEL})")
     args = parser.parse_args()
@@ -192,7 +227,7 @@ def main() -> None:
 
     brief_date = args.date or datetime.now().strftime("%Y-%m-%d")
     dense_path = find_brief(brief_date)
-    _, dense_body = read_frontmatter_and_body(dense_path)
+    dense_fm, dense_body = read_frontmatter_and_body(dense_path)
 
     provider = args.provider or llm.current_provider()
     if args.llm_model or os.environ.get("LLM_MODEL"):
@@ -205,16 +240,40 @@ def main() -> None:
         print(f"{llm.required_env_var(provider)} not set for provider '{provider}'.", file=sys.stderr)
         sys.exit(1)
 
-    recent = find_recent_published(brief_date)
-    template = (Path(__file__).parent / "publish-prompt.md").read_text(encoding="utf-8")
-    prompt_text = build_prompt(template, dense_body, recent)
+    if args.condensed:
+        recent = find_recent_published(brief_date)
+        template = (Path(__file__).parent / "publish-prompt.md").read_text(encoding="utf-8")
+        prompt_text = build_prompt(template, dense_body, recent)
 
-    print(f"calling {provider}/{model} to condense {dense_path.relative_to(ROOT)}...")
-    response = llm.generate(prompt_text, provider=provider, model=model, max_tokens=4096)
-    post_body, subtitle = parse_response(response)
-    if not subtitle:
-        print("warning: model didn't return a subtitle (missing delimiter) — falling back to a generic one", file=sys.stderr)
-        subtitle = "Today's AI and future-of-work reading, from Brian Madden's AI second brain."
+        print(f"--condensed: calling {provider}/{model} to condense {dense_path.relative_to(ROOT)}...")
+        response = llm.generate(prompt_text, provider=provider, model=model, max_tokens=4096)
+        post_body, subtitle = parse_response(response)
+        if not subtitle:
+            print("warning: model didn't return a subtitle (missing delimiter) — falling back to a generic one", file=sys.stderr)
+            subtitle = "Today's AI and future-of-work reading, from Brian Madden's AI second brain."
+    else:
+        post_body = strip_leading_title(dense_body)
+        for old, new in DENSE_SECTION_RENAMES.items():
+            post_body = post_body.replace(old, new)
+
+        subtitle_template = (Path(__file__).parent / "publish-dense-subtitle-prompt.md").read_text(encoding="utf-8")
+        subtitle_prompt = subtitle_template.replace("{{DENSE_BRIEF}}", post_body)
+        print(f"publishing {dense_path.relative_to(ROOT)} near-verbatim (default as of 2026-08-14), "
+              f"calling {provider}/{model} only for the subtitle...")
+        # Confirmed empirically (2026-08-13): 200 wasn't enough headroom —
+        # the full dense brief is a long, complex prompt, and extended
+        # thinking on it can consume the entire budget before any text
+        # block gets emitted (stop_reason "max_tokens", empty result).
+        # Same failure shape BUILD.md already documented for brief.py's
+        # Opus call; 2048 leaves real room for both thinking and a short
+        # answer, confirmed against this exact prompt.
+        subtitle = llm.generate(subtitle_prompt, provider=provider, model=model, max_tokens=2048).strip()
+        if not subtitle:
+            print("warning: subtitle call returned nothing — falling back to a generic one", file=sys.stderr)
+            subtitle = "Today's AI and future-of-work reading, from Brian Madden's AI second brain."
+        body_model = dense_fm.get("model", "unknown")
+        model = f"{body_model} (body, passthrough) + {model} (subtitle)"
+
     original_subtitle = subtitle
     subtitle = truncate_subtitle(subtitle)
     if subtitle != original_subtitle:
