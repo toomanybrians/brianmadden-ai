@@ -2518,6 +2518,143 @@ the publish.py default flip, the two deleted/patched notes) is still
 uncommitted, held for review. Canon governance (open decision #8) is the
 clear next real thread, not yet started.
 
+### 2026-08-14 — Claude Code session (daily briefing run, second real day)
+
+New session. Read MAINTAINER.md and BUILD.md per the standing kickoff
+pattern, checked `git status` per Brian's explicit instruction before
+running anything: yesterday's real code fixes (Gmail view-online-link
+resolution, the megaphone.fm dedup fix, transcription retry logic,
+`publish.py`'s dense-publish default flip) were still uncommitted. Read
+every diff against BUILD.md's account before asking — all matched
+exactly, no secrets, nothing suspicious. Asked Brian how to sequence the
+commit against today's run; his call: commit first, then run. Committed
+in 6 logical commits (transcription retry, ingest.py fixes + the
+retroactive data patches they enabled, the publish.py dense-default
+flip + render.py generalization, the style-guide additions, yesterday's
+real pipeline output, the BUILD.md journal itself) — [7ad7e75](../../commit/7ad7e75)
+through [47c12ea](../../commit/47c12ea).
+
+**Mid-session, Brian asked whether Gmail labeling was actually working**
+— he'd only ever seen `AI/Skipped` in his inbox, not `AI/Ingested`.
+Checked the live Gmail API directly rather than trusting BUILD.md's
+account: `AI/Ingested` had 4 messages (matching the 4 committed notes),
+`AI/Skipped` had 1, both correct. Explained the mechanism plainly:
+ingested mail gets archived (removed from `INBOX`) at label time, so it
+disappears from the inbox view entirely — that's why only the label
+that deliberately *stays* visible was the one he kept seeing. Not a bug.
+
+**Ran the standard pipeline.** `ingest.py` (full registry, auto window,
+23.7h since last run): 24 entries found, 14 written, clean exit, no
+crashes. Yesterday's transcription retry logic wasn't actually exercised
+(no transient failures today — OpenAI's endpoint just worked); one
+graceful degradation instead, on `moonshots`: an oversized audio
+enclosure (>300MB) correctly fell back to show notes rather than
+crashing. `ezra-klein-show` transcribed cleanly (4 chunks, 39,664
+chars). The megaphone.fm link-fallback and Gmail view-online-link
+resolution both worked without incident on real new mail.
+
+**Investigated an apparent Gmail-label discrepancy, resolved as a false
+alarm.** After the run, `AI/Skipped` only gained 1 message though the
+log showed 3 items skipped. Traced it: one of the three ("Complete your
+sign up to Platformer!") does carry the `AI/Skipped` label, confirmed by
+direct label-ID lookup — it's also now in Trash, and Gmail's
+`messages.list` excludes Trash by default (same default the pipeline's
+own queries rely on), so it just drops out of a plain label-count view.
+Something outside the pipeline (most likely Brian dismissing a
+duplicate signup-confirmation email) moved it to Trash after the
+pipeline had already labeled it correctly. No code touched — mechanism
+confirmed sound on day 2 of real mail.
+
+**`brief.py` and `publish.py` (no flag — dense-publish is now the
+default) both ran clean.** 14 notes in the 0.94-day window. The brief
+read as genuinely specific on a *normal* day, not just the 97-note
+catch-up batch or the 27-note transcript-heavy day — named a real
+number (Ramp spending data: Anthropic leads enterprise adoption but its
+flagship model captures only 6% of token spend) as the day's strongest
+evidence for the Sonnet-class-planning-floor argument, connected Grok
+Bot's borrowed-credential design to two named canon posts by title, and
+kept the self-aware caveats going (flagged a self-selected-sample survey
+as "directional at best," called two items "promotional stubs" and told
+Brian plainly to skip them). Screenshot-checked the rendered HTML in the
+browser — headings, the "Worth your attention" numbered list, and every
+link rendered correctly, matching yesterday's fix.
+
+**Found and fixed a real bug in the process.** Two of the model's
+`new_threads` JSON entries had a blank `description` field — valid
+JSON, so `parse_response()`'s parse-failure check didn't catch it, but a
+blank description renders as a broken `— (seen 1x...)` line in both the
+dense brief and the published copy. Fixed `update_tracker()` to drop
+new-thread entries with an empty description rather than seed permanent
+dead weight into the tracker. **Then made a real process error fixing
+the already-written output**: reverted `.thread_tracker.json` to its
+last-committed state via `git checkout --` intending to strip just the
+two bad entries, which also discarded today's legitimate tracker
+updates (two promotions, two recurrence counts) that existed only
+in-memory in the already-generated brief text, not yet persisted.
+Reconstructed the correct end-state by cross-referencing the already-
+written `2026-08-14.md` brief (authoritative for counts/last_seen/
+status) and `promotion-candidates.md` (which already had the exact
+verbatim history text for the two newly-promoted threads, since that
+file was untouched by the mistake). One thread's specific one-line
+recurrence note (`labs-as-compute-landlords`) couldn't be recovered
+verbatim and is marked in the tracker's `history` array as lost rather
+than invented — counts and dates for it are accurate, reconstructed
+from the rendered outputs; only that one sentence of context is gone.
+Flagging this plainly rather than quietly — a real self-inflicted data
+loss, small in impact (the field is audit-trail-only, never fed back
+into future prompts) but a mistake nonetheless.2 threads crossed the
+promotion threshold for the first time under the new guard
+(`provenance-layer-vs-ai-native-knowledge`, `rival-stack-taxonomies-
+without-the-human`).
+
+**A concurrent session was found live mid-task, correctly left
+untouched.** After committing today's own work, `git status` showed 14
+files modified that this session never touched — `CLAUDE.md`/
+`AGENTS.md`, `COLLECTIONS.md`, `_index.json`, `_relationships.json`,
+`docs/frontmatter-schema.md`, four `frameworks/*.md` files,
+`me/developing-thinking.md`, `scripts/check_doc_accuracy.py`, others.
+File mtimes were within the prior ~10 minutes — live, in-progress work,
+almost certainly another session picking up open decision #8 (canon
+governance), flagged as "the clear next real thread" at the end of
+yesterday's log. Staged and committed only this session's own files by
+explicit path, verified via `git status` afterward that all 14 of the
+other session's files remained untouched and uncommitted. Repo-as-
+shared-mutable-state is a real operating condition now, not a one-off —
+BUILD.md's own D5 session log already flagged "both sessions working
+the same checkout in real time" as something to read-fresh-before-
+editing rather than assume; today's incident is the same lesson from
+the git-status side.
+
+**Side item, not built:** Brian flagged wanting API usage/cost
+visibility across Anthropic, OpenAI, and X (the three metered APIs this
+pipeline calls) — ideally a weekly check rather than daily, so he isn't
+logging into four consoles by hand. Confirmed in chat that Anthropic and
+OpenAI both expose an org-level Usage/Cost API (needs an admin key, not
+the regular per-service key already in `.env`); X's usage is visible in
+the developer portal but programmatic access wasn't checked. Gmail has
+no cost angle (quota-based, not billed). This is plain deterministic
+plumbing per MAINTAINER.md's own convention, not a model-judgment task —
+a fetch script, optionally with a cheap-model one-line summary on top.
+Not built this session; flagged here so it isn't lost.
+
+**Where things stand:** both of today's explicit questions are answered.
+Yesterday's fixes hold on a normal (non-catch-up, non-incident) day —
+transcription retry wasn't tested by a real failure but degraded
+gracefully once (oversized audio), the megaphone dedup fix and Gmail
+link resolution both worked cleanly on new real data, and the blank-
+description bug this session found and fixed is unrelated to any of
+yesterday's fixes. The dense-published brief reads well two days
+running — specific, self-critical, not a one-day novelty. Everything
+from today is committed
+([aa9cbbd](../../commit/aa9cbbd)). Open, for whenever picked up next:
+API usage/cost visibility (flagged above, not designed); the labs-as-
+compute-landlords lost history note (cosmetic, self-resolves next time
+that thread recurs or promotes); canon governance (open decision #8) —
+apparently already being picked up by a concurrent session as of this
+writing, so check its state before starting fresh rather than
+duplicating; Day 6 automation and the `ask@` lane, both still open from
+prior sessions.
+
 ### 2026-08-14 — Claude Code session (RSS feed rebuild for Substack back-catalog import)
 
 Separate thread from the one above — Brian's actual goal: import his
