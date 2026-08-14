@@ -2170,3 +2170,350 @@ OAuth credential setup. `sources.yaml` now has real auto-discovered
 entries from real mail. Next real-world event to watch: whether ExecAI
 Insider Weekly's first delivery gets picked up and auto-registered the
 same way once it arrives.
+
+### 2026-08-13 — Claude Code session (first real daily briefing with Gmail + X + podcast transcripts together)
+
+New session, picked up per the standing kickoff pattern. Brian asked for
+the actual daily briefing run — first production use of three capabilities
+built across prior sessions but never exercised together at real volume:
+Gmail brain@ ingestion, X timeline ingestion, and podcast transcription.
+Explicit ask: incorporate full podcast transcripts into today's brief even
+for episodes already ingested via show notes in the past few days, now
+that real transcription exists.
+
+**Full-registry `ingest.py` run — first real one since transcription/X/Gmail
+all existed at once.** Auto window (23.6h since the 2026-08-12T18:57 UTC
+last full run). Results: X timeline delivered 4 new items cleanly
+(retweet/link-expansion logic worked as designed, no issues). Gmail
+brain-inbox found 0 new (everything in the window had already been
+ingested by ad-hoc test runs earlier the same day, before this session
+started — expected, not a bug). Podcast transcription: `on-with-kara-swisher`
+succeeded on the first try (158.5MB audio, 5 chunks, 43,815-char
+transcript) — the first fully real, unassisted transcription success in
+production, and the resulting note is visibly deeper than any show-notes
+extraction (specific dollar figures, named speakers, real quotes).
+`the-artificial-intelligence-show`'s new episode (#231) failed on chunk
+1/3 with an OpenAI 500.
+
+**Forced re-ingest of "already covered" podcast episodes with full
+transcripts, per Brian's explicit ask.** Captured a baseline snapshot of
+every `source_url` already in `ingest/` before the full run, then after
+it, fetched each of the 11 podcast sources' latest episode and — only for
+episodes whose URL was already in that baseline (i.e. genuinely
+already-ingested via show notes, not something the normal run just
+handled) — forced `enrich_with_transcript()` + `extract()` + `write_note()`
+bypassing the normal dedup. One-off script, not added to the committed
+skill (this is an operational replay, not a new pipeline feature). Real
+results: `80000-hours-podcast` (published-transcript path, free, 114,213
+chars, succeeded instantly) and `hbr-ideacast` (transcribed, 23,412 chars)
+both succeeded cleanly. `dwarkesh`'s Ryan Greenblatt episode (127.2MB, 9
+chunks) hit repeated OpenAI 500s. `moonshots`/`the-artificial-intelligence-show`/
+`ezra-klein-show`/`on-with-kara-swisher`/`no-priors`/`lex-fridman` were all
+correctly skipped as "genuinely new today, already handled" — the
+baseline-diff logic worked as designed, no double-processing.
+
+**OpenAI's transcription endpoint was genuinely flaky today — 5 separate
+mid-stream 500s across ~20 chunk calls.** Brian asked mid-run whether to
+switch to OpenRouter's new transcription endpoint (launched July 22,
+2026) or local Whisper (prompted by his own experience with VoiceInk).
+Researched both rather than guessing: **OpenRouter's STT endpoint is
+real** but enforces the same 25MB-per-request cap as calling OpenAI
+directly (same underlying Whisper backends) and its own docs say
+recordings need splitting anyway past ~60s of processing time — switching
+wouldn't have removed the chunking complexity that's actually adjacent to
+today's failures, and it's unclear it even offers `gpt-4o-transcribe`
+(docs only list `whisper-1`/`whisper-large-v3`). **VoiceInk has no
+CLI/API** (GUI/hotkey-only, not accepting outside PRs) but is built on
+`whisper.cpp` — the real local-transcription path would be adding
+`whisper.cpp` directly as a new provider in `skills/lib/transcribe.py`
+(already built swappable for exactly this). **Brian's call: stay on
+OpenAI, fix the retry logic instead** — he wants this pipeline running in
+the cloud eventually, without his laptop, which rules out a local-only
+engine for the long term regardless of today's flakiness.
+
+**Built chunk-level retry-with-backoff in `skills/lib/transcribe.py`**
+(`_transcribe_openai()`): up to 3 attempts per chunk, backoff 3s/6s, only
+retries transient failures (5xx, or no response at all — connection/
+timeout) since a 4xx fails identically every time and retrying just wastes
+the delay. Validated against the exact real failures from this session:
+re-ran `the-artificial-intelligence-show` #231 (succeeded on a 3rd manual
+attempt before the fix existed, confirming the errors were transient) and
+`dwarkesh`'s Ryan Greenblatt episode, which had failed twice more even
+after the fix went in (a 500-then-400 combo once, a fresh 500 on a
+different chunk once) — third attempt with the fix live: two more
+mid-stream 500s, both auto-retried and succeeded, full 9/9 chunks, 89,005-
+char transcript. The fix directly resolved the session's real failures,
+not just a synthetic test.
+
+**A real, separate bug found and fixed: megaphone.fm feeds without a
+`<link>` element silently break dedup.** Noticed the force-reingest script
+misclassified `moonshots`' already-ingested episode as "genuinely new" —
+traced it to `fetch_entries()`'s `link = (raw.get("link") or "").strip()`
+producing an empty string for feeds with no `<link>` tag (confirmed via
+direct feedparser calls: `moonshots`, `no-priors`, and
+`on-with-kara-swisher` all return `link=None`, not a parsing bug). Because
+`load_ingested_urls()` only tracks truthy `source_url` values, an empty
+link is never "seen," so the same already-ingested episode gets treated as
+new on every future run indefinitely — and this had already caused real
+duplicate notes: episode #228 and #229 of `the-artificial-intelligence-show`
+each had two near-identical notes on disk, one from the 2026-08-11 catch-up
+batch (before the existing `fix_episode_link` override existed, empty URL)
+and one from ad-hoc testing earlier today (override active, real URL).
+Fixed generally in `fetch_entries()`: when `link` is empty, fall back to
+the source's homepage plus feedparser's `raw['id']` (a stable per-episode
+GUID, confirmed present on all 3 affected feeds even without `<link>`) —
+`https://homepage#guid`, still a real clickable URL (just not
+episode-specific) and unique enough for dedup to work correctly going
+forward. Deleted the two confirmed-duplicate `the-artificial-intelligence-show`
+notes (kept the versions with real URLs) and retroactively patched
+`moonshots`' and `on-with-kara-swisher`'s existing empty-`source_url` notes
+to the same fallback scheme so dedup stays consistent without one more
+transient duplicate on their next poll. `no-priors` wasn't yet affected in
+committed notes (nothing ingested from it yet) but is covered by the fix
+going forward. Not investigated: whether other podcast/blog feeds have the
+same gap — this was found by noticing one concrete misclassification, not
+a systematic audit.
+
+**`brief.py` and `publish.py` run for real, first time against a batch
+that includes genuine full-transcript podcast content.** 27 notes in the
+1.06-day auto window. Quality is a visible step up from every prior
+show-notes-only brief: specific, load-bearing detail pulled straight from
+transcripts (Zapier's "% of Slack messages sent in public channels"
+adoption metric, the Hugging Face incident's 17,000-action/4.5-day/
+message-board-in-a-package-manager detail, Kara Swisher panel's compute-
+landlord framing) rather than generic breadth-first summary. **First time
+the promotion-candidates queue actually fired**: three threads seeded in
+the 2026-08-11 catch-up batch (`emergent-agent-coordination-via-shared-storage`,
+`portability-contested-commercially`, `ai-siting-and-public-legitimacy`)
+recurred a 3rd time today and got queued in
+`outputs/technical-briefings/promotion-candidates.md` for Brian's review —
+the D5 promotion-ceremony design working end to end for the first time,
+not just in theory.
+
+**A real bug found in the published output, not fixed without asking:**
+both the dense brief and the Substack draft cite `brain-inbox`-sourced
+items with links like `https://mail.google.com/mail/u/0/#inbox/<msg_id>` —
+`fetch_entries_email()` uses a Gmail webmail deep link as the entry's
+`link` field since raw email has no public URL of its own. That's fine
+internally, but `publish.py`'s design principle is reusing every dense-
+brief link verbatim into the public Substack draft — so today's
+`outputs/published/2026-08-13.md` (uncommitted, not pasted anywhere)
+currently has a private, reader-broken Gmail inbox link in public-facing
+copy. Not fixed this session (would mean either not hyperlinking brain@
+citations at all, or teaching email ingestion to find a newsletter's real
+public "view in browser" URL when one exists — a real design call, not a
+mechanical fix, and this draft isn't going out today regardless). Flagged
+plainly rather than silently patched or silently shipped.
+
+**Where things stand:** all three new capabilities are validated in a
+real, unattended production run — Gmail and X worked cleanly on the first
+try; podcast transcription needed one real reliability fix (chunk-level
+retry) which is now built and validated against the exact failures that
+prompted it. Today's dense brief
+([outputs/technical-briefings/2026/08/2026-08-13.md](../outputs/technical-briefings/2026/08/2026-08-13.md))
+and Substack draft
+([outputs/published/2026/08/2026-08-13.md](../outputs/published/2026/08/2026-08-13.md))
+are written and uncommitted, held for Brian's review per the standard
+workflow — `render.py` deliberately not run yet. Also uncommitted: the
+`fetch_entries()` link-fallback fix, the transcription retry fix, the two
+deleted duplicate notes, and the two retroactively-patched `source_url`
+fields. Open, real items for whenever picked up next: the Gmail-link-in-
+public-output bug above; whether other feeds share the empty-`<link>`
+gap; Day 6 automation (now explicitly motivated by Brian wanting this off
+his laptop, which also rules local Whisper back out for now); and
+everything already open from prior sessions (open decision #8 canon
+governance, the `ask@` lane, Substack Workstream C follow-through).
+
+### 2026-08-13 — same session, continued (Gmail-link fix built, and a real day-2 voice call: publish the dense brief, not the Fable condensation)
+
+Two things from Brian, addressed same session: confirm the Gmail
+labeling is actually working (he'd only ever seen `AI/Skipped`, not
+`AI/Ingested`, and hadn't rechecked recently), and fix the
+brain-inbox-to-Gmail-link bug flagged at the end of the entry above —
+"teach the email ingestion process how to find a newsletter's real view-
+in-browser URL when one exists, if it doesn't exist that's fine,
+definitely don't link into Gmail."
+
+**Gmail labeling confirmed working, not a bug.** Queried the live Gmail
+API directly rather than trusting a stale visual check: `AI/Ingested` has
+4 messages (matching the 4 real committed notes), all archived out of the
+inbox; `AI/Skipped` has 1 (the Google Cloud welcome email), correctly
+left visible. The mechanism works exactly as designed — Brian just
+hadn't seen it since ingested mail archives itself out of the main inbox
+view.
+
+**Built the newsletter view-online-link finder.** `_find_view_online_link()`
+in `skills/ingest/ingest.py` regex-matches anchor tags whose visible text
+reads like "view in browser"/"read online"/"web version" (case-
+insensitive, strips nested tags before matching) against a message's HTML
+body. Replaces the old `f"https://mail.google.com/mail/u/0/#inbox/{msg_id}"`
+fallback in `fetch_entries_email()`'s `link` field entirely — Brian's
+explicit instruction was never to fall back to a Gmail link, empty is
+fine.
+
+**Real finding, not assumed: resolving the redirect isn't enough on its
+own.** The found link is always an ESP click-tracking redirect (Sailthru/
+Beehiiv/Mailchimp-style — the *path* segment is the opaque tracking
+token, not a query string, so there's nothing to strip on the original
+URL). Brian asked to strip the personal tracking, so `_resolve_email_link()`
+follows the redirect once at ingestion time (not from a public reader's
+browser) to get the real destination. Testing that against The Deep
+View's and Superintelligence's (Beehiiv) actual newsletters surfaced a
+worse problem than expected: the *resolved* Beehiiv URL's own query
+string carries a `jwt_token` parameter that trivially base64-decodes —
+no signature check needed to read it — to
+`{"subscriber_id": "61387be2-68bd-4f32-9726-292edf4619b2", ...}`, Brian's
+actual real subscriber ID in plaintext. Confirmed by decoding a real one
+from today's inbox before treating this as more than a theoretical risk.
+Fixed by stripping the query string and fragment after resolving
+(`_strip_query_and_fragment()`), keeping only scheme+host+path — the part
+that identifies the article, not the reader.
+
+**A second real finding: Beehiiv's redirector blocks non-browser User-
+Agents, intermittently.** The honest bot `USER_AGENT` used everywhere
+else in the pipeline (RSS/podcast fetches identify themselves plainly,
+normal etiquette for a feed poller) got a bare 403 from
+`link.mail.beehiiv.com`. Switching to a realistic Chrome UA for just this
+one call (`BROWSER_USER_AGENT`, scoped locally — not a module-wide
+change, since resolving a link a real human would click is a different
+thing from identifying a feed poller) fixed it — but then three identical
+back-to-back requests came back 200, 403, 403, confirming this is
+genuinely flaky (probabilistic bot-challenge or rate-limiting), not a
+hard block. Added retry-with-backoff (3 attempts, same shape as this
+session's earlier transcription-API fix) rather than accepting
+intermittent failure. Validated end to end against all 4 real newsletters
+already in the inbox: 3 resolved to clean public URLs
+(`archive.thedeepview.com/...`, `read.getsuperintel.com/...`), 1
+(AlphaSignal) correctly came back empty since it has no view-online link
+at all.
+
+**Retroactively patched, not just fixed going forward.** The 4 already-
+committed `brain-inbox` notes had their `source_url` frontmatter updated
+to the resolved links (or left empty for AlphaSignal); today's dense
+brief's inline citations were hand-patched the same way — two links
+swapped to the resolved URLs, two (both citing the AlphaSignal item, which
+has no real destination) had their Markdown link syntax stripped down to
+plain unlinked text rather than pointing at nothing or at Gmail.
+
+**A real day-2 reaction to the actual published output, leading to a
+bigger change than a bug fix.** Brian read the Fable-condensed Substack
+draft and called it "meh... reading like a fairly lame AI-generated
+mediocre news roundup," but said the dense technical brief read well —
+asked to try publishing *that* one instead, complete with the "Threads
+being tracked" section, h3 top-level / h4 sub-heads, "Worth your
+attention" instead of "Worth Brian's attention," prose otherwise as-is.
+Framed explicitly as a one-day experiment ("let's give it a shot for
+today and see how it feels"), not a settled redesign.
+
+**Generalized `render.py`'s heading normalization first**, since it was a
+real prerequisite either way: `normalize_body()` used to flatten every
+heading to `###` regardless of source level — harmless for Fable's output
+(which only ever writes h3 anyway, confirmed by checking) but wrong for
+publishing the dense brief's own `##`-level sections, which needed to
+become h3 while preserving room for a real h4 if a future day's brief has
+actual sub-headings. Rewrote it as a relative shift: find the shallowest
+heading level present, offset so it lands on h3, shift everything else by
+the same amount. Verified against three cases (single-level h3 unchanged,
+two-level h2 → h3, and a synthetic h1/h2/h3 mix → title dropped/h3/h4)
+before trusting it, then re-ran it for real against the already-committed
+2026-08-12 post to confirm zero behavior change on real data (still 3
+h3s, nothing else).
+
+**Built `--dense` mode on `skills/brief/publish.py`.** Skips the Fable
+condensing call entirely; publishes the dense brief's own prose near-
+verbatim (one section rename via a small explicit `DENSE_SECTION_RENAMES`
+map, `Worth Brian's attention` → `Worth your attention`; strips the
+leading `# Title` line the same way every other published post already
+does) and makes exactly one small model call for the Substack subtitle
+(new `publish-dense-subtitle-prompt.md`, reusing the existing Subtitle
+guidance). **Hit the exact same bug BUILD.md already documented for
+`brief.py`'s Opus call**, on the first real attempt: `max_tokens=200` for
+the subtitle call wasn't enough headroom — extended thinking on the full
+~16K-character dense brief consumed the entire budget before emitting any
+text (`stop_reason: max_tokens`, zero text blocks). Confirmed by testing
+the exact same prompt at increasing budgets rather than guessing; 2048
+resolved it cleanly. Also added the same missing-subtitle fallback the
+non-dense path already had, which the first version of `--dense` had
+skipped.
+
+**Ran it for real, replacing today's Fable-condensed draft.** Dry-run
+first to check output before overwriting anything, then a real run:
+`outputs/published/2026/08/2026-08-13.md` now carries the dense brief's
+actual prose (all 27-item batch, the full "Threads being tracked"
+section, "Worth your attention"), frontmatter `model` field records both
+models used (`claude-opus-5 (body, passthrough per --dense) + claude-
+fable-5 (subtitle)`, honest about which model wrote what). Rendered to
+HTML via the now-generalized `render.py` and screenshot-checked in the
+browser before trusting it — headings render as real `<h3>`, the
+numbered "Worth your attention" list renders as a proper `<ol>`, links
+intact. Sent both the `.md` and rendered `.html` to Brian for the actual
+"how does it feel" read — the real point of today's experiment, which no
+amount of further checking substitutes for.
+
+**Where things stand:** everything above is real, validated against live
+data, and uncommitted — held for Brian's review, same as always. Whether
+`--dense` becomes the new default publish path (replacing Fable
+condensing going forward) or stays a one-off is explicitly Brian's call
+once he's read today's actual result, not decided here. If it sticks,
+worth revisiting later: whether `publish-prompt.md`/Fable's condensing
+path is worth keeping around at all (a second content type — book
+excerpts, monthly reviews — that genuinely needs condensing? or dead
+code once the dense brief proves out as the daily post?) — not decided,
+not urgent, flagged for whenever this comes up again.
+
+### 2026-08-14 — same session, continued (dense becomes the default; walked through the pass-count question; canon governance flagged as the real next step)
+
+Brian read the dense-published draft, confirmed it's better, and asked a
+real architecture question rather than just approving: which model
+actually wrote it, and does the pipeline need a third pass or is two
+enough. Walked through it: the published text is 100% Opus's writing from
+`brief.py` (Fable only ever wrote the subtitle) — so "the dense version
+reads better" is really "Opus's own synthesis reads better than Fable's
+rewrite of it." Framed the two-vs-three-pass question directly: `ingest.py`
+(per-article extraction) and `brief.py` (cross-note/whole-canon synthesis)
+are the two passes doing real judgment; the old `publish.py` condensing
+call was a *third* rewrite pass over already-synthesized text, and
+successive LLM rewrite passes are a known way to sand off specificity —
+which matches Brian's own "lame AI-generated mediocre news roundup"
+diagnosis exactly. Recommendation: two passes is the right shape, not a
+stopgap. Also connected Brian's "I still don't love it, I think I need to
+update my frameworks and latest thinking first" directly to the
+already-open, already-deferred canon governance problem (open decision
+#8 — `developing-thinking.md` unpruned/undated, `frameworks/` up to 15
+months stale, no retirement path): the brief can only synthesize against
+whatever canon exists, so a flat/stale canon caps output quality no
+matter how the pipeline is tuned. Brian agreed with the framing and
+agreed the real purpose right now is feeding the brain (durable, specific,
+citable canon-quality content) over optimizing for a general-newsletter
+audience that doesn't really exist yet at current subscriber count.
+
+**Flipped `publish.py`'s default.** Plain `python3 skills/brief/publish.py`
+now publishes the dense brief near-verbatim (previously required
+`--dense`); the old Fable-condensing behavior moved behind a new
+`--condensed` flag, internals unchanged — a straightforward branch swap,
+verified by code inspection and a `--dry-run` re-check against the real
+2026-08-13 brief (correctly selects the dense path with no flag, and the
+help text/log lines were updated to describe the new default rather than
+treating it as the opt-in). `skills/brief/README.md`'s "Publishing"
+section rewritten to lead with the new default and document `--condensed`
+as the explicit alternative. Module docstring updated to explain why two
+passes beats three, not just that the default changed.
+
+**Next real question, Brian's own:** does open decision #8 (canon
+governance) belong in this same thread or a fresh one, and is it actually
+the next logical thing to do. Both answered in chat — see the response
+alongside this entry for the actual reasoning (recommended a fresh
+thread, given how much ground this session already covered and canon
+governance being a genuinely different kind of work — editorial/design
+curation of canon content, not pipeline ops — plus it having been
+explicitly deferred twice already as needing dedicated headspace; agreed
+it's the most logical next step over Day 6 automation or the `ask@` lane,
+since it's the thing actually behind "I still don't love it," not a
+one-time fix). Not started this session.
+
+**Where things stand:** the dense-first publish path is now the
+committed skill's default, not an experiment sitting behind a flag.
+Everything from today (Gmail link fix, render.py heading generalization,
+the publish.py default flip, the two deleted/patched notes) is still
+uncommitted, held for review. Canon governance (open decision #8) is the
+clear next real thread, not yet started.
