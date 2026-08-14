@@ -294,3 +294,36 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 - Subscribable brains mention references brianmadden.ai directly — appropriate
 
 **Result: CLEAR TO COMMIT**
+
+---
+
+## 2026-08-14 — Canon governance pass: five-levels archived, knowledge factory + three waves enter canon
+
+**What was synced:**
+- Archived `frameworks/five-levels-of-ai-in-knowledge-work.md` (`status: archived`, first use of the mechanism added to `docs/frontmatter-schema.md` this same session) — Brian's direct call, "that wasn't really mine" (adapted from Dan Shapiro's coding framework)
+- Removed two already-published blocks from `me/developing-thinking.md` (7 Phases v2, EUC primitives audit — both published 2026-06-10 as the 7-stage-roadmap 2026 Edition / delivered in the June talks)
+- Added two new big-argument sections to `me/developing-thinking.md`: "The knowledge factory" and "The three waves" — distilled from Brian's unpublished working material at his direction; absorbed four Aug-5 scratchpad items into them; rewrote one open question as answered
+- Created `frameworks/knowledge-factory.md` (`status: not-reviewed-by-human`, `model: claude-fable-5`, `original_url: null` — first framework to enter canon before publication)
+- Updated: CLAUDE.md/AGENTS.md (identical pair), README.md, llms.txt (v3.8: 121 files, 10 active frameworks), COLLECTIONS.md (3 collections), `_index.json`, `_relationships.json`, `scripts/check_doc_accuracy.py` (archived-tier support + fixed a silently-broken tree check)
+
+**Automated checks:**
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+- Wiki-links (`[[`): none found — CLEAR
+- Internal names (David Jack, Nancy, Hector, Rahul, George, Thomas, Jen, Sridhar, internal product names): none found in new canon content — CLEAR
+- bmad/ path references: none found — CLEAR
+- Spaced em-dashes (` — `, ` -- `): none found in new content — CLEAR
+- Heading case: sentence case throughout — CLEAR
+- JSON validity (`_index.json`, `_relationships.json`): both valid — CLEAR
+
+**Manual review notes (redaction decisions):**
+- Source material: the knowledge-factory explainer (Brian: "essentially ok to be public") and the three-waves doc (Citrix internal; Brian explicitly wants the *concept* public, not the Citrix specifics)
+- Continuity check ran first: "knowledge factory" as a term, the org-scale concept, and the full FDE funding story were already public canon (2026-07-20 bubble-pop post, 2026-07-16 Arrow Forum talk, podcast ep3-4) — the new content extends the public record
+- **Brian's correction, same session, applied:** internal-usage specifics removed from the public proof point — the ~$50-per-course figure, the 140+ block count, the department, the use case (training content), and the exact replication count. Public canon now says only: Citrix runs the pattern internally, built by one person as an in-house FDE, in production within months, replicated multiple times. The concept is public; how Citrix uses it is not.
+- Excluded throughout: all individual names (builder uncredited pending Brian's call), internal product/program names, org headcounts, the internal Wave-1 marketing label, all Citrix product-pillar mapping, all competitive positioning, everything from the marketing-factory proposal doc (per Brian: background only)
+- The FDE funding figures and OpenAI build-out math are public reporting, already cited in the Arrow Forum talk
+
+**Same session — the full developing-thinking.md triage executed with Brian's approval:** 55 items cut (30 what's-connecting paragraphs, 25 scratchpad bullets), grouped as: absorbed into the two new sections; already published in canon elsewhere (verified by grep before cutting); dated market/news snapshots; one-liners that went nowhere. One item ("lead with problems, not architecture") moved into `me/voice.md`'s "How Brian argues" section rather than cut — flagged as the one edit touching MAINTAINER.md rule 7 territory (voice.md edits are Brian's), needs his explicit eyes. File went ~9,000 → ~7,400 words with the two major new arguments in and 55 stale items out. Everything removed remains in git history.
+
+**Brian's review, same session:** two final corrections applied — all "course" references generalized to deliverable-neutral wording, and the proof point cut to "Citrix runs this pattern internally," full stop (the concept's use at Citrix is public; how it's used is not). With those in, Brian approved everything for commit and publication; `frameworks/knowledge-factory.md` flipped to `status: reviewed` on his in-chat approval, indexes synced. `skills/brief/brief.py` also gained an archived-status filter so retired frameworks never inform future briefs.
+
+**Result: CLEAR TO COMMIT** — committed at session end, all files, logical commits.

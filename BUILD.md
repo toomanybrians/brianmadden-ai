@@ -192,9 +192,22 @@ as a template to re-run.
    rather than a manual one-off each time. Until then, the fallback Brian
    suggested — just telling Claude to add specific ones — works fine.
 
-8. **Canon governance: `developing-thinking.md` needs pruning/dating,
-   `frameworks/` needs a retirement path (flagged 2026-08-11, design TBD,
-   not started).** Raised by Brian at the end of the D4 session, after the
+8. **Canon governance — largely resolved 2026-08-14** in the dedicated
+   session the flag waited for: five-levels archived via the new
+   `status: archived` mechanism, knowledge factory + three waves entered
+   canon, 55 stale items pruned from `developing-thinking.md`,
+   `brief.py` taught to skip archived frameworks. See the 2026-08-14
+   canon-governance session entry. Still open from this decision:
+   (a) the recurring staleness-triage tool (specified in the session
+   entry — content cross-checks against published work, mirror image of
+   promotion-candidates.md — not built); (b) **new, Brian 2026-08-14:**
+   a mechanism to track "most front-of-mind" thinking separately from
+   general background thoughts in `developing-thinking.md` — the same
+   idea as the D5-era "true top-of-mind flagging (3-5 things vs. a
+   longer tracked list)" note, which explicitly pointed at this
+   decision. Today's inline "most front-and-center" markers on the two
+   new sections are the manual v0 of it. Original write-up kept below
+   for the record. Raised by Brian at the end of the D4 session, after the
    framework-in-ingest detour above made both problems concrete. Not
    picked up this session — deliberately deferred to a dedicated pass,
    whether that's before/alongside D5 or later. Findings so far, so the
@@ -2839,3 +2852,150 @@ visibility (flagged earlier this session, not designed); the
 canon governance (open decision #8, actively being worked by the
 concurrent RSS-rebuild-adjacent session per the entry above — check its
 state before starting fresh); Day 6 automation; the `ask@` lane.
+
+### 2026-08-14 — Claude Code session (open decision #8: the canon governance pass, finally)
+
+This is the dedicated session open decision #8 waited for through two
+deferrals — the one whose in-progress files the concurrent
+daily-briefing session correctly spotted and left untouched (see its
+entry above). Motivated concretely by yesterday's realization that a
+stale canon caps brief quality no matter how the pipeline is tuned.
+Everything from this session is uncommitted, held for Brian's review.
+
+**Phase 1 — walked the canon with Brian, then executed his calls:**
+
+- **Dating reality check first.** Git blame on `me/developing-thinking.md`
+  showed per-bullet dating is impossible retroactively: the file's
+  content arrived in four sync batches from the old private-first
+  architecture (Feb 23, Feb 27, Jun 1, Aug 5), with ~79 of ~102 items
+  all landing in the single June 1 batch. The proposed "backfill dates
+  via git blame" idea from the original open-decision write-up is dead
+  on arrival for existing content — batch-level dating is the honest
+  ceiling. (Going forward it self-solves: the private-first
+  architecture is gone, so future additions land individually.) Triage
+  signal has to come from content cross-checks instead; ran greps of
+  every item's distinctive phrases against `published-thinking.md` and
+  `posts/` to find what had already shipped.
+- **`frameworks/five-levels-of-ai-in-knowledge-work.md` archived** —
+  Brian's call: "that wasn't really mine" (adapted from Dan Shapiro).
+  First use of the new `status: archived` mechanism, designed this
+  session and added to the ratified schema
+  ([docs/frontmatter-schema.md](docs/frontmatter-schema.md), 2026-08-14
+  addendum): file stays in place at its original path (existing links
+  keep resolving, including from published posts), gains
+  `archived_date`/`archived_reason`, drops out of active counts and
+  loading surfaces (`llms.txt`, `COLLECTIONS.md`, framework counts),
+  stays marked in `_index.json`/`_relationships.json`. Only Brian sets
+  `archived`, ever — same no-machine-upgrade rule as every other status.
+- **Two already-published blocks cut from `developing-thinking.md`**
+  (Brian's call): the "7 Phases v2" and "EUC primitives audit" blocks —
+  both published June 10 as the 7-stage-roadmap 2026 Edition and
+  delivered in the June talks. ~550 words of duplicate-of-published
+  gone.
+- **Found and fixed a silently-broken CI check while in there:**
+  `check_doc_accuracy.py`'s CLAUDE.md-tree-vs-frameworks/-directory
+  comparison had a regex that never matched (`\nposts/` vs the actual
+  `\n├── posts/`), which is exactly how `delegation-not-automation.md`
+  fell out of the CLAUDE/AGENTS tree unnoticed. Fixed the regex, added
+  a warn-if-block-not-found guard, taught the whole script
+  archived-vs-active framework counting, restored the missing tree
+  entry.
+- **Inventoried all ~102 remaining developing-thinking items** as a
+  numbered list with grep-verified flags (already-published, stale
+  links to the archived framework, shipped naming) — Brian's triage
+  reactions pending, see phase 3.
+
+**Phase 2 — two major new bodies of thinking entered canon, from
+Brian's unpublished working material** (the knowledge-factory explainer
+he approved as essentially-public, and the three-waves concept from an
+internal doc whose *concept* he explicitly wants public):
+
+- **`me/developing-thinking.md` got two new big-argument sections**,
+  both marked as the most front-and-center things in his thinking:
+  "The knowledge factory" (the deployment-model correction — shared
+  departmental second brain, not individual-first; three tiers,
+  knowledge blocks, canonical-context-layer-as-new-source-code, gap
+  analysis, skills-as-guardrails, OKF convergence, the Citrix proof
+  point) and "The three waves" (invisible-80% digitization as net-new
+  IT territory; Wave 1 estate / Wave 2 knowledge layer / Wave 3
+  endpoint; the FDE funding explosion and the build-out revenue math
+  behind its urgency). Four Aug-5 scratchpad items (what-not-why,
+  one-corpus-many-renders, PC analogy, hallucination anatomy) were
+  absorbed into these sections and removed; the "can file-based
+  knowledge work scale" open question got rewritten as answered-with-
+  residual. Key continuity find before writing: the term "knowledge
+  factory" and the FDE story were *already public canon* (July 20
+  bubble-pop post, Arrow Forum talk, podcast ep3-4), so the new
+  sections extend the public record rather than leak anything.
+- **New `frameworks/knowledge-factory.md`** — first framework to enter
+  canon *before* publication (`original_url: null`, noted in the body)
+  and first to carry `status: not-reviewed-by-human` + `model`
+  frontmatter per the ratified schema — **needs Brian's read to flip to
+  `reviewed`**. Active framework count is back to 10.
+- **Public-safety redactions applied** (flagged to Brian in chat for
+  review): no individual names (repo convention — the explainer names
+  the builder; Brian's call whether to credit publicly), no internal
+  product/program names, no org headcounts, no internal wave-1
+  marketing label, no competitive positioning. Kept per the
+  essentially-public explainer: the $50/course figure, 140+ blocks,
+  four internal replications, the OKF date/link, the FDE funding list
+  (already public in the Arrow talk anyway).
+- **All plumbing updated and verified**: CLAUDE/AGENTS (identical),
+  README, `llms.txt` (v3.8), `COLLECTIONS.md` (3 collections),
+  `_index.json` (121 files, word counts recomputed),
+  `_relationships.json`; `check_doc_accuracy.py` passes clean; ran the
+  governance-log-style checks (internal names, spaced em-dashes,
+  wiki-links, bmad/ paths) on all new canon content — all clear.
+  Governance-log entry added.
+
+**Phase 3 — triage executed.** Brian approved the recommended cut/keep
+list wholesale ("this is mostly for shaping what we ingest so precision
+is not as important") plus one correction: internal-usage specifics
+(the ~$50/course figure, block count, department, use case, exact
+replication count) scrubbed from the public proof point in both the
+framework file and developing-thinking — the concept being used at
+Citrix is public, *how* it's used is not. Then cut 55 items from
+`developing-thinking.md` (30 what's-connecting paragraphs + 25
+scratchpad bullets: absorbed / already-published / dated snapshots /
+went-nowhere one-liners — each class grep-verified before cutting, all
+recoverable from git history), moved one item into `me/voice.md`'s "How
+Brian argues" (flagged: rule-7 territory, voice.md edits are Brian's —
+needs his explicit eyes on that one line), and merged the
+token-measurement bullet into the productivity-measurement one. File:
+~9,000 words (pre-session) → ~7,400 with two major new arguments in and
+55 stale items out. What survives is ~40 genuinely-live items: the
+vendor-strategy cluster (Switzerland, executor seam, browser/Windows
+asymmetry, forward proxy, agent identity), the Wave-1 on-ramp cluster,
+the live big-argument feeders, unpublished second-brain material, and
+all six open questions.
+
+**Still undesigned from the original open-decision write-up:** the
+recurring staleness-triage tool. This session was the manual first run
+of it, and what it should automate is now much clearer: content
+cross-checks against published work (grep for distinctive phrases in
+posts/published-thinking), not date scanning — per-bullet dates proved
+unrecoverable and mostly beside the point. Candidate design: a periodic
+skill that diffs developing-thinking items against recent posts/talks
+and queues "this looks published/superseded" candidates for Brian, same
+surface-don't-decide pattern as promotion-candidates.md, roughly its
+mirror image (that file feeds the frontier, this would drain it).
+
+**Phase 4 — Brian's final review, approvals, and commit.** Two last
+content corrections from his read: every "course" reference generalized
+("here's our OneDrive, now make me my deliverable" — the deliverable is
+generic, the use case stays private) and the proof point cut to a single
+sentence, "Citrix runs this pattern internally," full stop — the concept
+being in use at Citrix is public, everything about *how* is not. With
+those in, Brian approved the whole session for commit and publication:
+`frameworks/knowledge-factory.md` flipped to `status: reviewed` (his
+in-chat review is the review; `model: claude-fable-5` stays as honest
+authorship), indexes synced to match. Also fixed for real, not assumed:
+`brief.py`'s `load_frameworks_list()` had no archived filter, so
+tomorrow's brief would have kept loading the retired five-levels —
+added the skip, verified by running the loader (10 frameworks,
+knowledge-factory in, five-levels out). Tomorrow's brief picks up the
+new canon automatically from there, since it reads
+`developing-thinking.md` and the frameworks list fresh every run.
+Committed at session end in logical commits — see git log. The
+front-of-mind-vs-background tracking idea is logged under open
+decision #8's residuals above.
