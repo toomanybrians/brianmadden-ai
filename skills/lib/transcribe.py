@@ -20,6 +20,7 @@ like lib/llm.py's anthropic/openrouter split.
 """
 
 import os
+import time
 from pathlib import Path
 from typing import Optional
 
@@ -32,6 +33,17 @@ DEFAULT_MODELS = {
 REQUIRED_ENV_VARS = {
     "openai": "OPENAI_API_KEY",
 }
+
+# Confirmed real 2026-08-13: three separate mid-transcription 500s in one
+# production run (chunk 1/3 twice on one episode, chunk 4/9 on another) —
+# all transient, gone on a plain retry. A single flaky chunk shouldn't sink
+# an entire multi-chunk episode (which means re-downloading and re-chunking
+# the whole file from ingest.py's side), so retry at the single-chunk level
+# instead. Only retries transient failures (5xx, or no response at all —
+# connection/timeout errors); a 4xx (bad file, bad auth, bad model name)
+# fails identically every time, so retrying just wastes the backoff delay.
+MAX_RETRIES = 3
+RETRY_BACKOFF_SECONDS = 3  # doubles each attempt: 3s, 6s
 
 
 def current_provider() -> str:
@@ -66,14 +78,25 @@ def _transcribe_openai(audio_path: Path, model: str) -> str:
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY not set")
-    with open(audio_path, "rb") as f:
-        resp = requests.post(
-            "https://api.openai.com/v1/audio/transcriptions",
-            headers={"Authorization": f"Bearer {api_key}"},
-            files={"file": (audio_path.name, f)},
-            data={"model": model, "response_format": "text"},
-            # A 60-90 minute episode can genuinely take a while server-side.
-            timeout=600,
-        )
-    resp.raise_for_status()
-    return resp.text.strip()
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            with open(audio_path, "rb") as f:
+                resp = requests.post(
+                    "https://api.openai.com/v1/audio/transcriptions",
+                    headers={"Authorization": f"Bearer {api_key}"},
+                    files={"file": (audio_path.name, f)},
+                    data={"model": model, "response_format": "text"},
+                    # A 60-90 minute episode can genuinely take a while server-side.
+                    timeout=600,
+                )
+            resp.raise_for_status()
+            return resp.text.strip()
+        except requests.RequestException as e:
+            status = getattr(e.response, "status_code", None)
+            retryable = status is None or status >= 500
+            if not retryable or attempt == MAX_RETRIES:
+                raise
+            wait = RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1))
+            print(f"      transcription request failed on attempt {attempt}/{MAX_RETRIES} ({e}) — retrying in {wait}s...")
+            time.sleep(wait)
