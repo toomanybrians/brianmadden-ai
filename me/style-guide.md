@@ -40,3 +40,32 @@ output), not pre-populated speculatively.
   anything that's actually a forecast. (Brian's correction, 2026-08-11 —
   caught in his own edit: "judgment and governance stay human longest" →
   "judgment and governance will stay human the longest.")
+
+## Sentence structure
+
+- **No fragment-style openers.** Don't lead a summary/description with a
+  dropped-subject fragment — "Closing keynote to an audience of app
+  management practitioners," not a complete sentence. Write a real,
+  human-friendly lead sentence instead, even though fragment ledes have
+  become a common tic in AI-generated summaries. (Brian's correction,
+  2026-08-14 — caught reviewing a sample talk-summary intro.)
+
+## Byline and point of view
+
+- **Content posted under the `brianmadden.ai` byline refers to Brian in
+  the third person**, even when recapping something Brian said or did
+  ("Brian gave the closing keynote at..."), never first person as if
+  Brian himself were narrating, and never the AI writing as if *it* were
+  Brian. The AI byline is a distinct voice describing Brian's work, not a
+  ghostwriter impersonating him. (Brian's correction, 2026-08-14 — same
+  talk-summary review as above.)
+
+## Audience-specific sections
+
+- **Internal/canon-only sections don't carry over to human-facing
+  surfaces.** A canon file's "Key frameworks" link list (or similar
+  AI-to-AI navigational aids) belongs in the brain — drop it, don't just
+  reformat it, when generating a version for a human reader (e.g. a
+  Substack post). Human-facing surfaces should read as if written for a
+  person dropping in, not as a rendering of the machine-readable version.
+  (Brian's correction, 2026-08-14 — same talk-summary review.)
