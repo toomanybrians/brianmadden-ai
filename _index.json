@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-08-05",
+  "generated": "2026-08-14",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 120,
-  "total_words": 238939,
+  "total_files": 121,
+  "total_words": 238930,
   "files": [
     {
       "path": "AGENTS.md",
@@ -84,9 +84,9 @@
         "frontier",
         "developing-arguments"
       ],
-      "word_count": 8946,
+      "word_count": 7351,
       "staleness_threshold": "weeks",
-      "updated": "2026-08-05",
+      "updated": "2026-08-14",
       "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
     },
     {
@@ -122,7 +122,6 @@
       "date": "2026-06-10",
       "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
       "related_frameworks": [
-        "five-levels-of-ai-in-knowledge-work",
         "cognitive-stack",
         "invisible-80-percent",
         "factory-electrification"
@@ -202,8 +201,7 @@
       "date": "2026-02-25",
       "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
       "related_frameworks": [
-        "invisible-80-percent",
-        "five-levels-of-ai-in-knowledge-work"
+        "invisible-80-percent"
       ],
       "related_posts": [
         "2026-02-25-cognitive-stack",
@@ -261,7 +259,8 @@
       "related_posts": [
         "2026-02-19-coding-as-leading-indicator"
       ],
-      "description": "As AI handles more production work, the human role shifts from doing to directing to verifying. Five levels mapping that evolution."
+      "description": "As AI handles more production work, the human role shifts from doing to directing to verifying. Five levels mapping that evolution.",
+      "status": "archived"
     },
     {
       "path": "frameworks/invisible-80-percent.md",
@@ -280,14 +279,46 @@
       "original_url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/",
       "related_frameworks": [
         "bitter-lesson",
-        "factory-electrification",
-        "five-levels-of-ai-in-knowledge-work"
+        "factory-electrification"
       ],
       "related_posts": [
         "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
         "2026-02-10-second-brain-anchor"
       ],
       "description": "The 80% of knowledge work that only the worker can see is exactly the 80% that corporate AI cannot touch. That is why worker-led AI wins."
+    },
+    {
+      "path": "frameworks/knowledge-factory.md",
+      "title": "The knowledge factory",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "knowledge-factory",
+        "second-brain",
+        "canonical-context-layer",
+        "knowledge-blocks",
+        "enterprise-ai",
+        "governance",
+        "forward-deployed-engineer",
+        "knowledge-management"
+      ],
+      "word_count": 1586,
+      "staleness_threshold": "stable",
+      "date": "2026-08-14",
+      "original_url": null,
+      "related_frameworks": [
+        "invisible-80-percent",
+        "subscribable-brains",
+        "cognitive-stack",
+        "post-application-era",
+        "bitter-lesson"
+      ],
+      "related_posts": [
+        "2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop",
+        "2026-02-11-second-brains-break-security-assumptions"
+      ],
+      "description": "Stop pointing AI at your raw document pile. Build a curated canonical context layer of versioned, cross-linked knowledge blocks, let AI maintain it and generate every downstream asset from it—the shared, departmental second brain.",
+      "status": "reviewed"
     },
     {
       "path": "frameworks/post-application-era.md",
