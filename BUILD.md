@@ -2517,3 +2517,115 @@ Everything from today (Gmail link fix, render.py heading generalization,
 the publish.py default flip, the two deleted/patched notes) is still
 uncommitted, held for review. Canon governance (open decision #8) is the
 clear next real thread, not yet started.
+
+### 2026-08-14 — Claude Code session (RSS feed rebuild for Substack back-catalog import)
+
+Separate thread from the one above — Brian's actual goal: import his
+pre-2026 back catalog (LinkedIn articles, talks, old blog posts) into
+`brianmaddenai.substack.com` via Substack's RSS importer, since Substack
+has no way to backdate a manually-created post. Almost all the real work
+landed in **`brianmadden-ai-server`** (the Cloudflare Worker repo that
+actually renders `bmad.com` and its `/feed.xml`), not here — but it
+surfaced and fixed several real bugs in this repo's own data, which is
+why it's logged here too.
+
+**Bug 1 — the feed was capped at 50 items.** `build-pages.mjs`'s
+`buildRssFeed()` sliced to the 50 most recent of the 98
+`_content-index.json` entries. Brian's Substack import only ever saw
+items back to ~September 2025. Fixed by removing the cap (commit
+`ef02c7a`, `brianmadden-ai-server`).
+
+**Bug 2 — a malformed URL.** `_content-index.json`'s "Friday Coffee w/
+Brian Madden" entry had `?v=PilOWKw6kcU?&t=118` (a stray second `?`).
+Fixed directly on `main` via a throwaway `git worktree` (this repo's `v2`
+branch has never been pushed, so `main` — which the Worker actually
+fetches `_content-index.json` from at build time — needed the fix
+directly, not through a merge). Commit `46dad42` on `main`, mirrored to
+`v2` as `9925580`.
+
+**Bug 3 — the real one, found by accident.** Chasing why ~18 of 20
+YouTube-linked items kept failing to import (first suspected: Substack's
+importer choking on YouTube specifically; two supplemental feed variants
+tested this — isolating the YouTube items into their own feed, then
+stripping the YouTube link out entirely — neither improved the ~5-10%
+per-item success rate). The actual mechanism, found while investigating
+a *different* symptom (a live post that seemed to have the wrong video's
+thumbnail): Substack derives its post slug from the URL **path**, not
+the query string. Every `youtube.com/watch?v=XXXX` link — regardless of
+video ID — produces the identical slug `watch`, so every import to that
+slug silently **overwrote** whichever post was there, same post ID, no
+duplicate, no error. Confirmed: the already-live "Citrix AI Hotsheet
+EP4" post got clobbered in place by a later "Is VDI Dead?" import
+attempt, both landing on post ID `211084850`. The one YouTube item that
+survived every re-import intact used a `youtu.be/XXXX` short-link
+instead — a different URL shape that doesn't collide, confirmed
+empirically (its Substack slug is derived from the video ID, not the
+literal string "watch"). Fix: converted all 19 `youtube.com/watch?v=`
+URLs in `_content-index.json` to `youtu.be/` format (commit `e9a78ef` on
+`main`, mirrored to `v2` as `76bcf42`). This is the fix that actually
+mattered — the two supplemental feeds built while chasing the wrong
+theory turned out to be unnecessary and were later deleted.
+
+**A second real gap, once the RSS mechanics were sorted:** Brian noticed
+imported posts had no way back to the source, and that some talks (a
+`talks/*.md` recap running to 2000+ words) had only their ~100-word
+`_content-index.json` blurb reach Substack. Root cause (confirmed by
+inspecting an actual imported post's `body_html` via Substack's own
+API): Substack uses RSS `<description>` verbatim as the post body and
+drops `<link>` entirely — nothing was ever going to carry the source
+link over on its own. Fixed with the standards-based RSS field for this
+exact purpose: `<content:encoded>` (the field Substack's own outbound
+feeds use for full HTML body), added to every item in the main feed —
+a real "Read/Watch/Listen on X" link, plus a GitHub "explore this talk
+in the brain" link wherever a matching canon file exists.
+
+**Content depth, a real editorial question, not just plumbing.** Cross-
+referencing `_content-index.json` against `_index.json` found that most
+talks *do* have a rich canon write-up already (`podcast/ep1-4.md` at
+7,000-11,000 words; most `talks/*.md` at 700-2,500 words) — the RSS feed
+was only ever surfacing the short blurb. But not uniform: about half the
+`talks/*.md` files are genuine spoken-word transcripts (a
+machine-transcription disclaimer, 3,000-9,000+ words, unedited); the
+other half are already-curated section-headed recaps with pulled quotes
+— publication-ready as written. Brian's call, after reviewing one
+sample: talks get full text (recap-style, not raw transcript), podcast
+episodes get show notes + a link to the full transcript in the brain
+(his own show's episodes are long enough that a full re-post doesn't
+serve a newsletter reader). For the 5 speech-type items whose only canon
+source is a raw transcript, wrote matching ~800-1,000-word recap-style
+summaries from scratch (`brianmadden-ai-server`'s
+`pages/bmad/_talk-summaries/`, gitignored from bmad.com's own page-build
+via the repo's existing `_`-prefix convention — these are RSS-feed
+source content, not meant to become their own public pages) — with
+inline links added afterward per Brian's ask: each talk's own event
+homepage, named third-party things mentioned in the talk (OSWorld,
+Windows Agent Arena, Sam Altman's "The Intelligence Age" essay), and
+cross-links to Brian's own frameworks/posts where the talk's argument
+matches one by name.
+
+**Two style corrections, generalized rather than one-offs.** Reviewing
+the first sample, Brian flagged: a fragment-style opening sentence
+("Closing keynote to an audience of...") instead of a real lead
+sentence; first-person-adjacent phrasing when the byline is
+`brianmadden.ai`, not Brian himself, so it should refer to him in third
+person; and a raw "Key frameworks" link list (fine for the canon file
+audience, wrong for a human Substack reader). All three logged as new
+rules in **`me/style-guide.md`** (uncommitted on `v2`, held for review
+like everything else this session) rather than just fixed in the one
+sample, so they apply to future generated content by default.
+
+**Outcome, per Brian:** re-running Substack's import against the
+enriched main feed worked — some duplicates from the deleted
+supplemental-feed experiments, but those are easy cleanup during the
+per-post tagging pass he's doing regardless. Confirmed no further work
+needed on the feed itself; explicitly said the main feed can stay as-is
+since `bmad.com` is slated to go away once the Substack-as-primary-home
+move (see `docs/substack-as-primary-home.md`) actually happens.
+
+**What's uncommitted, held for review:** in this repo (`v2` branch) —
+`me/style-guide.md`'s three new rules. Everything else from this thread
+(the `_content-index.json` fixes, the `content:encoded` rebuild, the
+5 talk summaries, the supplemental-feed removal) is already committed
+and live on `brianmadden-ai-server`'s `main` — that repo doesn't have
+its own BUILD.md-equivalent journal, which is the whole reason this
+entry is more detailed than a typical cross-repo mention would be.
