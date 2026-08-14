@@ -180,6 +180,8 @@ def load_frameworks_list() -> str:
     lines = []
     for path in sorted((ROOT / "frameworks").glob("*.md")):
         fm, _ = read_frontmatter_and_body(path)
+        if fm.get("status") == "archived":
+            continue  # retired frameworks stay on disk for lineage but never inform new briefs
         title = fm.get("title", path.stem)
         description = fm.get("description", "")
         date = fm.get("date", "")
