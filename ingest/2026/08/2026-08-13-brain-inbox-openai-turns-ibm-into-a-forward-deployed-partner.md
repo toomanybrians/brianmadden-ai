@@ -2,7 +2,7 @@
 title: ⚙️ OpenAI turns IBM into a forward deployed partner
 source: brain@ inbox (curated newsletters)
 source_id: brain-inbox
-source_url: https://mail.google.com/mail/u/0/#inbox/19ffb1f1b76450b0
+source_url: https://archive.thedeepview.com/p/openai-turns-ibm-into-a-forward-deployed-partner
 author: The Deep View <newsletter@thedeepview.co>
 date_published: '2026-08-13'
 date_captured: '2026-08-13'

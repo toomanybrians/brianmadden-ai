@@ -2,7 +2,7 @@
 title: 🤖 Elon Just Hired A Bot Into Your Company
 source: brain@ inbox (curated newsletters)
 source_id: brain-inbox
-source_url: https://mail.google.com/mail/u/0/#inbox/19ff71b0f0a43049
+source_url: https://read.getsuperintel.com/p/elon-just-hired-a-bot-into-your-company
 author: Superintelligence <superintel@mail.beehiiv.com>
 date_published: '2026-08-12'
 date_captured: '2026-08-13'

@@ -2,7 +2,7 @@
 title: ⚙️ New tech is coming to tackle the AI slop crisis
 source: brain@ inbox (curated newsletters)
 source_id: brain-inbox
-source_url: https://mail.google.com/mail/u/0/#inbox/19ff5f9f12efb26c
+source_url: https://archive.thedeepview.com/p/new-tech-is-coming-to-tackle-the-ai-slop-crisis
 author: The Deep View <newsletter@thedeepview.co>
 date_published: '2026-08-12'
 date_captured: '2026-08-13'

@@ -3,7 +3,7 @@ title: 'Sergey Brin Retakes Gemini, 4 Labs Lose Containment, Compute Trades at N
   w/ Kush Bavaria | EP #278'
 source: Moonshots
 source_id: moonshots
-source_url: ''
+source_url: https://www.diamandis.com/podcast#afc5f94c-95a7-11f1-a632-b77afb8cf366
 author: PHD Ventures
 date_published: '2026-08-11'
 date_captured: '2026-08-12'

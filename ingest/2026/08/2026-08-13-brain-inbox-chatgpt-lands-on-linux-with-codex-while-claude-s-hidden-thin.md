@@ -2,7 +2,7 @@
 title: ChatGPT lands on Linux with Codex while Claude's hidden thinking expos
 source: brain@ inbox (curated newsletters)
 source_id: brain-inbox
-source_url: https://mail.google.com/mail/u/0/#inbox/19ff75fd8c5095af
+source_url: ''
 author: AlphaSignal <news@alphasignal.ai>
 date_published: '2026-08-12'
 date_captured: '2026-08-13'

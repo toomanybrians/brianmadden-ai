@@ -19,8 +19,10 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlsplit, urlunsplit
 
 import feedparser
 import requests
@@ -172,6 +174,23 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
 
         title = (raw.get("title") or "").strip()
         link = (raw.get("link") or "").strip()
+        if not link:
+            # Some megaphone.fm-hosted feeds omit <link> entirely (confirmed
+            # 2026-08-13 against real feed content: moonshots, no-priors,
+            # on-with-kara-swisher all return link=None from feedparser,
+            # not a parsing bug). Left empty, this silently breaks dedup:
+            # load_ingested_urls() only tracks truthy source_url values, so
+            # an empty link is never "seen," and the same already-ingested
+            # episode gets treated as new on every future run until a real
+            # new episode replaces it. feedparser's raw['id'] is a stable
+            # per-episode GUID even when <link> is missing (confirmed
+            # against all 3 affected sources) — fall back to the source's
+            # homepage plus that GUID: still a real, clickable URL (just
+            # not episode-specific) and unique enough for dedup to work.
+            guid = (raw.get("id") or "").strip()
+            homepage = (source.get("url") or "").strip()
+            if guid and homepage:
+                link = f"{homepage}#{guid}"
         link = fix_episode_link(source["id"], title, link)
 
         # feedparser surfaces the Podcasting 2.0 <podcast:transcript> tag
@@ -575,6 +594,106 @@ def _gmail_extract_body(payload: dict) -> str:
     return ""
 
 
+VIEW_ONLINE_ANCHOR_RE = re.compile(
+    r'<a\b[^>]*\bhref=["\']([^"\']+)["\'][^>]*>(.*?)</a>',
+    re.IGNORECASE | re.DOTALL,
+)
+VIEW_ONLINE_TEXT_RE = re.compile(
+    r'view\s+(this\s+)?(email\s+)?(in\s+(your\s+)?browser|online|web)|'
+    r'read\s+(it\s+)?online|open\s+in\s+browser|web\s+version',
+    re.IGNORECASE,
+)
+
+
+def _find_view_online_link(html: str) -> str:
+    """Newsletters commonly include a real 'view in browser'/'read online'
+    link near the top — a genuine public URL, unlike anything Gmail-
+    specific. Brian's call (2026-08-13): use it as the note's source_url
+    when present; leave source_url empty when it isn't — never fall back
+    to a private Gmail inbox deep link (see git history / BUILD.md for
+    why: it's broken for anyone but Brian and leaks a private message ID
+    into public-facing output). Best-effort text match on common
+    newsletter-ESP phrasing. Returns the raw click-tracking redirect as
+    found in the HTML — see _resolve_email_link() for why that redirect
+    gets followed and stripped down before it's actually used as a
+    citation link."""
+    for match in VIEW_ONLINE_ANCHOR_RE.finditer(html):
+        href, inner_html = match.groups()
+        if VIEW_ONLINE_TEXT_RE.search(strip_html(inner_html)):
+            return href
+    return ""
+
+
+def _strip_query_and_fragment(url: str) -> str:
+    parts = urlsplit(url)
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+
+
+# Some ESP click-tracking redirectors (confirmed 2026-08-13: Beehiiv's
+# link.mail.beehiiv.com) return a bare 403 for our honest bot USER_AGENT
+# used everywhere else (RSS/podcast fetches identify themselves plainly,
+# which is normal etiquette for a feed poller) but resolve fine for a
+# realistic browser UA — which is exactly what a real reader's browser
+# would send anyway when they click "view online." Scoped to this one
+# call, not the module-wide USER_AGENT, since resolving one link a real
+# human would click is a different thing from identifying a feed poller.
+BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+)
+
+
+def _resolve_email_link(url: str) -> str:
+    """Newsletter ESPs (Sailthru, Beehiiv, Mailchimp, etc.) wrap their
+    'view online' link in a click-tracking redirect whose *path* segment
+    IS the tracking token — there's no plain query string to strip on the
+    original link, the whole URL is opaque. Brian's ask (2026-08-13):
+    don't publish a link tied to his subscriber ID. Following the
+    redirect once, here, from ingestion (not from a public reader's
+    browser), gets the real destination (resp.url after redirects) — but
+    that alone isn't enough: confirmed empirically (2026-08-13) that a
+    resolved Beehiiv URL's own query string carries a `jwt_token` param
+    that trivially base64-decodes (no signature check needed to read it)
+    to `{"subscriber_id": "...", ...}` — a real personal identifier, not
+    just an opaque tracking blob. So the query string and fragment are
+    stripped after resolving too, keeping only scheme+host+path — the
+    part that actually identifies the article, not the reader.
+    stream=True + immediate close avoids downloading the destination
+    page's body, which isn't needed. Retries on a 403 or a request
+    exception — confirmed empirically (2026-08-13) that Beehiiv's
+    redirector is genuinely flaky under repeated hits (200, then 403,
+    then 403 on three identical back-to-back requests during testing —
+    looks like probabilistic bot-challenge/rate-limiting, not a hard
+    block), same transient-failure shape as the podcast transcription API
+    this session already added retry logic for. Falls back to the
+    original (still-tracked) URL if every attempt fails — a
+    working-but-ugly link beats a broken one."""
+    for attempt in range(1, 4):
+        try:
+            resp = requests.get(
+                url, timeout=15, allow_redirects=True, stream=True,
+                headers={"User-Agent": BROWSER_USER_AGENT},
+            )
+            resp.close()
+            if resp.status_code < 400 and resp.url:
+                return _strip_query_and_fragment(resp.url)
+        except requests.RequestException:
+            pass
+        if attempt < 3:
+            time.sleep(2 * attempt)
+    return url
+
+
+def _gmail_find_view_online_link(payload: dict) -> str:
+    html_data = _gmail_find_part(payload, "text/html")
+    if not html_data:
+        return ""
+    candidate = _find_view_online_link(_gmail_decode(html_data))
+    if not candidate:
+        return ""
+    return _resolve_email_link(candidate)
+
+
 def _gmail_get_label_id(name: str, access_token: str) -> str | None:
     """Looks up a Gmail label by name, creating it if it doesn't exist yet
     (labels.create is idempotent-ish — Gmail rejects a duplicate name with
@@ -738,7 +857,7 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
 
         entries.append({
             "title": header_map.get("Subject", "(no subject)").strip(),
-            "link": f"https://mail.google.com/mail/u/0/#inbox/{msg_id}",
+            "link": _gmail_find_view_online_link(payload),
             "author": header_map.get("From", "(unknown sender)").strip(),
             "date_published": date_published,
             "published_dt": published_dt,
