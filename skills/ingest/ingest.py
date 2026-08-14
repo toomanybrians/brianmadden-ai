@@ -545,6 +545,9 @@ GMAIL_LABEL_INGESTED = "AI/Ingested"
 GMAIL_LABEL_SKIPPED = "AI/Skipped"
 GMAIL_PROCESSED_LABELS = (GMAIL_LABEL_INGESTED, GMAIL_LABEL_SKIPPED)
 _gmail_label_id_cache: dict[str, str] = {}
+# See fetch_entries_email()'s final sort-and-slice: max_per_source's
+# general default (5) is too low for real curated-inbox volume.
+EMAIL_MIN_PER_SOURCE = 20
 
 
 def gmail_is_configured() -> bool:
@@ -816,10 +819,23 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     query = f'after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
     headers = {"Authorization": f"Bearer {access_token}"}
 
+    # Confirmed real 2026-08-14: this used to pass maxResults=max_per_source
+    # (5) straight to the Gmail list call, capping the *candidate set*
+    # before anything downstream knew each message's real date. Gmail's
+    # messages.list has no guaranteed chronological order, so on any day
+    # with more than max_per_source new messages (routine for a multi-
+    # newsletter inbox), the sort-and-slice below was a no-op — Gmail had
+    # already silently dropped some, arbitrarily, including on the day
+    # this was found the single newest message in the whole inbox. Fixed
+    # by requesting a generously wide batch here (well above any realistic
+    # daily volume) and letting the existing sort-by-date + max_per_source
+    # slice below do the real truncation on complete date information —
+    # same pattern fetch_entries() (RSS) already uses correctly.
+    GMAIL_LIST_FETCH_CAP = 100
     try:
         resp = requests.get(
             GMAIL_API_BASE, headers=headers,
-            params={"q": query, "maxResults": max_per_source}, timeout=15,
+            params={"q": query, "maxResults": GMAIL_LIST_FETCH_CAP}, timeout=15,
         )
         resp.raise_for_status()
     except requests.RequestException as e:
@@ -869,7 +885,15 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
         key=lambda e: e["published_dt"] or datetime.min.replace(tzinfo=timezone.utc),
         reverse=True,
     )
-    return entries[:max_per_source], None
+    # max_per_source (default 5) is tuned for RSS/podcast sources, which
+    # rarely publish more than a couple of items a day — real 2026-08-14
+    # brain-inbox volume was ~10 genuinely new messages in one window, so
+    # applying the same cap here would just reintroduce the drop this fix
+    # was for, deterministically instead of arbitrarily. A curated-
+    # newsletter inbox needs a higher floor; --max-per-source can still
+    # raise it further for an explicit wide/catch-up run.
+    effective_max = max(max_per_source, EMAIL_MIN_PER_SOURCE)
+    return entries[:effective_max], None
 
 
 FROM_HEADER_RE = re.compile(r'^\s*"?([^"<]*)"?\s*<([^>]+)>\s*$')
