@@ -4,7 +4,7 @@ date: 2026-06-10
 authority_level: 4
 file_type: framework
 tags: ["knowledge-work", "ai-agents", "human-ai-collaboration", "enterprise-ai", "second-brain", "cognitive-extension", "published-self"]
-related_frameworks: ["five-levels-of-ai-in-knowledge-work", "cognitive-stack", "invisible-80-percent", "factory-electrification"]
+related_frameworks: ["cognitive-stack", "invisible-80-percent", "factory-electrification"]
 related_posts: ["2026-06-10-the-7-stage-roadmap-2026-edition", "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"]
 original_url: "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/"
 description: "From faster search to the published self—seven stages mapping how AI enters knowledge work, reframed in 2026 around what the worker does and becomes. Stage 3 (AI as a cognitive extension / second brain) is new for this version."
@@ -56,7 +56,7 @@ My self-reported position as of June 2026: deep in Stage 3, just entering Stage 
 
 ## Relationship to other frameworks
 
-This roadmap covers the mechanics of human-AI collaboration. The five levels of AI in knowledge work framework covers what the human-AI relationship is like at each level—they're complementary, not competing. Stage 3 here is what the cognitive stack calls the brain layer; Stage 4's claws are its agentic sub-process and interface layers.
+This roadmap covers the mechanics of human-AI collaboration. Stage 3 here is what the cognitive stack calls the brain layer; Stage 4's claws are its agentic sub-process and interface layers.
 
 ## Lineage: the self-correction that produced this version
 

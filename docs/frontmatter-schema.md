@@ -20,10 +20,24 @@ ratify. This is that proposal.
   material. Set once, changes rarely (only if the content's role in the
   hierarchy changes).
 - **`status` (new: `not-reviewed-by-human` · `reviewed` ·
-  `reviewed-and-updated` · `human-disputes-this`).** *What has a human
-  actually checked?* A property of the process that produced or last
-  touched the file. Set on every write, expected to change often for
+  `reviewed-and-updated` · `human-disputes-this` · `archived`).** *What has
+  a human actually checked?* A property of the process that produced or
+  last touched the file. Set on every write, expected to change often for
   tier-3 output and rarely for hand-written tier-2 canon.
+
+  **`archived`** — added 2026-08-14 (open decision #8, canon governance),
+  scoped to `frameworks/` for now. Means: Brian has explicitly retired this
+  as a framework he'd point someone to today. The file stays in place
+  (same path — existing `related_frameworks` links elsewhere in the repo,
+  including in already-published posts, keep resolving), keeps its
+  original `authority_level` and content untouched, and gains
+  `archived_date` + `archived_reason` fields. It drops out of active
+  counts and loading surfaces (`llms.txt`, the framework count in
+  `CLAUDE.md`/`AGENTS.md`/`README.md`, `COLLECTIONS.md` thematic
+  listings) but stays in `_index.json`/`_relationships.json` (marked) for
+  the complete manifest. Like every other `status` transition, only Brian
+  sets it — a machine surfaces staleness candidates, never archives on its
+  own initiative.
 
 They're orthogonal axes, not a hierarchy — a file can be high-authority and
 unreviewed (freshly generated synthesis that would carry a lot of weight if
