@@ -2766,3 +2766,76 @@ move (see `docs/substack-as-primary-home.md`) actually happens.
 and live on `brianmadden-ai-server`'s `main` — that repo doesn't have
 its own BUILD.md-equivalent journal, which is the whole reason this
 entry is more detailed than a typical cross-repo mention would be.
+
+### 2026-08-14 — same daily-briefing session, continued (a real Gmail undercount, found and fixed)
+
+Brian looked at his actual Gmail inbox after the session above reported
+success and pushed back with real numbers: 6 `AI/Ingested`, 2
+`AI/Skipped`, 11 still sitting unlabeled in the inbox — and asked
+directly whether today's briefing had even read everything.
+
+Traced it to a real bug, not a false alarm this time.
+`fetch_entries_email()` passed `max_per_source` (default 5) straight
+into the Gmail API's `maxResults`, capping the *candidate set* before
+any message's real date was known — unlike `fetch_entries()` (RSS),
+which fetches everything in the window and sorts by date before
+slicing. Gmail's `messages.list` has no guaranteed chronological order,
+so on any day with more than 5 new messages (today: ~10), Gmail
+silently dropped some arbitrarily — confirmed by re-issuing the exact
+query the run used and finding the same 5 stuck messages still
+unlabeled, including the single newest message in the whole inbox. The
+existing sort-by-date-then-slice at the end of the function was already
+correct in principle, just a no-op in practice since Gmail had already
+truncated the candidates before Python ever saw their dates.
+
+Fixed by decoupling the two: fetch a generous batch from Gmail
+(`maxResults=100`) so every candidate's real date is known, then let
+the existing sort+slice do the real truncation — restoring the same
+pattern RSS already used correctly. Also added `EMAIL_MIN_PER_SOURCE =
+20` as a floor specifically for email, since the global `max_per_source`
+default is tuned for RSS/podcast sources that rarely publish that often
+in a day, not a curated multi-newsletter inbox. Verified against live
+data before trusting it: `--dry-run` found all 5 previously-stuck
+messages with clean real extraction; a real `--source brain-inbox
+--since-days 2` run wrote all 5 notes, correctly auto-registered 2 new
+`sources.yaml` entries (Azeem Azhar's Exponential View, Tomasz Tunguz),
+and Gmail's own label counts confirmed it end to end (`AI/Ingested`
+6→11, inbox 11→6). Committed as
+[4a590fe](../../commit/4a590fe).
+
+This was a scoped `--source brain-inbox` catch-up run, not a full
+registry run, so it didn't advance `ingest/.last_run.json` — the 5
+newly-written notes (including two genuinely substantive ones: GLM-5.3's
+unintended vulnerability-hunting capability, the OpenAI/Hugging Face
+"why did the agents do that" incident) arrived too late for today's
+already-published brief. Decision, discussed with Brian rather than
+made unilaterally: leave today's published post as-is (already
+generated, reviewed, live) rather than spend a second Opus call
+re-synthesizing it — the 5 notes carry `date_captured: 2026-08-14` and
+will flow into tomorrow's brief naturally, since tomorrow's auto-window
+starts from today's brief run and these notes fall inside it. Brian
+confirmed today's post is already live on Substack and closed the
+thread here.
+
+**Real lesson for future sessions, stated plainly:** this is the second
+time in two days a "some messages aren't getting labeled" report from
+Brian turned out to have two different causes — yesterday's was a false
+alarm (Trash exclusion from default label views), today's was a real
+silent-drop bug. Both were only resolved by querying the live Gmail API
+directly and re-deriving the actual query the code would have run,
+rather than reasoning from the code alone or from BUILD.md's account of
+what it's supposed to do. Worth the same discipline next time a
+count-mismatch report comes in — check live state before concluding
+either way.
+
+**Where things stand, closing this thread:** everything from today is
+committed. Brain@ ingestion now has two real production-day validations
+(2026-08-13 clean, 2026-08-14 caught and fixed a real undercount) and
+should be more trustworthy going forward — the same class of bug
+(arbitrary truncation instead of date-sorted truncation) is now fixed
+at its root, not patched around. Open for next time: API usage/cost
+visibility (flagged earlier this session, not designed); the
+`labs-as-compute-landlords` lost history note (cosmetic, self-heals);
+canon governance (open decision #8, actively being worked by the
+concurrent RSS-rebuild-adjacent session per the entry above — check its
+state before starting fresh); Day 6 automation; the `ask@` lane.
