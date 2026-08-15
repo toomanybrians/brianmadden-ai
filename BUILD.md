@@ -7,11 +7,19 @@ updating the log below. Chat threads are disposable; this file is not.
 
 ## Kickoff prompts (by session)
 
-General pattern for any new thread: **"Read MAINTAINER.md and BUILD.md, then
-let's pick up where we left off."** MAINTAINER.md has the operating rules;
-BUILD.md's session log has the actual state. The specific prompts below are
-kept as a historical record of what each day's session was asked to do, not
-as a template to re-run.
+**Bootstrap a new session with `/maintain`** (added 2026-08-15,
+`.claude/skills/maintain/SKILL.md`) — reads `MAINTAINER.md`, the live
+sections of this file (Decisions made, Open decisions, Day plan, the last
+2 session-log entries — not the whole journal), and real `git status`, then
+reports back before anything else runs. This is the automated version of
+the manual pattern below, which stays here as the historical record of the
+convention it replaces, not as a prompt to keep re-typing.
+
+General pattern for any new thread, pre-`/maintain`: **"Read MAINTAINER.md
+and BUILD.md, then let's pick up where we left off."** MAINTAINER.md has the
+operating rules; BUILD.md's session log has the actual state. The specific
+prompts below are kept as a historical record of what each day's session was
+asked to do, not as a template to re-run.
 
 ### Day 2 (first Claude Code session)
 
@@ -260,6 +268,88 @@ as a template to re-run.
    is purely a dumb date-scanner that leaves all judgment to Brian; how
    `check_doc_accuracy.py`'s framework-counting logic should handle an
    archived tier.
+
+9. **`brain@` as a personal flagging inbox, not just a newsletter sink
+   (flagged 2026-08-15, design TBD, not built).** Brian's started emailing
+   `brain@brianmadden.ai` directly from `b@bmad.com` — sources to follow,
+   one-time articles to ingest, ideas for later — a different shape of
+   input than the newsletter mail `fetch_entries_email()`/`extract()`
+   already handle well. Needs its own handling, not just the existing
+   "extract insights, decide NOT_RELEVANT or not" path: at minimum, a
+   personal flag email probably needs to be *routed* (new source to add
+   to `sources.yaml`? one-off ingest note? a `developing-thinking.md`
+   candidate? something for the future staleness-triage/promotion
+   surfaces?) rather than uniformly extracted-or-skipped like a
+   newsletter. Undesigned — whoever picks this up should look at a real
+   sample of what Brian's actually sent before designing the routing
+   logic, same discipline as every other prompt-tuning pass in this repo.
+
+   **Two sub-questions Brian asked directly, answered in chat
+   2026-08-15, not yet built:**
+   - **Can Gmail push rather than the pipeline polling?** Yes — real,
+     documented mechanism: `users.watch()` registers a Cloud Pub/Sub
+     topic; Gmail publishes a notification (double-base64-encoded,
+     carrying the mailbox's new `historyId`, not the message itself) to
+     that topic on every mailbox change, which a subscriber (a Cloud
+     Function, or a Pub/Sub push subscription hitting any HTTPS
+     endpoint — a Cloudflare Worker or a GitHub Actions
+     `repository_dispatch` receiver both qualify) can react to, then
+     call `history.list` to see what actually changed. Real cost: a
+     GCP Pub/Sub topic to provision, and **the watch registration
+     itself expires and must be renewed at least every 7 days**
+     (Google's own recommendation is renewing daily) — a second
+     scheduled job just to keep the first one alive, plus a real
+     receiving endpoint that has to exist and stay up. For a
+     once-a-day brief, this buys lower latency (minutes instead of
+     up to a day) at real added operational surface. Recommendation:
+     not worth it yet — Day 6's plain cron/Actions poll (still not
+     built) is simpler, and nothing in the pipeline currently needs
+     brain@ mail acted on faster than the next scheduled run. Revisit
+     if a real use case needs near-real-time reaction (e.g. an
+     interactive `ask@` flow), not for the daily-brief ingestion path.
+   - **Can the sender actually be verified, or is `From:` trivially
+     spoofed?** Both true at once: the raw `From:` header is spoofable
+     at the SMTP envelope level (anyone can put `b@bmad.com` there),
+     but Gmail's receiving MTA independently evaluates SPF/DKIM/DMARC
+     for every message and stamps the verdict into the message's own
+     `Authentication-Results` header — real, inspectable via the
+     Gmail API (`payload.headers`), not something the sender controls.
+     A message only counts as "really from `b@bmad.com`" if that
+     header shows `dkim=pass` with a signing domain matching `bmad.com`
+     (SPF pass alone is weaker — it authenticates the sending server,
+     not the domain in `From:`, and doesn't survive forwarding).
+     Trusting the bare `From:` string the way `check_unrecognized_email_senders()`
+     briefly did in an earlier, since-reverted design (see the
+     2026-08-13 session entries above) is exactly the gap a spoofed
+     message could exploit if `brain@` ever starts triggering something
+     more consequential than "write an ingest note." A `brain+trigger@`
+     plus-address is a reasonable *additional* layer (an unpublished,
+     unguessable address is a real bar on its own) but isn't a
+     substitute for the DKIM check — plus-addressing alone doesn't
+     stop someone who's seen the address once (a reply-all, a leaked
+     draft) from reusing it. Recommendation if/when this gets built:
+     require DKIM-pass-on-bmad.com for anything auto-actioned beyond
+     writing a quarantined ingest note (which is already low-stakes
+     and human-reviewed downstream), and treat a plus-address as
+     obscurity on top of that, not instead of it.
+
+10. **A web visualizer / dashboard for `developing-thinking.md` and open
+    questions (flagged 2026-08-15, not scoped, "dunno if there's much
+    value").** Brian floated this as a maybe, not a commitment — some
+    kind of tool to browse developing-thinking's live threads, open
+    questions, and (once it exists) the staleness-triage/promotion
+    queues, rather than reading raw markdown. Explicitly unscoped: not
+    clear yet whether this means a static-rendered page, something
+    interactive, or isn't worth building at all relative to just reading
+    the files. Revisit once open decision #8's residual pieces (the
+    staleness-triage tool, front-of-mind-vs-background tracking) exist —
+    a visualizer for a system that doesn't have those surfaces yet has
+    less to show.
+
+11. **Substack published-article formatting tweaks (flagged 2026-08-15,
+    specifics pending from Brian).** Minor, not yet specified — Brian
+    said he'd send concrete formatting changes separately. Nothing to
+    design or build until that arrives; logged here so it isn't lost.
 
 ## Day plan (checklist — details in the plan doc §8)
 
@@ -2999,3 +3089,63 @@ new canon automatically from there, since it reads
 Committed at session end in logical commits — see git log. The
 front-of-mind-vs-background tracking idea is logged under open
 decision #8's residuals above.
+
+### 2026-08-15 — Claude Code session (`/maintain` skill; three feature requests logged)
+
+New session. Brian's real friction point: this repo does double duty
+(consumer-facing module for other AIs, maintainer journal for building
+it), so `CLAUDE.md` can't just say "read BUILD.md" without contaminating
+the consumer-facing load — every new maintainer session has needed the
+manual "read MAINTAINER.md and BUILD.md" prompt typed by hand since Day 2.
+Asked for a bootstrap skill, floating `/maintain` or similar (his private
+brain's equivalent is `/boot`, a different repo not touched this session).
+
+**Built `.claude/skills/maintain/SKILL.md`.** Not just "read both files in
+full" — `BUILD.md` is already 3,000+ lines and append-only, so a naive
+full read gets more expensive every session. Instead: read `MAINTAINER.md`
+in full (short, stable), extract `BUILD.md`'s `## Decisions made`/
+`## Open decisions`/`## Day plan` sections by heading (sed between
+markers, not line numbers — survives the file growing), read only the
+last 2 dated session-log entries (via `grep -n '^### '` to find the
+second-to-last header, then read to EOF) rather than the whole log, then
+run real `git status`/`git log` and flag any mismatch against what the
+journal claims — BUILD.md's own history has real precedent for both
+(the "v2 pushed to origin" claim that wasn't true, several sessions
+finding concurrent uncommitted work from other threads). Reports state
+back and stops — orients, doesn't pick the next task. Updated the
+`## Kickoff prompts` section at the top of this file and MAINTAINER.md's
+working-conventions bullet to point at it, keeping the original manual
+prompt in place as the historical record rather than deleting it.
+
+**Three feature requests, logged as open decisions #9–#11 above, none
+built this session per Brian's own "don't have to be now":**
+- **#9 — `brain@` as a personal flagging inbox.** Brian's started emailing
+  `brain@` directly from `b@bmad.com` (sources to follow, one-off
+  articles, future ideas) — a different shape than the newsletter
+  extraction path handles today. Undesigned. Also answered his two direct
+  technical questions in chat (logged in #9 for the record): Gmail *can*
+  push via `users.watch()` + Pub/Sub instead of polling, but needs a
+  7-day watch-renewal job and a real receiving endpoint — recommended
+  against it for now, the daily-poll cadence doesn't need the latency;
+  and sender identity *can* be verified past the spoofable raw `From:`
+  header, via Gmail's own `Authentication-Results` header (DKIM-pass
+  against the `bmad.com` signing domain is the real check, SPF alone is
+  weaker) — recommended requiring that for anything auto-actioned beyond
+  a quarantined ingest note, with a `brain+trigger@` plus-address as an
+  additional layer on top, not a replacement for it.
+- **#10 — a web visualizer for `developing-thinking.md`/open questions.**
+  Floated as a genuine maybe ("dunno if there's much value"), not scoped.
+  Logged as worth revisiting once open decision #8's residual pieces
+  (staleness-triage tool, front-of-mind tracking) actually exist to
+  visualize.
+- **#11 — Substack published-article formatting tweaks.** Specifics
+  pending from Brian; nothing to act on yet.
+
+**Where things stand:** `/maintain` is built and not yet tested against a
+real fresh session (this session wrote it, didn't invoke it on itself).
+`BUILD.md`/`MAINTAINER.md` cross-references updated. Nothing else from
+today's earlier catch-up (reading MAINTAINER.md/BUILD.md at session start)
+required any fixes — the canon-governance commit from yesterday's session
+closed clean. Next: whichever of #9/#10/#11 Brian wants to pick up, or
+continuing down the existing priority list (Day 6 automation, the `ask@`
+lane, D7's draft-push client).

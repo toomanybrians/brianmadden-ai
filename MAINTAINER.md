@@ -90,7 +90,8 @@ v2 replacements land. Nothing on `main` breaks before launch.
 
 - Active development happens on the `v2` branch until launch; `main` keeps
   serving the live MCP server untouched.
-- Every session starts by reading this file and `BUILD.md`, and ends by
+- Every session starts by reading this file and `BUILD.md` — `/maintain`
+  (`.claude/skills/maintain/SKILL.md`) automates this — and ends by
   updating `BUILD.md`. The repo is the memory; chat threads are disposable.
 - Deterministic plumbing (feed fetching, dedupe, index regeneration) is plain
   code; model calls are reserved for judgment (extraction, synthesis, voice).
