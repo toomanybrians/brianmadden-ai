@@ -1,6 +1,6 @@
 ---
 title: "Where Brian's head is right now"
-updated: "2026-08-14"
+updated: "2026-08-15"
 authority_level: 2
 file_type: frontier
 tags: ["current-thinking", "frontier", "developing-arguments"]
@@ -14,9 +14,20 @@ status: reviewed
 
 This is the frontier map. `me/published-thinking.md` captures what I've published. This captures where my head is *today*—the arguments forming, the connections emerging, the questions I'm chewing on.
 
-**Last updated:** August 14, 2026
+**Last updated:** August 15, 2026
 
 **Why this file exists and why it's public:** Anyone who publishes regularly—blogs, LinkedIn, tweets—is already doing this. They share half-formed ideas, ask questions, show threads developing, change their mind. Scroll their feed and you can piece together what they're thinking about and where their arguments are heading. This file is just that process made explicit. The difference is that instead of being scattered across a social media timeline where old posts get buried by new ones, it's a single living document. When my thinking evolves, I edit it in place rather than adding another entry to a chronological list. *Arguments get sharper, not longer.* Things I was wrong about get removed, not corrected with a follow-up post. If you want to know what I've *concluded*, read my published work in `me/published-thinking.md`. If you want to know what I'm *working through right now*, this is it.
+
+---
+
+## Right now
+
+The 3-5 things most front-of-mind at any given moment—a smaller, curated pointer list distinct from the fuller set of arguments below. I update this by hand as my attention shifts. An item dropping off this list doesn't mean it's resolved or dead, just that something else has my attention today; the full argument stays below either way.
+
+- **[The knowledge factory](#the-knowledge-factory-how-the-second-brain-actually-enters-the-workplace)**—the deployment-model correction: a shared departmental second brain, not everyone building their own.
+- **[The three waves](#the-three-waves-how-ai-actually-enters-the-enterprise)**—how AI actually enters the enterprise, and why the FDE funding says the timing is now, not later.
+
+*Last updated: August 15, 2026.*
 
 ---
 
@@ -71,7 +82,7 @@ Efficiency as capacity *multiplier*, not just cost reducer. In a zero-sum comput
 
 ### The knowledge factory: how the second brain actually enters the workplace
 
-**New, August 14, 2026—this and the three waves below are the most front-and-center things in my thinking right now.**
+**New, August 14, 2026.**
 
 I've spent six months saying the second brain is the future of knowledge work, and I still believe it. But I was wrong about how it enters the workplace. My old thesis: (1) everyone builds their own second brain, then (2) we wire the brains together. Wrong. Building a second brain takes an engineering mindset—git, model judgment, constant tuning—and only a low-single-digit percentage of workers have the wherewithal to do it. The right analogy is how the PC entered the workplace. A few nerds got computers early and proved what was possible, but companies didn't adopt PCs by dropping one on every desk and saying "figure it out." They built systems: here's your PC, here's the application, here's your role. The enterprise version of the second brain is the same move: a shared, departmental second brain—the knowledge factory ([already named on the podcast and in the July 20 post](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/))—built once by embedded engineers, with workers plugged in one at a time with specific, prescribed roles.
 
