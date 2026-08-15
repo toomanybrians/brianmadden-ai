@@ -200,21 +200,25 @@ asked to do, not as a template to re-run.
    rather than a manual one-off each time. Until then, the fallback Brian
    suggested — just telling Claude to add specific ones — works fine.
 
-8. **Canon governance — largely resolved 2026-08-14** in the dedicated
-   session the flag waited for: five-levels archived via the new
+8. **Canon governance — largely resolved 2026-08-14, both residuals now
+   built 2026-08-15.** Dedicated session: five-levels archived via the new
    `status: archived` mechanism, knowledge factory + three waves entered
    canon, 55 stale items pruned from `developing-thinking.md`,
    `brief.py` taught to skip archived frameworks. See the 2026-08-14
-   canon-governance session entry. Still open from this decision:
-   (a) the recurring staleness-triage tool (specified in the session
-   entry — content cross-checks against published work, mirror image of
-   promotion-candidates.md — not built); (b) **new, Brian 2026-08-14:**
-   a mechanism to track "most front-of-mind" thinking separately from
-   general background thoughts in `developing-thinking.md` — the same
-   idea as the D5-era "true top-of-mind flagging (3-5 things vs. a
-   longer tracked list)" note, which explicitly pointed at this
-   decision. Today's inline "most front-and-center" markers on the two
-   new sections are the manual v0 of it. Original write-up kept below
+   canon-governance session entry. ~~Still open from this decision:~~
+   **both closed 2026-08-15 — see that session entry for the full build:**
+   (a) ~~the recurring staleness-triage tool~~ — built as `skills/triage/`,
+   one LLM call cross-checking `developing-thinking.md`'s "What's
+   connecting"/"Scratchpad" sections and active frameworks against
+   `me/published-thinking.md`, writing
+   `outputs/canon-triage/staleness-candidates.md` (mirror image of
+   `promotion-candidates.md`), run for real (6 items + 1 framework flagged
+   out of ~90/10 candidates); (b) ~~a mechanism to track "most
+   front-of-mind" thinking~~ — built as a `## Right now` curated pointer
+   section near the top of `developing-thinking.md` (Brian's chosen design
+   over a per-item tag convention), replacing the inline "most
+   front-and-center" markers from 2026-08-14 as the durable version of the
+   D5-era "true top-of-mind flagging" idea. Original write-up kept below
    for the record. Raised by Brian at the end of the D4 session, after the
    framework-in-ingest detour above made both problems concrete. Not
    picked up this session — deliberately deferred to a dedicated pass,
@@ -350,6 +354,20 @@ asked to do, not as a template to re-run.
     specifics pending from Brian).** Minor, not yet specified — Brian
     said he'd send concrete formatting changes separately. Nothing to
     design or build until that arrives; logged here so it isn't lost.
+
+12. **Port the private brain's deeper monthly-maintenance skill (flagged
+    2026-08-15, tabled — needs Brian's work login + better internet than
+    he had that day).** Came up designing `/review-thinking`'s two
+    cadences (see that session entry): Brian's private `bmad` brain
+    already has a skill for a fuller monthly maintenance pass, and he'd
+    rather port that real thing in than have this repo grow its own
+    parallel version long-term. `/review-thinking`'s `full`/`monthly`
+    mode (built 2026-08-15) is an explicit stopgap in the meantime — walks
+    every item, not just triage flags, but isn't the real ported skill.
+    Whoever picks this up: get the actual skill content from the private
+    repo (needs Brian's work login), diff it against what
+    `/review-thinking` already does, and decide whether it replaces the
+    full-mode branch entirely or the two stay complementary.
 
 ## Day plan (checklist — details in the plan doc §8)
 
@@ -3149,3 +3167,163 @@ required any fixes — the canon-governance commit from yesterday's session
 closed clean. Next: whichever of #9/#10/#11 Brian wants to pick up, or
 continuing down the existing priority list (Day 6 automation, the `ask@`
 lane, D7's draft-push client).
+
+### 2026-08-15 — Claude Code session (open decision #8's two residuals, both built)
+
+New session, `/maintain` run for real for the first time on a genuinely
+fresh session (it bootstrapped itself yesterday but never got invoked
+cold). It worked as designed — read `MAINTAINER.md` in full, pulled the
+live `BUILD.md` sections by heading, read the last two session-log entries,
+confirmed real git state matched the journal (clean, no concurrent
+surprises this time), reported back, then asked what to work on. Brian:
+open decision #8.
+
+**Aside: no self-rename tool exists.** Brian also asked to rename this
+session and have `/maintain` do that automatically going forward. Checked:
+`mcp__ccd_session_mgmt__set_session_title` explicitly excludes the current
+session (`session_id` "must not be the current session"), and the "self"
+literal convention `archive_session` supports doesn't work for it either
+(tried, got "Session self not found"). No workaround exists at the tool
+layer today — flagged to Brian rather than silently skipped or faked.
+Offered a lighter version (propose a title once a task is picked, ask
+Brian to rename manually) but didn't build it — not confirmed this
+session, worth a decision next time it comes up rather than assumed here.
+
+**Design decisions, asked directly before building anything** (both
+residuals were explicitly left with open questions in the 2026-08-14
+write-up, worth Brian's steer rather than assuming):
+
+- **Staleness-triage method: LLM-assisted, not grep.** Brian's read:
+  "everything I published will already be in the brain in the various
+  canon folders... I don't mind using an LLM for this, small in the grand
+  scheme." Confirmed this means `me/published-thinking.md` +
+  `frameworks/` — the distilled canon — not raw `posts/` text (106K words,
+  would've been both expensive and redundant with what
+  published-thinking.md already distills).
+- **Front-of-mind tracking: curated pointer list, not per-item tags.**
+  Brian picked the "Right now" section option over a formal inline-tag +
+  query-script convention — zero new tooling, matches the file's existing
+  self-edited nature.
+
+**Built `me/developing-thinking.md`'s `## Right now` section** — 3-5
+hand-curated bullets near the top, linking down to the relevant
+big-argument sections (currently: the knowledge factory, the three
+waves). Replaces the inline "this and the three waves below are the most
+front-and-center things" marker from 2026-08-14 with a durable, single
+place that answer lives — trimmed the now-redundant inline phrase so the
+claim isn't asserted in two places that could drift apart. Bumped the
+file's `updated` date (Aug 14 → Aug 15) and `_index.json`'s word count
+(7351 → 7439) via a surgical edit — first attempt at that used a full
+Python `json.dump()` round-trip and silently reformatted ~90 unrelated
+array entries elsewhere in the file (e.g. `"hosts": [...]` blocks
+collapsing to multi-line); caught via `git diff --stat` before committing,
+reverted, redone as a targeted text edit instead. Also surfaced, not
+fixed: `_index.json`'s `total_words` field isn't actually a sum of
+per-file `word_count`s (245773 computed vs. 238930 stated, a ~7K
+discrepancy that predates this session) — didn't touch it, since fixing a
+field with unknown derivation risked making it more wrong, not less;
+flagged here for whoever eventually audits that file for real.
+
+**Built `skills/triage/`** (`triage.py`, `prompt.md`, `README.md`) — the
+recurring staleness-triage tool, mirror image of `skills/brief`'s
+`promotion-candidates.md`. One `claude-opus-5` call reads
+`developing-thinking.md`'s "What's connecting"/"Scratchpad" sections
+(deliberately not itemized in code — both sections mix `- ` bullets and
+bare bold-lead paragraphs, so a regex splitter would be fragile; the model
+identifies items itself and quotes each one's own opening words, the way
+the manual 2026-08-14 pass worked) plus every active framework's full
+text, against `published-thinking.md`, and flags only `already-published`
+/ `promote-candidate` / `worth-revisiting` items — silence means "still
+developing," same as a normal read. Writes
+`outputs/canon-triage/staleness-candidates.md`, **overwritten fresh every
+run** (unlike `promotion-candidates.md`'s append-and-track pattern — no
+recurrence count needed here, this is a snapshot of current state against
+current canon, not a multi-day recurrence signal).
+
+**Validated against the real repo, not just `--dry-run`:** first dry run
+flagged 7 developing-thinking items + 1 framework; the real run right
+after flagged the same 7 items but 2 frameworks (an extra `worth-revisiting`
+call on `post-application-era.md`, reconciling it with the newer
+three-tier SaaSpocalypse post); after adding a missing `authority_level: 1`
+to the output frontmatter and rerunning, landed at 6 items + 1 framework.
+All three runs' actual flags were specific and well-cited (e.g. "The AI
+stack has natural cost tiers..." → fully covered by the May 7 Excel-routing
+post, cited by name and link) — in the same range as the 2026-08-14 manual
+pass's hit rate (a handful out of ~90), which was the target. The
+run-to-run variance on borderline `worth-revisiting` calls is real and now
+documented as a known limitation, not assumed away.
+
+**Plumbing kept honest:** `outputs/README.md` (new `canon-triage/`
+subdirectory bullet), `CLAUDE.md`/`AGENTS.md` (added `triage` to the
+`skills/` tree comment, identical pair — `check_doc_accuracy.py` still
+passes clean), `governance-log.md` (new entry — same automated-checks +
+manual-review-notes discipline as 2026-08-14, since this session touched
+canon content directly, even though the new material is pointer text and
+machine judgment rather than new arguments).
+
+**Where things stand at this point:** both open decision #8 residuals are
+built and validated against real output; decision #8 marked closed in the
+Decisions Made section above. `outputs/canon-triage/staleness-candidates.md`'s
+current real content is sitting there for Brian's actual review — nothing
+in it has been actioned yet. See the continuation below for what happened
+next in the same session.
+
+### 2026-08-15 — same session, continued (`/review-thinking` skill built; deep-monthly-maintenance port tabled as open decision #12)
+
+Brian reviewed the triage output and asked how it actually works — walked
+him through the file's mechanics (generation, the three flags, the
+overwrite-not-append lifecycle, the "silence means keep" rule). That led
+to the real gap: nothing yet *acts* on `staleness-candidates.md` — it's a
+read-only queue with no ceremony for actually walking through it and
+applying decisions. Brian's ask: an interactive skill, distinct from
+`/maintain`, that walks the flags, gets his live feedback, asks what's
+front-of-mind, and — his own framing — "maybe verifying everything is a
+monthly task?"
+
+**Confirmed the two-cadence split** (quick review of triage flags,
+whenever; a deeper "verify everything" pass, monthly) before building.
+Brian also volunteered that his private `bmad` brain already has a skill
+for the deeper monthly pass, and he'd rather port the real thing in later
+than grow a parallel version here — tabled today only because it needs his
+work login and better internet than he had at the time. **Logged as open
+decision #12** rather than dropped, per his explicit "add it to the list."
+
+**Built `.claude/skills/review-thinking/SKILL.md`.** One skill, two modes
+via `args` (default = quick, `full`/`monthly` = deep):
+- Always regenerates `staleness-candidates.md` fresh first (never trusts a
+  possibly-stale snapshot) via `skills/triage/triage.py`.
+- Walks each flagged item individually — shows the model's reasoning and
+  citation, asks Brian what he actually wants (not assumed from the
+  model's suggested action), and applies the decision live: cuts get
+  removed from `developing-thinking.md` directly, framework archival goes
+  through the real `status: archived` + `archived_date`/`archived_reason`
+  mechanism, "promote" is captured as a decision but not auto-drafted
+  (real writing work, treated as its own follow-up rather than rushed
+  inline).
+- Full/monthly mode additionally walks every item in "What's
+  connecting"/"Scratchpad" and every framework, not just what got flagged
+  — explicitly marked in the skill as a stopgap for decision #12's real
+  ported skill, not a replacement for it.
+- Asks directly what's front-of-mind, independent of the triage flags, and
+  updates the `## Right now` section to match.
+- Housekeeping step bakes in this session's own lesson: `_index.json`
+  updates must be surgical text edits, never a full `json.dump()`
+  round-trip — the earlier `## Right now` edit this same session
+  accidentally reformatted ~90 unrelated array entries doing exactly that,
+  caught via `git diff --stat` before it got committed. Written into the
+  skill so a future run of it doesn't repeat the mistake.
+
+**Not yet run for real.** Built and reviewed but not exercised against the
+actual current `staleness-candidates.md` content in a live walkthrough
+with Brian — that's the natural next step whenever he wants to actually
+work through today's flags.
+
+**Where things stand:** decision #8 fully closed (triage tool + front-of-mind
+section, both built 2026-08-14→15); decision #12 opened (deep-monthly-
+maintenance port, tabled on connectivity); `/review-thinking` built but
+unexercised. Nothing from today's session has been committed yet — still
+pending Brian's go-ahead. Next: either run `/review-thinking` for real
+against today's triage output, or commit what's built so far, or move to
+something else from the open-decisions/day-plan list. The self-rename gap
+(see above) remains unresolved and deliberately not built into `/maintain`
+per Brian's "skip for now."

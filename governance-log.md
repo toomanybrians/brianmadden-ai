@@ -4,6 +4,32 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-08-15 — Open decision #8 residuals: front-of-mind pointer list + staleness-triage tool
+
+**What was synced:**
+- Added a `## Right now` section near the top of `me/developing-thinking.md` — a small, manually-curated 3-5 item pointer list (currently: the knowledge factory, the three waves) linking down to the relevant big-argument sections, replacing the ad hoc inline "most front-and-center" markers added 2026-08-14. Brian's chosen design (asked directly, chose the curated-pointer-list option over a per-item tag convention) for the "front-of-mind vs. background" tracking piece of open decision #8. Bumped the file's `updated` frontmatter/body dates and `_index.json` word count (7351 → 7439) to match.
+- Built `skills/triage/` (new skill: `triage.py`, `prompt.md`, `README.md`) — the recurring staleness-triage tool, the other open-decision-#8 residual. One LLM call (`claude-opus-5`, Brian's steer: LLM-assisted judgment against canon rather than a deterministic grep pass) cross-checks `developing-thinking.md`'s "What's connecting"/"Scratchpad" sections and every active framework against `me/published-thinking.md`, flagging only items that are `already-published`, `promote-candidate`, or `worth-revisiting` — mirror image of `promotion-candidates.md` (that queue proposes additions to canon, this one proposes cuts/promotions/second looks). Writes `outputs/canon-triage/staleness-candidates.md`, overwritten fresh each run, never auto-editing canon.
+- Ran it for real against the live repo (not just `--dry-run`): 6 developing-thinking items + 1 framework flagged out of ~90/10 candidates — in the target range set by the 2026-08-14 manual pass's hit rate. First real output committed for audit.
+- Updated `outputs/README.md` (new `canon-triage/` subdirectory entry), `CLAUDE.md`/`AGENTS.md` (added `triage` to the `skills/` tree comment, identical pair).
+
+**Automated checks:**
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+- Wiki-links (`[[`): none found in changed/new files — CLEAR
+- Internal names (David Jack, Nancy, Hector, Rahul, George, Thomas, Jen, Sridhar, internal product names): none found — CLEAR
+- bmad/ path references: none found — CLEAR
+- Spaced em-dashes in canon prose (`me/developing-thinking.md`'s new section): none found — CLEAR (skill READMEs and the triage tool's own generated audit doc are maintainer-facing/internal, not Brian's-voice canon prose, so the style-guide rule doesn't bind them — same convention as `MAINTAINER.md`/`BUILD.md`)
+- Heading case on the new `## Right now` section: sentence case — CLEAR
+- JSON validity (`_index.json`): valid — CLEAR
+
+**Manual review notes:**
+- No new public-safety-sensitive content — the new `developing-thinking.md` section is pointer text linking to already-public sections; the triage tool's output is Brian's own published work cross-referenced against his own developing thinking, no third-party or confidential material involved.
+- `outputs/canon-triage/staleness-candidates.md` is machine judgment only (`status: not-reviewed-by-human`, `authority_level: 1`) — nothing in it has been actioned; it's queued for Brian's review same as `promotion-candidates.md` always has been.
+- Observed non-determinism between the `--dry-run` and the real run (1 vs. 2 frameworks flagged, one run apart) — documented as a known limitation in `skills/triage/README.md` rather than treated as a bug.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-08-05 — Add missing delegation-not-automation framework; update voice.md
 
 **What was synced:**
