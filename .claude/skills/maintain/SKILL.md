@@ -67,6 +67,25 @@ describe *current* state, not the full history.
    BUILD.md's own flagged priorities. Then ask what to work on — this
    skill orients, it doesn't pick the next task.
 
+5. **Suggest a distinctive session title, right after the report.** Every
+   `/maintain` session starts out named literally "Maintenance" — there is
+   no tool that lets a session rename itself (checked directly, 2026-08-15:
+   `set_session_title` explicitly refuses to target the current session,
+   and the `"self"` convention `archive_session` accepts doesn't work for
+   it either — "Session self not found"). Left alone, every maintainer
+   session looks identical in the sidebar for as long as it's running, even
+   though sessions that end up with real content eventually get a
+   descriptive title. Don't wait for that — propose one now, in the same
+   turn as the step 4 report: today's date plus a short, concrete hint
+   drawn from what orientation actually found (the most relevant open
+   decision number, the day-plan item that's obviously next, an
+   uncommitted-change flag — whatever's most distinctive about *this*
+   session's starting state, not a generic label). Example: "Maintenance —
+   Aug 15 (open decision #8)" or "Maintenance — Aug 15 (uncommitted Gmail
+   fix)". State the suggested title plainly and ask Brian to set it via the
+   sidebar — never claim to have renamed it, since that action isn't
+   available to do on your own.
+
 ## What this replaces
 
 The manual kickoff prompt documented at the top of `BUILD.md` ("Read
