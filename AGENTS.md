@@ -118,7 +118,7 @@ brianmadden-ai/
 ├── sources/           # Feed registry (sources.yaml) the ingest skill polls
 ├── ingest/            # Tier-1 quarantined machine notes on third-party content — never indexed
 ├── outputs/           # Tier-3 generated artifacts (briefings, book, Q&A) — regenerable, committed for audit
-└── skills/            # Pipeline skills (ingest, brief, book-build, qa-draft, backfill-distill)
+└── skills/            # Pipeline skills (ingest, brief, triage, book-build, qa-draft, backfill-distill)
 ```
 
 ## Freshness and staleness

@@ -44,6 +44,17 @@ and canon); it's committed for audit, not treated as truth.
 - **`book/`** — Living book chapters/editions with changelog.
 - **`qa/`** — Drafted replies to the `ask@` inbox lane, queued for human
   approval before sending.
+- **`canon-triage/`** — the staleness-triage queue, written by
+  [skills/triage/triage.py](../skills/triage/triage.py). Mirror image of
+  `technical-briefings/promotion-candidates.md`: that queue proposes
+  *additions* to canon, `staleness-candidates.md` proposes *cuts,
+  promotions, or a second look* at `me/developing-thinking.md`'s "What's
+  connecting"/"Scratchpad" sections and active `frameworks/*.md` files,
+  judged against `me/published-thinking.md`. Overwritten fresh every run
+  (a snapshot of the current record, not an accumulating log) — nothing in
+  it is canon, and nothing here ever edits `developing-thinking.md` or a
+  framework's `status` directly. Built 2026-08-15 for BUILD.md open
+  decision #8.
 - **`substack-migration/`** — one-off drafts for Workstream C
   (`docs/substack-as-primary-home.md`): moving the ~90-item back catalog
   (podcast, talks, LinkedIn, Citrix blog, frameworks) onto Substack.
