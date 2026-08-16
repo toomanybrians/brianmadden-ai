@@ -273,8 +273,12 @@ asked to do, not as a template to re-run.
    `check_doc_accuracy.py`'s framework-counting logic should handle an
    archived tier.
 
-9. **`brain@` as a personal flagging inbox, not just a newsletter sink
-   (flagged 2026-08-15, design TBD, not built).** Brian's started emailing
+9. **`brain@` as a personal flagging inbox, not just a newsletter sink —
+   designed and built 2026-08-16, not yet run live** (queued for
+   tomorrow's regular ingest run instead of a one-off). See the
+   2026-08-16 session entry below for the full build against a real
+   6-message sample. Original write-up kept below for the record.
+   ~~(flagged 2026-08-15, design TBD, not built).~~ Brian's started emailing
    `brain@brianmadden.ai` directly from `b@bmad.com` — sources to follow,
    one-time articles to ingest, ideas for later — a different shape of
    input than the newsletter mail `fetch_entries_email()`/`extract()`
@@ -289,7 +293,9 @@ asked to do, not as a template to re-run.
    logic, same discipline as every other prompt-tuning pass in this repo.
 
    **Two sub-questions Brian asked directly, answered in chat
-   2026-08-15, not yet built:**
+   2026-08-15; the sender-verification answer was acted on 2026-08-16
+   (see below), the push-vs-poll answer still stands as-is (not built,
+   recommendation unchanged):**
    - **Can Gmail push rather than the pipeline polling?** Yes — real,
      documented mechanism: `users.watch()` registers a Cloud Pub/Sub
      topic; Gmail publishes a notification (double-base64-encoded,
@@ -350,10 +356,12 @@ asked to do, not as a template to re-run.
     a visualizer for a system that doesn't have those surfaces yet has
     less to show.
 
-11. **Substack published-article formatting tweaks (flagged 2026-08-15,
-    specifics pending from Brian).** Minor, not yet specified — Brian
-    said he'd send concrete formatting changes separately. Nothing to
-    design or build until that arrives; logged here so it isn't lost.
+11. **Substack published-article formatting tweaks — resolved and built
+    2026-08-16.** ~~(flagged 2026-08-15, specifics pending from
+    Brian).~~ Specifics arrived same day as #9's build: inline code
+    (backticks) renders oversized/odd in Substack's editor. Fixed at the
+    source — see the 2026-08-16 session entry below and
+    `me/style-guide.md`'s new "Substack rendering" section.
 
 12. **Port the private brain's deeper monthly-maintenance skill (flagged
     2026-08-15, tabled — needs Brian's work login + better internet than
@@ -3327,3 +3335,134 @@ against today's triage output, or commit what's built so far, or move to
 something else from the open-decisions/day-plan list. The self-rename gap
 (see above) remains unresolved and deliberately not built into `/maintain`
 per Brian's "skip for now."
+
+### 2026-08-16 — Claude Code session (open decision #9 built + validated live; #11 built)
+
+Picked up open decision #9 (`brain@` as a personal flagging inbox) per
+Brian's steer: design the routing rules from a real sample first, same
+discipline as every other prompt-tuning pass in this repo, then wire it
+into the daily pipeline.
+
+**Sender-verification sub-question acted on, not just answered.** Pulled
+the real `Authentication-Results` headers Google stamped on six actual
+messages Brian sent from `b@bmad.com` to `brain@` (read-only, nothing
+labeled or touched) and checked `bmad.com`'s live DNS on Cloudflare
+directly: SPF passes cleanly (`v=spf1 include:icloud.com ~all`), but DKIM
+fails on every message (`dkim=permerror (no key for signature)`) because
+**`sig1._domainkey.bmad.com` simply doesn't exist in DNS** — confirmed via
+`dig`, not inferred from the header alone. Apple is genuinely attempting
+to sign (a real `header.b=` signature is present each time); the DNS
+record publishing the public key was just never added. Fix is on Brian's
+end (Apple's Custom Email Domain setup screen has the DKIM record to
+re-copy into Cloudflare) — until then, `_sender_is_verified_personal()` in
+`ingest.py` checks `dkim=pass` first (tightens automatically, no code
+change, once fixed) and accepts `spf=pass` as the interim bar, since
+nothing this unlocks does anything more consequential than writing a
+quarantined `ingest/` note or a review-queue entry.
+
+**Real sample reviewed (six live messages) surfaced four distinct shapes**,
+not the two originally guessed at: a bare URL meaning "follow this"; a bare
+URL meaning "read this" (sometimes both — and sometimes already
+followed, sometimes not); a full article pasted directly into the body; a
+raw thought with no link at all. Brian's own steer, live: a "follow"
+flag's real intent is "notice what this is and add it to sources" — and
+floated resurrecting decision #7's dormant idea (daily-diff the
+`brianmaddenai` Substack account's public follows) as the mechanism to
+tell "meant to follow, forgot to" apart from "already following." Also
+flagged, unprompted: expect these flags to sometimes be OCR'd
+screenshots, possibly with hand-drawn circling marking what he cares
+about — which turned up in the very first live sample before the code
+was even done being tested (see below).
+
+**Built, all in `skills/`:**
+- **`skills/lib/substack_follows.py` (new).** Fetches the `brianmaddenai`
+  account's live follows via `https://substack.com/api/v1/user/{handle}/public_profile`
+  — a genuinely public, unauthenticated JSON endpoint, confirmed via
+  browser network capture that the `/reads` page itself is client-rendered
+  but the data behind it needs no browser/Playwright dependency at all,
+  just `requests` like everything else here. `matches_follow()` resolves
+  an arbitrary flagged URL (subdomain, custom domain, or a bare
+  `substack.com/@handle` profile link — all three seen live) against the
+  current follows; `diff_snapshot()` compares against
+  `sources/.substack_follows_snapshot.json` (committed, same pattern as
+  `ingest/.last_run.json`).
+- **`skills/lib/llm.py`** — `generate()` now takes an optional `images`
+  param, threaded to Anthropic's vision content blocks. Anthropic-only;
+  `openrouter` raises if asked for images (nothing here needs it).
+- **`skills/ingest/ingest.py`** — `handle_brain_flag()` routes any
+  verified-personal message away from the uniform newsletter
+  extract-or-skip path. Priority order for what actually gets extracted
+  (never more than one note per message): a flagged URL's fetched page;
+  the message's own body if it's substantial pasted content
+  (`PASTED_CONTENT_MIN_CHARS`, 200 chars); a screenshot transcription via
+  the new vision support otherwise. Every brain-flag message — note
+  written or not — gets exactly one entry in `ingest/brain-flags/queue.md`
+  (Tier 1, quarantined under `ingest/` like everything else there, same
+  `sync-to-cloudflare-kv.yml` exclusion covers it for free) summarizing
+  what happened, including whether a flagged URL still needs a manual
+  follow. New Gmail label `AI/Flagged` (archived either way, since the
+  actionable trail moves to the queue file, not the inbox). Daily
+  follows-diff wired into `main()`: auto-registers newly-followed
+  Substack publications into `sources.yaml` (a confirmed completed
+  action, same precedent as `auto_register_email_source()` — and
+  Substack reliably serves RSS at `/feed` for both subdomain and
+  custom-domain publications, confirmed live against three real follows,
+  so this gets a working `feed_url` immediately, not a null placeholder);
+  queues a note for anything unfollowed, never auto-deleted.
+
+**Validated against the real six messages via `--dry-run`** (no writes,
+no Gmail mutation, no `sources.yaml` change — confirmed via `git status`
+before and after). Two real bugs found and fixed in the process, not
+theoretical:
+- `append_to_queue()` wasn't dry-run-safe — wrote a real file on the
+  first pass. Caught via `git status`, deleted, fixed to print instead of
+  write when `dry_run`.
+- Gmail's reported attachment `mimeType` was wrong on a real attachment
+  (labeled `image/png`, actually a JPEG) — Anthropic's vision API rejects
+  the mismatch outright rather than reading the bytes. Now sniffed from
+  magic bytes (`_sniff_image_media_type()`) instead of trusted blindly.
+- A third real finding reshaped the routing logic itself: the AT&T/WSJ
+  message (full article pasted in the body) *also* carried an unrelated
+  storefront-photo attachment. Image transcription is now only attempted
+  when there's no URL and no substantial pasted text — otherwise a real
+  vision call gets wasted on an irrelevant photo, and worse, could
+  silently shadow the good pasted-text extraction.
+
+Final dry-run outcome across the six real messages: 2 correctly identified
+as not-yet-followed (queued as follow reminders), 1 correctly identified
+as already-followed (Emerging AI — no reminder needed), a real screenshot
+successfully transcribed and turned into a genuine ingest note, and the
+AT&T piece correctly extracted from its pasted body text rather than the
+unrelated photo. **Not run live** — Brian's call: let it run for real as
+part of tomorrow's regular ingest rather than a one-off today.
+
+**Open decision #11 (Substack formatting), specifics arrived same
+session.** Brian's ask: inline code (backticks) renders oversized and
+visually odd in Substack's editor. Three fixes, all mechanical, no model
+calls involved:
+- `skills/brief/brief.py`'s `render_tracked_threads()` — tracked-thread
+  slugs go from backtick to **bold**.
+- Same file's `render_tracked_threads_section()` — its two inline `.md`
+  references become *italicized Markdown links* to the actual GitHub
+  file, pointed at `main` (`GITHUB_BASE`) not `v2` — they 404 until the
+  v2 launch PR merges, which Brian's explicitly fine with for the few
+  days until then.
+- `skills/brief/publish.py`'s `FOOTER` (the fixed boilerplate below the
+  closing `---` on every published post) — wrapped in italics, links
+  intact.
+
+Smoke-tested through the real `markdown` → HTML conversion (not just
+eyeballing the source) to confirm nested `<em><a>` and `<strong>` render
+correctly before calling it done. Documented as durable conventions in
+`me/style-guide.md`'s new "Substack rendering" section, same growth
+pattern as its existing entries (a rule, plus the date/reason Brian
+stated it). Not run against real output — applies naturally the next
+time `brief.py`/`publish.py` run.
+
+**Where things stand:** decision #9 designed, built, and validated against
+real data — live run deferred to tomorrow's regular ingest per Brian's
+call, not because anything's blocking it. Decision #11 fully resolved.
+Everything from today committed at session end (see the commits
+immediately following this one). Next natural step: let tomorrow's
+scheduled ingest actually process brain@ for real and see how the queue
+file and follows-diff hold up outside a dry run.
