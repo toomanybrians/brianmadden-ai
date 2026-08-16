@@ -79,13 +79,13 @@ def strip_leading_title(body: str) -> str:
 
 FOOTER = (
     "\n\n---\n\n"
-    "This is brianmadden.ai — [Brian Madden's AI second brain]"
+    "*This is brianmadden.ai — [Brian Madden's AI second brain]"
     "(https://brianmadden.ai), which reads everything he follows (blogs, "
     "podcasts, YouTubers, Substacks) and reports back daily. "
     "([Who's Brian?](https://bmad.com)) The full pipeline is being "
     "developed now and will soon be included in his open source second "
     "brain, which can be [explored, forked, or modified on GitHub]"
-    "(https://github.com/toomanybrians/brianmadden-ai).\n"
+    "(https://github.com/toomanybrians/brianmadden-ai).*\n"
 )
 
 

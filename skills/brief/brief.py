@@ -212,18 +212,27 @@ def render_tracked_threads(tracker: list[dict]) -> str:
         return "(nothing being tracked yet — this is either the first run, or nothing has recurred)"
     lines = []
     for t in watching:
-        lines.append(f"- `{t['slug']}` — {t['description']} (seen {t['count']}x, first {t['first_seen']}, last {t['last_seen']})")
+        lines.append(f"- **{t['slug']}** — {t['description']} (seen {t['count']}x, first {t['first_seen']}, last {t['last_seen']})")
     return "\n".join(lines)
 
 
 def render_tracked_threads_section(tracker: list[dict]) -> str:
     body = render_tracked_threads(tracker)
+    # Bold slugs, italicized+linked .md references (not backtick/inline-code)
+    # — Substack's editor renders pasted inline code in an oversized,
+    # visually odd Courier face (Brian's call, 2026-08-16; see
+    # me/style-guide.md). Links point at `main` (GITHUB_BASE), not `v2` —
+    # they 404 until the v2 launch PR merges, which Brian's explicitly fine
+    # with for the few days until then, since main is where this actually
+    # resolves once merged.
+    candidates_link = f"[outputs/technical-briefings/promotion-candidates.md]({GITHUB_BASE}outputs/technical-briefings/promotion-candidates.md)"
+    developing_link = f"[me/developing-thinking.md]({GITHUB_BASE}me/developing-thinking.md)"
     return (
         "## Threads being tracked\n\n"
         "Patterns flagged as \"doesn't fit yet\" on a previous day, being watched "
         f"for recurrence. A thread that recurs {PROMOTION_THRESHOLD}+ times gets "
-        "queued in `outputs/technical-briefings/promotion-candidates.md` for Brian to "
-        "review — nothing here is ever written into `me/developing-thinking.md` "
+        f"queued in *{candidates_link}* for Brian to "
+        f"review — nothing here is ever written into *{developing_link}* "
         "automatically.\n\n" + body
     )
 

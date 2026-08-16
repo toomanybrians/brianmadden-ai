@@ -60,6 +60,26 @@ output), not pre-populated speculatively.
   ghostwriter impersonating him. (Brian's correction, 2026-08-14 — same
   talk-summary review as above.)
 
+## Substack rendering
+
+- **No inline code (backtick) formatting in anything published to
+  Substack.** Substack's editor renders pasted inline code in an
+  oversized, visually odd Courier face — confirmed, not a guess. Use
+  **bold** for a short label/identifier at the start of a bullet (e.g. a
+  tracked-thread slug), and *italics* for an inline file/path reference.
+  A `.md` file reference should also be a real Markdown link, not bare
+  text — see the next rule. (Brian's correction, 2026-08-16.)
+- **Any `.md` file mentioned inline gets linked to its actual GitHub file**,
+  pointed at the `main` branch (`GITHUB_BASE` in `skills/brief/brief.py`) —
+  not `v2`. Until the v2 launch PR merges, these links 404; Brian's
+  explicitly fine with that for the few days until then, since `main` is
+  where the link actually resolves once merged, and it needs no further
+  edit at that point. (Brian's call, 2026-08-16.)
+- **The fixed footer below the closing `---` on every published post is
+  italicized** (the whole paragraph, links included) — visually marks it
+  as boilerplate/meta text, distinct from the brief's own content above
+  it. (Brian's call, 2026-08-16.)
+
 ## Audience-specific sections
 
 - **Internal/canon-only sections don't carry over to human-facing
