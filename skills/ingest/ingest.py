@@ -30,7 +30,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
-from lib import llm, transcribe  # noqa: E402  (needs sys.path set first)
+from lib import llm, substack_follows, transcribe  # noqa: E402  (needs sys.path set first)
 
 USER_AGENT = "brianmadden-ai-ingest/0.1 (+https://brianmadden.ai)"
 # Substack's content:encoded (and most other feeds checked) carry genuine
@@ -543,7 +543,22 @@ GMAIL_ENV_VARS = ("GMAIL_CLIENT_ID", "GMAIL_CLIENT_SECRET", "GMAIL_REFRESH_TOKEN
 # BUILD.md's brain@ walkthrough.
 GMAIL_LABEL_INGESTED = "AI/Ingested"
 GMAIL_LABEL_SKIPPED = "AI/Skipped"
-GMAIL_PROCESSED_LABELS = (GMAIL_LABEL_INGESTED, GMAIL_LABEL_SKIPPED)
+# Applied to messages from Brian's own verified personal address (open
+# decision #9) instead of INGESTED/SKIPPED — a brain@ flag is never "judged
+# not relevant" the way a boring newsletter issue is; it always lands in
+# ingest/brain-flags/queue.md for a human look, with or without a real
+# ingest/ note alongside it. Archived either way (see handle_brain_flag) —
+# the actionable trail moves to the queue file, not the inbox.
+GMAIL_LABEL_FLAGGED = "AI/Flagged"
+GMAIL_PROCESSED_LABELS = (GMAIL_LABEL_INGESTED, GMAIL_LABEL_SKIPPED, GMAIL_LABEL_FLAGGED)
+# Brian's personal address (Google Workspace via Apple Custom Email Domain
+# — see BUILD.md). DKIM for bmad.com doesn't currently verify (confirmed
+# 2026-08-16: no sig1._domainkey.bmad.com DNS record exists yet, so
+# Apple's real signature can never be checked — dkim=permerror on every
+# message, not a spoofing concern) — see _sender_is_verified_personal().
+PERSONAL_FLAG_SENDER = "b@bmad.com"
+BRAIN_FLAGS_QUEUE = ROOT / "ingest" / "brain-flags" / "queue.md"
+URL_RE = re.compile(r"https?://\S+")
 _gmail_label_id_cache: dict[str, str] = {}
 # See fetch_entries_email()'s final sort-and-slice: max_per_source's
 # general default (5) is too low for real curated-inbox volume.
@@ -879,6 +894,13 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
             "published_dt": published_dt,
             "content": content,
             "gmail_msg_id": msg_id,
+            # Leading underscore: internal to the email path, not part of
+            # write_note()'s known-keys contract (never reaches frontmatter).
+            # Kept here so handle_brain_flag() (open decision #9) doesn't
+            # need a second Gmail fetch to check sender auth or find
+            # attachments.
+            "_gmail_header_map": header_map,
+            "_gmail_payload": payload,
         })
 
     entries.sort(
@@ -968,6 +990,366 @@ def auto_register_email_source(
         f.write(entry_yaml)
     known_senders.add(address)
     print(f"    sources.yaml: auto-added new source '{source_id}' ({address})")
+
+
+# ------------------------------------------------------- brain@ flags (#9) --
+# Handles messages Brian sends to brain@ from his own address directly —
+# BUILD.md open decision #9. Real shape, from a live sample reviewed
+# 2026-08-16 (six real messages): a bare URL meaning "follow this," a bare
+# URL meaning "read this" (sometimes both), a raw thought with no link at
+# all, and (per Brian, not yet seen live) a screenshot possibly annotated
+# with circling. None of these fit fetch_entries_email()'s uniform
+# newsletter treatment (extract insights or NOT_RELEVANT) — there's often
+# no article body to extract from, and even when there is, Brian's own
+# framing (the subject line) is the part worth preserving, not just the
+# linked page's insights. Every brain-flag message gets exactly one
+# ingest/brain-flags/queue.md entry either way, so nothing gets silently
+# dropped the way a NOT_RELEVANT newsletter issue would be.
+
+
+def _sender_is_verified_personal(header_map: dict) -> bool:
+    """True if this message's From is really PERSONAL_FLAG_SENDER. Checks
+    dkim=pass first (tightens automatically, no code change, once Brian
+    fixes bmad.com's DNS) but accepts spf=pass alone for now — see
+    PERSONAL_FLAG_SENDER's comment for why that's an acceptable interim
+    bar: nothing this unlocks does anything more consequential than
+    writing a quarantined ingest/ note or a review-queue entry, both
+    already human-reviewed downstream."""
+    _, address = _parse_sender_header(header_map.get("From", ""))
+    if address != PERSONAL_FLAG_SENDER:
+        return False
+    auth = header_map.get("Authentication-Results", "")
+    return "dkim=pass" in auth or "spf=pass" in auth
+
+
+def _gmail_find_image_attachments(payload: dict) -> list[dict]:
+    """Depth-first search of a Gmail message payload for real image
+    attachments (not inline images referenced by cid, which wouldn't have
+    a body.attachmentId) — screenshots Brian's flagged, per his 2026-08-16
+    note that these could carry hand-drawn circling/markup."""
+    results = []
+
+    def walk(part):
+        mime = part.get("mimeType", "")
+        body = part.get("body", {}) or {}
+        if mime.startswith("image/") and body.get("attachmentId"):
+            results.append({
+                "filename": part.get("filename") or "attachment",
+                "mimeType": mime,
+                "attachmentId": body["attachmentId"],
+            })
+        for sub in part.get("parts", []) or []:
+            walk(sub)
+
+    walk(payload)
+    return results
+
+
+def _gmail_decode_bytes(data: str) -> bytes:
+    """Same base64url padding fix as _gmail_decode(), but returns raw bytes
+    — an image attachment isn't text, unlike everywhere else this pipeline
+    decodes Gmail API body data."""
+    padded = data.replace("-", "+").replace("_", "/")
+    padded += "=" * (-len(padded) % 4)
+    return base64.b64decode(padded)
+
+
+def _gmail_fetch_attachment_bytes(msg_id: str, attachment_id: str, access_token: str) -> bytes:
+    resp = requests.get(
+        f"{GMAIL_API_BASE}/{msg_id}/attachments/{attachment_id}",
+        headers={"Authorization": f"Bearer {access_token}"}, timeout=30,
+    )
+    resp.raise_for_status()
+    return _gmail_decode_bytes(resp.json()["data"])
+
+
+VISION_TRANSCRIBE_PROMPT = (
+    "This image was emailed directly to Brian's AI brain as something worth "
+    "capturing — often a screenshot of an article, tweet, or document, "
+    "sometimes with hand-drawn circling, underlining, or other markup "
+    "pointing at the specific part he cares about. Transcribe the readable "
+    "text plainly. If there's visible markup, say what it's pointing at as "
+    "a separate short note — don't just describe the markup, say what it's "
+    "emphasizing. Be concise and factual: this feeds a private review "
+    "queue, not a public note. No preamble."
+)
+
+
+def _sniff_image_media_type(image_bytes: bytes, declared: str) -> str:
+    """Gmail's reported attachment mimeType isn't always trustworthy —
+    confirmed live 2026-08-16: a real attachment came back labeled
+    image/png while its actual bytes were a JPEG, and Anthropic's vision
+    API validates the real format and rejects a mismatch outright rather
+    than just reading the bytes. Sniffs the real format from magic bytes;
+    falls back to the declared type only if nothing recognized matches."""
+    if image_bytes[:8] == b"\x89PNG\r\n\x1a\n":
+        return "image/png"
+    if image_bytes[:3] == b"\xff\xd8\xff":
+        return "image/jpeg"
+    if image_bytes[:6] in (b"GIF87a", b"GIF89a"):
+        return "image/gif"
+    if image_bytes[:4] == b"RIFF" and image_bytes[8:12] == b"WEBP":
+        return "image/webp"
+    return declared
+
+
+def transcribe_image_attachment(
+    image_bytes: bytes, mime_type: str, provider: str | None = None, model: str | None = None
+) -> str:
+    b64 = base64.b64encode(image_bytes).decode("ascii")
+    return llm.generate(
+        VISION_TRANSCRIBE_PROMPT, provider=provider, model=model, max_tokens=1024,
+        images=[{"media_type": _sniff_image_media_type(image_bytes, mime_type), "data": b64}],
+    )
+
+
+def _host_label(url: str) -> str:
+    return (urlsplit(url).netloc or url).lower().removeprefix("www.")
+
+
+def _known_source_match(url: str, follows: list[dict], sources_path: Path) -> str | None:
+    """Returns a short human label if url is already tracked — a live
+    Substack follow, or already present in sources.yaml by host — else
+    None. Only used to decide whether a 'follow this' flag still needs a
+    queue-file reminder; never gates whether a note gets written."""
+    match = substack_follows.matches_follow(url, follows)
+    if match:
+        return f"Substack follow: {match['name']}"
+    host = _host_label(url)
+    if not host:
+        return None
+    for s in load_sources(sources_path):
+        for field in ("url", "feed_url"):
+            existing = s.get(field)
+            if existing and _host_label(existing) == host:
+                return f"sources.yaml: {s.get('name', s['id'])}"
+    return None
+
+
+def append_to_queue(kind: str, subject: str, detail: str, dry_run: bool = False) -> None:
+    """Appends one flagged item to ingest/brain-flags/queue.md for Brian to
+    triage by hand (open decision #9) — same 'system surfaces, human
+    decides' pattern as outputs/canon-triage/staleness-candidates.md, never
+    auto-actioned further. Lives under ingest/ deliberately: Tier 1
+    (quarantined, never indexed, excluded from the public KV sync per
+    MAINTAINER.md rule 8), same protection third-party ingest notes already
+    get, because these are Brian's own raw unreviewed flags — not vetted
+    canon, and not something to publish before he's looked at it. Plain
+    text append; Brian clears entries by deleting them as he handles them,
+    unlike dated ingest/ notes which are a permanent historical log."""
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    entry = f"## {today} — {kind}\n\n**{subject}**\n\n{detail}\n\n---\n\n"
+
+    if dry_run:
+        print(f"\n[DRY RUN] would append to ingest/brain-flags/queue.md:\n{entry}")
+        return
+
+    BRAIN_FLAGS_QUEUE.parent.mkdir(parents=True, exist_ok=True)
+    if not BRAIN_FLAGS_QUEUE.exists():
+        BRAIN_FLAGS_QUEUE.write_text(
+            "# Brain flags — needs a human look\n\n"
+            "Personal messages sent to brain@ from Brian directly (open "
+            "decision #9) that the pipeline couldn't fully auto-handle on "
+            "its own. Not a gate on anything else in the pipeline — read, "
+            "act, and delete each entry below as you handle it.\n\n---\n\n",
+            encoding="utf-8",
+        )
+    with BRAIN_FLAGS_QUEUE.open("a", encoding="utf-8") as f:
+        f.write(entry)
+
+
+PASTED_CONTENT_MIN_CHARS = 200  # below this, body text reads as "just a URL" or "just a thought," not substance worth extracting on its own
+
+
+def _transcribe_attachments(
+    payload: dict, msg_id: str, provider: str | None, model: str | None
+) -> list[str]:
+    attachments = _gmail_find_image_attachments(payload)
+    if not attachments or not llm.is_configured(provider or llm.current_provider()):
+        return []
+    notes = []
+    try:
+        access_token = _gmail_access_token()
+    except requests.RequestException as e:
+        return [f"(couldn't authenticate to fetch {len(attachments)} image attachment(s): {e})"]
+    for att in attachments:
+        try:
+            img_bytes = _gmail_fetch_attachment_bytes(msg_id, att["attachmentId"], access_token)
+            notes.append(transcribe_image_attachment(img_bytes, att["mimeType"], provider, model))
+        except (requests.RequestException, RuntimeError) as e:
+            notes.append(f"(image attachment '{att['filename']}' couldn't be transcribed: {e})")
+    return notes
+
+
+def handle_brain_flag(
+    entry: dict,
+    sources_path: Path,
+    follows: list[dict],
+    provider: str | None,
+    model: str | None,
+    dry_run: bool,
+) -> str:
+    """Routes one verified-personal brain@ message. Returns the Gmail label
+    to apply — GMAIL_LABEL_INGESTED if a real ingest/ note got written,
+    else GMAIL_LABEL_FLAGGED. Never GMAIL_LABEL_SKIPPED: unlike a
+    newsletter issue judged not relevant, a brain-flag always gets a
+    queue.md entry, so there's always something for Brian to see.
+
+    What actually gets run through extraction, in priority order — never
+    more than one candidate per message, so a note is written at most
+    once: a flagged URL's fetched page (the common shape); the message's
+    own body text if it's substantial on its own (e.g. a full pasted
+    article — confirmed live 2026-08-16, an AT&T/WSJ piece pasted directly
+    rather than linked); a screenshot transcription otherwise. Image
+    attachments are only inspected in that last case — a real vision call
+    isn't worth it when a URL or pasted text already has the real content
+    (confirmed live 2026-08-16: that AT&T message also carried an
+    unrelated storefront photo attachment; transcribing it would have
+    wasted a call and, being irrelevant, could have shadowed the good
+    pasted-text extraction if not for this ordering).
+    """
+    subject = entry["title"] or "(no subject)"
+    body_text = (entry.get("content") or "").strip()
+    payload = entry.get("_gmail_payload") or {}
+    msg_id = entry.get("gmail_msg_id")
+    urls = URL_RE.findall(body_text)
+
+    detail_lines = []
+    flag_source = flag_entry = None
+    image_notes = []
+
+    if urls:
+        url = urls[0]
+        linked_content = _fetch_external_link_content(url)
+        if linked_content:
+            flag_source = {
+                "id": "brain-flag",
+                "name": _host_label(url),
+                "type": "flagged link",
+                "pov": f'Brian flagged this directly to the brain, with his own note: "{subject}"',
+            }
+            flag_entry = {
+                "title": subject if subject not in ("(no subject)", url) else _host_label(url),
+                "link": url,
+                "author": "Brian Madden (flagged)",
+                "date_published": entry.get("date_published"),
+                "content": linked_content,
+            }
+        else:
+            detail_lines.append(f"Link couldn't be fetched: {url}")
+
+        known = _known_source_match(url, follows, sources_path)
+        if known:
+            detail_lines.append(f"Source status: already tracked ({known}).")
+        else:
+            detail_lines.append(
+                "Source status: **not currently followed/tracked.** If this was meant as "
+                "a 'follow this' flag, follow it via the brianmaddenai Substack account "
+                "(or add to sources.yaml if not Substack) next time you're doing maintenance."
+            )
+    elif len(body_text) > PASTED_CONTENT_MIN_CHARS:
+        flag_source = {
+            "id": "brain-flag",
+            "name": "pasted content",
+            "type": "flagged content",
+            "pov": f'Brian pasted this directly into an email to the brain, with his own note: "{subject}"',
+        }
+        flag_entry = {
+            "title": subject,
+            "link": "",
+            "author": "Brian Madden (flagged)",
+            "date_published": entry.get("date_published"),
+            "content": body_text,
+        }
+    else:
+        image_notes = _transcribe_attachments(payload, msg_id, provider, model)
+        if image_notes:
+            flag_source = {
+                "id": "brain-flag",
+                "name": "image attachment",
+                "type": "flagged screenshot",
+                "pov": f'Brian flagged this directly to the brain (image attachment), with his own note: "{subject}"',
+            }
+            flag_entry = {
+                "title": subject if subject != "(no subject)" else "(screenshot, no subject)",
+                "link": "",
+                "author": "Brian Madden (flagged, image attachment)",
+                "date_published": entry.get("date_published"),
+                "content": "\n\n---\n\n".join(image_notes),
+            }
+
+    note_path = None
+    if flag_source:
+        template = (Path(__file__).parent / "prompt.md").read_text(encoding="utf-8")
+        note_body = extract(template, flag_source, flag_entry, provider=provider, model=model)
+        if note_body:
+            note_path = write_note(
+                ROOT / "ingest", flag_source, flag_entry, note_body, dry_run,
+                model=llm.resolve_model(provider or llm.current_provider(), model),
+                ingest_method="brain-flag",
+            )
+            detail_lines.append(f"Ingest note written: `{note_path.relative_to(ROOT)}`")
+        else:
+            detail_lines.append("Content fetched but nothing extractable — thin, paywalled, or judged not relevant.")
+
+    if image_notes:
+        detail_lines.append("**Image attachment(s):**\n\n" + "\n\n".join(image_notes))
+
+    if not flag_source:
+        detail_lines.append(body_text if body_text else "(empty message — the subject line is the whole flag)")
+
+    if urls:
+        kind = "link flag"
+    elif flag_source and flag_source["type"] == "flagged content":
+        kind = "pasted content"
+    elif image_notes:
+        kind = "image flag"
+    else:
+        kind = "idea"
+    append_to_queue(kind, subject, "\n\n".join(detail_lines), dry_run=dry_run)
+
+    return GMAIL_LABEL_INGESTED if note_path else GMAIL_LABEL_FLAGGED
+
+
+def _register_new_substack_source(follow: dict, sources_path: Path) -> None:
+    """Appends a sources.yaml entry for a publication newly seen in the
+    brianmaddenai account's live follows (resolves open decision #7's
+    dormant idea via #9's design session, 2026-08-16). Unlike an emailed
+    'follow this' flag (see handle_brain_flag — those only ever get a
+    queue-file reminder), this reflects a follow Brian actually completed,
+    so it's safe to auto-register — same precedent as
+    auto_register_email_source() for newsletters. Substack reliably serves
+    RSS at /feed for both subdomain and custom-domain publications
+    (confirmed live 2026-08-16 against three real follows, not assumed),
+    so this gets a real working feed_url immediately, not a null
+    placeholder. Plain text append, same reason as everywhere else in this
+    file: re-dumping the whole YAML would strip hand-written comments."""
+    existing_ids = {s["id"] for s in load_sources(sources_path)}
+    base_id = slugify(follow.get("name") or follow.get("subdomain") or "unknown-substack")
+    source_id = base_id
+    n = 2
+    while source_id in existing_ids:
+        source_id = f"{base_id}-{n}"
+        n += 1
+
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    note = (
+        f"Auto-discovered from the brianmaddenai Substack account's live follows on "
+        f"{today} — a real completed follow, documentation only, not a gate. Not yet "
+        f"reviewed by Brian."
+    )
+    entry_yaml = (
+        f"\n  - id: {source_id}\n"
+        f"    name: {json.dumps(follow.get('name') or source_id, ensure_ascii=False)}\n"
+        f"    type: newsletter\n"
+        f"    url: {json.dumps(follow['url'], ensure_ascii=False)}\n"
+        f"    feed_url: {json.dumps(follow['url'] + '/feed', ensure_ascii=False)}\n"
+        f"    priority: regular\n"
+        f"    note: {json.dumps(note, ensure_ascii=False)}\n"
+    )
+    with sources_path.open("a", encoding="utf-8") as f:
+        f.write(entry_yaml)
+    print(f"    sources.yaml: auto-added new Substack follow '{source_id}'")
 
 
 # ----------------------------------------------------------------- dedup --
@@ -1141,6 +1523,19 @@ def main() -> None:
     print(f"window: {since_days:.2f} days ({since_reason})\n")
 
     known_email_senders = load_known_email_senders(sources_path)
+
+    # Fetched once, reused for both brain@ flag routing (is this URL
+    # already followed?) and the daily follows-diff below (open decisions
+    # #7/#9) — one HTTP call regardless of how many sources actually need
+    # it. Best-effort: a fetch failure degrades both to "unknown" rather
+    # than sinking the run.
+    follows: list[dict] = []
+    if any(s.get("ingest_method") == "email" for s in sources):
+        try:
+            follows = substack_follows.fetch_follows()
+        except requests.RequestException as e:
+            print(f"substack follows fetch failed ({e}) — brain@ follow-checks will report 'not tracked', daily diff skipped\n")
+
     total_new = 0
     total_written = 0
     for source in sources:
@@ -1171,6 +1566,16 @@ def main() -> None:
             continue
 
         for entry in new_entries:
+            if is_email and _sender_is_verified_personal(entry.get("_gmail_header_map") or {}):
+                print(f"    brain@ flag from {PERSONAL_FLAG_SENDER}: {entry['title']}")
+                label = handle_brain_flag(
+                    entry, sources_path, follows, args.provider, args.llm_model, args.dry_run,
+                )
+                if not args.dry_run:
+                    gmail_apply_label(entry.get("gmail_msg_id"), label, archive=True)
+                total_written += 1
+                continue
+
             enrich_with_transcript(entry, source)
             body = extract(
                 template, source, entry,
@@ -1193,6 +1598,27 @@ def main() -> None:
                 auto_register_email_source(entry["author"], sources_path, known_email_senders)
             seen_urls.add(entry["link"])
             total_written += 1
+
+    # Daily follows-diff (open decision #7, resolved into #9's design
+    # 2026-08-16) — only on a full, real run, same gate as the last-run
+    # clock below: a --source test or --dry-run preview shouldn't touch
+    # sources.yaml or advance the snapshot.
+    if follows and not args.dry_run and not args.source:
+        snapshot_path = ROOT / "sources" / ".substack_follows_snapshot.json"
+        added, removed = substack_follows.diff_snapshot(snapshot_path, follows)
+        if added or removed:
+            print(f"\nsubstack follows changed: +{len(added)} -{len(removed)}")
+        for f in added:
+            _register_new_substack_source(f, sources_path)
+        if removed:
+            append_to_queue(
+                "substack unfollow",
+                f"{len(removed)} publication(s) no longer followed",
+                "No longer in the brianmaddenai account's live follows: " + ", ".join(removed) +
+                ". Corresponding sources.yaml entries (if any) were left as-is — "
+                "review whether to keep or archive them.",
+            )
+        substack_follows.save_snapshot(snapshot_path, follows)
 
     summary = f"\n{total_new} new entries found; {total_written} notes written"
     if args.dry_run:

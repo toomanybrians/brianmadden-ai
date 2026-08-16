@@ -56,22 +56,35 @@ def generate(
     provider: Optional[str] = None,
     model: Optional[str] = None,
     max_tokens: int = 1024,
+    images: Optional[list[dict]] = None,
 ) -> str:
+    """images, when given, is [{"media_type": "image/png", "data": <base64
+    str>}, ...] — used by ingest.py's brain@ screenshot-attachment handling
+    (open decision #9). Anthropic-only for now; nothing in this pipeline
+    needs vision through the openrouter path."""
     provider = provider or current_provider()
     model = resolve_model(provider, model)
 
     if provider == "anthropic":
-        return _generate_anthropic(prompt, model, max_tokens)
+        return _generate_anthropic(prompt, model, max_tokens, images)
     if provider == "openrouter":
+        if images:
+            raise ValueError("image input isn't supported for provider 'openrouter'")
         return _generate_openrouter(prompt, model, max_tokens)
     raise ValueError(f"unknown LLM provider: {provider!r} (known: {sorted(REQUIRED_ENV_VARS)})")
 
 
-def _generate_anthropic(prompt: str, model: str, max_tokens: int) -> str:
+def _generate_anthropic(prompt: str, model: str, max_tokens: int, images: Optional[list[dict]] = None) -> str:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY not set")
     client = anthropic.Anthropic(api_key=api_key)
+    content = prompt
+    if images:
+        content = [
+            {"type": "image", "source": {"type": "base64", "media_type": img["media_type"], "data": img["data"]}}
+            for img in images
+        ] + [{"type": "text", "text": prompt}]
     # Streaming, not .create() — the SDK refuses a non-streaming call above
     # a per-model token/time threshold ("Streaming is required for
     # operations that may take longer than 10 minutes"), which a large
@@ -82,7 +95,7 @@ def _generate_anthropic(prompt: str, model: str, max_tokens: int) -> str:
     with client.messages.stream(
         model=model,
         max_tokens=max_tokens,
-        messages=[{"role": "user", "content": prompt}],
+        messages=[{"role": "user", "content": content}],
     ) as stream:
         message = stream.get_final_message()
     return "".join(block.text for block in message.content if block.type == "text").strip()

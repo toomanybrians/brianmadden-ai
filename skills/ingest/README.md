@@ -151,6 +151,48 @@ regardless of what's registered) — it's a reporting list of what's
 actually feeding the brain, populated by what actually gets ingested
 rather than maintained by hand ahead of time.
 
+## brain@ personal flags (open decision #9)
+
+Messages from `b@bmad.com` — Brian's own address, verified via `From` plus
+`Authentication-Results` (`dkim=pass` preferred, `spf=pass` accepted for now
+since bmad.com's DKIM DNS record doesn't exist yet — see BUILD.md) — never
+go through the uniform newsletter extract-or-skip path above. Real shapes
+seen live (2026-08-16): a bare URL meaning "follow this," a bare URL
+meaning "read this" (sometimes both at once), a full article pasted
+directly into the body, a raw thought with no link at all, and a
+screenshot (sometimes with hand-drawn circling marking what matters).
+`handle_brain_flag()` in `ingest.py` picks exactly one thing to run through
+extraction, in priority order: a flagged URL's fetched page; the message's
+own body if it's substantial pasted content (`PASTED_CONTENT_MIN_CHARS`,
+200 chars); a screenshot transcription (via `skills/lib/llm.py`'s vision
+support) otherwise — image attachments are only inspected in that last
+case, so a real article pasted alongside an unrelated photo attachment
+doesn't waste a vision call or get shadowed by it.
+
+If a URL is flagged, its host is checked against both the `brianmaddenai`
+Substack account's live follows (`skills/lib/substack_follows.py`) and
+`sources.yaml` — not to gate anything, just to flag in the queue whether it
+still needs a manual follow.
+
+Every brain-flag message gets exactly one entry in
+`ingest/brain-flags/queue.md` (Tier 1 — quarantined, same as everything
+else under `ingest/`, since these are Brian's own raw unreviewed flags, not
+vetted canon) summarizing what happened: note written or not, source
+already tracked or not, image transcription if any. Never
+`GMAIL_LABEL_SKIPPED` — a brain-flag always produces something for Brian to
+see, unlike a newsletter judged not relevant. Labeled `AI/Flagged` (or
+`AI/Ingested` if a note was written) and archived either way, since the
+actionable trail moves to the queue file.
+
+**Daily Substack follows-diff** (resolves the other half of open decision
+#7): once per full, non-dry, non-`--source` run, `main()` fetches the
+`brianmaddenai` account's current follows, diffs against
+`sources/.substack_follows_snapshot.json`, auto-registers newly-followed
+publications into `sources.yaml` (a real completed action, same
+auto-registration precedent as newsletters — and Substack reliably serves
+RSS at `/feed`, so this gets a working `feed_url` immediately), and queues
+a note for anything unfollowed (never auto-deleted).
+
 ## Podcast transcripts
 
 `enrich_with_transcript()` replaces show-notes content with a real
@@ -195,6 +237,18 @@ extraction call, never persisted raw, same as everything else.
 
 ## Known limitations (v1)
 
+- **brain@ personal-flag sender verification is SPF-only for now, not
+  DKIM.** `bmad.com`'s DNS has no `sig1._domainkey` record (confirmed
+  2026-08-16), so Apple's real DKIM signature can never verify —
+  `_sender_is_verified_personal()` checks `dkim=pass` first and falls back
+  to `spf=pass`, which is weaker (authenticates Apple's sending IP, not
+  really the `bmad.com` domain, and doesn't survive forwarding). Fix is a
+  DNS change on Brian's end, not code — see BUILD.md's open decision #9.
+- **The 200-char pasted-content threshold (`PASTED_CONTENT_MIN_CHARS`) is
+  a heuristic, tuned on six real examples**, not a validated boundary — a
+  short-but-substantive paste could fall through to the screenshot/idea
+  path, and a long-but-empty one (e.g. a huge email signature) could get
+  treated as pasted content. Revisit once more real brain@ volume exists.
 - **Podcast transcription adds real cost and latency per episode** — a
   60-90 minute episode is a meaningfully bigger, slower fetch than parsing
   show notes. `--max-per-source` is the only current throttle; watch
