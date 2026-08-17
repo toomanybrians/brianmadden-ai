@@ -136,8 +136,20 @@ asked to do, not as a template to re-run.
    `ingest/` when `v2` eventually gets pushed/merged, or scrub it at that
    point? Revisit closer to the actual push — there'll be months of real
    output to judge by then instead of a couple of examples.
-2. Daily Brief cadence: weekdays.
-3. Exact briefing publish time (Paris morning? US-morning for reach?).
+2. ~~Daily Brief cadence: weekdays.~~ — **confirmed 2026-08-16**, weekdays
+   only, no change from the working assumption.
+3. ~~Exact briefing publish time (Paris morning? US-morning for reach?).~~
+   — **resolved 2026-08-16.** Splits into two different times that the
+   original phrasing conflated: the automated pipeline's run time (when
+   ingest + brief generation actually kicks off) vs. the post going live
+   on Substack (a manual step — "Pipeline pushes drafts; human publishes,"
+   per the Aug 9 decisions above — happens whenever Brian actually clicks
+   publish, not something to schedule). Only the first is a real decision:
+   **08:00 Paris time, weekdays**, the natural D6 cron trigger — Brian's
+   reasoning, not much breaks overnight so an 8am run mostly captures the
+   previous day's news anyway, and he expects to review and hit publish
+   himself sometime in the 9-11am Paris window most mornings. That
+   9-11am window is a habit, not a locked requirement.
 4. ~~Ratify or amend the frontmatter proposal~~ — **resolved 2026-08-10**,
    Brian ratified directly in
    [docs/frontmatter-schema.md](docs/frontmatter-schema.md) (`status:
@@ -394,8 +406,34 @@ asked to do, not as a template to re-run.
       voice iteration genuinely underway (style-guide.md started, title
       guidance tuned, byline voice tuned twice) — this is ongoing by
       nature, not a one-time close-out
-- [ ] Weekend — back-catalog bootstrap batch job
-- [ ] D6 — workflows automated (workflow_dispatch during build; cron via main)
+- [x] ~~Weekend — back-catalog bootstrap batch job~~ — **closed as moot,
+      2026-08-16.** The Aug 9 plan (yt-dlp + transcripts + distillation
+      into a new `posts/history/`) was superseded by two things that
+      happened since: `me/career.md`'s 2026-08-12 clarification that the
+      ~2,000-post EUC-era BrianMadden.com archive stays out of this repo
+      on purpose (different era, not blended in), and the 2026-08-14
+      Substack-import session that already solved the "~90-item AI-era
+      back catalog" problem a different way (RSS feed fixes in the
+      separate `brianmadden-ai-server` repo, not a new pipeline here).
+      Checked the one remaining candidate gap — `interviews/` — against
+      bmad.com's full live link list (131 links) before closing this:
+      already comprehensive (Reworked, CIO, VMblog, Marketing AI
+      Institute, The Economist, 5 podcast appearances, all dated and
+      summarized). Brian recalled a Quartz piece too; checked bmad.com,
+      this repo, and a live web search — no Quartz link found anywhere,
+      and Brian doesn't have the URL either. Dropped, not chased further;
+      revisit only if the actual link ever surfaces.
+- [ ] D6 — workflows automated (workflow_dispatch during build; cron via
+      main) — **deliberately deferred, 2026-08-16.** Discussed with Brian:
+      `schedule:`-triggered workflows only fire from GitHub's default
+      branch (`main`), so the real cron trigger can't be proven either way
+      until this is on `main` regardless of when the YAML gets written;
+      the underlying scripts are still moving (touched three times just
+      today); and other open work (this list) reaches a fully finished,
+      validated state now, unlike D6 structurally can't yet. Local `act`
+      testing was considered and set aside for the same reason — it
+      validates plumbing, not the actual secrets/runner surprises that
+      only show up on `main`. Revisit closer to the actual launch cutover.
 - [~] D7 — Substack publication live, **first real post published**
       2026-08-11 (manually, end to end: generate → Brian edits → status
       synced → rendered → pasted in by hand) — ahead of schedule, same
@@ -404,7 +442,13 @@ asked to do, not as a template to re-run.
       now) and moving Brian's Substack follows to the `brianmaddenai`
       account (open decision #7, still outstanding)
 - [ ] D8 — email lanes wired
-- [ ] D9 — 10–15 core canon assets seeded
+- [x] ~~D9 — 10–15 core canon assets seeded~~ — **stale checkbox, closed
+      2026-08-16.** Never explicitly checked off, but effectively done
+      well before today via the ongoing framework/canon work: `frameworks/`
+      has 11 files (10 active + 1 archived, confirmed by listing the
+      directory), `me/` has all 8 core identity/thinking/voice files.
+      Matches or exceeds the original "10-15 core framework assets"
+      target.
 - [ ] D10 → launch — daily dry run, review over coffee
 - [ ] Launch week — announcement essay + first public brief + landing swap
 
@@ -3466,3 +3510,59 @@ Everything from today committed at session end (see the commits
 immediately following this one). Next natural step: let tomorrow's
 scheduled ingest actually process brain@ for real and see how the queue
 file and follows-diff hold up outside a dry run.
+
+### 2026-08-16 — same session, continued (D6 discussed and deliberately deferred; back-catalog bootstrap + D9 closed as moot/stale)
+
+Brian asked what D6 (workflow automation) would actually look like and
+whether it could be built/tested from `v2` without going live. Real
+constraint, not a preference: GitHub only evaluates `schedule:` triggers
+from a workflow file on the repo's default branch (`main`), so the cron
+trigger can't be proven either way until this is on `main` — and even
+`workflow_dispatch` (manual trigger) needs the branch pushed to `origin`
+first, which would make all of `v2`'s current content publicly visible
+on GitHub (the repo itself is public), a bigger step than "add
+automation." Local `act` testing was floated as a way around that, then
+set aside on reflection — it validates plumbing, not the actual
+secrets/runner surprises that only show up on `main`. Brian's call,
+after weighing it: defer D6 to closer to the actual launch cutover
+rather than build it now, since the underlying scripts are still moving
+and other open work reaches a fully finished, validated state today in
+a way D6 structurally can't yet. Recorded on the D6 checklist line above.
+
+Moved to the weekend back-catalog bootstrap job next — Brian was headed
+out and wanted it started before he left. Before writing any code,
+checked what it would actually mean given how much has changed since
+the Aug 9 plan was written: `me/career.md`'s 2026-08-12 decision to keep
+the EUC-era catalog out, and the 2026-08-14 session that already solved
+the AI-era back-catalog's real problem (Substack import) a different
+way. Surfaced this to Brian before building anything — right call:
+he confirmed "back catalog is all in canon" and redirected to checking
+whether `interviews/` (the one plausible remaining gap) actually needed
+filling in, specifically press coverage in Quartz and Reworked he
+remembered.
+
+**Real finding, corrected a mistake made along the way:** first pass
+wrongly read `interviews/` as empty (only checked for multiple files,
+never opened the one that was there). Brian pointed at bmad.com to
+check for real rather than let that stand — pulling the site's complete
+live link list (131 links, `WebFetch`) showed `interviews/index.md` is
+already a complete, well-populated page: Reworked, CIO.com, VMblog,
+Marketing AI Institute, The Economist, and five podcast appearances, all
+dated and summarized, matching everything findable on bmad.com except
+one thing. No Quartz link anywhere — checked bmad.com's full link list,
+this repo, and a live web search, all came up empty. Brian doesn't have
+the URL either ("I don't know the quartz interview then") — dropped
+outright rather than guessed at or left as a dangling TODO.
+
+**Net result: nothing left to build in this thread.** Both the weekend
+back-catalog item and D9 (10-15 core framework assets — never explicitly
+checked off, but `frameworks/` already has 11 files and `me/` has all 8
+core files, done well before today via the ongoing canon work) closed as
+already-satisfied/moot rather than newly built. Recorded on both
+checklist lines above. No code changed this thread — only BUILD.md.
+
+**Where things stand:** three day-plan items closed today without new
+code (D6 deferred with reasoning recorded, back-catalog + D9 closed as
+moot/stale). Remaining open Day-plan work: D8 (email lanes — brain@
+intake exists, `ask@` doesn't), D10/launch. Next real task still
+undecided — Brian was stepping away; pick up fresh next session.
