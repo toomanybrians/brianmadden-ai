@@ -285,11 +285,13 @@ asked to do, not as a template to re-run.
    `check_doc_accuracy.py`'s framework-counting logic should handle an
    archived tier.
 
-9. **`brain@` as a personal flagging inbox, not just a newsletter sink —
-   designed and built 2026-08-16, not yet run live** (queued for
-   tomorrow's regular ingest run instead of a one-off). See the
-   2026-08-16 session entry below for the full build against a real
-   6-message sample. Original write-up kept below for the record.
+9. ~~`brain@` as a personal flagging inbox, not just a newsletter sink~~
+   — **designed 2026-08-16, run live for real 2026-08-17.** See the
+   2026-08-16 session entry below for the original build against a real
+   6-message sample, and the 2026-08-17 entry for the first live run: 7
+   real flags processed (2 follow-reminders queued, 1 screenshot
+   OCR-transcribed, 2 pasted-article extractions, 1 already-tracked), no
+   dry-run-only gaps found. Original write-up kept below for the record.
    ~~(flagged 2026-08-15, design TBD, not built).~~ Brian's started emailing
    `brain@brianmadden.ai` directly from `b@bmad.com` — sources to follow,
    one-time articles to ingest, ideas for later — a different shape of
@@ -3566,3 +3568,92 @@ code (D6 deferred with reasoning recorded, back-catalog + D9 closed as
 moot/stale). Remaining open Day-plan work: D8 (email lanes — brain@
 intake exists, `ask@` doesn't), D10/launch. Next real task still
 undecided — Brian was stepping away; pick up fresh next session.
+
+### 2026-08-17 — Claude Code session (daily pipeline run for real; a real bug found and fixed; AI-disclosure added up front)
+
+Brian asked to kick off today's Daily Brief. First actual weekday run
+of the full pipeline end to end since D5/D7 landed — ingest, brief,
+publish, and (later this session) render — all invoked live, not a
+dry-run or a single-source test.
+
+**Ingest: 61 new notes across 57 sources**, including the first-ever
+*live* run of `brain@` personal-flag routing (open decision #9,
+previously only dry-run-validated) — see that decision's entry above
+for the real numbers. 6 new email-newsletter sources auto-registered
+from things Brian forwarded (NFX, SmarterX/ExecAI Insider Weekly,
+Unsupervised Learning's newsletter, others).
+
+**Real bug found and fixed: the Substack follows-diff duplicate-
+registered ~50 sources on its first live run.** With no prior
+snapshot to diff against (this was the feature's first non-dry-run
+invocation), every one of the `brianmaddenai` account's ~60 current
+follows read as "new," and `_register_new_substack_source()` in
+`skills/ingest/ingest.py` only ever checked for an `id`-slug collision
+before registering — never whether the follow's actual URL/feed was
+already covered by an existing hand-curated entry. Some duplicates got
+caught by the slug collision and suffixed `-2` (`ahead-of-ai-2` next to
+`ahead-of-ai`); others slipped through with no suffix at all because
+the auto-slugified display name didn't match the existing hand-picked
+id (`one-useful-thing` vs. `ethan-mollick`, `simon-willison-s-newsletter`
+vs. `simon-willison`, `nate-s-substack` vs. `nate-b-jones`). Left alone,
+future runs would have polled the same feed under two source IDs
+indefinitely. Fixed by adding `_find_existing_source_for_follow()`,
+which checks each new follow against every existing source's
+`url`/`feed_url` via `substack_follows.matches_follow()` before
+registering — reverted today's erroneous `sources.yaml` additions,
+cleared the bad snapshot, and re-ran live against the real endpoint to
+confirm: 55 of 58 follows correctly matched to existing sources and
+were skipped, only 3 genuine new channels registered
+(`dwarkesh-podcast`, `lex-fridman-2`, `nate-s-substack` — each
+confirmed a real distinct domain from its existing podcast/YouTube
+entry). Brian's call on discovering this: fix and commit separately
+from the daily batch, so the two are easy to tell apart in history —
+landed as two commits (`9831c3e` the fix, `6aebac7` the batch).
+
+**Brief + publish: today's Daily Brief written and drafted for
+Substack** — AT&T's real open-weight routing numbers at scale, Ford
+rehiring 350 experts (a clean invisible-80% receipt), a
+labs-withholding-frontier-from-customers thread, and a 13.6%-vs-89%
+stat on human approval as weak agent governance. Dense/near-verbatim
+per the existing 2026-08-14 default.
+
+**New decision: dense briefs go out unreviewed by default, and that's
+fine.** Discussed whether `render.py` should treat an un-edited dense
+brief as implicitly approved (flip status, commit) so there's a clean
+record of "this went out as generated." Brian's call: no — leave
+`status: not-reviewed-by-human` as the honest, accurate record when
+that's what actually happened; the whole point of this repo is that
+kind of transparency, and everything's going to be open source anyway.
+No code change from this — `render.py`'s existing behavior (status only
+ever flips on a detected diff) already does the right thing.
+
+**Built: explicit AI-authorship disclosure at the top of every
+published post, not just the footer.** Brian's reasoning: as more
+content types land under the `brianmaddenai` byline (fully AI-generated
+dense briefs today, possibly human-reviewed or human-written pieces
+later), a footer-only disclosure isn't prominent enough for a reader
+who doesn't scroll that far, and he wants zero ambiguity that this is
+AI by default. `disclosure_line()` in `skills/brief/render.py` builds a
+one-line disclosure from the file's actual current `status` field and
+inserts it right after the title/subtitle box, before the body —
+computed at render time (not baked into the `.md` by `publish.py`) so
+it stays honest if Brian hand-edits later and status flips to
+`reviewed-and-updated`, with no change needed in `publish.py` to keep
+it accurate. Links to the dense technical brief on GitHub (`main`,
+`GITHUB_BASE` — same 404-until-launch tradeoff Brian already accepted
+for open decision #11's links), since that source is always the
+model's unedited synthesis regardless of what happens to the published
+copy. A dedicated "what is the Daily Briefing" explainer page was
+floated too but deliberately not built this session — Brian's call,
+worth doing once as real writing rather than rushing it mid-thread.
+Re-rendered today's post with the new disclosure; committed as
+`37b361a`.
+
+**Where things stand:** four commits today (`9831c3e` fix, `6aebac7`
+daily batch, `37b361a` disclosure feature, plus this BUILD.md log entry)
+— tree clean after this commits. Today's post is drafted and rendered,
+ready for Brian to paste into Substack by hand; publishing itself
+remains manual. Open decision #9 fully closed (designed, built, and now
+validated live). Next open thread: the "what is the Daily Briefing"
+explainer page, whenever Brian wants to write it — not scoped further
+here.
