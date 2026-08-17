@@ -1311,6 +1311,25 @@ def handle_brain_flag(
     return GMAIL_LABEL_INGESTED if note_path else GMAIL_LABEL_FLAGGED
 
 
+def _find_existing_source_for_follow(follow: dict, existing_sources: list[dict]) -> dict | None:
+    """Does any already-curated sources.yaml entry already cover this
+    followed publication? Checks each existing source's url/feed_url
+    against the follow's subdomain/custom_domain via matches_follow() —
+    catches the same publication registered under a hand-picked id that
+    doesn't slugify to match the follow's display name (e.g. Ethan
+    Mollick's 'ethan-mollick' vs. his Substack's own name 'One Useful
+    Thing'). id-slug collision alone isn't enough: a name-derived slug can
+    differ from an existing id while still being the same feed (found live
+    2026-08-17 — a cold-start run with no prior snapshot treated all ~60
+    of the account's existing follows as new and mis-registered ~50 exact
+    duplicates this check would have caught)."""
+    for s in existing_sources:
+        for candidate_url in (s.get("url"), s.get("feed_url")):
+            if candidate_url and substack_follows.matches_follow(candidate_url, [follow]):
+                return s
+    return None
+
+
 def _register_new_substack_source(follow: dict, sources_path: Path) -> None:
     """Appends a sources.yaml entry for a publication newly seen in the
     brianmaddenai account's live follows (resolves open decision #7's
@@ -1323,7 +1342,9 @@ def _register_new_substack_source(follow: dict, sources_path: Path) -> None:
     (confirmed live 2026-08-16 against three real follows, not assumed),
     so this gets a real working feed_url immediately, not a null
     placeholder. Plain text append, same reason as everywhere else in this
-    file: re-dumping the whole YAML would strip hand-written comments."""
+    file: re-dumping the whole YAML would strip hand-written comments.
+    Caller (main()) is responsible for skipping follows already covered by
+    an existing source — see _find_existing_source_for_follow()."""
     existing_ids = {s["id"] for s in load_sources(sources_path)}
     base_id = slugify(follow.get("name") or follow.get("subdomain") or "unknown-substack")
     source_id = base_id
@@ -1608,7 +1629,13 @@ def main() -> None:
         added, removed = substack_follows.diff_snapshot(snapshot_path, follows)
         if added or removed:
             print(f"\nsubstack follows changed: +{len(added)} -{len(removed)}")
+        existing_sources = load_sources(sources_path)
         for f in added:
+            existing = _find_existing_source_for_follow(f, existing_sources)
+            if existing:
+                print(f"    substack follow '{f.get('name')}' already covered by "
+                      f"existing source '{existing['id']}' — skipping auto-register")
+                continue
             _register_new_substack_source(f, sources_path)
         if removed:
             append_to_queue(
