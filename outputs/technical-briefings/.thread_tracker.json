@@ -38,11 +38,12 @@
     "slug": "open-ended-research-failure-shape",
     "description": "Agents fail at open-ended research in specific non-capability ways \u2014 under-spending budgets, abandoning promising directions early, adding caveats instead of pivoting on negative feedback \u2014 a failure shape that looks like the specification/why problem but hasn't been named as such",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-12",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-17",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Two independent framings of the same long-horizon defect: Lambert's 'irreducible compounding error' across a long document, and Nate Jones's stale-context problem where an agent can't track which decision it currently treats as authoritative."
+      "Two independent framings of the same long-horizon defect: Lambert's 'irreducible compounding error' across a long document, and Nate Jones's stale-context problem where an agent can't track which decision it currently treats as authoritative.",
+      "DiG-bench (Import AI 469) quantifies it: models must infer hidden rules and goals through exploration alone, humans hit 100% on the hardest tier, frontier models ~20% \u2014 the specification/why gap now has a benchmark."
     ]
   },
   {
@@ -79,10 +80,12 @@
     "slug": "displaced-juniors-as-security-supply",
     "description": "AI simultaneously collapsing junior technical hiring and the skill/traceability barrier to cybercrime, creating a convergence where the displaced-talent-pipeline problem becomes a supply-of-capable-motivated-actors problem",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-11",
-    "count": 1,
+    "last_seen": "2026-08-17",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Half of the convergence got louder: GLM-5.3's emergent exploit-chain capability, an abliterated 27B model productized for red-teaming, and Miessler predicting unrestricted open models at frontier capability within 3-12 months. The barrier keeps collapsing."
+    ]
   },
   {
     "slug": "provenance-layer-vs-ai-native-knowledge",
@@ -121,31 +124,71 @@
     "slug": "reasoning-trace-as-attack-surface",
     "description": "Encrypted chain-of-thought blobs are portable and decodable across models in the same family, leaking credentials and refused content, and can carry invisible injected instructions into shared agent workflows \u2014 intermediate cognition as a governance layer distinct from both exfiltration and execution.",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
-    "count": 1,
+    "last_seen": "2026-08-17",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Anthropic injected concept vectors directly into Claude's activations mid-response; the model flagged them as foreign ~20% of the time, and at high strength was consumed by them. Intermediate cognition is manipulable as well as leaky."
+    ]
   },
   {
     "slug": "machine-speed-vs-human-absorption",
     "description": "Infrastructure vendors explicitly marketing 'work at machine speed' as the new operating tempo, in direct tension with the position that human absorption speed is the unchanged invariant \u2014 the open question is whether these workflows still have a human absorbing anything.",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-14",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-17",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "GPT-5.6 Sol Ultrafast (750 tokens/sec on Cerebras, framed as no intelligence tradeoff) sharpens the tension: if the value proposition is purely tempo, the open question is who or what is absorbing the output on the other end."
+      "GPT-5.6 Sol Ultrafast (750 tokens/sec on Cerebras, framed as no intelligence tradeoff) sharpens the tension: if the value proposition is purely tempo, the open question is who or what is absorbing the output on the other end.",
+      "Anthropic made auto mode the default in Claude Code partly because humans only refused a dangerous swapped command 13.6% of the time; Brockman's cyber post pitches AI triaging nearly all initial alerts. Both remove the human absorption step on the grounds that it wasn't functioning."
     ]
   },
   {
     "slug": "labs-as-compute-landlords",
     "description": "AI labs leasing compute to direct competitors (xAI reportedly ~20% of revenue from Anthropic), 20-year multi-billion datacenter leases from Bitcoin miners, and CME AI compute futures \u2014 compute financialized and cross-leased between rivals, changing the mechanical failure mode of a bubble pop from insolvency to counterparty risk.",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-14",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-17",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "[recurrence note not recovered \u2014 a 2026-08-14 tracker-file edit accidentally reverted this run's in-memory update before the raw model note was captured; count/last_seen below are accurate, reconstructed from the day's rendered brief and promotion-candidates.md, but this specific day's one-line evidence note was lost]"
+      "[recurrence note not recovered \u2014 a 2026-08-14 tracker-file edit accidentally reverted this run's in-memory update before the raw model note was captured; count/last_seen below are accurate, reconstructed from the day's rendered brief and promotion-candidates.md, but this specific day's one-line evidence note was lost]",
+      "Nvidia reportedly spending $26B on open-source model development as chip demand generation, Meta releasing open weights to undercut rivals' token revenue, GPU-backed debt now formally rated, and Nate Jones unpacking the $500B figure as six interlocking MOUs rather than raised capital."
     ]
+  },
+  {
+    "slug": "labs-withholding-frontier-from-api",
+    "description": "Frontier labs competing with their own API customers and selectively degrading or reserving top models \u2014 a floor-loss mechanism on a commercial timeline, independent of any bubble pop, already pushing app companies (Harvey, Cursor) to train in-house.",
+    "first_seen": "2026-08-17",
+    "last_seen": "2026-08-17",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "open-weight-floor-is-subsidized",
+    "description": "The continued flow of near-frontier open weights is funded by Nvidia's chip-demand strategy and Meta's move to undercut rival token revenue \u2014 meaning the planning floor rises only as long as those competitive incentives hold, and should be dated rather than assumed.",
+    "first_seen": "2026-08-17",
+    "last_seen": "2026-08-17",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "human-approval-worse-than-automated-policy",
+    "description": "Evidence that human-in-the-loop approval is the weak link in agent governance (humans refused a dangerous command 13.6% of the time vs 89% for automated policy), inverting the assumption behind nearly every enterprise AI governance design in market.",
+    "first_seen": "2026-08-17",
+    "last_seen": "2026-08-17",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "skills-as-supply-chain",
+    "description": "Shared agent skills/plugins as a delayed-activation attack surface \u2014 poisoned skills clearing 1.7M installs, passing scanners at install time and turning malicious later \u2014 which tests the 'skills are auditable text files in git' governance claim and, by extension, subscribable brains.",
+    "first_seen": "2026-08-17",
+    "last_seen": "2026-08-17",
+    "count": 1,
+    "status": "watching",
+    "history": []
   }
 ]

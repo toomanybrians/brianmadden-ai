@@ -735,3 +735,27 @@ sources:
     sender: blog@tomtunguz.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-08-14 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: dwarkesh-podcast
+    name: "Dwarkesh Podcast"
+    type: newsletter
+    url: "https://www.dwarkesh.com"
+    feed_url: "https://www.dwarkesh.com/feed"
+    priority: regular
+    note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-08-17 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
+
+  - id: lex-fridman-2
+    name: "Lex Fridman"
+    type: newsletter
+    url: "https://lexfridman.substack.com"
+    feed_url: "https://lexfridman.substack.com/feed"
+    priority: regular
+    note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-08-17 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
+
+  - id: nate-s-substack
+    name: "Nate’s Substack"
+    type: newsletter
+    url: "https://natesnewsletter.substack.com"
+    feed_url: "https://natesnewsletter.substack.com/feed"
+    priority: regular
+    note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-08-17 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."

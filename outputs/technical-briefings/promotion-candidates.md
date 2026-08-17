@@ -66,3 +66,42 @@ Notes from each recurrence:
 - Inverted this week: The Dissent assigns fake human bylines to AI aggregation agents, deliberately manufacturing the appearance of human authorship rather than failing to prove it.
 
 **Status: not yet reviewed by Brian.**
+
+## `open-ended-research-failure-shape` — flagged 2026-08-17
+
+Agents fail at open-ended research in specific non-capability ways — under-spending budgets, abandoning promising directions early, adding caveats instead of pivoting on negative feedback — a failure shape that looks like the specification/why problem but hasn't been named as such
+
+First seen 2026-08-11, recurred 3 times through 2026-08-17.
+
+Notes from each recurrence:
+
+- Two independent framings of the same long-horizon defect: Lambert's 'irreducible compounding error' across a long document, and Nate Jones's stale-context problem where an agent can't track which decision it currently treats as authoritative.
+- DiG-bench (Import AI 469) quantifies it: models must infer hidden rules and goals through exploration alone, humans hit 100% on the hardest tier, frontier models ~20% — the specification/why gap now has a benchmark.
+
+**Status: not yet reviewed by Brian.**
+
+## `machine-speed-vs-human-absorption` — flagged 2026-08-17
+
+Infrastructure vendors explicitly marketing 'work at machine speed' as the new operating tempo, in direct tension with the position that human absorption speed is the unchanged invariant — the open question is whether these workflows still have a human absorbing anything.
+
+First seen 2026-08-13, recurred 3 times through 2026-08-17.
+
+Notes from each recurrence:
+
+- GPT-5.6 Sol Ultrafast (750 tokens/sec on Cerebras, framed as no intelligence tradeoff) sharpens the tension: if the value proposition is purely tempo, the open question is who or what is absorbing the output on the other end.
+- Anthropic made auto mode the default in Claude Code partly because humans only refused a dangerous swapped command 13.6% of the time; Brockman's cyber post pitches AI triaging nearly all initial alerts. Both remove the human absorption step on the grounds that it wasn't functioning.
+
+**Status: not yet reviewed by Brian.**
+
+## `labs-as-compute-landlords` — flagged 2026-08-17
+
+AI labs leasing compute to direct competitors (xAI reportedly ~20% of revenue from Anthropic), 20-year multi-billion datacenter leases from Bitcoin miners, and CME AI compute futures — compute financialized and cross-leased between rivals, changing the mechanical failure mode of a bubble pop from insolvency to counterparty risk.
+
+First seen 2026-08-13, recurred 3 times through 2026-08-17.
+
+Notes from each recurrence:
+
+- [recurrence note not recovered — a 2026-08-14 tracker-file edit accidentally reverted this run's in-memory update before the raw model note was captured; count/last_seen below are accurate, reconstructed from the day's rendered brief and promotion-candidates.md, but this specific day's one-line evidence note was lost]
+- Nvidia reportedly spending $26B on open-source model development as chip demand generation, Meta releasing open weights to undercut rivals' token revenue, GPU-backed debt now formally rated, and Nate Jones unpacking the $500B figure as six interlocking MOUs rather than raised capital.
+
+**Status: not yet reviewed by Brian.**
