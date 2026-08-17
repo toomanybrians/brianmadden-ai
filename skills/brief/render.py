@@ -37,7 +37,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
 
-from brief import PUBLISHED_ROOT, read_frontmatter_and_body  # noqa: E402
+from brief import GITHUB_BASE, PUBLISHED_ROOT, read_frontmatter_and_body  # noqa: E402
 
 STYLE = """<meta name="color-scheme" content="light">
 <style>
@@ -104,6 +104,43 @@ def normalize_body(body: str) -> str:
     return re.sub(r"^(#{1,6}) (.+)$", shift, body, flags=re.MULTILINE)
 
 
+REVIEW_CLAUSES = {
+    "reviewed-and-updated": "reviewed and edited by Brian before publishing",
+    "reviewed": "reviewed by Brian before publishing",
+    "human-disputes-this": "reviewed by Brian, who disputes part of it — see his notes below",
+}
+
+
+def disclosure_line(fm: dict) -> str:
+    """Explicit AI-authorship disclosure at the *top* of every post, not
+    just the footer — so a reader who doesn't scroll to the bottom still
+    sees it. Brian's ask, 2026-08-17: as more content types land under the
+    brianmaddenai byline (fully AI-generated vs. human-reviewed vs.
+    human-written), a footer-only disclosure isn't prominent enough, and
+    it needs to stay honestly per-post rather than one static claim.
+    Computed here at render time (not baked into the .md body by
+    publish.py) so it reflects the file's *current* status — if Brian
+    hand-edits later and status flips to reviewed-and-updated, the next
+    render picks that up automatically without publish.py needing to know
+    in advance. Links to the dense technical brief (outputs/technical-
+    briefings/), not the published file itself — that source is always
+    the model's own unedited synthesis regardless of what happens to the
+    published copy afterward, so 'raw output' stays true either way.
+    GitHub links point at `main` (GITHUB_BASE), same as the footer and
+    brief.py's thread-tracker links — Brian's explicit call to start these
+    today even though they 404 until the v2 launch PR merges."""
+    review_clause = REVIEW_CLAUSES.get(fm.get("status", "not-reviewed-by-human"),
+                                        "not reviewed or edited by a human before publishing")
+    sources = fm.get("sources") or []
+    source_link = f"{GITHUB_BASE}{sources[0]}" if sources else GITHUB_BASE
+    return (
+        "*This is today's Daily Briefing — written by "
+        "[Brian Madden's AI second brain](https://brianmadden.ai), "
+        f"{review_clause}. [See today's full, unedited AI output on GitHub]"
+        f"({source_link}).*"
+    )
+
+
 def find_published(brief_date: str) -> Path:
     year, month, _ = brief_date.split("-")
     path = PUBLISHED_ROOT / year / month / f"{brief_date}.md"
@@ -163,6 +200,7 @@ def main() -> None:
 
     fm, body = read_frontmatter_and_body(md_path)
     body = normalize_body(body)
+    body = disclosure_line(fm) + "\n\n" + body
     html_body = markdown.markdown(body, extensions=["extra"])
     fields_block = render_fields_block(fm.get("substack_title", ""), fm.get("substack_subtitle", ""))
     full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{fields_block}\n{html_body}\n</body>\n</html>\n"
