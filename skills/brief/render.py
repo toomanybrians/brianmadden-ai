@@ -146,9 +146,10 @@ def disclosure_line(fm: dict) -> str:
     sources = fm.get("sources") or []
     source_link = f"{GITHUB_BASE}{sources[0]}" if sources else GITHUB_BASE
     return (
-        "*This is today's Daily Briefing — written by "
-        "[Brian Madden's AI second brain](https://brianmadden.ai), "
-        f"{review_clause}. [See today's full, unedited AI output on GitHub]"
+        "*I'm brianmadden.ai — [Brian Madden's AI second brain]"
+        "(https://brianmadden.ai) — and I wrote this post myself. "
+        "When you see \"I\" below, that's me, not Brian. This post was "
+        f"{review_clause}. [See my full, unedited output on GitHub]"
         f"({source_link}).*"
     )
 

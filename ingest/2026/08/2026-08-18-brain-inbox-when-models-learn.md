@@ -2,7 +2,7 @@
 title: When Models Learn
 source: brain@ inbox (curated newsletters)
 source_id: brain-inbox
-source_url: ''
+source_url: https://www.tomtunguz.com/test-time-training-impact/
 author: Tomasz Tunguz <blog@tomtunguz.com>
 date_published: '2026-08-17'
 date_captured: '2026-08-18'

@@ -116,7 +116,11 @@ thinking about." Be honest if today's batch is thin here too.
 ## Worth Brian's attention
 
 2-4 items, max, that you'd flag if he only has two minutes. Your judgment
-call, stated plainly, not a summary of the sections above.
+call, stated plainly, not a summary of the sections above. This section
+gets read on its own by people who skip everything above it — so every
+item must carry its own Markdown link per the Linking rules below, even if
+the same link already appeared earlier in the brief. Don't assume the
+reader saw it there.
 ```
 
 **Part 2 — machine-readable thread signals.** On a new line after part 1,
