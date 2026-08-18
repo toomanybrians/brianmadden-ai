@@ -618,7 +618,9 @@ VIEW_ONLINE_ANCHOR_RE = re.compile(
 )
 VIEW_ONLINE_TEXT_RE = re.compile(
     r'view\s+(this\s+)?(email\s+)?(in\s+(your\s+)?browser|online|web)|'
-    r'read\s+(it\s+)?online|open\s+in\s+browser|web\s+version',
+    r'read\s+(it\s+)?online|open\s+in\s+browser|web\s+version|'
+    r'read\s+the\s+(full\s+)?(post|article|story)|'
+    r'continue\s+reading|keep\s+reading|full\s+(story|article|post)',
     re.IGNORECASE,
 )
 
@@ -634,7 +636,20 @@ def _find_view_online_link(html: str) -> str:
     newsletter-ESP phrasing. Returns the raw click-tracking redirect as
     found in the HTML — see _resolve_email_link() for why that redirect
     gets followed and stripped down before it's actually used as a
-    citation link."""
+    citation link.
+
+    Extended 2026-08-18 to also match 'continue reading' / 'read the full
+    post' / 'full story' style anchors (Substack, Beehiiv, ConvertKit all
+    use these for a single blog-cross-post email) — deliberately still
+    just recognized phrasing, never a blind 'grab any link in the body'
+    heuristic, which would risk mis-attributing an ad or an unrelated
+    story's link. Returns the *first* matching anchor in document order,
+    so a genuine multi-story digest (AlphaSignal, "Best of NFX") with
+    several per-story "read more" links can still end up pointing at just
+    the first story — a real known limitation, not a guaranteed fix for
+    every digest. brief.py's prompt.md now has a fallback for the
+    remaining true no-link cases: name the newsletter instead of a link
+    (see the note's `author` field)."""
     for match in VIEW_ONLINE_ANCHOR_RE.finditer(html):
         href, inner_html = match.groups()
         if VIEW_ONLINE_TEXT_RE.search(strip_html(inner_html)):

@@ -18,6 +18,7 @@ conventions.
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -44,6 +45,8 @@ PROMOTION_THRESHOLD = 3  # distinct briefing runs a thread must recur in before 
 # though ingest/ and outputs/ (v2-branch-only) would not.
 GITHUB_REPO = "https://github.com/toomanybrians/brianmadden-ai"
 GITHUB_BASE = f"{GITHUB_REPO}/blob/main/"
+
+SOURCES_PATH = ROOT / "sources" / "sources.yaml"
 
 INGEST_ROOT = ROOT / "ingest"
 # Split 2026-08-12 (Brian's call): the dense brief and the Substack draft
@@ -122,6 +125,50 @@ def read_frontmatter_and_body(path: Path) -> tuple[dict, str]:
     return fm, parts[2].strip()
 
 
+AUTHOR_EMAIL_RE = re.compile(r"\s*<[^<>]*>\s*$")
+AUTHOR_EMAIL_ADDR_RE = re.compile(r"<([^<>]+)>")
+
+
+def _clean_author_name(author: str) -> str:
+    """Ingest notes store email-sourced authors as 'Display Name
+    <address@example.com>' (straight from the message's From header). The
+    display name is what a citation should use ('via NFX', not 'via NFX
+    <qed@nfx.com>') — stripping the address here, deterministically, means
+    brief.py's prompt never has to ask the model to do that formatting
+    itself. A no-angle-bracket author (RSS byline, etc.) passes through
+    unchanged."""
+    return AUTHOR_EMAIL_RE.sub("", author or "").strip()
+
+
+def _extract_author_email(author: str) -> str:
+    """Pulls the bare address out of 'Display Name <address@example.com>',
+    lowercased for matching against sources.yaml's `sender` field. Empty
+    string if there's no angle-bracket address (RSS bylines, etc.)."""
+    m = AUTHOR_EMAIL_ADDR_RE.search(author or "")
+    return m.group(1).strip().lower() if m else ""
+
+
+def load_sender_homepages() -> dict[str, str]:
+    """Maps a lowercased sources.yaml `sender` address to its `url` —
+    2026-08-18, Brian's ask: for an email-sourced ingest note with no
+    per-article source_url (a digest with no single story, a subscription-
+    confirmation email), fall back to the newsletter's own homepage rather
+    than naming it with no link at all. Read fresh each run, not cached —
+    sources.yaml gets edited by hand and by ingest.py's own
+    auto-registration, and this should always reflect the current file.
+    Entries with no `url` filled in yet (still `null`) are simply absent
+    from the map, same as if the source didn't exist — no dict entry with
+    a None value to trip up an f-string later."""
+    if not SOURCES_PATH.exists():
+        return {}
+    data = yaml.safe_load(SOURCES_PATH.read_text(encoding="utf-8")) or {}
+    return {
+        s["sender"].lower(): s["url"]
+        for s in data.get("sources", [])
+        if s.get("sender") and s.get("url")
+    }
+
+
 def load_previously_briefed_paths() -> set[str]:
     """Every ingest/ note path already listed in some prior dense brief's
     `sources:`. No separate state file — the committed briefs *are* the
@@ -147,6 +194,7 @@ def load_previously_briefed_paths() -> set[str]:
 def load_recent_notes(since_days: float) -> list[dict]:
     cutoff = (datetime.now(timezone.utc) - timedelta(days=since_days)).date()
     already_briefed = load_previously_briefed_paths()
+    sender_homepages = load_sender_homepages()
     notes = []
     for path in sorted(INGEST_ROOT.rglob("*.md")):
         if path.name == "README.md":
@@ -164,11 +212,19 @@ def load_recent_notes(since_days: float) -> list[dict]:
             continue
         if captured < cutoff:
             continue
+        source_url = fm.get("source_url", "")
+        author_raw = fm.get("author", "")
+        # Only worth offering a homepage fallback when there's no
+        # per-article link to begin with — if source_url is set, that's
+        # always the more specific, better link.
+        homepage_url = "" if source_url else sender_homepages.get(_extract_author_email(author_raw), "")
         notes.append({
             "path": rel_path,
             "title": fm.get("title", "(untitled)"),
             "source": fm.get("source", fm.get("source_id", "unknown")),
-            "source_url": fm.get("source_url", ""),
+            "source_url": source_url,
+            "author": _clean_author_name(author_raw),
+            "homepage_url": homepage_url,
             "date_published": fm.get("date_published"),
             "body": body,
         })
@@ -318,17 +374,30 @@ def append_promotion_candidates(promoted: list[dict], run_date: str) -> None:
 
 # -------------------------------------------------------------- prompting --
 
+def _format_note_for_prompt(n: dict) -> str:
+    """One ingest note's block in the prompt. The 'Newsletter homepage'
+    line only appears when there's no per-article source_url but
+    sources.yaml has a known homepage for that sender (see
+    load_sender_homepages()) — added 2026-08-18 so the model has a real
+    fallback link to offer (per prompt.md's Linking rules) instead of
+    naming a newsletter with nothing to click through to."""
+    lines = [
+        f"### {n['title']} ({n['source']}, published {n['date_published'] or 'undated'})",
+        f"Author/newsletter: {n['author'] or '(not captured)'}",
+        f"Source URL: {n['source_url'] or '(none captured)'}",
+    ]
+    if n.get("homepage_url"):
+        lines.append(f"Newsletter homepage (no per-article link available): {n['homepage_url']}")
+    return "\n".join(lines) + f"\n\n{n['body']}"
+
+
 def build_prompt(template: str, notes: list[dict], tracker: list[dict], brief_date: str) -> str:
     voice = (ROOT / "me" / "voice.md").read_text(encoding="utf-8")
     style_guide = (ROOT / "me" / "style-guide.md").read_text(encoding="utf-8")
     published = (ROOT / "me" / "published-thinking.md").read_text(encoding="utf-8")
     developing = (ROOT / "me" / "developing-thinking.md").read_text(encoding="utf-8")
 
-    notes_block = "\n\n".join(
-        f"### {n['title']} ({n['source']}, published {n['date_published'] or 'undated'})\n"
-        f"Source URL: {n['source_url'] or '(none captured)'}\n\n{n['body']}"
-        for n in notes
-    )
+    notes_block = "\n\n".join(_format_note_for_prompt(n) for n in notes)
     watching = [t for t in tracker if t.get("status") == "watching"]
     tracked_block = (
         "\n".join(f"- `{t['slug']}` — {t['description']}" for t in watching)

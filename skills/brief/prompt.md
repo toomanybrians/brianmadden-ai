@@ -51,8 +51,8 @@ so. Don't force a connection that isn't there.
 
 ## Today's batch — {{ENTRY_COUNT}} ingest notes, tier-1 raw material, neutral third-person extraction
 
-Each note below has a "Source URL" line — use it for linking, per the
-Linking rules below.
+Each note below has an "Author/newsletter" line and a "Source URL" line —
+use them for linking and attribution, per the Linking rules below.
 
 {{INGEST_NOTES}}
 
@@ -67,6 +67,14 @@ on natural anchor text (the source name, the claim, the framework name —
 never a bare "here" or a raw pasted URL).
 
 - **Ingest sources** — link to the "Source URL" given with that note above.
+  If it says "(none captured)" — common for email-newsletter items that
+  are a digest with no single article (e.g. "Best of NFX") or a
+  subscription-confirmation email with nothing to link to — don't just
+  drop the attribution. Check for a "Newsletter homepage" line instead: if
+  present, link the newsletter's name to that URL (e.g. "[NFX](https://www.nfx.com)'s
+  newsletter, no direct article link available"). If neither line has a
+  URL, name the newsletter from "Author/newsletter" with no link — never
+  drop the attribution entirely.
 - **Brian's published work** (a Citrix blog post, LinkedIn article, talk,
   podcast episode) — `me/published-thinking.md` and
   `me/developing-thinking.md` above already contain inline Markdown links
