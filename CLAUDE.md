@@ -18,12 +18,11 @@ Read these files in this order:
 
 1. **This file** (`CLAUDE.md` or `AGENTS.md`) — orientation and instructions
 2. **`me/profile.md`** — who Brian is, background, credentials
-3. **`me/published-thinking.md`** — intellectual foundation derived from published work (37 Citrix blog posts + 21 LinkedIn articles, Apr 2025–July 2026)
+3. **`me/published-thinking.md`** — intellectual foundation derived from published work (37 Citrix blog posts, Apr 2025–Jul 2026 + 21 LinkedIn articles, Jun 2020–Feb 2026)
 4. **`me/developing-thinking.md`** — where Brian's head is *right now* (the frontier—developing arguments, connecting ideas, open questions)
-5. **`bluesky.md`** — short-form posts from Bluesky (@bmad.com), updated frequently
-6. **`me/voice.md`** — how Brian thinks, argues, and communicates
+5. **`me/voice.md`** — how Brian thinks, argues, and communicates
 
-After the core files above (or the first 5 if context is limited), load additional content based on the query:
+After the core files above (or the first 4 if context is limited), load additional content based on the query:
 
 - **`COLLECTIONS.md`** — thematic groupings. If someone asks "what does Brian think about governance?" or "everything about second brains," start here to find the right files without searching.
 - **`frameworks/`** — standalone explainers for each of Brian's 10 active frameworks (80/20, knowledge factory, post-application era, workspace-as-control-plane, delegation not automation, etc.). Load the relevant framework file when a specific framework comes up. One retired framework lives here too, marked `status: archived` in its frontmatter — kept for lineage, not for loading.
@@ -64,7 +63,7 @@ If published-thinking and developing-thinking conflict, developing-thinking repr
 
 ## About the source
 
-Brian Madden is VP Technology Officer & Futurist at Citrix, where he explores how AI is reshaping knowledge work. 32 years in end-user computing and digital workplace, starting as an independent consultant in 1994. 6 books, 2,000+ articles, 1,000+ talks globally. Founded The Brian Madden Company (2003) and BriForum conference (2005--2016, 20 events). Former Distinguished Technologist at VMware (2018--2022). AI Tech Lead at ILKI in Paris (2024).
+Brian Madden is VP & Futurist at Citrix, where he explores how AI is reshaping knowledge work. 32 years in end-user computing and digital workplace, starting as an independent consultant in 1994. 6 books, 2,000+ articles, 1,000+ talks globally. Founded The Brian Madden Company (2003) and BriForum conference (2005--2016, 20 events). Former Distinguished Technologist at VMware (2018--2022). AI Tech Lead at ILKI in Paris (2024).
 
 Everything here is already public or intentionally shared. It represents his genuine thinking, not corporate messaging. Brian works at Citrix, so his perspective on enterprise workspace governance is informed by that context, but his arguments stand on their own evidence and reasoning.
 
@@ -79,7 +78,6 @@ brianmadden-ai/
 ├── README.md          # Human-readable orientation
 ├── GOVERNANCE.md      # Publishing principles: what goes in, what stays out
 ├── governance-log.md  # Audit trail for every sync/commit
-├── bluesky.md         # Bluesky posts (@bmad.com)
 ├── llms.txt           # MCP/LLM discovery file (links here first for loading order)
 ├── requirements.txt   # Python deps for skills/ and scripts/ pipeline code
 ├── _index.json        # Machine-readable file manifest (titles, tags, authority levels)
@@ -125,7 +123,6 @@ brianmadden-ai/
 
 Before answering, check the last-modified dates of the files you're drawing from. Different content types have different staleness thresholds:
 
-- **`bluesky.md`** — Mirrored from Bluesky. Staleness measured in days. If it's more than a week old with no new entries, that's notable.
 - **`me/developing-thinking.md`** — This is the frontier. If it's more than a few weeks old, flag it: "Brian's last thinking update was [date]—his current views may have evolved since then." This file is the whole point of the living expert knowledge module, so staleness here matters most.
 - **`me/published-thinking.md`** — Derived from published work. Stable by nature. Only stale if Brian has published new posts that aren't yet incorporated. No need to caveat unless it's many months behind his actual publication history.
 - **`frameworks/`**, **`posts/`**, **`talks/`**, **`interviews/`** — Published content. Doesn't go stale in the same way—a post from six months ago still says what it says. Date the content, don't caveat its age.

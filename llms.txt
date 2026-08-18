@@ -1,8 +1,8 @@
 # brianmadden.ai
 
-> Brian Madden's expert knowledge module for AI — v3.8 (121 files, ~239k words, 10 frameworks, 58 posts, 20 talks, updated 2026-08-14)
+> Brian Madden's expert knowledge module for AI — v3.9 (118 files, ~238k words, 10 frameworks, 58 posts, 20 talks, updated 2026-08-18)
 
-Contains his frameworks, arguments, positions, and current thinking on how AI is reshaping knowledge work and the enterprise. Brian is VP Technology Officer & Futurist at Citrix, with 32 years in end-user computing, 6 books, 2,000+ articles, and 1,000+ talks globally.
+Contains his frameworks, arguments, positions, and current thinking on how AI is reshaping knowledge work and the enterprise. Brian is VP & Futurist at Citrix, with 32 years in end-user computing, 6 books, 2,000+ articles, and 1,000+ talks globally.
 
 This is not a content archive. It is a structured representation of how Brian thinks, what he believes, and why—updated in real time as his thinking evolves. Built for AI consumption via MCP. All content files include YAML frontmatter with authority levels, tags, and relationship metadata.
 
@@ -49,10 +49,6 @@ This is not a content archive. It is a structured representation of how Brian th
 - [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): 20 speech and podcast-appearance transcripts
 - [podcast/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/podcast/index.md): Citrix AI Hotsheet—Brian's own podcast, co-hosted with Dave Brear. Show page plus 4 episode transcripts.
 - [interviews/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/interviews/index.md): Press interviews, commentary, and podcast guest appearances
-
-## Bluesky
-
-- [bluesky.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/bluesky.md): Brian's Bluesky posts (@bmad.com), mirrored here for AI consumption. Updated frequently.
 
 ## Also in me/
 

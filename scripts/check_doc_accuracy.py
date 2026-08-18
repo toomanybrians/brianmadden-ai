@@ -187,6 +187,56 @@ def check_linkedin_articles():
     ])
 
 
+MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def _frontmatter_date_range(dirpath):
+    """Min/max (year, month) across every file's `date:` frontmatter field."""
+    dates = []
+    for fname in count_md_files(dirpath):
+        text = read(f"{dirpath}/{fname}")
+        m = re.search(r'^date:\s*"?(\d{4})-(\d{2})-\d{2}"?', text, re.MULTILINE)
+        if m:
+            dates.append((int(m.group(1)), int(m.group(2))))
+    return min(dates), max(dates)
+
+
+def _fmt_ym(ym):
+    year, month = ym
+    return f"{MONTH_ABBR[month - 1]} {year}"
+
+
+def check_published_thinking_dates():
+    """
+    The loading-order bullet in CLAUDE.md/AGENTS.md states a date range per
+    corpus (Citrix blog, LinkedIn articles) so an AI gets temporal grounding
+    without opening files. Computed from frontmatter `date:` fields — this
+    catches drift the count checks above can't, since a stale range can be
+    wrong even when the count is right (e.g. LinkedIn articles predating the
+    stated start month, missed 2026-08-18).
+    """
+    citrix_min, citrix_max = _frontmatter_date_range("posts/citrix-blog")
+    li_min, li_max = _frontmatter_date_range("posts/linkedin/articles")
+    expected = (_fmt_ym(citrix_min), _fmt_ym(citrix_max), _fmt_ym(li_min), _fmt_ym(li_max))
+
+    pattern = re.compile(
+        r"published work \(\d+ Citrix blog posts, ([A-Za-z]+ \d{4})–([A-Za-z]+ \d{4})"
+        r" \+ \d+ LinkedIn articles, ([A-Za-z]+ \d{4})–([A-Za-z]+ \d{4})\)"
+    )
+    for file in ("CLAUDE.md", "AGENTS.md"):
+        text = read(file)
+        m = pattern.search(text)
+        if not m:
+            warn(f"published-thinking-dates: couldn't find the dated loading-order bullet "
+                 f"in {file} — pattern may be stale, check manually")
+            continue
+        if m.groups() != expected:
+            fail(f"published-thinking-dates: {file} says Citrix {m.group(1)}–{m.group(2)} / "
+                 f"LinkedIn {m.group(3)}–{m.group(4)}, but actual frontmatter range is "
+                 f"Citrix {expected[0]}–{expected[1]} / LinkedIn {expected[2]}–{expected[3]}")
+
+
 def check_talks():
     actual_count = len(count_md_files("talks"))
     check_count_mentions(actual_count, "talks", [
@@ -229,6 +279,7 @@ def main():
     check_phantom_framework_refs(real_stems)
     check_citrix_posts()
     check_linkedin_articles()
+    check_published_thinking_dates()
     check_talks()
     check_top_level_tree()
     check_claude_agents_parity()

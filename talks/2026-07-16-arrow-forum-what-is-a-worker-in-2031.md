@@ -19,7 +19,7 @@ status: reviewed
 **Date:** July 16, 2026
 **Location:** Germany
 **Format:** ~40-minute keynote
-**Speaker:** Brian Madden, VP Technology Officer & Futurist, Citrix
+**Speaker:** Brian Madden, VP & Futurist, Citrix
 
 Reconstructed from the slide deck (no audio or video recording exists). This keynote is the main-stage version of the argument published four days later as the blog post "How to build an AI strategy that survives the bubble pop" (`posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md`) and discussed on Citrix AI Hotsheet EP4.
 

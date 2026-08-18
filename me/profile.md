@@ -12,7 +12,7 @@ status: reviewed
 
 ## Current role
 
-VP Technology Officer & Futurist at Citrix. I explore how AI is reshaping knowledge work. I write on the Citrix blog, post on LinkedIn, and speak globally. Based in Paris, France (originally from Akron, Ohio).
+VP & Futurist at Citrix. I explore how AI is reshaping knowledge work. I write on the Citrix blog, post on LinkedIn, and speak globally. Based in Paris, France (originally from Akron, Ohio).
 
 ## Background
 
@@ -41,7 +41,6 @@ I joined Citrix in February 2025 because the AI transformation of knowledge work
 ## Links
 
 - [LinkedIn](https://www.linkedin.com/in/bmadden/)
-- [Bluesky](https://bsky.app/profile/bmad.com)
 - [bmad.com](https://bmad.com)
 - [Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author)
 - [Sessionize speaker profile](https://sessionize.com/brianmadden/)

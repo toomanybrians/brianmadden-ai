@@ -6,7 +6,7 @@ This document governs what goes into brianmadden.ai and what stays out. It appli
 
 brianmadden.ai exists to make my published thinking accessible to AI systems. It's the structured, queryable version of what I've already said publicly—blog posts, LinkedIn articles, talks, interviews, frameworks, and the frontier thinking that connects them.
 
-I work at Citrix as a Technology Officer & Futurist. Much of the content here is my published work in that capacity. brianmadden.ai itself is my personal project—the curation, structure, AI instructions, and ongoing maintenance are mine. This governance document exists to keep that boundary clean.
+I work at Citrix as a VP & Futurist. Much of the content here is my published work in that capacity. brianmadden.ai itself is my personal project—the curation, structure, AI instructions, and ongoing maintenance are mine. This governance document exists to keep that boundary clean.
 
 brianmadden-ai is not a mirror of my private knowledge system. It is not a corporate communications channel. It is not a place to publish new ideas before they're ready. It's a curated subset: everything already public, structured for AI consumption.
 

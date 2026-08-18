@@ -60,21 +60,6 @@
       "staleness_threshold": null
     },
     {
-      "path": "bluesky.md",
-      "title": "Brian's Bluesky",
-      "authority_level": 2,
-      "file_type": "social",
-      "tags": [
-        "short-form",
-        "bluesky",
-        "current-thinking"
-      ],
-      "word_count": 150,
-      "staleness_threshold": "days",
-      "updated": "2026-03-05",
-      "description": "Brian's Bluesky posts (@bmad.com), mirrored here for AI consumption."
-    },
-    {
       "path": "me/developing-thinking.md",
       "title": "Where Brian's head is right now",
       "authority_level": 2,
@@ -1721,33 +1706,6 @@
       "staleness_threshold": "weeks",
       "date": "2026-04-07",
       "description": "Collection of short-form LinkedIn feed posts from 2026. Updated as new posts are published."
-    },
-    {
-      "path": "posts/bluesky/index.md",
-      "title": "Bluesky posts",
-      "authority_level": null,
-      "file_type": "index",
-      "tags": [
-        "social-media",
-        "bluesky"
-      ],
-      "word_count": 50,
-      "staleness_threshold": "weeks"
-    },
-    {
-      "path": "posts/bluesky/posts-2026.md",
-      "title": "Bluesky posts — 2026",
-      "authority_level": 5,
-      "file_type": "bluesky-posts-collection",
-      "tags": [
-        "social-media",
-        "short-form",
-        "bluesky"
-      ],
-      "word_count": 50,
-      "staleness_threshold": "weeks",
-      "date": "2026-03-02",
-      "description": "Collection of Bluesky posts from 2026. Updated as new posts are published."
     },
     {
       "path": "podcast/index.md",

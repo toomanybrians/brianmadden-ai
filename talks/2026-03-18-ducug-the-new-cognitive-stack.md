@@ -18,7 +18,7 @@ status: reviewed
 **Date:** March 18, 2026
 **Location:** Oude Duikenburg, Echteld, Netherlands
 **Format:** 60-minute closing session
-**Speaker:** Brian Madden, VP Technology Officer & Futurist, Citrix
+**Speaker:** Brian Madden, VP & Futurist, Citrix
 
 ## Talk summary
 

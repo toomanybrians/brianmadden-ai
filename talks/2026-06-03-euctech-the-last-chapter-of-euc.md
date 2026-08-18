@@ -19,7 +19,7 @@ status: reviewed
 **Date:** June 3, 2026
 **Location:** Aboard the Oslo-Kiel cruise, Norway
 **Format:** ~45-minute keynote (Day 1)
-**Speaker:** Brian Madden, VP Technology Officer & Futurist, Citrix
+**Speaker:** Brian Madden, VP & Futurist, Citrix
 
 Also published as a special solo edition of the Citrix AI Hotsheet podcast (Episode 2, June 13, 2026) — audio and video. Full transcript: `podcast/ep2.md`.
 

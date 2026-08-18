@@ -66,7 +66,7 @@ Btian was a distinguished technologist in VMware's EUC Office of the CTO. Part o
 
 ## Citrix (February 2025—present)
 
-Joined as VP Technology Officer & Futurist. Focus: how AI is reshaping knowledge work and the enterprise workspace. Details of the current role are in [me/profile.md](../me/profile.md).
+Joined as VP & Futurist. Focus: how AI is reshaping knowledge work and the enterprise workspace. Details of the current role are in [me/profile.md](../me/profile.md).
 
 ## The AI writing years (2023—present)
 

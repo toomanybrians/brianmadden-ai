@@ -399,6 +399,44 @@ asked to do, not as a template to re-run.
     `/review-thinking` already does, and decide whether it replaces the
     full-mode branch entirely or the two stay complementary.
 
+13. **A weekly "how my thinking has changed" recap post (flagged
+    2026-08-18, not scoped, not to build yet).** Brian's idea: a lighter,
+    lower-frequency companion to the Daily Brief — walk through what
+    actually moved in `me/developing-thinking.md` that week (updates,
+    promotions to canon, concepts that matured or got dropped), plus
+    possibly a look-ahead at topics being considered for future blog
+    posts or podcast episodes. Explicitly for readers who don't want the
+    daily minutiae — a different tag/section from the Daily Brief, not a
+    replacement. Natural fit with existing pipeline pieces already built
+    for other reasons: `outputs/technical-briefings/promotion-candidates.md`
+    (open decision #8) and `outputs/canon-triage/staleness-candidates.md`
+    (also #8) already track exactly the kind of week-over-week movement
+    this post would narrate. Whoever picks this up should look at a few
+    real weeks of those two files plus `developing-thinking.md`'s git
+    history before designing the actual synthesis prompt — same
+    discipline as every other new pipeline skill in this repo.
+
+14. **MCP spec 2026-07-28 ("MCP 2.0") — no action needed in this repo,
+    flagged for the server repo (2026-08-18).** Brian asked whether
+    anything needs to change for MCP 2.0. Researched directly (MCP's own
+    blog, `blog.modelcontextprotocol.io`) rather than guessing: the
+    2026-07-28 spec is real and substantial — a move from a stateful,
+    session-based protocol to a stateless request/response core, plus
+    header-based routing, cacheable list results, Multi Round-Trip
+    Requests replacing held-open streams for elicitation/sampling, and
+    authorization hardening (RFC 9207 issuer validation, a shift from
+    Dynamic Client Registration to Client ID Metadata Documents). Old
+    behavior (Roots, Sampling, Logging, DCR, the legacy HTTP+SSE
+    transport) is deprecated with a 12-month minimum support window, not
+    removed outright. This repo (`brianmadden-ai`) is content only — the
+    actual MCP server (`mcp.brianmadden.ai`, a Cloudflare Worker reading
+    Cloudflare KV) lives in the separate `brianmadden-ai-server` repo,
+    not accessible from here. Nothing here needs to change. Whenever
+    Brian's next in that repo: check what SDK/spec version the Worker
+    currently speaks against 2026-07-28, particularly if it relies on
+    session IDs or the old elicitation/sampling request shape — not
+    urgent given the 12-month deprecation runway, but worth knowing.
+
 ## Day plan (checklist — details in the plan doc §8)
 
 - [x] D1 — Workspace + aliases + MX · lock naming · carve-out note sent
@@ -3743,3 +3781,86 @@ subscribing). It does not appear on direct links to individual posts —
 only the bare `subdomain.substack.com` root — so it shouldn't affect
 readers arriving via shared post links or search, only first-time
 visits to the homepage itself.
+
+**Documentation-accuracy pass: title change, Bluesky removed, stale
+date range fixed with a new automated check.** Brian caught the
+loading-order bullet in `CLAUDE.md`/`AGENTS.md` stating "Apr
+2025–July 2026" as the published-work date range — true for the 37
+Citrix posts, but wrong for the 21 LinkedIn articles, 17 of which
+predate Apr 2025 (oldest: Jun 2020). Fixed the text to state both
+ranges separately (`Citrix, Apr 2025–Jul 2026 + LinkedIn, Jun
+2020–Feb 2026`), and — since Brian's ask was to *ensure* it stays
+correct, not just fix it once — added `check_published_thinking_dates()`
+to `scripts/check_doc_accuracy.py`: computes real min/max dates from
+every file's frontmatter and fails the check if the stated range
+drifts. Same script already caught the *count* half of this
+(37/21) but had no date-range check before today. Caveat carried
+over from the `.github/workflows/` finding above: `check-docs.yml`
+only runs on push/PR to `main`, and `v2` hasn't merged yet, so this
+new check (like the existing ones) won't actually run in CI until
+after tomorrow's merge — worth running `python3
+scripts/check_doc_accuracy.py` locally in the meantime. Verified
+clean after all of today's edits.
+
+Brian: "I'm not using [Bluesky], we should remove all references to
+it and any skills around it." Found no actual pipeline/skill code for
+it (grepped — nothing outside `ingest/`, which is quarantined
+anyway); it was always hand-maintained. Deleted `bluesky.md` (the
+stale mirror file — hadn't been updated since 2026-03-05, five
+months dead) and `posts/bluesky/` (`index.md`, `posts-2026.md`);
+removed every loading/reference pointer in `CLAUDE.md`, `AGENTS.md`,
+`llms.txt` (dropped the `## Bluesky` section, bumped file count
+121→118, version v3.8→v3.9), `_index.json` (3 entries), `README.md`,
+and `me/profile.md`. Deliberately left untouched: mentions of
+Bluesky *inside* already-published historical content (two LinkedIn
+post-archive files, the 2024-11-26 EUC Forum talk transcript quoting
+what Brian actually said on stage) and BUILD.md's own past journal
+entries — those are historical record, not active references, and
+this repo's convention is to never rewrite history. Content is still
+recoverable from git history if ever wanted back; nothing was force-
+deleted.
+
+Title fix: "VP Technology Officer & Futurist at Citrix" → "VP &
+Futurist at Citrix" everywhere it was descriptive/authorial text —
+`CLAUDE.md`, `AGENTS.md`, `llms.txt`, `GOVERNANCE.md`,
+`me/profile.md`, `me/career.md`, the 4 `talks/*.md` speaker-credit
+lines, and the boilerplate intro line repeated across the 4
+`posts/linkedin/posts/standalone-posts-*.md` files. Deliberately left
+one instance untouched: the body text of
+`posts/linkedin/articles/2026-01-12-everything-i-wrote-said-workplace-ai-2025.md`
+("...joined Citrix in February as a Technology Officer & Futurist")
+is inside an already-published LinkedIn article being reproduced
+here — same don't-rewrite-history call as the Bluesky mentions above.
+Flagging this one explicitly since it's the one case where "should
+not show up anywhere" and "don't rewrite published history" pull in
+different directions — Brian can override if he'd rather it changed
+too.
+
+Added two small new sections to `README.md` per Brian's asks: "Two
+ways to see this" (brianmadden.ai as the published presentation
+layer vs. browsing this GitHub repo's raw markdown directly) and "The
+Daily Briefing" (a short factual explainer — dense technical version
+plus the shorter Substack-voiced rendering, AI-written by default
+with per-post disclosure). Written in third person / repo-documentation
+voice, not as Brian's own first-person writing — he'd previously
+deferred a real "what is the Daily Briefing" piece specifically to do
+as authored writing later (2026-08-17 session), so this fills the gap
+factually without pre-empting that.
+
+**Reviewed (no changes made): "What you can do with brianmadden.ai"
+section and MCP 2.0.** Brian asked whether the "what you can do"
+guidance reflects current technique now that the file's ~6 months
+old, and separately whether MCP 2.0 requires anything here. Read:
+that section's four bullets (answer as Brian would, apply frameworks,
+understand current thinking, distinguish published from evolving) are
+about *content-usage judgment*, not connection mechanics — they've
+aged fine because the thing they're teaching hasn't changed. The
+actual protocol-level evolution (see open decision #14 above) lives
+one layer down, in the separate server repo's implementation, and
+doesn't change what an AI should *do* with the content once loaded.
+No edit made; flagging in case Brian disagrees on a re-read.
+
+Logged two new flagged-not-built ideas as open decisions #13 (weekly
+"how my thinking has changed" recap post) and #14 (MCP spec
+2026-07-28 readiness — action item lives in the server repo, not
+here).
