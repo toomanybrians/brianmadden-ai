@@ -161,12 +161,20 @@ asked to do, not as a template to re-run.
    Levie were dropped from the list per Brian (personal LinkedIn, no RSS;
    Roetzer already covered via his podcast + newsletter entries). Brian will
    check whether Levie posts somewhere with a feed (X/Twitter?) — re-add if
-   so. ExecAI Insider Weekly stays with `feed_url: null` — real source,
+   so. **2026-08-18 update:** the `x-timeline` source (see #7 below) already
+   pulls the full home timeline of everyone the `brianmaddenai` X account
+   follows in one call, not per-person entries — so if Levie's covered on
+   X there, no separate `sources.yaml` row is needed regardless of whether
+   he's also on LinkedIn. Brian checking now whether his X posts mirror his
+   LinkedIn closely enough to skip a LinkedIn-specific entry entirely.
+   ExecAI Insider Weekly stays with `feed_url: null` — real source,
    email-only, needs the email-ingestion path from #7 below, not a feed poll.
-   The other half of D3, moving Substack follows to the `brianmaddenai`
+   ~~The other half of D3, moving Substack follows to the `brianmaddenai`
    account, is still outstanding — manual action on Brian's Substack
-   account, not something this session can do. See #7 — the Substack
-   picture just got bigger.
+   account, not something this session can do.~~ **Closed 2026-08-18:**
+   Brian checked the "Brian Madden" human Substack account — zero follows
+   there, nothing to migrate. See #7 — the Substack picture just got
+   bigger.
 6. ~~Per-source trust/lens on the ingest pipeline~~ — **resolved
    2026-08-10 (D4 session).** Brian's steer: wants both a short
    programmatically-parseable field and a longer freeform field that acts
@@ -3683,4 +3691,55 @@ only if a real use case for inbound public Q&A actually shows up.
 Note: a separate concurrent thread is running today's daily-brief
 pipeline against this same working tree (uncommitted `sources.yaml`
 changes and new `ingest/2026/08/2026-08-18-*.md` notes as of session
-start) — not this session's work, left untouched.
+start) — not this session's work, left untouched. (It landed as
+`517c0b6` before this session's next commit.)
+
+Brian's flagged tomorrow (2026-08-19) as a big block of time targeting
+the v2 merge and building D6's real cron/GitHub-Actions automation.
+Rest of this session worked through smaller prep items ahead of that:
+
+**`.github/workflows/` inventoried — nothing legacy, nothing to
+retire.** MAINTAINER.md's "Legacy to retire" note had speculated this
+directory "presumably" held the old private→public sync; Brian's
+working assumption going in was that the existing workflows were dead
+weight. Neither was right: there are exactly two files, and both are
+still actively serving the *live v1 site* — `check-docs.yml` (doc
+accuracy checks on push/PR to `main`) and `sync-to-cloudflare-kv.yml`
+(the actual v1 publish pipeline: pushes changed `main` content to the
+Cloudflare KV store the live MCP server reads from). The KV-sync
+workflow already excludes `ingest/`, added 2026-08-10 — ahead of v2
+even landing on `main`. Nothing to delete before launch; both keep
+running through the merge. Updated MAINTAINER.md's note to record the
+actual finding instead of the old speculation. Left open for the D6
+session itself: whether the KV-sync workflow's file-type/tier filters
+need adjusting once `main` carries v2's fuller tier set (`outputs/`,
+etc.) — not a today problem.
+
+**Aaron Levie / X coverage clarified.** Brian asked whether X posts
+are already being pulled into the pipeline, to weigh against adding a
+LinkedIn-specific source for Levie. Confirmed: yes — the `x-timeline`
+source (`sources.yaml`, `skills/ingest/ingest.py`) pulls the entire
+home timeline of everyone the `brianmaddenai` X account follows in one
+API call; it's follow-list-based, not a per-person `sources.yaml` row.
+So if Levie's covered there, no separate entry is needed regardless of
+the LinkedIn question. Brian's checking now whether his X posts mirror
+his LinkedIn closely enough to skip a LinkedIn source entirely — noted
+inline at open decision #5, not yet closed.
+
+**Substack-follows-migration residual closed.** Open decision #5/#7's
+outstanding half (moving Brian's personal Substack follows to the
+`brianmaddenai` account) is moot: Brian checked the "Brian Madden"
+human Substack account and found zero follows there — nothing to
+migrate. Marked closed inline at #5.
+
+**Answered (not a repo change): can Substack's Welcome page be turned
+off?** Checked Substack's own support docs directly (`support.substack.com`)
+rather than answering from possibly-stale memory. No — it's automatic
+for any first-time visitor landing on the bare publication URL, and
+per Substack's docs "the design of the Welcome page can't be modified"
+beyond its content (cover photo, description, subscriber count
+visibility, and the "Skip" button text for browsing without
+subscribing). It does not appear on direct links to individual posts —
+only the bare `subdomain.substack.com` root — so it shouldn't affect
+readers arriving via shared post links or search, only first-time
+visits to the homepage itself.

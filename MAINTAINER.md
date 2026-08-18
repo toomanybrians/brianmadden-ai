@@ -82,9 +82,17 @@ as the audit trail across v1 → v2.
 
 ## Legacy to retire
 
-`.github/workflows/` predates v2 and presumably contains the old
-private→public sync. Inventory before touching; retire pieces only as their
-v2 replacements land. Nothing on `main` breaks before launch.
+`.github/workflows/` inventoried 2026-08-18 — turned out there's nothing
+legacy in it. Two files, both still load-bearing for the live v1 site:
+`check-docs.yml` runs `scripts/check_doc_accuracy.py` on every push/PR to
+`main`; `sync-to-cloudflare-kv.yml` is the actual v1 publish pipeline —
+pushes changed `main` content to the Cloudflare KV store the live MCP
+server reads from, and already excludes `ingest/` (added 2026-08-10,
+ahead of v2 landing on `main` at all). Nothing to retire before launch;
+both keep running as-is through the v2 merge. Whether
+`sync-to-cloudflare-kv.yml`'s file-type/tier filters need adjusting for
+v2's fuller tier set is a question for the D6/merge work itself, not
+before it. Nothing on `main` breaks before launch.
 
 ## Working conventions
 
