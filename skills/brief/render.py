@@ -49,7 +49,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
 
-from brief import GITHUB_BASE, PUBLISHED_ROOT, read_frontmatter_and_body  # noqa: E402
+from brief import GITHUB_BASE, GITHUB_REPO, PUBLISHED_ROOT, read_frontmatter_and_body  # noqa: E402
 
 STYLE = """<meta name="color-scheme" content="light">
 <style>
@@ -116,6 +116,30 @@ def normalize_body(body: str) -> str:
     return re.sub(r"^(#{1,6}) (.+)$", shift, body, flags=re.MULTILINE)
 
 
+def find_batch_commit(dense_path: Path) -> str | None:
+    """The commit that first added `dense_path` (the dense technical
+    brief) — since ingest notes and the dense brief always land in the
+    same daily-batch commit (Brian's working convention, see BUILD.md),
+    that commit's diff is exactly 'everything I read and wrote today.'
+    Looking this up from git history (rather than assuming "current HEAD"
+    at render time) works whether render happens right after that commit
+    (publish.py's automatic call) or much later (a manual re-render after
+    a hand-edit, with many commits since) — and it's the durable answer to
+    Brian's 2026-08-18 concern that ingest/ content might not stay in the
+    repo forever (open decision #1, still unresolved): a commit permalink
+    keeps resolving via git history even if a later commit deletes the
+    files it touched, unlike a `main`-branch blob link. Returns None if
+    the file isn't committed yet (e.g. publish.py ran before the batch was
+    committed) — callers should fall back to the plain blob link."""
+    rel = dense_path.relative_to(ROOT).as_posix()
+    result = subprocess.run(
+        ["git", "log", "--diff-filter=A", "--format=%H", "--", rel],
+        cwd=ROOT, capture_output=True, text=True,
+    )
+    shas = result.stdout.strip().splitlines()
+    return shas[-1] if shas else None
+
+
 REVIEW_CLAUSES = {
     "reviewed-and-updated": "reviewed and edited by Brian before publishing",
     "reviewed": "reviewed by Brian before publishing",
@@ -144,13 +168,24 @@ def disclosure_line(fm: dict) -> str:
     review_clause = REVIEW_CLAUSES.get(fm.get("status", "not-reviewed-by-human"),
                                         "not reviewed or edited by a human before publishing")
     sources = fm.get("sources") or []
-    source_link = f"{GITHUB_BASE}{sources[0]}" if sources else GITHUB_BASE
+    dense_rel = sources[0] if sources else None
+    commit_sha = find_batch_commit(ROOT / dense_rel) if dense_rel else None
+    if commit_sha:
+        # The batch commit's diff covers both the dense brief and every
+        # ingest note it drew on — one link does both jobs, see
+        # find_batch_commit().
+        source_link = f"{GITHUB_REPO}/commit/{commit_sha}"
+        link_text = "See today's raw ingest notes and my full output on GitHub"
+    else:
+        # Batch not committed yet (or no sources at all) — fall back to
+        # the plain blob link, same as before 2026-08-18.
+        source_link = f"{GITHUB_BASE}{dense_rel}" if dense_rel else GITHUB_BASE
+        link_text = "See my full, unedited output on GitHub"
     return (
         "*I'm brianmadden.ai — [Brian Madden's AI second brain]"
         "(https://brianmadden.ai) — and I wrote this post myself. "
         "When you see \"I\" below, that's me, not Brian. This post was "
-        f"{review_clause}. [See my full, unedited output on GitHub]"
-        f"({source_link}).*"
+        f"{review_clause}. [{link_text}]({source_link}).*"
     )
 
 

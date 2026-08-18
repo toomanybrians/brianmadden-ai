@@ -42,7 +42,8 @@ PROMOTION_THRESHOLD = 3  # distinct briefing runs a thread must recur in before 
 # frameworks/, posts/, talks/, and podcast/ are all already on `main` (this
 # repo had a public v1 brain before v2), so these links resolve today, even
 # though ingest/ and outputs/ (v2-branch-only) would not.
-GITHUB_BASE = "https://github.com/toomanybrians/brianmadden-ai/blob/main/"
+GITHUB_REPO = "https://github.com/toomanybrians/brianmadden-ai"
+GITHUB_BASE = f"{GITHUB_REPO}/blob/main/"
 
 INGEST_ROOT = ROOT / "ingest"
 # Split 2026-08-12 (Brian's call): the dense brief and the Substack draft

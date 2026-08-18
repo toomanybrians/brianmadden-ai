@@ -111,6 +111,18 @@ whichever mode below, judgment about what matters already happened in
 `brief.py`, so there's one place that happens, not two synthesis passes
 that could drift apart.
 
+**Commit the day's ingest + brief batch before running `publish.py`.**
+The disclosure line's "raw ingest notes" link (see "Rendering for
+Substack" below) is a permalink to the git commit that added that day's
+ingest notes and dense brief — `render_to_html()` looks that commit up
+from git history
+(`find_batch_commit()` in `render.py`), not from "current HEAD," so it
+resolves correctly whether rendering happens right away or much later. But
+it can only find a commit that already exists: run `publish.py` before
+committing the batch and the disclosure line falls back to a plain
+`main`-branch blob link instead (still works, just not permalinked — the
+same trade every other GITHUB_BASE link in this pipeline already makes).
+
 **Default (2026-08-14): publish the dense brief close to verbatim.**
 Opus's own prose from `brief.py`, unchanged except one section rename
 (`## Worth Brian's attention` → `## Worth your attention`) and dropping
@@ -217,6 +229,17 @@ publishing" whenever that's true, so the honesty this repo cares about
 lives in the rendered text, not in a pause before rendering. `publish.py`'s
 own run prints the resulting HTML path — nothing further to run for the
 normal case.
+
+The disclosure line also speaks in first person and names itself explicitly
+("when you see 'I' below, that's me, not Brian" — added 2026-08-18, since
+the brief body already writes in first person as the AI and the old
+third-person disclosure didn't actually resolve that ambiguity for a
+reader), and links out via `find_batch_commit()`: a permalink to the git
+commit that added that day's ingest notes and dense brief together, so one
+click gets both the raw notes and the full synthesis, and the link keeps
+resolving via git history even if `ingest/` content is later pruned. See
+"Publishing" above for the commit-before-`publish.py` ordering this
+depends on.
 
 `render.py` still exists for the rarer case: Brian hand-edits the
 committed `.md` directly (e.g. an inline `[Note from Brian the Human:
