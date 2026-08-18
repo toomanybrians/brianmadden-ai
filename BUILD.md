@@ -443,7 +443,12 @@ asked to do, not as a template to re-run.
       session-cookie draft-push client (posting is 100% manual right
       now) and moving Brian's Substack follows to the `brianmaddenai`
       account (open decision #7, still outstanding)
-- [ ] D8 — email lanes wired
+- [x] ~~D8 — email lanes wired~~ — **narrowed and closed 2026-08-18.**
+      Brian's call: cancel the `ask@` Q&A lane indefinitely — no near-term
+      use case, not worth building against a hypothetical. The intake
+      lane (`brain@`) was already fully done (open decisions #7a and #9);
+      that was the only real half of D8 left. See 2026-08-18 session
+      entry.
 - [x] ~~D9 — 10–15 core canon assets seeded~~ — **stale checkbox, closed
       2026-08-16.** Never explicitly checked off, but effectively done
       well before today via the ongoing framework/canon work: `frameworks/`
@@ -3657,3 +3662,25 @@ remains manual. Open decision #9 fully closed (designed, built, and now
 validated live). Next open thread: the "what is the Daily Briefing"
 explainer page, whenever Brian wants to write it — not scoped further
 here.
+
+### 2026-08-18 — Claude Code session (D8 closed: `ask@` lane cancelled)
+
+`/maintain` orientation surfaced D8 ("email lanes wired") as the
+remaining open Day-plan item, unresolved specifically because the
+`ask@` read-only Q&A lane (MAINTAINER.md rule 5 — reads canon, drafts
+answers, writes to an approval queue) had never been designed, while
+the `brain@` intake lane was already fully built and live (open
+decisions #7a and #9).
+
+Asked Brian directly rather than defaulting to "build it eventually":
+he doesn't envision needing `ask@` any time soon. Cancelled it
+indefinitely rather than leaving it as a perpetually-open checklist
+item — closed D8 on that basis. MAINTAINER.md's rule 5 is left as-is;
+it's a guardrail for *if* an ask@-style lane is ever built, not a
+mandate that it must be, so nothing there needed changing. Revisit
+only if a real use case for inbound public Q&A actually shows up.
+
+Note: a separate concurrent thread is running today's daily-brief
+pipeline against this same working tree (uncommitted `sources.yaml`
+changes and new `ingest/2026/08/2026-08-18-*.md` notes as of session
+start) — not this session's work, left untouched.
