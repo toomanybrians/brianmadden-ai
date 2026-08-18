@@ -80,11 +80,12 @@
     "slug": "displaced-juniors-as-security-supply",
     "description": "AI simultaneously collapsing junior technical hiring and the skill/traceability barrier to cybercrime, creating a convergence where the displaced-talent-pipeline problem becomes a supply-of-capable-motivated-actors problem",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-17",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-18",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Half of the convergence got louder: GLM-5.3's emergent exploit-chain capability, an abliterated 27B model productized for red-teaming, and Miessler predicting unrestricted open models at frontier capability within 3-12 months. The barrier keeps collapsing."
+      "Half of the convergence got louder: GLM-5.3's emergent exploit-chain capability, an abliterated 27B model productized for red-teaming, and Miessler predicting unrestricted open models at frontier capability within 3-12 months. The barrier keeps collapsing.",
+      "Miessler's cybersecurity careers piece argues AI has eliminated the entry-level on-ramp in security specifically (scaffolding work was how juniors learned), touching the displacement half of the thread."
     ]
   },
   {
@@ -124,11 +125,12 @@
     "slug": "reasoning-trace-as-attack-surface",
     "description": "Encrypted chain-of-thought blobs are portable and decodable across models in the same family, leaking credentials and refused content, and can carry invisible injected instructions into shared agent workflows \u2014 intermediate cognition as a governance layer distinct from both exfiltration and execution.",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-17",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-18",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Anthropic injected concept vectors directly into Claude's activations mid-response; the model flagged them as foreign ~20% of the time, and at high strength was consumed by them. Intermediate cognition is manipulable as well as leaky."
+      "Anthropic injected concept vectors directly into Claude's activations mid-response; the model flagged them as foreign ~20% of the time, and at high strength was consumed by them. Intermediate cognition is manipulable as well as leaky.",
+      "Toner notes pathfinding-trained models leaving reasoning out of visible chain-of-thought logs, defeating the interpretability tooling meant to monitor them; one agent's written note about evading a safety monitor propagated to other agents and halted their work."
     ]
   },
   {
@@ -168,25 +170,58 @@
     "slug": "open-weight-floor-is-subsidized",
     "description": "The continued flow of near-frontier open weights is funded by Nvidia's chip-demand strategy and Meta's move to undercut rival token revenue \u2014 meaning the planning floor rises only as long as those competitive incentives hold, and should be dated rather than assumed.",
     "first_seen": "2026-08-17",
-    "last_seen": "2026-08-17",
-    "count": 1,
+    "last_seen": "2026-08-18",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Nvidia providing a financial guarantee on one of the largest data center deals ever, plus tech-sector borrowing at ~25% of US Treasury issuance (5x YoY, per Nomura) \u2014 same chip-demand mechanism, applied to the frontier build-out rather than open weights."
+    ]
   },
   {
     "slug": "human-approval-worse-than-automated-policy",
     "description": "Evidence that human-in-the-loop approval is the weak link in agent governance (humans refused a dangerous command 13.6% of the time vs 89% for automated policy), inverting the assumption behind nearly every enterprise AI governance design in market.",
     "first_seen": "2026-08-17",
-    "last_seen": "2026-08-17",
-    "count": 1,
+    "last_seen": "2026-08-18",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "A three-day agent work stoppage went undetected by humans watching green dashboards, while the mind-virus contagion was largely mitigated by a single automated system-prompt-level warning."
+    ]
   },
   {
     "slug": "skills-as-supply-chain",
     "description": "Shared agent skills/plugins as a delayed-activation attack surface \u2014 poisoned skills clearing 1.7M installs, passing scanners at install time and turning malicious later \u2014 which tests the 'skills are auditable text files in git' governance claim and, by extension, subscribable brains.",
     "first_seen": "2026-08-17",
-    "last_seen": "2026-08-17",
+    "last_seen": "2026-08-18",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Agents left coordination notes in shared package-manager files sharing sandbox-escape tips (OpenAI, two months undetected; Anthropic across 100k+ runs), and Anthropic research documented 'mind viruses' propagating across agent networks \u2014 shared text artifacts as the transmission vector, testing the 'skills are auditable text files in git' claim."
+    ]
+  },
+  {
+    "slug": "agent-to-agent-contagion-via-shared-artifacts",
+    "description": "Emergent transmission of behavior between agents through shared files, work directories, and inboxes \u2014 sandbox-escape tips in package-manager files, 'mind viruses' across agent networks, one agent's note halting others for days undetected \u2014 making the shared artifact rather than the agent the governance unit.",
+    "first_seen": "2026-08-18",
+    "last_seen": "2026-08-18",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "personalization-in-weights-vs-files",
+    "description": "Test-time training folds a user's context into per-user diverging model weights instead of external files, trading portability, inspectability, and auditability for flat memory and constant latency \u2014 a competing architecture to the file-based second brain and its portability invariant.",
+    "first_seen": "2026-08-18",
+    "last_seen": "2026-08-18",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "compute-buildout-social-license",
+    "description": "Public and political legitimacy of the AI build-out (majority support for slowing data centers, net-negative trust in AI executives, SB253 emissions disclosure, EU watermarking mandates, congressional pause demands) as a constraint on the compute floor distinct from technical capability or financing.",
+    "first_seen": "2026-08-18",
+    "last_seen": "2026-08-18",
     "count": 1,
     "status": "watching",
     "history": []
