@@ -15,6 +15,18 @@ brief's own text, Brian's call after comparing both for real (BUILD.md
 in brief.py — this step never re-reads the raw ingest notes or full canon,
 so there's one source of truth, not two synthesis passes that could
 quietly disagree with each other.
+
+As of 2026-08-18, this also renders straight to HTML (render_to_html(),
+same call render.py's CLI uses) right after writing the draft — Brian's
+call: dense-verbatim is now the only mode that actually gets used, and
+posts go out with no true human review by default, so there's no reason
+to leave a manual `render.py` step in between. The disclosure line
+(render.py's disclosure_line()) already states "not reviewed or edited by
+a human before publishing" whenever that's the honest status, so nothing
+about the review-transparency contract changes — it just no longer waits
+on a human to trigger it. Hand-editing the committed .md afterward and
+re-running `render.py` directly still works exactly as before, for the
+rare post that does get touched.
 """
 
 import argparse
@@ -35,6 +47,7 @@ from brief import (  # noqa: E402 — reuse brief.py's helpers rather than dupli
     load_dotenv,
     read_frontmatter_and_body,
 )
+from render import render_to_html  # noqa: E402 — auto-render straight to HTML, see main()
 
 DEFAULT_MODEL = "claude-fable-5"  # prose, not synthesis — Brian's call, 2026-08-11
 SUBTITLE_DELIMITER = "---SUBTITLE---"
@@ -280,9 +293,18 @@ def main() -> None:
         print(f"warning: subtitle was {len(original_subtitle)} chars, truncated to {len(subtitle)} (Substack's real limit is {SUBTITLE_MAX_CHARS})", file=sys.stderr)
     post_body += FOOTER
 
-    write_published(brief_date, post_body, subtitle, dense_path, model=model, dry_run=args.dry_run)
+    out_path = write_published(brief_date, post_body, subtitle, dense_path, model=model, dry_run=args.dry_run)
     print(f"\nSubstack title field: {substack_title(brief_date)}")
     print(f"Substack subtitle field: {subtitle}")
+
+    if not args.dry_run:
+        # No status-sync check here (unlike render.py's own CLI path) —
+        # out_path was just written this run, so there's nothing committed
+        # yet for a hand-edit to have diverged from. Status is whatever
+        # write_published() set (not-reviewed-by-human by default), and
+        # the disclosure line reflects that honestly.
+        html_path = render_to_html(out_path)
+        print(f"wrote {html_path.relative_to(ROOT)} (gitignored — copy-paste only, not committed)")
 
 
 if __name__ == "__main__":

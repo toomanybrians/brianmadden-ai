@@ -201,14 +201,26 @@ AI brain,"** linking to `https://brianmadden.ai`.
 Day 7 (a live `brianmaddenai` Substack account plus the session-cookie
 draft-push client, neither of which exists yet).
 
-## Finalizing edits and rendering for Substack
+## Rendering for Substack
 
 Substack's editor doesn't interpret pasted Markdown (`**`/`#` show up
-literally) but does preserve formatting pasted as rich text/HTML. The
-actual publish workflow (settled 2026-08-12): `publish.py` writes and
-commits `outputs/published/YYYY/MM/YYYY-MM-DD.md`, then **stops** — no
-HTML yet. Brian reviews the committed file, hand-edits it directly (e.g.
-an inline `[Note from Brian the Human: ...]`), and pings. Only then:
+literally) but does preserve formatting pasted as rich text/HTML.
+
+**As of 2026-08-18, `publish.py` renders the HTML itself, automatically,
+right after writing the draft.** Earlier this stopped after writing the
+`.md` and waited on Brian to hand-edit and ping before rendering — dropped
+once dense-verbatim became the only mode actually used and posts started
+going out with no true human review by default (Brian's call: no reason to
+gate rendering behind a review step that mostly wasn't happening anyway).
+The disclosure line already says "not reviewed or edited by a human before
+publishing" whenever that's true, so the honesty this repo cares about
+lives in the rendered text, not in a pause before rendering. `publish.py`'s
+own run prints the resulting HTML path — nothing further to run for the
+normal case.
+
+`render.py` still exists for the rarer case: Brian hand-edits the
+committed `.md` directly (e.g. an inline `[Note from Brian the Human:
+...]`) and wants a fresh render reflecting that edit.
 
 ```bash
 python3 skills/brief/render.py                    # today's post
@@ -225,16 +237,17 @@ python3 skills/brief/render.py --date 2026-08-11   # a specific date
    locked in. This only ever moves status *toward* more-reviewed — it
    can't downgrade anything, matching MAINTAINER.md rule 4. Skip this
    check with `--no-status-sync` if you just want a render.
-2. **Renders.** `normalize_body()` drops a leading `# Title` line if
-   present (legacy posts only — see Title/subtitle above, the body has no
-   title line going forward) and normalizes every heading to `###`
-   regardless of what level the model wrote, since Substack renders `h1`
-   too large for a section break at this scale (Brian's call, 2026-08-12,
-   after manually fixing the first post's headings by hand). A small
-   `render_fields_block()` box showing the Substack title/subtitle in
-   plain text sits above the body in the rendered page too, so both are
-   visible right there instead of needing frontmatter or console output.
-   Converts to a small styled HTML file —
+2. **Renders**, via `render_to_html()` (the same function `publish.py`
+   calls automatically — one rendering path, not two). `normalize_body()`
+   drops a leading `# Title` line if present (legacy posts only — see
+   Title/subtitle above, the body has no title line going forward) and
+   normalizes every heading to `###` regardless of what level the model
+   wrote, since Substack renders `h1` too large for a section break at
+   this scale (Brian's call, 2026-08-12, after manually fixing the first
+   post's headings by hand). A small `render_fields_block()` box showing
+   the Substack title/subtitle in plain text sits above the body in the
+   rendered page too, so both are visible right there instead of needing
+   frontmatter or console output. Converts to a small styled HTML file —
    `outputs/published/YYYY-MM-DD.html`, **gitignored**, not repo content,
    just a copy-paste convenience regenerated on demand. Select-all and
    copy from the *rendered* page (open it in a browser), not the HTML

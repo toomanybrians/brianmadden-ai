@@ -1,19 +1,31 @@
 #!/usr/bin/env python3
 """
-render.py — finalize a hand-edited published draft (outputs/published/)
-and render it to a standalone HTML file for copy-pasting into Substack's
-rich-text editor. See skills/brief/README.md.
+render.py — render a published draft (outputs/published/) to a standalone
+HTML file for copy-pasting into Substack's rich-text editor, and (when run
+standalone) finalize a hand-edited one first. See skills/brief/README.md.
 
-"Finalize" means: if Brian edited the committed .md directly (adding an
-editorial note, a wording fix, etc.), that's detected from `git diff`
-against HEAD — not asked for separately — and the frontmatter `status`
-flips from `not-reviewed-by-human` to `reviewed-and-updated` per the rule
-already ratified in docs/frontmatter-schema.md ("reviewed-and-updated
-implies the committed text differs from what the machine generated"). The
-edit is then committed. No edit detected means no status change and no
-commit — this only ever moves status toward more-reviewed, matching
-MAINTAINER.md rule 4 (status is never upgraded by machine on its own,
-only in direct response to a human's own diff).
+**As of 2026-08-18, `publish.py` calls `render_to_html()` itself right
+after writing the draft** — Brian's call: with the condensed/general-
+audience mode retired in favor of always publishing the dense brief
+verbatim, and posts going out with no true human review by default, there's
+no reason to wait on a manual step between "draft written" and "HTML ready
+to paste." The disclosure line already says "not reviewed or edited by a
+human before publishing" whenever that's true, so the honesty this repo
+cares about lives in the rendered text, not in a pause before rendering.
+Running this file directly is still how you re-render after a hand-edit
+(see "Finalize" below) — that path is untouched, just no longer the only
+way to get HTML.
+
+"Finalize" (CLI use only) means: if Brian edited the committed .md directly
+(adding an editorial note, a wording fix, etc.), that's detected from `git
+diff` against HEAD — not asked for separately — and the frontmatter
+`status` flips from `not-reviewed-by-human` to `reviewed-and-updated` per
+the rule already ratified in docs/frontmatter-schema.md
+("reviewed-and-updated implies the committed text differs from what the
+machine generated"). The edit is then committed. No edit detected means no
+status change and no commit — this only ever moves status toward
+more-reviewed, matching MAINTAINER.md rule 4 (status is never upgraded by
+machine on its own, only in direct response to a human's own diff).
 
 Substack's editor doesn't interpret pasted Markdown syntax (it shows
 literal "**"/"#" characters) but does preserve formatting from pasted
@@ -141,6 +153,28 @@ def disclosure_line(fm: dict) -> str:
     )
 
 
+def render_to_html(md_path: Path) -> Path:
+    """Read `md_path`'s current frontmatter/body and write the standalone
+    Substack-paste HTML file next to it. Reflects whatever `status` the
+    file currently carries (so the disclosure line is honest either way) —
+    callers that want the git-diff hand-edit check should run
+    `sync_status_and_commit()` first, as `main()` does for the CLI path.
+    Split out from `main()` 2026-08-18 so `publish.py` can call this
+    directly right after writing a fresh draft, without going through the
+    argparse/status-sync machinery that only makes sense for a later,
+    separate re-render."""
+    fm, body = read_frontmatter_and_body(md_path)
+    body = normalize_body(body)
+    body = disclosure_line(fm) + "\n\n" + body
+    html_body = markdown.markdown(body, extensions=["extra"])
+    fields_block = render_fields_block(fm.get("substack_title", ""), fm.get("substack_subtitle", ""))
+    full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{fields_block}\n{html_body}\n</body>\n</html>\n"
+
+    out_path = md_path.with_suffix(".html")
+    out_path.write_text(full_html, encoding="utf-8")
+    return out_path
+
+
 def find_published(brief_date: str) -> Path:
     year, month, _ = brief_date.split("-")
     path = PUBLISHED_ROOT / year / month / f"{brief_date}.md"
@@ -198,15 +232,7 @@ def main() -> None:
     if not args.no_status_sync:
         sync_status_and_commit(md_path)
 
-    fm, body = read_frontmatter_and_body(md_path)
-    body = normalize_body(body)
-    body = disclosure_line(fm) + "\n\n" + body
-    html_body = markdown.markdown(body, extensions=["extra"])
-    fields_block = render_fields_block(fm.get("substack_title", ""), fm.get("substack_subtitle", ""))
-    full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{fields_block}\n{html_body}\n</body>\n</html>\n"
-
-    out_path = md_path.with_suffix(".html")
-    out_path.write_text(full_html, encoding="utf-8")
+    out_path = render_to_html(md_path)
     print(f"wrote {out_path.relative_to(ROOT)} (gitignored — copy-paste only, not committed)")
 
 
