@@ -31,10 +31,16 @@ Its one demand on us: keep the tiers clean.
   `llms.txt`, `_index.json`, `_relationships.json`, `COLLECTIONS.md`, and
   the MCP server. Never loaded by the private overlay.
 - **Tier 2 — canon (existing).** The directories `me/`, `frameworks/`,
-  `posts/`, `talks/`, `podcast/`, and `interviews/` are collectively the
-  canonical tier. They stay organized by content type; do **not** restructure
-  them into a `canon/` directory — the declaration in this file is the
-  restructure. Canon is the only tier that defines "what Brian thinks."
+  `posts/`, `talks/`, `podcast/`, `interviews/`, and `pages/` (new,
+  2026-08-19) are collectively the canonical tier. They stay organized by
+  content type; do **not** restructure them into a `canon/` directory — the
+  declaration in this file is the restructure. Canon is the only tier that
+  defines "what Brian thinks." `pages/` holds standalone Substack
+  pages/posts that aren't mirrors of already-published content elsewhere
+  (the About page, "Connect your AI") — drafted here first so edits are
+  tracked, then hand-pasted into Substack same as everything else in the
+  publishing pipeline (`status: not-reviewed-by-human` until Brian finalizes
+  the text, same convention as any other tier-2 file).
 - **Tier 3 — `outputs/` (new).** Generated artifacts: daily briefings, book
   editions, Q&A drafts. Always regenerable from Tiers 1–2; committed for
   audit, not as truth.

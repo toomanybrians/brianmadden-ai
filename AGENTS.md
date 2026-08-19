@@ -113,6 +113,7 @@ brianmadden-ai/
 ├── talks/             # Speech content and transcripts
 ├── podcast/           # Citrix AI Hotsheet podcast (Brian's show, co-hosted with Dave Brear)
 ├── interviews/        # Press interviews and commentary
+├── pages/             # Standalone Substack pages (About, Connect your AI) — not mirrors of other published content
 ├── sources/           # Feed registry (sources.yaml) the ingest skill polls
 ├── ingest/            # Tier-1 quarantined machine notes on third-party content — never indexed
 ├── outputs/           # Tier-3 generated artifacts (briefings, book, Q&A) — regenerable, committed for audit
