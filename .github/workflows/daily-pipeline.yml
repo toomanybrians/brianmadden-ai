@@ -56,6 +56,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   run:
@@ -93,11 +94,30 @@ jobs:
         run: python3 skills/brief/brief.py
 
       - name: Commit and push
+        id: commit
         run: |
           git add -A -- ingest/ outputs/technical-briefings/ sources/
           if git diff --cached --quiet; then
             echo "No changes to commit"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Run today's ingest + daily brief ($(date -u +%Y-%m-%d)) [automated]"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # A push made with the default GITHUB_TOKEN deliberately does NOT
+      # trigger other on:push workflows (GitHub's own loop-prevention
+      # behavior) — confirmed the hard way on the very first real run,
+      # 2026-08-19: ingest+brief committed fine but check-docs.yml and
+      # sync-to-cloudflare-kv.yml both silently never fired, so today's
+      # content sat on main without reaching the live KV store until
+      # triggered by hand. Explicit workflow_dispatch calls below aren't
+      # subject to that suppression, so this is the fix, not a workaround.
+      - name: Trigger downstream checks + KV sync
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run check-docs.yml --ref main
+          gh workflow run sync-to-cloudflare-kv.yml --ref main
