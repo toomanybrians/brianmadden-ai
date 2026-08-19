@@ -35,12 +35,19 @@ Its one demand on us: keep the tiers clean.
   2026-08-19) are collectively the canonical tier. They stay organized by
   content type; do **not** restructure them into a `canon/` directory — the
   declaration in this file is the restructure. Canon is the only tier that
-  defines "what Brian thinks." `pages/` holds standalone Substack
-  pages/posts that aren't mirrors of already-published content elsewhere
-  (the About page, "Connect your AI") — drafted here first so edits are
-  tracked, then hand-pasted into Substack same as everything else in the
-  publishing pipeline (`status: not-reviewed-by-human` until Brian finalizes
-  the text, same convention as any other tier-2 file).
+  defines "what Brian thinks." `pages/` holds standalone Substack pages
+  that aren't mirrors of already-published content elsewhere (currently:
+  the About page) — drafted here first so edits are tracked, then
+  hand-pasted into Substack same as everything else in the publishing
+  pipeline (`status: not-reviewed-by-human` until Brian finalizes the
+  text, same convention as any other tier-2 file). A "Connect your AI"
+  page was drafted here too (2026-08-19) but retired in favor of folding
+  its content into `mcp.brianmadden.ai`'s existing connect page
+  (`pages/mcp-connect.md` in the separate `brianmadden-ai-server` repo) —
+  that URL already serves a human-readable walkthrough or the live MCP
+  protocol handler depending on the request's `Accept` header, so a
+  second, separately-maintained copy on Substack would just drift out of
+  sync with no subscribers yet to justify it.
 - **Tier 3 — `outputs/` (new).** Generated artifacts: daily briefings, book
   editions, Q&A drafts. Always regenerable from Tiers 1–2; committed for
   audit, not as truth.
