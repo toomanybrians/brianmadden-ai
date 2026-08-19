@@ -6,7 +6,7 @@ tags: ["identity", "second-brain", "substack", "faq"]
 staleness_threshold: stable
 publish_target: "Substack About page (Settings > Website > About page)"
 tier: 2
-status: not-reviewed-by-human
+status: reviewed-and-updated
 ---
 
 # About
@@ -60,5 +60,5 @@ Yes. The [GitHub repo](https://github.com/toomanybrians/brianmadden-ai) is the a
 - [LinkedIn](https://www.linkedin.com/in/bmadden/)
 - [Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author)
 - [bmad.com](https://bmad.com) — personal site
-- [GitHub](https://github.com/toomanybrians/brianmadden-ai)
+- [brianmadden.ai Second Brain on GitHub](https://github.com/toomanybrians/brianmadden-ai)
 - [Set up your own second brain](https://gist.github.com/toomanybrians/4c64f3f6774caee6feff9b0b12172867) — my starter prompt gist, for building your own version of this from scratch
