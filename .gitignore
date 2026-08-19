@@ -14,3 +14,6 @@ __pycache__/
 # a convenience for pasting into Substack's rich-text editor, not repo
 # content. The committed .md is the source of truth.
 outputs/published/**/*.html
+
+# Same convenience rendering for pages/ (skills/pages/render.py).
+pages/*.html
