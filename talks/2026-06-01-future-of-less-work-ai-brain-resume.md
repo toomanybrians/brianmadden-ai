@@ -10,6 +10,8 @@ authority_level: 5
 file_type: talk
 tags: [second-brain, byoai, invisible-80-percent, worker-led-ai, knowledge-work-ownership, consumerization, subscribable-brains, human-plus-ai, ai-performance, knowledge-work-future]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The Future of Less Work — How AI is changing who performs best at work

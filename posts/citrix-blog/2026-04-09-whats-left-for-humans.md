@@ -7,6 +7,8 @@ tags: [future-of-work, governance, enterprise-invariants, economics, judgment, c
 related_frameworks: [cognitive-stack, bitter-lesson, post-application-era]
 original_url: "https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # What's left for humans?

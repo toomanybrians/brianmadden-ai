@@ -7,6 +7,8 @@ tags: [generative-ai, enterprise-ai, conference-report, hype, use-cases, waicf]
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/generative-ai-enterprise-lots-hype-little-practical-advice-madden-fketc/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Generative AI in the enterprise: lots of hype, little practical advice. A World AI Cannes Festival report.

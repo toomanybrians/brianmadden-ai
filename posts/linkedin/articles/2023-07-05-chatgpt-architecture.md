@@ -7,6 +7,8 @@ tags: [chatgpt, enterprise-it, architecture, llm, ai-management]
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/chatgpt-more-like-standard-enterprise-app-than-you-think-brian-madden/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # A look at ChatGPT's architecture. A lot for enterprise admins to like!

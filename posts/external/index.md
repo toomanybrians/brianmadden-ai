@@ -1,6 +1,8 @@
 ---
 title: External articles
 file_type: index
+tier: 2
+status: reviewed
 ---
 
 # External articles

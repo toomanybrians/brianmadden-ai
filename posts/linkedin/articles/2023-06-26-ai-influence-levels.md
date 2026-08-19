@@ -7,6 +7,8 @@ tags: [ai-disclosure, ai-influence-levels, ai-transparency, copilot, workplace-a
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/how-much-help-did-ai-provide-we-should-all-disclose-brian-madden/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # How much "help" did AI provide? We should all disclose this.

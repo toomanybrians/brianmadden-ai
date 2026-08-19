@@ -10,6 +10,8 @@ authority_level: 5
 file_type: talk
 tags: [euc-history, ai-agents, windows-desktop, computer-using-agents, workspace-as-control-plane, vdi, consumerization, microsoft-recall]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # EUC World: Independence 2024 - October 22

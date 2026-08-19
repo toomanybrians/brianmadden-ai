@@ -9,7 +9,6 @@
         "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
       ],
       "related_frameworks": [
-        "five-levels-of-ai-in-knowledge-work",
         "cognitive-stack",
         "invisible-80-percent",
         "factory-electrification"
@@ -83,8 +82,7 @@
         "2026-02-25-cognitive-stack"
       ],
       "related_frameworks": [
-        "invisible-80-percent",
-        "five-levels-of-ai-in-knowledge-work"
+        "invisible-80-percent"
       ],
       "referenced_by_posts": [
         "2026-02-25-cognitive-stack",
@@ -114,6 +112,7 @@
     "five-levels-of-ai-in-knowledge-work": {
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
       "title": "The five levels of AI in knowledge work",
+      "status": "archived",
       "original_url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
       "referenced_in_posts": [
         "2026-02-19-coding-as-leading-indicator"
@@ -139,8 +138,7 @@
       ],
       "related_frameworks": [
         "bitter-lesson",
-        "factory-electrification",
-        "five-levels-of-ai-in-knowledge-work"
+        "factory-electrification"
       ],
       "referenced_by_posts": [
         "2025-08-27-everyones-wrong-about-why-enterprise-ai-is-failing",
@@ -152,6 +150,28 @@
         "2026-02-25-cognitive-stack"
       ],
       "referenced_by_talks": []
+    },
+    "knowledge-factory": {
+      "path": "frameworks/knowledge-factory.md",
+      "title": "The knowledge factory",
+      "status": "reviewed",
+      "original_url": null,
+      "referenced_in_posts": [
+        "2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop"
+      ],
+      "related_frameworks": [
+        "invisible-80-percent",
+        "subscribable-brains",
+        "cognitive-stack",
+        "post-application-era",
+        "bitter-lesson"
+      ],
+      "referenced_by_posts": [
+        "2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop"
+      ],
+      "referenced_by_talks": [
+        "2026-07-16-arrow-forum-what-is-a-worker-in-2031"
+      ]
     },
     "post-application-era": {
       "path": "frameworks/post-application-era.md",

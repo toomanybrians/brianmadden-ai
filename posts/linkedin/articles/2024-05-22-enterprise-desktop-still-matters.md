@@ -7,6 +7,8 @@ tags: [enterprise-desktop, euc, vdi, daas, windows, ai-pc, workspace]
 related_frameworks: [workspace-as-control-plane]
 original_url: "https://www.linkedin.com/pulse/why-enterprise-desktop-still-matters-2024-hint-its-apps-brian-madden-fsgbc/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Why the enterprise desktop still matters in 2024. (Hint: it's not about apps or AI PCs.)

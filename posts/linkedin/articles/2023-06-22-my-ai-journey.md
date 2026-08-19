@@ -7,6 +7,8 @@ tags: [ai-journey, chatgpt, llm, ai-agents, prompting, generative-ai]
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/my-ai-journey-links-set-stage-chatgpt-just-beginning-brian-madden/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # My AI journey and the links that set the stage. ChatGPT is just the beginning!

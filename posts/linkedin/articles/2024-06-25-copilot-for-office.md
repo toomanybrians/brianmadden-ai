@@ -7,6 +7,8 @@ tags: [copilot, microsoft-365, workplace-ai, enterprise-ai, product-review]
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/ive-been-using-copilot-office-months-heres-how-works-what-madden-nqu6c/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # I've been using Copilot for Office for months. Here's how it works and what it can do today.

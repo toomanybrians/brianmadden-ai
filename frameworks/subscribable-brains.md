@@ -9,6 +9,8 @@ related_posts: ["2026-02-17-subscribable-brains", "2026-02-10-second-brain-ancho
 original_url: "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae"
 description: "Stop publishing content. Start publishing your structured knowledge repo—and let subscribers integrate your expertise into their own AI systems."
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Subscribable brains

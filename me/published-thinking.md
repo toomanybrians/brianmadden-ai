@@ -6,6 +6,8 @@ file_type: synthesis
 tags: ["knowledge-work", "enterprise-ai", "worker-led-adoption", "automation", "governance", "ai-agents"]
 staleness_threshold: months
 description: "Comprehensive synthesis of my published ideas across 40 posts. The authoritative source for my intellectual positions."
+tier: 2
+status: reviewed
 ---
 
 # My intellectual foundation

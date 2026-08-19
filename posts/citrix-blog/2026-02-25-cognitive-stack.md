@@ -7,6 +7,8 @@ tags: [cognitive-stack, agents, delegation, claws, skills-hierarchy, enterprise-
 related_frameworks: [invisible-80-percent, five-levels-of-ai-in-knowledge-work]
 original_url: "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Understanding the cognitive stack: why your AI strategy is focused on the wrong layer

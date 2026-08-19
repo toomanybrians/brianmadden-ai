@@ -7,6 +7,8 @@ tags: [second-brain, personal-ai, knowledge-work, future-of-work, invisible-80-p
 related_frameworks: [invisible-80-percent, subscribable-brains]
 original_url: "https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # I built a second brain using AI, and it's changed the way I work. THIS is the future of knowledge work.

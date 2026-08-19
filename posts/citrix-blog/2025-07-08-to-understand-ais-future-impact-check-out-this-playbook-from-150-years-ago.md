@@ -7,6 +7,8 @@ tags: [factory-electrification, workplace-transformation, ai-in-the-workplace, h
 related_frameworks: [factory-electrification, 7-stage-roadmap]
 original_url: "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # To understand AI's future impact, check out this playbook from 150 years ago

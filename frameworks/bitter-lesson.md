@@ -9,6 +9,8 @@ related_posts: ["2025-09-17-the-bitter-lesson-of-workplace-ai"]
 original_url: "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/"
 description: "Simple, worker-driven AI adoption beats elaborate IT-engineered solutions. Every time. The endgame is more radical than most enterprises expect."
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The bitter lesson of workplace AI

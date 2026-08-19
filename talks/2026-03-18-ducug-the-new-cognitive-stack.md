@@ -1,10 +1,24 @@
+---
+title: "The New Cognitive Stack"
+date: "2026-03-18"
+event: DUCUG — Dutch Citrix User Group Conference #28
+location: Oude Duikenburg, Echteld, Netherlands
+format: Keynote (60-minute closing session)
+authority_level: 5
+file_type: talk
+tags: [cognitive-stack, second-brain, invisible-80-percent, token-economics, skills, workspace-as-control-plane, ai-agents]
+staleness_threshold: stable
+tier: 2
+status: reviewed
+---
+
 # The New Cognitive Stack
 
 **Event:** DUCUG — Dutch Citrix User Group Conference #28
 **Date:** March 18, 2026
 **Location:** Oude Duikenburg, Echteld, Netherlands
 **Format:** 60-minute closing session
-**Speaker:** Brian Madden, VP Technology Officer & Futurist, Citrix
+**Speaker:** Brian Madden, VP & Futurist, Citrix
 
 ## Talk summary
 

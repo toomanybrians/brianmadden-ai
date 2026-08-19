@@ -105,7 +105,6 @@ How enterprises govern AI. The workspace-as-control-plane framework, agent ident
 - `frameworks/workspace-as-control-plane.md` -- The workspace as control plane (2025-05-01) (authority: 4)
 - `frameworks/bitter-lesson.md` -- The bitter lesson of workplace AI (2025-09-17) (authority: 4)
 - `frameworks/post-application-era.md` -- The post-application era (2025-10-01) (authority: 4)
-- `frameworks/five-levels-of-ai-in-knowledge-work.md` -- The five levels of AI in knowledge work (2026-02-19) (authority: 4)
 - `posts/linkedin/articles/2024-06-13-ai-screen-recorders-vdi.md` -- AI Screen Recorders + VDI: The ultimate secure, compliant, & powerful desktop? (2024-06-13) (authority: 5)
 - `posts/linkedin/articles/2024-07-18-openai-cto-agi-trillionaires.md` -- Open AI CTO reminds us they care more about inventing AGI and becoming trillionaires than your company's safety (2024-07-18) (authority: 5)
 - `posts/citrix-blog/2025-04-14-making-sense-of-ai-in-the-workplace.md` -- Making sense of AI in the workplace: A starting point for leaders (2025-04-14) (authority: 5)
@@ -145,7 +144,7 @@ What knowledge work actually is, why 80% of it is invisible to corporate IT, and
 - `frameworks/7-stage-roadmap.md` -- The 7-stage roadmap for human-AI collaboration (2025-06-24) (authority: 4)
 - `frameworks/invisible-80-percent.md` -- The invisible 80% of knowledge work (2026-01-13) (authority: 4)
 - `frameworks/subscribable-brains.md` -- Subscribable brains (2026-02-17) (authority: 4)
-- `frameworks/five-levels-of-ai-in-knowledge-work.md` -- The five levels of AI in knowledge work (2026-02-19) (authority: 4)
+- `frameworks/knowledge-factory.md` -- The knowledge factory (2026-08-14) (authority: 4)
 - `posts/linkedin/articles/2024-07-02-firing-employees-keyboard-activity.md` -- Firing employees for simulated keyboard activity highlights the dangers of perverse incentives (2024-07-02) (authority: 5)
 - `posts/citrix-blog/2025-12-10-ai-will-be-the-interface-to-knowledge-work.md` -- AI will be THE interface to knowledge work. Here's how we'll get there. (2025-12-10) (authority: 5)
 - `posts/citrix-blog/2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate.md` -- Workers don't want to build automations. They want to delegate. (2025-12-18) (authority: 5)
@@ -167,7 +166,7 @@ Personal AI knowledge systems, subscribable brains, the creator economy disrupti
 - `frameworks/post-application-era.md` -- The post-application era (2025-10-01) (authority: 4)
 - `frameworks/invisible-80-percent.md` -- The invisible 80% of knowledge work (2026-01-13) (authority: 4)
 - `frameworks/subscribable-brains.md` -- Subscribable brains (2026-02-17) (authority: 4)
-- `frameworks/five-levels-of-ai-in-knowledge-work.md` -- The five levels of AI in knowledge work (2026-02-19) (authority: 4)
+- `frameworks/knowledge-factory.md` -- The knowledge factory (2026-08-14) (authority: 4)
 - `posts/citrix-blog/2026-02-04-openclaw-governance.md` -- OpenClaw and Moltbook preview the changes needed with corporate AI governance (2026-02-04) (authority: 5)
 - `posts/linkedin/articles/2026-02-10-second-brain-anchor.md` -- I built a second brain using AI, and it's changed the way I work. THIS is the future of knowledge work. (2026-02-10) (authority: 5)
 - `posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md` -- Workers' "second brains" break every assumption about how we secure knowledge work (2026-02-11) (authority: 5)
@@ -193,6 +192,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `frameworks/7-stage-roadmap.md` -- The 7-stage roadmap for human-AI collaboration (2025-06-24) (authority: 4)
 - `frameworks/factory-electrification.md` -- The factory electrification analogy (2025-07-08) (authority: 4)
 - `frameworks/bitter-lesson.md` -- The bitter lesson of workplace AI (2025-09-17) (authority: 4)
+- `frameworks/knowledge-factory.md` -- The knowledge factory (2026-08-14) (authority: 4)
 - `frameworks/post-application-era.md` -- The post-application era (2025-10-01) (authority: 4)
 - `frameworks/invisible-80-percent.md` -- The invisible 80% of knowledge work (2026-01-13) (authority: 4)
 - `posts/linkedin/articles/2023-08-15-consumerization-of-it-ai.md` -- The Consumerization of IT roars back, and this time they have AI! (2023-08-15) (authority: 5)
@@ -239,10 +239,9 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 
 ## Human-AI collaboration
 
-How humans and AI work together. The delegation model, the 7-stage roadmap, the five levels of AI in knowledge work.
+How humans and AI work together. The delegation model, the 7-stage roadmap.
 
 - `frameworks/7-stage-roadmap.md` -- The 7-stage roadmap for human-AI collaboration (2025-06-24) (authority: 4)
-- `frameworks/five-levels-of-ai-in-knowledge-work.md` -- The five levels of AI in knowledge work (2026-02-19) (authority: 4)
 - `frameworks/delegation-not-automation.md` -- Delegation, not automation (2025-12-18) (authority: 4)
 - `posts/citrix-blog/2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace.md` -- The 7-stage roadmap for human-AI collaboration in the workplace (2025-06-24) (authority: 5)
 - `posts/citrix-blog/2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks.md` -- What happens when AI agents score 100% in computing using benchmarks? (2025-07-24) (authority: 5)

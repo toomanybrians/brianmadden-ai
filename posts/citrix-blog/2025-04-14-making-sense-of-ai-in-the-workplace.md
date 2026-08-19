@@ -7,6 +7,8 @@ tags: [ai-in-the-workplace, enterprise-ai-strategy, shadow-ai, worker-led-ai, ai
 related_frameworks: [workspace-as-control-plane]
 original_url: "https://www.citrix.com/blogs/2025/04/14/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Making sense of AI in the workplace: A starting point for leaders

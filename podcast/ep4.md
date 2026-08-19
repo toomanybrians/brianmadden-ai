@@ -8,6 +8,8 @@ authority_level: 5
 file_type: podcast
 tags: [osworld, computer-using-agents, benchmarks, reconciliation-map, context-vault, second-brain, enterprise-ai, hallucination, mcp, organizational-ai-maturity, treehouse-not-ladder, futurism, diffusion-gap, forward-deployed-engineering, ai-bubble, open-weight-models, sonnet-class-models, knowledge-work]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # EP 4: OSWorld 2.0, AI Reconciliation Maps, & the Futurist's Playbook

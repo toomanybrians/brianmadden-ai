@@ -7,6 +7,8 @@ tags: [invisible-80-percent, worker-led-adoption, tacit-knowledge, enterprise-ai
 related_frameworks: [invisible-80-percent]
 original_url: "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The invisible 80%—what corporate-led AI transformations can't see

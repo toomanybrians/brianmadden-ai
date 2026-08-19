@@ -10,6 +10,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, workspace-as-control-plane, computer-using-agents, worker-led-ai, consumerization, vdi, windows-desktop, osworld-benchmarks, agentic-ai, humanoid-robots, micro-apps, knowledge-workers]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # EUCtech Denmark 2025 - May 22

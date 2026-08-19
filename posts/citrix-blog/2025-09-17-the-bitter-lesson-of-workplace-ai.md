@@ -7,6 +7,8 @@ tags: [ai-adoption, enterprise-ai, shadow-ai, worker-led-adoption, workspace-gov
 related_frameworks: [bitter-lesson, factory-electrification]
 original_url: "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The bitter lesson of workplace AI: Stop engineering, start enabling

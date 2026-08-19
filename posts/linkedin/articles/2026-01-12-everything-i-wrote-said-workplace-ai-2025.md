@@ -7,6 +7,8 @@ tags: [workplace-ai, year-in-review, citrix, speaking, writing, ai-agents, futur
 related_frameworks: [7-stage-roadmap, bitter-lesson, post-application-era]
 original_url: "https://www.linkedin.com/pulse/everything-i-wrote-said-workplace-ai-2025-brian-madden-33byf/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Everything I Wrote & Said About Workplace AI in 2025

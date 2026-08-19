@@ -7,6 +7,8 @@ tags: [perverse-incentives, workplace-ai, employee-productivity, automation, fut
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/firing-employees-simulated-keyboard-activity-dangers-perverse-madden-aikuc/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Firing employees for simulated keyboard activity highlights the dangers of perverse incentives

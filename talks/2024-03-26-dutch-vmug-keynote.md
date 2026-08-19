@@ -10,6 +10,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-adoption, technology-cycles, career-seasons, hype-cycle, enterprise-ai, consumerization]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Dutch VMUG UserCon 2024 - March 26

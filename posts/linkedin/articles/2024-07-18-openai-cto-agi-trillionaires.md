@@ -7,6 +7,8 @@ tags: [openai, workplace-ai, enterprise-risk, ai-governance, shadow-it, ai-polic
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/open-ai-cto-reminds-us-care-more-inventing-agi-becoming-brian-madden-42l6c/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Open AI CTO reminds us they care more about inventing AGI and becoming trillionaires than your company's safety

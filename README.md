@@ -31,7 +31,7 @@ Once you're connected, try things like:
 ## What's inside
 
 - 37 published [Citrix blog posts](https://www.citrix.com/blogs/?s=bmadden&type=author), 25 LinkedIn articles & posts, 20 speech and podcast-appearance transcripts, the 4-episode Citrix AI Hotsheet podcast, and press interviews
-- 10 standalone frameworks (cognitive stack, invisible 80%, bitter lesson, post-application era, workspace-as-control-plane, delegation not automation, and more)
+- 10 standalone frameworks (knowledge factory, cognitive stack, invisible 80%, bitter lesson, post-application era, workspace-as-control-plane, delegation not automation, and more)
 - A 30,000-word synthesis distilling the intellectual foundation across all published work
 - A "current thinking" file that captures where my head is right now—updated frequently
 - AI loading instructions, knowledge hierarchy, and engagement rules
@@ -48,9 +48,20 @@ I'm Brian Madden, a futurist at Citrix. I have 32 years in end-user computing an
 I explore how AI is reshaping knowledge work. My core thesis: the real AI transformation is happening worker-by-worker, not top-down. The invisible 80% of knowledge work—the judgment, reasoning, and tacit expertise that lives in workers' heads—is where the action is. Enterprise AI automates the scaffolding. A second brain amplifies the cognition.
 
 - More details: [brianmadden.ai](https://brianmadden.ai)
-- Follow me on [LinkedIn](https://www.linkedin.com/in/bmadden/) and [Bluesky](https://bsky.app/profile/bmad.com)
+- Follow me on [LinkedIn](https://www.linkedin.com/in/bmadden/)
 - I write about these topics at [Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author)
 - My personal website: [bmad.com](https://bmad.com)
+
+## Two ways to see this
+
+If you're a person, not an AI, there are two ways to look at brianmadden.ai directly:
+
+- **[brianmadden.ai](https://brianmadden.ai)** — the published presentation layer: a readable website built on top of this repo's content.
+- **This GitHub repo** — the raw source. Browse the markdown files directly if you want to see exactly what an AI loading this module sees, unrendered.
+
+## The Daily Briefing
+
+Most days (weekdays), the pipeline behind brianmadden.ai reads whatever came in that day—industry news, research, things Brian flagged—through the lens of his frameworks and current thinking, and writes two things: a dense technical brief (full detail, every source cited, in `outputs/technical-briefings/`) and a shorter, Substack-voiced version of the same synthesis for subscribers. It's AI-written by default; every post discloses upfront whether a human reviewed or edited it before publishing, and the dense version is always one click away for anyone who wants the unedited output.
 
 ## License
 

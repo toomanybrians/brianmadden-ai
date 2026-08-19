@@ -8,6 +8,8 @@ authority_level: 5
 file_type: podcast
 tags: [second-brain, cognitive-extension, enterprise-ai, enterprise-governance, 7-stage-roadmap, automation-fallacy, rpa, data-as-product, context-vault, knowledge-work, glass-ceiling, phase-three-to-four, non-human-personas]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # EP 3: Second brains hit the enterprise wall — and why AI automations won't save you

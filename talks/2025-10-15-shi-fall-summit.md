@@ -10,6 +10,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, post-application-era, computer-using-agents, workspace-as-control-plane, worker-led-ai, shadow-strategy, osworld-benchmarks, citrix, mcp, ai-productivity-platforms, ai-browser-wars]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # SHI Fall Summit 2025 - October 15

@@ -7,6 +7,8 @@ tags: [vdi, daas, ai-screen-recording, security, compliance, euc, microsoft-reca
 related_frameworks: [workspace-as-control-plane]
 original_url: "https://www.linkedin.com/pulse/ai-screen-recorders-vdi-ultimate-secure-compliant-powerful-madden-fa5dc/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # AI Screen Recorders + VDI: The ultimate secure, compliant, & powerful desktop?

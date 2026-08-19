@@ -7,6 +7,8 @@ tags: [ai-taxonomy, chatgpt, llm, machine-learning, generative-ai]
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/ai-more-than-chatgpt-brian-madden/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # AI is more than ChatGPT

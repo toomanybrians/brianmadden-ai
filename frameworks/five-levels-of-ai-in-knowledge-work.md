@@ -9,9 +9,15 @@ related_posts: ["2026-02-19-coding-as-leading-indicator"]
 original_url: "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
 description: "As AI handles more production work, the human role shifts from doing to directing to verifying. Five levels mapping that evolution."
 staleness_threshold: stable
+tier: 2
+status: archived
+archived_date: 2026-08-14
+archived_reason: "Adapted from Dan Shapiro's coding-assistance framework, not Brian's own original thinking; retired at Brian's direct call during the 2026-08-14 canon governance pass. Superseded in practice by the 7-stage roadmap (2026 Edition) and the cognitive stack."
 ---
 
 # The five levels of AI in knowledge work
+
+**Archived 2026-08-14 — not an active framework.** Kept for the historical record and because existing published posts still link to it; excluded from `llms.txt` and current framework counts. See `archived_reason` above.
 
 As AI takes on more of the production work, the human's role shifts from doing to directing to verifying. This progression—adapted from Dan Shapiro's five levels of AI coding assistance—maps the evolution of the human-AI relationship in knowledge work, from "spicy search engine" to "dark knowledge factory."
 

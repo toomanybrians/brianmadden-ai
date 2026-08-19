@@ -7,6 +7,8 @@ tags: [ai-adoption, automation, delegation, knowledge-work, worker-led-adoption,
 related_frameworks: []
 original_url: "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Workers don't want to build automations. They want to delegate.

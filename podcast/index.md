@@ -4,6 +4,8 @@ authority_level: 5
 file_type: podcast
 tags: [computer-using-agents, second-brain, context-vault, enterprise-ai, cognitive-stack, enterprise-governance, non-human-personas]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Citrix AI Hotsheet

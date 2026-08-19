@@ -9,6 +9,8 @@ authority_level: 5
 file_type: talk
 tags: [ai-agents, computer-using-agents, osworld-benchmarks, ai-browsers, enterprise-browser, mcp, worker-led-ai, shadow-strategy, ai-predictions, ai-bubble, workspace-as-control-plane, second-brain, multi-agent, microsoft-ignite, work-iq]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Impact of AI: Explored - December 16, 2025
@@ -17,7 +19,7 @@ staleness_threshold: stable
 
 **Title:** AI 2026: When Agents, Browsers, and Security Collide
 
-**Context:** Brian's third appearance on the show, now in his role as VP Technology Officer & Futurist at Citrix. A year-end review and 2026 predictions episode. At this point, computer-using agent benchmarks have crossed human parity, AI browsers have emerged as a security concern, and MCP has become ubiquitous. Brian is also using a personal second brain system built on markdown files.
+**Context:** Brian's third appearance on the show, now in his role as VP & Futurist at Citrix. A year-end review and 2026 predictions episode. At this point, computer-using agent benchmarks have crossed human parity, AI browsers have emerged as a security concern, and MCP has become ubiquitous. Brian is also using a personal second brain system built on markdown files.
 
 **Key arguments made:**
 - OSWorld computer-using agent benchmarks now at 76%, surpassing the 72% human baseline—this crossed human parity in 2025

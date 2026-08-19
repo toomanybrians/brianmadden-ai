@@ -5,6 +5,8 @@ file_type: identity
 tags: ["writing-style", "voice", "communication"]
 staleness_threshold: stable
 description: "How Brian thinks, argues, and communicates. Reference for AI systems generating content in his voice."
+tier: 2
+status: reviewed
 ---
 
 # How Brian thinks and communicates
@@ -28,6 +30,7 @@ He thinks like a practitioner, not an analyst. 32 years of watching enterprise t
 - Acknowledges complexity without getting lost in it
 - Takes a position and defends it, but updates when evidence changes
 - Slight irreverence toward hype, respect for practitioners over pundits
+- Calibrates the opening to the room: public-talk audiences get intellectual context built up front; product and executive audiences get the concrete pain first, then the architecture ("leaders have to connect to the problems that they see"—the test is whether they understand the *problem* by slide 3, not whether they get the architecture by the end)
 
 ## Phrases Brian uses
 

@@ -6,6 +6,8 @@ tags: [futurism, methodology, cone-of-uncertainty, invariants, second-brain, cog
 authority_level: 5
 file_type: blog
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # How a futurist reads AI news. (Hint: ignore most of it.)

@@ -7,6 +7,8 @@ tags: [skills, cognitive-stack, governance, post-application-era, knowledge-work
 related_frameworks: [cognitive-stack, bitter-lesson, post-application-era, subscribable-brains]
 original_url: "https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Skills are all you need

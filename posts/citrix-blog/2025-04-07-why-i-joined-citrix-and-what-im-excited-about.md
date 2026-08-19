@@ -7,6 +7,8 @@ tags: [citrix, career, workplace-transformation, ai-in-the-workplace]
 related_frameworks: []
 original_url: "https://www.citrix.com/blogs/2025/04/07/why-i-joined-citrix-and-what-im-excited-about/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Why I joined Citrix and what I'm excited about

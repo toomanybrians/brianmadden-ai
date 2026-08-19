@@ -7,6 +7,8 @@ tags: [brianmadden-com, personal-history, media, community, euc]
 related_frameworks: []
 original_url: "https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # A Eulogy for BrianMadden.com

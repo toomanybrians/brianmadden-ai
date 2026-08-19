@@ -7,6 +7,8 @@ tags: [ai-adoption, enterprise-infrastructure, ai-strategy, boring-infrastructur
 related_frameworks: [factory-electrification]
 original_url: "https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/"
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # If AI is normal technology, boring infrastructure is your best strategy

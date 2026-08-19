@@ -7,6 +7,8 @@ file_type: blog-post
 tags: [agents, cognitive-stack, crawl-walk-run, skills, second-brain, token-routing]
 staleness_threshold: stable
 description: "Enterprise agent pilots are stalling because companies are skipping from 'crawl' (chat) to 'run' (autonomous agents) without 'walk' (context, skills, judgment). Even after you can run, you still mostly walk — successful AI use is choosing the right cognitive-stack layer per task. Includes the four-layer Excel example with token costs."
+tier: 2
+status: reviewed
 ---
 
 # Why enterprise AI agents disappoint (and why the fix is not "better agents")

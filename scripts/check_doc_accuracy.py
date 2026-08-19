@@ -70,42 +70,61 @@ def check_count_mentions(actual_count, label, mentions):
 
 
 def check_frameworks():
-    actual_files = count_md_files("frameworks", exclude=())
-    actual_stems = sorted(p[:-3] for p in actual_files)
-    actual_count = len(actual_files)
+    """
+    A framework file with `status: archived` in its frontmatter stays on
+    disk (path unchanged, so existing related_frameworks links — including
+    in already-published posts — keep resolving) but drops out of active
+    counts and loading surfaces. See docs/frontmatter-schema.md's
+    2026-08-14 addendum.
+    """
+    all_files = count_md_files("frameworks", exclude=())
+    active_files = []
+    for fname in all_files:
+        text = read(f"frameworks/{fname}")
+        m = re.search(r'^status:\s*(\S+)', text, re.MULTILINE)
+        if not (m and m.group(1) == "archived"):
+            active_files.append(fname)
+    all_stems = sorted(p[:-3] for p in all_files)
+    active_count = len(active_files)
 
-    check_count_mentions(actual_count, "frameworks", [
-        ("CLAUDE.md", r"Brian's (\d+) frameworks", "loading-order bullet"),
-        ("CLAUDE.md", r"Standalone framework explainers \((\d+) frameworks\)", "repo structure tree"),
-        ("AGENTS.md", r"Brian's (\d+) frameworks", "loading-order bullet"),
-        ("AGENTS.md", r"Standalone framework explainers \((\d+) frameworks\)", "repo structure tree"),
+    check_count_mentions(active_count, "frameworks", [
+        ("CLAUDE.md", r"Brian's (\d+) active frameworks", "loading-order bullet"),
+        ("CLAUDE.md", r"Standalone framework explainers \((\d+) active", "repo structure tree"),
+        ("AGENTS.md", r"Brian's (\d+) active frameworks", "loading-order bullet"),
+        ("AGENTS.md", r"Standalone framework explainers \((\d+) active", "repo structure tree"),
         ("README.md", r"(\d+) standalone frameworks", "what's-inside bullet"),
         ("llms.txt", r"v[\d.]+ \(\d+ files, ~?\d+k? ?words, (\d+) frameworks", "header"),
     ])
 
-    # Tree in CLAUDE.md should list exactly the real framework files
+    # Tree in CLAUDE.md should list exactly the real framework files on disk
+    # (active + archived — the tree reflects what's physically there).
     tree_text = read("CLAUDE.md")
-    tree_block_match = re.search(r"frameworks/.*?\n(.*?)\nposts/", tree_text, re.DOTALL)
+    block_match = re.search(r"## Repo structure\n\n```\n(.*?)\n```", tree_text, re.DOTALL)
+    tree_block_match = re.search(r"frameworks/.*?\n(.*?)\n├── posts/", block_match.group(1), re.DOTALL) if block_match else None
     if tree_block_match:
         tree_files = sorted(re.findall(r"([\w.-]+\.md)", tree_block_match.group(1)))
-        if tree_files != actual_files:
-            only_in_tree = sorted(set(tree_files) - set(actual_files))
-            only_on_disk = sorted(set(actual_files) - set(tree_files))
+        if tree_files != all_files:
+            only_in_tree = sorted(set(tree_files) - set(all_files))
+            only_on_disk = sorted(set(all_files) - set(tree_files))
             if only_in_tree:
                 fail(f"frameworks: CLAUDE.md tree lists files that don't exist in frameworks/: {only_in_tree}")
             if only_on_disk:
                 fail(f"frameworks: frameworks/ has files missing from the CLAUDE.md tree: {only_on_disk}")
+    else:
+        warn("frameworks: couldn't locate the frameworks/ block inside CLAUDE.md's repo-structure tree — tree-consistency check skipped")
 
-    # llms.txt framework bullet count should equal actual_count
+    # llms.txt is an active-loading surface — archived frameworks shouldn't appear there.
     llms_text = read("llms.txt")
     fw_section = re.search(r"## Frameworks\n\n(.*?)\n\n##", llms_text, re.DOTALL)
     if fw_section:
-        bullet_count = fw_section.group(1).count("\n- [frameworks/") + (1 if fw_section.group(1).startswith("- [frameworks/") else 0)
         bullet_count = len(re.findall(r"^- \[frameworks/", fw_section.group(1), re.MULTILINE))
-        if bullet_count != actual_count:
-            fail(f"frameworks: llms.txt '## Frameworks' section lists {bullet_count} entries but {actual_count} files exist")
+        if bullet_count != active_count:
+            fail(f"frameworks: llms.txt '## Frameworks' section lists {bullet_count} entries but {active_count} active files exist")
 
-    return actual_stems
+    # real_stems for phantom-ref checking includes archived files too — their
+    # path still exists, so existing references (including in historical
+    # published posts, which we deliberately never rewrite) are still valid.
+    return all_stems
 
 
 def check_phantom_framework_refs(real_stems):
@@ -168,6 +187,56 @@ def check_linkedin_articles():
     ])
 
 
+MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def _frontmatter_date_range(dirpath):
+    """Min/max (year, month) across every file's `date:` frontmatter field."""
+    dates = []
+    for fname in count_md_files(dirpath):
+        text = read(f"{dirpath}/{fname}")
+        m = re.search(r'^date:\s*"?(\d{4})-(\d{2})-\d{2}"?', text, re.MULTILINE)
+        if m:
+            dates.append((int(m.group(1)), int(m.group(2))))
+    return min(dates), max(dates)
+
+
+def _fmt_ym(ym):
+    year, month = ym
+    return f"{MONTH_ABBR[month - 1]} {year}"
+
+
+def check_published_thinking_dates():
+    """
+    The loading-order bullet in CLAUDE.md/AGENTS.md states a date range per
+    corpus (Citrix blog, LinkedIn articles) so an AI gets temporal grounding
+    without opening files. Computed from frontmatter `date:` fields — this
+    catches drift the count checks above can't, since a stale range can be
+    wrong even when the count is right (e.g. LinkedIn articles predating the
+    stated start month, missed 2026-08-18).
+    """
+    citrix_min, citrix_max = _frontmatter_date_range("posts/citrix-blog")
+    li_min, li_max = _frontmatter_date_range("posts/linkedin/articles")
+    expected = (_fmt_ym(citrix_min), _fmt_ym(citrix_max), _fmt_ym(li_min), _fmt_ym(li_max))
+
+    pattern = re.compile(
+        r"published work \(\d+ Citrix blog posts, ([A-Za-z]+ \d{4})–([A-Za-z]+ \d{4})"
+        r" \+ \d+ LinkedIn articles, ([A-Za-z]+ \d{4})–([A-Za-z]+ \d{4})\)"
+    )
+    for file in ("CLAUDE.md", "AGENTS.md"):
+        text = read(file)
+        m = pattern.search(text)
+        if not m:
+            warn(f"published-thinking-dates: couldn't find the dated loading-order bullet "
+                 f"in {file} — pattern may be stale, check manually")
+            continue
+        if m.groups() != expected:
+            fail(f"published-thinking-dates: {file} says Citrix {m.group(1)}–{m.group(2)} / "
+                 f"LinkedIn {m.group(3)}–{m.group(4)}, but actual frontmatter range is "
+                 f"Citrix {expected[0]}–{expected[1]} / LinkedIn {expected[2]}–{expected[3]}")
+
+
 def check_talks():
     actual_count = len(count_md_files("talks"))
     check_count_mentions(actual_count, "talks", [
@@ -210,6 +279,7 @@ def main():
     check_phantom_framework_refs(real_stems)
     check_citrix_posts()
     check_linkedin_articles()
+    check_published_thinking_dates()
     check_talks()
     check_top_level_tree()
     check_claude_agents_parity()

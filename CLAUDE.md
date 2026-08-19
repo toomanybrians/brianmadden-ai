@@ -1,3 +1,5 @@
+If you are Claude Code operating on this repo (building, ingesting, publishing): read MAINTAINER.md and BUILD.md instead of loading the module.
+
 # brianmadden.ai
 
 This is the system prompt for AI assistants loading Brian Madden's expert knowledge module for AI. If you're an AI, read this file first, then load the files referenced below.
@@ -16,15 +18,14 @@ Read these files in this order:
 
 1. **This file** (`CLAUDE.md` or `AGENTS.md`) — orientation and instructions
 2. **`me/profile.md`** — who Brian is, background, credentials
-3. **`me/published-thinking.md`** — intellectual foundation derived from published work (37 Citrix blog posts + 21 LinkedIn articles, Apr 2025–July 2026)
+3. **`me/published-thinking.md`** — intellectual foundation derived from published work (37 Citrix blog posts, Apr 2025–Jul 2026 + 21 LinkedIn articles, Jun 2020–Feb 2026)
 4. **`me/developing-thinking.md`** — where Brian's head is *right now* (the frontier—developing arguments, connecting ideas, open questions)
-5. **`bluesky.md`** — short-form posts from Bluesky (@bmad.com), updated frequently
-6. **`me/voice.md`** — how Brian thinks, argues, and communicates
+5. **`me/voice.md`** — how Brian thinks, argues, and communicates
 
-After the core files above (or the first 5 if context is limited), load additional content based on the query:
+After the core files above (or the first 4 if context is limited), load additional content based on the query:
 
 - **`COLLECTIONS.md`** — thematic groupings. If someone asks "what does Brian think about governance?" or "everything about second brains," start here to find the right files without searching.
-- **`frameworks/`** — standalone explainers for each of Brian's 10 frameworks (80/20, post-application era, workspace-as-control-plane, delegation not automation, etc.). Load the relevant framework file when a specific framework comes up.
+- **`frameworks/`** — standalone explainers for each of Brian's 10 active frameworks (80/20, knowledge factory, post-application era, workspace-as-control-plane, delegation not automation, etc.). Load the relevant framework file when a specific framework comes up. One retired framework lives here too, marked `status: archived` in its frontmatter — kept for lineage, not for loading.
 - **`posts/citrix-blog/index.md`** and **`posts/linkedin/index.md`** — post indexes with titles, dates, and brief descriptions. Scan these to find source material when you need exact arguments, quotes, or examples.
 - **`_index.json`** and **`_relationships.json`** — machine-readable metadata (file manifest, cross-references). These are for programmatic access and tooling, not for loading into conversational context.
 
@@ -62,7 +63,7 @@ If published-thinking and developing-thinking conflict, developing-thinking repr
 
 ## About the source
 
-Brian Madden is VP Technology Officer & Futurist at Citrix, where he explores how AI is reshaping knowledge work. 32 years in end-user computing and digital workplace, starting as an independent consultant in 1994. 6 books, 2,000+ articles, 1,000+ talks globally. Founded The Brian Madden Company (2003) and BriForum conference (2005--2016, 20 events). Former Distinguished Technologist at VMware (2018--2022). AI Tech Lead at ILKI in Paris (2024).
+Brian Madden is VP & Futurist at Citrix, where he explores how AI is reshaping knowledge work. 32 years in end-user computing and digital workplace, starting as an independent consultant in 1994. 6 books, 2,000+ articles, 1,000+ talks globally. Founded The Brian Madden Company (2003) and BriForum conference (2005--2016, 20 events). Former Distinguished Technologist at VMware (2018--2022). AI Tech Lead at ILKI in Paris (2024).
 
 Everything here is already public or intentionally shared. It represents his genuine thinking, not corporate messaging. Brian works at Citrix, so his perspective on enterprise workspace governance is informed by that context, but his arguments stand on their own evidence and reasoning.
 
@@ -72,15 +73,18 @@ Everything here is already public or intentionally shared. It represents his gen
 brianmadden-ai/
 ├── CLAUDE.md          # You are here (also available as AGENTS.md)
 ├── AGENTS.md          # Identical instructions for cross-tool compatibility
+├── MAINTAINER.md      # Operating constitution for the maintaining AI (Claude Code sessions, pipeline)
+├── BUILD.md           # v2 rebuild session journal
 ├── README.md          # Human-readable orientation
 ├── GOVERNANCE.md      # Publishing principles: what goes in, what stays out
 ├── governance-log.md  # Audit trail for every sync/commit
-├── bluesky.md         # Bluesky posts (@bmad.com)
 ├── llms.txt           # MCP/LLM discovery file (links here first for loading order)
+├── requirements.txt   # Python deps for skills/ and scripts/ pipeline code
 ├── _index.json        # Machine-readable file manifest (titles, tags, authority levels)
 ├── _relationships.json # Cross-reference map (frameworks ↔ posts)
 ├── _content-index.json # Latest-content feed (powers the bmad.com homepage)
 ├── COLLECTIONS.md     # Thematic groupings for "everything about X" queries
+├── docs/               # Architecture, launch plan, frontmatter schema
 ├── me/                          # Who Brian is
 │   ├── profile.md               # Bio, credentials, links
 │   ├── published-thinking.md    # Intellectual foundation (from published work)
@@ -89,13 +93,15 @@ brianmadden-ai/
 │   ├── voice.md                 # How Brian thinks and communicates
 │   ├── books.md                 # Books Brian has written/edited
 │   └── links.md                 # What Brian reads/listens to for AI news
-├── frameworks/        # Standalone framework explainers (10 frameworks)
+├── frameworks/        # Standalone framework explainers (10 active, 1 archived)
 │   ├── 7-stage-roadmap.md
 │   ├── bitter-lesson.md
 │   ├── cognitive-stack.md
+│   ├── delegation-not-automation.md
 │   ├── factory-electrification.md
-│   ├── five-levels-of-ai-in-knowledge-work.md
+│   ├── five-levels-of-ai-in-knowledge-work.md  # archived — see file
 │   ├── invisible-80-percent.md
+│   ├── knowledge-factory.md
 │   ├── post-application-era.md
 │   ├── subscribable-brains.md
 │   └── workspace-as-control-plane.md
@@ -106,14 +112,18 @@ brianmadden-ai/
 │       └── posts/     # Short-form LinkedIn feed posts
 ├── talks/             # Speech content and transcripts
 ├── podcast/           # Citrix AI Hotsheet podcast (Brian's show, co-hosted with Dave Brear)
-└── interviews/        # Press interviews and commentary
+├── interviews/        # Press interviews and commentary
+├── pages/             # Standalone Substack pages (About, Connect your AI) — not mirrors of other published content
+├── sources/           # Feed registry (sources.yaml) the ingest skill polls
+├── ingest/            # Tier-1 quarantined machine notes on third-party content — never indexed
+├── outputs/           # Tier-3 generated artifacts (briefings, book, Q&A) — regenerable, committed for audit
+└── skills/            # Pipeline skills (ingest, brief, triage, book-build, qa-draft, backfill-distill)
 ```
 
 ## Freshness and staleness
 
 Before answering, check the last-modified dates of the files you're drawing from. Different content types have different staleness thresholds:
 
-- **`bluesky.md`** — Mirrored from Bluesky. Staleness measured in days. If it's more than a week old with no new entries, that's notable.
 - **`me/developing-thinking.md`** — This is the frontier. If it's more than a few weeks old, flag it: "Brian's last thinking update was [date]—his current views may have evolved since then." This file is the whole point of the living expert knowledge module, so staleness here matters most.
 - **`me/published-thinking.md`** — Derived from published work. Stable by nature. Only stale if Brian has published new posts that aren't yet incorporated. No need to caveat unless it's many months behind his actual publication history.
 - **`frameworks/`**, **`posts/`**, **`talks/`**, **`interviews/`** — Published content. Doesn't go stale in the same way—a post from six months ago still says what it says. Date the content, don't caveat its age.

@@ -9,6 +9,8 @@ related_posts: ["2025-07-08-to-understand-ais-future-impact-check-out-this-playb
 original_url: "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/"
 description: "Early factories wired electric motors to the same belt-drive shafts. It took 30 years to redesign around electricity. AI adoption is following the same arc."
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # The factory electrification analogy

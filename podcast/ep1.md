@@ -8,6 +8,8 @@ authority_level: 5
 file_type: podcast
 tags: [computer-using-agents, second-brain, context-vault, enterprise-ai, cognitive-stack, enterprise-governance, post-application-era, token-economics, oSWorld, semantic-primitives, mcp, brain-to-brain]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # EP 1: AI agents, second brains, and the enterprise AI gap

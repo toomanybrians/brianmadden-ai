@@ -9,6 +9,8 @@ authority_level: 5
 file_type: talk
 tags: [workplace-ai, microsoft-recall, vdi, ai-screen-recording, productivity-measurement, shadow-ai, consumerization, ai-compliance, gdpr, employee-monitoring]
 staleness_threshold: stable
+tier: 2
+status: reviewed
 ---
 
 # Impact of AI: Explored - June 6, 2024
