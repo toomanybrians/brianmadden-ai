@@ -1,0 +1,103 @@
+# Daily ingest + brief (Day 6 automation)
+# ==========================================
+# Runs the ingest and brief skills unattended every weekday morning and
+# commits whatever they produce straight to `main`. This is the
+# *synthesis* half of the daily pipeline only — turning that brief into a
+# Substack-ready draft (skills/brief/publish.py) stays a manual step Brian
+# runs locally when he's actually ready to review and publish (see
+# BUILD.md open decision #3: the 08:00 run and the 9-11am publish window
+# are deliberately two different moments, not one).
+#
+# WHY 06:00 UTC
+# -------------
+# Target is 08:00 Paris time (BUILD.md open decision #3), but GitHub
+# Actions cron is always UTC and doesn't observe DST. 06:00 UTC matches
+# Paris exactly under CEST (summer, UTC+2 — true today). Under CET
+# (winter, UTC+1) this drifts to 07:00 Paris — an hour early, not late.
+# Deliberately not solved with a second seasonal cron entry: per Brian's
+# own reasoning for the 08:00 target, "not much breaks overnight," so an
+# hour of drift in either direction doesn't matter enough to double the
+# schedule complexity.
+#
+# WHAT'S MISSING ON PURPOSE
+# --------------------------
+# X (brianmaddenai home timeline) ingestion is deliberately NOT wired up
+# here yet, even though skills/ingest/ingest.py supports it. Its OAuth
+# refresh token rotates on use and ingest.py persists a rotated token by
+# rewriting the local .env file (skills/ingest/ingest.py's
+# _update_env_var()) — there is no .env file in a GitHub Actions
+# checkout, so a rotated token would only live for the one job and the
+# X_REFRESH_TOKEN secret here would silently go stale on the very next
+# rotation. Needs a real write-back-to-Secrets step (a repo-scoped PAT +
+# the Secrets API) before X_* secrets get added here — flagged as a
+# near-term follow-up, not a today problem. Missing X credentials fail
+# gracefully (x_is_configured() gate in ingest.py skips the source with a
+# logged reason, same as any other missing-credential source) rather than
+# breaking the run.
+#
+# REQUIRED SECRETS (set in GitHub repo settings — see .env.example for
+# what each is for)
+# --------------------------------------------------------------------
+#   ANTHROPIC_API_KEY                              — required
+#   GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET / GMAIL_REFRESH_TOKEN
+#                                                   — brain@ inbox polling
+#   OPENAI_API_KEY                                 — podcast transcription
+
+name: Daily ingest + brief
+
+on:
+  schedule:
+    - cron: "0 6 * * 1-5"
+  workflow_dispatch:
+
+concurrency:
+  group: daily-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git identity
+        run: |
+          git config user.name "brianmadden.ai"
+          git config user.email "brain@brianmadden.ai"
+
+      - name: Run ingest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 skills/ingest/ingest.py
+
+      - name: Run brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 skills/brief/brief.py
+
+      - name: Commit and push
+        run: |
+          git add -A -- ingest/ outputs/technical-briefings/ sources/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Run today's ingest + daily brief ($(date -u +%Y-%m-%d)) [automated]"
+            git push
+          fi
