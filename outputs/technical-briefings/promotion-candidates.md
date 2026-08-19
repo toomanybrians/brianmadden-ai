@@ -131,3 +131,29 @@ Notes from each recurrence:
 - Miessler's cybersecurity careers piece argues AI has eliminated the entry-level on-ramp in security specifically (scaffolding work was how juniors learned), touching the displacement half of the thread.
 
 **Status: not yet reviewed by Brian.**
+
+## `open-weight-floor-is-subsidized` — flagged 2026-08-19
+
+The continued flow of near-frontier open weights is funded by Nvidia's chip-demand strategy and Meta's move to undercut rival token revenue — meaning the planning floor rises only as long as those competitive incentives hold, and should be dated rather than assumed.
+
+First seen 2026-08-17, recurred 3 times through 2026-08-19.
+
+Notes from each recurrence:
+
+- Nvidia providing a financial guarantee on one of the largest data center deals ever, plus tech-sector borrowing at ~25% of US Treasury issuance (5x YoY, per Nomura) — same chip-demand mechanism, applied to the frontier build-out rather than open weights.
+- Tunguz reports a 27B dense open model (Qwen3.8) ranked #1 of 135 on the Artificial Analysis Intelligence Index, above a 753B open frontier model, and matching cloud quality on real workflow tasks — the floor is rising and shrinking simultaneously, which changes the hardware requirement in the bubble-pop planning floor.
+
+**Status: not yet reviewed by Brian.**
+
+## `human-approval-worse-than-automated-policy` — flagged 2026-08-19
+
+Evidence that human-in-the-loop approval is the weak link in agent governance (humans refused a dangerous command 13.6% of the time vs 89% for automated policy), inverting the assumption behind nearly every enterprise AI governance design in market.
+
+First seen 2026-08-17, recurred 3 times through 2026-08-19.
+
+Notes from each recurrence:
+
+- A three-day agent work stoppage went undetected by humans watching green dashboards, while the mind-virus contagion was largely mitigated by a single automated system-prompt-level warning.
+- Anthropic's Gmail connector moved from read/draft-only to send/reply/forward with approval on by default but disableable, and Cursor's Origin defaults on unless an admin opts out — the safeguard in both cases is a human-facing default setting rather than enforced policy.
+
+**Status: not yet reviewed by Brian.**
