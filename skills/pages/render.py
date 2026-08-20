@@ -27,8 +27,6 @@ PAGES_DIR = ROOT / "pages"
 sys.path.insert(0, str(ROOT / "skills"))
 from lib import gmail_send  # noqa: E402
 
-DEFAULT_SEND_TO = "b@bmad.com"
-
 
 def load_dotenv(root: Path) -> None:
     env_path = root / ".env"
@@ -81,11 +79,12 @@ def render_to_html(md_path: Path) -> Path:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Render a pages/*.md file to HTML for pasting into Substack.")
     parser.add_argument("page", help="filename under pages/ (e.g. about.md), or a full/relative path")
-    parser.add_argument("--send", action="store_true", help=f"also email the rendered HTML to {DEFAULT_SEND_TO} (or --to)")
-    parser.add_argument("--to", default=DEFAULT_SEND_TO, help=f"recipient for --send (default: {DEFAULT_SEND_TO})")
+    parser.add_argument("--send", action="store_true", help="also email the rendered HTML (to --to, or $BRIAN_EMAIL)")
+    parser.add_argument("--to", default=None, help="recipient for --send (default: $BRIAN_EMAIL)")
     args = parser.parse_args()
 
     load_dotenv(ROOT)
+    to_email = args.to or os.environ.get("BRIAN_EMAIL")
 
     candidate = Path(args.page)
     md_path = candidate if candidate.exists() else PAGES_DIR / args.page
@@ -93,6 +92,8 @@ def main() -> None:
         raise SystemExit(f"no such file: {args.page} (looked in pages/ too)")
     md_path = md_path.resolve()
 
+    if args.send and not to_email:
+        raise SystemExit("--send needs --to or BRIAN_EMAIL set (.env or env)")
     if args.send and not gmail_send.is_configured():
         raise SystemExit("--send needs GMAIL_CLIENT_ID/GMAIL_CLIENT_SECRET/GMAIL_REFRESH_TOKEN set (.env or env)")
 
@@ -102,8 +103,8 @@ def main() -> None:
     if args.send:
         title = frontmatter_title(md_path.read_text(encoding="utf-8")) or md_path.stem
         html_body = out_path.read_text(encoding="utf-8")
-        gmail_send.send_email(args.to, subject=f"[brianmadden.ai page] {title}", html_body=html_body)
-        print(f"emailed to {args.to}")
+        gmail_send.send_email(to_email, subject=f"[brianmadden.ai page] {title}", html_body=html_body)
+        print(f"emailed to {to_email}")
 
 
 if __name__ == "__main__":

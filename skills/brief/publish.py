@@ -39,7 +39,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
-from lib import llm  # noqa: E402
+from lib import gmail_send, llm  # noqa: E402
 
 from brief import (  # noqa: E402 — reuse brief.py's helpers rather than duplicating them
     OUTPUT_ROOT,
@@ -234,9 +234,18 @@ def main() -> None:
     )
     parser.add_argument("--provider", choices=sorted(llm.REQUIRED_ENV_VARS))
     parser.add_argument("--llm-model", help=f"override the model id (default: env LLM_MODEL, else {DEFAULT_MODEL})")
+    parser.add_argument("--send", action="store_true", help="also email the rendered draft (to --to, or $BRIAN_EMAIL)")
+    parser.add_argument("--to", default=None, help="recipient for --send (default: $BRIAN_EMAIL)")
     args = parser.parse_args()
 
     load_dotenv(ROOT)
+    to_email = args.to or os.environ.get("BRIAN_EMAIL")
+
+    if args.send and not args.dry_run:
+        if not to_email:
+            raise SystemExit("--send needs --to or BRIAN_EMAIL set (.env or env)")
+        if not gmail_send.is_configured():
+            raise SystemExit("--send needs GMAIL_CLIENT_ID/GMAIL_CLIENT_SECRET/GMAIL_REFRESH_TOKEN set (.env or env)")
 
     brief_date = args.date or datetime.now().strftime("%Y-%m-%d")
     dense_path = find_brief(brief_date)
@@ -305,6 +314,11 @@ def main() -> None:
         # the disclosure line reflects that honestly.
         html_path = render_to_html(out_path)
         print(f"wrote {html_path.relative_to(ROOT)} (gitignored — copy-paste only, not committed)")
+
+        if args.send:
+            subject = substack_title(brief_date)
+            gmail_send.send_email(to_email, subject=subject, html_body=html_path.read_text(encoding="utf-8"))
+            print(f"emailed to {to_email} (subject: {subject!r})")
 
 
 if __name__ == "__main__":

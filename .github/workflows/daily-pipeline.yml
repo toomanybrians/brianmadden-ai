@@ -1,12 +1,15 @@
-# Daily ingest + brief (Day 6 automation)
-# ==========================================
-# Runs the ingest and brief skills unattended every weekday morning and
-# commits whatever they produce straight to `main`. This is the
-# *synthesis* half of the daily pipeline only — turning that brief into a
-# Substack-ready draft (skills/brief/publish.py) stays a manual step Brian
-# runs locally when he's actually ready to review and publish (see
-# BUILD.md open decision #3: the 08:00 run and the 9-11am publish window
-# are deliberately two different moments, not one).
+# Daily ingest + brief + publish (Day 6 automation)
+# ==================================================
+# Runs the whole synthesis-to-draft chain unattended every weekday morning
+# — ingest, brief, publish — commits whatever it produces straight to
+# `main`, and emails Brian the rendered, Substack-ready HTML (2026-08-20:
+# originally this stopped after brief.py and left publish.py as a manual
+# step, but Brian's actual daily habit is "paste this into Substack over
+# coffee," which only works if the draft is already in his inbox when he
+# sits down — see BUILD.md open decision #3 for the 08:00-run vs.
+# 9-11am-review split this still respects). Actually clicking publish on
+# Substack itself remains manual — nothing here can do that (no posting
+# API exists yet, D7).
 #
 # WHY 06:00 UTC
 # -------------
@@ -40,10 +43,18 @@
 # --------------------------------------------------------------------
 #   ANTHROPIC_API_KEY                              — required
 #   GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET / GMAIL_REFRESH_TOKEN
-#                                                   — brain@ inbox polling
+#                                                   — brain@ inbox polling,
+#                                                     and sending the
+#                                                     morning email (needs
+#                                                     the gmail.send scope,
+#                                                     not just gmail.modify)
+#   BRIAN_EMAIL                                    — verifies brain@
+#                                                     personal flags, and
+#                                                     is the morning
+#                                                     email's recipient
 #   OPENAI_API_KEY                                 — podcast transcription
 
-name: Daily ingest + brief
+name: Daily ingest + brief + publish
 
 on:
   schedule:
@@ -85,6 +96,7 @@ jobs:
           GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
           GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
           GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          BRIAN_EMAIL: ${{ secrets.BRIAN_EMAIL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python3 skills/ingest/ingest.py
 
@@ -93,10 +105,33 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python3 skills/brief/brief.py
 
+      # Publishes + emails BEFORE the commit below, same order Brian's own
+      # local runs use — the tradeoff (skills/brief/README.md) is that the
+      # disclosure line's "raw notes" link falls back to a plain
+      # main-branch blob link instead of a permalink to this exact batch's
+      # commit, since that commit doesn't exist yet at render time. Guarded
+      # on today's brief file actually existing: a quiet day (no new notes)
+      # means brief.py wrote nothing, and publish.py has nothing to work
+      # from.
+      - name: Run publish + email
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          BRIAN_EMAIL: ${{ secrets.BRIAN_EMAIL }}
+        run: |
+          BRIEF_PATH="outputs/technical-briefings/$(date -u +%Y/%m/%Y-%m-%d).md"
+          if [ -f "$BRIEF_PATH" ]; then
+            python3 skills/brief/publish.py --send
+          else
+            echo "No brief written today (quiet day) — nothing to publish"
+          fi
+
       - name: Commit and push
         id: commit
         run: |
-          git add -A -- ingest/ outputs/technical-briefings/ sources/
+          git add -A -- ingest/ outputs/technical-briefings/ outputs/published/ sources/
           if git diff --cached --quiet; then
             echo "No changes to commit"
             echo "pushed=false" >> "$GITHUB_OUTPUT"

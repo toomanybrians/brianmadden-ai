@@ -153,10 +153,11 @@ rather than maintained by hand ahead of time.
 
 ## brain@ personal flags (open decision #9)
 
-Messages from `b@bmad.com` — Brian's own address, verified via `From` plus
-`Authentication-Results` (`dkim=pass` preferred, `spf=pass` accepted for now
-since bmad.com's DKIM DNS record doesn't exist yet — see BUILD.md) — never
-go through the uniform newsletter extract-or-skip path above. Real shapes
+Messages from Brian's own address (`BRIAN_EMAIL` — not hardcoded, this repo
+is public), verified via `From` plus `Authentication-Results` (`dkim=pass`
+preferred, `spf=pass` accepted for now since bmad.com's DKIM DNS record
+doesn't exist yet — see BUILD.md) — never go through the uniform newsletter
+extract-or-skip path above. Real shapes
 seen live (2026-08-16): a bare URL meaning "follow this," a bare URL
 meaning "read this" (sometimes both at once), a full article pasted
 directly into the body, a raw thought with no link at all, and a

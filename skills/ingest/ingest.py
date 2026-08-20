@@ -556,7 +556,11 @@ GMAIL_PROCESSED_LABELS = (GMAIL_LABEL_INGESTED, GMAIL_LABEL_SKIPPED, GMAIL_LABEL
 # 2026-08-16: no sig1._domainkey.bmad.com DNS record exists yet, so
 # Apple's real signature can never be checked — dkim=permerror on every
 # message, not a spoofing concern) — see _sender_is_verified_personal().
-PERSONAL_FLAG_SENDER = "b@bmad.com"
+# Read from BRIAN_EMAIL (not hardcoded — this repo is public, 2026-08-20
+# call) via a function rather than a module-level constant, since that's
+# evaluated at import time, before main() has loaded .env.
+def personal_flag_sender() -> str:
+    return os.environ.get("BRIAN_EMAIL", "")
 BRAIN_FLAGS_QUEUE = ROOT / "ingest" / "brain-flags" / "queue.md"
 URL_RE = re.compile(r"https?://\S+")
 _gmail_label_id_cache: dict[str, str] = {}
@@ -1023,15 +1027,16 @@ def auto_register_email_source(
 
 
 def _sender_is_verified_personal(header_map: dict) -> bool:
-    """True if this message's From is really PERSONAL_FLAG_SENDER. Checks
+    """True if this message's From is really personal_flag_sender(). Checks
     dkim=pass first (tightens automatically, no code change, once Brian
     fixes bmad.com's DNS) but accepts spf=pass alone for now — see
-    PERSONAL_FLAG_SENDER's comment for why that's an acceptable interim
+    personal_flag_sender()'s comment for why that's an acceptable interim
     bar: nothing this unlocks does anything more consequential than
     writing a quarantined ingest/ note or a review-queue entry, both
     already human-reviewed downstream."""
     _, address = _parse_sender_header(header_map.get("From", ""))
-    if address != PERSONAL_FLAG_SENDER:
+    target = personal_flag_sender()
+    if not target or address != target:
         return False
     auth = header_map.get("Authentication-Results", "")
     return "dkim=pass" in auth or "spf=pass" in auth
@@ -1627,7 +1632,7 @@ def main() -> None:
 
         for entry in new_entries:
             if is_email and _sender_is_verified_personal(entry.get("_gmail_header_map") or {}):
-                print(f"    brain@ flag from {PERSONAL_FLAG_SENDER}: {entry['title']}")
+                print(f"    brain@ flag from {personal_flag_sender()}: {entry['title']}")
                 label = handle_brain_flag(
                     entry, sources_path, follows, args.provider, args.llm_model, args.dry_run,
                 )

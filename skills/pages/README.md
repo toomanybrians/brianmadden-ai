@@ -27,10 +27,11 @@ rich text — pasting the raw `.md` source directly would show literal
 
 `--send` emails the same rendered HTML from `brain@brianmadden.ai` via
 [skills/lib/gmail_send.py](../lib/gmail_send.py), defaulting to
-`b@bmad.com`. Needs `GMAIL_CLIENT_ID`/`GMAIL_CLIENT_SECRET`/
-`GMAIL_REFRESH_TOKEN` in `.env` — same three vars the ingest pipeline's
-`brain@` reading already uses, but **the refresh token needs the
-`gmail.send` scope added** (2026-08-19), not just `gmail.modify`. An
+`BRIAN_EMAIL` (set in `.env` — not hardcoded, this repo is public) unless
+`--to` overrides it. Needs `GMAIL_CLIENT_ID`/`GMAIL_CLIENT_SECRET`/
+`GMAIL_REFRESH_TOKEN` in `.env` too — same three vars the ingest
+pipeline's `brain@` reading already uses, but **the refresh token needs
+the `gmail.send` scope added** (2026-08-19), not just `gmail.modify`. An
 older token without it fails on the send call itself with a 403, not on
 refresh. Re-run `skills/lib/gmail_get_refresh_token.py` after adding the
 scope in Google Cloud Console to mint one that has it.
