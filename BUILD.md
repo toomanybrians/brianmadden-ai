@@ -4219,3 +4219,32 @@ cutover is done and verified, and every real issue found today — the
 ingest-validation bug, the cross-workflow trigger gap, the self-ingestion
 loop — got fixed at the root rather than patched around, with the fixes
 themselves logged here alongside the incidents that surfaced them.
+
+### 2026-08-20 — new `/maintain` session (Workstream E doc recovered and committed)
+
+That "end of day" claim above turned out to be off by one file. This
+session's `/maintain` bootstrap found `docs/substack-as-primary-home.md`
+uncommitted — a full "Workstream E — publication structure: Sections,
+tags, static pages" section, ~95 lines. File mtime (01:42 local) placed
+it eight minutes *after* the prior entry's "end of day" commit
+(`73324a8`, 01:34) — genuine trailing work from that same session that
+never got staged or logged, not concurrent/other-session drift.
+
+Content is real, not a stub: a live audit of Substack's actual
+publication settings (every post so far bylined "brianmadden.ai,"
+including Brian's own talks/podcast episodes/essay — wrong, and it
+breaks author-based filtering before it starts; duplicate archive
+entries on the Hotsheet episodes) plus a decided structure — two
+Sections ("Daily Briefing" for AI output, "From Brian" for
+human-authored content, with per-type tags inside the latter only) and
+static pages for `/books` and `/frameworks` instead of tag streams for
+those. Ends with an explicit action-item list: fix bylines, de-duplicate
+the archive, build the two Sections in Substack's settings, retag the
+back catalog. All of that is design-only — nothing applied in Substack
+yet.
+
+Committed as-is, no content changes — this entry is the missing log
+line, not a review of the decision itself. Brian's said he'll pick up
+the actual Substack UI work (bylines, dedup, building the Sections) in
+the next few days; nothing else pending, today's 2026-08-20 brief is
+already out. Repo is clean again after this commit.

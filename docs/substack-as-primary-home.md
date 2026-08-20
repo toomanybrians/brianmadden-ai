@@ -3,7 +3,7 @@ title: "Substack as the primary human-facing home — planning doc"
 type: proposal, in progress
 author: Brian + Claude
 date: 2026-08-12
-status: brainstorming, not decided
+status: brainstorming, not decided (Workstream E's structure decided 2026-08-20 — see that section)
 tier: canon (candidate — planning doc, not yet a settled architecture)
 ---
 
@@ -130,12 +130,12 @@ unilaterally.
 | Interviews | few | Case by case — depends on whether Brian's words or someone else's writeup |
 | Books | 6 | Probably a static `/books` page, not a tag stream — small, stable set |
 
-Tags: `daily-briefing` (already set by Brian) plus `citrix-blog`,
-`linkedin`, `podcast`, `speech`, `interview` — matching existing canon
-content types 1:1, so tagging is close to mechanical once the format
-question per type is settled. Custom menu items can point at tag pages;
-some things (`/books`) are better as standalone static pages than a
-tag stream.
+Tags per type (`citrix-blog`, `linkedin`, `podcast`, `speech`,
+`interview`) still apply here — matching existing canon content types
+1:1, so tagging is close to mechanical once the format question per type
+is settled. See Workstream E for how tags, Sections, and static pages
+now divide the labor (tags stopped being the only lever once Sections
+entered the picture).
 
 **Scope reality check:** ~90 items total (37+21+20+10+4+interviews), and
 Substack has no posting API — every single one still needs Brian to
@@ -154,6 +154,101 @@ Brian's own idea, prompted by the observation that the pipeline itself
 a distribution hook independent of any single day's content — posts
 *from* Brian explaining how/why this works, under his own byline. Capture
 the idea here; not yet drafted, no format/cadence decided.
+
+## Workstream E — publication structure: Sections, tags, static pages
+
+**Decided 2026-08-20**, prompted by Brian actually poking at Substack's
+real customization UI and hitting its real limits: the center column is
+reverse-chron, everything, no way to curate it short of pinning one post;
+sidebars can filter by tag and (maybe) author. The open question was how
+to keep Brian's own posts (blog previews, talks, podcast episodes,
+essays) visible once the Daily Briefing — weekdays, per the Aug 9
+decision above — buries them under volume.
+
+**Live-site check before deciding anything** (2026-08-20, `www.brianmadden.ai`):
+
+- Nav today is just `Home | About`. No Section tabs, no tag pages in nav.
+- Two author profiles exist (visible as two distinct avatars — the AI's
+  icon and Brian's photo) — but **every post published so far shows
+  byline "brianmadden.ai," including Brian's own talks, podcast episodes,
+  and the bubble-pop essay.** Wrong for the human-authored ones, and it
+  breaks author-based filtering before it starts.
+- Clicking a byline goes to `substack.com/@brianmaddenai` — a
+  cross-publication Substack profile, not a view scoped to this
+  publication. Confirms author-as-filter is a weaker lever than it looks,
+  even once bylines are corrected.
+- Spotted duplicate entries in the archive (e.g. "Citrix AI Hotsheet
+  Episode 4" twice with near-identical titles; same pattern on EP2, EP3,
+  and one podcast-guest post) — a cleanup pass is needed before a tagging
+  pass, or the duplicates get tagged too.
+
+**Substack's actual primitives** (more than "tags + sidebar"):
+
+1. **Sections** — a real sub-newsletter: its own nav tab, its own feed,
+   and readers can subscribe to just that section. The strong lever, and
+   the one not yet used — this is what the Aug 9 decision's "sections for
+   Daily Brief · Factory Notes · The Book · Q&A" was already reaching
+   for, just never built in the live UI.
+2. **Tags** — lighter, multi-per-post, power `/t/tagname` pages and
+   sidebar tag widgets. Good for sub-typing *within* a section, not for
+   the top-level human/AI split.
+3. **Custom static pages** — hand-built, non-chronological. Right fit for
+   small, stable sets that shouldn't live in a reverse-chron feed at all.
+4. **Sidebar link widgets** — what's already built (the "Brian Madden
+   (The Human)" box linking to bmad.com/Citrix/LinkedIn). Manual and
+   curated, not a live filter.
+
+**The structure:**
+
+- **Section: "Daily Briefing"** (or leave AI output as the unsectioned
+  default, since it's the majority of volume) — everything from the AI
+  byline.
+- **Section: "From Brian"** — every human-authored post: Citrix blog
+  previews, LinkedIn reposts, talks, podcast episodes, essays. This is
+  the actual fix for "the feed fills up with daily briefings" — a nav-tab
+  fix, not a sidebar fix.
+- **Tags, inside "From Brian" only**: `citrix-blog`, `linkedin`,
+  `podcast`, `speech`, `interview` — lets a reader on that tab filter
+  further by type. **No umbrella "Brian content" tag** — the Section
+  already is that umbrella, and it's the stronger mechanism (dedicated
+  nav tab + independent subscribe option, not a sidebar filter someone
+  has to notice).
+- **`daily-briefing` tag** stays on the AI side, mostly for the
+  tag-cloud/discovery surface rather than on-site filtering within an
+  already-homogeneous stream.
+- **Static pages, not tags, for small stable evergreen sets**: `/books`
+  (6, per Workstream C's table above) and `/frameworks` (10-11 active —
+  see `frameworks/`) — hand-maintained index pages, not chronological
+  drift, for exactly the content that suffers most from being buried in
+  a feed.
+
+**Process gap this creates:** Substack has no posting API (confirmed in
+Workstream C above), so Section/tag assignment happens by hand in the
+editor at publish time. Whatever "Brian pastes and hits publish" step
+exists needs a checklist line for this, or the taxonomy exists on paper
+and never gets applied — the same failure mode as the untagged back
+catalog sitting in the archive today. Not yet added anywhere concrete
+(candidate: `skills/brief/README.md`'s known-limitations section, or
+wherever the publish step ends up documented).
+
+**Action items surfaced, not yet done:**
+- Fix the byline on every existing human-authored post (talks, podcast
+  episodes, the bubble-pop essay, etc.) to the "Brian Madden" contributor,
+  not "brianmadden.ai."
+- De-duplicate the archive (Hotsheet EP2/EP3/EP4, the podcast-guest post)
+  before running a tagging pass over the back catalog.
+- Build the two Sections in Substack's publication settings, then
+  retroactively assign existing posts to them.
+- Apply the per-type tags to the back catalog once Workstream C's format
+  question per type is settled (this was already the plan; now it has a
+  home to file under).
+
+**Open within this workstream:** whether the still-unbuilt Weekly Recap
+post (`BUILD.md` open decision #13 — "how my thinking has changed this
+week," lighter/lower-frequency than the Daily Brief) gets its own third
+Section or folds into "From Brian" once it exists. Revisit when that
+skill actually gets built rather than pre-deciding nav structure for
+content that doesn't exist yet.
 
 ## Suggested model/effort per workstream, for separate sessions
 
@@ -176,6 +271,13 @@ the idea here; not yet drafted, no format/cadence decided.
   (plain Sonnet, this conversation, no special setup). Genuinely his
   voice/reflection, so probably drafted collaboratively rather than
   generated blind either way.
+- **E (Sections/tags/pages structure)** — the design is decided (this
+  doc); building it is manual Substack UI work (creating Sections,
+  fixing bylines, retagging the back catalog) with no API to script
+  against, same constraint as Workstream C. Plain Sonnet, standard
+  effort, whatever session Brian is in when he sits down to actually
+  click through Substack's settings — this repo can prep the tag/section
+  assignment list per post, but can't apply it.
 
 ## Open, not decided
 
