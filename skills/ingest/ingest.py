@@ -1456,7 +1456,31 @@ def extract(
     # aware prompt experiment (2026-08-11) — kept at 2048 even after
     # reverting that experiment, since it's just a safer margin regardless.
     text = llm.generate(prompt_text, provider=provider, model=model, max_tokens=2048)
-    if text == "NOT_RELEVANT" or text.startswith("NOT_RELEVANT"):
+    text = text.strip()
+
+    # Real failure modes seen in production (2026-08-19 daily run), not
+    # hypothetical: (1) an empty completion for a perfectly good article —
+    # `text == ""` isn't `None`, so a bare `is None` check let a blank note
+    # get written; (2) the model appending NOT_RELEVANT after an
+    # explanatory paragraph instead of as the whole response, which
+    # `startswith` alone doesn't catch; (3) prose explaining a stub instead
+    # of using a sentinel at all, since until this fix there wasn't one for
+    # "relevant but too thin" — only INSUFFICIENT_CONTENT's addition closes
+    # that gap. All three silently produced a written note that was empty,
+    # near-empty, or not actually insights. Three checks now, in order:
+    # empty response, either sentinel anywhere in the text (not just a
+    # startswith match), and — the catch-all for anything that still isn't
+    # one of those two but also doesn't look like a real note — requiring
+    # the expected `## Insights` header. A future prompt-following slip
+    # from the model fails closed (skipped, logged) instead of writing
+    # something malformed.
+    if not text:
+        print(f"    ! empty extraction response, skipped: {entry.get('title')}")
+        return None
+    if "NOT_RELEVANT" in text or "INSUFFICIENT_CONTENT" in text:
+        return None
+    if not text.startswith("## Insights"):
+        print(f"    ! malformed extraction response (no ## Insights header), skipped: {entry.get('title')}")
         return None
     return text
 

@@ -27,16 +27,22 @@ Item content (fetched for this extraction only — do not reproduce it):
 Ground everything below ONLY in the content between those `---` markers.
 Even if you recognize this source or episode from training data, do not
 draw on what you know about it — use only what's actually in front of you.
-If the content above is a stub, paywall notice, or otherwise too thin to
-support real insights (roughly under 100 words of substance), say so
-plainly instead of inventing or inferring what the piece probably covers.
 
 ## Your task
 
-First, decide relevance: is this item at all about AI, the future of work,
-knowledge work, the enterprise, or adjacent futurism? If it is clearly
-off-topic (e.g. politics, personal life, unrelated hobbies), respond with
-exactly the single line `NOT_RELEVANT` and nothing else.
+Two checks first, each with its own exact-output response if it fails —
+do these before writing anything else, and don't explain your reasoning
+in prose either way; the sentinel alone is the whole response:
+
+1. **Relevance**: is this item at all about AI, the future of work,
+   knowledge work, the enterprise, or adjacent futurism? If it is clearly
+   off-topic (e.g. politics, personal life, unrelated hobbies), respond
+   with exactly the single line `NOT_RELEVANT` and nothing else.
+2. **Sufficiency**: is the content above a stub, paywall notice, episode-
+   description-only page, or otherwise too thin to support real insights
+   (roughly under 100 words of substance)? If so, respond with exactly
+   the single line `INSUFFICIENT_CONTENT` and nothing else — don't invent
+   or infer what the piece probably covers.
 
 Otherwise, write a tier-1 ingest note body in Markdown with this shape:
 
@@ -60,4 +66,4 @@ Hard rules (non-negotiable, from this repo's governance):
 - Never summarize so closely that it amounts to a paraphrase-length reprint
   of the source — insights, not a reprint.
 - No preamble, no "Here is the note" framing — output starts at `## Insights`
-  (or is exactly `NOT_RELEVANT`).
+  (or is exactly `NOT_RELEVANT` or `INSUFFICIENT_CONTENT`, nothing appended).
