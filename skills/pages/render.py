@@ -14,14 +14,32 @@ content; the committed .md is the source of truth.
 """
 
 import argparse
+import os
 import re
 import sys
 from pathlib import Path
 
 import markdown
+import yaml
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 PAGES_DIR = ROOT / "pages"
+sys.path.insert(0, str(ROOT / "skills"))
+from lib import gmail_send  # noqa: E402
+
+DEFAULT_SEND_TO = "b@bmad.com"
+
+
+def load_dotenv(root: Path) -> None:
+    env_path = root / ".env"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
 
 STYLE = """<meta name="color-scheme" content="light">
 <style>
@@ -42,6 +60,13 @@ def strip_frontmatter(raw: str) -> str:
     return raw[m.end():] if m else raw
 
 
+def frontmatter_title(raw: str) -> str | None:
+    m = re.match(r"^---\n(.*?)\n---\n", raw, flags=re.DOTALL)
+    if not m:
+        return None
+    return (yaml.safe_load(m.group(1)) or {}).get("title")
+
+
 def render_to_html(md_path: Path) -> Path:
     raw = md_path.read_text(encoding="utf-8")
     body = strip_frontmatter(raw)
@@ -56,7 +81,11 @@ def render_to_html(md_path: Path) -> Path:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Render a pages/*.md file to HTML for pasting into Substack.")
     parser.add_argument("page", help="filename under pages/ (e.g. about.md), or a full/relative path")
+    parser.add_argument("--send", action="store_true", help=f"also email the rendered HTML to {DEFAULT_SEND_TO} (or --to)")
+    parser.add_argument("--to", default=DEFAULT_SEND_TO, help=f"recipient for --send (default: {DEFAULT_SEND_TO})")
     args = parser.parse_args()
+
+    load_dotenv(ROOT)
 
     candidate = Path(args.page)
     md_path = candidate if candidate.exists() else PAGES_DIR / args.page
@@ -64,8 +93,17 @@ def main() -> None:
         raise SystemExit(f"no such file: {args.page} (looked in pages/ too)")
     md_path = md_path.resolve()
 
+    if args.send and not gmail_send.is_configured():
+        raise SystemExit("--send needs GMAIL_CLIENT_ID/GMAIL_CLIENT_SECRET/GMAIL_REFRESH_TOKEN set (.env or env)")
+
     out_path = render_to_html(md_path)
     print(f"wrote {out_path.relative_to(ROOT)} (gitignored — copy-paste only, not committed)")
+
+    if args.send:
+        title = frontmatter_title(md_path.read_text(encoding="utf-8")) or md_path.stem
+        html_body = out_path.read_text(encoding="utf-8")
+        gmail_send.send_email(args.to, subject=f"[brianmadden.ai page] {title}", html_body=html_body)
+        print(f"emailed to {args.to}")
 
 
 if __name__ == "__main__":
