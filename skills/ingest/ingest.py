@@ -850,7 +850,14 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     # prior run already labeled (ingested or skipped), on top of the
     # frontmatter-based dedup every source type already gets from
     # load_ingested_urls(). No from: filter — whole inbox, see docstring.
-    query = f'after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
+    # in:inbox added 2026-08-20: without it, Gmail's default search scope
+    # is "all mail except Spam/Trash", which includes Sent — so once
+    # skills/lib/gmail_send.py started sending brain@'s daily-brief email
+    # from this same account, the very next run ingested brain@'s own
+    # outgoing mail as if it were a newsletter (real incident: the
+    # 2026-08-20 automated run ingested the 2026-08-19 Daily Briefing and
+    # an About-page email, both sent minutes earlier from brain@ itself).
+    query = f'in:inbox after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
     headers = {"Authorization": f"Bearer {access_token}"}
 
     # Confirmed real 2026-08-14: this used to pass maxResults=max_per_source
