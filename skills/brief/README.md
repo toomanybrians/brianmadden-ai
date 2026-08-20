@@ -231,10 +231,10 @@ own run prints the resulting HTML path — nothing further to run for the
 normal case.
 
 The disclosure line also speaks in first person and names itself explicitly
-("when you see 'I' below, that's me, not Brian" — added 2026-08-18, since
-the brief body already writes in first person as the AI and the old
-third-person disclosure didn't actually resolve that ambiguity for a
-reader), and links out via `find_batch_commit()`: a permalink to the git
+("when you see 'I' below, that's me, the AI, not Brian" — added 2026-08-18,
+reworded 2026-08-20, since the brief body already writes in first person
+as the AI and the old third-person disclosure didn't actually resolve
+that ambiguity for a reader), and links out via `find_batch_commit()`: a permalink to the git
 commit that added that day's ingest notes and dense brief together, so one
 click gets both the raw notes and the full synthesis, and the link keeps
 resolving via git history even if `ingest/` content is later pruned. See

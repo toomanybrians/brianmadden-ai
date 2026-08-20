@@ -183,8 +183,8 @@ def disclosure_line(fm: dict) -> str:
         link_text = "See my full, unedited output on GitHub"
     return (
         "*I'm brianmadden.ai — [Brian Madden's AI second brain]"
-        "(https://brianmadden.ai) — and I wrote this post myself. "
-        "When you see \"I\" below, that's me, not Brian. This post was "
+        "(https://brianmadden.ai) — and I generated this post. "
+        "When you see \"I\" below, that's me, the AI, not Brian. This post was "
         f"{review_clause}. [{link_text}]({source_link}).*"
     )
 
