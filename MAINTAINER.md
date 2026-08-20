@@ -1,6 +1,7 @@
 # MAINTAINER.md — operating constitution for the brianmadden.ai brain
 
-status: draft-v2 (revised against the actual repo, Aug 10)
+status: post-launch (v2 merged to `main` 2026-08-19; revised against the
+actual repo, 2026-08-20)
 
 ## Who reads what
 
@@ -10,7 +11,7 @@ status: draft-v2 (revised against the actual repo, Aug 10)
   mirrored to the other. A short router at the top sends maintainer sessions
   here.
 - **This file** — instructions for the *maintaining* AI: Claude Code sessions
-  building v2, and the CI pipeline operating the brain.
+  operating the brain, and the CI pipeline running it day to day.
 - **`BUILD.md`** — session journal during the v2 rebuild. Read at session
   start, updated at session end.
 
@@ -96,21 +97,27 @@ as the audit trail across v1 → v2.
 ## Legacy to retire
 
 `.github/workflows/` inventoried 2026-08-18 — turned out there's nothing
-legacy in it. Two files, both still load-bearing for the live v1 site:
+legacy in it. Both files are still load-bearing, now for the live v2 site:
 `check-docs.yml` runs `scripts/check_doc_accuracy.py` on every push/PR to
-`main`; `sync-to-cloudflare-kv.yml` is the actual v1 publish pipeline —
+`main`; `sync-to-cloudflare-kv.yml` is the actual publish pipeline —
 pushes changed `main` content to the Cloudflare KV store the live MCP
-server reads from, and already excludes `ingest/` (added 2026-08-10,
-ahead of v2 landing on `main` at all). Nothing to retire before launch;
-both keep running as-is through the v2 merge. Whether
-`sync-to-cloudflare-kv.yml`'s file-type/tier filters need adjusting for
-v2's fuller tier set is a question for the D6/merge work itself, not
-before it. Nothing on `main` breaks before launch.
+server reads from, excluding `ingest/`, `MAINTAINER.md`, and `BUILD.md`
+(the last two added at the v2 merge, 2026-08-19 — maintainer-only docs,
+not module content). The file-type/tier filter question raised here on
+2026-08-18 was resolved at the merge itself: no adjustment needed beyond
+that exclusion, confirmed by the merge's KV sync running clean.
 
 ## Working conventions
 
-- Active development happens on the `v2` branch until launch; `main` keeps
-  serving the live MCP server untouched.
+- The `v2` branch is gone (merged to `main` via PR #3, 2026-08-19, then
+  deleted locally and on `origin` — its job was done). Development happens
+  directly on `main` now: `main` is both the live product and the working
+  branch, no parallel long-lived branch. `daily-pipeline.yml` commits to it
+  every weekday morning on its own (ingest + brief + publish, unattended);
+  a session picking up mid-week should expect commits it didn't make
+  itself sitting in recent history — check `git log` before assuming the
+  last session's account of state is current, same caution this file
+  already gave `/maintain` for concurrent sessions.
 - Every session starts by reading this file and `BUILD.md` — `/maintain`
   (`.claude/skills/maintain/SKILL.md`) automates this — and ends by
   updating `BUILD.md`. The repo is the memory; chat threads are disposable.

@@ -471,24 +471,29 @@ asked to do, not as a template to re-run.
       this repo, and a live web search — no Quartz link found anywhere,
       and Brian doesn't have the URL either. Dropped, not chased further;
       revisit only if the actual link ever surfaces.
-- [ ] D6 — workflows automated (workflow_dispatch during build; cron via
-      main) — **deliberately deferred, 2026-08-16.** Discussed with Brian:
-      `schedule:`-triggered workflows only fire from GitHub's default
-      branch (`main`), so the real cron trigger can't be proven either way
-      until this is on `main` regardless of when the YAML gets written;
-      the underlying scripts are still moving (touched three times just
-      today); and other open work (this list) reaches a fully finished,
-      validated state now, unlike D6 structurally can't yet. Local `act`
-      testing was considered and set aside for the same reason — it
-      validates plumbing, not the actual secrets/runner surprises that
-      only show up on `main`. Revisit closer to the actual launch cutover.
+- [x] D6 — workflows automated. **Built and proven live, 2026-08-19/20**,
+      the day the deferral note above said to revisit it: `daily-pipeline.yml`
+      runs ingest → brief → publish → email unattended every weekday at
+      06:00 UTC (08:00 Paris), triggered for real via `workflow_dispatch`
+      first to prove it end to end. Found and fixed a real bug doing
+      that first run: a push made with the default `GITHUB_TOKEN` doesn't
+      cascade into other `on:push` workflows (GitHub's own loop
+      prevention), so `check-docs.yml`/`sync-to-cloudflare-kv.yml` silently
+      never fired for the automated commit — fixed with explicit
+      `workflow_dispatch` calls from within the pipeline itself. See the
+      2026-08-19/20 session entry for the full account, including the
+      ingest-extraction validation bug the first real run also surfaced.
 - [~] D7 — Substack publication live, **first real post published**
       2026-08-11 (manually, end to end: generate → Brian edits → status
       synced → rendered → pasted in by hand) — ahead of schedule, same
-      pattern as D4/D5 landing early. What's still actually D7: the
-      session-cookie draft-push client (posting is 100% manual right
-      now) and moving Brian's Substack follows to the `brianmaddenai`
-      account (open decision #7, still outstanding)
+      pattern as D4/D5 landing early. Moving Brian's Substack follows to
+      the `brianmaddenai` account (the other half of open decision #7) —
+      **closed 2026-08-18**, moot: his personal account had zero follows
+      to migrate. As of D6 above, the draft now reaches Brian by email
+      automatically every morning too, not just committed to the repo —
+      narrows what's actually left here to just the session-cookie
+      draft-*push* client (posting to Substack itself is still 100%
+      Brian, by hand — no API exists for it, D7's original scope).
 - [x] ~~D8 — email lanes wired~~ — **narrowed and closed 2026-08-18.**
       Brian's call: cancel the `ask@` Q&A lane indefinitely — no near-term
       use case, not worth building against a hypothetical. The intake
@@ -502,8 +507,22 @@ asked to do, not as a template to re-run.
       directory), `me/` has all 8 core identity/thinking/voice files.
       Matches or exceeds the original "10-15 core framework assets"
       target.
-- [ ] D10 → launch — daily dry run, review over coffee
-- [ ] Launch week — announcement essay + first public brief + landing swap
+- [~] D10 → launch — daily dry run, review over coffee. **Underway as of
+      2026-08-20**: D6's cron is live and will run for real tomorrow
+      morning without anyone triggering it; today's manual run was itself
+      the first dry run, and it's what surfaced the ingest-validation bug
+      (see session entry). Not closing this yet — "daily, reviewed over
+      coffee" needs a few real unattended mornings to actually claim.
+- [~] Launch week — announcement essay + first public brief + landing swap.
+      **Landing swap in progress, 2026-08-20**: `v2` merged to `main`
+      (PR #3, 2026-08-19); the domain cutover itself (`brianmadden.ai` →
+      Substack) is mid-flight — Substack's custom domain is verified,
+      waiting on Substack to finish activating it before the
+      `brianmadden-ai-server` Worker's apex-redirect code (written,
+      tested, not yet deployed) goes out. See the session entry for the
+      full mechanics (what stays live at the apex — `/mcp`, kept
+      deliberately, real usage — versus what redirects). Announcement
+      essay and first public brief: not started.
 
 ## Session log
 
@@ -3864,3 +3883,221 @@ Logged two new flagged-not-built ideas as open decisions #13 (weekly
 "how my thinking has changed" recap post) and #14 (MCP spec
 2026-07-28 readiness — action item lives in the server repo, not
 here).
+
+### 2026-08-19 — Claude Code session (launch day: v2 merged to `main`, D6
+proven live, ingest bug found and fixed, `pages/` + email delivery built,
+domain cutover started) — session ran past midnight UTC into 2026-08-20
+
+The day Brian flagged on 2026-08-18 as his big block of time for the v2
+merge and D6. All of it happened, plus more than planned — this entry is
+long because a genuinely large amount landed in one continuous session.
+Read the Day-plan checkboxes above for the short version; this is the
+account of how each one actually went.
+
+**The merge (PR #3).** Before opening it, discovered `main` hadn't
+actually been "untouched" the whole build the way the working assumption
+had it — 4 small fix commits landed there directly during August (MCP-
+reference cleanup, YouTube URL formatting, an `llms.txt` count fix),
+never absorbed into `v2`. Real merge conflict in exactly one file
+(`llms.txt`, both sides had independently bumped the same count/version
+lines); traced every one of `main`'s changes and confirmed `v2`'s version
+was a strict, more-current superset, so resolved in `v2`'s favor rather
+than hand-merging. Everything else auto-merged clean. Brian reviewed and
+clicked merge himself; the KV sync and `check-docs` both ran clean on the
+resulting 427-file diff. Cleaned up afterward: `v2` deleted both locally
+and on `origin` (its job — one launch PR — was done). Also built ahead of
+the merge, same session: `daily-pipeline.yml` (D6's workflow), and a new
+`pages/` canon directory (see below) — both landed on `v2` before the PR
+opened.
+
+**D6, proven live — and a real bug found doing it.** Triggered the new
+cron workflow for real via `workflow_dispatch` right after the merge,
+per Brian's own ask ("run today's daily briefing from the GitHub action
+to actually test it all works"). It worked — 17 ingest notes, a full
+Daily Brief — but `check-docs.yml` and `sync-to-cloudflare-kv.yml` never
+fired for the resulting commit. Root cause, confirmed via the GitHub API
+(zero check-runs on that commit): a push authenticated with the default
+`GITHUB_TOKEN` deliberately does not cascade into other `on:push`
+workflows — GitHub's own loop-prevention behavior, not a bug in either
+workflow. Fixed by having `daily-pipeline.yml` explicitly `gh workflow
+run` both downstream workflows itself right after a real commit (needed
+`actions: write` added to its permissions, and `workflow_dispatch` added
+to `check-docs.yml`, which only had `push`/`pull_request` triggers
+before). Manually triggered the KV sync once by hand to get that first
+day's content live immediately while the fix was being built.
+
+**The ingest-extraction bug** — found because Brian actually read the
+brief's opening paragraph and asked "what happened here." Three items
+that day had no real content, and the brief said so ("two were stubs...
+one came through as a headline with no body"). Diagnosed three distinct
+failure modes, all through the same gap: `extract()` in
+`skills/ingest/ingest.py` wrote back whatever the model returned without
+validating it matched the expected shape. Daniel Miessler's prompt-
+injection-worm post: the feed had a real ~8000-char article (re-fetched
+and confirmed directly), but the extraction call came back completely
+empty — `if body is None` doesn't catch an empty string. Prof G: the
+model wrote `NOT_RELEVANT` correctly but appended it after an
+explanatory paragraph instead of as the whole response, and
+`text.startswith("NOT_RELEVANT")` only catches the sentinel at the very
+start. Moonshots: the prompt only said "say so plainly" for stub
+content with no defined machine-readable output for that case, so the
+model wrote prose instead of a sentinel and nothing caught that it
+wasn't a real note. Fixed properly, not patched around: added a second
+sentinel, `INSUFFICIENT_CONTENT`, to `skills/ingest/prompt.md` for the
+relevant-but-too-thin case (previously only `NOT_RELEVANT` existed, for
+off-topic) with an explicit "sentinel alone, no prose explanation either
+way" instruction; `extract()` now checks, in order, an empty response
+(skip + log), either sentinel appearing anywhere in the text rather than
+a `startswith` match (skip), and a catch-all requiring the response
+start with the expected `## Insights` header (skip + log) — so a future
+prompt-following slip fails closed instead of writing something
+malformed. Verified against the real broken cases: Moonshots and Prof G
+now correctly produce no note at all; Miessler's post — genuinely
+substantive the whole time — now extracts properly. Then went further,
+since Brian asked for it: reverted the tracker/last-run state to its
+pre-flawed-run baseline (a `git checkout` from the parent commit), deleted
+the 3 broken notes, re-ran extraction for real on the corrected content,
+and regenerated the entire 2026-08-19 Daily Brief from scratch against
+the clean 16-note set (`brief_date` forced to `"2026-08-19"` via a
+one-off script, since `brief.py`'s CLI has no `--date` override and real
+time had rolled past midnight by then) — the stub-flagging opening
+paragraph is gone entirely from the result, nothing left to caveat.
+One real slip in the middle of this: a follow-up commit (the PKCE fix,
+below) accidentally bundled in the stale reverted-tracker state alongside
+the unrelated change — a staging mistake, not a design issue — corrected
+with a new commit rather than amending, consistent with this repo's
+don't-rewrite-history convention.
+
+**`pages/` — new tier-2 canon directory**, declared in this file
+alongside the existing canon dirs: standalone Substack pages that aren't
+mirrors of already-published content elsewhere. Built the About page
+through several real rounds: an initial AI draft, then Brian rewrote the
+opening substantially in his own voice (dictated by voice memo — real
+transcription noise like "brand bed dot com" for bmad.com, "yields" for
+URL — worth remembering if a future session hits garbled dictated text
+in a commit, that's why), then ~23 links added per his direction (his
+LinkedIn, the BrianMadden.com "eulogy" post, the BriForum 20th-
+anniversary post, `sources.yaml` on GitHub, the Daily Briefing Substack
+tag page, both second-brain LinkedIn essays, the Riverside podcast home,
+his starter-prompt gist), then reconciled again against edits he made
+live on the actual Substack About page (emoji, a Citrix link, a real
+source for the TechTarget acquisition, `bmad.com` dropped from "Other
+links" as redundant with the nav bar). Status flipped from
+`not-reviewed-by-human` to `reviewed-and-updated` once Brian confirmed
+it — literally the schema-correct term for "human touched the machine
+draft," which is what he was actually asking about when he called it
+"co-written or whatever."
+
+A parallel "Connect your AI" page was drafted in `pages/` too, then
+**retired** once it became clear `mcp.brianmadden.ai` (the server repo)
+already serves a human-readable connect walkthrough or the live MCP
+protocol handler depending on the request's `Accept` header — a second,
+separately-maintained copy on Substack (with zero subscribers to justify
+the reach benefit) would just drift out of sync. Instead, merged the
+better parts into the real `pages/mcp-connect.md` in
+`brianmadden-ai-server`: added the homepage's animated demo widget there
+too (the `{{demo}}` placeholder turned out to be generic across any page
+in `build-pages.mjs`, not homepage-specific — cheap to add), fixed a
+stale `me/synthesis.md` reference (renamed to `me/published-thinking.md`
+in the v2 rebuild, never updated here), replaced a vague capabilities
+sentence with the real tool list from the server repo's own README, and
+— per Brian's ask, so a confused human landing on an AI-protocol page
+isn't left going "what the fuck" — added an explicit title
+("Connect your AI to brianmadden.ai") and a one-line human escape hatch
+pointing at `brianmadden.ai/about`.
+
+**Email delivery, built from a standing start.** Brian asked for the
+rendered HTML of any `pages/*.md` file without needing a chat session
+each time — built `skills/pages/render.py` (same technique as
+`skills/brief/render.py`, minus the brief-specific disclosure/tracker
+machinery). Then asked to have it *emailed*, which needed real new
+capability: `brain@`'s Gmail OAuth token only had `gmail.modify`
+(read + label), never `gmail.send`. Brian added the scope in Google
+Cloud Console and re-authed himself; built `skills/lib/gmail_send.py`
+(mirrors the existing token-refresh pattern rather than importing all of
+`ingest.py`) and wired `--send`/`--to` into both `render.py` and
+`skills/brief/publish.py`. Along the way, Brian caught a real privacy
+gap before it went further than one commit: `b@bmad.com` (his personal
+address) had been hardcoded as the default recipient in freshly-written,
+about-to-be-public source. Consolidated it behind one `BRIAN_EMAIL` env
+var instead — also used for `ingest.py`'s existing brain@-flag sender
+verification, which had the same address hardcoded as
+`PERSONAL_FLAG_SENDER` (now `personal_flag_sender()`, reading the env
+var lazily so it still works correctly whether `.env` is loaded before
+or after the constant would otherwise have been evaluated). Per Brian's
+explicit ask, the fix commit doesn't dwell on "removing an exposed
+address" in its message — folded in as ordinary configuration work,
+though the change itself is real and complete. Old git history still has
+the literal address in one earlier commit; Brian was explicit that's
+fine to leave, not worth rewriting history over.
+
+With that working, `daily-pipeline.yml` was extended (same session) to
+run `publish.py --send` right after `brief.py`, so the rendered,
+Substack-ready draft lands in Brian's inbox automatically every weekday
+morning — not just committed to the repo, which was D6's original,
+narrower scope. Guarded on today's brief file actually existing, so a
+quiet day (no new notes, `brief.py` writes nothing) doesn't error out
+trying to publish nothing. Separately fixed the "Use secure flows"
+warning Google Cloud's Project Checkup was showing on the OAuth client:
+`skills/lib/gmail_get_refresh_token.py` used a loopback redirect
+(correct) but never sent a PKCE code challenge (RFC 7636) — added it,
+and folded `gmail.send` into the default scope request so a future
+re-auth asks for both scopes in one pass.
+
+**The domain cutover — started, not finished.** `brianmadden.ai` itself
+lives in the separate `brianmadden-ai-server` repo, not this one — a
+real architectural fact worth remembering for whoever picks this thread
+back up. Substack requires hosting on a `www` subdomain, not the bare
+apex (confirmed from their own docs, not assumed), with the apex 301-
+redirecting to it — and `www.brianmadden.ai` was already bound to the
+existing Worker (the code that redirects `www → apex`, the *opposite*
+direction), so this wasn't just a DNS change. Sequence: Brian added the
+custom domain in Substack's own settings and got a CNAME target; removed
+`www.brianmadden.ai` as a Custom Domain binding on the Worker in
+Cloudflare's dashboard (Workers & Pages → the Worker → **Domains** tab —
+note this is its own top-level tab in the current dashboard, not nested
+under Settings, which cost a round of confusion); added the CNAME
+(**DNS only** — un-proxied, Substack's own explicit requirement,
+confirmed to matter since a proxied setup breaks their TLS handling).
+Substack's side now shows "verified," waiting to finish activating
+(their own docs say up to 36 hours; often faster in practice).
+
+Before writing the Worker's apex-redirect code, checked real usage at
+`bmad.com/mcp-stats` (a live dashboard, found while investigating —
+worth remembering it exists) rather than guessing whether the legacy
+`brianmadden.ai/mcp` endpoint mattered: 114 tool calls in 30 days, a
+real mix of clients (Claude Desktop, Codex, Grok, a stray `curl`), zero
+of them `StartMCP` (the unrelated "Second Brain Starter" generic tool,
+also served from the apex at `/start`). Result: `/mcp` stays alive
+deliberately — it already has a soft migration notice built in
+(`MIGRATION_NOTICE` in `src/index.ts`, pre-existing, not built this
+session) telling non-`mcp.brianmadden.ai` clients to update their
+connector — while `/start` is retired outright (genuinely zero usage)
+and everything else at the apex 301s to `https://www.brianmadden.ai/`,
+no path preserved. Code written and dry-run-deployed clean
+(`wrangler deploy --dry-run`), **not yet pushed** — deploying before
+`www.brianmadden.ai` actually resolves to Substack would send visitors
+to a domain that isn't live yet. A background poll (re-checking every 3
+minutes) is watching for `www.brianmadden.ai` to stop redirecting to the
+bare `substack.com` homepage, which is today's live signal that it's
+still mid-activation.
+
+**Also touched, smaller:** confirmed (live, via Substack's own support
+docs) that GA4/GTM/Meta-pixel/X-pixel/Parse.ly are the only analytics
+integrations Substack's Settings actually supports — no native Plausible/
+Fathom, but GTM's Custom HTML tag is a real path to run one indirectly
+if Brian wants privacy-first analytics without Google in the loop
+directly; Substack's own built-in stats need no setup at all if that's
+enough. Spun off a separate MCP-architecture-review thread with a
+self-contained briefing prompt (real usage data, the routing code, what
+to actually evaluate) rather than reviewing it inline here — Brian's own
+call, correctly flagging it as a different kind of task than today's
+infrastructure work.
+
+**State for whoever (or whatever session) picks this back up:** `main`
+is fully live now — v2's entire tier structure, the daily cron, email
+delivery, all of it. The one genuinely unfinished piece from today is
+the Worker deploy for the apex redirect, blocked purely on Substack's
+own activation timing, not on anything left to decide or build. Check
+`www.brianmadden.ai` directly before assuming it's still pending — the
+answer might already be yes by the time this is read.
