@@ -4185,3 +4185,37 @@ repo:** this worked because both sessions left real state to find (a
 clean uncommitted diff, not half-finished) and were reachable for a real
 exchange rather than assumed-and-guessed-at. The coordination itself
 cost two message round-trips, not a redesign.
+
+Two more real things surfaced once the cutover was actually live and
+D6 had run completely unattended for the first time:
+
+**`brain@` ingested its own outgoing mail.** Brian caught it directly —
+today's automated run pulled in yesterday's own Daily Briefing email and
+an About-page email as "newsletters." Root cause:
+`fetch_entries_email()`'s Gmail query never actually had `in:inbox` in
+it, despite its own docstring claiming "polls the whole inbox" — Gmail's
+default search scope without an `in:` qualifier is all mail except
+Spam/Trash, which includes Sent. The moment `gmail_send.py` started
+sending brain@'s own emails today, the very next ingest run picked them
+back up from brain@'s Sent folder. Fixed the query, deleted the 2
+resulting bogus notes, and removed a `brain-brianmadden-ai` entry that
+had auto-registered in `sources.yaml` — the same bug registering brain@
+as a source of itself. Checked whether the 2026-08-20 brief needed
+regenerating the way 2026-08-19's did; it didn't — the redundant content
+never surfaced prominently in what the model actually synthesized.
+
+**Disclosure line reworded**, Brian's own wording: "I wrote this post
+myself" → "I generated this post", and "that's me, not Brian" → "that's
+me, the AI, not Brian" — clearer on first read. Dynamic parts (the
+review-status clause, the commit-permalink-vs-blob-link fallback)
+untouched. Ships on the next post rendered; today's 2026-08-20 brief was
+already rendered and emailed with the old wording before this landed —
+re-running `render.py --date 2026-08-20` picks up the new copy if Brian
+wants it before pasting into Substack.
+
+**End of day.** Both repos clean, nothing uncommitted. `main` is live,
+D6 ran fully unattended end to end for the first time today, the domain
+cutover is done and verified, and every real issue found today — the
+ingest-validation bug, the cross-workflow trigger gap, the self-ingestion
+loop — got fixed at the root rather than patched around, with the fixes
+themselves logged here alongside the incidents that surfaced them.
