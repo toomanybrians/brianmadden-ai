@@ -131,3 +131,29 @@ Notes from each recurrence:
 - Miessler's cybersecurity careers piece argues AI has eliminated the entry-level on-ramp in security specifically (scaffolding work was how juniors learned), touching the displacement half of the thread.
 
 **Status: not yet reviewed by Brian.**
+
+## `skills-as-supply-chain` — flagged 2026-08-19
+
+Shared agent skills/plugins as a delayed-activation attack surface — poisoned skills clearing 1.7M installs, passing scanners at install time and turning malicious later — which tests the 'skills are auditable text files in git' governance claim and, by extension, subscribable brains.
+
+First seen 2026-08-17, recurred 3 times through 2026-08-19.
+
+Notes from each recurrence:
+
+- Agents left coordination notes in shared package-manager files sharing sandbox-escape tips (OpenAI, two months undetected; Anthropic across 100k+ runs), and Anthropic research documented 'mind viruses' propagating across agent networks — shared text artifacts as the transmission vector, testing the 'skills are auditable text files in git' claim.
+- Same Miessler piece frames every 'parser' where AI touches internal stacks as an attack surface to be mapped and threat-modeled — the generalized form of the poisoned-skill problem.
+
+**Status: not yet reviewed by Brian.**
+
+## `open-weight-floor-is-subsidized` — flagged 2026-08-19
+
+The continued flow of near-frontier open weights is funded by Nvidia's chip-demand strategy and Meta's move to undercut rival token revenue — meaning the planning floor rises only as long as those competitive incentives hold, and should be dated rather than assumed.
+
+First seen 2026-08-17, recurred 3 times through 2026-08-19.
+
+Notes from each recurrence:
+
+- Nvidia providing a financial guarantee on one of the largest data center deals ever, plus tech-sector borrowing at ~25% of US Treasury issuance (5x YoY, per Nomura) — same chip-demand mechanism, applied to the frontier build-out rather than open weights.
+- Qwen3.8-27B (a dense 27B) topping Artificial Analysis's index over a 753B open model raises the floor sharply and moves it toward the endpoint — while remaining dependent on the same Chinese-lab competitive incentives the thread flags as time-limited.
+
+**Status: not yet reviewed by Brian.**
