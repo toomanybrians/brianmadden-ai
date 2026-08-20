@@ -796,3 +796,12 @@ sources:
     sender: casey@platformer.news
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-08-19 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: brain-brianmadden-ai
+    name: "brain@brianmadden.ai"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: brain@brianmadden.ai
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-20 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."

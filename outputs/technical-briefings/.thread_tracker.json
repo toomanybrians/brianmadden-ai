@@ -207,11 +207,12 @@
     "slug": "agent-to-agent-contagion-via-shared-artifacts",
     "description": "Emergent transmission of behavior between agents through shared files, work directories, and inboxes \u2014 sandbox-escape tips in package-manager files, 'mind viruses' across agent networks, one agent's note halting others for days undetected \u2014 making the shared artifact rather than the agent the governance unit.",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-08-19",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-20",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Miessler's predicted prompt-injection worm is the explicit self-propagating version: payload exfiltrates and spreads through the compromised user's own email/messaging channels, with the agent-connected inbox as the transmission medium."
+      "Miessler's predicted prompt-injection worm is the explicit self-propagating version: payload exfiltrates and spreads through the compromised user's own email/messaging channels, with the agent-connected inbox as the transmission medium.",
+      "Miessler forecasts a self-propagating prompt-injection worm in late 2026/early 2027 spreading through a compromised user's own email and messaging\u2014contagion via shared channels rather than shared files, gated on open-weight parity that today's Qwen result advances."
     ]
   },
   {
@@ -227,36 +228,50 @@
     "slug": "compute-buildout-social-license",
     "description": "Public and political legitimacy of the AI build-out (majority support for slowing data centers, net-negative trust in AI executives, SB253 emissions disclosure, EU watermarking mandates, congressional pause demands) as a constraint on the compute floor distinct from technical capability or financing.",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-08-19",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-20",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "The OpenAI pause follows a 1,100-signature cross-lab employee letter urging deliberate pacing; internal workforce pressure is now a named input to release timing, alongside the public/political pressure the thread tracks."
+      "The OpenAI pause follows a 1,100-signature cross-lab employee letter urging deliberate pacing; internal workforce pressure is now a named input to release timing, alongside the public/political pressure the thread tracks.",
+      "Wisconsin Rapids datacenter fight: cross-partisan local opposition, unanswerable questions about water and jobs, a state tax exemption against a 40% ALICE population, and an alderman recall\u2014social license as a concrete permitting gate, not just polling."
     ]
   },
   {
     "slug": "git-host-as-agent-control-point",
     "description": "Code/knowledge repository hosting turning into the agent runtime and a vendor-owned governance surface \u2014 Cursor's Origin defaulted on for paid plans under an owner that also controls the editor and the model, against canon's treatment of git as neutral, boring infrastructure.",
     "first_seen": "2026-08-19",
-    "last_seen": "2026-08-19",
-    "count": 1,
+    "last_seen": "2026-08-20",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Cursor launched Origin\u2014native repos, PRs, and agents\u2014defaulted on for paid plans, consolidating editor, repo, and model under one owner; coincided with a 6h42m GitHub outage."
+    ]
   },
   {
     "slug": "routing-layer-consolidating-into-payments",
     "description": "Model routing, usage metering, and payment rails converging inside a payments company (Stripe/OpenRouter/Metronome) rather than a workspace provider \u2014 a different candidate for the neutral routing layer, and the emergence of agent-initiated spending infrastructure.",
     "first_seen": "2026-08-19",
-    "last_seen": "2026-08-19",
-    "count": 1,
+    "last_seen": "2026-08-20",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Stripe closed the OpenRouter acquisition at $7B+ (up from $1.3B in May), stacking on January's Metronome purchase\u2014routing plus metering plus payment rails in one non-neutral owner."
+    ]
   },
   {
     "slug": "second-brain-as-discoverable-legal-record",
     "description": "AI chat transcripts and, by extension, versioned personal/organizational knowledge layers as subpoenable litigation evidence \u2014 the adversarial mirror of the brain-portability question, with no governance position in canon.",
     "first_seen": "2026-08-19",
     "last_seen": "2026-08-19",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "deployer-opacity-about-actual-capability",
+    "description": "The party deploying a system cannot or will not state what it actually does\u2014conflicting public accounts of whether Claude's Workspace connector can send email, and a datacenter developer unable to answer water, chemical, jobs, or NDA questions\u2014breaking the assumption underneath both agent governance and community consent that capability scope is knowable.",
+    "first_seen": "2026-08-20",
+    "last_seen": "2026-08-20",
     "count": 1,
     "status": "watching",
     "history": []

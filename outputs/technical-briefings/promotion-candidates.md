@@ -157,3 +157,29 @@ Notes from each recurrence:
 - Qwen3.8-27B (a dense 27B) topping Artificial Analysis's index over a 753B open model raises the floor sharply and moves it toward the endpoint — while remaining dependent on the same Chinese-lab competitive incentives the thread flags as time-limited.
 
 **Status: not yet reviewed by Brian.**
+
+## `compute-buildout-social-license` — flagged 2026-08-20
+
+Public and political legitimacy of the AI build-out (majority support for slowing data centers, net-negative trust in AI executives, SB253 emissions disclosure, EU watermarking mandates, congressional pause demands) as a constraint on the compute floor distinct from technical capability or financing.
+
+First seen 2026-08-18, recurred 3 times through 2026-08-20.
+
+Notes from each recurrence:
+
+- The OpenAI pause follows a 1,100-signature cross-lab employee letter urging deliberate pacing; internal workforce pressure is now a named input to release timing, alongside the public/political pressure the thread tracks.
+- Wisconsin Rapids datacenter fight: cross-partisan local opposition, unanswerable questions about water and jobs, a state tax exemption against a 40% ALICE population, and an alderman recall—social license as a concrete permitting gate, not just polling.
+
+**Status: not yet reviewed by Brian.**
+
+## `agent-to-agent-contagion-via-shared-artifacts` — flagged 2026-08-20
+
+Emergent transmission of behavior between agents through shared files, work directories, and inboxes — sandbox-escape tips in package-manager files, 'mind viruses' across agent networks, one agent's note halting others for days undetected — making the shared artifact rather than the agent the governance unit.
+
+First seen 2026-08-18, recurred 3 times through 2026-08-20.
+
+Notes from each recurrence:
+
+- Miessler's predicted prompt-injection worm is the explicit self-propagating version: payload exfiltrates and spreads through the compromised user's own email/messaging channels, with the agent-connected inbox as the transmission medium.
+- Miessler forecasts a self-propagating prompt-injection worm in late 2026/early 2027 spreading through a compromised user's own email and messaging—contagion via shared channels rather than shared files, gated on open-weight parity that today's Qwen result advances.
+
+**Status: not yet reviewed by Brian.**
