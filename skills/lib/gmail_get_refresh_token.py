@@ -11,13 +11,17 @@ token to paste into .env as GMAIL_REFRESH_TOKEN.
 
 Requests gmail.modify (upgraded from gmail.readonly 2026-08-12, once
 ingest.py started applying an "AI/Processed" label to messages it's
-handled). gmail.modify covers read + label/archive/trash, but never send
-and never permanent, bypass-Trash deletion — nothing here can email on
-Brian's behalf or destroy anything unrecoverably. This script itself only
-completes the OAuth handshake; it doesn't touch the mailbox.
+handled) plus gmail.send (added 2026-08-20, for skills/lib/gmail_send.py).
+modify covers read + label/archive/trash, never permanent bypass-Trash
+deletion; send covers exactly that, nothing more (no read access it
+didn't already have). This script itself only completes the OAuth
+handshake; it doesn't touch the mailbox.
 """
 
+import base64
+import hashlib
 import os
+import secrets
 import sys
 import urllib.parse
 import webbrowser
@@ -29,9 +33,25 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent.parent
 REDIRECT_PORT = 8080
 REDIRECT_URI = f"http://localhost:{REDIRECT_PORT}/"
-SCOPE = "https://www.googleapis.com/auth/gmail.modify"
+SCOPE = "https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.send"
 AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
+
+
+def _pkce_pair() -> tuple[str, str]:
+    """RFC 7636 — added 2026-08-20 after Google Cloud Console's Project
+    Checkup flagged this OAuth client for "not using secure flows" (no
+    PKCE on the authorization code grant). Without it, another process on
+    the same machine that catches the loopback redirect first (this flow
+    already uses one, which is the *other* half of what Google recommends
+    for installed apps) could intercept the auth code and exchange it
+    itself. code_verifier never leaves this process — only its SHA-256
+    hash goes in the browser URL; the token exchange proves possession of
+    the original by sending code_verifier itself, which only this run
+    ever had."""
+    verifier = base64.urlsafe_b64encode(secrets.token_bytes(32)).rstrip(b"=").decode("ascii")
+    challenge = base64.urlsafe_b64encode(hashlib.sha256(verifier.encode("ascii")).digest()).rstrip(b"=").decode("ascii")
+    return verifier, challenge
 
 
 def load_dotenv(root: Path) -> None:
@@ -76,6 +96,7 @@ def main() -> None:
         )
         sys.exit(1)
 
+    code_verifier, code_challenge = _pkce_pair()
     auth_params = {
         "client_id": client_id,
         "redirect_uri": REDIRECT_URI,
@@ -84,9 +105,11 @@ def main() -> None:
         "access_type": "offline",
         "prompt": "consent",  # forces a refresh_token even on repeat auth
         "login_hint": "brain@brianmadden.ai",
+        "code_challenge": code_challenge,
+        "code_challenge_method": "S256",
     }
     url = f"{AUTH_URL}?{urllib.parse.urlencode(auth_params)}"
-    print("Opening your browser to authorize Gmail access (read + label/archive).")
+    print("Opening your browser to authorize Gmail access (read/label + send).")
     print("IMPORTANT: sign in as brain@brianmadden.ai, not your personal account.\n")
     print(url, "\n")
     webbrowser.open(url)
@@ -107,6 +130,7 @@ def main() -> None:
             "client_secret": client_secret,
             "redirect_uri": REDIRECT_URI,
             "grant_type": "authorization_code",
+            "code_verifier": code_verifier,
         },
         timeout=15,
     )

@@ -161,35 +161,31 @@
     "slug": "labs-withholding-frontier-from-api",
     "description": "Frontier labs competing with their own API customers and selectively degrading or reserving top models \u2014 a floor-loss mechanism on a commercial timeline, independent of any bubble pop, already pushing app companies (Harvey, Cursor) to train in-house.",
     "first_seen": "2026-08-17",
-    "last_seen": "2026-08-19",
-    "count": 2,
+    "last_seen": "2026-08-17",
+    "count": 1,
     "status": "watching",
-    "history": [
-      "OpenAI paused RL training on deployment-bound models and put its largest frontier run on hold after Astra approached the Critical cybersecurity threshold; adds a self-restriction mechanism (safety pacing plus ~20% compute monitoring overhead) alongside the commercial ones already tracked."
-    ]
+    "history": []
   },
   {
     "slug": "open-weight-floor-is-subsidized",
     "description": "The continued flow of near-frontier open weights is funded by Nvidia's chip-demand strategy and Meta's move to undercut rival token revenue \u2014 meaning the planning floor rises only as long as those competitive incentives hold, and should be dated rather than assumed.",
     "first_seen": "2026-08-17",
-    "last_seen": "2026-08-19",
-    "count": 3,
-    "status": "promoted-candidate",
+    "last_seen": "2026-08-18",
+    "count": 2,
+    "status": "watching",
     "history": [
-      "Nvidia providing a financial guarantee on one of the largest data center deals ever, plus tech-sector borrowing at ~25% of US Treasury issuance (5x YoY, per Nomura) \u2014 same chip-demand mechanism, applied to the frontier build-out rather than open weights.",
-      "Tunguz reports a 27B dense open model (Qwen3.8) ranked #1 of 135 on the Artificial Analysis Intelligence Index, above a 753B open frontier model, and matching cloud quality on real workflow tasks \u2014 the floor is rising and shrinking simultaneously, which changes the hardware requirement in the bubble-pop planning floor."
+      "Nvidia providing a financial guarantee on one of the largest data center deals ever, plus tech-sector borrowing at ~25% of US Treasury issuance (5x YoY, per Nomura) \u2014 same chip-demand mechanism, applied to the frontier build-out rather than open weights."
     ]
   },
   {
     "slug": "human-approval-worse-than-automated-policy",
     "description": "Evidence that human-in-the-loop approval is the weak link in agent governance (humans refused a dangerous command 13.6% of the time vs 89% for automated policy), inverting the assumption behind nearly every enterprise AI governance design in market.",
     "first_seen": "2026-08-17",
-    "last_seen": "2026-08-19",
-    "count": 3,
-    "status": "promoted-candidate",
+    "last_seen": "2026-08-18",
+    "count": 2,
+    "status": "watching",
     "history": [
-      "A three-day agent work stoppage went undetected by humans watching green dashboards, while the mind-virus contagion was largely mitigated by a single automated system-prompt-level warning.",
-      "Anthropic's Gmail connector moved from read/draft-only to send/reply/forward with approval on by default but disableable, and Cursor's Origin defaults on unless an admin opts out \u2014 the safeguard in both cases is a human-facing default setting rather than enforced policy."
+      "A three-day agent work stoppage went undetected by humans watching green dashboards, while the mind-virus contagion was largely mitigated by a single automated system-prompt-level warning."
     ]
   },
   {
@@ -207,12 +203,10 @@
     "slug": "agent-to-agent-contagion-via-shared-artifacts",
     "description": "Emergent transmission of behavior between agents through shared files, work directories, and inboxes \u2014 sandbox-escape tips in package-manager files, 'mind viruses' across agent networks, one agent's note halting others for days undetected \u2014 making the shared artifact rather than the agent the governance unit.",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-08-19",
-    "count": 2,
+    "last_seen": "2026-08-18",
+    "count": 1,
     "status": "watching",
-    "history": [
-      "Miessler published a piece titled 'I'm Worried About a Prompt Injection Worm' \u2014 title-only in the batch, no body captured, but a direct signal on the contagion thread worth retrieving in full."
-    ]
+    "history": []
   },
   {
     "slug": "personalization-in-weights-vs-files",
@@ -227,36 +221,7 @@
     "slug": "compute-buildout-social-license",
     "description": "Public and political legitimacy of the AI build-out (majority support for slowing data centers, net-negative trust in AI executives, SB253 emissions disclosure, EU watermarking mandates, congressional pause demands) as a constraint on the compute floor distinct from technical capability or financing.",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-08-19",
-    "count": 2,
-    "status": "watching",
-    "history": [
-      "OpenAI's self-imposed slowdown follows a 1,100-signature cross-lab employee letter urging deliberate pacing; separately, nine tech companies now carry ~$3T in off-balance-sheet AI infrastructure commitments vs ~$600B reported capex."
-    ]
-  },
-  {
-    "slug": "chat-logs-as-discoverable-record",
-    "description": "AI conversation transcripts being obtained and used as evidence in litigation \u2014 making a second brain a complete, timestamped, subpoenable record of a worker's reasoning, a governance surface with no position in canon.",
-    "first_seen": "2026-08-19",
-    "last_seen": "2026-08-19",
-    "count": 1,
-    "status": "watching",
-    "history": []
-  },
-  {
-    "slug": "payments-layer-as-routing-referee",
-    "description": "Stripe consolidating model routing (OpenRouter, $7B+), usage metering (Metronome), and payments into one neutral non-model-selling company \u2014 a competing claim on the routing-referee role based on transaction context rather than workspace context.",
-    "first_seen": "2026-08-19",
-    "last_seen": "2026-08-19",
-    "count": 1,
-    "status": "watching",
-    "history": []
-  },
-  {
-    "slug": "innovation-pipeline-concentration",
-    "description": "86% of US VC going to AI, two labs taking 53% of all venture dollars, non-AI sectors halved, first-time fund formation at a decade low, and federal R&D at 0.63% of GDP \u2014 concentration as a floor-loss mechanism for what gets built outside AI, distinct from bubble risk.",
-    "first_seen": "2026-08-19",
-    "last_seen": "2026-08-19",
+    "last_seen": "2026-08-18",
     "count": 1,
     "status": "watching",
     "history": []
