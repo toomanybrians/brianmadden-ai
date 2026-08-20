@@ -514,15 +514,16 @@ asked to do, not as a template to re-run.
       (see session entry). Not closing this yet — "daily, reviewed over
       coffee" needs a few real unattended mornings to actually claim.
 - [~] Launch week — announcement essay + first public brief + landing swap.
-      **Landing swap in progress, 2026-08-20**: `v2` merged to `main`
-      (PR #3, 2026-08-19); the domain cutover itself (`brianmadden.ai` →
-      Substack) is mid-flight — Substack's custom domain is verified,
-      waiting on Substack to finish activating it before the
-      `brianmadden-ai-server` Worker's apex-redirect code (written,
-      tested, not yet deployed) goes out. See the session entry for the
-      full mechanics (what stays live at the apex — `/mcp`, kept
-      deliberately, real usage — versus what redirects). Announcement
-      essay and first public brief: not started.
+      **Landing swap done, 2026-08-20** (~08:00 UTC): `www.brianmadden.ai`
+      finished activating on Substack's side (confirmed live, real
+      publication content, not a placeholder), and the
+      `brianmadden-ai-server` Worker deploy went out immediately after —
+      `brianmadden.ai` now 301s to `https://www.brianmadden.ai/`, verified
+      with a real GET (an earlier HEAD-request check misleadingly showed
+      a cached 200 first; GET is what real traffic sends). `/mcp` still
+      works, `mcp.brianmadden.ai` still works. What's still actually open
+      here: the announcement essay and first public brief, neither
+      started.
 
 ## Session log
 
@@ -4101,3 +4102,86 @@ the Worker deploy for the apex redirect, blocked purely on Substack's
 own activation timing, not on anything left to decide or build. Check
 `www.brianmadden.ai` directly before assuming it's still pending — the
 answer might already be yes by the time this is read.
+
+### 2026-08-20 — same session, continued (domain cutover completed; MCP
+tool fixes from a parallel review session, coordinated and shipped
+together)
+
+**The cutover finished.** `www.brianmadden.ai` finished activating on
+Substack's side a few hours after the previous entry was written
+(watched for it via a background poll re-checking every 3 minutes,
+rather than manually refreshing). Confirmed it was real content, not a
+placeholder, before doing anything else. Pushed the
+`brianmadden-ai-server` Worker change immediately after. Verified live
+with real GET requests (not `-I`/HEAD, which misleadingly showed a
+cached 200 on the apex right after deploy — GET is what actual browser
+and MCP-client traffic sends, and that correctly showed the 301):
+`brianmadden.ai` → 301 → `https://www.brianmadden.ai/`; `www` serving
+the real publication; `brianmadden.ai/mcp` still answering; `mcp.
+brianmadden.ai` still rendering the connect page for browsers. `brianmadden.ai`
+is genuinely the Substack now.
+
+**A second, unplanned thread of work landed in the same deploy.** Brian
+had separately spun up a parallel Claude Code session (prompted with a
+self-contained MCP-architecture-review brief this session wrote) to
+evaluate the actual MCP tool set — not "does the code run" but "is this
+the right interface," using real `/mcp-stats` usage data (114 calls/30
+days, real search queries logged) as the basis rather than guessing.
+That session found and fixed five real things in `src/index.ts`,
+independently: `get_current_thinking` was reading `file:context/thinking.md`,
+a KV key that doesn't correspond to any real content path — it had
+apparently been silently returning "not found" on every one of its 12
+calls in the last 30 days. `get_file`'s tool description pointed at
+`me/synthesis.md`, renamed to `me/published-thinking.md` in the v2
+rebuild and never updated (same stale reference this session separately
+found and fixed in `pages/mcp-connect.md` the same day — a good sign
+the rename genuinely needs a repo-wide check someday, not just
+opportunistic catches). `get_framework`'s tool description was a
+hand-maintained list that had already drifted, missing 4 of 10 active
+frameworks — replaced with a list built dynamically from KV at `init()`,
+filtered to skip anything frontmatter-flagged `status: archived`.
+`search` was doing ~170 sequential KV reads per query (one file at a
+time) and returning only the bare matching line — parallelized via
+`Promise.all` and expanded to a few lines of context per match. Every
+client now gets real orientation via MCP's native `instructions` field
+on connect (previously that slot only ever carried the migration
+notice for legacy-host clients — proper loading instructions required a
+tool call, `get_loading_instructions`, that only 12 of 114 real calls
+in 30 days actually made).
+
+Found this the practical way: went to commit "everything" in the server
+repo per Brian's ask and discovered a much bigger diff sitting
+uncommitted than the routing change alone — both sessions had been
+working in the same checkout in parallel. Rather than guessing at intent
+or overwriting, messaged the other session directly (`SendMessage` /
+`ListAgents` — real cross-session coordination, not simulated) to
+confirm scope, ask whether it wanted to deploy itself, and check for
+anything not yet confident enough to ship. It confirmed: five changes,
+complete, fine to ship as part of this session's eventual push, and
+flagged one honest gap — everything it had verified was static (`tsc`,
+`oxlint`, `wrangler deploy --dry-run`), no live runtime test against a
+real MCP handshake. Worth remembering as a pattern: a second AI session
+reviewing its own work and naming what it *hadn't* verified, unprompted,
+rather than overclaiming confidence.
+
+Closed that gap before shipping rather than skipping it: no `wrangler
+login` in this session (confirmed — `--remote` mode failed with a 400
+auth error), so used `wrangler dev` in local mode instead, which turned
+out to already have a real — if stale, pre-v2-rename — content snapshot
+cached in local KV persistence from some earlier local session. Seeded
+one additional fixture (`file:me/developing-thinking.md`, the corrected
+key) by hand and ran a real MCP `initialize` → `tools/list` →
+`tools/call` sequence over HTTP against the running dev server.
+Confirmed all of it works: `instructions` field carries the full new
+text with the migration notice correctly appended, `get_current_thinking`
+retrieves the seeded content at the new key (old key would have hit the
+"not found" fallback), `search` returns real multi-file, multi-line
+results with no errors. Reported the result back to the other session
+and to Brian, then shipped both sets of changes in one commit and one
+deploy — `924cf6c`, pushed and live as of this entry.
+
+**Worth remembering for next time a parallel session touches the same
+repo:** this worked because both sessions left real state to find (a
+clean uncommitted diff, not half-finished) and were reachable for a real
+exchange rather than assumed-and-guessed-at. The coordination itself
+cost two message round-trips, not a redesign.
