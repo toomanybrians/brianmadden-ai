@@ -4248,3 +4248,80 @@ line, not a review of the decision itself. Brian's said he'll pick up
 the actual Substack UI work (bylines, dedup, building the Sections) in
 the next few days; nothing else pending, today's 2026-08-20 brief is
 already out. Repo is clean again after this commit.
+
+### 2026-08-21 — `/maintain` session (Workers KV cap diagnosed and fixed;
+archived-framework filter bug found and fixed)
+
+Bootstrap found `main` diverged from `origin/main` by one commit each
+way — local had the trailing Workstream E doc commit, origin had that
+morning's automated `daily-pipeline.yml` run (10 ingest notes, the
+2026-08-21 brief). No file overlap; merged clean before doing anything
+else, per this file's own standing caution about concurrent sessions.
+
+**Brian forwarded a Cloudflare alert** ("Workers KV operations are
+nearing the daily cap," 50% then 90% within a day) and asked whether to
+just subscribe to the Workers Paid plan or ignore it. Investigated
+before answering rather than treating it as a yes/no billing question —
+found the actual cause in `brianmadden-ai-server/src/index.ts`: the
+`search` MCP tool did a KV `list` + a `get` for *every single file in
+the whole corpus* (171 files) on every search call, and
+`listActiveFrameworks()` (which builds `get_framework`'s tool
+description on every session `init()`) did a smaller version of the
+same fan-out. Yesterday's parallel MCP-review session (2026-08-20 entry
+above) had already flagged this exact pattern as "170 sequential KV
+reads per query" and "fixed" it by making the reads concurrent via
+`Promise.all` — which fixed latency but not the operation count, so the
+underlying cost stayed exactly as large. The timing lines up: the
+domain cutover went live the day before (2026-08-20), so real traffic
+hitting `search` for the first time is a very plausible trigger for
+blowing through the free-tier daily read cap.
+
+**The actual fix, built and shipped after Brian approved it:**
+- `brianmadden-ai`: `sync-to-cloudflare-kv.yml` gained a step that
+  builds one consolidated `file:path -> content` JSON blob (171 files,
+  ~2.2MB, well under KV's 25MB value limit) from the full checkout and
+  pushes it as a single `search-index` KV key on every sync run.
+- `brianmadden-ai-server`: `search`, `list_files`, and
+  `listActiveFrameworks` all now read that one key once per session
+  (cached on the `BrainMCP` instance via a new `getContentIndex()`
+  method) instead of hitting KV per file. A session that uses all three
+  tools now costs 1 KV read total, down from ~154.
+
+Shipped with care about sequencing, since the Worker code now depends
+on `search-index` existing: pushed the content-repo workflow change
+first, manually triggered `workflow_dispatch` to force a full sync
+(confirmed in the run log: "Built search index: 171 files" / KV PUT
+returned `OK`) *before* pushing the Worker change, so there was no
+window where `search` would've silently returned empty. Pushed the
+server-repo change, watched `deploy.yml` auto-deploy
+(`Current Version ID: dae88234`), then verified live against the real
+running server — not just "the deploy succeeded" — with a real MCP
+`initialize` → `tools/call` sequence over HTTP: `search` for "factory
+electrification" returned real 19-file results, `list_files` and
+`get_framework` both returned real content.
+
+**Second bug found via that same live smoke test, unrelated to the KV
+fix, fixed the same session at Brian's request:**
+`listActiveFrameworks()`'s archived-framework filter checked
+`content.slice(0, 600)` for `"status: archived"` — a fixed byte
+cutoff, not frontmatter-aware. `frameworks/five-levels-of-ai-in-
+knowledge-work.md` (the one framework actually archived, per this
+file's canon-governance rules) has that flag at byte offset 655, just
+past the cutoff, so `get_framework`'s tool description had been
+silently advertising it as active since the code shipped 2026-08-20 —
+confirmed live before fixing. Replaced the byte-count guess with a
+regex that parses the actual frontmatter block between the `---`
+delimiters. Shipped the same way (push → auto-deploy → live
+verification with a fresh session), including chasing down one false
+alarm: the first post-deploy check still showed the archived framework
+in the list, which looked like a code bug but was Cloudflare edge
+propagation lag — a retry a couple minutes later, same fresh-session
+check, showed the fix live and correct (10 active frameworks, the
+archived one gone).
+
+**Everything from both fixes is live and verified working as of this
+entry.** Both repos clean. Nothing else picked up this session yet —
+the KV-cap thread came in as a follow-up question during `/maintain`
+bootstrap, ahead of picking a task from BUILD.md's own flagged
+priorities (D7 residual, D10, launch-week essay/brief, Workstream E's
+Substack UI actions — all still open, untouched this session).
