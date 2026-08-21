@@ -169,6 +169,53 @@ jobs:
           done
           echo "Cleanup complete"
 
+      # Build a single consolidated search index and upload it as one KV
+      # entry, so the MCP server's `search` tool can do one read instead of
+      # fanning out to a `get` per file (was ~141 reads per search call —
+      # the reason Workers KV started hitting the free daily read cap the
+      # day this went live). Rebuilt from the full current checkout every
+      # run, not just changed files, so it's always a complete snapshot
+      # regardless of whether this run did an incremental or full sync.
+      - name: Build and upload search index
+        if: steps.changed.outputs.has_changes == 'true' || github.event_name == 'workflow_dispatch' || steps.changed.outputs.needs_full_sync == 'true'
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os
+
+          index = {}
+          for root, dirs, files in os.walk("."):
+              dirs[:] = [d for d in dirs if d not in ("node_modules", ".git", ".github")]
+              rel_root = os.path.relpath(root, ".")
+              if rel_root == ".":
+                  rel_root = ""
+              if rel_root == "ingest" or rel_root.startswith("ingest" + os.sep):
+                  continue
+              for name in files:
+                  if not (name.endswith(".md") or name.endswith(".txt") or name.endswith(".json")):
+                      continue
+                  path = (os.path.join(rel_root, name) if rel_root else name).replace(os.sep, "/")
+                  if path in ("MAINTAINER.md", "BUILD.md"):
+                      continue
+                  with open(os.path.join(root, name), "r", encoding="utf-8", errors="ignore") as f:
+                      index[f"file:{path}"] = f.read()
+
+          with open("/tmp/search-index.json", "w") as f:
+              json.dump(index, f)
+
+          print(f"Built search index: {len(index)} files")
+          PYEOF
+
+          curl -s -X PUT \
+            "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${KV_NAMESPACE_ID}/values/search-index" \
+            -H "Authorization: Bearer ${CF_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data-binary "@/tmp/search-index.json" \
+            | python3 -c "import sys,json; r=json.load(sys.stdin); print('  OK' if r.get('success') else f'  FAILED: {r}')"
+
       # Trigger the server repo to redeploy with the latest content index
       # This ensures bmad.com's content listing stays in sync with the content repo
       - name: Trigger server redeploy
