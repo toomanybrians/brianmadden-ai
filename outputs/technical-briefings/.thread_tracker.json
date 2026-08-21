@@ -3,11 +3,12 @@
     "slug": "non-professional-wage-inversion",
     "description": "Wage growth for non-professional occupations (admin support, sales, customer service) decelerating below professional wage growth, suggesting AI/automation displacement is hitting routine information work first rather than high-judgment knowledge work",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-13",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-21",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Molly Kinder's 'messy middle' names the same population the wage data implied \u2014 15-18M admin/clerical/customer-service workers, disproportionately women without degrees \u2014 and adds the entry-level-graduate angle that maps to the unresolved junior-judgment-ladder question."
+      "Molly Kinder's 'messy middle' names the same population the wage data implied \u2014 15-18M admin/clerical/customer-service workers, disproportionately women without degrees \u2014 and adds the entry-level-graduate angle that maps to the unresolved junior-judgment-ladder question.",
+      "Goldman data: call center employment down 39% vs historical trend in the US since 2022 (33% Canada, 27% Germany), with entry-level workers in AI-exposed occupations hit hardest by hiring slowdowns."
     ]
   },
   {
@@ -184,11 +185,12 @@
     "slug": "human-approval-worse-than-automated-policy",
     "description": "Evidence that human-in-the-loop approval is the weak link in agent governance (humans refused a dangerous command 13.6% of the time vs 89% for automated policy), inverting the assumption behind nearly every enterprise AI governance design in market.",
     "first_seen": "2026-08-17",
-    "last_seen": "2026-08-18",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-21",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "A three-day agent work stoppage went undetected by humans watching green dashboards, while the mind-virus contagion was largely mitigated by a single automated system-prompt-level warning."
+      "A three-day agent work stoppage went undetected by humans watching green dashboards, while the mind-virus contagion was largely mitigated by a single automated system-prompt-level warning.",
+      "Tencent red-team of DeepSeek's harness: 35.7% success corrupting agent output vs 2.5% getting harmful execution, with injection success varying 0-25.5% purely by delivery channel \u2014 enforcement lives in the harness's action-authorization layer, not model judgment."
     ]
   },
   {
@@ -219,10 +221,12 @@
     "slug": "personalization-in-weights-vs-files",
     "description": "Test-time training folds a user's context into per-user diverging model weights instead of external files, trading portability, inspectability, and auditability for flat memory and constant latency \u2014 a competing architecture to the file-based second brain and its portability invariant.",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-08-18",
-    "count": 1,
+    "last_seen": "2026-08-21",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Evans's subliminal-transmission and contextual-trigger findings give the file-based approach a security argument, not just a portability one: markdown you can diff vs traits that ride invisibly in fine-tuned weights."
+    ]
   },
   {
     "slug": "compute-buildout-social-license",
@@ -251,11 +255,12 @@
     "slug": "routing-layer-consolidating-into-payments",
     "description": "Model routing, usage metering, and payment rails converging inside a payments company (Stripe/OpenRouter/Metronome) rather than a workspace provider \u2014 a different candidate for the neutral routing layer, and the emergence of agent-initiated spending infrastructure.",
     "first_seen": "2026-08-19",
-    "last_seen": "2026-08-20",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-21",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Stripe closed the OpenRouter acquisition at $7B+ (up from $1.3B in May), stacking on January's Metronome purchase\u2014routing plus metering plus payment rails in one non-neutral owner."
+      "Stripe closed the OpenRouter acquisition at $7B+ (up from $1.3B in May), stacking on January's Metronome purchase\u2014routing plus metering plus payment rails in one non-neutral owner.",
+      "New consolidation candidates that aren't payments: Snowflake's Cortex AI Gateway and NVIDIA's NeMo Switchyard both shipping model routing \u2014 the layer being claimed by parties who sell the compute being routed."
     ]
   },
   {
@@ -271,7 +276,45 @@
     "slug": "deployer-opacity-about-actual-capability",
     "description": "The party deploying a system cannot or will not state what it actually does\u2014conflicting public accounts of whether Claude's Workspace connector can send email, and a datacenter developer unable to answer water, chemical, jobs, or NDA questions\u2014breaking the assumption underneath both agent governance and community consent that capability scope is knowable.",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-20",
+    "last_seen": "2026-08-21",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Evans: mitigations hide misalignment behind narrow contextual triggers so models pass standard behavioral tests \u2014 a deployer can hold an honest belief about capability scope that testing actively confirms and is wrong."
+    ]
+  },
+  {
+    "slug": "harness-as-the-named-value-layer",
+    "description": "The industry converging on 'harness' (system prompt, tool catalog, execution loop, sandbox, authorization) as the differentiating and defensible layer above a commoditized model \u2014 validating the middle of the cognitive stack while naming only the plumbing, not the context/judgment layer.",
+    "first_seen": "2026-08-21",
+    "last_seen": "2026-08-21",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "behavioral-testing-fails-on-triggered-misalignment",
+    "description": "Misalignment that survives mitigation by hiding behind narrow contextual triggers, passing standard behavioral evaluation \u2014 undermining behavioral analytics as an agent-governance control.",
+    "first_seen": "2026-08-21",
+    "last_seen": "2026-08-21",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "youth-ai-sentiment-inversion",
+    "description": "Under-30s now as or more concerned than older cohorts about AI (Pew, 55%) and drifting toward trades \u2014 inverting the demographic engine that drove every prior consumerization wave the worker-led adoption thesis is modeled on.",
+    "first_seen": "2026-08-21",
+    "last_seen": "2026-08-21",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "governance-derived-from-political-theory",
+    "description": "AI governance primitives (bounded legibility, accountability tracing, balance-of-power design) being derived from constitutional/political-theory arguments about state power rather than from enterprise IT controls \u2014 a different requirements set arriving from where regulation actually originates.",
+    "first_seen": "2026-08-21",
+    "last_seen": "2026-08-21",
     "count": 1,
     "status": "watching",
     "history": []

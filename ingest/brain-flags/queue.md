@@ -90,3 +90,15 @@ Ingest note written: `ingest/2026/08/2026-08-17-brain-flag-why-at-t-is-betting-b
 
 ---
 
+## 2026-08-21 — link flag
+
+**follow**
+
+Link couldn't be fetched: https://substack.com/@newcomer
+
+Source status: **not currently followed/tracked.** If this was meant as a 'follow this' flag, follow it via the brianmaddenai Substack account (or add to sources.yaml if not Substack) next time you're doing maintenance.
+
+https://substack.com/@newcomer
+
+---
+

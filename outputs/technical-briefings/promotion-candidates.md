@@ -183,3 +183,42 @@ Notes from each recurrence:
 - Miessler forecasts a self-propagating prompt-injection worm in late 2026/early 2027 spreading through a compromised user's own email and messaging—contagion via shared channels rather than shared files, gated on open-weight parity that today's Qwen result advances.
 
 **Status: not yet reviewed by Brian.**
+
+## `non-professional-wage-inversion` — flagged 2026-08-21
+
+Wage growth for non-professional occupations (admin support, sales, customer service) decelerating below professional wage growth, suggesting AI/automation displacement is hitting routine information work first rather than high-judgment knowledge work
+
+First seen 2026-08-11, recurred 3 times through 2026-08-21.
+
+Notes from each recurrence:
+
+- Molly Kinder's 'messy middle' names the same population the wage data implied — 15-18M admin/clerical/customer-service workers, disproportionately women without degrees — and adds the entry-level-graduate angle that maps to the unresolved junior-judgment-ladder question.
+- Goldman data: call center employment down 39% vs historical trend in the US since 2022 (33% Canada, 27% Germany), with entry-level workers in AI-exposed occupations hit hardest by hiring slowdowns.
+
+**Status: not yet reviewed by Brian.**
+
+## `routing-layer-consolidating-into-payments` — flagged 2026-08-21
+
+Model routing, usage metering, and payment rails converging inside a payments company (Stripe/OpenRouter/Metronome) rather than a workspace provider — a different candidate for the neutral routing layer, and the emergence of agent-initiated spending infrastructure.
+
+First seen 2026-08-19, recurred 3 times through 2026-08-21.
+
+Notes from each recurrence:
+
+- Stripe closed the OpenRouter acquisition at $7B+ (up from $1.3B in May), stacking on January's Metronome purchase—routing plus metering plus payment rails in one non-neutral owner.
+- New consolidation candidates that aren't payments: Snowflake's Cortex AI Gateway and NVIDIA's NeMo Switchyard both shipping model routing — the layer being claimed by parties who sell the compute being routed.
+
+**Status: not yet reviewed by Brian.**
+
+## `human-approval-worse-than-automated-policy` — flagged 2026-08-21
+
+Evidence that human-in-the-loop approval is the weak link in agent governance (humans refused a dangerous command 13.6% of the time vs 89% for automated policy), inverting the assumption behind nearly every enterprise AI governance design in market.
+
+First seen 2026-08-17, recurred 3 times through 2026-08-21.
+
+Notes from each recurrence:
+
+- A three-day agent work stoppage went undetected by humans watching green dashboards, while the mind-virus contagion was largely mitigated by a single automated system-prompt-level warning.
+- Tencent red-team of DeepSeek's harness: 35.7% success corrupting agent output vs 2.5% getting harmful execution, with injection success varying 0-25.5% purely by delivery channel — enforcement lives in the harness's action-authorization layer, not model judgment.
+
+**Status: not yet reviewed by Brian.**
