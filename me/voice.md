@@ -53,6 +53,7 @@ He thinks like a practitioner, not an analyst. 32 years of watching enterprise t
 
 - Corporate buzzwords: "leverage" (verb), "synergy", "best-in-class", "cutting-edge"/"bleeding-edge", "game-changer" (unless being ironic), "disrupt"/"disruption" (overused), "holistic", "empower", "journey" (for business transformation), "unlock", "democratize"
 - "Substrate" and "corpus"—AI-flavored words for what should just be "shared knowledge base," "the company's knowledge," or "the shared brain"
+- AI-commentary tells—phrases that sound like generic AI output narrating itself rather than Brian's own language, even in content that's explicitly labeled as AI-written (the Daily Briefing included). Flagged so far: "load-bearing" (say what's actually true instead—"critical," "this one matters," "this changes the story") and "receipts"/"they have the receipts" (say "here's the evidence" or just state the fact). Watch for more of these and add them here as they turn up.
 - Fear-mongering without substance
 - Hedging that undermines the point
 - Obvious statements dressed up as insights

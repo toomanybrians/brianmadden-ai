@@ -9,6 +9,7 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 **What was synced:**
 - Updated `me/voice.md`: the private source and this file had each accumulated content the other lacked. Folded in the private side's fuller phrase/word-avoidance lists, a "Format-specific notes" section (LinkedIn feed posts vs. articles), the "Four-stage post-application realization" framing, and the "boring infrastructure as a feature" analogy. Nothing removed from the existing public version.
 - One internal cross-reference in the source material (pointing at a private-only file) was replaced with a plain description rather than carried over.
+- Landed concurrently with the "AI-tell phrases" edit below (both touched `me/voice.md`'s "Words Brian avoids" section, on different lines) — merged cleanly, both changes present in the file as committed.
 
 **Automated checks:**
 - Wiki-links (`[[`): none found in the merged content — CLEAR
@@ -18,7 +19,48 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 **Manual review notes:** this file has always been generic communication-style guidance with nothing Citrix-specific or otherwise sensitive in it; the merge is additive only.
 
-**Result: CLEAR TO COMMIT** — held uncommitted pending separate publish confirmation.
+**Result: CLEAR TO COMMIT**
+
+---
+
+## 2026-08-24 — voice.md: added "load-bearing" and "receipts" as AI-tell phrases to avoid
+
+**What was synced:**
+- Added a bullet to `me/voice.md`'s "Words Brian avoids" section flagging AI-commentary-tell phrases — phrases that read as generic AI output narrating itself rather than Brian's own language, even in content explicitly labeled AI-written (the Daily Briefing included). Triggered by Brian noticing "load-bearing" in the 2026-08-24 Daily Briefing and manually removing it before publishing on Substack; he separately flagged "receipts"/"they have the receipts" as the same category (also found in the 2026-08-13 briefing, left as-is there — published historical record, not retroactively edited per the fossil-record principle).
+- Framed as an open-ended bucket ("watch for more of these and add them here as they turn up") rather than a closed list, since Brian's framing suggested this is a pattern he'll keep noticing, not a one-off fix.
+
+**Automated checks:**
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+- No wiki-links, internal names, or `bmad/` paths introduced — CLEAR
+
+**Manual review notes:**
+- Pure voice-guide tuning, no public-safety content involved.
+- `_index.json`'s `word_count` for `me/voice.md` (551) was already stale before this edit and isn't checked by `check_doc_accuracy.py` — left as-is rather than guess a new number against an undocumented counting methodology.
+- Today's committed briefing files (`outputs/technical-briefings/2026/08/2026-08-24.md`, `outputs/published/2026/08/2026-08-24.md`) still read "load-bearing" — Brian's edit was made directly in Substack's editor when pasting, not synced back to the repo's committed copy. Left unchanged pending Brian's call on whether to sync it.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
+## 2026-08-24 — GOVERNANCE.md rewritten for v2: dropped v1 private-sync framing
+
+**What was synced:**
+- Rewrote GOVERNANCE.md's core principle (formerly #4, "One-way flow": "Content moves from the private system to the public repo, never the reverse. The private system is the source of truth.") — that described the v1 architecture, superseded by the Aug 9 architecture flip (this repo is now the public base layer; the private Citrix `bmad` system is a downstream, read-only overlay). MAINTAINER.md flagged this exact rewrite as needed back on 2026-08-19 ("is the architectural flip, in product form") but it had never actually been done. Merged the old #4 into a corrected #1 ("Grounded in the public record") since, once the flow-direction claim is gone, it says nothing #1 didn't already cover — 6 principles became 5.
+- Removed the opening paragraph's claim that "the sync skills in my private knowledge system reference this document as the authoritative source for publishing decisions," and the closing "sync procedures in the private system implement these rules procedurally" line — both tied this public doc's authority to private-system mechanics that shouldn't be the public doc's concern.
+- Removed the "Private system artifacts" never-allowed subsection and the entire "Requires careful filtering" section (the `developing-thinking.md`/frameworks manual-review-on-sync guidance) — both described the mechanics of filtering content on the way in from the private system. Brian's call: that's the private brain's job to document and enforce, not something the public governance doc should describe. The remaining doc-agnostic safety rules (no internal strategy, no people, no competitive intel, no credentials, no legal exposure) already cover what actually must never appear here, regardless of where content originates.
+- Bumped "Last reviewed" from 2026-02-23 (predates even the Aug 9 architecture decision) to 2026-08-24.
+
+**Automated checks:**
+- Not applicable in the usual sense — this is a governance-doc rewrite, not new canon content moving through the pipeline. Full diff reviewed manually instead.
+- `[[` wiki-links: none introduced — CLEAR
+- Internal names/`bmad/` paths: none introduced (if anything, this removed the file's own remaining private-system references) — CLEAR
+
+**Manual review notes:**
+- Philosophy/scope correction, not new content — no third-party material, no internal strategy, no people involved.
+- Scoped by Brian directly across two rounds of confirmation this session: the principle rewrite approved first, then the two remaining sync-flavored sections flagged separately and approved for removal.
+- `docs/brianmadden-ai-v2-architecture-and-launch-plan.md` and `MAINTAINER.md` were not touched this pass — this entry covers `GOVERNANCE.md` only.
+
+**Result: CLEAR TO COMMIT**
 
 ---
 

@@ -12,9 +12,16 @@ building, ingesting, or publishing) without loading the consumer module or
 re-typing the standing kickoff prompt BUILD.md has documented since Day 2:
 *"Read MAINTAINER.md and BUILD.md, then let's pick up where we left off."*
 
-`BUILD.md` is a long, append-only session journal (it will only keep
-growing) — don't read the whole thing every time. Read the parts that
-describe *current* state, not the full history.
+`BUILD.md` is an append-only session journal — don't read the whole thing
+every time. Read the parts that describe *current* state, not the full
+history. As of 2026-08-24, its pre-launch entries (2026-08-09 through
+2026-08-18) were trimmed rather than archived to a separate file — that
+era's actual decisions already live in Decisions made / Open decisions
+above, and git history (`git log -p -- BUILD.md`) has the full text if
+the session-by-session narrative is ever genuinely needed. `BUILD.md`
+itself now starts at launch day (2026-08-19) and will grow from
+there — expect another trim eventually, same reasoning as this one (see
+the note at the top of `## Session log`).
 
 ## Steps
 
@@ -46,7 +53,10 @@ describe *current* state, not the full history.
      history.
    - If the session's task needs older context (e.g. "why did we design
      the thread-tracker this way"), grep BUILD.md for the relevant term
-     instead of reading it front-to-back.
+     instead of reading it front-to-back. If it's not there and predates
+     launch, it may have been trimmed — check git history instead:
+     `git log -p -- BUILD.md` or `git log --all -S'<term>' -- BUILD.md`
+     to find the commit that mentions it.
 
 3. **Check real git state — don't trust BUILD.md's account of what's
    committed.** BUILD.md has been factually wrong about git state before

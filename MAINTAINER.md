@@ -87,12 +87,21 @@ Its one demand on us: keep the tiers clean.
 
 ## Governance surfaces
 
-`GOVERNANCE.md` currently documents the v1 direction (private → public
-publishing). Rewriting it to describe the v2 one-way valve — public-first
-base, manual promotion ceremony upward, nothing automated downward-to-upward —
-**is** the architectural flip, in product form. Every change to the publishing
-process gets an entry in `governance-log.md`, which continues uninterrupted
-as the audit trail across v1 → v2.
+`GOVERNANCE.md` was rewritten for v2 on 2026-08-24, closing the gap this
+section used to flag. Landed differently than originally proposed here,
+though: the plan had been to make it *describe* the v2 one-way valve
+(public-first base, manual promotion ceremony upward, nothing automated
+downward-to-upward). Brian's actual call, when asked: the public doc
+shouldn't talk about promotion mechanics at all — that's the private
+brain's process to document, not this repo's. `GOVERNANCE.md` now just
+states what's true of what's *here* (grounded in the public record, no
+internal strategy/people/competitive intel, standard safety rules) without
+describing how content arrives or what gets filtered upstream. The
+architecture itself is unchanged — this repo is still the public base
+layer, the private system is still a downstream overlay — only the public
+doc's framing changed. Every change to the publishing process gets an
+entry in `governance-log.md`, which continues uninterrupted as the audit
+trail across v1 → v2 → this rewrite.
 
 ## Legacy to retire
 
