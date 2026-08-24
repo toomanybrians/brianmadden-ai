@@ -4,6 +4,25 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-08-24 — voice.md: added "load-bearing" and "receipts" as AI-tell phrases to avoid
+
+**What was synced:**
+- Added a bullet to `me/voice.md`'s "Words Brian avoids" section flagging AI-commentary-tell phrases — phrases that read as generic AI output narrating itself rather than Brian's own language, even in content explicitly labeled AI-written (the Daily Briefing included). Triggered by Brian noticing "load-bearing" in the 2026-08-24 Daily Briefing and manually removing it before publishing on Substack; he separately flagged "receipts"/"they have the receipts" as the same category (also found in the 2026-08-13 briefing, left as-is there — published historical record, not retroactively edited per the fossil-record principle).
+- Framed as an open-ended bucket ("watch for more of these and add them here as they turn up") rather than a closed list, since Brian's framing suggested this is a pattern he'll keep noticing, not a one-off fix.
+
+**Automated checks:**
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+- No wiki-links, internal names, or `bmad/` paths introduced — CLEAR
+
+**Manual review notes:**
+- Pure voice-guide tuning, no public-safety content involved.
+- `_index.json`'s `word_count` for `me/voice.md` (551) was already stale before this edit and isn't checked by `check_doc_accuracy.py` — left as-is rather than guess a new number against an undocumented counting methodology.
+- Today's committed briefing files (`outputs/technical-briefings/2026/08/2026-08-24.md`, `outputs/published/2026/08/2026-08-24.md`) still read "load-bearing" — Brian's edit was made directly in Substack's editor when pasting, not synced back to the repo's committed copy. Left unchanged pending Brian's call on whether to sync it.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-08-24 — GOVERNANCE.md rewritten for v2: dropped v1 private-sync framing
 
 **What was synced:**
