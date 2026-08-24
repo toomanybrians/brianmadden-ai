@@ -4,6 +4,28 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-08-24 — GOVERNANCE.md rewritten for v2: dropped v1 private-sync framing
+
+**What was synced:**
+- Rewrote GOVERNANCE.md's core principle (formerly #4, "One-way flow": "Content moves from the private system to the public repo, never the reverse. The private system is the source of truth.") — that described the v1 architecture, superseded by the Aug 9 architecture flip (this repo is now the public base layer; the private Citrix `bmad` system is a downstream, read-only overlay). MAINTAINER.md flagged this exact rewrite as needed back on 2026-08-19 ("is the architectural flip, in product form") but it had never actually been done. Merged the old #4 into a corrected #1 ("Grounded in the public record") since, once the flow-direction claim is gone, it says nothing #1 didn't already cover — 6 principles became 5.
+- Removed the opening paragraph's claim that "the sync skills in my private knowledge system reference this document as the authoritative source for publishing decisions," and the closing "sync procedures in the private system implement these rules procedurally" line — both tied this public doc's authority to private-system mechanics that shouldn't be the public doc's concern.
+- Removed the "Private system artifacts" never-allowed subsection and the entire "Requires careful filtering" section (the `developing-thinking.md`/frameworks manual-review-on-sync guidance) — both described the mechanics of filtering content on the way in from the private system. Brian's call: that's the private brain's job to document and enforce, not something the public governance doc should describe. The remaining doc-agnostic safety rules (no internal strategy, no people, no competitive intel, no credentials, no legal exposure) already cover what actually must never appear here, regardless of where content originates.
+- Bumped "Last reviewed" from 2026-02-23 (predates even the Aug 9 architecture decision) to 2026-08-24.
+
+**Automated checks:**
+- Not applicable in the usual sense — this is a governance-doc rewrite, not new canon content moving through the pipeline. Full diff reviewed manually instead.
+- `[[` wiki-links: none introduced — CLEAR
+- Internal names/`bmad/` paths: none introduced (if anything, this removed the file's own remaining private-system references) — CLEAR
+
+**Manual review notes:**
+- Philosophy/scope correction, not new content — no third-party material, no internal strategy, no people involved.
+- Scoped by Brian directly across two rounds of confirmation this session: the principle rewrite approved first, then the two remaining sync-flavored sections flagged separately and approved for removal.
+- `docs/brianmadden-ai-v2-architecture-and-launch-plan.md` and `MAINTAINER.md` were not touched this pass — this entry covers `GOVERNANCE.md` only.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-08-15 — Open decision #8 residuals: front-of-mind pointer list + staleness-triage tool
 
 **What was synced:**
