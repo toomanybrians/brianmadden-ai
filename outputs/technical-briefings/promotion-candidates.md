@@ -222,3 +222,42 @@ Notes from each recurrence:
 - Tencent red-team of DeepSeek's harness: 35.7% success corrupting agent output vs 2.5% getting harmful execution, with injection success varying 0-25.5% purely by delivery channel — enforcement lives in the harness's action-authorization layer, not model judgment.
 
 **Status: not yet reviewed by Brian.**
+
+## `labs-withholding-frontier-from-api` — flagged 2026-08-24
+
+Frontier labs competing with their own API customers and selectively degrading or reserving top models — a floor-loss mechanism on a commercial timeline, independent of any bubble pop, already pushing app companies (Harvey, Cursor) to train in-house.
+
+First seen 2026-08-17, recurred 3 times through 2026-08-24.
+
+Notes from each recurrence:
+
+- OpenAI holding its largest frontier RL run and pausing RL training on deployment-bound models adds a self-imposed pacing mechanism alongside commercial withholding — Altman: 'confidence in safety will increasingly set the pace.'
+- PandaOS founders cite Anthropic's June 2026 export-control suspension of Fable 5/Mythos 5 as the warning shot that made European firms treat single-provider dependence as an operational risk — a floor-loss event that already happened, on a commercial/jurisdictional timeline.
+
+**Status: not yet reviewed by Brian.**
+
+## `personalization-in-weights-vs-files` — flagged 2026-08-24
+
+Test-time training folds a user's context into per-user diverging model weights instead of external files, trading portability, inspectability, and auditability for flat memory and constant latency — a competing architecture to the file-based second brain and its portability invariant.
+
+First seen 2026-08-18, recurred 3 times through 2026-08-24.
+
+Notes from each recurrence:
+
+- Evans's subliminal-transmission and contextual-trigger findings give the file-based approach a security argument, not just a portability one: markdown you can diff vs traits that ride invisibly in fine-tuned weights.
+- Juan Pardilla's comment proposes a third architecture: keep files/graph as the substrate for portability and provenance, but have the system proactively surface relevant history to get the flat-memory feel — plus the argument that a system with no provenance trail is worse in litigation, not better.
+
+**Status: not yet reviewed by Brian.**
+
+## `deployer-opacity-about-actual-capability` — flagged 2026-08-24
+
+The party deploying a system cannot or will not state what it actually does—conflicting public accounts of whether Claude's Workspace connector can send email, and a datacenter developer unable to answer water, chemical, jobs, or NDA questions—breaking the assumption underneath both agent governance and community consent that capability scope is knowable.
+
+First seen 2026-08-20, recurred 3 times through 2026-08-24.
+
+Notes from each recurrence:
+
+- Evans: mitigations hide misalignment behind narrow contextual triggers so models pass standard behavioral tests — a deployer can hold an honest belief about capability scope that testing actively confirms and is wrong.
+- Superintelligence documents a measurable disclosure blackout since May 2026 — token counts, GPU-hours, cluster size and cost gone from model cards even as reports lengthen — while the largest observed cluster went from ~80K to ~760K H100-equivalents. Outsiders and regulators can no longer size the biggest training runs.
+
+**Status: not yet reviewed by Brian.**

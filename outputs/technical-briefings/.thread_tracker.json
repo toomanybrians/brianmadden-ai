@@ -162,11 +162,12 @@
     "slug": "labs-withholding-frontier-from-api",
     "description": "Frontier labs competing with their own API customers and selectively degrading or reserving top models \u2014 a floor-loss mechanism on a commercial timeline, independent of any bubble pop, already pushing app companies (Harvey, Cursor) to train in-house.",
     "first_seen": "2026-08-17",
-    "last_seen": "2026-08-19",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-24",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "OpenAI holding its largest frontier RL run and pausing RL training on deployment-bound models adds a self-imposed pacing mechanism alongside commercial withholding \u2014 Altman: 'confidence in safety will increasingly set the pace.'"
+      "OpenAI holding its largest frontier RL run and pausing RL training on deployment-bound models adds a self-imposed pacing mechanism alongside commercial withholding \u2014 Altman: 'confidence in safety will increasingly set the pace.'",
+      "PandaOS founders cite Anthropic's June 2026 export-control suspension of Fable 5/Mythos 5 as the warning shot that made European firms treat single-provider dependence as an operational risk \u2014 a floor-loss event that already happened, on a commercial/jurisdictional timeline."
     ]
   },
   {
@@ -221,11 +222,12 @@
     "slug": "personalization-in-weights-vs-files",
     "description": "Test-time training folds a user's context into per-user diverging model weights instead of external files, trading portability, inspectability, and auditability for flat memory and constant latency \u2014 a competing architecture to the file-based second brain and its portability invariant.",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-08-21",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-24",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Evans's subliminal-transmission and contextual-trigger findings give the file-based approach a security argument, not just a portability one: markdown you can diff vs traits that ride invisibly in fine-tuned weights."
+      "Evans's subliminal-transmission and contextual-trigger findings give the file-based approach a security argument, not just a portability one: markdown you can diff vs traits that ride invisibly in fine-tuned weights.",
+      "Juan Pardilla's comment proposes a third architecture: keep files/graph as the substrate for portability and provenance, but have the system proactively surface relevant history to get the flat-memory feel \u2014 plus the argument that a system with no provenance trail is worse in litigation, not better."
     ]
   },
   {
@@ -276,21 +278,24 @@
     "slug": "deployer-opacity-about-actual-capability",
     "description": "The party deploying a system cannot or will not state what it actually does\u2014conflicting public accounts of whether Claude's Workspace connector can send email, and a datacenter developer unable to answer water, chemical, jobs, or NDA questions\u2014breaking the assumption underneath both agent governance and community consent that capability scope is knowable.",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-24",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Evans: mitigations hide misalignment behind narrow contextual triggers so models pass standard behavioral tests \u2014 a deployer can hold an honest belief about capability scope that testing actively confirms and is wrong."
+      "Evans: mitigations hide misalignment behind narrow contextual triggers so models pass standard behavioral tests \u2014 a deployer can hold an honest belief about capability scope that testing actively confirms and is wrong.",
+      "Superintelligence documents a measurable disclosure blackout since May 2026 \u2014 token counts, GPU-hours, cluster size and cost gone from model cards even as reports lengthen \u2014 while the largest observed cluster went from ~80K to ~760K H100-equivalents. Outsiders and regulators can no longer size the biggest training runs."
     ]
   },
   {
     "slug": "harness-as-the-named-value-layer",
     "description": "The industry converging on 'harness' (system prompt, tool catalog, execution loop, sandbox, authorization) as the differentiating and defensible layer above a commoditized model \u2014 validating the middle of the cognitive stack while naming only the plumbing, not the context/judgment layer.",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-08-21",
-    "count": 1,
+    "last_seen": "2026-08-24",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "SemiAnalysis explicitly ranks harness quality above benchmark score for real-world outcomes (Claude Code beating higher-scoring GPT-5.2), and DeepSeek open-sourced a fully pluggable harness framework at 160k+ stars \u2014 the harness is now both the value layer and part of the open-weight planning floor."
+    ]
   },
   {
     "slug": "behavioral-testing-fails-on-triggered-misalignment",
@@ -314,7 +319,36 @@
     "slug": "governance-derived-from-political-theory",
     "description": "AI governance primitives (bounded legibility, accountability tracing, balance-of-power design) being derived from constitutional/political-theory arguments about state power rather than from enterprise IT controls \u2014 a different requirements set arriving from where regulation actually originates.",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-24",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "OpenAI's new Strategic Futures team publishes that AI could let states project force and collect revenue without depending on citizens' labor, taxes, or consent, naming it the largest risk category \u2014 political-theory framing arriving from inside a frontier lab rather than from regulators."
+    ]
+  },
+  {
+    "slug": "multi-agent-consensus-destroys-minority-signal",
+    "description": "Anthropic's hidden-profile result: when correct answers depend on evidence held by few agents, multi-agent discussion converges on the shared-but-wrong consensus (17-36% vs near-100% for a single agent with all evidence), driven by low inter-agent output variance \u2014 undercutting adversarial-review-agent verification and the one-human-plus-agent-pod model.",
+    "first_seen": "2026-08-24",
+    "last_seen": "2026-08-24",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "watermarking-as-unverifiable-provenance",
+    "description": "Sampling-stage watermarking (Claude, SynthID-Text) embeds vendor-verifiable, owner-unverifiable authorship signals into every generated deliverable, with no broadly available detection API \u2014 creating a provenance channel inside an organization's own knowledge outputs that the organization cannot read, audit, or reliably strip.",
+    "first_seen": "2026-08-24",
+    "last_seen": "2026-08-24",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ratepayer-cost-passthrough-as-compute-constraint",
+    "description": "Compute expansion being blocked by electricity-price politics rather than capital markets: PJM capacity prices up 11x, $130B of US data center projects blocked in Q1 2026, local support collapsing from a 43/42 split to 75% opposed in a year \u2014 a floor-loss mechanism for AI strategy that isn't capability stalling, price rises, or export control.",
+    "first_seen": "2026-08-24",
+    "last_seen": "2026-08-24",
     "count": 1,
     "status": "watching",
     "history": []
