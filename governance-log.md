@@ -4,6 +4,24 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-08-24 — Reconciled me/voice.md against the private source
+
+**What was synced:**
+- Updated `me/voice.md`: the private source and this file had each accumulated content the other lacked. Folded in the private side's fuller phrase/word-avoidance lists, a "Format-specific notes" section (LinkedIn feed posts vs. articles), the "Four-stage post-application realization" framing, and the "boring infrastructure as a feature" analogy. Nothing removed from the existing public version.
+- One internal cross-reference in the source material (pointing at a private-only file) was replaced with a plain description rather than carried over.
+
+**Automated checks:**
+- Wiki-links (`[[`): none found in the merged content — CLEAR
+- Internal names: none found (this file has never referenced any) — CLEAR
+- Private-system path references: none found — CLEAR
+- Em-dashes / heading case: consistent with existing conventions — CLEAR
+
+**Manual review notes:** this file has always been generic communication-style guidance with nothing Citrix-specific or otherwise sensitive in it; the merge is additive only.
+
+**Result: CLEAR TO COMMIT** — held uncommitted pending separate publish confirmation.
+
+---
+
 ## 2026-08-15 — Open decision #8 residuals: front-of-mind pointer list + staleness-triage tool
 
 **What was synced:**
