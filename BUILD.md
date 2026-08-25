@@ -1397,3 +1397,36 @@ things landed, all from Brian's own follow-up asks:**
 
 `python3 scripts/check_doc_accuracy.py` re-checked clean after all of
 the above.
+
+**One more follow-up, same session:** Brian's direct ask after seeing
+the 403 diagnosis — auto-flip a source's `sources.yaml` row from
+`feed_url` to `ingest_method: email` the moment a real email from that
+publication actually arrives, rather than leaving the migration as a
+manual sources.yaml edit for each of the ~39 sources once his Substack
+subscriptions start delivering. Built as two new functions in
+`skills/ingest/ingest.py`: `find_feed_source_for_email_sender()` matches
+a real email's sender address against existing feed_url-based rows with
+no `sender` yet (by domain for a custom-domain publication, e.g.
+`news@alphasignal.ai`, or by subdomain-token for a `*.substack.com` one,
+checking both a per-publication sending subdomain and a shared
+`substack.com`-apex-with-local-part pattern since the real Substack
+send-address format can't be verified without a live example);
+`flip_source_to_email()` rewrites just that one entry's block in
+`sources.yaml` in place (feed_url nulled, `sender` and `ingest_method:
+email` inserted) rather than a full-file YAML re-dump, preserving every
+other entry's comments and this entry's own hand-written `note`/`lens`/
+`pov` untouched — same reasoning `auto_register_email_source()` already
+established for why this file is never blindly re-serialized. Wired in
+ahead of `auto_register_email_source()`'s existing call site: a match
+flips the existing row; no match falls through to the existing
+register-a-new-row behavior unchanged. Unit-tested directly against a
+copy of the real `sources.yaml` (not the live file) — both plausible
+Substack sender-address shapes matched `marcus-on-ai` correctly,
+`alphasignal.ai` (already flipped) and an unrelated address both
+correctly didn't match, the resulting block parses as valid YAML with
+only the target entry's `feed_url`/`sender`/`ingest_method` lines
+changed, and the file-end boundary case (flipping the last feed-based
+entry in file order) works. `sources/sources.yaml`'s header comments
+gained a matching dated note. Not yet exercised against a real inbound
+email (none of Brian's new Substack subscriptions have started
+delivering yet) — first real trigger will be the actual test.

@@ -987,6 +987,105 @@ def load_known_email_senders(sources_path: Path) -> set[str]:
     return {s["sender"].lower() for s in load_sources(sources_path) if s.get("sender")}
 
 
+def _feed_match_token(source: dict) -> str | None:
+    """The identifier a real email sender's address should be checked
+    against for this source: the subdomain (e.g. 'garymarcus') for a
+    *.substack.com feed_url, or the full host (e.g. 'alphasignal.ai') for
+    a custom-domain one. None if the source has no feed_url/url to go on."""
+    for candidate in (source.get("feed_url"), source.get("url")):
+        if not candidate:
+            continue
+        host = (urlsplit(candidate).netloc or "").lower().removeprefix("www.")
+        if not host:
+            continue
+        if host.endswith(".substack.com"):
+            return host.removesuffix(".substack.com")
+        return host
+    return None
+
+
+def find_feed_source_for_email_sender(address: str, sources: list[dict]) -> dict | None:
+    """Does a real brain@ email just arrive from the same publication an
+    existing feed_url-based sources.yaml row already tracks? Brian's ask
+    (2026-08-25), directly downstream of the 403-blocking finding: once
+    he subscribes a blocked Substack for email delivery, the pipeline
+    should recognize the newsletter it already knows rather than
+    registering a lookalike duplicate row the way auto_register_email_
+    source() would on its own (it only checks exact previously-seen
+    sender addresses, not "is this publication already tracked another
+    way"). Two match shapes, since real Substack send addresses vary and
+    this can't be verified without a live example: the sender's domain
+    equals the source's feed host exactly (self-hosted mail on a custom
+    domain, e.g. news@alphasignal.ai), or — for *.substack.com feeds
+    specifically — the sender's domain's first label or local-part
+    equals the feed's subdomain (covers both a per-publication sending
+    subdomain and a shared substack.com apex with the publication name
+    as the local-part). Only considers sources with no `sender` yet and
+    not already `ingest_method: email` — already-flipped/documented rows
+    are out of scope here, same as auto_register_email_source()'s own
+    known-senders check."""
+    if "@" not in address:
+        return None
+    local_part, _, sender_domain = address.lower().partition("@")
+    sender_first_label = sender_domain.split(".")[0]
+    for s in sources:
+        if s.get("sender") or s.get("ingest_method") == "email":
+            continue
+        token = _feed_match_token(s)
+        if not token:
+            continue
+        if token == sender_domain:
+            return s
+        if "." not in token and token in (sender_first_label, local_part):
+            return s
+    return None
+
+
+def flip_source_to_email(source: dict, address: str, sources_path: Path) -> bool:
+    """Rewrites one existing sources.yaml entry in place to route through
+    the brain@ email path instead of its (likely 403-blocked) feed_url —
+    adds `sender`, sets `ingest_method: email`, nulls `feed_url` (unused
+    once ingest_method is email — see main()'s dispatch — nulled rather
+    than left stale so the row reads the same as every other email-routed
+    entry). Line-level surgery on just this one entry's block, not a
+    full-file YAML re-dump — preserves every other entry's comments and
+    this entry's own `note`/`lens`/`pov` fields untouched, same reasoning
+    as auto_register_email_source(). Mutates `source` in place too (so a
+    second match against the same dict later in this run sees it as
+    already flipped) and returns whether the flip actually happened —
+    False if the entry's feed_url line couldn't be found (shouldn't
+    happen for a row find_feed_source_for_email_sender() would have
+    matched, but no silent corruption if the file's shape ever changes)."""
+    source_id = source["id"]
+    lines = sources_path.read_text(encoding="utf-8").splitlines(keepends=True)
+    start = next((i for i, l in enumerate(lines) if l.strip() == f"- id: {source_id}"), None)
+    if start is None:
+        return False
+    end = len(lines)
+    for i in range(start + 1, len(lines)):
+        if re.match(r"^\s{2}- id:\s", lines[i]):
+            end = i
+            break
+
+    feed_line_idx = None
+    for i in range(start, end):
+        if re.match(r"^    feed_url:", lines[i]):
+            feed_line_idx = i
+            break
+    if feed_line_idx is None:
+        return False
+
+    lines[feed_line_idx] = "    feed_url: null\n"
+    lines.insert(feed_line_idx + 1, f"    sender: {address}\n    ingest_method: email\n")
+    sources_path.write_text("".join(lines), encoding="utf-8")
+
+    source["feed_url"] = None
+    source["sender"] = address
+    source["ingest_method"] = "email"
+    print(f"    sources.yaml: flipped '{source_id}' from feed to email (sender confirmed: {address})")
+    return True
+
+
 def auto_register_email_source(
     from_header: str, sources_path: Path, known_senders: set[str]
 ) -> None:
@@ -1728,7 +1827,12 @@ def main() -> None:
             )
             if is_email and not args.dry_run:
                 gmail_apply_label(entry.get("gmail_msg_id"), GMAIL_LABEL_INGESTED, archive=True)
-                auto_register_email_source(entry["author"], sources_path, known_email_senders)
+                _, sender_address = _parse_sender_header(entry["author"])
+                matched = find_feed_source_for_email_sender(sender_address, sources)
+                if matched and flip_source_to_email(matched, sender_address, sources_path):
+                    known_email_senders.add(sender_address)
+                else:
+                    auto_register_email_source(entry["author"], sources_path, known_email_senders)
             seen_urls.add(entry["link"])
             total_written += 1
 

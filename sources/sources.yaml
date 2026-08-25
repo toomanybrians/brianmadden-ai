@@ -64,6 +64,20 @@
 # extraction judgment every other source already gets. No per-newsletter
 # entries needed; each note's real sender comes from the message's own
 # From header, not a registry lookup.
+#
+# Auto-flip added 2026-08-25 (BUILD.md open decision #16's follow-up):
+# when a real brain@ email's sender matches an *existing* feed_url-based
+# row (by domain/subdomain — see ingest.py's find_feed_source_for_email_
+# sender()), that row gets rewritten in place — feed_url nulled, `sender`
+# and `ingest_method: email` added — instead of registering a lookalike
+# duplicate the way a genuinely new sender would. Targeted at the ~39
+# sources whose *.substack.com feed_url is blocked from GitHub Actions
+# (see BUILD.md open decision #16): once Brian subscribes one there for
+# email delivery, its existing curated row (note/lens/pov and all)
+# switches over automatically rather than losing that curation to a
+# fresh auto-registered entry. Only fires for a row with no `sender` yet
+# and `ingest_method` not already `email` — already-flipped/documented
+# rows are untouched.
 
 sources:
   - id: x-timeline

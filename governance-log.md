@@ -619,3 +619,42 @@ never indexed.
 - `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
 
 **Result: CLEAR TO COMMIT** — holding for Brian's go-ahead.
+
+---
+
+## 2026-08-25 (continued again) — Auto-flip feed sources to email on a real match
+
+**What was synced (process change):**
+- `skills/ingest/ingest.py`: two new functions,
+  `find_feed_source_for_email_sender()` and `flip_source_to_email()`,
+  wired in ahead of the existing `auto_register_email_source()` call.
+  When a real brain@ email's sender matches an existing feed_url-based
+  `sources.yaml` row (by domain or Substack-subdomain heuristic), that
+  row is rewritten in place — `feed_url` nulled, `sender` and
+  `ingest_method: email` added — rather than registering a lookalike
+  duplicate entry. Existing `note`/`lens`/`pov` and every other entry's
+  formatting/comments are untouched (targeted line-level edit, not a
+  full YAML re-dump).
+- `sources/sources.yaml`: header comment gained a dated explanation of
+  this mechanism.
+
+**Why:** Direct follow-up to today's 403-blocking finding — Brian's
+Substack-to-email migration (open decision #16) means ~39 sources will
+start arriving via `brain@` over the next few days. Without this, each
+would register as a brand-new, undercurated duplicate row instead of
+taking over its existing curated entry.
+
+**No canon content touched.** Pipeline code only.
+
+**Automated checks:**
+- `python3 -m py_compile`: clean
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+- Unit-tested directly against a copy of the real `sources.yaml` (not
+  the live file): both plausible Substack sender-address shapes matched
+  correctly, already-flipped/unrelated senders correctly didn't match,
+  resulting YAML parses clean with only the target entry's three lines
+  changed, file-end boundary case verified. Not yet exercised against a
+  real inbound email — none of the new subscriptions have started
+  delivering yet.
+
+**Result: CLEAR TO COMMIT** — holding for Brian's go-ahead.
