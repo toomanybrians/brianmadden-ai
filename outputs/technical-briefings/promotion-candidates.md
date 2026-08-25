@@ -261,3 +261,29 @@ Notes from each recurrence:
 - Superintelligence documents a measurable disclosure blackout since May 2026 — token counts, GPU-hours, cluster size and cost gone from model cards even as reports lengthen — while the largest observed cluster went from ~80K to ~760K H100-equivalents. Outsiders and regulators can no longer size the biggest training runs.
 
 **Status: not yet reviewed by Brian.**
+
+## `git-host-as-agent-control-point` — flagged 2026-08-25
+
+Code/knowledge repository hosting turning into the agent runtime and a vendor-owned governance surface — Cursor's Origin defaulted on for paid plans under an owner that also controls the editor and the model, against canon's treatment of git as neutral, boring infrastructure.
+
+First seen 2026-08-19, recurred 3 times through 2026-08-25.
+
+Notes from each recurrence:
+
+- Cursor launched Origin—native repos, PRs, and agents—defaulted on for paid plans, consolidating editor, repo, and model under one owner; coincided with a 6h42m GitHub outage.
+- Hugging Face testing a sale at $13B+ extends the pattern from code repos to the model registry: the 'neutral' open-model hub gets an owner with its own interests, and neutrality becomes a business decision rather than a property.
+
+**Status: not yet reviewed by Brian.**
+
+## `governance-derived-from-political-theory` — flagged 2026-08-25
+
+AI governance primitives (bounded legibility, accountability tracing, balance-of-power design) being derived from constitutional/political-theory arguments about state power rather than from enterprise IT controls — a different requirements set arriving from where regulation actually originates.
+
+First seen 2026-08-21, recurred 3 times through 2026-08-25.
+
+Notes from each recurrence:
+
+- OpenAI's new Strategic Futures team publishes that AI could let states project force and collect revenue without depending on citizens' labor, taxes, or consent, naming it the largest risk category — political-theory framing arriving from inside a frontier lab rather than from regulators.
+- AI Frontiers proposes actuarial/insurance underwriting (TRIP's mandatory data call) as the mechanism for estimating catastrophic AI loss — a second instance of AI governance requirements originating outside enterprise IT, this time from insurance rather than constitutional theory.
+
+**Status: not yet reviewed by Brian.**

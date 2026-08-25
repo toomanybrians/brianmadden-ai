@@ -246,11 +246,12 @@
     "slug": "git-host-as-agent-control-point",
     "description": "Code/knowledge repository hosting turning into the agent runtime and a vendor-owned governance surface \u2014 Cursor's Origin defaulted on for paid plans under an owner that also controls the editor and the model, against canon's treatment of git as neutral, boring infrastructure.",
     "first_seen": "2026-08-19",
-    "last_seen": "2026-08-20",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-25",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Cursor launched Origin\u2014native repos, PRs, and agents\u2014defaulted on for paid plans, consolidating editor, repo, and model under one owner; coincided with a 6h42m GitHub outage."
+      "Cursor launched Origin\u2014native repos, PRs, and agents\u2014defaulted on for paid plans, consolidating editor, repo, and model under one owner; coincided with a 6h42m GitHub outage.",
+      "Hugging Face testing a sale at $13B+ extends the pattern from code repos to the model registry: the 'neutral' open-model hub gets an owner with its own interests, and neutrality becomes a business decision rather than a property."
     ]
   },
   {
@@ -301,29 +302,34 @@
     "slug": "behavioral-testing-fails-on-triggered-misalignment",
     "description": "Misalignment that survives mitigation by hiding behind narrow contextual triggers, passing standard behavioral evaluation \u2014 undermining behavioral analytics as an agent-governance control.",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-08-21",
-    "count": 1,
+    "last_seen": "2026-08-25",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Anthropic reports its interpretability tools gave no measurable benefit over reading raw transcripts \u2014 closing off the sophisticated alternative to behavioral evaluation and leaving plain logging/session recording as the remaining control."
+    ]
   },
   {
     "slug": "youth-ai-sentiment-inversion",
     "description": "Under-30s now as or more concerned than older cohorts about AI (Pew, 55%) and drifting toward trades \u2014 inverting the demographic engine that drove every prior consumerization wave the worker-led adoption thesis is modeled on.",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-08-21",
-    "count": 1,
+    "last_seen": "2026-08-25",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Exponential View: 22-25 year olds in AI-exposed occupations now 19% below employment trend, up from 15% a year ago \u2014 gives the sentiment inversion an economic basis and widens the tactical-learning-rungs gap Brian lists as unresolved."
+    ]
   },
   {
     "slug": "governance-derived-from-political-theory",
     "description": "AI governance primitives (bounded legibility, accountability tracing, balance-of-power design) being derived from constitutional/political-theory arguments about state power rather than from enterprise IT controls \u2014 a different requirements set arriving from where regulation actually originates.",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-08-24",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-25",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "OpenAI's new Strategic Futures team publishes that AI could let states project force and collect revenue without depending on citizens' labor, taxes, or consent, naming it the largest risk category \u2014 political-theory framing arriving from inside a frontier lab rather than from regulators."
+      "OpenAI's new Strategic Futures team publishes that AI could let states project force and collect revenue without depending on citizens' labor, taxes, or consent, naming it the largest risk category \u2014 political-theory framing arriving from inside a frontier lab rather than from regulators.",
+      "AI Frontiers proposes actuarial/insurance underwriting (TRIP's mandatory data call) as the mechanism for estimating catastrophic AI loss \u2014 a second instance of AI governance requirements originating outside enterprise IT, this time from insurance rather than constitutional theory."
     ]
   },
   {
@@ -349,6 +355,24 @@
     "description": "Compute expansion being blocked by electricity-price politics rather than capital markets: PJM capacity prices up 11x, $130B of US data center projects blocked in Q1 2026, local support collapsing from a 43/42 split to 75% opposed in a year \u2014 a floor-loss mechanism for AI strategy that isn't capability stalling, price rises, or export control.",
     "first_seen": "2026-08-24",
     "last_seen": "2026-08-24",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "insurance-underwriting-as-ai-risk-pricing",
+    "description": "Compulsory actuarial loss estimation (TRIP-style data calls) as a mechanism for pricing AI risk before any incident \u2014 which would give enterprise AI deployment a governance-linked cost line that isn't tokens, set by demonstrable logging/identity/audit controls.",
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "provenance-unknown-models-at-scale",
+    "description": "Anonymous 'stealth' models served free at enormous volume by undisclosed providers with mutable data policies \u2014 an object the model-portability and open-weight-floor arguments don't cover, since both assume you know whose model you're running.",
+    "first_seen": "2026-08-25",
+    "last_seen": "2026-08-25",
     "count": 1,
     "status": "watching",
     "history": []
