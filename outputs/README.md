@@ -55,6 +55,22 @@ and canon); it's committed for audit, not treated as truth.
   it is canon, and nothing here ever edits `developing-thinking.md` or a
   framework's `status` directly. Built 2026-08-15 for BUILD.md open
   decision #8.
+- **`weekly-updates/`** — **Deeper Thinking**, a lower-frequency, dual-byline
+  (`brianmadden.ai` + Brian Madden) companion to the Daily Brief (the
+  directory kept its original internal name; the publication itself is
+  called Deeper Thinking, Brian's own name). Built 2026-08-24 for
+  `BUILD.md` open decision #13. Half-automated: the prep doc is assembled
+  and emailed to Brian unattended every Friday by
+  [skills/weekly/gather.py](../skills/weekly/gather.py) (wired into
+  `daily-pipeline.yml`), but the actual decisions still need Brian live —
+  see [.claude/skills/weekly-update/SKILL.md](../.claude/skills/weekly-update/SKILL.md)
+  for that ceremony. `YYYY/MM/YYYY-MM-DD-prep.md` is the machine-written
+  recap Brian reads first (week's stories, unresolved promotion/staleness
+  candidates, current `developing-thinking.md` "Right now"); `YYYY/MM/YYYY-MM-DD.md`
+  is the finished post, drafted live with Brian's own takeaways folded in.
+  `.last_run.json` is pipeline state, shared between `gather.py` and the
+  live ceremony, same convention as
+  `technical-briefings/.last_run.json`.
 - **`substack-migration/`** — one-off drafts for Workstream C
   (`docs/substack-as-primary-home.md`): moving the ~90-item back catalog
   (podcast, talks, LinkedIn, Citrix blog, frameworks) onto Substack.

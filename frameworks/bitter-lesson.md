@@ -10,14 +10,14 @@ original_url: "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-work
 description: "Simple, worker-driven AI adoption beats elaborate IT-engineered solutions. Every time. The endgame is more radical than most enterprises expect."
 staleness_threshold: stable
 tier: 2
-status: reviewed
+status: reviewed-and-updated
 ---
 
 # The bitter lesson of workplace AI
 
 Simple, worker-driven AI adoption beats elaborate, IT-engineered solutions. Every time. And the endgame is more radical than "stop engineering"—AI doesn't need the cognitive scaffolding humans built over centuries. It routes around it entirely.
 
-*Published: September 17, 2025 — [Original post](https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/)*
+*Published: September 17, 2025—[Original post](https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/)*
 
 ## The original bitter lesson (Rich Sutton)
 
@@ -47,6 +47,8 @@ Think of it this way: if you're getting SVP-level strategic support from AI, how
 This doesn't mean the 80% doesn't exist or isn't real. Humans still need it. But the bitter lesson says: stop trying to engineer AI that replicates human cognitive processes. Stop trying to "capture" tacit knowledge and feed it into enterprise systems. AI will route around the 80% the same way it routes around applications—by finding a simpler path to the same destination.
 
 **The invisible 80% explains why current enterprise AI fails (it can't see what humans do). The bitter lesson explains the endgame: AI won't need to see it. It dissolves.**
+
+**2026-08-24 revision—this "dissolves" claim is now revised by later published work, not just qualified.** [Skills are all you need](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/) is an entire argument for capturing tacit knowledge as text files. The [crawl/walk/run post](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/) argues agents fail *precisely because* nobody did the work of teaching them the org's context and judgment—the opposite of AI routing around that work. And [the knowledge factory](../frameworks/knowledge-factory.md) states outright that it revises the bitter lesson: the shared departmental second brain is an engineered apparatus for capturing exactly the tacit knowledge this section said not to bother capturing. The corrected position: don't try to hand-engineer a bespoke integration for every workflow (the original "stop engineering, start enabling" prescription still holds there)—but the invisible 80% doesn't dissolve on its own, and the knowledge factory is what actually captures it, deliberately, once you've stopped over-engineering the wrong layer.
 
 ## The connection to factory electrification
 

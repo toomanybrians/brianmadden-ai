@@ -128,10 +128,35 @@ jobs:
             echo "No brief written today (quiet day) — nothing to publish"
           fi
 
+      # Deeper Thinking's "initial recap" (the prep doc a live /weekly-update
+      # session is worked through) — assembled and emailed automatically on
+      # Fridays only, per Brian's ask, 2026-08-24. This is gather.py's
+      # deterministic step only (see skills/weekly/gather.py) — it does not
+      # run the live ceremony itself, which needs Brian in the loop; it just
+      # gets the recap into his inbox before he sits down to do that part.
+      # date -u +%u prints 1 (Monday) through 7 (Sunday), regardless of
+      # whether this run came from the cron schedule or a manual
+      # workflow_dispatch — checking the real date rather than matching the
+      # cron string means a manually-triggered test run on a Friday still
+      # behaves correctly.
+      - name: Run Deeper Thinking prep (Fridays only)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          BRIAN_EMAIL: ${{ secrets.BRIAN_EMAIL }}
+        run: |
+          if [ "$(date -u +%u)" = "5" ]; then
+            python3 skills/weekly/gather.py --send
+          else
+            echo "Not Friday — skipping Deeper Thinking prep"
+          fi
+
       - name: Commit and push
         id: commit
         run: |
-          git add -A -- ingest/ outputs/technical-briefings/ outputs/published/ sources/
+          git add -A -- ingest/ outputs/technical-briefings/ outputs/published/ outputs/weekly-updates/ outputs/canon-triage/ sources/
           if git diff --cached --quiet; then
             echo "No changes to commit"
             echo "pushed=false" >> "$GITHUB_OUTPUT"

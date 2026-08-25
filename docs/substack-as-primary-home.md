@@ -243,12 +243,15 @@ wherever the publish step ends up documented).
   question per type is settled (this was already the plan; now it has a
   home to file under).
 
-**Open within this workstream:** whether the still-unbuilt Weekly Recap
-post (`BUILD.md` open decision #13 — "how my thinking has changed this
-week," lighter/lower-frequency than the Daily Brief) gets its own third
-Section or folds into "From Brian" once it exists. Revisit when that
-skill actually gets built rather than pre-deciding nav structure for
-content that doesn't exist yet.
+**Resolved 2026-08-24, when the skill actually got built** (`BUILD.md`
+open decision #13, closed same day): the Weekly Update carries a **dual
+byline** (`brianmadden.ai` + Brian Madden — Brian's direct call, asked
+when the skill was designed) and **folds into the existing structure for
+now**, no new dedicated Section yet. Revisit a real third Section once a
+few actual issues exist to judge readership/format by, same reasoning the
+rest of this workstream already applies to other open questions. See
+[.claude/skills/weekly-update/SKILL.md](../.claude/skills/weekly-update/SKILL.md)
+for the ceremony itself.
 
 ## Suggested model/effort per workstream, for separate sessions
 

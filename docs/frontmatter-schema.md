@@ -103,3 +103,18 @@ edited the machine's draft), versus `reviewed` meaning "read and left as-is"?
 Answer: yes — `reviewed-and-updated` implies the committed text
 differs from what the machine originally generated; a no-change approval is
 just `reviewed`.
+
+## `last_reviewed` (added 2026-08-24, `me/developing-thinking.md` only so far)
+
+A different axis from `status` above: `status` records whether a human
+checked *this specific write*, but `me/developing-thinking.md` is edited
+in place rather than replaced, so its `status` field doesn't capture "a
+human looked at the file's current state and confirmed it still holds,
+even where nothing changed." `last_reviewed: YYYY-MM-DD` fills that gap —
+bumped by the [Weekly Update ceremony](../.claude/skills/weekly-update/SKILL.md)
+every time it runs, independent of whether any content actually changed
+that week. Distinct from the file's own `updated` field, which (per the
+file's existing convention) only moves when Brian actually edits an
+argument. A quiet week where every staleness/promotion candidate got "keep
+as-is" still bumps `last_reviewed` — that's the point: it's a timestamp on
+the review itself, not a proxy for content freshness.

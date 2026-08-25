@@ -69,9 +69,9 @@
         "frontier",
         "developing-arguments"
       ],
-      "word_count": 7439,
+      "word_count": 8827,
       "staleness_threshold": "weeks",
-      "updated": "2026-08-15",
+      "updated": "2026-08-24",
       "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
     },
     {
@@ -128,7 +128,7 @@
         "governance",
         "shadow-ai"
       ],
-      "word_count": 673,
+      "word_count": 818,
       "staleness_threshold": "stable",
       "date": "2025-09-17",
       "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
@@ -317,7 +317,7 @@
         "mcp",
         "second-brain"
       ],
-      "word_count": 389,
+      "word_count": 509,
       "staleness_threshold": "stable",
       "date": "2025-10-01",
       "original_url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/",

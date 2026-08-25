@@ -17,3 +17,6 @@ outputs/published/**/*.html
 
 # Same convenience rendering for pages/ (skills/pages/render.py).
 pages/*.html
+
+# Same convenience rendering for the Weekly Update (skills/weekly/render.py).
+outputs/weekly-updates/**/*.html
