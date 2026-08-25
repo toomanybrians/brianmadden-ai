@@ -40,3 +40,16 @@ Notes from each recurrence:
 - AI Frontiers proposes actuarial/insurance underwriting (TRIP's mandatory data call) as the mechanism for estimating catastrophic AI loss — a second instance of AI governance requirements originating outside enterprise IT, this time from insurance rather than constitutional theory.
 
 **Status: not yet reviewed by Brian.**
+
+## `harness-as-the-named-value-layer` — flagged 2026-08-25
+
+The industry converging on 'harness' (system prompt, tool catalog, execution loop, sandbox, authorization) as the differentiating and defensible layer above a commoditized model — validating the middle of the cognitive stack while naming only the plumbing, not the context/judgment layer.
+
+First seen 2026-08-21, recurred 3 times through 2026-08-25.
+
+Notes from each recurrence:
+
+- SemiAnalysis explicitly ranks harness quality above benchmark score for real-world outcomes (Claude Code beating higher-scoring GPT-5.2), and DeepSeek open-sourced a fully pluggable harness framework at 160k+ stars — the harness is now both the value layer and part of the open-weight planning floor.
+- AlphaSignal states it outright — 'model plus harness is becoming one unit, evaluating a model alone is losing meaning fast' — plus Pi's 26-35% context / 88% cost reduction from a disk-based tool-output pattern, CLI agents 5-28x cheaper than MCP across seven scaffolds, and Anthropic finding interpretability tools no better than reading raw transcripts. Three independent findings that the simple scaffolding wins; still nobody naming the context/judgment layer above the harness.
+
+**Status: not yet reviewed by Brian.**

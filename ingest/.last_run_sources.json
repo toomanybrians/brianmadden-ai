@@ -1,0 +1,674 @@
+{
+  "run_utc": "2026-08-25T16:06:11.598775+00:00",
+  "results": [
+    {
+      "id": "x-timeline",
+      "name": "X (brianmaddenai home timeline)",
+      "method": "x",
+      "status": "ok",
+      "entries_in_window": 4,
+      "new_entries": 4
+    },
+    {
+      "id": "ethan-mollick",
+      "name": "Ethan Mollick",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "nate-b-jones",
+      "name": "Nate B. Jones",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 3,
+      "new_entries": 0
+    },
+    {
+      "id": "daniel-miessler",
+      "name": "Daniel Miessler",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "brain-inbox",
+      "name": "brain@ inbox (curated newsletters)",
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "the-artificial-intelligence-show",
+      "name": "The Artificial Intelligence Show",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 0
+    },
+    {
+      "id": "moonshots",
+      "name": "Moonshots",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "dwarkesh",
+      "name": "Dwarkesh",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 0
+    },
+    {
+      "id": "bg2",
+      "name": "BG2",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "hard-fork",
+      "name": "Hard Fork",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "ezra-klein-show",
+      "name": "Ezra Klein Show",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "on-with-kara-swisher",
+      "name": "On with Kara Swisher",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "no-priors",
+      "name": "No Priors",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "80000-hours-podcast",
+      "name": "The 80,000 Hours Podcast",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "lex-fridman",
+      "name": "Lex Fridman",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "hbr-ideacast",
+      "name": "Harvard Business Review IdeaCast",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "algorithmic-bridge",
+      "name": "The Algorithmic Bridge",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "exponential-view",
+      "name": "Exponential View",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 2,
+      "new_entries": 0
+    },
+    {
+      "id": "ahead-of-ai",
+      "name": "Ahead of AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "ai-futures-project",
+      "name": "AI Futures Project",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "ai-realist",
+      "name": "The AI Realist",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "david-shapiro",
+      "name": "David Shapiro's Substack",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "demis-hassabis",
+      "name": "Demis Hassabis",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "fei-fei-li",
+      "name": "Dr. Fei-Fei Li",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "emerging-ai",
+      "name": "Emerging AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "emerging-physical-ai",
+      "name": "Emerging Physical AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "extended-brain",
+      "name": "Extended_Brain",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "forked-lightning",
+      "name": "Forked Lightning",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "the-generalist",
+      "name": "The Generalist",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "hyperdimensional",
+      "name": "Hyperdimensional",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "import-ai",
+      "name": "Import AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "esther-dyson",
+      "name": "In the pool with Esther",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "interconnects-ai",
+      "name": "Interconnects AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "kevin-roose",
+      "name": "Kevin Roose",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "kinder-futures",
+      "name": "Kinder Futures: Dispatches on AI, Work & What Comes Next",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "labor-matters",
+      "name": "Labor Matters",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "last-week-in-ai",
+      "name": "Last Week in AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "marcus-on-ai",
+      "name": "Marcus on AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 4,
+      "new_entries": 4
+    },
+    {
+      "id": "metatrends",
+      "name": "Metatrends",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "not-boring",
+      "name": "Not Boring",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "prof-g-media",
+      "name": "Prof G Media",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 4,
+      "new_entries": 4
+    },
+    {
+      "id": "semianalysis",
+      "name": "SemiAnalysis",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 2,
+      "new_entries": 1
+    },
+    {
+      "id": "simon-willison",
+      "name": "Simon Willison's Newsletter",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "theory-of-the-game",
+      "name": "Theory of the Game",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "work-evolved",
+      "name": "Work Evolved",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "center-for-humane-technology",
+      "name": "Center for Humane Technology",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "big-by-matt-stoller",
+      "name": "BIG by Matt Stoller",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "rutger-bregman",
+      "name": "Rutger Bregman",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "forecasting-research-institute",
+      "name": "Forecasting Research Institute",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "cory-doctorow",
+      "name": "Cory Doctorow",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "claude-cowork",
+      "name": "Claude Cowork",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "claude-mythos",
+      "name": "Claude Mythos",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "jasmine-sun",
+      "name": "@jasmine's substack",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "ghosts-of-electricity",
+      "name": "Ghosts of Electricity",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "hard-reset",
+      "name": "Hard Reset",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "kuns-field-notes",
+      "name": "Kun's Field Notes",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 0
+    },
+    {
+      "id": "the-wake-up-call",
+      "name": "The Wake Up Call",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "80000-hours-substack",
+      "name": "80,000 Hours",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "after-babel",
+      "name": "After Babel",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "ai-as-normal-technology",
+      "name": "AI as Normal Technology",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "ai-frontiers",
+      "name": "AI Frontiers",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 0
+    },
+    {
+      "id": "chinai-newsletter",
+      "name": "ChinAI Newsletter",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "tech-empires",
+      "name": "TECH EMPIRES",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "asimovs-addendum",
+      "name": "Asimov's Addendum",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "the-ai-report",
+      "name": "The AI Report",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "economics-of-ai",
+      "name": "The Economics of AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "eu-ai-act-newsletter",
+      "name": "The EU AI Act Newsletter",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "guardrailnow",
+      "name": "GuardRailNow",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "metr",
+      "name": "METR",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "openai-global-affairs",
+      "name": "The Prompt: Insights from OpenAI Global Affairs",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "quantum-of-solis",
+      "name": "A Quantum of Solis",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "the-deep-view",
+      "name": "The Deep View",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "alphasignal",
+      "name": "AlphaSignal",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "superintelligence",
+      "name": "Superintelligence",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "tomasz-tunguz",
+      "name": "Tomasz Tunguz",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "dwarkesh-podcast",
+      "name": "Dwarkesh Podcast",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 0
+    },
+    {
+      "id": "lex-fridman-2",
+      "name": "Lex Fridman",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "nate-s-substack",
+      "name": "Nate\u2019s Substack",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "futurism",
+      "name": "Futurism",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "nfx",
+      "name": "NFX",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "ai-repository",
+      "name": "AI Repository",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "cathy-mcphillips-maicon",
+      "name": "Cathy McPhillips, MAICON",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "casey-newton",
+      "name": "Casey Newton",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "paul-at-smarterx",
+      "name": "Paul at SmarterX",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "juan-pardilla",
+      "name": "Juan Pardilla",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    }
+  ]
+}
