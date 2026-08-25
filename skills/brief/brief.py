@@ -58,6 +58,7 @@ INGEST_ROOT = ROOT / "ingest"
 OUTPUT_ROOT = ROOT / "outputs" / "technical-briefings"
 PUBLISHED_ROOT = ROOT / "outputs" / "published"
 LAST_RUN_PATH = OUTPUT_ROOT / ".last_run.json"
+SOURCE_RESULTS_PATH = ROOT / "ingest" / ".last_run_sources.json"
 TRACKER_PATH = OUTPUT_ROOT / ".thread_tracker.json"
 CANDIDATES_PATH = OUTPUT_ROOT / "promotion-candidates.md"
 
@@ -294,6 +295,63 @@ def render_tracked_threads_section(tracker: list[dict]) -> str:
     )
 
 
+def load_source_results() -> dict | None:
+    """Reads what skills/ingest/ingest.py wrote about this run's actual
+    fetch attempts (ingest/.last_run_sources.json — see
+    write_source_results() there). Returns None if it's missing, e.g. a
+    hand-run brief.py against notes ingested by some other means — the
+    section is simply omitted rather than rendered with false data."""
+    if not SOURCE_RESULTS_PATH.exists():
+        return None
+    try:
+        return json.loads(SOURCE_RESULTS_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, KeyError):
+        return None
+
+
+def render_sources_checked_section(data: dict | None) -> str:
+    """Every source in the registry gets a line, success or not — the
+    point (Brian's ask, 2026-08-25, after nearly half the registry turned
+    out to have been failing silently since the pipeline's first run) is
+    that "checked and found nothing" and "never actually checked" read
+    identically from the outside unless this says otherwise. Grouped
+    worst-news-first: real failures, then by-design skips (already
+    routed another way, not a problem), then clean checks — contributed
+    or not, listed by name either way rather than folded into a bare
+    count, so a specific source going quiet is visible without cross-
+    referencing sources.yaml."""
+    if not data or not data.get("results"):
+        return (
+            "## Sources checked today\n\n"
+            "(not recorded this run — no ingest/.last_run_sources.json found)\n"
+        )
+    results = data["results"]
+    run_utc = data.get("run_utc", "unknown time")
+    errors = [r for r in results if r["status"] == "error"]
+    skipped = [r for r in results if r["status"] == "skipped"]
+    ok = sorted(
+        [r for r in results if r["status"] == "ok"],
+        key=lambda r: r.get("new_entries", 0), reverse=True,
+    )
+
+    lines = [
+        "## Sources checked today",
+        "",
+        f"{len(results)} registered sources, checked as of {run_utc}: "
+        f"{len(ok)} fetched cleanly, {len(errors)} failed, {len(skipped)} skipped by design.",
+    ]
+    if errors:
+        lines += ["", "**Failed to fetch:**", ""]
+        lines += [f"- {r['name']} — {r['reason']}" for r in errors]
+    if skipped:
+        lines += ["", "**Skipped:**", ""]
+        lines += [f"- {r['name']} — {r['reason']}" for r in skipped]
+    if ok:
+        lines += ["", "**Checked cleanly:**", ""]
+        lines += [f"- {r['name']} — {r.get('new_entries', 0)} new" for r in ok]
+    return "\n".join(lines) + "\n"
+
+
 def update_tracker(tracker: list[dict], signals: dict, run_date: str) -> tuple[list[dict], list[dict]]:
     """Returns (updated_tracker, newly_promoted_entries)."""
     by_slug = {t["slug"]: t for t in tracker}
@@ -459,7 +517,8 @@ def write_brief(brief_date: str, brief_body: str, tracker: list[dict], notes: li
     }
     fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True, width=1000).strip()
     tracked_section = render_tracked_threads_section(tracker)
-    full_text = f"---\n{fm_yaml}\n---\n\n{brief_body}\n\n{tracked_section}\n"
+    sources_section = render_sources_checked_section(load_source_results())
+    full_text = f"---\n{fm_yaml}\n---\n\n{brief_body}\n\n{tracked_section}\n\n{sources_section}\n"
 
     if dry_run:
         rel = out_path.relative_to(ROOT)

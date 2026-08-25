@@ -399,22 +399,40 @@ asked to do, not as a template to re-run.
     `/review-thinking` already does, and decide whether it replaces the
     full-mode branch entirely or the two stay complementary.
 
-13. **A weekly "how my thinking has changed" recap post (flagged
-    2026-08-18, not scoped, not to build yet).** Brian's idea: a lighter,
-    lower-frequency companion to the Daily Brief — walk through what
-    actually moved in `me/developing-thinking.md` that week (updates,
-    promotions to canon, concepts that matured or got dropped), plus
-    possibly a look-ahead at topics being considered for future blog
-    posts or podcast episodes. Explicitly for readers who don't want the
-    daily minutiae — a different tag/section from the Daily Brief, not a
-    replacement. Natural fit with existing pipeline pieces already built
-    for other reasons: `outputs/technical-briefings/promotion-candidates.md`
-    (open decision #8) and `outputs/canon-triage/staleness-candidates.md`
-    (also #8) already track exactly the kind of week-over-week movement
-    this post would narrate. Whoever picks this up should look at a few
-    real weeks of those two files plus `developing-thinking.md`'s git
-    history before designing the actual synthesis prompt — same
-    discipline as every other new pipeline skill in this repo.
+13. ~~A weekly "how my thinking has changed" recap post~~ — **built
+    2026-08-24.** Brian's actual ask, from a voice memo: not a fully
+    automated post, a *ceremony* — a prep doc he reads first (week's
+    daily-brief stories recapped, the promotion-candidates and
+    staleness-candidates queues surfaced), then a live conversation
+    walking through both queues and asking for his real takeaways, then
+    a drafted **Weekly Update** post. Landed as
+    `.claude/skills/weekly-update/SKILL.md` (`/weekly-update`) —
+    deliberately not a script pipeline like `brief.py`/`triage.py`,
+    since the whole point is Brian live in the loop, not unattended
+    synthesis. Reuses `review-thinking`'s mechanics for the
+    developing-thinking.md portion rather than duplicating them, and
+    for the first time gives `promotion-candidates.md` (20 entries, all
+    still unreviewed as of this build) an actual resolution mechanism —
+    promote or reject during the ceremony, both remove the entry;
+    "not yet" leaves it queued. New pieces: `outputs/weekly-updates/`
+    (prep doc + finished post + `.last_run.json`, `outputs/README.md`
+    updated), `skills/weekly/render.py` (Substack-paste HTML, reusing
+    `skills/brief/render.py`'s generic helpers, own disclosure/footer
+    for the dual byline), and a new `last_reviewed` frontmatter field on
+    `me/developing-thinking.md` (documented in
+    `docs/frontmatter-schema.md`) — separate from `updated`, bumped every
+    ceremony run even in a quiet week where nothing else changed, so
+    Brian's "timestamp the review even if nothing changed" ask has a
+    real field to land in. Byline and Substack-placement questions
+    (raised but left open in Workstream E of
+    `docs/substack-as-primary-home.md`) asked directly and resolved the
+    same session: dual byline (`brianmadden.ai` + Brian Madden), folded
+    into the existing Substack structure rather than a new Section for
+    now. **Run for real the same session** — see the 2026-08-24 session
+    entry below for the full account: 20-item promotion-candidates
+    backlog and 9-item staleness queue both cleared, two frameworks
+    revised, three real writing candidates logged, first-ever finished
+    Weekly Update post drafted and rendered.
 
 14. **MCP spec 2026-07-28 ("MCP 2.0") — no action needed in this repo,
     flagged for the server repo (2026-08-18).** Brian asked whether
@@ -436,6 +454,103 @@ asked to do, not as a template to re-run.
     currently speaks against 2026-07-28, particularly if it relies on
     session IDs or the old elicitation/sampling request shape — not
     urgent given the 12-month deprecation runway, but worth knowing.
+
+15. **Thread matching in `brief.py` is exact-slug-only — the first Weekly
+    Update run (2026-08-24) found a real, concrete cost of that gap, not
+    just a theoretical one.** Flagged in `skills/brief/README.md`'s known
+    limitations since D5, but this session's promotion-candidates review
+    found it wasn't hypothetical: four separately-flagged threads
+    (`emergent-agent-coordination-via-shared-storage`,
+    `reasoning-trace-as-attack-surface`, `skills-as-supply-chain`,
+    `agent-to-agent-contagion-via-shared-artifacts`) turned out to cite
+    the *same* underlying evidence (the OpenAI/Hugging Face incident,
+    Anthropic's 100k+-run finding) through four different names, and
+    three more (`labs-as-compute-landlords`,
+    `open-weight-floor-is-subsidized`, `labs-withholding-frontier-from-
+    api`) were the same pattern at a smaller scale. Brian's proposed fix,
+    asked directly this session: not a second LLM call for dedup, but a
+    `prompt.md` change instructing the model to explicitly check new
+    candidate threads against the existing tracker for semantic overlap
+    before naming a "new" one — the model already sees the tracker's
+    contents every day (per `skills/brief/README.md` step 3), it's just
+    never been asked to actively cross-check against it. Scoped, cheap,
+    no new architecture. Not built this session — flagged for whoever
+    picks up `skills/brief/prompt.md` next.
+
+16. **39 of 85 registered sources (nearly all `*.substack.com`-hosted
+    feeds) have failed with `403 Forbidden` on every single automated
+    run since the pipeline went live 2026-08-19 — silently, never
+    flagged before this session.** Brian noticed today's briefing looked
+    email-heavy and asked to verify the pipeline was actually working.
+    It mostly was — the "brain-inbox" label is legitimate, not a sign of
+    a narrower pipeline than intended — but pulling the real Actions logs
+    (all 5 runs so far) found a genuine, unflagged bug: same ~39 hosts,
+    same `403`, every day, plus one dead YouTube feed (404, stale channel
+    ID) and the not-yet-wired `x-timeline` source (BUILD.md's own
+    documented gap, not new). Tested directly: the same feed URLs return
+    `200` from a non-GitHub-Actions network with the identical
+    "bot" User-Agent string, ruling out a simple header fix. A live web
+    search confirmed the likely cause is well-documented and not
+    something a code change here can fix: Cloudflare's bot protection
+    (which fronts Substack) commonly blocks datacenter/cloud-provider IP
+    ranges, including GitHub Actions runners, regardless of headers —
+    real workarounds are a residential/rotating proxy, an RSS-proxy
+    service, or being allowlisted by the site owner (not something we
+    control on Substack's end). **Brian's own proposed fix, which matches
+    infrastructure this pipeline already runs reliably every day: route
+    these ~39 publications through the existing `brain@` email path
+    instead of RSS** — subscribe to each via the `brianmaddenai` Substack
+    account with "email me new posts" on, same mechanism already
+    carrying The Deep View/Superintelligence/AlphaSignal in as
+    `brain-inbox` entries. This is real, manual work only Brian can do
+    (subscribing + enabling email delivery per publication in Substack's
+    own UI), not something this session could action — logged here so
+    it isn't lost, not built. The alternative Brian also floated —
+    running ingest from a residential IP instead of GitHub Actions —
+    would work too but gives up the unattended-pipeline design (D6);
+    email-routing is the smaller change and reuses proven infrastructure.
+    Once even a handful migrate, `sources.yaml` rows should flip from
+    `feed_url` to `ingest_method: email` with a `sender` field, same
+    shape the 11 already-migrated newsletters use.
+
+    **Built the same session, not blocked on the above:** `ingest.py` now
+    writes `ingest/.last_run_sources.json` every full run — one record
+    per registered source (`ok`/`error`/`skipped`, with reason and entry
+    counts) — and `brief.py` renders it into a new "Sources checked
+    today" section at the bottom of every Daily Brief (both the
+    technical version and, since publish.py copies the dense body
+    near-verbatim, the Substack-published one). This is the actual fix
+    for "how would I know if the checking stopped working" — a source
+    going quiet is now a visible line on the page itself the next
+    morning, not something that requires pulling Actions logs the way
+    this session had to. Retroactively reconstructed and applied to
+    today's 2026-08-25 briefs from the real run's log data (no live
+    Gmail/feed calls involved in the reconstruction) so Brian could see
+    the real thing, not a mocked example. Also fixed in the same pass:
+    the `skipped` reason now distinguishes true documentation-only
+    entries (auto-registered from a real `brain@` ingestion, already
+    covered via the shared `brain-inbox` source and attributed by
+    `sender`) from a genuine gap (no `feed_url` and no `sender` at all)
+    — today all 11 skips were the former, but the distinction matters
+    for whenever that's no longer true.
+
+    **Separately, also found and fixed:** today's published subtitle was
+    the hardcoded generic fallback ("Today's AI and future-of-work
+    reading...") — not a prompt-design problem as it first looked, but a
+    real failure: the subtitle model call (`claude-fable-5`, 2048
+    `max_tokens`) returned empty on today's unusually dense 5-story
+    brief, same "thinking ate the whole budget" failure shape BUILD.md
+    already documented for `brief.py`'s own Opus call, just never hit on
+    this call before. Confirmed against all 5 prior runs — a first-time
+    failure, not a recurring pattern. Bumped to 8192 in `publish.py`
+    (`skills/brief/publish.py`), regenerated today's subtitle for real
+    (a real, specific one on the first try), patched
+    `outputs/published/2026/08/2026-08-25.md`'s frontmatter, and
+    re-rendered + re-sent the HTML to Brian. The silent-fallback design
+    itself (log a stderr warning, publish anyway) is unchanged and still
+    the right call for a one-line subtitle — but it's worth noting the
+    warning alone didn't surface this either; Brian spotted it by eye in
+    the published post, same pattern as the sources issue above.
 
 ## Day plan (checklist — details in the plan doc §8)
 
@@ -980,3 +1095,305 @@ the KV-cap thread came in as a follow-up question during `/maintain`
 bootstrap, ahead of picking a task from BUILD.md's own flagged
 priorities (D7 residual, D10, launch-week essay/brief, Workstream E's
 Substack UI actions — all still open, untouched this session).
+
+### 2026-08-24 — `/maintain` session (Weekly Update built and run for
+real: BUILD.md open decision #13 closed, 20-item promotion-candidates
+backlog cleared, first issue drafted)
+
+Bootstrap found a clean `main` (this was the session that also did the
+BUILD.md trim and GOVERNANCE.md rewrite earlier the same day — see the
+two commits immediately prior to this entry). Brian's ask, from a voice
+memo: a weekly review ceremony — read a recap, talk it through live, go
+through whatever's queued up (promotion candidates, staleness flags),
+land on real takeaways, and produce a "Weekly Update" post. This is open
+decision #13, flagged 2026-08-18 and never built.
+
+**Design, decided in chat before writing anything:** two things were
+genuinely Brian's call, asked directly via `AskUserQuestion` — byline
+(dual: `brianmadden.ai` + Brian Madden, since the content is a real
+collaboration, not either voice alone) and Substack placement (fold into
+the existing structure for now, no new Section, revisit once there are
+real issues to judge readership by — closes the question Workstream E of
+`docs/substack-as-primary-home.md` left explicitly open). Everything else
+followed from the repo's existing patterns: reuse `review-thinking`'s
+developing-thinking.md mechanics rather than duplicate them, no
+`weekly.py` script since the ceremony is inherently interactive (unlike
+`brief.py`/`triage.py`, nothing here runs unattended), a small
+`skills/weekly/render.py` for the one genuinely reusable piece
+(Substack-paste HTML).
+
+**Built:** `.claude/skills/weekly-update/SKILL.md` (14 steps, later grew
+an extra one mid-run — see below), `skills/weekly/render.py` +
+`skills/weekly/README.md`, `outputs/weekly-updates/` (new tier-3
+location, `outputs/README.md` updated), a new `last_reviewed`
+frontmatter field on `me/developing-thinking.md` distinct from `updated`
+(documented in `docs/frontmatter-schema.md`), `.gitignore` entry for the
+rendered HTML. `docs/substack-as-primary-home.md` and this file's own
+open decision #13 updated to record the byline/placement resolution.
+
+**Then run for real, live, in the same sitting — the first-ever pass over
+both queues since the pipeline launched.** No prior `.last_run.json`, so
+the window defaulted to 7 days back (Aug 17-24). Brian's scope call,
+given mid-run: the story recap covers last week only (Aug 17-21, since
+today's brief starts next week's window), but the promotion-candidates
+backlog gets cleared in full regardless of age — a first-run backlog
+clear, not a strict per-week slice.
+
+The promotion queue had grown to 20 entries, never worked before. Walked
+through in grouped batches (my read first, Brian's call on each group)
+rather than one-by-one cold:
+- **4 threads consolidated into 1** `developing-thinking.md` entry
+  (shared artifacts as the undetected agent-to-agent channel) — they'd
+  been tracked separately only because the pipeline's thread-matching is
+  exact-slug-only and never actually recognized the overlap (see new
+  open decision #15 above).
+- **3 threads consolidated into 1** at Brian's own framing ("AI labs
+  control every lever beneath your strategy").
+- **5 threads promoted separately** (routing-seat-to-payments,
+  personalization-in-weights-vs-files, deployer-opacity, human-approval-
+  worse-than-automated-policy, open-ended-research-failure-shape) — two
+  extended live with Brian's own additions (the OSS/startup routing
+  layer via Merge's 75x-fewer-tokens claim; the Chinese-model-censorship
+  "what else is hidden" point, which became its own new
+  `developing-thinking.md` paragraph attributed directly to him).
+- **1 thread's disposition became a real design question**, which Brian
+  asked outright: does something "true and real but not groundbreaking"
+  belong in `developing-thinking.md` at all? Answered with precedent from
+  the 2026-08-14 triage (which already cuts "dated market/news
+  snapshots") — landed as a supporting addition to the existing "Compute
+  scarcity and token governance" section instead of a standalone entry,
+  proposed as the general rule going forward.
+- **2 threads folded as one-line notes** into existing sections ("The
+  cognitive stack," "The 2031 worker-shape forecast").
+- **2 threads dropped** with no canon addition — Brian: "meh… whatever
+  you think," delegated and applied with a light touch, not silently
+  ignored.
+- **1 thread held open** (`machine-speed-vs-human-absorption`), tied to
+  an unresolved staleness-queue item it turned out to be the evidence
+  base for.
+
+The staleness queue (fresh `triage.py` run: 7 developing-thinking items,
+2 frameworks) went the same way, all approved in one batch after Brian
+reviewed the grouped summary ("yeah go ahead with all of it"): 4 cuts
+(already-published elsewhere — the authoring-recipe residual from one cut
+kept as a scratchpad line), 3 "promote" decisions logged as real writing
+tasks rather than drafted blind (human clock speed as the invariant —
+which also resolves the held-open promotion-candidate above; the
+second-brain selection-bias failure mode; "you can only see one step
+ahead"), and 2 framework revisions (`bitter-lesson.md` corrected against
+its own later-published knowledge-factory revision; `post-application-
+era.md` qualified with the three-tier/"UIs not systems of record"
+formulation) — both frameworks flipped to `status: reviewed-and-updated`,
+not archived.
+
+Brian's front-of-mind check-in added three new `## Right now` bullets
+(Chinese-model risk, harness-vs-model, distributed/local models and
+whether Wave 3 is closer than the roadmap says — he wants to actually
+test the new 27B open-weight model directly, not just read its benchmark
+position) and, mid-run, a genuinely new idea that became step 7 of the
+skill: this ceremony is a natural place to surface blog-post/podcast
+candidates, since the "promote" writing tasks already are exactly that.
+Landed a "Worth a future post or episode" section in the finished post
+listing five candidates.
+
+**A real formatting miss, caught before commit, not after:** every new
+passage written this session used spaced em-dashes, against
+`me/style-guide.md`'s no-spaces rule — fixed programmatically across all
+five touched files. The finished Weekly Update post also initially used
+backtick `.md` references, which the same style guide's Substack-
+rendering section says renders oddly — converted to italicized real
+GitHub links before the final render. Both logged plainly in
+`governance-log.md` as misses, not silently corrected.
+
+**Finished and rendered:** `outputs/weekly-updates/2026/08/2026-08-24-prep.md`
+(the prep doc) and `2026-08-24.md` (the dual-byline post, `status:
+reviewed`), HTML rendered via `skills/weekly/render.py`, sent to Brian.
+`outputs/weekly-updates/.last_run.json` written for the first time.
+`developing-thinking.md` frontmatter bumped (`updated`, new
+`last_reviewed` field, `status: reviewed-and-updated`).
+`python3 scripts/check_doc_accuracy.py` clean, 0 warnings. `_index.json`
+updated surgically (word counts, `updated` date) — confirmed it doesn't
+track `outputs/` at all, so no new entries needed there.
+
+**Still open:** the three logged writing tasks (human clock speed,
+second-brain failure mode, one-step-ahead skepticism) aren't drafted —
+real follow-up sessions, not today. The `machine-speed-vs-human-
+absorption` promotion-candidate stays queued, tied to the human-clock-
+speed write-up. The fuzzy-matching fix (new open decision #15) isn't
+built.
+
+**Same session, second round — real product feedback after seeing the
+first draft, not more queue-clearing:** Brian reacted to the finished
+issue with four real asks, all actioned the same sitting:
+
+1. **Named it.** "Weekly Update" becomes **Deeper Thinking** — his own
+   choice, over a shortlist ("Second Thoughts," "Loose Threads") offered
+   via `AskUserQuestion`. Landed everywhere the old name appeared (skill
+   description, `SKILL.md` body, `README.md`s, post frontmatter/title) —
+   the internal skill/directory name stayed `weekly-update`, matching how
+   the Daily Brief's own directory is `skills/brief/` regardless of its
+   public name.
+2. **Automated the "initial recap."** New
+   `skills/weekly/gather.py` — deterministic assembly of the prep doc (no
+   LLM call beyond re-running `triage.py`), wired into
+   `daily-pipeline.yml` as a Fridays-only step (`date -u +%u` check, not a
+   cron-string match, so it also behaves correctly on a manual
+   `workflow_dispatch` test) that runs after that day's Daily Brief and
+   emails the result via the same `gmail_send` helper `publish.py`
+   already uses. Deliberately doesn't run the interactive ceremony
+   itself — Brian still has to sit down for that part, whenever he
+   actually does. `git add` in the workflow's commit step gained
+   `outputs/weekly-updates/` and `outputs/canon-triage/` (the latter was
+   a real gap — `triage.py`'s output was never in the daily commit path
+   before).
+3. **Rewrote the post's structure**, per four specific asks: an honest
+   boilerplate line clarifying the daily stories are the AI's picks, not
+   Brian hand-selecting each one; "What moved in the thinking" converted
+   from dense paragraphs to bullets grouped under sub-headings for
+   at-a-glance scanning; a brand-new "Where my head's at right now"
+   section (Brian's idea) that quotes the live `## Right now` bullets and
+   links straight to `developing-thinking.md` on GitHub — making the
+   "second brain edited in public" thesis literal instead of asserted;
+   and an explainer line added to "Brian's takeaways" saying plainly
+   where that section's content comes from.
+4. **Rewrote "Worth a future post or episode" in plain language.** The
+   original five entries were accurate but, Brian's words, "too AI
+   science fancy pants" — dense internal shorthand a real reader wouldn't
+   want to click into. Rewritten with his own example as the template:
+   `"Harnesses vs. models—worth a real position, not just a tracked
+   thread"` became a plain hook + one-sentence explanation of why it
+   matters (`"The harness might matter more than the model. A cheap,
+   low-quality model wrapped in a really good harness... can beat an
+   expensive frontier model with a bad one."`). Applied to all five.
+
+Brian's closing framing for this round, worth keeping verbatim as the
+bar for future issues: could this be "an anchor that real people
+actually read," not just an internal audit artifact with a byline on it.
+
+**Caught the same em-dash/backtick misses again on the rewrite** —
+rewriting the post file fresh (via `Write`, not `Edit`) reintroduced both
+issues fixed earlier in the session, since the fix wasn't durable across
+a full rewrite. Fixed the same way (programmatic regex pass), and this
+time also simplified `skills/weekly/render.py` itself: removed its
+injected `DISCLOSURE`/`FOOTER` constants entirely, since Deeper Thinking's
+opening explanation and closing footer are now written directly into the
+body at draft time (varies naturally issue to issue) rather than bolted
+on identically at every render — the Daily Brief's render.py keeps its
+own injection because that body never carries its own authorship
+explanation; Deeper Thinking's does, every issue, by construction.
+
+`python3 scripts/check_doc_accuracy.py` and `_index.json`/workflow-YAML
+validity all re-checked clean after this round. Still not committed —
+same reasoning as above, now covering the second round too.
+
+### 2026-08-25 — `/maintain` session (source-checking bug found and made
+visible; subtitle empty-response bug found and fixed)
+
+Bootstrap found local 3 commits behind `origin/main` (today's automated
+run plus the 2026-08-24 afternoon `me/voice.md` reconciliation) while
+Monday's Weekly Update build was still sitting uncommitted locally.
+Confirmed local had no unique commits, so stashed (`-u`), fast-forwarded,
+popped. One real conflict: `outputs/technical-briefings/promotion-
+candidates.md` — today's automated run had reappended all 19 entries
+Monday's session already cleared, because that clearing was never pushed
+before today's run read the file. Resolved by keeping Monday's cleared
+state plus the 2 genuinely-new entries today's run added
+(`git-host-as-agent-control-point`, `governance-derived-from-political-
+theory`); `governance-log.md` auto-merged cleanly (pure appends on both
+sides). Nothing else conflicted.
+
+Brian's actual ask: look at today's briefing, the subtitle read generic
+("doesn't really seem to talk about today"), and the sources looked
+email-heavy — verify the pipeline is actually checking everything it's
+supposed to, and build a standing way to see that going forward rather
+than taking it on faith. Both turned out to be real, not misreadings —
+see open decision #16 above for the full account of what was found and
+built:
+
+- **Sources:** 39 of 85 registered sources (~46%) have failed with `403
+  Forbidden` on every automated run since launch, silently, never
+  flagged. Diagnosed as likely Cloudflare-blocking-GitHub-Actions-IPs
+  (confirmed via a live web search, not guessed) rather than a fixable
+  header/code issue. Recommended fix (Brian's own idea, matching
+  infrastructure already proven reliable): migrate those Substacks to
+  the `brain@` email path, same as the newsletters that already work
+  that way. Real manual work only Brian can do — logged, not built.
+  What *was* built: `ingest.py` now records a full per-source
+  success/error/skip outcome every run
+  (`ingest/.last_run_sources.json`), and `brief.py` renders it into a
+  new "Sources checked today" section at the bottom of every brief —
+  the actual answer to "how would I know if this stopped working,"
+  since it's now a fact on the page rather than something requiring an
+  Actions-log dig. Retroactively reconstructed from today's real run
+  log (no live network/Gmail calls) and applied to today's already-
+  committed technical and published briefs, so Brian could see the real
+  thing rather than a synthetic example.
+- **Subtitle:** today's published subtitle was the hardcoded generic
+  fallback — root cause was an empty response from the subtitle model
+  call (2048 `max_tokens` insufficient for an unusually dense brief,
+  same failure shape already documented elsewhere in this file for
+  `brief.py`'s own synthesis call), not a prompt-design problem. Bumped
+  to 8192 in `publish.py`, regenerated today's subtitle for real (a
+  specific, on-topic one on the first try), patched the published
+  file's frontmatter, re-rendered and re-sent the corrected HTML.
+
+Both fixes verified: `python3 -m py_compile` on all three touched
+scripts, `python3 scripts/check_doc_accuracy.py` clean (0 warnings).
+`skills/brief/render.py`'s HTML render tested against the new section
+directly (renders correctly, no markdown-escaping issues from the em-
+dashes/bold-list format).
+
+**Same session, continued after Brian's go-ahead to commit — three more
+things landed, all from Brian's own follow-up asks:**
+
+1. **`/maintain` now syncs with `origin` as step 1**, before reading
+   anything — `.claude/skills/maintain/SKILL.md` gained an explicit
+   fetch/fast-forward/stash-and-resolve procedure, directly modeling
+   what this session had to do reactively at its own start (3 commits
+   behind, Monday's work still uncommitted locally). Real conflicts get
+   real judgment, not an automatic pick of either side; local commits
+   `origin` doesn't have stop the sync and get flagged rather than
+   auto-pushed or auto-rebased. Steps renumbered 1-6 accordingly.
+
+2. **Ran a real local catch-up ingest to confirm the 403 diagnosis and
+   backfill what was missed.** Brian subscribed the blocked Substacks to
+   `brain@` via the `brianmaddenai` account (per open decision #16's
+   recommendation) but email delivery takes days to start flowing, so he
+   asked for a local run in the meantime — `python3
+   skills/ingest/ingest.py --since-days 3`, run from this machine rather
+   than GitHub Actions. **Result: 0 of 85 sources failed** (vs. 40 on
+   this morning's automated run) — conclusive confirmation the block is
+   GitHub-Actions-IP-specific, not anything about the feeds or code
+   themselves. Found one more real bug along the way: the first attempt
+   crashed entirely partway through (`on-with-kara-swisher`'s episode)
+   with a `UnicodeDecodeError` inside `subprocess.run()`'s own stderr
+   decoding of ffmpeg's output (real non-UTF-8 bytes in a real ffmpeg
+   run) — a `ValueError` subclass the surrounding `except RuntimeError`
+   in `_split_audio_for_transcription()` doesn't catch, so it took down
+   the whole run instead of just that one episode, before ever reaching
+   most of the previously-blocked sources later in `sources.yaml`'s
+   order. Fixed with `errors="replace"` on that `subprocess.run()` call
+   (`skills/ingest/ingest.py`) — stderr is only ever used truncated for
+   a diagnostic message, so lossy decoding costs nothing real. Re-ran
+   clean: 32 new entries found, 20 new ingest notes written (the crashed
+   first attempt had already written 8 of them before dying; dedup
+   correctly skipped those on the retry).
+3. **Regenerated today's Daily Brief from the complete set, not just the
+   catch-up delta.** Backed up the morning's thin 5-source brief and
+   published post, removed them so `brief.py`'s already-briefed dedup
+   wouldn't exclude those 5 notes, then re-ran `brief.py` + `publish.py`
+   fresh against all 32 of today's ingest notes together — one coherent
+   synthesis instead of two fragmented ones. Caught a new thread the
+   broken run would have missed entirely: `harness-as-the-named-value-
+   layer` crossed the promotion threshold on this run (real evidence
+   from the newly-ingested SemiAnalysis/AlphaSignal content), now
+   queued in `promotion-candidates.md`. `update_tracker()`'s existing
+   same-day dedup guard (`last_seen == run_date`) prevented double-
+   counting any thread that recurred in both today's original 5-note
+   brief and this fuller 32-note one. New subtitle generated correctly
+   on the real (fixed) code path. Both regenerated files sent to Brian;
+   originals kept as local backups (not committed) in case of comparison
+   need, not carried into the repo.
+
+`python3 scripts/check_doc_accuracy.py` re-checked clean after all of
+the above.

@@ -413,3 +413,209 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 **Brian's review, same session:** two final corrections applied — all "course" references generalized to deliverable-neutral wording, and the proof point cut to "Citrix runs this pattern internally," full stop (the concept's use at Citrix is public; how it's used is not). With those in, Brian approved everything for commit and publication; `frameworks/knowledge-factory.md` flipped to `status: reviewed` on his in-chat approval, indexes synced. `skills/brief/brief.py` also gained an archived-status filter so retired frameworks never inform future briefs.
 
 **Result: CLEAR TO COMMIT** — committed at session end, all files, logical commits.
+
+---
+
+## 2026-08-24 — Weekly Update ceremony built (BUILD.md open decision #13)
+
+**What was synced (process change, not canon content):**
+- New skill `.claude/skills/weekly-update/SKILL.md` (`/weekly-update`) — a
+  live ceremony (not an unattended pipeline) that recaps the week's daily
+  briefs, walks the `promotion-candidates.md` and `staleness-candidates.md`
+  queues to a real decision on each entry, captures Brian's own takeaways,
+  and drafts a dual-byline (`brianmadden.ai` + Brian Madden) Weekly Update.
+  Reuses `review-thinking`'s developing-thinking.md mechanics rather than
+  duplicating them.
+- New `skills/weekly/render.py` — Substack-paste HTML rendering, reusing
+  `skills/brief/render.py`'s generic helpers; own disclosure line/footer
+  for the dual byline (the Daily Brief's AI-solo disclosure doesn't fit).
+- New output location `outputs/weekly-updates/` (`outputs/README.md`
+  updated) and `.gitignore` entry for its rendered HTML.
+- New frontmatter field `last_reviewed` on `me/developing-thinking.md`
+  (documented in `docs/frontmatter-schema.md`) — distinct from `updated`,
+  bumped by the ceremony every run regardless of whether content changed,
+  so a review with no edits still leaves a real timestamp.
+- Closed the open Substack-placement question in `docs/substack-as-primary-home.md`
+  Workstream E: dual byline, folds into the existing structure for now
+  (no new Section yet) — both asked directly and answered by Brian this
+  session.
+- `BUILD.md` open decision #13 marked built.
+
+**No canon content (`me/`, `frameworks/`, `posts/`) was touched by this
+entry** — this is process/pipeline scaffolding, logged per MAINTAINER.md's
+"every change to the publishing process gets an entry" rule, same as any
+other skill build. The first live run of the ceremony (if it happens this
+session) — including any actual `developing-thinking.md` edits, framework
+archivals, or promotion-candidates resolutions Brian makes during it — gets
+its own separate entry, since that run touches real canon content and
+needs its own manual-review-notes discipline.
+
+**Automated checks:** N/A — no canon content changed. `python3 -c` smoke
+test confirmed `skills/weekly/render.py`'s import chain against
+`skills/brief/render.py` resolves correctly.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
+## 2026-08-24 — First live Weekly Update ceremony (20-item promotion-candidates backlog cleared, 9-item staleness queue resolved)
+
+**What was synced:**
+- `outputs/technical-briefings/promotion-candidates.md`: 20 entries → 1 (intentionally held, pending a write-up decision it depends on). Applied live, item by item, with Brian's decision on each: 4 threads consolidated into one `developing-thinking.md` entry (shared artifacts as the undetected agent-to-agent channel — the same evidence had been tracked under four separate names, a real gap in the pipeline's exact-slug thread matching, flagged as a follow-up); 3 threads consolidated into a second entry at Brian's own framing ("labs control every lever — what exists, what's free, what it costs, how well it runs"); 5 threads promoted as their own entries (routing-seat-to-payments, personalization-in-weights-vs-files, deployer-opacity, human-approval-worse-than-automated-policy, open-ended-research-failure-shape) — two of these carry direct extensions in Brian's own words (the OSS/startup routing layer; the Chinese-model-censorship "what else is hidden" point, tied to Meta/NVIDIA/non-Chinese open weights); 1 thread's disposition (public/political legitimacy as a compute constraint) resolved as a supporting addition to the existing "Compute scarcity and token governance" section rather than a standalone entry, per Brian's own question about where "real but not novel" facts belong — precedent drawn from the 2026-08-14 triage's "dated market/news snapshot" cut-reason; 2 threads folded as one-line notes into existing sections ("The cognitive stack," "The 2031 worker-shape forecast"); 2 threads dropped with no canon addition (Brian: "meh… whatever you think"); 1 thread held open, tied to an unresolved staleness item (see below).
+- `me/developing-thinking.md`: content added/cut per the above, plus the staleness-queue decisions — 4 items cut (already-published elsewhere: the AI-stack cost-tier argument, the MCP-server line, "secure the work, not the worker," most of the skills-training argument, with its authoring-recipe residual kept as a separate scratchpad line), 3 items left as-is with a "promote" decision logged as a follow-up writing task rather than drafted inline (human clock speed as the invariant; the second-brain selection-bias failure mode; "you can only see one step ahead") — the human-clock-speed one also resolves the last open promotion-candidate, since `machine-speed-vs-human-absorption` is its evidence base, not a separate thread. `## Right now` updated with three new front-of-mind items (Chinese-model risk, harness-vs-model, distributed/local models and Wave 3 timing), `updated`/`last_reviewed` frontmatter bumped to 2026-08-24, `status` → `reviewed-and-updated` (Brian live for every edit).
+- `frameworks/bitter-lesson.md` and `frameworks/post-application-era.md`: both revised (not archived), per the staleness queue's "worth-revisiting" flags — bitter-lesson's "AI dissolves the 80%" claim corrected against the knowledge-factory framework's own stated revision of it; post-application-era's unbounded stage-4 ending qualified with the three-tier/"UIs not systems of record" formulation from the April SaaSpocalypse post. Both `status` → `reviewed-and-updated`.
+- New output: `outputs/weekly-updates/2026/08/2026-08-24-prep.md` (the prep doc) and `2026-08-24.md` (the finished dual-byline post, `status: reviewed`), rendered to HTML via `skills/weekly/render.py`. `outputs/weekly-updates/.last_run.json` written for the first time.
+- `_index.json`: surgical updates only — `developing-thinking.md`, `bitter-lesson.md`, `post-application-era.md` word counts and `developing-thinking.md`'s `updated` date. No `outputs/` entries needed (confirmed the index doesn't track tier-3 output at all).
+
+**Automated checks:**
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR (no framework `status: archived` transitions, so no active-count updates needed elsewhere)
+- Wiki-links (`[[`): none found in any touched file — CLEAR
+- Internal names: none found — CLEAR
+- bmad/ path references: none found — CLEAR
+- Spaced em-dashes: **caught and fixed** — every new passage this session was written with spaced em-dashes (` — `), against `me/style-guide.md`'s no-spaces rule. Fixed programmatically across all five touched files before commit. Flagging this plainly since it was a real miss, not a clean pass.
+- Inline-code/Substack-rendering rule: **also caught and fixed** — the published Weekly Update post referenced `.md` files in backticks (`promotion-candidates.md` etc.), which `me/style-guide.md`'s Substack-rendering section explicitly says renders oddly and should instead be an italicized real link. Converted all four instances to `*[name.md](github-link)*` before the final render.
+- `_index.json` validity: valid JSON, confirmed after the surgical edits — CLEAR
+- JSON validity (`outputs/weekly-updates/.last_run.json`): valid — CLEAR
+
+**Manual review notes:**
+- Everything added to canon this session traces to public daily-brief content (third-party reporting, already-published Brian posts) or Brian's own direct statements in this conversation — no Citrix-internal or confidential material involved.
+- Two framework revisions correct a framework against Brian's own later published position, not against outside material — lower risk than a first-time canon addition, but still logged with the same discipline.
+- The "labs control every lever" and "shared artifacts as the channel" consolidations are editorial judgment calls (recognizing that separately-flagged threads were the same story) — flagged to Brian directly before applying, approved live, not inferred silently.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
+## 2026-08-24 — Second round, same session: Deeper Thinking named, prep automated, post restructured
+
+**What was synced (process/product change, not new canon content):** the
+publication got a real name (Deeper Thinking, Brian's choice), a new
+`skills/weekly/gather.py` automates the deterministic prep-and-email step
+on Fridays (wired into `daily-pipeline.yml`, `outputs/weekly-updates/`
+and `outputs/canon-triage/` added to that workflow's commit path), and
+the finished post was restructured per Brian's direct feedback (honest
+story-selection framing, bullets under "What moved in the thinking," a
+new "Where my head's at right now" section linking live to
+`developing-thinking.md` on GitHub, plain-language rewrites of the
+future-post candidates). No `me/developing-thinking.md` or framework
+content changed in this round — only the skill (`SKILL.md`), the two
+scripts (`gather.py`, `render.py`), and the not-yet-published post file
+itself.
+
+**Automated checks:**
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+- `_index.json`, workflow YAML: both valid — CLEAR
+- Spaced em-dashes / backtick file-refs: **recurred on this round's
+  rewrite** — rewriting the post file fresh (via `Write`, replacing the
+  whole file rather than `Edit`ing it) reintroduced both issues already
+  fixed once earlier the same session. Fixed the same way, and structural
+  root cause addressed too: `render.py` no longer injects a fixed
+  disclosure/footer, so there's one less place text gets assembled
+  outside the reviewed body going forward.
+
+**Result: CLEAR TO COMMIT**
+
+---
+
+## 2026-08-25 — Source-checking transparency + subtitle empty-response fix
+
+**What was synced (process change, not canon content):**
+- `skills/ingest/ingest.py`: every full run now writes
+  `ingest/.last_run_sources.json`, one record per registered source
+  (`ok`/`error`/`skipped`, with reason and entry counts). No behavior
+  change to fetching itself — this only makes existing outcomes
+  persistent and visible instead of print-only.
+- `skills/brief/brief.py`: new `render_sources_checked_section()`,
+  wired into `write_brief()` — every Daily Brief (technical and,
+  via `publish.py`'s near-verbatim copy, the Substack-published version)
+  now ends with a "Sources checked today" section listing every
+  registered source and its outcome, zeros included.
+- `skills/brief/publish.py`: subtitle call's `max_tokens` raised
+  2048 → 8192 after a real production failure (2026-08-25) — an empty
+  response silently fell back to the generic subtitle with only a
+  stderr warning, which is how a boilerplate subtitle made it to a
+  published post unnoticed.
+- Retroactive, one-time fixes to already-committed content:
+  `outputs/technical-briefings/2026/08/2026-08-25.md` and
+  `outputs/published/2026/08/2026-08-25.md` both patched — the sources-
+  checked section added (reconstructed from the real run's GitHub
+  Actions log, no live network/Gmail calls involved), and the published
+  file's `substack_subtitle` corrected from the generic fallback to a
+  real, regenerated one. HTML re-rendered and re-sent to Brian.
+
+**Why:** Brian asked to verify the pipeline was actually checking
+everything it's supposed to, after today's briefing looked email-heavy
+and its subtitle read as generic boilerplate. Both were real: 39 of 85
+registered sources have failed with `403 Forbidden` on every automated
+run since launch (2026-08-19), silently, never previously flagged (see
+BUILD.md open decision #16) — root cause is very likely Cloudflare
+blocking GitHub Actions' IP ranges on Substack's `*.substack.com` feeds,
+not a header or code fix on our side; the recommended fix (routing those
+publications through the existing `brain@` email path) is real manual
+work only Brian can do and is logged, not built, this session. The
+subtitle was a genuine empty-response bug, not a prompt-design gap.
+
+**No canon content (`me/`, `frameworks/`, `posts/`) touched.** The two
+patched output files are tier-3 (`outputs/`), already `status:
+not-reviewed-by-human` — correcting a fallback value and adding a new
+section doesn't change that status.
+
+**Automated checks:**
+- `python3 -m py_compile` on all three touched scripts: clean
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+- `skills/brief/render.py`'s HTML render tested directly against the new
+  section: renders correctly
+
+**Result: CLEAR TO COMMIT** — holding for Brian's go-ahead (not yet
+committed).
+
+---
+
+## 2026-08-25 (continued) — Local catch-up run confirms the diagnosis;
+maintain skill gains a sync-first step; ffmpeg crash fixed
+
+**What was synced (process changes):**
+- `.claude/skills/maintain/SKILL.md`: new step 1, syncing with `origin`
+  (fetch, then fast-forward or stash/pull/pop as needed, real judgment
+  on any conflict, stop-and-flag if local has unpushed commits) before
+  any other bootstrap step. Existing steps renumbered 2-6.
+- `skills/ingest/ingest.py`: `_split_audio_for_transcription()`'s
+  `subprocess.run()` call for ffmpeg now passes `errors="replace"` —
+  ffmpeg's stderr on a real episode contained non-UTF-8 bytes, and
+  strict decoding raised `UnicodeDecodeError` *inside* `subprocess.run()`
+  itself, a `ValueError` subclass the surrounding `except RuntimeError`
+  doesn't catch, crashing the whole ingest run instead of just that one
+  episode's transcription.
+- Real run, not a dry run: `python3 skills/ingest/ingest.py --since-days
+  3`, executed locally (not via GitHub Actions) at Brian's request while
+  his Substack-to-email migration (open decision #16) is still
+  propagating. Result: 0 of 85 sources failed, vs. 40 on this morning's
+  automated run — confirms the block is specific to GitHub Actions' IP
+  ranges, not the feeds or the fetch code. 20 new ingest notes written.
+- `skills/brief/brief.py` + `skills/brief/publish.py` re-run for real
+  against the complete 32-note set (today's original 5 plus the 20 new
+  ones), after backing up and removing the morning's thin 5-source
+  brief/published-post so the already-briefed dedup wouldn't exclude
+  those 5. One new thread crossed the promotion threshold on the fuller
+  synthesis (`harness-as-the-named-value-layer`) that the broken run
+  would have missed. `update_tracker()`'s existing same-day dedup guard
+  prevented any double-count of threads recurring in both syntheses.
+
+**Why:** Direct continuation of this session's earlier finding (39
+broken sources). Brian's own fix — subscribing the blocked Substacks to
+`brain@` for email delivery — is in motion but not live yet, so he asked
+for a local run to backfill the gap now rather than wait days. Confirms
+the earlier diagnosis empirically rather than leaving it as a web-search
+inference.
+
+**No canon content touched.** `outputs/technical-briefings/2026/08/2026-
+08-25.md` and `outputs/published/2026/08/2026-08-25.md` were regenerated
+(not hand-edited) — same `status: not-reviewed-by-human` as any other
+pipeline output. New `ingest/` notes are Tier 1, machine-written,
+never indexed.
+
+**Automated checks:**
+- `python3 -m py_compile` on `ingest.py`: clean
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+
+**Result: CLEAR TO COMMIT** — holding for Brian's go-ahead.

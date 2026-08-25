@@ -287,9 +287,15 @@ def main() -> None:
         # thinking on it can consume the entire budget before any text
         # block gets emitted (stop_reason "max_tokens", empty result).
         # Same failure shape BUILD.md already documented for brief.py's
-        # Opus call; 2048 leaves real room for both thinking and a short
-        # answer, confirmed against this exact prompt.
-        subtitle = llm.generate(subtitle_prompt, provider=provider, model=model, max_tokens=2048).strip()
+        # Opus call. 2048 was believed sufficient (confirmed against a
+        # test prompt, 2026-08-13) but a real production day (2026-08-25,
+        # a denser-than-usual 5-story cross-referenced brief) hit the same
+        # empty-response failure and silently fell back to the generic
+        # subtitle below — nobody noticed until Brian spotted the boilerplate
+        # subtitle in the published post itself, not from any logged
+        # warning. 8192 gives real margin over the actual observed failure
+        # rather than another guess.
+        subtitle = llm.generate(subtitle_prompt, provider=provider, model=model, max_tokens=8192).strip()
         if not subtitle:
             print("warning: subtitle call returned nothing — falling back to a generic one", file=sys.stderr)
             subtitle = "Today's AI and future-of-work reading, from Brian Madden's AI second brain."

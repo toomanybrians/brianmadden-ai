@@ -40,6 +40,7 @@ USER_AGENT = "brianmadden-ai-ingest/0.1 (+https://brianmadden.ai)"
 # as a safety valve against a malformed feed dumping something absurd.
 MAX_CONTENT_CHARS = 50000
 LAST_RUN_PATH = ROOT / "ingest" / ".last_run.json"
+SOURCE_RESULTS_PATH = ROOT / "ingest" / ".last_run_sources.json"
 DEFAULT_SINCE_DAYS = 7.0  # fallback when there's no recorded prior run
 MIN_SINCE_DAYS = 0.1      # floor (~2.4h), avoids a zero-width window on rapid reruns
 
@@ -84,6 +85,19 @@ def write_last_run(when: datetime) -> None:
     LAST_RUN_PATH.parent.mkdir(parents=True, exist_ok=True)
     LAST_RUN_PATH.write_text(
         json.dumps({"last_run_utc": when.isoformat()}, indent=2) + "\n", encoding="utf-8"
+    )
+
+
+def write_source_results(when: datetime, results: list[dict]) -> None:
+    """One row per sources.yaml entry for this run — success, error, or a
+    by-design skip (see the source_results comment in main()). Read by
+    skills/brief/brief.py to render the brief's own "Sources checked
+    today" section, so a source going silently quiet is a fact on the
+    published page, not something buried in Actions logs."""
+    SOURCE_RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    SOURCE_RESULTS_PATH.write_text(
+        json.dumps({"run_utc": when.isoformat(), "results": results}, indent=2) + "\n",
+        encoding="utf-8",
     )
 
 
@@ -251,7 +265,17 @@ def _split_audio_for_transcription(audio_path: Path, workdir: Path) -> list[Path
             "-reset_timestamps", "1",
             pattern,
         ],
-        capture_output=True, text=True, timeout=600,
+        # errors="replace": confirmed 2026-08-25 the hard way — ffmpeg's
+        # stderr on a real episode (Kara Swisher's feed) contained a byte
+        # sequence that isn't valid UTF-8, and text=True's default strict
+        # decoding raised UnicodeDecodeError *inside* subprocess.run()
+        # itself, before this function's own RuntimeError handling ever
+        # ran — a ValueError subclass the caller's `except RuntimeError`
+        # doesn't catch, so it crashed the whole ingest run rather than
+        # just this one episode. stderr is only ever used truncated, for
+        # a diagnostic message (see below) — replacing undecodable bytes
+        # costs nothing real there.
+        capture_output=True, text=True, errors="replace", timeout=600,
     )
     if result.returncode != 0:
         raise RuntimeError(f"ffmpeg failed: {result.stderr[-500:]}")
@@ -1608,14 +1632,42 @@ def main() -> None:
         except requests.RequestException as e:
             print(f"substack follows fetch failed ({e}) — brain@ follow-checks will report 'not tracked', daily diff skipped\n")
 
+    # Per-source outcome, one record per registry entry regardless of what
+    # happened — success, error, or a by-design skip. Brian's ask
+    # (2026-08-25, after spotting that nearly half the registry silently
+    # fails every day): make the checking itself visible, not just its
+    # output, so a source going quiet reads as a fact on the page rather
+    # than something that has to be dug out of Actions logs. Persisted to
+    # ingest/.last_run_sources.json (see write_source_results() below) and
+    # rendered into the brief's own "Sources checked today" section by
+    # skills/brief/brief.py.
+    source_results: list[dict] = []
+
     total_new = 0
     total_written = 0
     for source in sources:
         ingest_method = source.get("ingest_method")
         is_email = ingest_method == "email"
         is_x = ingest_method == "x"
+        method = "email" if is_email else ("x" if is_x else "feed")
         if not is_email and not is_x and not source.get("feed_url"):
-            print(f"[{source['id']}] skipped — no feed_url")
+            # A `sender` field means this row is documentation for a
+            # publication actually captured through the shared brain-inbox
+            # source (matched by From address — see brief.py's
+            # load_sender_homepages()), not a real gap: most of these were
+            # auto-registered from a real brain@ ingestion for exactly that
+            # reason (sources.yaml's own per-entry notes say so). No
+            # `sender` at all means nothing is currently checking it —
+            # genuinely unchecked, not just checked a different way.
+            if source.get("sender"):
+                reason = "documentation only — arrives via the shared brain-inbox source, attributed by sender"
+            else:
+                reason = "no feed_url and no sender configured — not currently being checked"
+            print(f"[{source['id']}] skipped — {reason}")
+            source_results.append({
+                "id": source["id"], "name": source.get("name", source["id"]),
+                "method": method, "status": "skipped", "reason": reason,
+            })
             continue
 
         if is_email:
@@ -1626,11 +1678,20 @@ def main() -> None:
             entries, err = fetch_entries(source, since_days, args.max_per_source)
         if err:
             print(f"[{source['id']}] {err}")
+            source_results.append({
+                "id": source["id"], "name": source.get("name", source["id"]),
+                "method": method, "status": "error", "reason": err,
+            })
             continue
 
         new_entries = [e for e in entries if e["link"] not in seen_urls]
         print(f"[{source['id']}] {len(entries)} entries in window, {len(new_entries)} new")
         total_new += len(new_entries)
+        source_results.append({
+            "id": source["id"], "name": source.get("name", source["id"]),
+            "method": method, "status": "ok",
+            "entries_in_window": len(entries), "new_entries": len(new_entries),
+        })
 
         if not ready:
             for e in new_entries:
@@ -1711,6 +1772,7 @@ def main() -> None:
     if not args.dry_run and not args.source:
         run_time = datetime.now(timezone.utc)
         write_last_run(run_time)
+        write_source_results(run_time, source_results)
         print(f"recorded last run: {run_time.isoformat()}")
 
 

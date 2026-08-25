@@ -1,6 +1,6 @@
 ---
 name: maintain
-description: Bootstrap a maintainer session on the brianmadden-ai repo — reads MAINTAINER.md and the live parts of BUILD.md, checks real git state, and reports back where things stand before doing anything else. Use when the user runs /maintain, or at the start of any session where the user is going to build/ingest/publish on this repo rather than query it as a knowledge module.
+description: Bootstrap a maintainer session on the brianmadden-ai repo — syncs the repo with origin first, reads MAINTAINER.md and the live parts of BUILD.md, checks real git state, and reports back where things stand before doing anything else. Use when the user runs /maintain, or at the start of any session where the user is going to build/ingest/publish on this repo rather than query it as a knowledge module.
 ---
 
 # Maintainer mode bootstrap
@@ -25,11 +25,49 @@ the note at the top of `## Session log`).
 
 ## Steps
 
-1. **Read `MAINTAINER.md` in full.** It's short and is the operating
+1. **Sync the repo with `origin` before reading anything.** `main` gets
+   real commits from outside this session — the automated
+   `daily-pipeline.yml` run every weekday morning, and other maintainer
+   sessions — so a session that reads `BUILD.md` before syncing can be
+   reading a stale copy without knowing it (confirmed the hard way,
+   2026-08-25: a session started 3 commits behind origin with a prior
+   session's work still sitting uncommitted locally, and had to untangle
+   both reactively mid-task instead of up front). Do this before step 2:
+   ```
+   git fetch origin
+   git rev-list HEAD..origin/main --count   # commits behind
+   git rev-list origin/main..HEAD --count   # commits ahead (local-only)
+   ```
+   - **Behind, 0 ahead, working tree clean:** `git pull --ff-only`. Safe,
+     no judgment call.
+   - **Behind, 0 ahead, working tree has uncommitted changes:** stash,
+     fast-forward, restore, in that order —
+     ```
+     git stash push -u -m "pre-sync stash: <short description>"
+     git pull --ff-only
+     git stash pop
+     ```
+     A real conflict here (a file both origin and the stashed changes
+     touched) needs actual judgment, not an automatic pick of "ours" or
+     "theirs" — read both sides and reason about which content is
+     current before resolving, the same way you'd resolve any merge
+     conflict. `outputs/technical-briefings/promotion-candidates.md` is
+     a known repeat offender: the automated pipeline appends to it daily,
+     so any uncommitted local session that already reviewed/cleared
+     entries will conflict with same-day automated appends. Report what
+     you found and how you resolved it in the step-4 summary — don't
+     resolve silently.
+   - **Ahead by any amount (local commits `origin/main` doesn't have):**
+     stop and flag it in the step-4 report rather than pushing or
+     rebasing automatically — this hasn't happened yet in this repo's
+     history and deserves Brian's eyes before anything touches shared
+     history.
+
+2. **Read `MAINTAINER.md` in full.** It's short and is the operating
    constitution — non-negotiable rules, tier definitions, working
    conventions. Changes rarely; safe to read in full every time.
 
-2. **Read the live sections of `BUILD.md`, not the whole file:**
+3. **Read the live sections of `BUILD.md`, not the whole file:**
    - `## Decisions made` and `## Open decisions` — grep/sed these out by
      heading rather than reading start-to-finish:
      ```
@@ -58,26 +96,29 @@ the note at the top of `## Session log`).
      `git log -p -- BUILD.md` or `git log --all -S'<term>' -- BUILD.md`
      to find the commit that mentions it.
 
-3. **Check real git state — don't trust BUILD.md's account of what's
-   committed.** BUILD.md has been factually wrong about git state before
-   (a "pushed to origin" claim that wasn't true; sessions finding
-   concurrent uncommitted work from other threads). Run:
+4. **Check real git state — don't trust BUILD.md's account of what's
+   committed.** Step 1 already synced with `origin`, so this is now
+   about local nuance the sync itself doesn't narrate: anything the
+   stash-pop left uncommitted, any conflict resolution made, and
+   BUILD.md's own account of what landed (it's been factually wrong
+   before — a "pushed to origin" claim that wasn't true). Run:
    ```
    git status
    git log --oneline -8
    ```
    If `git status` shows uncommitted changes the most recent session-log
    entries don't account for, say so plainly rather than assuming they're
-   this session's own doing — this repo has a real history of concurrent
-   sessions editing the same working tree.
+   this session's own doing.
 
-4. **Report back before doing anything else.** Summarize: what's done,
-   what's currently uncommitted (if anything) and why, what the live open
+5. **Report back before doing anything else.** Summarize: what step 1's
+   sync did (fast-forwarded cleanly? stashed and resolved a conflict?
+   found local commits ahead and stopped?), what's done, what's
+   currently uncommitted (if anything) and why, what the live open
    decisions/threads are, and what the natural next steps look like per
    BUILD.md's own flagged priorities. Then ask what to work on — this
    skill orients, it doesn't pick the next task.
 
-5. **Suggest a distinctive session title, right after the report.** Every
+6. **Suggest a distinctive session title, right after the report.** Every
    `/maintain` session starts out named literally "Maintenance" — there is
    no tool that lets a session rename itself (checked directly, 2026-08-15:
    `set_session_title` explicitly refuses to target the current session,
@@ -86,7 +127,7 @@ the note at the top of `## Session log`).
    session looks identical in the sidebar for as long as it's running, even
    though sessions that end up with real content eventually get a
    descriptive title. Don't wait for that — propose one now, in the same
-   turn as the step 4 report: today's date plus a short, concrete hint
+   turn as the step 5 report: today's date plus a short, concrete hint
    drawn from what orientation actually found (the most relevant open
    decision number, the day-plan item that's obviously next, an
    uncommitted-change flag — whatever's most distinctive about *this*
