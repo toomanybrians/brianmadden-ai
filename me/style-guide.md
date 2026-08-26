@@ -102,12 +102,12 @@ output), not pre-populated speculatively.
   explaining why the format looks unusual this time. Say what happened;
   don't apologize for or account to the reader for how the piece came
   together. (Brian's correction, 2026-08-24 — cut from both the opening
-  paragraph and a section intro of the first *Deeper Thinking* issue.)
+  paragraph and a section intro of the first *Weekly Wrap Up* issue (named *Deeper Thinking* at launch, renamed by Brian on Substack 2026-08-26).)
 - **Section-explainer lines read as plain prose, integrated into the
   flow — not set off in italics.** Italicizing "here's what this section
   is" makes it read as a publisher's aside rather than part of the piece
   itself. (Brian's correction, 2026-08-24, same session — he stripped the
-  italics from every explainer line in the first *Deeper Thinking* issue
+  italics from every explainer line in the first *Weekly Wrap Up* issue
   and folded them into normal sentences.)
 
 ## Audience-specific sections

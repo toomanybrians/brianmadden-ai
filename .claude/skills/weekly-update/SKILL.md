@@ -1,9 +1,9 @@
 ---
 name: weekly-update
-description: Deeper Thinking — the lower-frequency companion to the Daily Brief. A live ceremony with Brian that recaps the stories since the last one, clears the promotion-candidates and staleness-candidates queues, captures his real takeaways, and drafts a dual-byline "Deeper Thinking" post. Use when the user runs /weekly-update, or asks for a weekly review, a Deeper Thinking issue, or "what's changed since last time" walkthrough.
+description: Weekly Wrap Up (named "Deeper Thinking" at launch, renamed by Brian on Substack 2026-08-26) — the lower-frequency companion to the Daily Brief. A live ceremony with Brian that recaps the stories since the last one, clears the promotion-candidates and staleness-candidates queues, captures his real takeaways, and drafts a dual-byline "Weekly Wrap Up" post. Use when the user runs /weekly-update, or asks for a weekly review, a Weekly Wrap Up issue, or "what's changed since last time" walkthrough.
 ---
 
-# Deeper Thinking ceremony
+# Weekly Wrap Up ceremony
 
 The internal skill/directory name stayed `weekly-update` (matches how the
 Daily Brief's own skill directory is `skills/brief/` even though its
@@ -117,7 +117,12 @@ other picks up from next time.
    this look right," but what actually struck him, what he'd push back
    on, what he wants people to know he thinks about it. This is the part
    only he can supply; don't draft placeholder reactions and ask him to
-   approve them backwards.
+   approve them backwards. If the prep doc's "Comments you left this
+   week" section has anything in it (built 2026-08-26, after Brian
+   commented directly on a Daily Brief and asked for it to feed the
+   ceremony), treat those comments as a real takeaway already in his own
+   words, not just background color — surface them here rather than
+   asking him to re-articulate a reaction he already wrote down live.
 
 6. **Surface content candidates — topics worth a future blog post or
    podcast episode.** Added 2026-08-24, Brian's own idea mid-first-run:
@@ -146,7 +151,7 @@ other picks up from next time.
    recording his direct approval of specific diffs, same rule
    `render.py`'s hand-edit detection already applies elsewhere.
 
-9. **Draft the Deeper Thinking post itself**, collaboratively — not a
+9. **Draft the Weekly Wrap Up post itself**, collaboratively — not a
    mechanical rehash of the prep doc, and not written in the pipeline's
    own internal shorthand. Brian's explicit ask (2026-08-24, reacting to
    the first draft): this should read as something a real person would
@@ -163,7 +168,7 @@ other picks up from next time.
    normal issue's will be") — say what happened, don't narrate why the
    format looks unusual this time:
 
-   - **Opening paragraph** — what Deeper Thinking is, in plain terms,
+   - **Opening paragraph** — what Weekly Wrap Up is, in plain terms,
      varies naturally issue to issue rather than being a fixed
      boilerplate string. First issue's version: "the daily is fast... this
      is slow, on purpose."
@@ -211,8 +216,11 @@ other picks up from next time.
      publication, but it's plain text in the body, not a fixed constant —
      fine to vary slightly.
 
-   Frontmatter: `title`/`substack_title`: `"Deeper Thinking: Week of
-   [date range]"`. `tier: 3`, `file_type: weekly-update`, `status:
+   Frontmatter: `title`/`substack_title`: `"Weekly Wrap Up: [date range]"`
+   (Substack's own slug doesn't change when a post's display title is
+   edited later — confirmed 2026-08-26 renaming the first issue — so get
+   the title right at draft time rather than relying on a later rename).
+   `tier: 3`, `file_type: weekly-update`, `status:
    reviewed` (Brian was live for the whole thing — this isn't
    `not-reviewed-by-human` the way an unattended daily brief starts; if he
    substantively rewrites a passage himself, that's `reviewed-and-updated`

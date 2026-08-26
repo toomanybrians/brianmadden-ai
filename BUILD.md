@@ -1717,3 +1717,83 @@ every fix from this session active at once:**
 
 All three touched Python files (`ingest.py`, `brief.py`, `publish.py`)
 compile clean; `check_doc_accuracy.py` clean.
+
+**Same session, continued — two more real asks: find Brian's own
+Substack comments for the weekly ceremony, and rename the weekly
+publication.**
+
+**Publication renamed.** Brian retitled the weekly product on Substack
+itself: section tag and post title now read **"Weekly Wrap Up"**
+(previously "Deeper Thinking," named 2026-08-24). Verified live rather
+than guessed the capitalization/punctuation — the actual section page
+(`/t/weekly-wrap`) and the retitled first issue both read "Weekly Wrap
+Up" (no hyphen, both words capitalized). Also confirmed via a live
+archive-API check: Substack does **not** change a post's URL slug when
+its display title is edited later — the first issue's slug is still
+`weekly-deeper-thinking-august-17` even though its title is now "Weekly
+Wrap Up: August 17-21, 2026," and its body prose still says "the first
+issue of Deeper Thinking" since Brian only touched the title/section,
+not the text. Renamed every forward-facing reference across the repo
+to match (`.claude/skills/weekly-update/SKILL.md`,
+`me/style-guide.md`, `skills/weekly/README.md`,
+`skills/weekly/gather.py`, `outputs/README.md`) — including updating
+the SKILL's own frontmatter `description` and title-template guidance
+so the *next* issue gets drafted with the right name from the start
+rather than needing a rename later. Synced `outputs/weekly-updates/
+2026/08/2026-08-24.md`'s `title`/`substack_title` frontmatter to match
+what's actually live (`'Weekly Wrap Up: August 17-21, 2026'`) — left
+the post's own body prose untouched, since that's what's actually still
+published; not a case of rewriting history, just keeping the repo's
+copy of a still-editable-on-Substack file honest about its current
+real title. Left the one-time prep doc
+(`2026-08-24-prep.md`) as historical record, un-renamed — it's a
+consumed working artifact, not an ongoing reference.
+
+**Comments hookup — built, tested against real data, not just
+designed.** Brian commented on the Aug 26 Daily Brief directly on
+Substack and asked whether that could feed the weekly ceremony. Checked
+first whether `gather.py` (the automated Friday GitHub Actions script)
+could actually reach Substack at all, since this repo already has a
+confirmed, real precedent of GitHub-Actions-IP blocking on this exact
+domain family (open decision #16 — 39 sources' `*.substack.com/feed`
+endpoints return 403 from GH Actions, 0 failures from a local machine).
+Tested directly rather than assuming either way: a plain `curl` against
+`www.brianmadden.ai/p/.../comments`, using the same plain bot
+User-Agent this pipeline already uses everywhere else, returned `HTTP
+200` with the actual comment text server-rendered in the raw HTML —
+a different result from the RSS-feed case, and not something to trust
+blindly just because it worked from this machine (GitHub Actions is a
+different network path). Documented that residual uncertainty directly
+in `gather.py`'s new code rather than papering over it, with the
+already-proven fallback (route from a residential network instead, the
+same fix already floated for the RSS-blocking problem) named as the
+option if the first real Friday run proves it wrong.
+
+Built `fetch_own_comments_in_window()` in `skills/weekly/gather.py`:
+uses the publication's own `/api/v1/archive` endpoint (also confirmed
+working, and incidentally what proved posts keep their slug across a
+title rename — see above) to find each week's post slugs and comment
+counts without guessing a slug from a title, then regexes each
+qualifying post's `/comments` page for blocks authored by Brian's own
+Substack profile id (`400769399` — matched by id, not display name, so
+a reader who happens to also be named "Brian" can't produce a false
+positive). Found and fixed one real bug during testing: the comment
+permalink+timestamp anchor sits *inside* the same comment's own matched
+span in the rendered HTML, not before it — the first version's
+"nearest preceding anchor" pairing logic silently fell back to a
+generic comments-page link every time; fixed to look for the permalink
+within the comment block's own `[start, end)` span instead, verified
+against the real comment (now links to the exact
+`.../comment/323100969` permalink with a real timestamp, not just the
+page). Wired into `build_prep_doc()` as a new "Comments you left this
+week" section, degrading gracefully (prints a warning, returns an empty
+list) rather than raising on any fetch failure — a broken comments
+check should never take down the rest of the prep doc. Added a note to
+`SKILL.md` step 5 (ask for Brian's takeaways) pointing at this section,
+so a comment he already wrote gets surfaced as a real takeaway rather
+than re-asked for.
+
+Dry-run tested end to end against the real, current data (`--since-days
+3 --dry-run`): correctly found and rendered his actual Aug 26 comment,
+with the right post title, the exact-comment permalink, and a real
+timestamp. `python3 -m py_compile` clean.

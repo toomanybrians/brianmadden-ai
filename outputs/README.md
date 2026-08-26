@@ -55,10 +55,11 @@ and canon); it's committed for audit, not treated as truth.
   it is canon, and nothing here ever edits `developing-thinking.md` or a
   framework's `status` directly. Built 2026-08-15 for BUILD.md open
   decision #8.
-- **`weekly-updates/`** — **Deeper Thinking**, a lower-frequency, dual-byline
+- **`weekly-updates/`** — **Weekly Wrap Up**, a lower-frequency, dual-byline
   (`brianmadden.ai` + Brian Madden) companion to the Daily Brief (the
   directory kept its original internal name; the publication itself is
-  called Deeper Thinking, Brian's own name). Built 2026-08-24 for
+  called Weekly Wrap Up — named Deeper Thinking at launch, renamed by
+  Brian on Substack 2026-08-26). Built 2026-08-24 for
   `BUILD.md` open decision #13. Half-automated: the prep doc is assembled
   and emailed to Brian unattended every Friday by
   [skills/weekly/gather.py](../skills/weekly/gather.py) (wired into

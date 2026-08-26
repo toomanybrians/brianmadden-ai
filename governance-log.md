@@ -658,3 +658,99 @@ taking over its existing curated entry.
   delivering yet.
 
 **Result: CLEAR TO COMMIT** — holding for Brian's go-ahead.
+
+## 2026-08-26 — Brief-prose fixes, brief.py default model switch, X
+timeline live, Substack self-ingestion loop closed
+
+**What was synced (process/product changes, not new canon content):**
+- `me/style-guide.md` and `me/voice.md`: scoped the Aug 16 bold-slug
+  rule to the tracked-threads bullet list only (it had been bleeding
+  into ordinary prose since Aug 17), and added guidance against
+  rhetorical-scaffolding tics and stacked-clause sentence density —
+  both flagged directly by Brian reading a real published issue.
+- `skills/brief/brief.py`: `DEFAULT_MODEL` switched from
+  `claude-opus-5` to `claude-sonnet-5` after a real same-batch,
+  same-prompt comparison (Sonnet: zero flourish artifacts, ~35%
+  shorter, cheaper). Also added a relevance-lens and brevity
+  instruction to `prompt.md` at Brian's direction — favor
+  enterprise-adoption/governance/workforce angles over AI-industry
+  gossip, and let a thin day read thin rather than padding.
+- `skills/ingest/ingest.py`: fixed a real bug (Substack's email
+  template links via "READ IN APP" through an `open.substack.com`
+  interstitial, which `_find_view_online_link()`'s regex didn't
+  recognize — every brain@-routed Substack note had no source link as
+  a result) and closed a self-referential ingestion loop (`brain@` was
+  a subscriber to the `brianmaddenai` publication's own outgoing mail,
+  so every real publish fed the next day's synthesis as if it were
+  third-party material — excluded that one sender structurally).
+- `sources/sources.yaml`: the auto-registered row for that self-mail
+  sender marked `priority: excluded` with the reasoning kept for
+  the record.
+
+**Why:** Brian read a real published issue and flagged the prose as
+"too AI, too try-hardy" and the pipeline's coverage as possibly
+incomplete. Both turned out to be real, evidenced findings, not
+misreadings — see `BUILD.md`'s 2026-08-26 entries for the full
+diagnostic trail (live Gmail HTML inspection for the link bug, a real
+side-by-side model comparison for the prose fix, a live Megaphone-feed
+check that ruled out a podcast-coverage bug).
+
+**No canon content touched.** Pipeline code, prompts, and today's
+regenerated Daily Brief only.
+
+**Automated checks:** `python3 -m py_compile` clean on every touched
+script; `python3 scripts/check_doc_accuracy.py` clean; a YAML parse
+check on `sources.yaml` after the manual edit.
+
+**Result: COMMITTED AND PUSHED** — Brian confirmed each step live in
+session (fix, regenerate, recommit, push), not held for later review.
+
+## 2026-08-26 (continued) — Weekly publication renamed; Substack
+comments hookup built for the weekly ceremony
+
+**What was synced (process/product changes):**
+- Renamed the weekly publication from "Deeper Thinking" to **"Weekly
+  Wrap Up"** across every forward-facing reference in the repo
+  (`.claude/skills/weekly-update/SKILL.md`, `me/style-guide.md`,
+  `skills/weekly/README.md`, `skills/weekly/gather.py`,
+  `outputs/README.md`) — Brian's own rename, done directly on
+  Substack; verified the exact capitalization live rather than
+  guessed. Synced the one already-published post's `title`/
+  `substack_title` frontmatter in `outputs/weekly-updates/2026/08/
+  2026-08-24.md` to match what's actually live; left its body prose
+  untouched since Brian didn't edit that on Substack either.
+- `skills/weekly/gather.py`: new `fetch_own_comments_in_window()` —
+  finds Brian's own comments on `brianmadden.ai` Substack posts each
+  week via plain HTTP (the publication's `/api/v1/archive` endpoint
+  plus each post's `/comments` page), filtered to his own Substack
+  profile id so a same-named reader can't produce a false positive.
+  Feeds a new "Comments you left this week" section in the prep doc,
+  and a note added to `SKILL.md` step 5 so the live ceremony treats a
+  comment he already wrote as a real takeaway rather than re-asking
+  for one.
+
+**Why:** Brian commented directly on the Aug 26 Daily Brief and asked
+whether that could feed the weekly ceremony — it couldn't, until this.
+Checked first whether an automated GitHub Actions run could actually
+reach Substack at all, given this repo's own confirmed precedent of
+GH-Actions-IP blocking on this exact domain family (open decision
+#16): a live plain-`curl` test with the pipeline's normal bot
+User-Agent got a clean `200` with real comment data server-rendered in
+the HTML — a different result from the RSS-feed case, but explicitly
+flagged as untested from an actual GitHub Actions runner, with the
+already-known residential-network fallback named if that assumption
+turns out wrong on the first real Friday run.
+
+**No canon content touched.** Pipeline code and forward-facing docs
+only; one historical post's frontmatter synced to match its own
+already-live state, not rewritten.
+
+**Automated checks:** `python3 -m py_compile` clean; dry-run tested
+end to end against real, current data — correctly found and rendered
+Brian's actual Aug 26 comment with the right post, an exact-comment
+permalink, and a real timestamp (a real bug in the permalink-pairing
+logic was caught and fixed during this same testing, not shipped and
+found later).
+
+**Result: CLEAR TO COMMIT** — holding for Brian's go-ahead, same
+live-confirm-each-step pattern as the entry above.

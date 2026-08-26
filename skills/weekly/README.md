@@ -1,10 +1,11 @@
 # weekly skill
 
-Supports **Deeper Thinking** — see
+Supports **Weekly Wrap Up** — see
 [.claude/skills/weekly-update/SKILL.md](../../.claude/skills/weekly-update/SKILL.md)
 for the actual ceremony (the skill/directory kept the internal name
-`weekly-update`; the publication itself is called Deeper Thinking, Brian's
-own name, chosen 2026-08-24). Unlike `skills/ingest/`, `skills/brief/`, and
+`weekly-update`; the publication itself is called Weekly Wrap Up, chosen
+2026-08-24 as "Deeper Thinking," renamed by Brian on Substack
+2026-08-26). Unlike `skills/ingest/`, `skills/brief/`, and
 `skills/triage/`, the ceremony itself isn't an unattended pipeline — Brian
 is live for the whole thing.
 
@@ -24,7 +25,7 @@ Two scripts here, both genuinely reusable mechanics rather than judgment:
   python3 skills/weekly/gather.py --send       # also email it ($BRIAN_EMAIL)
   python3 skills/weekly/gather.py --dry-run    # print, write/send nothing
   ```
-- **`render.py`** — turns a finished Deeper Thinking `.md` into
+- **`render.py`** — turns a finished Weekly Wrap Up `.md` into
   Substack-paste HTML, same convention as
   [skills/brief/render.py](../brief/render.py), reusing its generic
   helpers. No git-diff hand-edit detection (nothing to detect — Brian
@@ -49,7 +50,7 @@ rendered-for-Substack file in this repo.
   `gather.py` (usually, on Fridays) or by the live ceremony itself if
   none exists yet for the current window.
 - `outputs/weekly-updates/YYYY/MM/YYYY-MM-DD.md` — the finished, dual-byline
-  (`brianmadden.ai` + `Brian Madden`) Deeper Thinking post, drafted live.
+  (`brianmadden.ai` + `Brian Madden`) Weekly Wrap Up post, drafted live.
 - `outputs/weekly-updates/.last_run.json` — pipeline state (last run
   timestamp), shared between `gather.py` and the live ceremony, same
   shape as `outputs/technical-briefings/.last_run.json`. Not content, not
