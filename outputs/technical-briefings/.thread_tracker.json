@@ -454,5 +454,23 @@
     "count": 1,
     "status": "watching",
     "history": []
+  },
+  {
+    "slug": "enterprise-ai-de-adoption-signal",
+    "description": "A named enterprise customer (Thomson Reuters/Claude) scaling back paid AI usage after real adoption, not stalling in pilot, alongside a lab reportedly asking prospective hires about zero-equity outcomes \u2014 a sharper counter-signal to valuation-maximalism narratives than pilot purgatory.",
+    "first_seen": "2026-08-26",
+    "last_seen": "2026-08-26",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "lab-leadership-messaging-incoherence",
+    "description": "Sam Altman walking back disruption rhetoric under public backlash the same week an OpenAI staffer publicly floats ending Social Security \u2014 incongruous public messaging from the same company, one instance so far.",
+    "first_seen": "2026-08-26",
+    "last_seen": "2026-08-26",
+    "count": 1,
+    "status": "watching",
+    "history": []
   }
 ]

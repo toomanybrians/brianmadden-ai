@@ -69,6 +69,21 @@ output), not pre-populated speculatively.
   tracked-thread slug), and *italics* for an inline file/path reference.
   A `.md` file reference should also be a real Markdown link, not bare
   text — see the next rule. (Brian's correction, 2026-08-16.)
+- **A tracked-thread's kebab-case slug (`inference-allocation-as-supply-
+  risk`) is bookkeeping, not vocabulary — it never appears inside a
+  sentence of prose, bolded or not.** The rule above only ever meant the
+  "Threads being tracked" bullet list at the bottom of the brief, where a
+  slug legitimately labels its own line. When referencing a tracked
+  thread from inside Part 1's prose, describe it in plain English (a real
+  noun phrase a human would say out loud) the same way you'd describe any
+  other idea — never drop the raw slug into the sentence, bolded or not.
+  (Brian's correction, 2026-08-26 — the Aug 16 rule got over-applied: by
+  Aug 17 body paragraphs were bolding slugs mid-sentence throughout the
+  brief, e.g. "the **inference-allocation-as-supply-risk** thread," and
+  it climbed to 17 such instances by Aug 26. Confirmed by counting
+  bolded-kebab-slug occurrences across every published brief this
+  month — zero through Aug 14, then present in every issue from Aug 17
+  on.)
 - **Any `.md` file mentioned inline gets linked to its actual GitHub file**,
   pointed at the `main` branch (`GITHUB_BASE` in `skills/brief/brief.py`) —
   not `v2`. Until the v2 launch PR merges, these links 404; Brian's

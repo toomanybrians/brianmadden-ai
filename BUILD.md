@@ -1430,3 +1430,127 @@ entry in file order) works. `sources/sources.yaml`'s header comments
 gained a matching dated note. Not yet exercised against a real inbound
 email (none of Brian's new Substack subscriptions have started
 delivering yet) — first real trigger will be the actual test.
+
+### 2026-08-26 — `/maintain` session (prose-quality bug diagnosed and
+fixed; brief.py's default model switched to Sonnet; X timeline wired
+in for real)
+
+Bootstrap found local 1 commit behind `origin/main` (the automated
+2026-08-26 morning run), working tree clean — clean fast-forward, no
+conflict.
+
+Brian's actual ask: the Daily Brief's opening line ("Today's batch
+lands hardest on the compute thread, and it lands from two directions
+at once") read as "too AI, too try-hardy" — asked what model was
+writing it and how to fix it, specifically flagging that it's gotten
+worse since the pipeline moved to GitHub Actions (Aug 19-20).
+
+**Diagnosis, not guesswork:** the model hadn't changed — `claude-opus-5`
+wrote the body from day one (Aug 11), when prose was clean. Counted
+bolded kebab-case tracked-thread slugs appearing inline in ordinary
+sentences (e.g. "the **inference-allocation-as-supply-risk** thread")
+across every published brief this month: zero through Aug 14, then
+10-17 per issue from Aug 17 on — a real, dateable regression, not a
+subjective drift. Traced to a one-line Aug 16 style-guide fix
+(`a88ace7`) meant to apply only to the "Threads being tracked" bullet
+list ("Use **bold** for a short label/identifier at the start of a
+bullet") — the model generalized it into bolding slugs anywhere it
+referenced a thread, including mid-sentence, which is exactly when the
+regression starts. Separately, reread the brief with fresh eyes and
+found a second, non-formatting pattern layered on top: rhetorical
+scaffolding (parallel triads, anaphora, sentences that restate their
+own point for a punchier close, italics for emphasis) that nothing in
+`me/voice.md` discouraged — the file describes what Brian sounds like,
+not what generic-impressive-AI-writing sounds like and should be
+avoided.
+
+**Fixed, both additive to files with an existing "flag tells as they
+turn up" convention:**
+- `me/style-guide.md` — scoped the Aug 16 bold-slug rule to the bullet
+  list only, and added an explicit rule banning a tracked-thread's
+  slug from ever appearing inside prose, bolded or not.
+- `me/voice.md` — extended the existing "AI-commentary tells" bullet
+  (the one that already caught "load-bearing" and "receipts") to cover
+  sentence-level tics, not just individual words: parallel triads for
+  cadence, anaphora, mic-drop restatement closers, italics standing in
+  for a stronger word choice.
+
+**Verified with a real regeneration, not just argument:** dry-run
+reran today's actual batch (the 4 brain@ notes + 1 new X-timeline
+note — see below) against the fixed prompt with `claude-opus-5`: zero
+bolded slugs (confirmed fix), but 3 residual italics-for-emphasis
+instances (the tone fix helps but doesn't fully land in one pass, as
+expected — same "watch for more, add them here" pattern as every prior
+voice.md addition). Used the same moved-file technique the 2026-08-25
+session documented (temporarily relocate the committed dense brief so
+`load_previously_briefed_paths()` doesn't exclude its notes from a
+dry-run comparison, restore immediately after) — with one real
+near-miss: the first attempt at a same-batch Sonnet comparison hit a
+2-minute Bash timeout mid-API-call, which killed the shell before the
+restore line ran, leaving the committed file moved aside for a few
+minutes until caught and fixed. No actual harm (`git status` confirmed
+clean once restored), but worth a beat: any future use of this
+technique should wrap the restore so it can't be stranded by a timeout
+(e.g. run the risky part with a timeout comfortably longer than the
+call ever takes, as the retry did).
+
+**Model question, asked directly by Brian ("is opus 5 the right model,
+should we use 4.8, or fable?"):** loaded the `claude-api` skill rather
+than answering from memory. No documented Anthropic guidance exists on
+relative prose-plainness across tiers — that's not something
+pricing/context-window docs cover. Ran a real same-batch, same-fixed-
+prompt comparison instead of speculating: `claude-sonnet-5` against
+`claude-opus-5` on the identical 5-note batch. Result: Sonnet produced
+zero bolded-slug and zero italics-emphasis instances (Opus still had
+3), at 750 words vs. 1,162 for the same material (35% shorter, nothing
+lost), at $2/$10 per MTok vs. Opus's $5/$25. Recommended against both
+alternatives Brian named: Opus 4.8 is same price as Opus 5 with no
+known advantage (older generation); Fable 5 costs double and is
+positioned by Anthropic for the hardest long-horizon agentic/reasoning
+work, not plain synthesis prose — no reason to expect it writes more
+simply, real reason to expect it costs more. Brian reviewed the full
+Sonnet sample and confirmed: switch permanently.
+
+**Landed for real, not just proposed:**
+1. `skills/brief/brief.py`'s `DEFAULT_MODEL` changed from
+   `claude-opus-5` to `claude-sonnet-5`, with the historical Aug-11
+   rationale comment kept (audit trail) and a new note explaining the
+   Aug-26 switch and its evidence, so a future session doesn't have to
+   re-derive why.
+2. **X timeline wired in for real, not just diagnosed.** Brian added
+   the `X_CLIENT_ID`/`SECRET`/`ACCESS_TOKEN`/`REFRESH_TOKEN` secrets to
+   GitHub mid-session (unblocks tomorrow's automated run — not verified
+   from here, GitHub Actions isn't reachable from this session, but the
+   mechanism is the same one just proven locally). Confirmed the same
+   4 credentials are already present in the local `.env` too; ran
+   `ingest.py --source x-timeline --since-days 2` for a real first
+   pull (the default auto-window was too narrow — 2.4 hours since the
+   source's own last successful run, which had never actually
+   succeeded before today) — 4 entries fetched, 3 correctly judged not
+   relevant, 1 real ingest note written
+   (`ingest/2026/08/2026-08-26-x-timeline-rt-bcmerchant-sam-altman-...md`).
+   First-ever successful pull from this source.
+3. **Today's dense brief and published post regenerated for real
+   against the fixed prompt, the new default model, and the freshly-
+   ingested X note, replacing what the morning's automated run had
+   committed** (per Brian's explicit "recommit with today's fix," after
+   he reviewed the full Sonnet sample). Used the moved-file technique
+   again, this time for a real (non-dry) run so no restore was needed —
+   the real run's output directly replaced the file that had been
+   moved aside. `outputs/technical-briefings/2026/08/2026-08-26.md` and
+   `outputs/published/2026/08/2026-08-26.md` both now cite all 5 of
+   today's notes (the original 4 brain@ notes plus the new X one) and
+   carry `model: claude-sonnet-5`. Thread tracker updated cleanly — the
+   already-documented same-day dedup guard (`last_seen == run_date`)
+   correctly no-op'd on the 6 threads the fuller batch re-touched from
+   the morning's thinner run, and added the 2 genuinely new ones
+   Sonnet's synthesis surfaced (`labs-public-rhetoric-vs-internal-
+   statements`, `youth-ai-anxiety-tracks-exposure-data`) without
+   duplicating anything — no promotion-candidates.md change, nothing
+   crossed the 3x threshold this run. Zero bolded slugs, zero
+   italics-emphasis tics in the final committed body — both fixes held
+   on the real run, not just the test one.
+
+All Python files touched (`brief.py`) compile clean
+(`python3 -m py_compile`); `scripts/check_doc_accuracy.py` re-checked
+after the commit.
