@@ -417,7 +417,9 @@ sources:
     name: Marcus on AI
     type: person
     url: https://garymarcus.substack.com
-    feed_url: https://garymarcus.substack.com/feed
+    feed_url: null
+    sender: garymarcus@substack.com
+    ingest_method: email
     priority: regular
     note: "Gary Marcus — prominent AI skeptic, good for dissenting takes"
     lens: skeptical-but-useful
@@ -828,3 +830,21 @@ sources:
     sender: forum@mg1.substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-08-24 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: brain-brianmadden-ai
+    name: "brain@brianmadden.ai"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: brianmaddenai+brianmaddenai@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-26 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: dwarkesh-patel
+    name: "Dwarkesh Patel"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: dwarkesh@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-26 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."

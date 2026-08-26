@@ -314,11 +314,12 @@
     "slug": "youth-ai-sentiment-inversion",
     "description": "Under-30s now as or more concerned than older cohorts about AI (Pew, 55%) and drifting toward trades \u2014 inverting the demographic engine that drove every prior consumerization wave the worker-led adoption thesis is modeled on.",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-08-25",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-26",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Exponential View: 22-25 year olds in AI-exposed occupations now 19% below employment trend, up from 15% a year ago \u2014 gives the sentiment inversion an economic basis and widens the tactical-learning-rungs gap Brian lists as unresolved."
+      "Exponential View: 22-25 year olds in AI-exposed occupations now 19% below employment trend, up from 15% a year ago \u2014 gives the sentiment inversion an economic basis and widens the tactical-learning-rungs gap Brian lists as unresolved.",
+      "Pew at 55% of under-30s more concerned than excited (up from 31% in 2021), now paired with labor data: 22-25 year-olds in AI-exposed occupations 19% below employment trend, up from 15% a year ago."
     ]
   },
   {
@@ -357,11 +358,12 @@
     "slug": "ratepayer-cost-passthrough-as-compute-constraint",
     "description": "Compute expansion being blocked by electricity-price politics rather than capital markets: PJM capacity prices up 11x, $130B of US data center projects blocked in Q1 2026, local support collapsing from a 43/42 split to 75% opposed in a year \u2014 a floor-loss mechanism for AI strategy that isn't capability stalling, price rises, or export control.",
     "first_seen": "2026-08-24",
-    "last_seen": "2026-08-25",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-08-26",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "The constraint went electoral this week: leaked NRSC/GOP memo puts data centers near spent-nuclear-waste polling and flags a Senate seat at risk; Gallup 70% local opposition (Diamandis cites 71%, above nuclear plants); PA, NY, TX all imposed new restrictions. Shapiro's local-buy-in-plus-good-citizenship order is a governed-middle response rather than a moratorium."
+      "The constraint went electoral this week: leaked NRSC/GOP memo puts data centers near spent-nuclear-waste polling and flags a Senate seat at risk; Gallup 70% local opposition (Diamandis cites 71%, above nuclear plants); PA, NY, TX all imposed new restrictions. Shapiro's local-buy-in-plus-good-citizenship order is a governed-middle response rather than a moratorium.",
+      "Gallup/Prof G at 70-71% data center opposition (above nuclear), leaked GOP memo flagging a Senator's re-election risk, new PA/NY/TX restrictions; Patel independently names state moratoriums and taxes as a revenue-per-megawatt suppressor."
     ]
   },
   {
@@ -377,34 +379,78 @@
     "slug": "provenance-unknown-models-at-scale",
     "description": "Anonymous 'stealth' models served free at enormous volume by undisclosed providers with mutable data policies \u2014 an object the model-portability and open-weight-floor arguments don't cover, since both assume you know whose model you're running.",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25",
-    "count": 1,
+    "last_seen": "2026-08-26",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Ox Alpha named directly: anonymous provider, free on OpenRouter, 1.05M context, near-unlimited caps, unverified frontier-beating coding benchmarks, and an explicit note that the no-training-on-prompts policy could change."
+    ]
   },
   {
     "slug": "ai-dissolving-hardware-software-moats",
     "description": "AI-assisted chip design and agent-written GPU kernels eroding the compiler/driver ecosystem moat that protects hardware incumbents (OpenAI's Jalape\u00f1o ASIC at 16 months to tapeout beating Blackwell on perf/watt; Hawkeye kernels exceeding expert-authored ones by up to 18.9x) \u2014 encoded expertise as a category of moat the three-tier software framework doesn't cover and which appears more vulnerable than regulation, data gravity, or encoded workflow.",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25",
-    "count": 1,
+    "last_seen": "2026-08-26",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Same evidence as when the thread opened (OpenAI's 16-month ASIC tapeout, Hawkeye kernels at up to 18.9x), plus a new adjacent data point: Nvidia shipping a CPU purpose-built for agent orchestration rather than inference."
+    ]
   },
   {
     "slug": "inference-allocation-as-supply-risk",
     "description": "Labs projected to shift compute away from external inference toward internal R&D as frontier-capability compounding outvalues token revenue (Patel: Anthropic+OpenAI toward most usable global flops by end-2028, ~$50M revenue per megawatt against $10-15M compute cost) \u2014 reframing lab dependency from a price risk into an availability/supply-guarantee risk that token economics arguments don't address.",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25",
-    "count": 1,
+    "last_seen": "2026-08-26",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Patel puts numbers on it: OpenAI+Anthropic at 40-50% of incremental compute in 2026, $50-100M revenue per MW vs $10-15M cost, and a shrinking share of compute allocated to external inference in favor of internal R&D. OpenAI's reinstated five-hour Plus cap is the same story visible at the subscription tier."
+    ]
   },
   {
     "slug": "owned-hardware-still-vendor-dependent",
     "description": "Sovereign AI census evidence that owning compute hardware doesn't confer control, because dependency persists through the update/support/spare-parts channel (revocable export licenses, CUDA updates, RMA, disputed chip-level kill switches; Kenya's Konza at ~$1M/year declining revenue against a $180M loan) \u2014 a hole in the 'hardware you own' planning floor that applies to hyperscaler and vendor relationships, not just geopolitical patrons.",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25",
+    "last_seen": "2026-08-26",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Sovereign compute census recurs: 59 programs, 42% never past MOU, no disclosed PPAs, and Kenya's Konza at ~$1M/year revenue against a $180M loan."
+    ]
+  },
+  {
+    "slug": "compute-siting-as-jurisdictional-escape",
+    "description": "Orbital and other extra-jurisdictional compute siting (Nvidia/SpaceX space-optimized NVL72 for Q4 2026 launch) as a route around the local permitting/ratepayer/water politics that currently gate datacenter expansion \u2014 a hole in the political-legitimacy-as-supply-constraint argument.",
+    "first_seen": "2026-08-26",
+    "last_seen": "2026-08-26",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "silicon-differentiating-by-cognitive-stack-layer",
+    "description": "Purpose-built hardware appearing for specific cognitive-stack layers rather than for models generally (Nvidia's Vera CPU for agent orchestration: tool calls, code execution, data movement) \u2014 raising whether the 'commodity, interchangeable' bottom layers acquire their own hardware economics and lock-in.",
+    "first_seen": "2026-08-26",
+    "last_seen": "2026-08-26",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "consumer-tier-rationing-narrows-the-byod-token-gap",
+    "description": "Flat-rate consumer AI plans introducing usage caps by tier (OpenAI Plus five-hour cap while Pro stays unlimited), which converts the consumer-unlimited vs enterprise-metered structural gap into a price-tier line running through both sides.",
+    "first_seen": "2026-08-26",
+    "last_seen": "2026-08-26",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "fde-training-throughput-as-wave-2-bottleneck",
+    "description": "DXC/Anthropic having trained 86 forward-deployed engineers against a commitment of tens of thousands \u2014 evidence that the constraint on enterprise knowledge-layer buildout is human training throughput rather than funding or model capability.",
+    "first_seen": "2026-08-26",
+    "last_seen": "2026-08-26",
     "count": 1,
     "status": "watching",
     "history": []

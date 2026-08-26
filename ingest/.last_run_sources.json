@@ -1,13 +1,12 @@
 {
-  "run_utc": "2026-08-25T16:06:11.598775+00:00",
+  "run_utc": "2026-08-26T06:18:18.454434+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
-      "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "status": "error",
+      "reason": "X_CLIENT_ID/SECRET/ACCESS_TOKEN/REFRESH_TOKEN not set \u2014 see .env.example"
     },
     {
       "id": "ethan-mollick",
@@ -22,7 +21,7 @@
       "name": "Nate B. Jones",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 3,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -38,15 +37,15 @@
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 19,
+      "new_entries": 19
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -62,7 +61,7 @@
       "name": "Dwarkesh",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -86,16 +85,16 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "on-with-kara-swisher",
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "no-priors",
@@ -126,8 +125,8 @@
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "algorithmic-bridge",
@@ -142,7 +141,7 @@
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -166,64 +165,57 @@
       "name": "The AI Realist",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "david-shapiro",
       "name": "David Shapiro's Substack",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://daveshap.substack.com/feed"
     },
     {
       "id": "demis-hassabis",
       "name": "Demis Hassabis",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://demishassabis.substack.com/feed"
     },
     {
       "id": "fei-fei-li",
       "name": "Dr. Fei-Fei Li",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://drfeifei.substack.com/feed"
     },
     {
       "id": "emerging-ai",
       "name": "Emerging AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://emergingai.substack.com/feed"
     },
     {
       "id": "emerging-physical-ai",
       "name": "Emerging Physical AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://emergingphysicalai.substack.com/feed"
     },
     {
       "id": "extended-brain",
       "name": "Extended_Brain",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://extendedbrain.substack.com/feed"
     },
     {
       "id": "forked-lightning",
       "name": "Forked Lightning",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://forklightning.substack.com/feed"
     },
     {
       "id": "the-generalist",
@@ -245,17 +237,15 @@
       "id": "import-ai",
       "name": "Import AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://importai.substack.com/feed"
     },
     {
       "id": "esther-dyson",
       "name": "In the pool with Esther",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://estherdyson.substack.com/feed"
     },
     {
       "id": "interconnects-ai",
@@ -269,137 +259,125 @@
       "id": "kevin-roose",
       "name": "Kevin Roose",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://kevinroose.substack.com/feed"
     },
     {
       "id": "kinder-futures",
       "name": "Kinder Futures: Dispatches on AI, Work & What Comes Next",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://mollykinder2.substack.com/feed"
     },
     {
       "id": "labor-matters",
       "name": "Labor Matters",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://gadlevanon.substack.com/feed"
     },
     {
       "id": "last-week-in-ai",
       "name": "Last Week in AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "marcus-on-ai",
       "name": "Marcus on AI",
-      "method": "feed",
+      "method": "email",
       "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "metatrends",
       "name": "Metatrends",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://metatrends.substack.com/feed"
     },
     {
       "id": "not-boring",
       "name": "Not Boring",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "prof-g-media",
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "simon-willison",
       "name": "Simon Willison's Newsletter",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://simonw.substack.com/feed"
     },
     {
       "id": "theory-of-the-game",
       "name": "Theory of the Game",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://reidhoffman.substack.com/feed"
     },
     {
       "id": "work-evolved",
       "name": "Work Evolved",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://workevolved.substack.com/feed"
     },
     {
       "id": "center-for-humane-technology",
       "name": "Center for Humane Technology",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://centerforhumanetechnology.substack.com/feed"
     },
     {
       "id": "big-by-matt-stoller",
       "name": "BIG by Matt Stoller",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://www.thebignewsletter.com/feed"
     },
     {
       "id": "rutger-bregman",
       "name": "Rutger Bregman",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://rutgerbregman.substack.com/feed"
     },
     {
       "id": "forecasting-research-institute",
       "name": "Forecasting Research Institute",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://forecastingresearch.substack.com/feed"
     },
     {
       "id": "cory-doctorow",
       "name": "Cory Doctorow",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://doctorow.substack.com/feed"
     },
     {
       "id": "claude-cowork",
@@ -413,9 +391,8 @@
       "id": "claude-mythos",
       "name": "Claude Mythos",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://claudemythos.substack.com/feed"
     },
     {
       "id": "jasmine-sun",
@@ -429,41 +406,38 @@
       "id": "ghosts-of-electricity",
       "name": "Ghosts of Electricity",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://aleximas.substack.com/feed"
     },
     {
       "id": "hard-reset",
       "name": "Hard Reset",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "kuns-field-notes",
       "name": "Kun's Field Notes",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
       "id": "the-wake-up-call",
       "name": "The Wake Up Call",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://thewakeupcallnewsletter.substack.com/feed"
     },
     {
       "id": "80000-hours-substack",
       "name": "80,000 Hours",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://80000hours.substack.com/feed"
     },
     {
       "id": "after-babel",
@@ -486,88 +460,78 @@
       "name": "AI Frontiers",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
       "id": "chinai-newsletter",
       "name": "ChinAI Newsletter",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://chinai.substack.com/feed"
     },
     {
       "id": "tech-empires",
       "name": "TECH EMPIRES",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://techempires.substack.com/feed"
     },
     {
       "id": "asimovs-addendum",
       "name": "Asimov's Addendum",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://asimovaddendum.substack.com/feed"
     },
     {
       "id": "the-ai-report",
       "name": "The AI Report",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://theaireport.substack.com/feed"
     },
     {
       "id": "economics-of-ai",
       "name": "The Economics of AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://economicsofai.substack.com/feed"
     },
     {
       "id": "eu-ai-act-newsletter",
       "name": "The EU AI Act Newsletter",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://artificialintelligenceact.substack.com/feed"
     },
     {
       "id": "guardrailnow",
       "name": "GuardRailNow",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://guardrailnow.substack.com/feed"
     },
     {
       "id": "metr",
       "name": "METR",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://metr.substack.com/feed"
     },
     {
       "id": "openai-global-affairs",
       "name": "The Prompt: Insights from OpenAI Global Affairs",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://openaiglobalaffairs.substack.com/feed"
     },
     {
       "id": "quantum-of-solis",
       "name": "A Quantum of Solis",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://briansolis.substack.com/feed"
     },
     {
       "id": "the-deep-view",
@@ -602,24 +566,22 @@
       "name": "Dwarkesh Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
       "id": "lex-fridman-2",
       "name": "Lex Fridman",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://lexfridman.substack.com/feed"
     },
     {
       "id": "nate-s-substack",
       "name": "Nate\u2019s Substack",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://natesnewsletter.substack.com/feed"
     },
     {
       "id": "futurism",

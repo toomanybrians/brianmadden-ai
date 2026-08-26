@@ -53,3 +53,29 @@ Notes from each recurrence:
 - AlphaSignal states it outright — 'model plus harness is becoming one unit, evaluating a model alone is losing meaning fast' — plus Pi's 26-35% context / 88% cost reduction from a disk-based tool-output pattern, CLI agents 5-28x cheaper than MCP across seven scaffolds, and Anthropic finding interpretability tools no better than reading raw transcripts. Three independent findings that the simple scaffolding wins; still nobody naming the context/judgment layer above the harness.
 
 **Status: not yet reviewed by Brian.**
+
+## `ratepayer-cost-passthrough-as-compute-constraint` — flagged 2026-08-26
+
+Compute expansion being blocked by electricity-price politics rather than capital markets: PJM capacity prices up 11x, $130B of US data center projects blocked in Q1 2026, local support collapsing from a 43/42 split to 75% opposed in a year — a floor-loss mechanism for AI strategy that isn't capability stalling, price rises, or export control.
+
+First seen 2026-08-24, recurred 3 times through 2026-08-26.
+
+Notes from each recurrence:
+
+- The constraint went electoral this week: leaked NRSC/GOP memo puts data centers near spent-nuclear-waste polling and flags a Senate seat at risk; Gallup 70% local opposition (Diamandis cites 71%, above nuclear plants); PA, NY, TX all imposed new restrictions. Shapiro's local-buy-in-plus-good-citizenship order is a governed-middle response rather than a moratorium.
+- Gallup/Prof G at 70-71% data center opposition (above nuclear), leaked GOP memo flagging a Senator's re-election risk, new PA/NY/TX restrictions; Patel independently names state moratoriums and taxes as a revenue-per-megawatt suppressor.
+
+**Status: not yet reviewed by Brian.**
+
+## `youth-ai-sentiment-inversion` — flagged 2026-08-26
+
+Under-30s now as or more concerned than older cohorts about AI (Pew, 55%) and drifting toward trades — inverting the demographic engine that drove every prior consumerization wave the worker-led adoption thesis is modeled on.
+
+First seen 2026-08-21, recurred 3 times through 2026-08-26.
+
+Notes from each recurrence:
+
+- Exponential View: 22-25 year olds in AI-exposed occupations now 19% below employment trend, up from 15% a year ago — gives the sentiment inversion an economic basis and widens the tactical-learning-rungs gap Brian lists as unresolved.
+- Pew at 55% of under-30s more concerned than excited (up from 31% in 2021), now paired with labor data: 22-25 year-olds in AI-exposed occupations 19% below employment trend, up from 15% a year ago.
+
+**Status: not yet reviewed by Brian.**
