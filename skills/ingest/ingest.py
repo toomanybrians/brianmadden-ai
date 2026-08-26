@@ -648,9 +648,35 @@ VIEW_ONLINE_TEXT_RE = re.compile(
     r'view\s+(this\s+)?(email\s+)?(in\s+(your\s+)?browser|online|web)|'
     r'read\s+(it\s+)?online|open\s+in\s+browser|web\s+version|'
     r'read\s+the\s+(full\s+)?(post|article|story)|'
-    r'continue\s+reading|keep\s+reading|full\s+(story|article|post)',
+    r'continue\s+reading|keep\s+reading|full\s+(story|article|post)|'
+    r'read\s+in\s+app',
     re.IGNORECASE,
 )
+
+# Substack's own email template never uses any of the phrasing above — every
+# Substack email links its "READ IN APP" button (and the post title itself)
+# through open.substack.com/pub/<publication>/p/<slug>, an app-first
+# interstitial rather than a plain public article page. Confirmed empirically
+# 2026-08-26 (Brian noticed every brain@-routed Substack note that day had no
+# link at all): _resolve_email_link()'s plain requests.get() doesn't reliably
+# follow this domain's redirect the way a real browser does (it can return
+# 200 and stay on open.substack.com instead of 3xx-ing to the real article),
+# so following it isn't safe to depend on. But the interstitial URL itself
+# already deterministically encodes the real public URL — same publication
+# subdomain, same slug, no redirect needed — so this rewrites it directly
+# instead of relying on a network round-trip that isn't reliable for this
+# one domain.
+SUBSTACK_APP_LINK_RE = re.compile(
+    r'^https://open\.substack\.com/pub/([^/]+)/p/([^/?]+)', re.IGNORECASE
+)
+
+
+def _rewrite_substack_app_link(url: str) -> str:
+    m = SUBSTACK_APP_LINK_RE.match(url)
+    if not m:
+        return url
+    publication, slug = m.groups()
+    return f"https://{publication}.substack.com/p/{slug}"
 
 
 def _find_view_online_link(html: str) -> str:
@@ -752,6 +778,8 @@ def _gmail_find_view_online_link(payload: dict) -> str:
     candidate = _find_view_online_link(_gmail_decode(html_data))
     if not candidate:
         return ""
+    if SUBSTACK_APP_LINK_RE.match(candidate):
+        return _rewrite_substack_app_link(candidate)
     return _resolve_email_link(candidate)
 
 
@@ -881,7 +909,29 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     # outgoing mail as if it were a newsletter (real incident: the
     # 2026-08-20 automated run ingested the 2026-08-19 Daily Briefing and
     # an About-page email, both sent minutes earlier from brain@ itself).
-    query = f'in:inbox after:{cutoff.strftime("%Y/%m/%d")} {_gmail_exclude_processed_clause()}'
+    #
+    # -from:SELF_PUBLICATION_SENDERS added 2026-08-26: a second, distinct
+    # path to the same self-ingestion problem, this time via a real inbound
+    # subscription rather than the Sent folder — brain@ turned out to be a
+    # subscriber to the `brianmaddenai` Substack publication itself, so
+    # every time Brian publishes a Daily Brief on Substack, a copy lands in
+    # brain@'s INBOX from Substack's own outgoing address for that
+    # publication (`brianmaddenai+brianmaddenai@substack.com`), and the
+    # in:inbox filter above does nothing to stop it — it's a real inbound
+    # message, not Sent mail. Confirmed real 2026-08-26: auto-registered
+    # itself as a new source the same way any unrecognized sender does
+    # (`brain-brianmadden-ai` in sources.yaml), then got extracted and fed
+    # into the next day's synthesis as if it were independent third-party
+    # insight — a feedback loop, not a curation question, so unlike every
+    # other sender (see the docstring: no allowlist, subscribing IS
+    # curation) this one sender is excluded structurally rather than left
+    # to curation, the same way Sent-folder self-mail already is.
+    self_publication_senders = ("brianmaddenai+brianmaddenai@substack.com",)
+    exclude_self = " ".join(f"-from:{addr}" for addr in self_publication_senders)
+    query = (
+        f'in:inbox after:{cutoff.strftime("%Y/%m/%d")} '
+        f'{exclude_self} {_gmail_exclude_processed_clause()}'
+    )
     headers = {"Authorization": f"Bearer {access_token}"}
 
     # Confirmed real 2026-08-14: this used to pass maxResults=max_per_source

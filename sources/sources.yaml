@@ -837,8 +837,17 @@ sources:
     url: null  # not looked up — auto-added, fill in if known
     feed_url: null
     sender: brianmaddenai+brianmaddenai@substack.com
-    priority: regular
-    note: "Auto-discovered from a real brain@ ingestion on 2026-08-26 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+    priority: excluded
+    note: "This is the brianmaddenai Substack publication's own outgoing
+      sender — brain@ is a subscriber to its own AI byline, so this
+      auto-registered itself from a real ingestion the same as any
+      unrecognized sender would. Excluded structurally as of 2026-08-26
+      (see the -from: exclusion in ingest.py's fetch_entries_email()):
+      ingesting the pipeline's own published output as third-party
+      insight the next day is a feedback loop, not a curation call, so
+      unlike every other auto-discovered sender this one doesn't wait on
+      Brian's review to be handled. Row kept for the audit trail, not as
+      an active source."
 
   - id: dwarkesh-patel
     name: "Dwarkesh Patel"

@@ -1554,3 +1554,104 @@ Sonnet sample and confirmed: switch permanently.
 All Python files touched (`brief.py`) compile clean
 (`python3 -m py_compile`); `scripts/check_doc_accuracy.py` re-checked
 after the commit.
+
+**Same session, continued — Brian read the recommitted brief and flagged
+more, real problems found by actually investigating rather than
+guessing:**
+
+1. **Substack-sourced brain@ notes had no source link — confirmed and
+   fixed.** Every brain@-routed Substack email that day had `source_url:
+   ''`. Root-caused with a live Gmail diagnostic (not a guess): pulled
+   the raw HTML of three real Substack emails and dumped every anchor's
+   text. Substack's template never uses any of the phrasing
+   `_find_view_online_link()`'s regex looked for ("view in browser,"
+   "continue reading," etc.) — it links the post title and a **"READ IN
+   APP"** button, both through `open.substack.com/pub/<publication>/p/
+   <slug>`, an app-first interstitial. Confirmed that domain doesn't
+   reliably 3xx-redirect for a plain `requests.get()` the way
+   `_resolve_email_link()` expects (it can return 200 and stay put,
+   unlike a real browser) — so instead of trusting that redirect, added
+   `_rewrite_substack_app_link()`, which parses the publication+slug
+   directly out of the interstitial URL and constructs the real
+   `https://<publication>.substack.com/p/<slug>` URL deterministically,
+   no network round-trip needed. Also added "read in app" to
+   `VIEW_ONLINE_TEXT_RE` so the anchor gets found at all. Verified live
+   against 3 real senders (Marcus on AI, Dwarkesh Patel, and the
+   self-publication email below) and again in a fresh dry-run pulling
+   today's actual next batch — real links now populate correctly across
+   the board (GuardRailNow, Nate's Substack, Labor Matters, etc.), not
+   just the tested examples.
+
+2. **Found a real self-referential feedback loop, not flagged by
+   Brian — the pipeline was re-ingesting its own published output as
+   third-party insight.** While tracing the link bug, one of today's
+   brain-inbox notes turned out to be titled "Daily Briefing: August 25,
+   2026" from `brianmaddenai+brianmaddenai@substack.com` — Substack's own
+   outgoing sender for the `brianmaddenai` publication. brain@ turns out
+   to be a subscriber to its own AI byline's publication, so every time
+   Brian hits publish on Substack, a copy lands back in brain@'s INBOX
+   and gets auto-registered and extracted the same as any other
+   unrecognized sender (`brain-brianmadden-ai` in `sources.yaml`,
+   auto-added today) — then fed into the *next* day's synthesis as if it
+   were independent new material. This is a different path to the same
+   problem the 2026-08-20 incident fixed (which only covered
+   brain@'s own Sent-folder mail via `in:inbox`) — this one arrives as a
+   genuine inbound message, so `in:inbox` doesn't touch it. Fixed with an
+   explicit `-from:` exclusion in `fetch_entries_email()`'s Gmail query,
+   scoped to this one sender — deliberately not a general allowlist
+   (the function's whole design, per its own docstring, is "subscribing
+   IS curation, no sender list"), but this isn't a curation call: the
+   brain literally cannot treat its own voice as an independent source
+   without compounding daily. `sources.yaml`'s auto-registered row for
+   this sender updated from `priority: regular` /
+   "not yet reviewed by Brian" to `priority: excluded` with the reasoning,
+   kept for the audit trail rather than deleted. Verified live: a fresh
+   dry-run against `brain-inbox` no longer surfaces this sender.
+
+3. **Investigated Brian's "are we really getting the podcasts"
+   worry — not a bug.** Checked `The Artificial Intelligence Show`
+   specifically (the one he named). Fetched the real Megaphone feed
+   directly: episode #233 published Aug 25, 9am UTC. Found it was
+   already captured the same day (2026-08-25's local catch-up run),
+   with `transcript_mode: transcribe` actually working — the ingest note
+   has seven substantive, specific insights (the OpenAI/Hugging Face RL
+   pause, the Gavin Baker/Amodei dispute, etc.), a real
+   `source_url` (`podcast.smarterx.ai/shownotes/233`), and confirmed it
+   was cited in the 2026-08-25 brief. No fix needed here — the coverage
+   worry doesn't hold up for this source. Separately noted: no
+   `type: youtube` sources exist in `sources.yaml` at all (only
+   `podcast`/`newsletter`/`person`/`x`) — worth asking Brian whether
+   that's an intentional gap or something to add.
+
+4. **The Gary Marcus "$30 trillion fantasy" item's "failure risk"
+   framing was already wrong at extraction time, not a synthesis
+   artifact.** Brian's read of the actual piece: it's about Anthropic
+   vetting whether prospective hires are there for the mission or just
+   the money, not about failure risk. Checked the ingest note directly —
+   the "signaling internal awareness of high failure risk" framing is
+   baked into the note's own `## Insights` bullets, written at
+   extraction time, before brief.py's synthesis ever saw it. A genuine
+   single-instance extraction-accuracy miss (Marcus's sardonic voice is
+   probably harder to summarize neutrally than most sources), not
+   something to chase a code fix for — flagged for Brian's awareness,
+   and folded into the open question below about what counts as
+   worth covering at all.
+
+5. **Prose density — the bolded-slug and rhetorical-flourish fixes
+   didn't fully resolve Brian's core complaint.** Reread the
+   already-recommitted Sonnet brief's "What this confirms" opening with
+   Brian's fresh complaint in mind: still true that no bold/italics tics
+   remain, but the sentences themselves are still long, multi-clause,
+   and lean on internal terms ("the watch list," "compute-availability
+   risk") without unpacking them. This is a different, deeper issue than
+   what got fixed earlier — not addressed yet, flagged as open, with a
+   worked before/after example proposed in chat rather than silently
+   applied, since it's a real editorial-direction question.
+
+Not yet decided this session (raised with Brian, not resolved
+unilaterally): whether to purge the self-referential note + regenerate
+today's already-pushed brief a second time now that both new bugs are
+fixed, what "tie back to work" should mean concretely for what counts as
+worth surfacing, and how far to push the sentence-density rewrite.
+`ingest.py` changes compile clean; `check_doc_accuracy.py` and a YAML
+parse check both pass clean after the `sources.yaml` edit.
