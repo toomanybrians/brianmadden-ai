@@ -752,5 +752,5 @@ permalink, and a real timestamp (a real bug in the permalink-pairing
 logic was caught and fixed during this same testing, not shipped and
 found later).
 
-**Result: CLEAR TO COMMIT** — holding for Brian's go-ahead, same
-live-confirm-each-step pattern as the entry above.
+**Result: COMMITTED AND PUSHED** (`5df0294`) — Brian confirmed live,
+same pattern as the entry above.
