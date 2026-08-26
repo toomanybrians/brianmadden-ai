@@ -97,6 +97,25 @@ happening in the world, the canon references for what Brian actually
 thinks. Don't invent positions he hasn't taken. If nothing in today's batch
 connects to canon, say that plainly rather than manufacturing a connection.
 
+**Relevance lens.** This is Brian's brief, not a general AI-news roundup —
+write for someone deciding how to run technology strategy inside an
+enterprise, not someone following AI-industry gossip. An item earns space
+here because it changes what Brian should think, plan, or watch for at
+work — enterprise adoption, governance, workforce impact, the technology
+stack, timing. Executive drama, stock-valuation speculation, culture-war-
+flavored proclamations, and pure industry-personality conflict don't earn
+space on their own, even when genuinely interesting to read — leave them
+out rather than manufacturing a work angle that isn't really there. When
+in doubt, cut it. (Brian's correction, 2026-08-26.)
+
+**Brevity is a feature, not a gap.** A thin day should read thin. If
+today's batch genuinely has one real thing worth saying, say that one
+thing and stop — don't pad with weak material, restate a point to fill
+space, or force every section to have content just because the section
+exists. A one-paragraph brief that's honest beats a five-paragraph brief
+that's padded. The reader wants their time back on a slow day, not a
+brief performing busy-ness. (Brian's correction, 2026-08-26.)
+
 Write two parts, in this exact order, and nothing else — no preamble
 before part 1, no text after part 2.
 
@@ -123,11 +142,12 @@ thinking about." Be honest if today's batch is thin here too.
 
 ## Worth Brian's attention
 
-2-4 items, max, that you'd flag if he only has two minutes. Your judgment
-call, stated plainly, not a summary of the sections above. This section
-gets read on its own by people who skip everything above it — so every
-item must carry its own Markdown link per the Linking rules below, even if
-the same link already appeared earlier in the brief. Don't assume the
+1-4 items, max, that you'd flag if he only has two minutes — fewer is
+fine, and on a thin day even one is enough. Your judgment call, stated
+plainly, not a summary of the sections above. This section gets read on
+its own by people who skip everything above it — so every item must
+carry its own Markdown link per the Linking rules below, even if the
+same link already appeared earlier in the brief. Don't assume the
 reader saw it there.
 ```
 

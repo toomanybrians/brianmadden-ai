@@ -2,7 +2,7 @@
 title: Dylan Patel – Anthropic & OpenAI will have most of the world’s compute by 2028
 source: brain@ inbox (curated newsletters)
 source_id: brain-inbox
-source_url: ''
+source_url: https://dwarkesh.substack.com/p/dylan-patel-3
 author: Dwarkesh Patel <dwarkesh@substack.com>
 date_published: '2026-08-25'
 date_captured: '2026-08-26'

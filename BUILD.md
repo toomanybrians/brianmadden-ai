@@ -1655,3 +1655,65 @@ fixed, what "tie back to work" should mean concretely for what counts as
 worth surfacing, and how far to push the sentence-density rewrite.
 `ingest.py` changes compile clean; `check_doc_accuracy.py` and a YAML
 parse check both pass clean after the `sources.yaml` edit.
+
+**Same session, continued — Brian resolved both open questions
+("do both") and today's brief regenerated a third time, for real, with
+every fix from this session active at once:**
+
+1. **Sentence density rule added to `me/voice.md`.** New section, distinct
+   from the earlier AI-commentary-tells fix: one idea per sentence, split
+   anything that needs a mid-sentence tangent to parse, don't lean on
+   internal shorthand ("the watch list") without explaining it. Anchored
+   to the exact before/after example from chat.
+2. **Relevance lens + brevity permission added to `skills/brief/
+   prompt.md`'s task instructions.** Explicit steer: this is enterprise
+   technology-strategy material, not an AI-industry-gossip roundup —
+   executive drama, valuation speculation, and culture-war proclamations
+   don't earn space on their own. Explicit permission for a short brief
+   on a thin day ("1-4 items, fewer is fine" replacing "2-4, max" in
+   Worth Brian's attention) — Brian's own framing: "give me and the
+   readers the time back."
+3. **The self-referential note purged** (`git rm`), and the two
+   Substack-link fixes applied for real, not just tested. Two notes from
+   this morning (Marcus, Dwarkesh Patel) predated the link fix and were
+   already Gmail-labeled processed, so a re-pull wouldn't have re-fetched
+   them — patched their `source_url` frontmatter directly instead, using
+   the exact URLs already confirmed correct via the earlier diagnostic
+   (`garymarcus.substack.com/p/anthropics-30-trillion-fantasy`,
+   `dwarkesh.substack.com/p/dylan-patel-3`), then verified both resolve
+   to the real live articles via WebFetch before trusting them. A fresh
+   real pull of `brain-inbox` (not dry-run) picked up 5 more genuinely
+   new items with working links out of the box (GuardRailNow, Nate's
+   Substack, Labor Matters, The Deep View, AlphaSignal) — auto-
+   registering 3 new `sources.yaml` rows along the way, expected
+   behavior. A quick `x-timeline` re-check found nothing newly relevant.
+4. **Today's dense brief and published post regenerated for real a
+   third time**, now against 9 ingest notes (vs. this morning's 4) with
+   every fix from this session active together. Concrete results,
+   checked rather than assumed:
+   - **Links:** every substantive citation in the published body now
+     resolves to a real article — zero empty `source_url` fields feeding
+     the final text.
+   - **Relevance lens:** the Marcus item's framing flipped from the
+     stock-value/failure-risk angle Brian said wasn't the point to
+     "Thomson Reuters scaling back its Claude usage" — a concrete
+     enterprise-adoption data point, exactly the kind of reframing the
+     new instruction was meant to produce. No exec-drama material made
+     it into the final text.
+   - **Brevity:** not tested by this run in the direction Brian asked
+     about — today's fresh batch was genuinely rich (9 real, distinct
+     stories), so a substantial brief is the correct output, not padding.
+     The "thin day should read thin" instruction is written and in place
+     for whenever a real thin day arrives to test it against.
+   - **Sentence density:** measurably better, not fully solved. Average
+     sentence length in "What this confirms" dropped from 33.4 to 28.8
+     words, max sentence from 69 to 52 words, comparing the same section
+     before/after this run. Real progress, honestly short of the
+     12-15-word-average worked example from chat — flagged to Brian as
+     partial, with the option of another tightening pass rather than
+     claimed as fully fixed.
+   - Zero bolded-slug and zero italics-emphasis instances — both earlier
+     fixes held.
+
+All three touched Python files (`ingest.py`, `brief.py`, `publish.py`)
+compile clean; `check_doc_accuracy.py` clean.

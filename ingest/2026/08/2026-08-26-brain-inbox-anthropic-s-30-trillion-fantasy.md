@@ -2,7 +2,7 @@
 title: Anthropic’s $30 trillion fantasy
 source: brain@ inbox (curated newsletters)
 source_id: brain-inbox
-source_url: ''
+source_url: https://garymarcus.substack.com/p/anthropics-30-trillion-fantasy
 author: Gary Marcus from Marcus on AI <garymarcus@substack.com>
 date_published: '2026-08-25'
 date_captured: '2026-08-26'

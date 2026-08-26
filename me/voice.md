@@ -60,6 +60,26 @@ He thinks like a practitioner, not an analyst. 32 years of watching enterprise t
 - Obvious statements dressed up as insights
 - False equivalence ("both sides" when one is clearly right)
 
+## Sentence density
+
+One idea per sentence. Two short sentences beat one that stacks two or
+three facts together with em-dashes or a comma-separated aside — if a
+sentence needs a tangent in the middle to parse, it's two sentences.
+Don't lean on an internal shorthand term ("the watch list,"
+"compute-availability risk") without either explaining it in the same
+breath or just describing the thing plainly instead of naming it — the
+reader doesn't already know the pipeline's own vocabulary. (Brian's
+correction, 2026-08-26 — the AI-commentary-tells fix above cut the
+rhetorical flourish but not the underlying sentence complexity; the
+brief was still hard to get through. A same-paragraph before/after made
+the gap concrete: "Five items today, and four of them are really one
+story: compute is consolidating, and every angle of that consolidation
+— who controls it, where it sits, what silicon runs it, who's allowed
+to know what a given model actually is — matches a thread already on
+the watch list" became "Four of today's five items are really the same
+story: computing power is consolidating into fewer hands," followed by
+three more short sentences, each carrying exactly one fact.)
+
 ## Tone
 
 Authoritative but accessible. Contrarian but credible. Think: senior executive explaining complex ideas to smart people who aren't specialists. No jargon gatekeeping, no dumbing down.
