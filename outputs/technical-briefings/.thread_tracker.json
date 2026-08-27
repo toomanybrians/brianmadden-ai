@@ -323,18 +323,6 @@
     ]
   },
   {
-    "slug": "governance-derived-from-political-theory",
-    "description": "AI governance primitives (bounded legibility, accountability tracing, balance-of-power design) being derived from constitutional/political-theory arguments about state power rather than from enterprise IT controls \u2014 a different requirements set arriving from where regulation actually originates.",
-    "first_seen": "2026-08-21",
-    "last_seen": "2026-08-25",
-    "count": 3,
-    "status": "promoted-candidate",
-    "history": [
-      "OpenAI's new Strategic Futures team publishes that AI could let states project force and collect revenue without depending on citizens' labor, taxes, or consent, naming it the largest risk category \u2014 political-theory framing arriving from inside a frontier lab rather than from regulators.",
-      "AI Frontiers proposes actuarial/insurance underwriting (TRIP's mandatory data call) as the mechanism for estimating catastrophic AI loss \u2014 a second instance of AI governance requirements originating outside enterprise IT, this time from insurance rather than constitutional theory."
-    ]
-  },
-  {
     "slug": "multi-agent-consensus-destroys-minority-signal",
     "description": "Anthropic's hidden-profile result: when correct answers depend on evidence held by few agents, multi-agent discussion converges on the shared-but-wrong consensus (17-36% vs near-100% for a single agent with all evidence), driven by low inter-agent output variance \u2014 undercutting adversarial-review-agent verification and the one-human-plus-agent-pod model.",
     "first_seen": "2026-08-24",
@@ -353,27 +341,6 @@
     "history": [
       "EU mandate live since Aug 2, 2026. Anthropic's implementation adds no tokens or characters and is untraceable to a person/conversation; the ~200-token degradation threshold was negotiated directly with providers; engagement reportedly drops significantly once content is flagged as AI-generated. The AI Act does not treat agents as a separate legal category."
     ]
-  },
-  {
-    "slug": "ratepayer-cost-passthrough-as-compute-constraint",
-    "description": "Compute expansion being blocked by electricity-price politics rather than capital markets: PJM capacity prices up 11x, $130B of US data center projects blocked in Q1 2026, local support collapsing from a 43/42 split to 75% opposed in a year \u2014 a floor-loss mechanism for AI strategy that isn't capability stalling, price rises, or export control.",
-    "first_seen": "2026-08-24",
-    "last_seen": "2026-08-26",
-    "count": 3,
-    "status": "promoted-candidate",
-    "history": [
-      "The constraint went electoral this week: leaked NRSC/GOP memo puts data centers near spent-nuclear-waste polling and flags a Senate seat at risk; Gallup 70% local opposition (Diamandis cites 71%, above nuclear plants); PA, NY, TX all imposed new restrictions. Shapiro's local-buy-in-plus-good-citizenship order is a governed-middle response rather than a moratorium.",
-      "Gallup/Prof G at 70-71% data center opposition (above nuclear), leaked GOP memo flagging a Senator's re-election risk, new PA/NY/TX restrictions; Patel independently names state moratoriums and taxes as a revenue-per-megawatt suppressor."
-    ]
-  },
-  {
-    "slug": "insurance-underwriting-as-ai-risk-pricing",
-    "description": "Compulsory actuarial loss estimation (TRIP-style data calls) as a mechanism for pricing AI risk before any incident \u2014 which would give enterprise AI deployment a governance-linked cost line that isn't tokens, set by demonstrable logging/identity/audit controls.",
-    "first_seen": "2026-08-25",
-    "last_seen": "2026-08-25",
-    "count": 1,
-    "status": "watching",
-    "history": []
   },
   {
     "slug": "provenance-unknown-models-at-scale",
@@ -411,26 +378,6 @@
     ]
   },
   {
-    "slug": "owned-hardware-still-vendor-dependent",
-    "description": "Sovereign AI census evidence that owning compute hardware doesn't confer control, because dependency persists through the update/support/spare-parts channel (revocable export licenses, CUDA updates, RMA, disputed chip-level kill switches; Kenya's Konza at ~$1M/year declining revenue against a $180M loan) \u2014 a hole in the 'hardware you own' planning floor that applies to hyperscaler and vendor relationships, not just geopolitical patrons.",
-    "first_seen": "2026-08-25",
-    "last_seen": "2026-08-26",
-    "count": 2,
-    "status": "watching",
-    "history": [
-      "Sovereign compute census recurs: 59 programs, 42% never past MOU, no disclosed PPAs, and Kenya's Konza at ~$1M/year revenue against a $180M loan."
-    ]
-  },
-  {
-    "slug": "compute-siting-as-jurisdictional-escape",
-    "description": "Orbital and other extra-jurisdictional compute siting (Nvidia/SpaceX space-optimized NVL72 for Q4 2026 launch) as a route around the local permitting/ratepayer/water politics that currently gate datacenter expansion \u2014 a hole in the political-legitimacy-as-supply-constraint argument.",
-    "first_seen": "2026-08-26",
-    "last_seen": "2026-08-26",
-    "count": 1,
-    "status": "watching",
-    "history": []
-  },
-  {
     "slug": "silicon-differentiating-by-cognitive-stack-layer",
     "description": "Purpose-built hardware appearing for specific cognitive-stack layers rather than for models generally (Nvidia's Vera CPU for agent orchestration: tool calls, code execution, data movement) \u2014 raising whether the 'commodity, interchangeable' bottom layers acquire their own hardware economics and lock-in.",
     "first_seen": "2026-08-26",
@@ -460,15 +407,6 @@
   {
     "slug": "enterprise-ai-de-adoption-signal",
     "description": "A named enterprise customer (Thomson Reuters/Claude) scaling back paid AI usage after real adoption, not stalling in pilot, alongside a lab reportedly asking prospective hires about zero-equity outcomes \u2014 a sharper counter-signal to valuation-maximalism narratives than pilot purgatory.",
-    "first_seen": "2026-08-26",
-    "last_seen": "2026-08-26",
-    "count": 1,
-    "status": "watching",
-    "history": []
-  },
-  {
-    "slug": "lab-leadership-messaging-incoherence",
-    "description": "Sam Altman walking back disruption rhetoric under public backlash the same week an OpenAI staffer publicly floats ending Social Security \u2014 incongruous public messaging from the same company, one instance so far.",
     "first_seen": "2026-08-26",
     "last_seen": "2026-08-26",
     "count": 1,
