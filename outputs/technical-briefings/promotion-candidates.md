@@ -79,3 +79,29 @@ Notes from each recurrence:
 - Pew at 55% of under-30s more concerned than excited (up from 31% in 2021), now paired with labor data: 22-25 year-olds in AI-exposed occupations 19% below employment trend, up from 15% a year ago.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-dissolving-hardware-software-moats` — flagged 2026-08-27
+
+AI-assisted chip design and agent-written GPU kernels eroding the compiler/driver ecosystem moat that protects hardware incumbents (OpenAI's Jalapeño ASIC at 16 months to tapeout beating Blackwell on perf/watt; Hawkeye kernels exceeding expert-authored ones by up to 18.9x) — encoded expertise as a category of moat the three-tier software framework doesn't cover and which appears more vulnerable than regulation, data gravity, or encoded workflow.
+
+First seen 2026-08-25, recurred 3 times through 2026-08-27.
+
+Notes from each recurrence:
+
+- Same evidence as when the thread opened (OpenAI's 16-month ASIC tapeout, Hawkeye kernels at up to 18.9x), plus a new adjacent data point: Nvidia shipping a CPU purpose-built for agent orchestration rather than inference.
+- OpenAI published its own Jalapeño benchmark numbers (1.5-1.9x perf/watt over Nvidia GB200/GB300) and Nvidia's ~$6B Poolside license deal both extend this thread with concrete data points.
+
+**Status: not yet reviewed by Brian.**
+
+## `inference-allocation-as-supply-risk` — flagged 2026-08-27
+
+Labs projected to shift compute away from external inference toward internal R&D as frontier-capability compounding outvalues token revenue (Patel: Anthropic+OpenAI toward most usable global flops by end-2028, ~$50M revenue per megawatt against $10-15M compute cost) — reframing lab dependency from a price risk into an availability/supply-guarantee risk that token economics arguments don't address.
+
+First seen 2026-08-25, recurred 3 times through 2026-08-27.
+
+Notes from each recurrence:
+
+- Patel puts numbers on it: OpenAI+Anthropic at 40-50% of incremental compute in 2026, $50-100M revenue per MW vs $10-15M cost, and a shrinking share of compute allocated to external inference in favor of internal R&D. OpenAI's reinstated five-hour Plus cap is the same story visible at the subscription tier.
+- Brian's own open question about labs deprioritizing paid inference for internal R&D reappears, with the Jalapeño chip investment and Nvidia/Poolside deal read as circumstantial evidence for an infrastructure-over-revenue bet.
+
+**Status: not yet reviewed by Brian.**

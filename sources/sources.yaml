@@ -315,7 +315,9 @@ sources:
     name: Emerging AI
     type: newsletter
     url: https://emergingai.substack.com
-    feed_url: https://emergingai.substack.com/feed
+    feed_url: null
+    sender: emergingai@substack.com
+    ingest_method: email
     priority: regular
     note: "by Opinion AI — practical/builder-focused AI newsletter"
 
@@ -433,7 +435,9 @@ sources:
     name: Metatrends
     type: person
     url: https://metatrends.substack.com
-    feed_url: https://metatrends.substack.com/feed
+    feed_url: null
+    sender: metatrends@substack.com
+    ingest_method: email
     priority: regular
     note: "Peter Diamandis's newsletter — also tracked via the Moonshots podcast above"
 
@@ -697,7 +701,9 @@ sources:
     name: "The Prompt: Insights from OpenAI Global Affairs"
     type: newsletter
     url: https://openaiglobalaffairs.substack.com
-    feed_url: https://openaiglobalaffairs.substack.com/feed
+    feed_url: null
+    sender: openaiglobalaffairs@substack.com
+    ingest_method: email
     priority: regular
 
   - id: quantum-of-solis
@@ -884,3 +890,12 @@ sources:
     sender: gadlevanon@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-08-26 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: hard-reset-2
+    name: "Hard Reset"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: hardresetmedia@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-27 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."

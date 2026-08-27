@@ -1,5 +1,5 @@
 {
-  "run_utc": "2026-08-26T06:18:18.454434+00:00",
+  "run_utc": "2026-08-27T09:19:09.514174+00:00",
   "results": [
     {
       "id": "x-timeline",
@@ -21,8 +21,8 @@
       "name": "Nate B. Jones",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "daniel-miessler",
@@ -37,16 +37,16 @@
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 19,
-      "new_entries": 19
+      "entries_in_window": 14,
+      "new_entries": 14
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "moonshots",
@@ -93,8 +93,8 @@
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "no-priors",
@@ -117,8 +117,8 @@
       "name": "Lex Fridman",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "hbr-ideacast",
@@ -192,9 +192,10 @@
     {
       "id": "emerging-ai",
       "name": "Emerging AI",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://emergingai.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "emerging-physical-ai",
@@ -295,9 +296,10 @@
     {
       "id": "metatrends",
       "name": "Metatrends",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://metatrends.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "not-boring",
@@ -312,8 +314,8 @@
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "semianalysis",
@@ -522,9 +524,10 @@
     {
       "id": "openai-global-affairs",
       "name": "The Prompt: Insights from OpenAI Global Affairs",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://openaiglobalaffairs.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "quantum-of-solis",
@@ -628,6 +631,41 @@
     {
       "id": "juan-pardilla",
       "name": "Juan Pardilla",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "brain-brianmadden-ai",
+      "name": "brain@brianmadden.ai",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "dwarkesh-patel",
+      "name": "Dwarkesh Patel",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "guardrailnow-2",
+      "name": "GuardRailNow",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "nate-from-nate-s-substack",
+      "name": "Nate from Nate\u2019s Substack",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "labor-matters-from-gad-levanon",
+      "name": "Labor Matters from Gad Levanon",
       "method": "feed",
       "status": "skipped",
       "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
