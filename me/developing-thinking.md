@@ -1,6 +1,6 @@
 ---
 title: "Where Brian's head is right now"
-updated: "2026-08-24"
+updated: "2026-08-27"
 last_reviewed: "2026-08-24"
 authority_level: 2
 file_type: frontier
@@ -83,8 +83,6 @@ New formulations that landed: "The company that spends the most tokens in the mo
 Efficiency as capacity *multiplier*, not just cost reducer. In a zero-sum compute environment, 50% fewer tokens = twice the effective capacity. The routing layer—the intelligence that decides where workloads run—may be the most durable competitive advantage in enterprise AI.
 
 **May 7 update: Excel routing example now published.** The four-layer version (do-it-yourself $0, reason-in-context ~1K, skill ~1K + maintenance, CUA agent ~200K) is in [Why enterprise AI agents disappoint](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/). The core argument—each layer down costs more *and* requires the layers above—is now a public reference point.
-
-**August 24 update: a second compute constraint showed up this week—political legitimacy, not price.** Everything above assumes the constraint is economic. A parallel one is forming that's about permission, not price: majority public support for slowing data center buildout, net-negative trust in AI executives, a 1,100-signature cross-lab employee letter urging deliberate pacing, and a real local fight (Wisconsin Rapids—water, an NDA, an alderman recall) where the gate is a permitting hearing, not a spreadsheet. Doesn't change the token-economics argument above; adds a second, independent lever that can throttle supply even if the economics stay favorable.
 
 **June 17 update: the ladder now has real numbers attached at every phase.** Daily token consumption per user, mapped to the seven phases below: ~100K (faster search) → ~1M (thinking partner) → ~10M (cognitive extension, confirmed from my own usage) → ~100M (multi-tool agent processing screenshots) → ~1B (fleet of agents) → ~10B (always-on pod with continuous agents). I used 291 million tokens in my first month at the cognitive-extension phase. Numbers like this make the compute-scarcity argument concrete instead of abstract: here's where a given worker sits today, here's what happens to the token bill as they move up a phase.
 
