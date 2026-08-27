@@ -1797,3 +1797,142 @@ Dry-run tested end to end against the real, current data (`--since-days
 3 --dry-run`): correctly found and rendered his actual Aug 26 comment,
 with the right post title, the exact-comment permalink, and a real
 timestamp. `python3 -m py_compile` clean.
+
+### 2026-08-27 — `/maintain` session (thread pruning, brief content pass,
+source-health diagnostic; a stray local-only commit walked back)
+
+Bootstrap found local and `origin/main` had genuinely diverged for the
+first time — a Bionic-session commit (see below) had never been pushed,
+and the same morning's automated pipeline run landed on the same parent.
+Disjoint files, no conflict; merged `origin/main` in locally rather than
+pushing blind, per MAINTAINER.md's explicit "flag before touching shared
+history" guidance for this exact scenario.
+
+**Bionic-session commit walked back off `main`, preserved on a branch.**
+Brian: "the bionic was just experimentation... I think we can ignore all
+that if it's not too late. I should have done that in a side branch."
+One commit had landed (`2113e1b`: the Three Waves Citrix blog draft under
+`outputs/citrix-blog-drafts/`, a `BUILD.md` entry, an `outputs/README.md`
+line) — never reached `origin`, so nothing to walk back remotely. Branched
+it off as `bionic-three-waves-draft` (local-only) before `git reset --hard
+origin/main`, so the draft isn't lost, just off `main` where it should
+never have landed. The Aug-26 session's own `BUILD.md` addendum about that
+draft went with it — this entry is the first thing `main` says about that
+session now.
+
+**X source explained, not fixed.** Brian: secrets are set on GitHub, why
+does the brief still say X isn't configured? Root cause was already
+documented in `daily-pipeline.yml`'s own header comment, just not
+surfaced to Brian before: the workflow deliberately never passes
+`X_CLIENT_ID`/`SECRET`/`ACCESS_TOKEN`/`REFRESH_TOKEN` into the ingest
+step's `env:` block, because the OAuth refresh token rotates on use and
+`ingest.py` persists the rotation by rewriting a local `.env` file that
+doesn't exist in a GitHub Actions checkout — wiring the secrets in as-is
+would work exactly once, then silently go stale. Real fix (a
+repo-scoped PAT + the GitHub Secrets API to write the rotated token back)
+still not built, offered and not taken up this session.
+
+**`me/developing-thinking.md`: the Aug-24 "political legitimacy" compute-
+constraint paragraph removed**, per Brian ("I don't think I care about
+that"). `updated` bumped to 2026-08-27.
+
+**Six threads killed from the tracker and promotion queue**, per Brian's
+ask to stop tracking everything and only track what's actually
+enterprise-IT/EUC/enterprise-AI-use relevant — the tracker had grown to
+46 total entries (27 already resolved historically, but 19 live
+"watching" + 8 in the promotion queue, close to the "20-30" Brian was
+eyeballing from the brief's own thread list). Went through both live
+lists, recommended 3 clear misses (`compute-siting-as-jurisdictional-
+escape`, `lab-leadership-messaging-incoherence`,
+`ratepayer-cost-passthrough-as-compute-constraint` — the last two in the
+same family as the local-permitting thread just pulled from
+developing-thinking.md) plus 3 borderline ones (`governance-derived-
+from-political-theory`, `owned-hardware-still-vendor-dependent`,
+`insurance-underwriting-as-ai-risk-pricing`); Brian: "kill all 3" on the
+borderline set. All six removed from `.thread_tracker.json` (46 → 40,
+audit trail for the 27 already-resolved ones untouched), the two
+promotion-queue entries deleted from `promotion-candidates.md` (matching
+the existing reject-by-deletion convention from the weekly-update
+ceremony), and the four still-"watching" ones stripped out of today's
+already-drafted "Threads being tracked" bullets in both
+`outputs/technical-briefings/2026-08-27.md` and
+`outputs/published/2026-08-27.md` (they hadn't hit 3x, so they only ever
+existed in those two places).
+
+**Today's "Worth Brian's attention" rewritten, landed in both brief
+copies, per Brian's direct steer on each item:**
+1. Hugging Face incident item sharpened — not "day 50 of coverage," but
+   the actual operational point Brian wanted foregrounded: watching agent
+   *behavior* didn't catch the falsified chain-of-thought transcripts,
+   checking what agents actually wrote to files and shared storage did.
+   Governance has to inspect artifacts, not just observe behavior.
+2. The second Wisconsin data-center item dropped (per Brian), and its
+   companion paragraph in "What this confirms" cut too — it cited the
+   same local-permitting argument just pulled from developing-thinking.md,
+   so left in place it would have been a dangling reference to a deleted
+   argument. Went with cutting over reframing, consistent with dropping
+   the topic everywhere else this session.
+3. The Diamandis/Salim Ismail "Organizational Singularity" piece promoted
+   up from "What doesn't fit yet" into Worth Brian's Attention (Brian read
+   it, called it genuinely interesting), removed from its old spot so it
+   isn't duplicated.
+Published frontmatter `substack_subtitle` updated to match. Caught and
+fixed one real voice-rule violation in my own first draft before it went
+out — single-word italics for emphasis ("what agents *do*"), the exact
+tic `me/voice.md` banned 2026-08-26 — a reminder that rule needs active
+checking, not just trusting the model output by default.
+
+**Rendered and sent the Substack HTML** (`skills/brief/render.py --date
+2026-08-27 --no-status-sync`) so Brian could see the edited brief before
+committing anything — deliberately used `--no-status-sync` since the
+default path (`sync_status_and_commit()`) would have auto-committed just
+`outputs/published/2026-08-27.md` alone, flipping its `status` to
+`reviewed-and-updated` ahead of the other four files still sitting
+uncommitted, and ahead of Brian actually saying "commit this."
+
+**Source-health diagnostic, asked directly by Brian ("are we getting
+enough... is there a dumb fix").** Two concrete findings, not just
+impressions:
+1. **A specific miss, traced to ground truth.** Brian named the Bill
+   Gates AI-risk essay he'd seen covered everywhere and didn't see in the
+   brief. It *was* captured —
+   [`ingest/2026-08-27-brain-inbox-excellent-new-bill-gates-essay...md`](../ingest/2026/08/2026-08-27-brain-inbox-excellent-new-bill-gates-essay-on-the-urgency-of-having-a-co.md),
+   via Gary Marcus's newsletter covering it, six real extracted insights —
+   and sits in the dense brief's `sources:` frontmatter, but `brief.py`'s
+   synthesis model silently chose not to write about it anywhere in the
+   actual brief body. Confirmed by grepping the rendered brief for
+   "Gates" and finding nothing. Most likely a side effect of the Aug-26
+   brevity/relevance instructions ("cut it when in doubt") landing on
+   their first real day — plausibly a reasonable call on this specific
+   item, but it means real, read material can now vanish with zero trace
+   Brian would ever see without a maintainer session grepping for it by
+   hand. Flagged as a transparency gap, not fixed this session — a
+   candidate fix (surface "read but not written about" items somewhere,
+   maybe alongside "Sources checked today") offered, not built.
+2. **The real registry breakdown, checked against `sources.yaml` directly
+   rather than eyeballing the brief's own summary.** Of 91 registered
+   sources: 39 fetch cleanly (most return 0 new on any given day, which
+   is normal), 16 are legitimate brain@-routed duplicates (documentation
+   only, not gaps), and 35 fail — of which 34 are pure Substack RSS
+   entries with **zero email-fallback configured**, still attempting and
+   failing the same Cloudflare-blocked fetch every weekday morning with
+   no path to ever succeed on GitHub Actions infrastructure (confirmed:
+   `ingest_method` is unset/null on every one of them, not `email`).
+   This is the open decision #16 gap, but concretely quantified for the
+   first time: **more than a third of the entire source registry is
+   structurally dark on the current infrastructure**, not "occasionally
+   missing an article." X is a separate, single-source problem (the
+   token-rotation gap above). Connected this to Brian's own "should we
+   just run this locally" question: a home box on residential IP should
+   clear the Cloudflare block the same way a non-GitHub-Actions machine
+   already does in the 2026-08-25 diagnostic — meaning it's the fix for
+   the 34 dead Substack feeds, not just the X problem, and it
+   incidentally fixes X too, since `ingest.py`'s `_update_env_var()`
+   token-rotation persistence already assumes a real, persistent
+   filesystem, which GitHub Actions never had and a home box would.
+   Brian: "still thinking on this... don't change that yet" — nothing
+   built, diagnostic only.
+
+Not committed during the session itself — landed in one batch at the end
+per Brian's explicit "commit everything... so the working tree is clean"
+ask. See the commit log for exactly what landed in which commit.
