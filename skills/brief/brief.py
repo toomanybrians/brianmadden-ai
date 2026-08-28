@@ -271,18 +271,41 @@ def write_tracker(entries: list[dict]) -> None:
     TRACKER_PATH.write_text(json.dumps(entries, indent=2) + "\n", encoding="utf-8")
 
 
-def render_tracked_threads(tracker: list[dict]) -> str:
+def render_tracked_threads(tracker: list[dict], brief_date: str) -> str:
+    """Rendered, reader-facing list only — build_prompt() gives the model
+    the full unfiltered 'watching' list separately (it needs every tracked
+    thread to check today's batch against, per prompt.md's dedup guidance),
+    so filtering here doesn't cost the model any context.
+
+    Showing all ~20 'watching' entries every day regardless of whether
+    today's batch touched them buried the ones that actually mattered
+    (Brian's ask, 2026-08-28) — a thread only earns a line here if today's
+    batch touched it, or it's trending (2+ recurrences within the last
+    day). Everything else stays in .thread_tracker.json, just not printed."""
     watching = [t for t in tracker if t.get("status") == "watching"]
     if not watching:
         return "(nothing being tracked yet — this is either the first run, or nothing has recurred)"
+    brief_dt = datetime.strptime(brief_date, "%Y-%m-%d")
+
+    def _touched_or_trending(t: dict) -> bool:
+        if t["last_seen"] == brief_date:
+            return True
+        last_seen_dt = datetime.strptime(t["last_seen"], "%Y-%m-%d")
+        return t["count"] >= 2 and (brief_dt - last_seen_dt).days <= 1
+
+    shown = [t for t in watching if _touched_or_trending(t)]
+    if not shown:
+        return (f"(nothing touched or trending today — {len(watching)} pattern(s) "
+                "still being watched quietly; full list in "
+                "outputs/technical-briefings/.thread_tracker.json)")
     lines = []
-    for t in watching:
+    for t in shown:
         lines.append(f"- **{t['slug']}** — {t['description']} (seen {t['count']}x, first {t['first_seen']}, last {t['last_seen']})")
     return "\n".join(lines)
 
 
-def render_tracked_threads_section(tracker: list[dict]) -> str:
-    body = render_tracked_threads(tracker)
+def render_tracked_threads_section(tracker: list[dict], brief_date: str) -> str:
+    body = render_tracked_threads(tracker, brief_date)
     # Bold slugs, italicized+linked .md references (not backtick/inline-code)
     # — Substack's editor renders pasted inline code in an oversized,
     # visually odd Courier face (Brian's call, 2026-08-16; see
@@ -295,8 +318,11 @@ def render_tracked_threads_section(tracker: list[dict]) -> str:
     return (
         "## Threads being tracked\n\n"
         "Patterns flagged as \"doesn't fit yet\" on a previous day, being watched "
-        f"for recurrence. A thread that recurs {PROMOTION_THRESHOLD}+ times gets "
-        f"queued in *{candidates_link}* for Brian to "
+        "for recurrence. Only threads today's batch touched, or that are "
+        "trending (2+ recurrences within the last day), are listed here — "
+        "the rest are still being watched, just not printed daily. A thread "
+        f"that recurs {PROMOTION_THRESHOLD}+ times gets queued in "
+        f"*{candidates_link}* for Brian to "
         f"review — nothing here is ever written into *{developing_link}* "
         "automatically.\n\n" + body
     )
@@ -523,7 +549,7 @@ def write_brief(brief_date: str, brief_body: str, tracker: list[dict], notes: li
         "sources": sources,
     }
     fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True, width=1000).strip()
-    tracked_section = render_tracked_threads_section(tracker)
+    tracked_section = render_tracked_threads_section(tracker, brief_date)
     sources_section = render_sources_checked_section(load_source_results())
     full_text = f"---\n{fm_yaml}\n---\n\n{brief_body}\n\n{tracked_section}\n\n{sources_section}\n"
 

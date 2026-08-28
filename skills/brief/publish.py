@@ -70,11 +70,11 @@ SUBTITLE_MAX_CHARS = 200
 # Section headers that read fine for an AI/audit-trail reader of the dense
 # brief but assume the wrong audience once that same text is published
 # straight to Substack subscribers. Deliberately a small, explicit map —
-# not a general rewrite — since Brian's ask (2026-08-13) was this one
-# rename, not a rephrase of the whole document.
-DENSE_SECTION_RENAMES = {
-    "## Worth Brian's attention": "## Worth your attention",
-}
+# not a general rewrite — for exactly this kind of case. Empty as of
+# 2026-08-28: "Worth Brian's attention" (audience-specific, needed a
+# "your" rename) became "What this changes" (audience-neutral, reads the
+# same in both places) — see prompt.md and BUILD.md's 2026-08-28 entry.
+DENSE_SECTION_RENAMES = {}
 
 
 def strip_leading_title(body: str) -> str:

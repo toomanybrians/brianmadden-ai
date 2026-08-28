@@ -124,9 +124,12 @@ committing the batch and the disclosure line falls back to a plain
 same trade every other GITHUB_BASE link in this pipeline already makes).
 
 **Default (2026-08-14): publish the dense brief close to verbatim.**
-Opus's own prose from `brief.py`, unchanged except one section rename
-(`## Worth Brian's attention` → `## Worth your attention`) and dropping
-the leading title line (Substack's title field is separate, see below).
+The synthesis model's own prose from `brief.py`, unchanged (as of
+2026-08-28, `DENSE_SECTION_RENAMES` is empty — the one section that used
+to need a rename, "Worth Brian's attention," was replaced by the
+audience-neutral "What this changes," so nothing needs rewording between
+the technical and published copy anymore) except dropping the leading
+title line (Substack's title field is separate, see below).
 One small model call handles just the subtitle
 (`publish-dense-subtitle-prompt.md`). This replaced Fable-condensing as
 the default after a real side-by-side comparison (BUILD.md 2026-08-13/14

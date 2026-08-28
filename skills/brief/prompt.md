@@ -45,7 +45,12 @@ connects to what, what doesn't fit anywhere yet.
 
 These are patterns flagged as "doesn't fit yet" on previous days, being
 watched to see if they recur. If today's batch genuinely touches one, say
-so. Don't force a connection that isn't there.
+so. Don't force a connection that isn't there. When you do connect to one,
+be specific about *how*: is today's material new detail on the exact same
+reported event as a prior mention, or a separate-but-similar occurrence of
+the same pattern? Those read very differently — say which one it is rather
+than letting "this thread recurred" imply "this is the same story" when it
+might just be a similar one.
 
 {{TRACKED_THREADS}}
 
@@ -140,12 +145,16 @@ new patterns, contradictions, things worth noticing precisely because they
 don't have a home. This is the section that answers "what am I not already
 thinking about." Be honest if today's batch is thin here too.
 
-## Worth Brian's attention
+## What this changes
 
-1-4 items, max, that you'd flag if he only has two minutes — fewer is
-fine, and on a thin day even one is enough. Your judgment call, stated
-plainly, not a summary of the sections above. This section gets read on
-its own by people who skip everything above it — so every item must
+0-4 items. Zero is a correct, complete answer on a day where nothing
+here needs something specific from Brian — a decision, a reply, a
+reason to revisit a position, a thing that changes how he's already
+planning. This is not a re-ranking of "What this confirms" or "What
+doesn't fit yet" — if something already got its due above and doesn't
+add a new "so what" beyond what's already been said there, leave it out
+rather than restating it in a shorter sentence. This section gets read
+on its own by people who skip everything above it — so every item must
 carry its own Markdown link per the Linking rules below, even if the
 same link already appeared earlier in the brief. Don't assume the
 reader saw it there.
