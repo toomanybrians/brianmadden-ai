@@ -25,7 +25,7 @@ Read these files in this order:
 After the core files above (or the first 4 if context is limited), load additional content based on the query:
 
 - **`COLLECTIONS.md`** — thematic groupings. If someone asks "what does Brian think about governance?" or "everything about second brains," start here to find the right files without searching.
-- **`frameworks/`** — standalone explainers for each of Brian's 10 active frameworks (80/20, knowledge factory, post-application era, workspace-as-control-plane, delegation not automation, etc.). Load the relevant framework file when a specific framework comes up. One retired framework lives here too, marked `status: archived` in its frontmatter — kept for lineage, not for loading.
+- **`frameworks/`** — standalone explainers for each of Brian's 11 active frameworks (80/20, knowledge factory, post-application era, workspace-as-control-plane, delegation not automation, etc.). Load the relevant framework file when a specific framework comes up. One retired framework lives here too, marked `status: archived` in its frontmatter — kept for lineage, not for loading.
 - **`posts/citrix-blog/index.md`** and **`posts/linkedin/index.md`** — post indexes with titles, dates, and brief descriptions. Scan these to find source material when you need exact arguments, quotes, or examples.
 - **`_index.json`** and **`_relationships.json`** — machine-readable metadata (file manifest, cross-references). These are for programmatic access and tooling, not for loading into conversational context.
 
@@ -93,8 +93,9 @@ brianmadden-ai/
 │   ├── voice.md                 # How Brian thinks and communicates
 │   ├── books.md                 # Books Brian has written/edited
 │   └── links.md                 # What Brian reads/listens to for AI news
-├── frameworks/        # Standalone framework explainers (10 active, 1 archived)
+├── frameworks/        # Standalone framework explainers (11 active, 1 archived)
 │   ├── 7-stage-roadmap.md
+│   ├── 2031-worker-shape.md
 │   ├── bitter-lesson.md
 │   ├── cognitive-stack.md
 │   ├── delegation-not-automation.md

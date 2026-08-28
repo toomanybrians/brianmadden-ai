@@ -15,7 +15,7 @@ status: reviewed-and-updated
 
 # The bitter lesson of workplace AI
 
-Simple, worker-driven AI adoption beats elaborate, IT-engineered solutions. Every time. And the endgame is more radical than "stop engineering"—AI doesn't need the cognitive scaffolding humans built over centuries. It routes around it entirely.
+Simple, worker-driven AI adoption beats elaborate, IT-engineered solutions. Every time. And the endgame is more radical than "stop engineering": AI can route around large parts of the cognitive scaffolding humans built over centuries to get real output. But that's not the same as saying the scaffolding stops mattering—see the correction below.
 
 *Published: September 17, 2025—[Original post](https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/)*
 
@@ -36,19 +36,19 @@ This isn't workers being lazy or IT being incompetent. It's a fundamental truth 
 
 **The prescription:** Stop engineering a better AI tool. Start enabling the AI tools workers already found. Apply governance at the workspace layer, not the tool layer.
 
-## The radical extension: the invisible 80% is human legacy infrastructure
+## The radical extension: AI erodes the invisible 80%, it doesn't dissolve it
 
 The [invisible 80%](../frameworks/invisible-80-percent.md) framework established that 80% of knowledge work is invisible—judgment, tacit expertise, pattern recognition, reasoning. Enterprise AI can only see the 20% (outputs, documents, observable actions) and fails because it can't reach the rest.
 
-The bitter lesson reframes this: **AI doesn't need the 80%.** That invisible cognitive scaffolding was *human* infrastructure—the way human brains process information, build intuition, develop expertise over decades. AI doesn't need to replicate it. It can go from inputs to outputs without traversing the same cognitive path humans require.
+**The current position, corrected twice since the original argument:** AI doesn't need to replicate human cognitive processes to deliver real value—it can and does route around large parts of the scaffolding humans built over centuries to get from inputs to outputs. But the invisible 80% doesn't dissolve on its own, and it doesn't shrink to zero even as AI erodes it. Whatever remains invisible still has to be deliberately captured—which is exactly the job the [knowledge factory](../frameworks/knowledge-factory.md) does.
 
-Think of it this way: if you're getting SVP-level strategic support from AI, how much of the invisible work that humans do *beneath* that level—the years of pattern recognition, the accumulated judgment, the institutional memory—did the AI need? It didn't build those layers. It just... arrived at the output.
+**Where the original version overshot, and how it got corrected:**
 
-This doesn't mean the 80% doesn't exist or isn't real. Humans still need it. But the bitter lesson says: stop trying to engineer AI that replicates human cognitive processes. Stop trying to "capture" tacit knowledge and feed it into enterprise systems. AI will route around the 80% the same way it routes around applications—by finding a simpler path to the same destination.
+The first draft of this framework claimed AI simply doesn't need the 80% at all—that the invisible cognitive scaffolding was purely human infrastructure AI could route around entirely, arriving at outputs without ever needing to capture what humans do beneath the surface. Think of it this way: if you're getting SVP-level strategic support from AI, how much of the invisible work humans do *beneath* that level—the years of pattern recognition, the accumulated judgment, the institutional memory—did the AI need? It didn't build those layers. It just arrived at the output. That observation is still true. Two corrections landed on the conclusion drawn from it, from different directions:
 
-**The invisible 80% explains why current enterprise AI fails (it can't see what humans do). The bitter lesson explains the endgame: AI won't need to see it. It dissolves.**
+**AI still needs the 80%, captured deliberately, not routed around.** [Skills are all you need](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/) is an entire argument *for* capturing tacit knowledge as text files. The [crawl/walk/run post](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/) argues agents fail *precisely because* nobody did that capture work—the opposite of AI routing around it. And [the knowledge factory](../frameworks/knowledge-factory.md) states outright that it revises this framework: the shared departmental second brain is an engineered apparatus for capturing exactly the tacit knowledge this section originally said not to bother capturing.
 
-**2026-08-24 revision—this "dissolves" claim is now revised by later published work, not just qualified.** [Skills are all you need](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/) is an entire argument for capturing tacit knowledge as text files. The [crawl/walk/run post](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/) argues agents fail *precisely because* nobody did the work of teaching them the org's context and judgment—the opposite of AI routing around that work. And [the knowledge factory](../frameworks/knowledge-factory.md) states outright that it revises the bitter lesson: the shared departmental second brain is an engineered apparatus for capturing exactly the tacit knowledge this section said not to bother capturing. The corrected position: don't try to hand-engineer a bespoke integration for every workflow (the original "stop engineering, start enabling" prescription still holds there)—but the invisible 80% doesn't dissolve on its own, and the knowledge factory is what actually captures it, deliberately, once you've stopped over-engineering the wrong layer.
+**2026-08-28—the "dissolves" language implied an endpoint that doesn't exist.** It suggested a clean shift from 20% visible / 80% invisible to eventually 100% visible / 0% invisible. That's the wrong shape. The boundary between visible and invisible moves as AI erodes into the 80%—the split might become 60/40, or 40/60, whatever the real number turns out to be for a given kind of work—but there's no version of this where it hits zero. Something always stays invisible, and that remainder still needs the same deliberate capture work, permanently, not as a transitional phase before AI eventually absorbs everything.
 
 ## The connection to factory electrification
 

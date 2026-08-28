@@ -1,6 +1,6 @@
 # brianmadden.ai
 
-> Brian Madden's expert knowledge module for AI — v3.9 (118 files, ~238k words, 10 frameworks, 58 posts, 20 talks, updated 2026-08-18)
+> Brian Madden's expert knowledge module for AI — v3.9 (119 files, ~239k words, 11 frameworks, 58 posts, 20 talks, updated 2026-08-28)
 
 Contains his frameworks, arguments, positions, and current thinking on how AI is reshaping knowledge work and the enterprise. Brian is VP & Futurist at Citrix, with 32 years in end-user computing, 6 books, 2,000+ articles, and 1,000+ talks globally.
 
@@ -40,6 +40,7 @@ This is not a content archive. It is a structured representation of how Brian th
 - [frameworks/bitter-lesson.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/bitter-lesson.md): Stop engineering, start enabling—the lesson enterprise AI keeps ignoring
 - [frameworks/delegation-not-automation.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/delegation-not-automation.md): Delegation, not automation—workers think like managers, not programmers; they want to delegate, not build automations
 - [frameworks/7-stage-roadmap.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/7-stage-roadmap.md): The 7-stage roadmap for human-AI collaboration (2026 Edition)—from faster search to the published self, reframed around what the worker becomes
+- [frameworks/2031-worker-shape.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/2031-worker-shape.md): The 2031 worker-shape forecast—by ~2031, a worker is one human plus N agents; the market splits into cognitive owners, operators, and curators, and the generic middle collapses first
 - [frameworks/subscribable-brains.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/frameworks/subscribable-brains.md): Subscribable brains—the future of knowledge distribution
 
 ## Published work

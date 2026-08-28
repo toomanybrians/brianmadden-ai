@@ -10,7 +10,7 @@ original_url: "https://www.citrix.com/blogs/2026/02/25/understanding-the-cogniti
 description: "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives."
 staleness_threshold: stable
 tier: 2
-status: reviewed
+status: reviewed-and-updated
 ---
 
 # The cognitive stack
@@ -52,6 +52,8 @@ The cognitive layer (layer 2) is where the invisible 80% of knowledge work opera
 ## Maps to organizational structure
 
 The cognitive stack mirrors how organizations already work. Corporate org charts have more thinking at the top and more doing at the bottom. Work starts with intent and flows down. This isn't a new idea—it's the shape intelligence naturally takes when coordinating complex work.
+
+**August 28, 2026 update—three independent systems already prove this, not just an organizational analogy.** Cursor's agents, StrongDM's Software Factory, and Anthropic's own agent teams all independently converged on hierarchical management structures without being designed to. Hierarchy isn't a human organizational preference—it's what intelligence does when it has to coordinate complex work at scale, and now there's real evidence beyond the org-chart parallel.
 
 ## Using this framework
 

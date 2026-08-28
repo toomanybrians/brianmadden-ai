@@ -242,6 +242,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 How humans and AI work together. The delegation model, the 7-stage roadmap.
 
 - `frameworks/7-stage-roadmap.md` -- The 7-stage roadmap for human-AI collaboration (2025-06-24) (authority: 4)
+- `frameworks/2031-worker-shape.md` -- The 2031 worker-shape forecast (2026-08-28) (authority: 4)
 - `frameworks/delegation-not-automation.md` -- Delegation, not automation (2025-12-18) (authority: 4)
 - `posts/citrix-blog/2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace.md` -- The 7-stage roadmap for human-AI collaboration in the workplace (2025-06-24) (authority: 5)
 - `posts/citrix-blog/2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks.md` -- What happens when AI agents score 100% in computing using benchmarks? (2025-07-24) (authority: 5)

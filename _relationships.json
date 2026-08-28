@@ -91,6 +91,21 @@
       ],
       "referenced_by_talks": []
     },
+    "2031-worker-shape": {
+      "path": "frameworks/2031-worker-shape.md",
+      "title": "The 2031 worker-shape forecast",
+      "original_url": null,
+      "referenced_in_posts": [],
+      "related_frameworks": [
+        "cognitive-stack",
+        "7-stage-roadmap",
+        "invisible-80-percent"
+      ],
+      "referenced_by_posts": [],
+      "referenced_by_talks": [
+        "2026-07-16-arrow-forum-what-is-a-worker-in-2031"
+      ]
+    },
     "delegation-not-automation": {
       "path": "frameworks/delegation-not-automation.md",
       "title": "Delegation, not automation",

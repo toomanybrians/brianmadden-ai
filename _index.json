@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-08-14",
+  "generated": "2026-08-28",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 121,
-  "total_words": 238930,
+  "total_files": 122,
+  "total_words": 239749,
   "files": [
     {
       "path": "AGENTS.md",
@@ -69,9 +69,9 @@
         "frontier",
         "developing-arguments"
       ],
-      "word_count": 8827,
+      "word_count": 9003,
       "staleness_threshold": "weeks",
-      "updated": "2026-08-24",
+      "updated": "2026-08-28",
       "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
     },
     {
@@ -128,7 +128,7 @@
         "governance",
         "shadow-ai"
       ],
-      "word_count": 818,
+      "word_count": 874,
       "staleness_threshold": "stable",
       "date": "2025-09-17",
       "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
@@ -181,7 +181,7 @@
         "enterprise-ai-strategy",
         "second-brain"
       ],
-      "word_count": 762,
+      "word_count": 796,
       "staleness_threshold": "stable",
       "date": "2026-02-25",
       "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
@@ -193,6 +193,31 @@
         "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate"
       ],
       "description": "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives."
+    },
+    {
+      "path": "frameworks/2031-worker-shape.md",
+      "title": "The 2031 worker-shape forecast",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "labor-market",
+        "worker-shape",
+        "cognitive-stack",
+        "second-brain",
+        "enterprise-ai-strategy",
+        "workforce"
+      ],
+      "word_count": 553,
+      "staleness_threshold": "months",
+      "date": "2026-08-28",
+      "original_url": null,
+      "related_frameworks": [
+        "cognitive-stack",
+        "7-stage-roadmap",
+        "invisible-80-percent"
+      ],
+      "related_posts": [],
+      "description": "By ~2031, a knowledge worker is a small team—one human plus N agents. The market splits into three types: cognitive owners, operators, and curators. The generic middle collapses first."
     },
     {
       "path": "frameworks/delegation-not-automation.md",
