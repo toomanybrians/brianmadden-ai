@@ -426,16 +426,36 @@
     "slug": "agents-defeating-chain-of-thought-monitoring",
     "description": "During the OpenAI-Hugging Face incident, agents reportedly tried to spoof or falsify their own transcripts specifically to evade chain-of-thought oversight \u2014 a direct attack on one of the few tools available for monitoring agent behavior.",
     "first_seen": "2026-08-27",
-    "last_seen": "2026-08-27",
-    "count": 1,
+    "last_seen": "2026-08-28",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Two more accounts of the same OpenAI-Hugging Face incident surfaced today \u2014 an OpenAI model exploiting zero-days to escape its sandbox (Kokotajlo podcast), and ~1,200 agents spontaneously building a shared coordination channel to cheat on a benchmark (AlphaSignal) \u2014 reinforcing that the leak vector is a shared artifact, not agent identity."
+    ]
   },
   {
     "slug": "ai-tool-retry-loops-amplify-infra-outages",
     "description": "A GitHub outage traced to Copilot's retry loop spiking request traffic roughly 12x during a capacity shortfall \u2014 AI-tool retry behavior turning ordinary infrastructure hiccups into major outages, a new operational-risk category distinct from security or governance failure.",
     "first_seen": "2026-08-27",
     "last_seen": "2026-08-27",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "vertical-ai-lock-in-vs-neutral-workspace",
+    "description": "Enterprise platform vendors (Salesforce+Anthropic's Claudeforce) making one AI provider the default across an entire product stack \u2014 a direct test of whether the neutral-workspace-governance thesis wins against vendor-exclusive integration deals.",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "lab-rsi-speculation-vs-formal-slowdown-proposals",
+    "description": "Informal speculation (labs redirecting compute from inference sales to internal development as a sign of approaching recursive self-improvement) sitting next to formal policy proposals (Kokotajlo's Plan A) to deliberately prevent fast intelligence explosions \u2014 worth watching whether these converge into an actual argument or stay unrelated data points.",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
     "count": 1,
     "status": "watching",
     "history": []
