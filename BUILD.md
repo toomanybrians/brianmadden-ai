@@ -1936,3 +1936,193 @@ impressions:
 Not committed during the session itself — landed in one batch at the end
 per Brian's explicit "commit everything... so the working tree is clean"
 ask. See the commit log for exactly what landed in which commit.
+
+### 2026-08-28 — `/maintain` session (Daily Brief editorial fixes, X/
+Substack local-source test, full Weekly Wrap Up ceremony)
+
+Bootstrap found local and `origin/main` already in sync (0 behind, 0
+ahead, clean tree) — the morning's automated pipeline run had already
+landed cleanly, nothing to reconcile.
+
+**Brian read today's brief and asked four real questions, all with real
+answers, not misreadings:**
+
+1. **Was the Hugging Face/OpenAI item the same story again, or new?**
+   Same incident cluster, third day running (Aug 24 origin synthesis →
+   Aug 27 new detail, spawning `agents-defeating-chain-of-thought-
+   monitoring` → Aug 28 two more accounts) — but a real ambiguity
+   surfaced in the process: AlphaSignal's ~1,200-agent METR-sandbox
+   account and the original ~700-agent Artifactory account read as
+   possibly two different incidents being folded into "the same
+   thread." No mechanism existed to distinguish "new detail on the same
+   event" from "a separate-but-similar occurrence."
+2. **Why did "Worth Brian's attention" just restate the same 4 stories
+   already covered in "What this confirms"?** Confirmed by reading the
+   actual output — the instruction ("not a summary of the sections
+   above") wasn't strong enough; on a day with exactly 4 real stories,
+   there was nothing else for the model to reach for.
+3. **Should "Threads being tracked" really show all ~21 watched threads
+   every day?** Confirmed in `brief.py`: `render_tracked_threads()` had
+   no filter at all, printing every "watching" entry regardless of
+   whether that day's batch touched it.
+4. **Is the pipeline missing real coverage from the sources it can't
+   reach?** Real numbers pulled: 33 of 91 sources failing daily, 32 of
+   those Cloudflare-blocking GitHub Actions' IPs specifically (confirmed
+   via a direct curl test from this session's own network — 200 on the
+   identical feeds), plus X fully dark since launch (OAuth token
+   rotation has no persistent filesystem to write back to in Actions).
+
+**All three prompt/logic questions fixed the same session, not just
+diagnosed:**
+- `skills/brief/prompt.md`: "Worth Brian's attention" renamed "What this
+  changes," redefined as an actionability filter (0-4 items, zero
+  correct, only what needs a decision/reply/plan-change from Brian
+  specifically — not a re-ranking of the sections above). Added
+  explicit same-vs-related-incident guidance for citing a recurring
+  thread.
+- `skills/brief/brief.py`: `render_tracked_threads()` now filters the
+  *rendered* section to threads touched that day or trending (2+ in the
+  last day) — `build_prompt()`'s own context for the model stays
+  unfiltered, so dedup checking isn't affected, only what gets printed.
+- `skills/brief/publish.py`/`README.md`: the audience-specific rename
+  map (`## Worth Brian's attention` → `## Worth your attention`) is now
+  empty — "What this changes" reads the same for both audiences.
+
+**Then tested empirically whether the source-coverage gap actually
+matters, per Brian's explicit ask** ("pull in X and the other blocked
+sources locally, see if it makes a meaningful difference, then decide").
+Confirmed this session's own network isn't Cloudflare-blocked (direct
+curl test), then: regenerated today's brief for real with the fixed
+prompt against the existing 12 notes (a clean "v1" baseline — verified
+identical source list to the pre-fix automated run, so no cross-
+contamination from the parallel local pull); separately ran a full
+local `--source` sweep against X and the 32 blocked Substack feeds (X:
+3 new posts; 31 of the 32 Substack feeds genuinely had nothing published
+that day, not blocked — only Nate's Substack produced 1 new post;
+`economics-of-ai` failed even locally, a dead/moved domain, unrelated to
+Cloudflare); built a "v2" comparison via `--dry-run` (moved-file
+technique, same pattern documented in the Aug 26 entries) against all 16
+notes. Real, concrete differences in v2's content, not just more words:
+Paul Roetzer's X post added a genuine correction to the Hugging Face
+incident (thousands of agents, not hundreds; the investigator's own
+"very wrong" revision); Gary Marcus's X post added a real financial data
+point (Nvidia's $96B revenue vs. $366B in forward capacity commitments)
+supporting the bubble-pop counterparty-risk thesis; Nate's Substack post
+spawned a genuinely new thread. Verdict: X is unambiguously worth
+fixing (100% dark since launch, real signal in one day's sample); the
+Substack-blocking case is real but thinner on a single day's evidence.
+Real (non-dry) regeneration promoted to become the actual committed
+brief — 16 notes, both technical and published versions, with a manual
+note added to "Sources checked today" explaining why it shows sources
+succeeding that the stale automated results file still lists as failed.
+Rendered and sent the Substack HTML for review before either file was
+committed. Two commits: prompt/logic fixes (`a9728aa`), then the content
+regeneration + 4 new ingest notes (`608f7a2`).
+
+**Weekly Wrap Up ceremony run in full, same session — six promotion
+candidates and the staleness queue, all resolved live:**
+- **Rejected:** `youth-ai-sentiment-inversion`,
+  `ai-dissolving-hardware-software-moats` — real, but not enterprise-IT
+  relevant, Brian's direct call.
+- **Deferred, with real reasoning kept for the record:**
+  `machine-speed-vs-human-absorption` — Brian read the slug cold and
+  couldn't parse it without stopping to think, despite writing this
+  material daily. His own plain-language reframe (AI outruns human
+  reaction time; companies either slow down for humans or push them out
+  of the loop, and pushing them out produces rubber-stamping, not
+  faster judgment) surfaced a real, systemic gap: tracked-thread slugs
+  are technically accurate and useless to a reader cold. Queued as real
+  follow-up work — every tracked thread needs a plain-language
+  description alongside the technical one — deliberately after the
+  X-source infrastructure fix, so this thread lands in the new clearer
+  format once it exists rather than the old dense one now.
+- **Promoted, in Brian's own words as much as possible:**
+  `git-host-as-agent-control-point` (extends the existing Aug 24
+  "neutral routing seat" note — Cursor Origin + Hugging Face's sale as
+  the same erosion in dev tooling; Brian's explicit ask: drop the
+  Citrix/Microsoft aside from the public brain, even reframed as "who
+  cares" — not something to say about a competitor in public canon),
+  `harness-as-the-named-value-layer` (verified "harness" is real,
+  converging industry vocabulary — Wikipedia page, Hugging Face's own
+  glossary, Claude Code's docs — before adopting it, per Brian's own
+  ask to check first), `inference-allocation-as-supply-risk` (Brian's
+  "control your own destiny" cloud-elasticity analogy: pure pay-as-you-
+  go cloud never delivered once everyone needed capacity at once, the
+  real fix was reserved capacity, the same pattern is forming in AI
+  compute — logged as the week's strongest content candidate, likely
+  his next post).
+- **Folded into existing bigger arguments, not kept standalone, per
+  Brian's call:** the firm-level-ROI note (now the actual answer to
+  "why does AI ROI show up in Wave 2" inside "The three waves"), the
+  "management is emergent" framing claim (already published nearly
+  verbatim in `cognitive-stack.md` — cut the duplicate claim, moved the
+  new three-system convergence evidence there instead, kept only the
+  agent-to-human-ratio/revenue-per-employee observations in
+  developing-thinking.md).
+- **New framework:** `frameworks/2031-worker-shape.md`, promoted from
+  the staleness queue (pairs with the 7-stage roadmap's later stages;
+  `original_url: null`, same convention as `knowledge-factory.md` for
+  frontier material with no standalone post).
+- **`frameworks/bitter-lesson.md` restructured:** the corrected position
+  is now the stated thesis instead of buried after "it dissolves," and
+  folds in a sharper correction given live this session — the
+  visible/invisible boundary shifts as AI erodes into the 80% (60/40,
+  40/60, whatever the real number), it never actually hits zero.
+- Two more real additions from Brian's own live commentary, not from
+  the queues: the knowledge factory's individual layer reframed as a
+  personal sandbox pulling from shared canon rather than a standalone
+  second brain (also resolves the BYOA-portability question from the
+  opposite direction — a sandbox against corporate canon obviously
+  stays behind when someone leaves; a self-built brain on personal
+  files doesn't have as clean an answer), and first-hand evidence for
+  Wave 3's timeline (Qwen3.8, 27B parameters, run locally on a stock M4
+  Pro with no dedicated GPU, felt Sonnet-level-ish). `## Right now`
+  refreshed to match — knowledge factory and three waves stayed
+  (sharpened), the China-model-censorship item rotated off (not what
+  had his attention this week), harness swapped out since it resolved,
+  Wave-3 updated with the real test result, and a new bullet added on
+  the human-in-the-loop tension.
+- Two commits (`59a5762`, `4841c10`); `check_doc_accuracy.py` caught
+  three stale framework-count references (README.md, CLAUDE.md's file
+  tree, llms.txt's per-framework list) before it passed clean.
+
+**The post itself drafted, then substantially restructured on Brian's
+direct feedback reading the rendered draft — landed in the skill, not
+just this issue.** First draft followed the Aug 24 issue's structure
+exactly (chronological: stories → what moved → right-now → takeaways →
+future posts; "what moved in the thinking" as one nested bullet list).
+Brian's read: reorder for broad appeal, not pipeline order (right-now
+and stories first, what-moved-in-the-thinking pushed toward the end);
+rename "What happened this week" to "This week's stories"; convert the
+nested-bullet-list format (which had rendered as one flat list, no
+visual distinction between category and item) into real subheadings per
+category; add real inline links throughout — both to each story's
+actual source (missing from the first draft entirely) and to wherever
+each promoted item now actually lives in canon. All of it rebuilt into
+`.claude/skills/weekly-update/SKILL.md` itself, not just applied to this
+one issue, so the new structure is the default next time rather than
+something to re-request. One real gap surfaced and left open rather
+than guessed: Brian referenced a Diamandis/Moonshots piece from this
+week about AI entering "from the edge" via shadow AI, iterating quickly
+— couldn't confidently match it against this week's actual ingested
+notes (two other Diamandis pieces exist from this week, neither matches
+the description), so it's not in the post; flagged to Brian rather than
+inventing a citation.
+
+Em-dash and backtick pre-publish checks (per `me/style-guide.md`) clean
+on both draft passes. `outputs/weekly-updates/.last_run.json` bumped to
+close out this run's window.
+
+**Governance-log entries written for both halves of the session**
+(prompt/brief.py fixes + local-source test; the ceremony itself) — see
+`governance-log.md`'s two 2026-08-28 entries for the full audit-trail
+account.
+
+**Explicitly still open, next up per Brian's own ordering** ("commit
+the newsletter, then weekly wrap-up, then figure out how to fix X for
+real"): the X OAuth token-rotation fix (needs a persistent-filesystem
+solution GitHub Actions doesn't have — a repo-scoped PAT + GitHub
+Secrets API rewrite, or the local/N100 migration already flagged in
+open decision #16, would both solve it) and, separately, whether the
+32-source Substack-blocking problem is worth the same local-migration
+fix given today's thin one-day sample.

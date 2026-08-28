@@ -168,25 +168,18 @@ other picks up from next time.
    normal issue's will be") — say what happened, don't narrate why the
    format looks unusual this time:
 
+   **Section order, revised 2026-08-28 (Brian's explicit ask, reading the
+   second issue's draft): most-interesting-first, not chronological-
+   pipeline-order.** The first issue's order (stories → what moved →
+   right-now → takeaways → future posts) buried the parts with the
+   broadest appeal under pipeline bookkeeping. Current order:
+
    - **Opening paragraph** — what Weekly Wrap Up is, in plain terms,
      varies naturally issue to issue rather than being a fixed
      boilerplate string. First issue's version: "the daily is fast... this
      is slow, on purpose."
-   - **What happened this week** — the week's biggest stories, condensed
-     from the prep doc's list, not the full daily-brief detail. Explainer:
-     be honest that these are the AI's picks from each day's "worth
-     Brian's attention" list, not stories Brian hand-selected — don't
-     overclaim his personal curation of each one.
-   - **What moved in the thinking** — promotions, cuts, framework
-     revisions, **as one continuous nested bullet list** — a bolded
-     top-level bullet per category (Consolidated / Promoted / Cut /
-     Frameworks revised), each with its own items nested underneath, not
-     alternating bold-paragraph-then-separate-list blocks. Brian's
-     explicit ask, twice (the second time specifically converting the
-     bold-header-plus-list pattern into one true nested list) — for
-     at-a-glance scannability. Explainer: how the promotion/staleness
-     queues work and why this list exists.
-   - **Where my head's at right now** — the current `## Right now`
+   - **Where my head's at right now** — moved to lead, right after the
+     opener (was near the end in issue 1). The current `## Right now`
      bullets, quoted, with a real link to
      `me/developing-thinking.md` on GitHub and an explanation of why that
      file is public and worth linking to (it's the tangible proof of "a
@@ -194,19 +187,46 @@ other picks up from next time.
      idea, added 2026-08-24: this section is the connective tissue
      showing readers how the whole system fits together, not just news +
      reactions in isolation.
+   - **This week's stories** — renamed 2026-08-28 from "What happened
+     this week" (Brian's ask: read as a real title, not a log-file
+     header). The week's biggest stories, condensed from the prep doc's
+     list, not the full daily-brief detail — **every story needs a real
+     inline Markdown link to its actual source**, pulled from the
+     relevant day's ingest note or technical briefing (2026-08-28 fix:
+     issue 1's draft had none; never invent a URL — if a story's source
+     genuinely has no direct link, name it without one rather than
+     guessing). Explainer: be honest that these are the AI's picks from
+     each day's "what this changes" list, not stories Brian hand-selected
+     — don't overclaim his personal curation of each one.
    - **Brian's takeaways** — his actual words from step 5, with a short
      explainer that this part is entirely his, unprompted.
-   - **Worth a future post or episode** — content candidates from step 6,
-     but **rewritten in plain, approachable language with a short preview
-     explanation, not dense internal shorthand.** Brian's own example of
-     the transformation: `"Harnesses vs. models — worth a real position,
-     not just a tracked thread"` (too dense) becomes something like `"The
-     harnesses are almost more important than the models. A low quality
-     model with a really good harness will beat a good model with a bad
-     harness."` (a real hook + a one-sentence plain explanation of why it
-     matters). Every item needs this treatment — this is the section most
-     likely to actually get read and shared, so it's worth the extra
-     drafting effort.
+   - **What moved in the thinking** — moved later in the order 2026-08-28
+     (was earlier; this is pipeline bookkeeping, not the broad-appeal
+     material). Promotions, cuts, framework revisions — **2026-08-28
+     structure change: a real `###` subheading per category (Promoted as
+     new entries / Folded into bigger existing arguments / Cut /
+     Deferred / Frameworks revised), each followed by a flat bullet
+     list** — not the nested-bullet-list format issue 1 used (a bolded
+     top-level bullet with sub-bullets indented underneath), which read
+     as one flat list at a single visual level once rendered. **Every
+     "Promoted" and "Folded into" item needs a link to where it actually
+     lives now** — the specific framework file if it graduated to one, or
+     `me/developing-thinking.md#`-plus-the-relevant-section-anchor
+     otherwise (GitHub auto-generates anchors from headers — lowercase,
+     spaces to hyphens, punctuation stripped). "Cut" and "Deferred" items
+     don't need links; nothing survives there to point to. Explainer: how
+     the promotion/staleness queues work and why this list exists.
+   - **Worth a future post or episode** — stays last. Content candidates
+     from step 6, but **rewritten in plain, approachable language with a
+     short preview explanation, not dense internal shorthand.** Brian's
+     own example of the transformation: `"Harnesses vs. models — worth a
+     real position, not just a tracked thread"` (too dense) becomes
+     something like `"The harnesses are almost more important than the
+     models. A low quality model with a really good harness will beat a
+     good model with a bad harness."` (a real hook + a one-sentence plain
+     explanation of why it matters). Every item needs this treatment —
+     this is the section most likely to actually get read and shared, so
+     it's worth the extra drafting effort.
    - **Closing footer** — written directly into the body (not injected by
      `render.py`, which does no disclosure/footer injection for this
      format — see that file's own docstring for why), matching the Daily

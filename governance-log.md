@@ -705,6 +705,129 @@ check on `sources.yaml` after the manual edit.
 **Result: COMMITTED AND PUSHED** — Brian confirmed each step live in
 session (fix, regenerate, recommit, push), not held for later review.
 
+---
+
+## 2026-08-28 — Daily Brief section rename, thread-list trimmed,
+same-vs-related-incident dedup guidance; local-source pull tested against
+X and blocked Substack feeds
+
+**What was synced (process/product changes, not new canon content):**
+- `skills/brief/prompt.md`: renamed "Worth Brian's attention" to "What
+  this changes" and redefined its job — 0-4 items, zero is correct,
+  only include something that asks a decision, reply, or plan-change of
+  Brian specifically, not a re-ranking of the sections above it. Added
+  explicit guidance for citing a recurring thread: say whether new
+  material is new detail on the same reported event or a
+  separate-but-similar occurrence — prompted by a real ambiguity in a
+  Hugging Face/METR story that day.
+- `skills/brief/brief.py`: `render_tracked_threads()` now filters the
+  rendered "Threads being tracked" section to threads touched that day
+  or trending (2+ recurrences within the last day) — was printing all
+  ~21 "watching" entries daily regardless of relevance. The model's own
+  prompt context (`build_prompt()`) stays unfiltered so dedup checking
+  isn't affected, only what gets printed.
+- `skills/brief/publish.py` and `README.md`: the "Worth Brian's
+  attention" → "Worth your attention" audience-specific rename map is
+  now empty — the new name reads the same for both the technical and
+  Substack audiences.
+- Local-network test, not a pipeline change: manually pulled X (dark
+  since launch — no persistent filesystem in GitHub Actions for the
+  OAuth token-rotation write-back) and the ~32 Substack feeds Cloudflare
+  blocks from GitHub Actions' IPs, confirmed not blocked from a normal
+  network. 4 new notes resulted (3 from X, 1 from a Substack that had
+  simply gone unchecked); regenerated that day's Daily Brief and
+  Substack draft for real with them included, with a manual note added
+  to the brief's own "Sources checked today" section explaining the
+  discrepancy against the automated run's stale results file.
+
+**Why:** Brian asked three direct questions reading that day's brief —
+whether a recurring story was actually new, why "Worth Brian's
+attention" restated the same items already covered above it, and
+whether the pipeline was missing real coverage from the sources it
+can't currently reach. All three were real, evidenced gaps, not
+misreadings.
+
+**No canon content touched in this entry** — see the same day's second
+entry below for the Weekly Wrap Up ceremony, which did.
+
+**Automated checks:** `python3 -m py_compile` clean on both touched
+scripts; `python3 scripts/check_doc_accuracy.py` clean.
+
+**Result: COMMITTED AND PUSHED** — Brian confirmed the design for each
+fix live, reviewed the regenerated brief and Substack draft before
+either was committed.
+
+---
+
+## 2026-08-28 (continued) — Weekly Wrap Up ceremony: promotion-candidates
+and staleness queues resolved, new framework, two frameworks revised,
+post format restructured
+
+**What changed in canon (Brian's live decisions, not machine-generated):**
+- `me/developing-thinking.md` — promoted: the neutral-party erosion note
+  extended to cover dev tooling (Cursor Origin, Hugging Face's sale);
+  "harness" adopted as vocabulary for the cognitive stack's middle
+  layer, checked against real industry usage first; the
+  compute-availability-as-supply-risk argument (Brian's "control your
+  own destiny" cloud-elasticity analogy); the knowledge factory's
+  individual layer reframed as a personal sandbox against shared canon,
+  not a standalone second brain; first-hand evidence (a 27B model run
+  locally on a stock laptop) for Wave 3's timeline. Folded in, not kept
+  standalone: why individual AI augmentation doesn't show up in
+  firm-level ROI (now part of the Wave 2 explanation). Cut: the
+  "management is emergent" framing claim (duplicate of a line already
+  published in `cognitive-stack.md`; new evidence moved there instead).
+  Rejected outright, no addition anywhere: youth-ai-sentiment-inversion,
+  ai-dissolving-hardware-software-moats. Deferred on purpose:
+  machine-speed-vs-human-absorption — Brian's own plain-language
+  reframe surfaced a real gap (technical slugs are hard to parse cold),
+  held until a layperson-description convention exists for tracked
+  threads generally. `## Right now` refreshed to match.
+- `frameworks/2031-worker-shape.md` — new framework, promoted from a
+  developing-thinking.md thread with independent corroboration
+  (Roetzer's typology) and real evidence (wage/employment data).
+  `original_url: null`, same convention as `knowledge-factory.md` for
+  frontier material with no standalone post yet.
+- `frameworks/bitter-lesson.md` — restructured so the corrected position
+  (AI erodes the invisible 80%, it doesn't dissolve it) is the stated
+  thesis instead of a correction buried after the original overstatement
+  — and folded in a sharper version of the correction, given live this
+  session: the visible/invisible boundary shifts as AI erodes into the
+  80%, it never actually hits zero.
+- `frameworks/cognitive-stack.md` — added the three-system convergence
+  evidence relocated from developing-thinking.md.
+- `outputs/technical-briefings/promotion-candidates.md` — all 6 open
+  entries resolved (3 promoted, 2 rejected, 1 deferred with reasoning
+  kept for the record).
+
+**Process/product changes, same session:**
+- `outputs/weekly-updates/2026/08/2026-08-28.md` — second-ever Weekly
+  Wrap Up issue.
+- `.claude/skills/weekly-update/SKILL.md` — restructured per Brian's
+  direct feedback reading the draft: section order now leads with
+  "Where my head's at" and "This week's stories" (most broad-appeal
+  first) rather than pipeline-order; "What happened this week" renamed
+  "This week's stories"; "What moved in the thinking" now uses real
+  `###` subheadings per category instead of a nested bullet list (which
+  rendered as one flat list); every "Promoted"/"Folded into" item now
+  requires a link to where it actually lives.
+
+**Why:** Scheduled weekly ceremony (Friday cadence). Both the Right-now
+refresh and several promoted entries came directly from Brian's own live
+commentary this session, not just queue triage — captured in his words
+per the ceremony's own non-negotiable.
+
+**Automated checks:** `_index.json`/`_relationships.json` validated as
+JSON after surgical edits; `python3 scripts/check_doc_accuracy.py` clean
+(caught and fixed three stale framework-count references — README.md,
+CLAUDE.md's file tree, llms.txt's per-framework list — before this
+passed). Em-dash and backtick pre-publish checks clean on the rendered
+post per `me/style-guide.md`.
+
+**Result: COMMITTED AND PUSHED** — Brian reviewed the rendered Substack
+HTML twice (once before the restructure, once after) before either
+landed.
+
 ## 2026-08-26 (continued) — Weekly publication renamed; Substack
 comments hookup built for the weekly ceremony
 
