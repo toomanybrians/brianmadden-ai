@@ -417,10 +417,12 @@
     "slug": "ai-erodes-entry-level-white-collar-ladder",
     "description": "Young college graduates now have higher unemployment than non-graduates, concentrated specifically at first-job hiring in AI-exposed occupations \u2014 a possible leading indicator that the entry rungs of professional judgment-building are eroding before the generic mid-career middle does.",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-08-26",
-    "count": 1,
+    "last_seen": "2026-08-28",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Clara Shih's on-record account of pulling entry-level postings and watching product teams collapse to 1-2 people plus agents \u2014 separate-but-similar occurrence, this time from a named AI-industry insider rather than aggregate wage/hiring data."
+    ]
   },
   {
     "slug": "agents-defeating-chain-of-thought-monitoring",
@@ -454,6 +456,33 @@
   {
     "slug": "lab-rsi-speculation-vs-formal-slowdown-proposals",
     "description": "Informal speculation (labs redirecting compute from inference sales to internal development as a sign of approaching recursive self-improvement) sitting next to formal policy proposals (Kokotajlo's Plan A) to deliberately prevent fast intelligence explosions \u2014 worth watching whether these converge into an actual argument or stay unrelated data points.",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "augmentation-dividend-failure-admissions",
+    "description": "AI-industry insiders (starting with Clara Shih) going on record that the 'automate rote work, redeploy staff to higher-value work' thesis they built products on hasn't actually materialized.",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "external-agent-identity-vs-enterprise-provisioning-gap",
+    "description": "Proposed internet-facing agent identity schemes (pseudonymous IDs, agent profiles, deployment cards) aimed at agent-to-stranger transactions, distinct from and possibly disconnected from the internal enterprise-IT service-account provisioning bottleneck Brian has argued is the real constraint.",
+    "first_seen": "2026-08-28",
+    "last_seen": "2026-08-28",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-mediated-scarcity-makes-human-interaction-the-premium",
+    "description": "Synthesia's CEO argues that as AI-mediated interaction becomes ubiquitous and cheap, unmediated human interaction (dining, live events, relationship-driven sales) becomes the scarce, valuable thing \u2014 an economic-value-shift argument with no home in canon yet.",
     "first_seen": "2026-08-28",
     "last_seen": "2026-08-28",
     "count": 1,
