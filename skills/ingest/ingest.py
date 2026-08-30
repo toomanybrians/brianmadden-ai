@@ -420,6 +420,45 @@ def _update_env_var(key: str, value: str) -> None:
     env_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def _persist_x_refresh_token(new_value: str) -> None:
+    """Two write-back paths, not either/or. _update_env_var() covers local
+    runs (a real, persistent .env file). GitHub Actions has no such
+    file — a rotated token that only lived in that job's environment
+    would make the X_REFRESH_TOKEN secret invalid on the very next
+    run, which is exactly why daily-pipeline.yml withheld the X_*
+    secrets from the ingest step until this existed (see that file's
+    2026-08-27 comment, and BUILD.md's same-day entry). Detected via
+    GITHUB_ACTIONS (set by every Actions runner) plus SECRETS_WRITE_PAT
+    (a fine-grained PAT, "Secrets: write" on this repo only — the
+    default GITHUB_TOKEN cannot manage secrets at any permission level,
+    confirmed against GitHub's own docs, 2026-08-28: the controllable
+    permission keys don't include one for secrets). Shells out to the
+    gh CLI (already used elsewhere in this workflow, already on every
+    ubuntu-latest runner) rather than hand-rolling the Secrets API's
+    libsodium sealed-box encryption — gh secret set does that internally.
+    A failure here is logged, not raised: today's already-fetched data
+    shouldn't be lost over a secret-write hiccup, but a silent failure
+    would leave X dark again next run with no signal why, so it prints
+    loudly rather than swallowing the error."""
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        return
+    pat = os.environ.get("SECRETS_WRITE_PAT")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not pat or not repo:
+        print("  warning: X refresh token rotated but SECRETS_WRITE_PAT not set — "
+              "next run will fail with an invalid_grant error. See .env.example.",
+              file=sys.stderr)
+        return
+    result = subprocess.run(
+        ["gh", "secret", "set", "X_REFRESH_TOKEN", "--repo", repo, "--body", new_value],
+        env={**os.environ, "GH_TOKEN": pat},
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        print(f"  warning: failed to write rotated X_REFRESH_TOKEN back to GitHub Secrets: "
+              f"{result.stderr.strip()}", file=sys.stderr)
+
+
 def _x_refresh_access_token() -> str:
     resp = requests.post(
         X_TOKEN_URL,
@@ -432,6 +471,7 @@ def _x_refresh_access_token() -> str:
     new_refresh = tokens.get("refresh_token")
     if new_refresh and new_refresh != os.environ["X_REFRESH_TOKEN"]:
         _update_env_var("X_REFRESH_TOKEN", new_refresh)
+        _persist_x_refresh_token(new_refresh)
         os.environ["X_REFRESH_TOKEN"] = new_refresh
     return tokens["access_token"]
 

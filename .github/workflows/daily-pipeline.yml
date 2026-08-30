@@ -22,20 +22,20 @@
 # hour of drift in either direction doesn't matter enough to double the
 # schedule complexity.
 #
-# WHAT'S MISSING ON PURPOSE
-# --------------------------
-# X (brianmaddenai home timeline) ingestion is deliberately NOT wired up
-# here yet, even though skills/ingest/ingest.py supports it. Its OAuth
-# refresh token rotates on use and ingest.py persists a rotated token by
-# rewriting the local .env file (skills/ingest/ingest.py's
-# _update_env_var()) — there is no .env file in a GitHub Actions
-# checkout, so a rotated token would only live for the one job and the
-# X_REFRESH_TOKEN secret here would silently go stale on the very next
-# rotation. Needs a real write-back-to-Secrets step (a repo-scoped PAT +
-# the Secrets API) before X_* secrets get added here — flagged as a
-# near-term follow-up, not a today problem. Missing X credentials fail
-# gracefully (x_is_configured() gate in ingest.py skips the source with a
-# logged reason, same as any other missing-credential source) rather than
+# X (brianmaddenai home timeline) INGESTION
+# ------------------------------------------
+# Wired in for real 2026-08-28. Its OAuth refresh token rotates on use;
+# skills/ingest/ingest.py's _persist_x_refresh_token() writes the
+# rotated value back to this repo's own X_REFRESH_TOKEN secret (via the
+# gh CLI, authenticated with SECRETS_WRITE_PAT below) in addition to the
+# local .env write _update_env_var() already did — without that,
+# X_REFRESH_TOKEN here would go stale on the very next rotation and
+# every run after the first would fail. The default GITHUB_TOKEN can't
+# do this itself; managing repository secrets isn't one of the
+# permissions it can be granted at any scope, confirmed against GitHub's
+# own docs. Missing X credentials still fail gracefully either way
+# (x_is_configured() gate in ingest.py skips the source with a logged
+# reason, same as any other missing-credential source) rather than
 # breaking the run.
 #
 # REQUIRED SECRETS (set in GitHub repo settings — see .env.example for
@@ -53,6 +53,16 @@
 #                                                     is the morning
 #                                                     email's recipient
 #   OPENAI_API_KEY                                 — podcast transcription
+#   X_CLIENT_ID / X_CLIENT_SECRET / X_ACCESS_TOKEN / X_REFRESH_TOKEN
+#                                                   — brianmaddenai home
+#                                                     timeline polling
+#   SECRETS_WRITE_PAT                              — fine-grained PAT,
+#                                                     "Secrets: write" on
+#                                                     this repo only, lets
+#                                                     the run above write
+#                                                     X_REFRESH_TOKEN back
+#                                                     to itself after a
+#                                                     rotation
 
 name: Daily ingest + brief + publish
 
@@ -98,6 +108,11 @@ jobs:
           GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
           BRIAN_EMAIL: ${{ secrets.BRIAN_EMAIL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          X_CLIENT_ID: ${{ secrets.X_CLIENT_ID }}
+          X_CLIENT_SECRET: ${{ secrets.X_CLIENT_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_REFRESH_TOKEN: ${{ secrets.X_REFRESH_TOKEN }}
+          SECRETS_WRITE_PAT: ${{ secrets.SECRETS_WRITE_PAT }}
         run: python3 skills/ingest/ingest.py
 
       - name: Run brief
