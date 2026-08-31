@@ -421,33 +421,62 @@ def _update_env_var(key: str, value: str) -> None:
 
 
 def _persist_x_refresh_token(new_value: str) -> None:
-    """Two write-back paths, not either/or. _update_env_var() covers local
-    runs (a real, persistent .env file). GitHub Actions has no such
-    file — a rotated token that only lived in that job's environment
-    would make the X_REFRESH_TOKEN secret invalid on the very next
-    run, which is exactly why daily-pipeline.yml withheld the X_*
-    secrets from the ingest step until this existed (see that file's
-    2026-08-27 comment, and BUILD.md's same-day entry). Detected via
-    GITHUB_ACTIONS (set by every Actions runner) plus SECRETS_WRITE_PAT
-    (a fine-grained PAT, "Secrets: write" on this repo only — the
-    default GITHUB_TOKEN cannot manage secrets at any permission level,
-    confirmed against GitHub's own docs, 2026-08-28: the controllable
-    permission keys don't include one for secrets). Shells out to the
-    gh CLI (already used elsewhere in this workflow, already on every
-    ubuntu-latest runner) rather than hand-rolling the Secrets API's
-    libsodium sealed-box encryption — gh secret set does that internally.
-    A failure here is logged, not raised: today's already-fetched data
-    shouldn't be lost over a secret-write hiccup, but a silent failure
-    would leave X dark again next run with no signal why, so it prints
-    loudly rather than swallowing the error."""
-    if os.environ.get("GITHUB_ACTIONS") != "true":
-        return
+    """Two write-back paths, not either/or. _update_env_var() covers
+    whichever machine is running right now (a real, persistent .env
+    file). This covers every *other* copy of the token — starting with
+    GitHub Actions, which has no such file, so a rotated token that only
+    lived in one job's environment would make the X_REFRESH_TOKEN secret
+    invalid on the very next scheduled run (why daily-pipeline.yml
+    withheld the X_* secrets until this existed — see that file's
+    2026-08-27 comment, and BUILD.md's same-day entry).
+
+    2026-08-31 fix: originally gated on GITHUB_ACTIONS=="true", on the
+    assumption local runs didn't need this. Wrong — confirmed the hard
+    way the same week: a local `--source x-timeline` test run (2026-08-28,
+    testing whether the blocked sources were worth fixing) rotated the
+    token locally, correctly updating the local .env, but the Actions-
+    only gate meant the GitHub-stored secret was never told — it sat
+    frozen at its 2026-08-26 value while the real, valid token only
+    existed locally. The next scheduled run (2026-08-31) failed with a
+    401 at the token endpoint — invalid_grant on an already-superseded
+    refresh token, not a connectivity or IP-block issue (X's OAuth
+    server responded normally; it just correctly rejected a stale
+    token). Root cause: any machine holding valid X credentials can
+    rotate the token by using it, and only one copy of a rotated token
+    is ever valid — every *other* copy holding the old value is now
+    wrong regardless of where it's stored. The fix generalizes to
+    exactly that: write back to GitHub Secrets whenever the write-back
+    credentials are configured, local run or not, not just inside
+    Actions — the two copies (local .env, GitHub Secrets) then always
+    converge on whichever token was valid most recently, wherever that
+    run happened to be.
+
+    Configured via SECRETS_WRITE_PAT (a fine-grained PAT, "Secrets:
+    write" on this repo only — the default GITHUB_TOKEN cannot manage
+    secrets at any permission level, confirmed against GitHub's own
+    docs, 2026-08-28: the controllable permission keys don't include one
+    for secrets) and GITHUB_REPOSITORY (owner/repo — set automatically
+    by every Actions runner; add it to a local .env too if local test
+    runs should also stay synced, which is the whole point of this fix).
+    Shells out to the gh CLI (already used elsewhere in this workflow,
+    already on every ubuntu-latest runner, and already on this machine)
+    rather than hand-rolling the Secrets API's libsodium sealed-box
+    encryption — gh secret set does that internally. A failure here is
+    logged, not raised: today's already-fetched data shouldn't be lost
+    over a secret-write hiccup — but only warns when it looks like the
+    write-back was actually expected to work (inside Actions, or
+    SECRETS_WRITE_PAT is set without GITHUB_REPOSITORY, a likely
+    misconfiguration) rather than every plain local run that simply
+    hasn't opted in."""
     pat = os.environ.get("SECRETS_WRITE_PAT")
     repo = os.environ.get("GITHUB_REPOSITORY")
+    in_actions = os.environ.get("GITHUB_ACTIONS") == "true"
     if not pat or not repo:
-        print("  warning: X refresh token rotated but SECRETS_WRITE_PAT not set — "
-              "next run will fail with an invalid_grant error. See .env.example.",
-              file=sys.stderr)
+        if in_actions or pat:
+            print("  warning: X refresh token rotated but SECRETS_WRITE_PAT/"
+                  "GITHUB_REPOSITORY not fully set — the other copy of this "
+                  "token is now stale and the next run there will fail with "
+                  "invalid_grant. See .env.example.", file=sys.stderr)
         return
     result = subprocess.run(
         ["gh", "secret", "set", "X_REFRESH_TOKEN", "--repo", repo, "--body", new_value],
