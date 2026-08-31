@@ -2126,3 +2126,69 @@ Secrets API rewrite, or the local/N100 migration already flagged in
 open decision #16, would both solve it) and, separately, whether the
 32-source Substack-blocking problem is worth the same local-migration
 fix given today's thin one-day sample.
+
+### 2026-08-31 — X still failed after the write-back fix; real cause
+found and fixed, not a connectivity problem
+
+Weekend gap: no session Sat/Sun (pipeline doesn't run those days
+either — weekday cron only). Bootstrap for this short session was
+informal — Brian reported the symptom directly rather than running
+`/maintain` — but still started with a sync check: 1 commit behind
+`origin/main` (today's automated run), clean fast-forward, no
+conflict.
+
+Brian's report: X still errored on the first scheduled run after
+2026-08-28's write-back fix landed, and he wondered whether GitHub
+Actions just can't reach X at all — the same shape of problem as the
+Cloudflare/Substack block. Checked the actual error instead of
+guessing: `outputs/technical-briefings/2026-08-31.md`'s "Sources
+checked today" and `ingest/.last_run_sources.json` both showed `401
+Client Error: Unauthorized for url: https://api.x.com/2/oauth2/token`
+— X's OAuth server responded normally and explicitly rejected the
+credentials. Not a network/IP-block shape of failure at all (that
+would look like a timeout, a connection error, or Cloudflare's own
+403 — not a clean 401 from X's own token endpoint).
+
+**Root cause, confirmed via the GitHub API, not inferred:** the
+2026-08-28 write-back fix only fired inside GitHub Actions
+(`GITHUB_ACTIONS=="true"` gate) — reasonable-looking at the time, but
+wrong. The same day's local test run (pulling X to check whether the
+blocked sources were worth fixing — see that day's entry above)
+rotated the token locally, correctly updating the local `.env` via the
+already-existing `_update_env_var()`, but the Actions-only gate meant
+GitHub's stored `X_REFRESH_TOKEN` secret was never told about the
+rotation. `gh api repos/toomanybrians/brianmadden-ai/actions/secrets/
+X_REFRESH_TOKEN` showed `created_at: 2026-08-26`, `updated_at:
+2026-08-26` — untouched since the secret was first set, five days
+before today's failed run. The valid token had existed only locally
+since 8/28; GitHub's copy was the orphaned, now-invalid one.
+
+**Fixed and verified live, not just patched and hoped:**
+`_persist_x_refresh_token()` no longer gates on `GITHUB_ACTIONS` —
+it writes back to GitHub Secrets whenever `SECRETS_WRITE_PAT` and
+`GITHUB_REPOSITORY` are both configured, local run or not. Added
+`GITHUB_REPOSITORY` to Brian's local `.env` (alongside the
+already-present `SECRETS_WRITE_PAT`) so future local X test runs
+stay synced automatically instead of silently repeating this exact
+failure. Ran a real local ingest against X with the fixed code (`gh
+api .../secrets/X_REFRESH_TOKEN` confirmed `updated_at` moved to the
+exact moment of that run) — the write-back path is now proven working
+end to end against the real API, not just the earlier no-credentials
+no-op test from 2026-08-28. That same run also resynced today's stale
+secret for real, so tomorrow's scheduled run should succeed without
+further action from anyone.
+
+One real mid-session slip, disclosed rather than glossed over: a
+`grep -n` and a `Read` each printed `SECRETS_WRITE_PAT`'s actual value
+into this session's own output while checking whether it was already
+set — should have used `grep -q`/existence checks throughout, the way
+the rest of this fix's diagnostics did. Flagged to Brian directly when
+it happened; he may want to regenerate that PAT out of caution, though
+the exposure was confined to his own local session transcript, not
+anywhere external.
+
+`python3 -m py_compile` clean; `check_doc_accuracy.py` clean.
+Committed and pushed (`83d6c05`) — 3 real ingest notes from the
+verification run included, `.env`/`.env.example` changes kept
+separate (the former gitignored and never committed, the latter
+updated to document the new local-sync convention).
