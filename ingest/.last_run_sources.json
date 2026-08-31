@@ -1,44 +1,43 @@
 {
-  "run_utc": "2026-08-28T09:22:55.759470+00:00",
+  "run_utc": "2026-08-31T06:44:24.153321+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "error",
-      "reason": "X_CLIENT_ID/SECRET/ACCESS_TOKEN/REFRESH_TOKEN not set \u2014 see .env.example"
+      "reason": "X auth failed: 401 Client Error: Unauthorized for url: https://api.x.com/2/oauth2/token"
     },
     {
       "id": "ethan-mollick",
       "name": "Ethan Mollick",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "nate-b-jones",
       "name": "Nate B. Jones",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: 404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ"
     },
     {
       "id": "daniel-miessler",
       "name": "Daniel Miessler",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "brain-inbox",
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 19,
-      "new_entries": 19
+      "entries_in_window": 20,
+      "new_entries": 20
     },
     {
       "id": "the-artificial-intelligence-show",
@@ -53,8 +52,8 @@
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "dwarkesh",
@@ -77,7 +76,7 @@
       "name": "Hard Fork",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 1,
       "new_entries": 0
     },
     {
@@ -85,32 +84,32 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "on-with-kara-swisher",
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "no-priors",
       "name": "No Priors",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "80000-hours-podcast",
       "name": "The 80,000 Hours Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "lex-fridman",
@@ -141,8 +140,8 @@
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "ahead-of-ai",
@@ -194,8 +193,8 @@
       "name": "Emerging AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 11,
+      "new_entries": 6
     },
     {
       "id": "emerging-physical-ai",
@@ -290,7 +289,7 @@
       "name": "Marcus on AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 5,
       "new_entries": 0
     },
     {
@@ -298,7 +297,7 @@
       "name": "Metatrends",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 5,
       "new_entries": 0
     },
     {
@@ -306,31 +305,32 @@
       "name": "Not Boring",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "prof-g-media",
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "simon-willison",
       "name": "Simon Willison's Newsletter",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://simonw.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 5,
+      "new_entries": 0
     },
     {
       "id": "theory-of-the-game",
@@ -363,16 +363,17 @@
     {
       "id": "rutger-bregman",
       "name": "Rutger Bregman",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://rutgerbregman.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 5,
+      "new_entries": 0
     },
     {
       "id": "forecasting-research-institute",
       "name": "Forecasting Research Institute",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 5,
       "new_entries": 0
     },
     {
@@ -417,8 +418,8 @@
       "name": "Hard Reset",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "kuns-field-notes",
@@ -463,8 +464,8 @@
       "name": "AI Frontiers",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "chinai-newsletter",
@@ -511,9 +512,10 @@
     {
       "id": "guardrailnow",
       "name": "GuardRailNow",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://guardrailnow.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 5,
+      "new_entries": 0
     },
     {
       "id": "metr",
@@ -527,7 +529,7 @@
       "name": "The Prompt: Insights from OpenAI Global Affairs",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 5,
       "new_entries": 0
     },
     {
@@ -535,7 +537,7 @@
       "name": "A Quantum of Solis",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 5,
       "new_entries": 0
     },
     {
@@ -571,8 +573,8 @@
       "name": "Dwarkesh Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "lex-fridman-2",
@@ -584,9 +586,10 @@
     {
       "id": "nate-s-substack",
       "name": "Nate\u2019s Substack",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://natesnewsletter.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 5,
+      "new_entries": 0
     },
     {
       "id": "futurism",
@@ -675,6 +678,20 @@
     {
       "id": "hard-reset-2",
       "name": "Hard Reset",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "ai-frontiers-2",
+      "name": "AI Frontiers",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "sharon-goldman",
+      "name": "Sharon Goldman",
       "method": "feed",
       "status": "skipped",
       "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"

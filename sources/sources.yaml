@@ -469,7 +469,9 @@ sources:
     name: Simon Willison's Newsletter
     type: person
     url: https://simonw.substack.com
-    feed_url: https://simonw.substack.com/feed
+    feed_url: null
+    sender: simonw@substack.com
+    ingest_method: email
     priority: regular
 
   - id: theory-of-the-game
@@ -509,7 +511,9 @@ sources:
     name: Rutger Bregman
     type: person
     url: https://rutgerbregman.substack.com
-    feed_url: https://rutgerbregman.substack.com/feed
+    feed_url: null
+    sender: rutgerbregman@substack.com
+    ingest_method: email
     priority: regular
     note: "UBI, future of work, humanism"
 
@@ -687,7 +691,9 @@ sources:
     name: GuardRailNow
     type: newsletter
     url: https://guardrailnow.substack.com
-    feed_url: https://guardrailnow.substack.com/feed
+    feed_url: null
+    sender: guardrailnow@substack.com
+    ingest_method: email
     priority: regular
     note: "The AI Risk Network — AI safety"
 
@@ -774,7 +780,9 @@ sources:
     name: "Nate’s Substack"
     type: newsletter
     url: "https://natesnewsletter.substack.com"
-    feed_url: "https://natesnewsletter.substack.com/feed"
+    feed_url: null
+    sender: natesnewsletter@substack.com
+    ingest_method: email
     priority: regular
     note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-08-17 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
 
@@ -921,3 +929,30 @@ sources:
     sender: sharongoldman@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-08-28 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: daniel-miessler-2
+    name: "Daniel Miessler"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: unsupervised-learning@mail.beehiiv.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-31 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: ethan-mollick-from-one-useful-thing
+    name: "Ethan Mollick from One Useful Thing"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: oneusefulthing@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-31 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: dwarkesh-patel-2
+    name: "Dwarkesh Patel"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: dwarkesh+blog@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-08-31 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
