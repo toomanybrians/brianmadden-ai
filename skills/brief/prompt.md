@@ -54,6 +54,24 @@ might just be a similar one.
 
 {{TRACKED_THREADS}}
 
+## Yesterday's brief (for catching repetition)
+
+The tracked-threads list above operates on abstract pattern
+descriptions, not prose — it can tell you a *pattern* recurred, but not
+whether you already gave a *specific fact* a full paragraph yesterday.
+This is the actual text of the most recent prior brief, so you can
+check directly: if something in today's batch substantially repeats a
+specific item already covered here — same deal, same claim, same
+number, no material update since — don't give it a fresh full paragraph
+today. Either skip it, or if it's worth a mention, make that mention
+one sentence with a plain callback ("as covered yesterday"), not a
+restatement dressed up as new. A pattern *recurring* (worth noting,
+that's what the tracked-threads mechanism is for) is different from the
+*same specific fact* getting written up twice — don't let correctly
+identifying the former excuse doing the latter.
+
+{{PREVIOUS_BRIEF}}
+
 ## Today's batch — {{ENTRY_COUNT}} ingest notes, tier-1 raw material, neutral third-person extraction
 
 Each note below has an "Author/newsletter" line and a "Source URL" line —
@@ -120,6 +138,18 @@ space, or force every section to have content just because the section
 exists. A one-paragraph brief that's honest beats a five-paragraph brief
 that's padded. The reader wants their time back on a slow day, not a
 brief performing busy-ness. (Brian's correction, 2026-08-26.)
+
+**Don't repeat yourself within the issue, even in service of two
+different points.** If the same underlying fact (a specific deal, a
+specific number, a specific claim) is genuinely useful in two different
+sections — say, as a confirmation in one place and as a contrast in
+another — use it once, in whichever section it earns its place best,
+and reference it briefly the second time rather than restating it in
+full again. Two fresh-sounding paragraphs built on the same fact read
+as padding even when each individually makes a real point. (Brian's
+correction, 2026-09-01, after Nvidia buying Hugging Face got a full
+paragraph in both "What this confirms" and "What doesn't fit yet" the
+same day — see also the cross-day repetition guidance above.)
 
 Write two parts, in this exact order, and nothing else — no preamble
 before part 1, no text after part 2.

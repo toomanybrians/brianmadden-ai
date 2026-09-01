@@ -199,6 +199,30 @@ def load_previously_briefed_paths() -> set[str]:
     return seen
 
 
+def load_previous_brief(brief_date: str) -> str:
+    """Most recent dense brief strictly before brief_date, body only (no
+    frontmatter) — reference material so the model can check whether
+    something it's about to write substantially repeats what already got
+    full treatment, not just recognize an abstract tracked-thread pattern
+    recurring (that's {{TRACKED_THREADS}}' job; it operates on pattern
+    descriptions, not prose, so it can't catch a specific news item -
+    Nvidia buying Hugging Face, say - getting a fresh full paragraph two
+    days running with no real status change in between. Real example,
+    2026-09-01: exactly that happened on 08-31 and 09-01, both still
+    "reportedly agreeing," and the model had no way to know it had
+    already said the same thing yesterday because it never saw
+    yesterday's actual text). Returns "" if no prior brief exists (first
+    run, or every existing file happens to sort after brief_date)."""
+    candidates = [
+        p for p in sorted(OUTPUT_ROOT.rglob("*.md"))
+        if p.name != "promotion-candidates.md" and p.stem < brief_date
+    ]
+    if not candidates:
+        return ""
+    _, body = read_frontmatter_and_body(candidates[-1])
+    return body
+
+
 def load_recent_notes(since_days: float) -> list[dict]:
     cutoff = (datetime.now(timezone.utc) - timedelta(days=since_days)).date()
     already_briefed = load_previously_briefed_paths()
@@ -494,6 +518,8 @@ def build_prompt(template: str, notes: list[dict], tracker: list[dict], brief_da
         "\n".join(f"- `{t['slug']}` — {t['description']}" for t in watching)
         if watching else "(none yet — nothing has been flagged as a recurring thread so far)"
     )
+    previous_brief = load_previous_brief(brief_date)
+    previous_brief_block = previous_brief if previous_brief else "(no prior brief on file — this is the first run)"
 
     replacements = {
         "{{VOICE}}": voice,
@@ -505,6 +531,7 @@ def build_prompt(template: str, notes: list[dict], tracker: list[dict], brief_da
         "{{GITHUB_BASE}}": GITHUB_BASE,
         "{{FRAMEWORKS_LIST}}": load_frameworks_list(),
         "{{TRACKED_THREADS}}": tracked_block,
+        "{{PREVIOUS_BRIEF}}": previous_brief_block,
         "{{ENTRY_COUNT}}": str(len(notes)),
         "{{INGEST_NOTES}}": notes_block,
         "{{BRIEF_DATE}}": brief_date,
