@@ -531,5 +531,14 @@
     "count": 1,
     "status": "watching",
     "history": []
+  },
+  {
+    "slug": "agentic-commerce-spending-authority",
+    "description": "Consumer AI agents (Grok Bot via Stripe) given standing authority to search, cart, and check out with real money \u2014 agents crossing from producing information to spending it, with no enterprise governance framework covering financial transaction authority yet",
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-09-01",
+    "count": 1,
+    "status": "watching",
+    "history": []
   }
 ]
