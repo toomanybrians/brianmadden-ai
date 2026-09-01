@@ -364,7 +364,9 @@ sources:
     name: Import AI
     type: person
     url: https://importai.substack.com
-    feed_url: https://importai.substack.com/feed
+    feed_url: null
+    sender: importai@substack.com
+    ingest_method: email
     priority: regular
     note: "Jack Clark (Anthropic)"
 
@@ -636,7 +638,9 @@ sources:
     name: ChinAI Newsletter
     type: person
     url: https://chinai.substack.com
-    feed_url: https://chinai.substack.com/feed
+    feed_url: null
+    sender: chinai@substack.com
+    ingest_method: email
     priority: regular
     note: "Jeffrey Ding — AI development in China"
 
@@ -956,3 +960,21 @@ sources:
     sender: dwarkesh+blog@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-08-31 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: julien-simon-from-the-ai-realist
+    name: "Julien Simon from The AI Realist"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: julsimon@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-01 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: last-week-in-ai-2
+    name: "Last Week in AI"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: lastweekinai+podcast@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-01 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."

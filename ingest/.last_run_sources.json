@@ -1,5 +1,5 @@
 {
-  "run_utc": "2026-08-31T06:44:24.153321+00:00",
+  "run_utc": "2026-09-01T06:34:43.668759+00:00",
   "results": [
     {
       "id": "x-timeline",
@@ -13,8 +13,8 @@
       "name": "Ethan Mollick",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "nate-b-jones",
@@ -28,16 +28,16 @@
       "name": "Daniel Miessler",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "brain-inbox",
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 20,
-      "new_entries": 20
+      "entries_in_window": 17,
+      "new_entries": 17
     },
     {
       "id": "the-artificial-intelligence-show",
@@ -52,16 +52,16 @@
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "dwarkesh",
       "name": "Dwarkesh",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "bg2",
@@ -76,7 +76,7 @@
       "name": "Hard Fork",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -140,8 +140,8 @@
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ahead-of-ai",
@@ -164,8 +164,8 @@
       "name": "The AI Realist",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "david-shapiro",
@@ -193,8 +193,8 @@
       "name": "Emerging AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 11,
-      "new_entries": 6
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "emerging-physical-ai",
@@ -236,9 +236,10 @@
     {
       "id": "import-ai",
       "name": "Import AI",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://importai.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "esther-dyson",
@@ -281,15 +282,15 @@
       "name": "Last Week in AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "marcus-on-ai",
       "name": "Marcus on AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -297,7 +298,7 @@
       "name": "Metatrends",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -305,31 +306,31 @@
       "name": "Not Boring",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "prof-g-media",
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 4,
+      "new_entries": 4
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "simon-willison",
       "name": "Simon Willison's Newsletter",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -365,7 +366,7 @@
       "name": "Rutger Bregman",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -373,7 +374,7 @@
       "name": "Forecasting Research Institute",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -470,9 +471,10 @@
     {
       "id": "chinai-newsletter",
       "name": "ChinAI Newsletter",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://chinai.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "tech-empires",
@@ -514,7 +516,7 @@
       "name": "GuardRailNow",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -529,7 +531,7 @@
       "name": "The Prompt: Insights from OpenAI Global Affairs",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -537,7 +539,7 @@
       "name": "A Quantum of Solis",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -588,7 +590,7 @@
       "name": "Nate\u2019s Substack",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -692,6 +694,27 @@
     {
       "id": "sharon-goldman",
       "name": "Sharon Goldman",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "daniel-miessler-2",
+      "name": "Daniel Miessler",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "ethan-mollick-from-one-useful-thing",
+      "name": "Ethan Mollick from One Useful Thing",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "dwarkesh-patel-2",
+      "name": "Dwarkesh Patel",
       "method": "feed",
       "status": "skipped",
       "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"

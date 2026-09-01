@@ -390,10 +390,12 @@
     "slug": "consumer-tier-rationing-narrows-the-byod-token-gap",
     "description": "Flat-rate consumer AI plans introducing usage caps by tier (OpenAI Plus five-hour cap while Pro stays unlimited), which converts the consumer-unlimited vs enterprise-metered structural gap into a price-tier line running through both sides.",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-08-26",
-    "count": 1,
+    "last_seen": "2026-09-01",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Claude Code's usage-limit change (a '25% raise' felt as a 17% cut) plus a lawsuit alleging Anthropic's Max plan delivers 1.1-1.7x usage despite '20x' marketing \u2014 allocation promised vs. allocation delivered."
+    ]
   },
   {
     "slug": "fde-training-throughput-as-wave-2-bottleneck",
@@ -408,10 +410,12 @@
     "slug": "enterprise-ai-de-adoption-signal",
     "description": "A named enterprise customer (Thomson Reuters/Claude) scaling back paid AI usage after real adoption, not stalling in pilot, alongside a lab reportedly asking prospective hires about zero-equity outcomes \u2014 a sharper counter-signal to valuation-maximalism narratives than pilot purgatory.",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-08-26",
-    "count": 1,
+    "last_seen": "2026-09-01",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Thomson Reuters launched an in-house model specifically to cut reliance on Anthropic \u2014 same named customer, further move away from vendor dependence."
+    ]
   },
   {
     "slug": "ai-erodes-entry-level-white-collar-ladder",
@@ -458,10 +462,12 @@
     "slug": "lab-rsi-speculation-vs-formal-slowdown-proposals",
     "description": "Informal speculation (labs redirecting compute from inference sales to internal development as a sign of approaching recursive self-improvement) sitting next to formal policy proposals (Kokotajlo's Plan A) to deliberately prevent fast intelligence explosions \u2014 worth watching whether these converge into an actual argument or stay unrelated data points.",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-08-28",
-    "count": 1,
+    "last_seen": "2026-09-01",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "METR researcher Ajeya Cotra's 'more than 50% of the way to full-blown AI takeover' framing of the Hugging Face incident sits next to the 'Pacing the Frontier' formal slowdown letter signed by multiple labs' chief scientists."
+    ]
   },
   {
     "slug": "augmentation-dividend-failure-admissions",
@@ -504,6 +510,24 @@
     "description": "Local government resolutions opposing unproven AGI development, using D&O insurance liability as the enforcement lever rather than direct regulation \u2014 a new governance mechanism worth watching for spread to other jurisdictions.",
     "first_seen": "2026-08-31",
     "last_seen": "2026-08-31",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-as-state-provisioned-public-utility",
+    "description": "South Korea's free, unlimited, state-subsidized universal AI agent rollout as a third provisioning model \u2014 state utility \u2014 alongside the US subscription and enterprise-metered models.",
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-09-01",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "protocol-layer-neutrality-vs-hosting-layer-consolidation",
+    "description": "The same week Nvidia moves to acquire Hugging Face, MCP and A2A converge under a new neutral Linux Foundation body (AAIF) \u2014 worth watching whether protocol-layer neutrality holds even as hosting/infrastructure-layer neutrality keeps failing.",
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-09-01",
     "count": 1,
     "status": "watching",
     "history": []
