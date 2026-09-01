@@ -2192,3 +2192,101 @@ Committed and pushed (`83d6c05`) — 3 real ingest notes from the
 verification run included, `.env`/`.env.example` changes kept
 separate (the former gitignored and never committed, the latter
 updated to document the new local-sync convention).
+
+### 2026-09-01 (continued) — repeat news-item duplication fixed, and a
+serious repeated-credential-exposure problem finally fixed properly
+
+**Repeat coverage across days, not just within a tracked thread.** Brian
+read the emailed brief and asked whether the Nvidia/Hugging Face item
+had already been covered — it had, in full, the day before, with no
+real update in between (still "reportedly agreeing" both times).
+Checked all three recent briefs directly: not mentioned at all in the
+08-28 committed version, a real paragraph on 08-31, and today's issue
+repeated it *twice*, once in "What this confirms" and again in "What
+doesn't fit yet." The 08-28 same-vs-related-incident dedup guidance
+only covers the thread-tracker mechanism (abstract pattern
+descriptions) — it has no way to catch a specific news fact getting
+fresh full treatment two days running, because the model never actually
+saw yesterday's text to check against. Fixed by giving it exactly
+that: `brief.py` gained `load_previous_brief()`, wired into the prompt
+as a new `{{PREVIOUS_BRIEF}}` reference section, with explicit
+instructions to check specific facts against it (skip, or a one-line
+callback, rather than a restatement) and not to use the same fact to
+support two different points in two different sections without
+referencing the first mention. Regenerated today's brief for real with
+the fix — Nvidia/HF now appears once, with genuinely new detail
+(hyperscalers' antitrust exposure, the shift toward paid NIM
+containers) instead of twice with nothing new, and the freed space
+surfaced real material that had gotten crowded out (Thomson Reuters'
+own $40M in-house model, the new Agentic AI Foundation, Grok Bot's
+agentic-commerce authority). Sent Brian the regenerated draft before
+his podcast recording, per his explicit time pressure — this piece
+landed first, before the credential-security work below.
+
+**The credential-exposure problem, and why the first fix attempt made
+it worse before it got better.** Brian, directly and angrily: this has
+happened about half a dozen times in the past 2-3 weeks, and re-rotating
+keys every time is real, unwanted work — asked for a systemic fix, not
+another promise to be careful. Two things happened this session before
+the real fix landed:
+
+1. While diagnosing whether X's 401 was a connectivity issue (it
+   wasn't — see the entry above this one), a `grep -n` and a `Read`
+   call each printed `SECRETS_WRITE_PAT`'s actual value while checking
+   whether it was set, instead of using an existence check. Flagged to
+   Brian immediately.
+2. While building the fix itself, a live test of the new protection
+   (with `permissions.deny` on `Read(.env)` still in place, before its
+   real problem was diagnosed — see below) led to a direct `Read` call
+   on the actual `.env` to check whether protection was "off" — which
+   printed the *entire* file: every credential in the pipeline at
+   once (Anthropic, OpenAI, both X app secrets and both X tokens,
+   OpenRouter, Gmail client secret and refresh token, and
+   `SECRETS_WRITE_PAT` again). Flagged immediately, and treated as
+   the worse of the two exposures — full-file, not one line.
+
+**The fix, and a real, undocumented Claude Code behavior found along
+the way.** First attempt: `permissions.deny` rules for
+`Read(.env)`/`Read(.env.local)` in a new `.claude/settings.json`, plus
+a `PreToolUse` hook on `Bash` (`.claude/hooks/guard-env-read.sh`) that
+blocks commands which would print `.env`'s content (`cat`, plain
+`grep`, `head`, `tail`, `sed -n p`, ...) while allowing existence/match
+checks that never print content (`grep -q`/`-c`/`-l`, `test -f`, `ls`,
+`git`, `rm`, `wc`, `stat`, ...) — verified in isolation against a wide
+test matrix, including that `.env.example` (public, no real secrets) is
+correctly excluded via word-boundary matching, not just a substring
+check. Live in this actual session, `cat .env` was correctly blocked
+immediately with no reload needed — but `grep -q`, which the hook
+explicitly allows, was *also* denied, with a generic permission message
+rather than the hook's own reason text. Diagnosed rather than
+papered over: removing just the `permissions.deny` block (keeping the
+hook) made `grep -q`/`grep -c` work again immediately. Conclusion,
+confirmed by that isolation test: a path-scoped `Read(...)` deny rule
+in this version of Claude Code also blocks *other* tools' commands that
+merely reference the same path as an argument, overriding a hook's
+explicit allow for that tool — not documented anywhere found, a real
+behavior discovered by testing, not assumed. Real fix: drop
+`permissions.deny` entirely, use two `PreToolUse` hooks instead — the
+existing Bash one, plus a new `.claude/hooks/guard-env-read-tool.sh` on
+the `Read` matcher (unconditional deny; unlike Bash there's no safe
+partial-content mode to carve an exception for). Verified live end to
+end: the Bash hook confirmed against the real `.env` (`cat` blocked,
+`grep -q`/`-c` and `test -f` allowed); the Read hook confirmed against
+a harmless decoy file created via the Write tool at a scratch path
+(never the real `.env` again) since a second live Read test against
+the real file was exactly the risk being fixed. `rm`/`rmdir` added to
+the Bash hook's safe-verb list after cleanup of that decoy tripped it
+needlessly — deletion never exposes content, no reason to block it.
+Committed and pushed (`534c01e`).
+
+**Explicitly recommended to Brian, given the second exposure was a
+full-file dump, not partial:** rotate every credential that was in
+`.env` — `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `OPENROUTER_API_KEY`,
+the X app's `X_CLIENT_ID`/`X_CLIENT_SECRET` and both
+`X_ACCESS_TOKEN`/`X_REFRESH_TOKEN` (X's OAuth tokens need a fresh
+authorization flow, not just a value swap — genuinely relevant either
+way, given the same-day X reliability findings in the entry above),
+`GMAIL_CLIENT_SECRET`/`GMAIL_REFRESH_TOKEN`, and `SECRETS_WRITE_PAT`
+(exposed a second time this session, on top of the first). Not
+something this session can do — all of these require Brian's own
+action in each provider's dashboard.
