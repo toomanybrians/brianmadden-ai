@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/brian/git/brianmadden-ai/.claude/hooks/guard-env-read.sh",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/brian/git/brianmadden-ai/.claude/hooks/guard-env-read-tool.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
