@@ -18,7 +18,7 @@ model: claude-fable-5
 
 A system that turns an organization's scattered institutional knowledge into a curated, structured middle layer—the **canonical context layer**, made of **knowledge blocks**—and then uses AI to generate an effectively unlimited range of finished outputs from that layer, with full provenance: decks, guides, reports, reference material, whatever the deliverable is. It's the shared, departmental second brain.
 
-*Entered canon August 14, 2026, from working material—not yet published as a standalone post. The concept and name are already on the public record ([podcast episodes 3-4, and the July 20 bubble-pop post](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/)). The industry hasn't settled on a common term; "knowledge factory" is ours.*
+*Entered canon August 14, 2026, from working material—not yet published as a standalone post. The concept and name are already on the public record (podcast episodes 3-4, and the [July 20 bubble-pop post](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/)); [episode 5](../podcast/ep5.md) (2026-09-01) is the deep dive—the three-tier architecture, canon as firewall, provenance, and Google's Open Knowledge Format as convergent validation. The industry hasn't settled on a common term; "knowledge factory" is ours.*
 
 ## The core insight: don't go straight from raw material to output
 

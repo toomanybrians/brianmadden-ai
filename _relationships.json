@@ -186,6 +186,11 @@
       ],
       "referenced_by_talks": [
         "2026-07-16-arrow-forum-what-is-a-worker-in-2031"
+      ],
+      "referenced_by_podcast": [
+        "podcast/ep3.md",
+        "podcast/ep4.md",
+        "podcast/ep5.md"
       ]
     },
     "post-application-era": {

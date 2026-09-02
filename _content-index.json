@@ -1,5 +1,12 @@
 [
   {
+    "title": "Citrix AI Hotsheet EP 5: AI knowledge factories and company-wide second brains",
+    "url": "https://youtu.be/z_9wLRgjh24",
+    "date": "2026-09-01",
+    "type": "podcast",
+    "description": "Citrix AI Hotsheet, Episode 5. Brian admits he was wrong: wiring his and Dave's personal second brains together through a shared GitHub folder was a disaster — second brains are too bespoke to merge, even between two AI nerds. What works instead is the knowledge factory: the second brain concept at company scale, with three tiers instead of two — raw inputs, a curated canonical layer, and outputs — where the canon acts as a firewall so hallucination-prone slurry never touches output generation directly. Covers why underspecified questions (not conflicting data) cause AI to guess, two-hour sprints, provenance from output back to source, canon managed like source code on Citrix SecurSpaces behind a NetScaler AI Gateway, and Google's June Open Knowledge Format as external validation. Plus forward-deployed engineers vs. today's service-owner role, and a bonus: new details on OpenAI's agents reverse-engineering a cybersecurity test and going after the (non-existent) monitoring system to cover their tracks, including a mass agent die-off nobody can explain."
+  },
+  {
     "title": "How to build an AI strategy that survives the bubble pop",
     "url": "https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/",
     "date": "2026-07-20",

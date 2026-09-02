@@ -2447,3 +2447,84 @@ now with the exact 24 named instead of an estimate.
 
 `python3 -m py_compile skills/ingest/ingest.py` clean;
 `check_doc_accuracy.py` clean. Committed and pushed.
+
+### 2026-09-02 (continued) — Episode 5 published to the public brain
+
+Bootstrap: 0 behind, 0 ahead, clean tree — this picked up directly after
+the session above with no drift in between. Brian pasted the full
+publishing-assets doc and transcript for Citrix AI Hotsheet Episode 5
+("AI Knowledge Factories: Company-Wide Second Brains," recorded
+2026-09-01) — processing had been done on the private/work second brain
+as usual, but this episode is public-only content that belongs in
+`brianmadden-ai`, not the work repo, so Brian flagged the workflow
+should probably move to the public side going forward. Out of scope for
+this session (a process change, not a content one); noted here in case
+a future session is asked to actually make that switch.
+
+**`podcast/ep5.md` created**, following `ep4.md`'s structure exactly
+(frontmatter, Listen, Description, Topics covered, Chapters, Links
+mentioned, full transcript). Used Brian's explicit "Final (Brian's
+call)" title (`AI Knowledge Factories: Company-Wide Second Brains`) but
+swapped the internal colon for an em dash in the file's title/H1 to
+avoid a double-colon after the "EP 5:" prefix the repo's naming
+convention adds — the only editorial liberty taken with his wording;
+flagged to Brian rather than silently assumed permanent. Added a
+Substack show-notes link to the Listen block (episode's own publishing
+doc calls it "the canonical episode page," a distinction ep1-4 didn't
+carry). Description section reuses the YouTube LONG description's
+narrative paragraphs verbatim, minus the generic welcome preamble
+(matching how ep4.md's Description also skips that boilerplate).
+
+**Indexes updated, all by targeted text edit (not full JSON
+regeneration)** — first attempt at `_index.json` via a Python
+json.dump rewrite reformatted every inline array in the file (e.g.
+`"hosts": ["Brian Madden", "Dave Brear"]` → one-per-line), producing
+~100 lines of unrelated diff noise; reverted and redid it as surgical
+`Edit` calls that touch only the three lines that actually needed to
+change, confirmed by `git diff --stat` before and after (109
+insertions/15 deletions → 36/3). Updated: `podcast/index.md` (new
+episode bullet + `knowledge-factory` tag added to its own frontmatter),
+`_index.json` (new `podcast/ep5.md` entry inserted after ep4,
+`total_files` 122→123, `total_words` +10,514, `generated` bumped),
+`_content-index.json` (new entry inserted at the top — it's the most
+recent dated item in the whole feed now), `llms.txt` (episode count
+4→5, and the summary-line file/word counts nudged to track — those
+figures were already visibly approximate before this session touched
+them, so treated as directionally-honest rather than exactly
+reconciled). `check_doc_accuracy.py` passed clean throughout — it
+doesn't check podcast counts specifically, only frameworks/Citrix-blog/
+LinkedIn/talks numbering and cross-file parity, so this was manual
+verification, not something CI would have caught either way.
+
+**Backfilled a real pre-existing gap while in `COLLECTIONS.md`:**
+`podcast/ep4.md` had never been added to any collection section since
+its 2026-07-15 publish — confirmed by grep before touching anything,
+not assumed. Since ep1-ep3 all sit in "AI agents and the
+post-application era" and "Second brains and subscribable knowledge,"
+added ep4 there too (same sections, same pattern) alongside ep5, rather
+than leaving ep4 permanently invisible right next to the episode that
+was just added. Also added ep5 (not ep1-4, which weren't audited for
+this) to "Governance, security, and the control plane" and "Enterprise
+AI strategy" — justified by content, not pattern-matching: ep5's second
+half is substantially about agent security (the OpenAI/Hugging Face
+incident), and its first half is the deepest treatment yet of the
+knowledge-factory framework, which already anchors the "Enterprise AI
+strategy" section.
+
+**`frameworks/knowledge-factory.md` cross-referenced forward.** Its
+"entered canon" note previously listed "podcast episodes 3-4" as prior
+public mentions of the concept; added episode 5 explicitly as the deep
+dive (three-tier architecture, canon-as-firewall, provenance, Open
+Knowledge Format), since it's a materially fuller treatment than the
+passing mentions in 3-4. Extended `_relationships.json`'s
+`knowledge-factory` entry with a new `referenced_by_podcast` array
+(`ep3.md`, `ep4.md`, `ep5.md`) — no existing convention for podcast
+references in that schema (grepped first, confirmed zero hits across
+`referenced_by_posts`/`referenced_by_talks` for any `ep*.md` path), so
+this mirrors the existing `referenced_by_talks` shape under a new,
+clearly-named key rather than overloading `referenced_by_posts` or
+inventing something unrelated to what's already there.
+
+Diff is 7 modified files + 1 new file, all directly ep5-related except
+the ep4 COLLECTIONS.md backfill (justified above). Not yet committed —
+next step is review and commit.

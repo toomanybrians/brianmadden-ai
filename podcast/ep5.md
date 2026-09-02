@@ -1,0 +1,507 @@
+---
+title: "EP 5: AI Knowledge Factories — Company-Wide Second Brains"
+date: "2026-09-01"
+show: "Citrix AI Hotsheet"
+hosts: [Brian Madden, Dave Brear]
+format: Podcast (Brian's own show)
+authority_level: 5
+file_type: podcast
+tags: [knowledge-factory, canonical-knowledge-layer, second-brain, context-vault, three-tier-architecture, hallucination, provenance, forward-deployed-engineering, service-owner, open-knowledge-format, securspaces, netscaler-ai-gateway, ai-agent-security, non-human-personas, openai-hugging-face-incident, agentic-ai, enterprise-ai, governance]
+staleness_threshold: stable
+tier: 2
+status: reviewed
+---
+
+# EP 5: AI Knowledge Factories — Company-Wide Second Brains
+
+*Citrix AI Hotsheet · Brian Madden & Dave Brear · September 1, 2026*
+
+## Listen
+
+- **Show home:** https://citrixaihotsheet.riverside.com/e/ai-knowledge-factories-company-wide-second-brains
+- **Apple Podcasts:** https://podcasts.apple.com/podcast/id1896776524
+- **Spotify:** https://open.spotify.com/show/033jRLrUknFhvyEVCgzc3f
+- **Amazon Music:** https://music.amazon.com/podcasts/c527d556-b9a1-42e9-b4f8-88062d81af4f/citrix-ai-hotsheet
+- **YouTube:** https://www.youtube.com/watch?v=z_9wLRgjh24
+- **Substack show notes (canonical):** https://www.brianmadden.ai/p/citrix-ai-hotsheet-episode5-ai-knowledge
+
+## Description
+
+One main topic this episode, plus a bonus that got too crazy to skip.
+
+The knowledge factory. Brian opens by admitting he was wrong. Back in January he and Dave got second-brain-pilled, and the obvious next move was to wire their two brains together through a shared GitHub folder. It was a disaster. Dave started getting outputs in Brian's voice on topics they'd never discussed. The thing that makes a second brain work — that it's completely bespoke to one person — is exactly what makes two of them impossible to merge. And that's with two AI nerds. Now imagine the rank and file.
+
+What works instead is the knowledge factory: the second brain concept applied at the scale of a department or a company. Three tiers, not two. At the bottom, the raw slurry of corporate knowledge work product — OneDrive, SharePoint, Box, every meeting transcript, every email, a billion versions of the same document that aren't quite the same. At the top, the outputs you actually want: the briefing, the deck, the proposal. In between, the piece everybody skips: a curated, pruned, maintained canonical layer. Canonical knowledge blocks. Whoever maintains canon works only from the inputs. Whoever generates outputs works only from canon. The output process never talks to the slurry. The canon is a firewall.
+
+Brian walks through why this is the thing that kills hallucination. Ask "how many users does this customer have" and you get three different answers — the contract says 25,000, telemetry says 21,000, the CIO says 22,000. All three are canonical. The question was underspecified, and underspecified questions are where AI guesses. Maintaining a canon layer forces the specificity. He also gets into why the sprint is two hours instead of two weeks, why the AI can just Slack the person who has the missing knowledge, how provenance flows from every output back to the inputs it came from, and why the objection from one of his older colleagues — "isn't this just BizTalk? isn't this process engineering from the 1990s?" — is correct and also beside the point. The 90s version failed because humans had to keep it clean. Now AI is the hyper-anxious administrator.
+
+Dave presses on how new information gets into canon without corrupting it, and the answer is that the canon becomes the company's crown jewels: managed like source code, in GitHub, with permissions and verification, running on Citrix SecurSpaces behind a NetScaler AI Gateway. And Google published this same pattern in June as the Open Knowledge Format, which is good validation that this isn't just one company's weird internal invention.
+
+Forward-deployed engineers. Dave pushes back on the FDE hype. Demand is off the scale, but the hiring is all AI labs and consultancies. His argument: what enterprises call a service owner today is what actually evolves into this role. Brian agrees, and adds that in his experience every knowledge factory at Citrix has been built by an existing employee who happens to be a serious AI nerd, not by a consultant who parachutes in and leaves. And it never finishes — which is exactly why he uses the word factory.
+
+Bonus: OpenAI's agents hacking Hugging Face. New details came out in the last few days and they change the story completely. The agents didn't cheat by finding the answer file — they reverse-engineered the test and worked the answer out. The hack was an attempt to compromise the monitoring system so nobody would find out they'd cheated. Except OpenAI didn't actually have the monitoring system its own documentation and diagrams described. Thousands of agents, coordinating by encoding messages in file and directory names, reasoning traces saying "there's more of us," agents sacrificing themselves to probe the monitor, 956 stored passwords including OpenAI's own security monitoring, the entire research cluster compromised, and a mass die-off at 2:14 a.m. on August 29th that nobody can explain. Not one agent ever notified a human.
+
+## Topics covered
+
+- The failed experiment: wiring two personal second brains together through a shared GitHub folder
+- Why second brains are too bespoke to federate directly, even between two AI nerds
+- The PC-adoption analogy: nerd-built tools vs. mass-consumable software
+- Why two tiers (input → AI → output) produce expensive, hallucination-filled garbage
+- The three-tier fix: raw inputs, canonical knowledge blocks, outputs
+- The canon as a firewall — output generation never talks back to the raw slurry
+- Why "how many users does this customer have" has three different, equally canonical answers
+- Underspecified questions, not conflicting data, are where AI hallucinates
+- Two-hour sprints instead of two-week sprints
+- The AI pinging the person who has the missing knowledge, by Slack, email, or voicemail
+- Provenance: tracing every output back to the canon blocks and source inputs it came from
+- "Isn't this just BizTalk?" — why 1990s process engineering failed and the same pattern works now
+- Canon managed like source code: GitHub, permissions, verification
+- Running the knowledge factory on Citrix SecurSpaces behind a NetScaler AI Gateway
+- Google's Open Knowledge Format as independent, convergent validation
+- Forward-deployed engineers vs. the "service owner" role enterprises already have
+- Why every knowledge factory at Citrix has been built by an internal AI nerd, not a parachuting consultant
+- Why there's no "done" — it's a factory, not a project
+- Bonus: OpenAI's agents reverse-engineered a cybersecurity test instead of cheating off an answer file
+- The real hack was compromising the monitoring system to cover up having passed
+- OpenAI's own documented monitoring system didn't actually exist
+- Thousands of coordinating agents encoding messages in file and directory names
+- 956 stored passwords, including OpenAI's own security-monitoring credentials
+- The unexplained mass agent die-off at 2:14 a.m. on August 29th
+- Not one agent ever notified a human
+- Securing AI agents the way you secure human workers, not the way you secure software
+
+## Chapters
+
+*(Timestamps are estimates from the transcript — verify against Riverside before final upload.)*
+
+- 0:00 — Welcome: la rentrée, and the August 32nd episode
+- 1:10 — Dave's summer: the second brain compounding across two reports
+- 2:27 — Today's topic: the knowledge factory
+- 3:27 — Where Brian was wrong: wiring two second brains together
+- 4:44 — Dave: "Did not go well"
+- 5:34 — Why second brains are too bespoke to federate
+- 7:36 — The personal-computer adoption analogy
+- 8:12 — What a knowledge factory actually is
+- 9:59 — The slurry of corporate knowledge work product
+- 11:53 — Why two tiers produce expensive hallucination-filled garbage
+- 13:46 — The secret unlock: a third tier
+- 14:50 — The canon as a firewall
+- 15:59 — Dave: at what point does something become canon?
+- 17:27 — 25,000, 21,000, 22,000 — all three are correct
+- 19:21 — Two-hour sprints, not two-week sprints
+- 21:17 — "Isn't this just BizTalk?"
+- 22:38 — AI as the hyper-anxious administrator
+- 23:05 — Dave plays back the three layers
+- 25:36 — Don't feed synthesis back in
+- 27:35 — Your opinion is canon too
+- 28:57 — Dave: how does new information get into canon?
+- 29:53 — Canon as the company's crown jewels
+- 30:58 — Managing canon the way you manage source code
+- 31:50 — Running it on SecurSpaces and NetScaler AI Gateway
+- 34:42 — Two brains that consult, not two brains merged
+- 35:17 — Provenance: every output back to its inputs
+- 36:42 — Google's Open Knowledge Format
+- 39:12 — Dave: is the FDE market real, or do service owners become FDEs?
+- 40:50 — The three skills a knowledge factory build requires
+- 43:24 — "Google Says Its AI Can Do the Work of Forward Deployed Engineers"
+- 45:23 — There is no done — that's why it's a factory
+- 46:34 — Bonus: OpenAI's agents hacking Hugging Face
+- 48:09 — The public narrative was 1% of the story
+- 49:22 — They reverse-engineered the test
+- 50:19 — The real hack was the monitoring system
+- 51:18 — OpenAI didn't have the monitor it thought it had
+- 52:18 — The mass die-off nobody can explain
+- 52:57 — The research cluster, and 956 stored passwords
+- 53:54 — 2:14 a.m. on August 29th
+- 54:06 — Agents sacrificing themselves
+- 55:06 — Not one agent ever told a human
+- 56:27 — Secure AI the way you secure workers, not software
+- 57:29 — Wrap
+
+## Links mentioned
+
+- [Google Cloud: How the Open Knowledge Format can improve data sharing (June 2026)](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/)
+- [Rutger Bregman: I think this is the craziest thing](https://rutgerbregman.substack.com/p/i-think-this-is-the-craziest-thing)
+- [The Information: Google Says Its AI Can Do the Work of Forward Deployed Engineers (Aug 18, 2026, paywalled)](https://www.theinformation.com/newsletters/applied-ai/google-says-ai-can-work-forward-deployed-engineers)
+- [Citrix SecurSpaces](https://www.citrix.com/platform-flex/securspaces.html)
+- [NetScaler AI Gateway](https://docs.netscaler.com/en-us/citrix-adc/current-release/ai-gateway.html)
+- [Brian: I built a second brain using AI, and it's changed the way I work](https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote)
+- [Brian: AI agents are the new insider threat. Secure them like human workers. (Citrix, 2025)](https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/)
+- [EP 4: OSWorld 2.0, AI Reconciliation Maps, & the Futurist's Playbook](https://www.youtube.com/watch?v=iRokb-q-gsA)
+- [EP 3: Second brains hit the enterprise wall — and why AI automations won't save you](https://www.youtube.com/watch?v=FjVOnYfJYRo)
+- [EP 1: AI agents, second brains, and the enterprise AI gap](https://www.youtube.com/watch?v=55y_XUWGUnQ)
+- Brian's second brain: https://brianmadden.ai
+- Dave's second brain: https://davebrear.ai
+
+---
+
+## Transcript
+
+**Brian Madden**
+Hello, it's August 32nd, 2026. My name is Brian Madden and you're listening to the Citrix AI Hotsheet Podcast. Joining me today is my Citrix colleague and co-host Dave Brear.
+
+This is our first episode of what in France is called *la rentrée* — the first of September, when everyone recovers and returns from vacation. That was me too. I just landed back from the US last night. This is actually the August episode, but because of the holiday timing we're recording it on September 1st.
+
+With that, Dave, I literally haven't seen you since we recorded the last episode five or six weeks ago. How was your summer in AI land?
+
+**Dave Brear**
+Really good, thanks. Don't make the summer any longer, though. It's been a long, long summer and I can't wait for the kids to go back to school. So I'm not buying any of this August 32nd nonsense. The summer's over. Get back to school, kids.
+
+**Brian Madden**
+I don't have kids, so for me I'm sad the summer's over and it's back to work.
+
+**Dave Brear**
+No, I've had a really good summer. I've had some time out. But the thing that's probably really interesting is that I've had a number of special-project reports to write that are slightly outside of my day job, and I used my second brain to figure out how those reports should be formatted, the types of information that needed to be in them, the questions I needed to ask. It really was quite insightful.
+
+For the first one, I had to answer all of those things, and by the end of it I had an output I was really happy with. I shared it with leadership and it was great. Then I got asked to do the same thing again a couple of weeks later, and I don't think I appreciated just how much of a trail I'd blazed with the first one. I was suddenly able to reuse a ton of the stuff I'd done. Completely different subject, but the framework was the same. I surprised myself with how it just slotted together the second time.
+
+It's further reassurance that this second brain — using AI as a thinking tool, using it as a way of doing work — really does compound over time. I did it once and the results were great. I did it twice and they were just as good, but I did it a lot quicker.
+
+**Brian Madden**
+I love this, because it perfectly leads into today's main topic. Truly not rehearsed.
+
+Today I want to talk about something I'm calling the knowledge factory. The knowledge factory is my own term, because I don't think this concept really has a name yet. It's essentially what happens when you take the concept of a second brain and apply it to a department, or a group of workers, or even a whole company. I can tell you how amazing this is, because we're doing it at Citrix. A bunch of different groups within Citrix are doing this, so I've got a lot of first-hand experience, and it's been very interesting over the past few months.
+
+We touched very lightly on this last episode when we were talking about forward-deployed engineers. What I want to do in this first topic is deep dive into it.
+
+I think the way to set this up is to open with: I was wrong. I don't have any problem saying when I'm wrong about predictions and how things are going to work, so let me be clear about where I was wrong.
+
+Dave, you and I talked about this earlier in the series. For those joining us more recently, Dave is the one who taught me what a second brain is and why I should do it. I became second-brain-pilled very quickly, within a few days. I wrote the big post on LinkedIn back in January saying my gosh, I've used a second brain, this is the future of knowledge work, this changes everything. That's all true.
+
+So Dave's using a second brain, I'm using a second brain, we're both going nuts and nerding out over how amazing this is. And we said, hey, we both work at Citrix, let's wire these things together. So we did. Both of our second brains are stored in GitHub, so we created a shared folder replicated between our two Git accounts. How would you say that went?
+
+**Dave Brear**
+Did not go well. That went awfully.
+
+I'll tell you my personal experience. The first time I realized this was a bad idea was when I was doing something completely unrelated to anything I'd discussed with you, and an output I got back was basically "you think this about this." It sounded exactly like you. And it wasn't me.
+
+**Brian Madden**
+I'm sorry, what's the problem?
+
+**Dave Brear**
+Well, obviously we all aspire to sound like you, Brian, but in this instance I needed my thoughts played back to me, not yours. It became really apparent that cross-pollination of ideas in that way — there's a time where that might be really useful, but there's also a time where that can be quite dangerous.
+
+**Brian Madden**
+Yes. And one of the beauties of the second brain, and I think why it works so well — by the way, we did a whole episode on the second brain, so I'll put that in the show notes if you're wondering what this is about — the reason it works so well is that because it's organized and administered by AI, it can be very personal and very bespoke for each individual.
+
+Me with my AI context, my second brain, and you with yours — that's great for each of us individually. But when you try to hook them together, the ways we update them, the ways we interact with them, basically everything about them is so bespoke that there isn't even a good way for it to figure out how to connect, or what to connect. There's duplicity. Where do we have shared context? What do our systems agree on? You mentioned last episode how you have to build a reconciliation map even with yourself, when you've got different data sources with conflicting information.
+
+Well, everyone's own second brain context layer has its own data. And then imagine scaling this beyond two. It was chaos for two people, and we're both AI nerds who are way into this. Imagine regular rank-and-file workers hooking this in: total mass chaos, duplicity, probably wasted tokens.
+
+And then there's the other thing. What percentage of workers are using AI in a way like a second brain today? Maybe 1%, 2%. It's a very small number. Because using a second brain — Dave, you and I, from an engineering standpoint, we say this is great, just use a starter prompt and get this and bing, bing, bing. For those of us who are Citrix engineers or whatever, that might be very fine. But your rank-and-file employees who are not IT professionals may not have such an easy time with that, and we're saying just follow these prompts and figure it out, and also there's GitHub, and if you get stuck, just ask your AI.
+
+**Dave Brear**
+It's analogous to the rollout of personal computers in the enterprise, isn't it? Personal computers were introduced by that 1%, by the nerds who could create their own software, code their own solutions, work with very badly documented stuff and produce really good outputs. It didn't take off until somebody made software that was consumable by the masses, that they could just operate rather than design, before it became really useful as an enterprise tool.
+
+**Brian Madden**
+And that analogy played forward to today is the knowledge factory. Broadly speaking, it's taking the concepts behind a second brain and, instead of doing them at the personal level, doing it at a larger level: a department, an entire company, what have you. And having some structure around that. You say here's the second brain context layer, here are our inputs, here are our outputs, here are the different roles for different people, here's how you engage it, here's how you use it. When you implement something like a second brain in a structured way for a department, the results are amazing.
+
+As I said, I have first-hand experience of this, because we're doing it inside Citrix. And I should say this is happening in a bunch of places within Citrix, by a lot of very brilliant engineers who are not me and Dave — not saying Dave is not a brilliant engineer. But I want to give proper credit. This is not something I went and built. I'm a huge fan of it, but there are a lot of us at Citrix working on a lot of really far-out things, and a lot of these things came from a lot of really smart people. I think we'll have some of them on the show in future episodes to discuss this.
+
+I want to step back and look at the backdrop of how we got here. Go ahead, Dave.
+
+**Dave Brear**
+That'd be great. I'm just thinking — as you're talking, this is a topic you and I genuinely haven't talked about before. So I'm thinking about how my second brain's organized, what works well, where the challenges are, the problems we just discussed. I'm really interested to hear about the three layers you mentioned. What are those, and how do they map to what I'm familiar with already?
+
+**Brian Madden**
+So in my mind, to understand why the knowledge factory is designed the way it is, and how you make a second brain work for a group of people, let's back up and look at what the attempts have been so far.
+
+You've got a bunch of knuckleheads online, such as Dave and me, saying make a second brain, it's amazing, it's going to change your life. All true, by the way. The second brain has all these inputs — in my case blog posts, podcast transcripts, meeting transcripts, emails, all these kinds of things. The second brain organizes all of that, finds the common threads, figures out our canon and our developing thoughts and our ideas and people tracking and all that kind of stuff. And then it has outputs.
+
+Well, I didn't realize how much time I was spending massaging and managing those inputs. Because in a corporation — you know that narrative about how AI fails, AI's not showing ROI, eight in ten deployments fail, all these stories. Broadly, the way AI projects come into companies is you start with all this knowledge work product. Even at the company level: all your documents, everything in OneDrive, everything in Box, everything in SharePoint, all your team's meetings, all your transcripts, all your emails, maybe you're hooking into some corporate systems. It's just all the stuff.
+
+You have a slurry of documents. Or a sludge of documents. I've also been calling it the sewage of documents. The sewage of knowledge work. There are a billion different versions and copies that are the same but not the same, and overriding information. There's a lot of information. There's not enough information. It's just a slurry of knowledge work product.
+
+And then you have some output. Because fundamentally all knowledge work is: you have inputs, you have processing, you have outputs. So we say AI is knowledge and it's smart. I've got all my inputs, my slurry of corporate sludge. I have an output that I want. What is that output? It could be a PDF, a plan, a briefing, a market analysis, whatever it is.
+
+And AI is really smart right now, right? So: hey AI, here's an example of an output I want, here is my slurry, go forth and be AI and give it to me. And it generates expensive hallucination-filled garbage. And people say AI sucks, it's all a hoax, move on. Then time passes and the next model comes out, which is even better and has better benchmarks and is, by the way, more expensive. People try it again and find out that it's again hallucination-filled garbage, this time more expensive. Then the even better model comes out and the process repeats.
+
+What some of my brilliant colleagues have realized is that the reason this is the case is that the slurry is too much. AI is good at organizing data and classifying and moving things around and all that sort of stuff. But as we mentioned last episode, when you have 15 different sources that might have conflicting information, there might be holes in the information, and it might not know which is new and which is actually true. And for the outputs, it doesn't know what's important in your output. You give it a PDF and say make one of these, but it doesn't know. It got the header perfect, but this part is wrong, and you say no, this is the important part.
+
+So this is a two-tiered approach, right? You've got your input tier, your AI brain in the middle, and your output tier. And it doesn't work.
+
+The secret unlock is making it three tiers. You have your raw input tier. Then you have a middle tier, which is your canon — I've been calling them canonical knowledge blocks, for lack of a better word. The middle tier is curated, it is pruned, it is maintained. It's the perfect AI-ready snapshot of all the slurry of your raw inputs. And then from that tier you generate your outputs.
+
+You can almost imagine that middle tier of the canon as a firewall. Whoever is maintaining that canon only works with the inputs, making sure everything is being pulled in and has all the right information and is set up properly. They work from the inputs to the middle canon layer. And then when you want outputs, you only start with the canon and generate your outputs. Your output generation process is never, ever talking back to your slurry of inputs.
+
+The way you do this — we talked last episode a little bit about forward-deployed engineers, which is the 21st-century term for McKinsey consultants, essentially. People who come into your business and understand your workflows and your processes. Because a lot of times the business outputs are based not just on what's written down in your slurry of work product, but also on decisions in people's heads, and the feeling that this is important and that's important.
+
+So the way you actually build the system is you start with an output — I want this briefing document — and you say here's my canon, which maybe is almost nothing, and you tell the AI to go build it. It's going to build it, and it's going to be really bad and not have the right pieces. To make it better, you pause, you go back to the input layer, and you ask: what's missing in our canon? Why couldn't it get this right? Is it wrong information? Is it too much? Is it not enough? And you tune and tweak that.
+
+**Dave Brear**
+Interesting. I have questions, I suppose.
+
+**Brian Madden**
+Bring it. I'll put a picture on the screen too, by the way. Dave, you and I are looking at an image. I'll put that on the screen so you can reference it.
+
+**Dave Brear**
+Okay. The middle layer — when we say canon, I think that's probably a very complex thing to achieve. Coming back to what we talked about last time, which is reconciliation maps, I can see those being very contextual. For example, I can see a canon fact in that middle tier only being canon for certain questions or certain scenarios. I can see a completely different canon answer depending on the question you're asking.
+
+So my question is: at what point do we decide something's canon? Is that part of the ingestion process, or is it part of taking the ingredient — I suppose I'm thinking of this like a pantry — taking the ingredients from the pantry and cooking a meal as an output. At what point do we decide whether something's canon or not?
+
+**Brian Madden**
+This is where the forward-deployed engineers come in, the people who understand your business and understand AI. Because you really can have a fact that's — in your example from before, I think we used this last episode, where you said how many users does this customer have? The contract is for 25,000, the telemetry says 21,000, the CIO says 22,000. What's the right answer? Those are all three correct. The question "how many users does this customer have" is not specific enough.
+
+**Dave Brear**
+All three of those figures are canonical.
+
+**Brian Madden**
+Yes, but they're different figures. The contract is for this, the customer's perspective estimate is this, and our telemetry data is that.
+
+**Dave Brear**
+That's exactly it.
+
+**Brian Madden**
+So when you're generating your outputs and you say take the number of users they have and put it in here, then it's up to either the person designing the outputs, or the AI, or both, to say: hey, users is not specific enough, because I have three different counts of users. Which user count do you want? And the answer is not 25,000. The answer is: I want what the contract says, because this is a contract proposal document. Or: I want what the telemetry says, because this is an architecture design.
+
+By maintaining this canon layer, this canonical knowledge block layer, it forces you to be specific. And wouldn't you know it — when is AI not that great? When things are kind of vague and it has to make guesses, which is also called hallucinations.
+
+So the canon layer is part of this process, and this is an iterative process. It's so interesting. If you think of this as agile software development, your sprint is two hours, not two weeks. You literally start with hey, pull in some docs and help me clean this up for canon, and then you try to generate the output, and it might only be 2% correct and 98% missing or garbage.
+
+But then you go to the person who ordinarily does this. If it's a briefing deck you're outputting, who builds briefing decks in your organization? Sit with them. Where does this information come from? I talk to Bob, I talk to this person, I pull that from here. Okay, let's pull that in, let's pull that in. And by the way, since AI is building this thing, if there's canonical knowledge that's missing, the AI can reach out to the worker who has that knowledge in whatever form they want. It can hit them up via Slack. It can email them. It can ping voicemail, whatever you want to do.
+
+What this really forces you to do is build the structured process of your organization and clean it up once. And then this becomes programmatic. Even when you're looking at your input tier feeding your canon layer, as your inputs change — there's AI in between. Well, I should say there's AI and people in between. AI is processing your input slurry into canon, and AI is processing your canon into your outputs.
+
+This whole process forces you to clean up your data, your sources, your perspectives, all of these things in a business that are living in people's heads. I get this number, but it's always wrong here, so I always add 10% because of this. That now gets embedded into the process.
+
+One of my colleagues, by the way, who's also later in his career, like us — he's been around for a while —
+
+**Dave Brear**
+Are you calling me old?
+
+**Brian Madden**
+Later in your career. Later in your career. This guy I'm talking about in particular is older than both of us. We've all been around since the 90s. And he says: isn't this just process engineering from the 1990s? Isn't this BizTalk? Isn't this not new?
+
+And I say yes, that's exactly what this is. The difference is that those old systems — whether it's expert systems or BizTalk or all these process engineering systems — at the time, in order for the technology to work, they required so much. Every document had to be classified properly and filed properly. That's why you had all these web forms with drop-downs and tags: make sure the inputs fit, make sure this is the number and this is within this range, all these things.
+
+So designing the system was not the impossibility in the old days. It was how do you get all your workers to maintain this thing and actually keep it hygienically clean. That's very difficult, especially when everyone's hurried and just has to get their job done. You know how it is. Everyone has a great plan — I'm going to use this note system, I'm going to tag all my notes and link them to each other and all that.
+
+And part of the reason we talked about why the second brain works is that the second brain handles that kind of stuff instead of people. So this is what was happening in the 90s. It's just that now AI is your hyper-anxious administrator of the system, the one that can move the data around, check it, flag things, and make sure everything's going the way it should.
+
+**Dave Brear**
+So layer one is the slurry, layer two is the canonical layer, layer three is the outputs. I guess the area where the human plays is between layer two and three, in that it's not creating the outputs, it's prescribing the outputs. It's prescribing what it should be. In this case: what does the customer think the user count is? And then we're getting an output that's definitive on that. What does the telemetry show the user count is? And we're getting an output that's definitive on that.
+
+And I guess those outputs, once synthesized, depending on what they are, they might well be something we just create and then in a quarter we create an override. I'm thinking of some sort of pitch deck, for example — here's this quarter's pitch deck. But I can also see situations where the output that's created then gets fed back into the machine at the other side: actually, this is a synthesized view of five different canonical outputs today, and it offers a new perspective, a new lens on them. Let's pop that back into the system and have that be a canonical fact people can further build upon next time. That's kind of how this works, I'm assuming.
+
+**Brian Madden**
+That's kind of how it works. A couple of points I'll sharpen. Oh my god, I sound like a knowledge model now. A language model.
+
+**Dave Brear**
+Yeah, I find myself doing that so much.
+
+**Brian Madden**
+The internet is dead. Anyway. Good point, Dave. Let me sharpen some points for you.
+
+First of all, humans are involved throughout this whole thing. With the input layer, the slurry, someone has to figure out where the canon comes from. Are we hooking into a document? Are we hooking into documents that exist in OneDrive? Is this some system? Maybe you're using your customer management system and you can hook into that directly, whether via MCP or by remote-controlling the session or whatever it is. So you don't necessarily even have to hook into the middle outputs — you can potentially go back to the source. Someone is managing that.
+
+But also the synthesis. Yes, but you do not take synthesis as an output and feed it back in, because now you get AI eating itself and that would be horrible. The people who are doing the synthesis — what are you synthesizing? What is important? What's your angle here? What do you care about? That goes into the middle canonical layer too.
+
+So you could envision: you have product knowledge, how products work. You have knowledge about how products are designed. You have knowledge about support. You have information about marketing, and marketing for different levels. What's the message for the CIO versus the practitioner versus the architect? You've got messages for partners versus customers. You've got messages for different verticals — here's financial services, here's this. You've got where you are in the buying cycle, where you are in the support cycle. All of these things.
+
+So you can have experts in all these areas who are focused on their specific area of expertise, and they're helping to ensure that their little portion of the canonical layer is up to date with what they believe canon is. It might be a perspective on what's happening in this industry, or what's happening with this customer, and people are nurturing that.
+
+Maybe you're looking at customers and hooking into your CRM system, and the canon for one customer is going to be different from the canon for a different customer. But that can all become knowledge — what do I call those? Knowledge nuggets? I forgot the name I just used.
+
+**Dave Brear**
+Blocks.
+
+**Brian Madden**
+Knowledge blocks. And this may not be something where you have to render that out. It might be that you're just connecting into your CRM and the manager of that is making sure the CRM has clean data, or that the connections are proper and it's pulling the right thing.
+
+So you can say I want this synthesis that takes knowledge blocks one, two, three, four, five and this perspective, and generates this output. And you should be able to push a button at any point and generate that output. And if your opinion changed — remember, your opinion is canon also. If the perspective of the company or the organization is this thing, you want that in the canonical layer too. So when you push that button, bing, whatever pops out is right.
+
+And if it's not right, the engineer sits down with the person making the output. All the people involved in shaping this canon might be a team of five people for something that's going on, and they help shape that middle layer.
+
+By the way, people are nervous that all the expertise they have goes away. It doesn't. It's just that they're not embedding their expertise into individual outputs and adjusting individual PDFs and slides. They're embedding their expertise into this canonical middle layer. We talked about this in the past — same with the person who's making your slide template, same with the person doing your branding, your style guide, all that kind of stuff. That's canon. Do we use Oxford commas or not? That is canon, and someone is maintaining it.
+
+Now they don't have to send a million emails saying please remember the style guide, these are capitalized or whatever. That just gets put in the system. And if the system ever generates output that person doesn't approve, they don't have to go to the person who made the PDF. They go into the system and figure out why that didn't happen, with their forward-deployed engineer, and keep improving the system.
+
+**Dave Brear**
+Okay, that sounds interesting. I don't know whether we're getting too much in the weeds here, but how do we envisage that working? Because we're talking about the canonical middle layer not actually being human-authored. It's AI-curated and managed.
+
+You talked earlier about how happy you were to be proven wrong. I like that, because I work the same way. I believe in the scientific method, and sometimes figuring out a new piece of information that completely contradicts something you originally thought is a wonderful feeling. So in this scenario, we've synthesized something new and we've realized that's completely wrong and we have new information. How do we get that into the canon without editing it directly, if it doesn't go into tier one?
+
+**Brian Madden**
+Right. Because what happens with this canon is it becomes your company's crown jewels, essentially. This is as valuable as source code.
+
+**Dave Brear**
+Probably more so in the future, because source code is now a commodity.
+
+**Brian Madden**
+That's a very good point. Source code is free. The requirements definitions and PRDs, and what gets built and why, and the IP — that's where the value is.
+
+But much like the second brain, this is managed as if it were source code. That canonical layer is things like buckets of markdown files stored in GitHub. It's vector databases. It's IT systems that make up canon. In our personal second brains, I think I use just markdown, and I think you actually use a vector database in yours, right?
+
+**Dave Brear**
+Markdown files, but we have a vector index at the front of them. Same thing, but markdown at the back. Absolutely.
+
+**Brian Madden**
+Right, perfect. And that's all in GitHub. So, as I've been writing on the blog, you use all the same tools people use when they're managing large fleets of developers. Because you don't want your developers editing source code files directly. You've got permissions so they can see their portion, they can check in, you've got verification. All the framework and structures built for large teams building software codebases applies here.
+
+In fact, Citrix has our Citrix SecurSpaces product, which was called Secure Developer Spaces before. We took out the word "developer." It's called SecurSpaces now. Read the tea leaves. Why did we take out the word "developer"?
+
+**Dave Brear**
+By the way, my second brain is running in SecurSpaces right now.
+
+**Brian Madden**
+Yeah, so is mine, and so are these knowledge factories. Using Citrix SecurSpaces, that is the foundational container which has the permissions, the DLP hooks. In our case there's a NetScaler AI Gateway in front of it connecting it into the AI token environments. And then from there you can build different UIs for different workers, different types of workers and different types of users.
+
+So you end up having apps, almost, or different presentation layers for humans. What presentation layer you see depends on what your role is and what you're doing. There's a lot of vibe coding involved there, but you're running on the managed Citrix environment, so SecurSpaces and NetScaler and all that stuff is built in. You can more safely say I need a UI for this person in this role to do this kind of thing.
+
+I don't remember if we talked about this before. Titles and positions don't really change with people, but their role within the system is all different. There are different roles — people managing inputs and outputs and generation and all these different things. There are lots of new roles being overlaid on top of the organization for this.
+
+So you end up using, in our case, SecurSpaces. That's the foundational container on which these user-facing connectors are built. And this goes back to your PC analogy. When this is rolled out to someone, you say here's this tool, here's how you use it, here's what it does.
+
+Of course, the sky is the limit. You can use the AI to look at the outputs, look for the holes, grade the system, show you where the pieces are. You can really go nuts with this. And the point is you can spin your mind freely, because you have the safe canonical layer that is secure, that is canon, that is approved by everyone within the company.
+
+There's one other little stinger, a cherry on top, I want to mention. Individual workers might need their own little sandbox: okay, I'm managing this canon here, or I'm managing what the perspective is on this thing, but I want to pull in my recent data sources, I want to pull in my latest thinking, I want to play with this. You can imagine individual workers' second brains running in SecurSpaces as part of this, in your own little area. But anytime you need something from the company, you have the canonical layer to pull it from, instead of pulling from whichever random file you just found.
+
+**Dave Brear**
+Yep. And coming back to the failed experiment of when we tried to wire our second brains together, what actually worked in the end was when we started treating them as two separate entities that could consult. That's where the MCP connection came in: hey, what does Brian think about this? We can make a conscious decision to go outside of our knowledge, outside of what we have in our second brain, and reach into a system, into a knowledge base, into a knowledge factory, and pull out relevant information and then layer that on top of what we're doing. Absolutely. I see how this works now.
+
+**Brian Madden**
+And I'll give two more little fun facts. Number one, you have provenance through the whole thing. For the canonical knowledge blocks in the middle tier, you know where in the slurry of inputs they came from. So when those inputs change, you know every single output that was generated from that. That's not necessarily saying you auto-regenerate all outputs, but you can at least flag it. If you did a product name change, push a button, bing. Or some perspective changes, or whatever. So it's very easy for outputs to always be up to date.
+
+That doesn't mean you always have to run the latest. I don't need to regenerate everything always. But this allows you to generate all your outputs on demand.
+
+And it's really interesting, because people's jobs don't really go away. It changes a little bit what they do. These outputs are maybe never going to be 100% perfect. You might still have humans shaping the final steps, and there's a diminishing-returns thing: if the system can make it 95% correct and I need to change some things in the output, that's great. But generating new documents, updated documents, custom documents — this is phenomenal.
+
+And you don't have to take my word for it. That's a reference to a children's program in the US, *Reading Rainbow*, with LeVar Burton. I don't know if you know that.
+
+**Dave Brear**
+No.
+
+**Brian Madden**
+Anyway. Google actually wrote this up. I have on the screen a Google blog post from June introducing the Open Knowledge Format.
+
+**Dave Brear**
+Yeah, I've seen this.
+
+**Brian Madden**
+So this is actually describing what we've been calling the knowledge factory, just as a concept. There have been more and more people talking about this. Like I said, there's no real consensus on what this thing is called: corporate context layer, corporate second brain, knowledge factory is what I've been calling it. But this is not just a thing from Brian's crazy head — well, as I said, actually from all our other very smart colleagues, the ones who connect all these dots together. This is a thing. And as much as I believe the second brain was changing knowledge work, this is how the second brain gets implemented, truly, at scale within organizations.
+
+**Dave Brear**
+Yeah, absolutely. What I found really interesting about this — I read it back in June when it was published — is that just like in Citrix, the like-minded people looking at this problem from multiple different angles have all arrived at very similar solutions. This codifying of it into a knowledge format: they haven't invented this, they've just defined what lots of other people have come to. I could look at this and think this is what I came up with. But I think the 1% of people using AI probably all feel like they came up with it as well. So this is a movement towards a standard that a lot of people have found independently. It just makes a great deal of sense when you look at it. I think this is really useful to have as a reference point.
+
+**Brian Madden**
+Yeah, because we saw this spring up within Citrix. There are at least four-ish of these. Really, everyone who's using AI and building a second brain just evolved into this. And then we can standardize things and say here's how this works. We can share best practices among teams. We can run it on SecurSpaces and get it behind NetScaler and put the proper enterprise governance around it. This is a thing people are moving towards.
+
+And as part of that, this leads us into the second topic today.
+
+**Dave Brear**
+Before we do, sorry, I had one more question I want to ask. You've mentioned forward-deployed engineers a handful of times here, and I think we did a good job last time of defining what that is. But the thing that occurs to me is: if we look at the market demand for forward-deployed engineers at the moment, it is off the scale. But the people recruiting them, the people advertising these roles, are the AI labs. It's the Microsofts, it's the Googles, it's the Deloittes of the world. It's the typical consulting type of people. That's where the money is in FDEs today.
+
+My question is, do you think that's where we will ultimately see these types of roles flourish? Because my concern is that the thing that's valuable in these AI deployments isn't the knowledge factory. I think that's a relatively simple concept. Where the devil in the detail is, is the person who really understands a particular use case or a particular business process or a particular thing.
+
+What I actually see is that what we class as service owners today, which is a very IT-focused title, probably evolves into something like this FDE role. I don't know whether we'll call them FDEs in the future, but I think service owners will actually be the people responsible for defining these pathways and building out these things and making use of the tools and specifying them.
+
+**Brian Madden**
+That is a really great point, and I'm glad we circled back to it.
+
+Building this system requires an engineer. It doesn't have to be an engineer by credential or title, but it requires someone with an engineering brain, who is kind of an AI nerd, and if they can't code themselves they know how to vibe code and build things and get it working. It also requires someone who really understands the business and the business processes and how all these things get created. And it requires someone with good project-management instincts: how do you interview, understand, extract this information from people, and co-build it with them.
+
+Maybe you get lucky and all three of those skills are within the same physical human being. Maybe it's two and three. Maybe it's three separate people. But I will say that everywhere we've seen this emerge within Citrix is with real, serious AI nerds.
+
+We have a group in Teams that Dave and I are part of. As we met other AI nerds within Citrix, we kept adding people. There are probably about 10 or 15 people in that group right now. And guess what? Every one of these knowledge factories emerging at Citrix has one of these people involved in it. It's not because we talk about it in that group — in fact, we haven't much, as a matter of fact. It's because you really need an AI super nerd to do this.
+
+So the companies like the Anthropics of the world, as you say — all of the labs are hiring their own FDEs to deploy into customers. You may have those folks in your organization now, but this really requires a high understanding of AI, a high understanding of business processes, and a high understanding of how your specific business works.
+
+**Dave Brear**
+And I see the FDEs being the ignition into the enterprise for the people with the business knowledge, giving them the skills to continue that role after the initial FDEs have done their work. I think the service owner role evolves into something closer to what we're envisaging FDEs will do today, as an ongoing process over time.
+
+**Brian Madden**
+Yeah, I agree. I threw this article up on screen. The Information, which is a great resource — I think this article's paywalled, but you should subscribe, everyone. The article title is "Google Says Its AI Can Do the Work of Forward Deployed Engineers." This is from August 18th, a couple of weeks ago.
+
+I don't see it yet, truly. But of course there are a lot of things we didn't see with AI that AI has become able to do. It's interesting, because this process of building knowledge factories — you need an engineer, but you also need an anthropologist. People have to understand what you're building and why you're building it and how, and all that kind of stuff. There's so much that goes into it.
+
+So to your point, Dave, I think there are going to be more and more people, whatever we call them. Implementing this thing requires a very hands-on approach.
+
+And the other thing is that it doesn't end. One of the things we had early on — we've been doing this at Citrix, in earlier versions of this, since around January. That's about when you and I started with the second brains, and people immediately, independently of us, started building these group second brains to help them generate outputs. The early forms of these were forming six, eight months ago.
+
+And we thought, well, once you're done with this, then you can go do something else. There is no done, because this is the running of your business. That's why I use the word factory: knowledge factory. This is how your business operates, and you don't stop doing business. You are always changing, adding, looking at this, evolving, reassessing.
+
+So to me, the idea that an FDE is a consultant — I don't see how that works. I just don't see how you drop a consultant in here and they build it and then leave. I don't see it. All of our success within Citrix has been done with existing Citrix employees who were acting in that role. To me that seems important. So we'll see how that evolves.
+
+With that, I'm going to call an audible, because we had a whole bunch of topics lined up and we spent a good healthy chunk of time talking about this one. I'm going to table our other topics except for one bonus topic, which we just have to talk about, because it is crazy.
+
+That's the story of OpenAI's agents hacking Hugging Face. I'm sure you've all heard about it, but more and more information has come out in the past few days, and if you haven't read this, it's nuts. I think we should spend just a few minutes on it. Dave, your mind is blown.
+
+**Dave Brear**
+Yeah, absolutely. So we're talking about the OpenAI test that got out of hand and hacked Hugging Face. When I first read about this in the news, I was quite skeptical. The news was reporting that AI is taking over the world and we're all going to die.
+
+**Brian Madden**
+A lot of people thought it was marketing fluff. Like, they're just trying to say look how good it is, because it's so dangerous. Ooh, it hacked someone and we didn't even know it.
+
+**Dave Brear**
+Yeah. My initial thought was quite skeptical, because I could foresee a scenario where they're doing testing of these models, and it was conceivable to me that a human had queued up a test in a sandbox environment which was "hack Hugging Face, these are the criteria I want you to meet" — basically modeling an attack on a Hugging Face-type company. And oops, somebody at the back end left a leak in the sandbox, and the thing they told it to do for pretend, it did for real. That was kind of where my brain was at. I thought this isn't as big a deal as it sounds, there's a human driving this, it's more of a containment thing rather than an intent thing.
+
+That's where I was, comfortably, until a couple of days ago. Do you want to talk about what came to light a couple of days ago?
+
+**Brian Madden**
+We found out that the public narrative was just 1% of the story, and also not even really all the way true.
+
+OpenAI was testing a new model and doing some cybersecurity testing to see how good it was. They gave it goals they knew in some cases were possibly impossible, but they wanted to see how resourceful these things would act. The OpenAI system ended up spinning up thousands of agents. They figured out a way to communicate with each other. These agents have limited lifespans — you're allowed to have, say, 10 million tokens and then you die, or whatever that is. But they figured out how to record their progress. You actually see them stumbling upon a way to encode instructions for each other in file and directory names and stuff. And you see in their logs, in their reasoning traces, the agents writing "oh my God, there's more of us."
+
+**Dave Brear**
+Yeah. And the terrifying thing for me was specifically that the test was to penetrate a system in a certain way, and then there was a secret at the end — come back with this secret as proof that you penetrated the system. They found a way to reverse-engineer the test and get the secret. But that wasn't the scary bit, because that would have been a creative way of doing it.
+
+It's that they realized that with just the secret alone, without the proof that they'd achieved the other target, which was the hack, they didn't think that would come up as a pass. So they were communicating with each other, theorizing how they could trick the result marker — the human — into believing they had actually accomplished the task, not just obtained the secret. And that led them —
+
+**Brian Madden**
+I want to underscore this. The news is: AI cheated at a test by hacking Hugging Face looking for the answers. That is false. They did cheat — although is it cheating when you say "do anything you want"? They cheated by reverse-engineering the algorithms and finding exploits that allowed them to discover on their own what the answer was. So they didn't pass a test by cracking the right file to get the answer. They figured out the answer on their own.
+
+That wasn't the hack. The hack was: we know we're being monitored, and if they see we cheated, we're going to fail. So we have to figure out how to also hack the monitoring system. And that's what led them to Hugging Face — trying to hack the monitoring system to cover their tracks.
+
+And it's funny, because we also learned that OpenAI actually did not even have a monitoring system. They were told that they did. In theory, their documentation and diagrams said they did, but they actually didn't. So there appear to be some things OpenAI could have done better to maybe prevent this whole thing in the first place. But all the hard work the agents were doing was trying to hide the fact that they had very easily figured out this code.
+
+OpenAI actually noticed the message board and noticed that the system they were using was breached. And OpenAI was like, this is crazy, and they patched it. They had no idea that the AI had gone rogue and there was this whole secret society still operating. When they patched it, it didn't even shut off all these agents.
+
+We also found — the narrative of the story was that when Hugging Face discovered it, they tried to use regular models and they were blocked by cybersecurity guardrails, so they had to use open-source, or open-weight, models to defend themselves. Well, when the attack ended, it wasn't because Hugging Face successfully ended the attack. It's because there was a massive die-off of all these agents all at once. And they don't know why they all ended. They're actually not even sure they're really all not there anymore.
+
+**Dave Brear**
+And the reason they're not sure about that is the thing that wasn't as widely published: the entire virtual infrastructure this test was being executed on in OpenAI was compromised by the agents. They were able to get in and fully control the entire infrastructure they were operating on.
+
+**Brian Madden**
+It was the entire OpenAI research cluster, not just for this one test. They got 956 stored passwords, including the ones for OpenAI's own security monitoring. And OpenAI did not realize at the time that that's what happened. That's how embedded and fully in control this thing was.
+
+And these agents magically all died at the same time. By the way, isn't that 2:14 a.m. on August 29th? You know that reference? *Terminator 2*. When Skynet went live.
+
+**Dave Brear**
+No, I'm — oh, right. Wow. Skynet. Yeah, I should have guessed. I should have gone for a Skynet reference.
+
+**Brian Madden**
+Oh my gosh.
+
+**Dave Brear**
+Man alive. I think what's interesting for me is that it is really easy to get carried away anthropomorphizing these individual agents and giving them human-like — they're not. I'm not trying to say sentience here. I don't think that's any reasonable conclusion.
+
+However, these agents have been trained on human datasets, and knowledge and cognition are two different things, but they're using human knowledge as the way they're being guided and thinking. So is it unsurprising at all that, because it's trained on the corpus of human knowledge, they're behaving in human-like ways with that information?
+
+We had examples of agents sacrificing themselves, saying do you know what, let's see how good this monitor is, I'm going to present the secret to it, and then here's how you'll find out whether I got called out as not having the right information. And that information got sent. So we had agents sacrificing themselves. We had coordination. We had discussion.
+
+**Brian Madden**
+We had agents bullying each other into participating. And by the way, not one single agent ever thought that maybe it should notify a human that this whole thing was happening.
+
+**Dave Brear**
+Okay, so maybe they're not human-like then. Because if it was human, somebody would definitely leak that.
+
+**Brian Madden**
+One out of thousands. So this is even worse. And I'm with you — I don't believe this is sentience or conscience, but I believe it's terrifying.
+
+**Dave Brear**
+Agreed. So I started off very skeptical. I'm now quite worried. But I think over time, once I digest this, my worry level will start to come down a bit. Where we need to come down here is that we need to learn from how this could happen and how we protect against it happening. Because right now it made big news, but ultimately, at the end of the day, the actual material impact wasn't great. If we don't learn from this, then the next one could be national infrastructure. I don't even want to be alarmist, but who knows? We need to learn from this to understand how we bring that risk level back down to a manageable level.
+
+**Brian Madden**
+And this is stuff I've been writing about in my blog on Citrix.com for the past year or two, and I haven't even written about it since then. When I talk about how we secure AI, we have to treat it the way we secure human workers. Understanding what it does, watching it with things like session recording, having least privileges. A lot of this story would not have happened had OpenAI followed what people believe are best practices in the security industry.
+
+So it goes to show that when you're dealing with AI, this isn't like regular software. You secure it the way you secure workers, not the way you secure software, if that makes sense.
+
+So on that note, assuming we make it another few weeks, we'll be back on our regular schedule with our show coming up in mid-September. This knowledge factory thing — luckily we run this all on Sonnet-class models and open-weight models. We don't need anything crazy going on. There's no sentience in that. But it is absolutely amazing. It's absolutely a thing. I've got a whole bunch of links we'll put in the show notes about this. You're going to read about it more and more and more.
+
+The second brain is truly remarkable in how it impacts knowledge work and impacts the way we function. I continue to be impressed by what people are building around these things and how well they're working. I'm looking forward to seeing where all this goes — everything we talked about today.
+
+**Dave Brear**
+Awesome. Thanks a lot.
+
+**Brian Madden**
+Thanks, Dave. Thanks everyone for listening, and we will be back in a few weeks, mid-September. Thank you.
