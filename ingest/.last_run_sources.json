@@ -1,5 +1,5 @@
 {
-  "run_utc": "2026-09-01T06:34:43.668759+00:00",
+  "run_utc": "2026-09-02T06:39:02.362791+00:00",
   "results": [
     {
       "id": "x-timeline",
@@ -36,16 +36,16 @@
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 17,
-      "new_entries": 17
+      "entries_in_window": 16,
+      "new_entries": 16
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "moonshots",
@@ -84,16 +84,16 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "on-with-kara-swisher",
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "no-priors",
@@ -124,8 +124,8 @@
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "algorithmic-bridge",
@@ -140,8 +140,8 @@
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "ahead-of-ai",
@@ -164,8 +164,8 @@
       "name": "The AI Realist",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "david-shapiro",
@@ -230,8 +230,8 @@
       "name": "Hyperdimensional",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "import-ai",
@@ -273,17 +273,18 @@
     {
       "id": "labor-matters",
       "name": "Labor Matters",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://gadlevanon.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "last-week-in-ai",
       "name": "Last Week in AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "marcus-on-ai",
@@ -322,8 +323,8 @@
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "simon-willison",
@@ -395,9 +396,10 @@
     {
       "id": "claude-mythos",
       "name": "Claude Mythos",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://claudemythos.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "jasmine-sun",
@@ -465,8 +467,8 @@
       "name": "AI Frontiers",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "chinai-newsletter",
@@ -715,6 +717,20 @@
     {
       "id": "dwarkesh-patel-2",
       "name": "Dwarkesh Patel",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "julien-simon-from-the-ai-realist",
+      "name": "Julien Simon from The AI Realist",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "last-week-in-ai-2",
+      "name": "Last Week in AI",
       "method": "feed",
       "status": "skipped",
       "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"

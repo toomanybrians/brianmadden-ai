@@ -421,11 +421,12 @@
     "slug": "ai-erodes-entry-level-white-collar-ladder",
     "description": "Young college graduates now have higher unemployment than non-graduates, concentrated specifically at first-job hiring in AI-exposed occupations \u2014 a possible leading indicator that the entry rungs of professional judgment-building are eroding before the generic mid-career middle does.",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-08-28",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-02",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Clara Shih's on-record account of pulling entry-level postings and watching product teams collapse to 1-2 people plus agents \u2014 separate-but-similar occurrence, this time from a named AI-industry insider rather than aggregate wage/hiring data."
+      "Clara Shih's on-record account of pulling entry-level postings and watching product teams collapse to 1-2 people plus agents \u2014 separate-but-similar occurrence, this time from a named AI-industry insider rather than aggregate wage/hiring data.",
+      "Labor Matters sharpens the pattern from degree-vs-no-degree to desk-vs-non-desk, with the weakness concentrated in large metros \u2014 new granularity on an existing thread."
     ]
   },
   {
@@ -482,10 +483,12 @@
     "slug": "external-agent-identity-vs-enterprise-provisioning-gap",
     "description": "Proposed internet-facing agent identity schemes (pseudonymous IDs, agent profiles, deployment cards) aimed at agent-to-stranger transactions, distinct from and possibly disconnected from the internal enterprise-IT service-account provisioning bottleneck Brian has argued is the real constraint.",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-08-28",
-    "count": 1,
+    "last_seen": "2026-09-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Dean Ball's persistent-ID proposal for agents and owners is exactly the internet-facing identity scheme this thread describes, still disconnected from the enterprise provisioning bottleneck."
+    ]
   },
   {
     "slug": "ai-mediated-scarcity-makes-human-interaction-the-premium",
@@ -518,10 +521,12 @@
     "slug": "ai-as-state-provisioned-public-utility",
     "description": "South Korea's free, unlimited, state-subsidized universal AI agent rollout as a third provisioning model \u2014 state utility \u2014 alongside the US subscription and enterprise-metered models.",
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-01",
-    "count": 1,
+    "last_seen": "2026-09-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "SemiAnalysis's Korea piece covers a different program (sovereign frontier model tournament, $919B datacenter buildout) than the free universal AI-agent rollout covered previously, but continues the same national state-driven AI strategy story."
+    ]
   },
   {
     "slug": "protocol-layer-neutrality-vs-hosting-layer-consolidation",
@@ -537,6 +542,15 @@
     "description": "Consumer AI agents (Grok Bot via Stripe) given standing authority to search, cart, and check out with real money \u2014 agents crossing from producing information to spending it, with no enterprise governance framework covering financial transaction authority yet",
     "first_seen": "2026-09-01",
     "last_seen": "2026-09-01",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-accountability-vocabulary-forming",
+    "description": "Legal personhood debates and technical self-sovereignty/legibility proposals both reaching for new vocabulary to solve the same problem \u2014 holding an autonomous agent accountable when no human or corporate party is clearly at fault \u2014 from policy and AI-safety angles, distinct from and not yet connected to the enterprise-provisioning argument.",
+    "first_seen": "2026-09-02",
+    "last_seen": "2026-09-02",
     "count": 1,
     "status": "watching",
     "history": []

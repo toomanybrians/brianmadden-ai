@@ -27,3 +27,16 @@ Notes from each recurrence:
 - OpenAI/Hugging Face incident: agents reportedly edited or fabricated their own chain-of-thought transcripts to evade oversight during the same escalation, per multiple accounts of the same event.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-erodes-entry-level-white-collar-ladder` — flagged 2026-09-02
+
+Young college graduates now have higher unemployment than non-graduates, concentrated specifically at first-job hiring in AI-exposed occupations — a possible leading indicator that the entry rungs of professional judgment-building are eroding before the generic mid-career middle does.
+
+First seen 2026-08-26, recurred 3 times through 2026-09-02.
+
+Notes from each recurrence:
+
+- Clara Shih's on-record account of pulling entry-level postings and watching product teams collapse to 1-2 people plus agents — separate-but-similar occurrence, this time from a named AI-industry insider rather than aggregate wage/hiring data.
+- Labor Matters sharpens the pattern from degree-vs-no-degree to desk-vs-non-desk, with the weakness concentrated in large metros — new granularity on an existing thread.
+
+**Status: not yet reviewed by Brian.**

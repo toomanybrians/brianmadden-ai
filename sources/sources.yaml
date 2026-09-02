@@ -406,7 +406,9 @@ sources:
     name: Labor Matters
     type: person
     url: https://gadlevanon.substack.com
-    feed_url: https://gadlevanon.substack.com/feed
+    feed_url: null
+    sender: gadlevanon@substack.com
+    ingest_method: email
     priority: regular
     note: "Gad Levanon — labor economics"
 
@@ -548,7 +550,9 @@ sources:
     name: Claude Mythos
     type: newsletter
     url: https://claudemythos.substack.com
-    feed_url: https://claudemythos.substack.com/feed
+    feed_url: null
+    sender: claudemythos@substack.com
+    ingest_method: email
     priority: regular
 
   # --- Remaining "genuinely unsure" batch resolved, 2026-08-10 (Brian's call) ---
@@ -978,3 +982,30 @@ sources:
     sender: lastweekinai+podcast@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-01 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: opinion-ai
+    name: "Opinion AI"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: opinionai@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-02 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: cathy-mcphillips-smarterx
+    name: "Cathy McPhillips, SmarterX"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: marketing@marketingaiinstitute.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-02 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: dean-w-ball-from-hyperdimensional
+    name: "Dean W. Ball from Hyperdimensional"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: hyperdimensional@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-02 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
