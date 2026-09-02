@@ -2605,3 +2605,35 @@ it properly.
 
 No canon content touched — process docs only. `check_doc_accuracy.py`
 clean.
+
+**Immediate follow-up, same session:** Brian noted Riverside recently
+added rich-text support to the Description field but called it "pretty
+garbagey" — not worth building against yet, noted in `podcast/bible.md`.
+Then the real ask: he needed actual Substack content for ep5 (and
+realized episodes 1-4 probably need the same treatment) as pasteable
+HTML, and didn't have it in hand. Built `scripts/render_substack_html.py`:
+parses a finished `podcast/epN.md`, pulls exactly four things per
+Brian's explicit structure (YouTube URL as plain text on its own line —
+not a hyperlink, so Substack's paste-detection can auto-embed it as a
+player — then Description, Links mentioned, Transcript; no chapters, no
+platform-links block), and writes clean semantic HTML meant to be opened
+in a browser, selected all, copied, and pasted into Substack's editor.
+Non-obvious bit: a plain markdown pass over the transcript would fold
+`**Speaker Name**\ntext` into one soft-wrapped paragraph (CommonMark
+treats adjacent non-blank lines as the same paragraph), so the script
+splits on speaker-turn markers first and renders each name as its own
+bold line before running the turn's content through the markdown
+converter — verified this actually mattered by rendering ep5 and
+checking the output has each speaker name on its own `<p><strong>`
+before the paragraph, not merged in. Two escaping bugs caught and fixed
+before shipping: ep1's YouTube URL has raw `&` from playlist params, and
+ep4's actual title contains a literal `&` — both were landing unescaped
+in the HTML until `html.escape()` was added for the youtube-url/title/
+date interpolations. Ran with `--all`, produced
+`outputs/podcast/ep{1,2,3,4,5}-substack.html`, sanity-checked all five
+(non-empty description/links/transcript blocks, correct per-episode
+YouTube URLs, autolinked bare URLs in the links list) before sending to
+Brian. `podcast/bible.md` updated to document the tool and correct the
+earlier "chapters included" assumption to match what Brian actually
+asked for. `check_doc_accuracy.py` clean. **Committed and pushed**
+(`529176a`).
