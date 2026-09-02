@@ -6,6 +6,7 @@ hosts: [Brian Madden, Dave Brear]
 format: Podcast (Brian's own show)
 authority_level: 5
 file_type: podcast
+substack_subtitle: "OSWorld 2.0 makes cost a first-class benchmark metric, Dave's new 'reconciliation map' fixes contradictory enterprise data, and org AI maturity is a treehouse, not a ladder."
 tags: [osworld, computer-using-agents, benchmarks, reconciliation-map, context-vault, second-brain, enterprise-ai, hallucination, mcp, organizational-ai-maturity, treehouse-not-ladder, futurism, diffusion-gap, forward-deployed-engineering, ai-bubble, open-weight-models, sonnet-class-models, knowledge-work]
 staleness_threshold: stable
 tier: 2

@@ -106,13 +106,24 @@ Working draft for an in-progress episode → `outputs/podcast/epNN-publishing.md
 
 - **`scripts/render_substack_html.py`** (added 2026-09-02) — renders a
   finished `podcast/epN.md` into Substack-paste-ready HTML:
-  `outputs/podcast/epN-substack.html`. Pulls exactly four things (YouTube
-  URL as plain text, Description, Links mentioned, Transcript — nothing
-  else), splits the transcript into speaker turns so names land on their
-  own bold line instead of folding into the paragraph (plain markdown
-  conversion alone doesn't do this — a `**Name**` line immediately
-  followed by text with no blank line is one soft-wrapped paragraph
-  under CommonMark), and autolinks any bare URLs in the links list.
+  `outputs/podcast/epN-substack.html`. Pulls, in order: the subtitle (from
+  `substack_subtitle` frontmatter, rendered in its own visually distinct
+  boxed block — Substack's Subtitle is a separate field on the post
+  editor, under the title, not part of the article body, so this is
+  deliberately *not* mixed into the copy-everything-below flow), the
+  YouTube URL as plain text on its own line, a "Listen on" line (Apple
+  Podcasts / Spotify / Amazon Music, as real `<a>` links — not bare URLs,
+  so Substack doesn't generate an unwanted link-preview embed for each
+  one the way it would for a bare URL; only the YouTube line above is
+  meant to trigger an embed), Description, Links mentioned, and the full
+  Transcript. Splits the transcript into speaker turns so names land on
+  their own bold line instead of folding into the paragraph text (plain
+  markdown conversion alone doesn't do this — a `**Name**` line
+  immediately followed by text with no blank line is one soft-wrapped
+  paragraph under CommonMark), and autolinks any bare URLs in the links
+  list. Warns on stderr if `substack_subtitle` is missing, at or past the
+  200-char hard limit, or past the 180-char soft target (same rule the
+  daily-brief pipeline already uses — see `substack_subtitle` below).
   Usage: `python3 scripts/render_substack_html.py podcast/epN.md` for
   one episode, or `--all` for every `podcast/ep*.md`. Output is meant to
   be opened in a real browser, selected all, copied, and pasted into
@@ -144,8 +155,19 @@ Working draft for an in-progress episode → `outputs/podcast/epNN-publishing.md
 ## The final episode file (`podcast/epNN.md`)
 
 Mirror the existing episodes' format exactly — frontmatter (`title`,
-`date`, `show`, `hosts`, `format`, `authority_level`, `file_type`, `tags`,
-`staleness_threshold`, `tier`, `status`), then:
+`date`, `show`, `hosts`, `format`, `authority_level`, `file_type`,
+`substack_subtitle`, `tags`, `staleness_threshold`, `tier`, `status`),
+then:
+
+**`substack_subtitle`** (added 2026-09-02, backfilled onto episodes 1-5)
+— one sentence naming what's actually in the episode, one clause per
+major topic covered (Substack shows the subtitle, not a body preview, in
+the inbox and feed — same reason the daily-brief pipeline generates one
+for every briefing, see `skills/brief/publish-prompt.md`). **Hard limit:
+200 characters** — Substack silently truncates past it, mid-word, no
+ellipsis. Target **under 180** for margin. Write it by hand for each
+episode; there's no model call generating it here the way there is for
+the daily brief.
 
 ```
 # EP N: Title

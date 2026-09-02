@@ -6,6 +6,7 @@ hosts: [Brian Madden, Dave Brear]
 format: Podcast (Brian's own show)
 authority_level: 5
 file_type: podcast
+substack_subtitle: "AI agents will enter the enterprise through the same desktops and apps humans already use, and second brains — personal AI context vaults — are quietly already happening."
 tags: [computer-using-agents, second-brain, context-vault, enterprise-ai, cognitive-stack, enterprise-governance, post-application-era, token-economics, oSWorld, semantic-primitives, mcp, brain-to-brain]
 staleness_threshold: stable
 tier: 2

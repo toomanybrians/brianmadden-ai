@@ -6,6 +6,7 @@ hosts: [Brian Madden, Dave Brear]
 format: Podcast (Brian's own show)
 authority_level: 5
 file_type: podcast
+substack_subtitle: "AI automations are RPA thinking applied to the wrong problem — the real move is plugging your second brain into every enterprise app, and treating data as a product."
 tags: [second-brain, cognitive-extension, enterprise-ai, enterprise-governance, 7-stage-roadmap, automation-fallacy, rpa, data-as-product, context-vault, knowledge-work, glass-ceiling, phase-three-to-four, non-human-personas]
 staleness_threshold: stable
 tier: 2

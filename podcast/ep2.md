@@ -6,6 +6,7 @@ hosts: [Brian Madden]
 format: Podcast (Brian's own show — special solo edition)
 authority_level: 5
 file_type: podcast
+substack_subtitle: "Where EUC stands in 2026, the invisible 80% of knowledge work, an updated seven-step roadmap, and why this is the last chapter of book one, not the end of the story."
 tags: [euc, end-user-computing, second-brain, cognitive-extension, context-vault, 7-stage-roadmap, post-application-era, token-economics, token-routing, ai-diffusion, invisible-80-percent, vdi, published-self, future-of-work]
 staleness_threshold: stable
 tier: 2

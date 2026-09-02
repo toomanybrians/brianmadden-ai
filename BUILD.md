@@ -2637,3 +2637,42 @@ Brian. `podcast/bible.md` updated to document the tool and correct the
 earlier "chapters included" assumption to match what Brian actually
 asked for. `check_doc_accuracy.py` clean. **Committed and pushed**
 (`529176a`).
+
+**Immediate follow-up, same session again: subtitle + Listen-on links.**
+Brian asked for a subtitle in the render, then separately (mid-response)
+for Apple Podcasts/Spotify/Amazon Music as real links under the YouTube
+line. Checked the repo first rather than inventing a new convention:
+`substack_subtitle` frontmatter already exists, generated daily by the
+brief pipeline (`skills/brief/publish-prompt.md`) — Substack shows the
+subtitle, not a body preview, in the inbox/feed, hard limit 200 chars
+(silent mid-word truncation, no ellipsis, confirmed the hard way per
+that doc), target under 180. Reused the exact same rule rather than
+picking a new number. Wrote one by hand for each of the five episodes
+(no model call for this, unlike the daily brief) and added
+`substack_subtitle` to all five `podcast/epN.md` frontmatter blocks, all
+under 180 chars.
+
+`scripts/render_substack_html.py`: added `extract_subtitle()` and
+`extract_listen_links()` (the latter whitelisted to Apple Podcasts/
+Spotify/Amazon Music — skips Show home/Riverside, YouTube, and any
+Substack canonical link already in the Listen section, since none of
+those belong linked from the page that's going onto Substack itself).
+The subtitle renders in its own visually boxed block, separate from the
+YouTube-link-through-transcript flow, labeled "paste into Substack's own
+Subtitle field, not the body" — Substack's subtitle is a distinct field
+on the post editor, not article-body content, so mixing it into the
+copy-everything-below flow would just create confusion at paste time.
+The Listen-on line renders real `<a>` tags, not bare URLs — Brian's own
+reasoning, confirmed and implemented as stated: a bare URL on its own
+line is what triggers Substack's unwanted link-preview embed, and that
+behavior should only fire for the YouTube line above it. Added stderr
+warnings for missing/oversized subtitles so a future episode with a
+forgotten or too-long `substack_subtitle` fails loud instead of silently
+shipping something Substack will truncate.
+
+Re-ran `--all`, verified per-episode: ep1/ep2 correctly show only Apple
+Podcasts + Spotify (no Amazon Music — their Listen sections don't have
+it), ep3/ep4/ep5 show all three, matching each file's real data rather
+than a hardcoded platform list. `check_doc_accuracy.py` clean. Re-sent
+all five to Brian. **Committed and pushed** — see the commit that
+includes this entry.

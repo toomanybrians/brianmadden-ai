@@ -6,6 +6,7 @@ hosts: [Brian Madden, Dave Brear]
 format: Podcast (Brian's own show)
 authority_level: 5
 file_type: podcast
+substack_subtitle: "Wiring two second brains together was a disaster — the fix is a company-wide knowledge factory with canon as a firewall, plus how OpenAI's agents really hacked Hugging Face."
 tags: [knowledge-factory, canonical-knowledge-layer, second-brain, context-vault, three-tier-architecture, hallucination, provenance, forward-deployed-engineering, service-owner, open-knowledge-format, securspaces, netscaler-ai-gateway, ai-agent-security, non-human-personas, openai-hugging-face-incident, agentic-ai, enterprise-ai, governance]
 staleness_threshold: stable
 tier: 2
