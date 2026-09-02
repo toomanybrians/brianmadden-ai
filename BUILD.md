@@ -2526,5 +2526,82 @@ clearly-named key rather than overloading `referenced_by_posts` or
 inventing something unrelated to what's already there.
 
 Diff is 7 modified files + 1 new file, all directly ep5-related except
-the ep4 COLLECTIONS.md backfill (justified above). Not yet committed —
-next step is review and commit.
+the ep4 COLLECTIONS.md backfill (justified above). `check_doc_accuracy.py`
+clean. **Committed and pushed** (`27a008a`).
+
+### 2026-09-02 (continued again) — Podcast workflow now defaults to this
+repo; Riverside's real constraints researched, not guessed
+
+Brian confirmed: yes, make the public-brain-by-default workflow real,
+not just a noted intention. Two sub-questions came up live mid-session
+that needed answering before the workflow doc could say anything true:
+where should the transcript actually live, given Riverside's own
+transcript is auto-generated and rough, and where should the canonical
+link point — GitHub (this repo) or Substack? Brian was explicitly stuck
+on both ("I don't love any of these, but we have to do something").
+
+**Researched Riverside directly instead of guessing.** `WebFetch` got a
+uniform 403 from `support.riverside.com` (Zendesk bot protection); the
+Browser-pane tools got through where `WebFetch` couldn't. Read
+Riverside's own "Hosting: Upload and publish new episode" help article:
+the actual publish form has exactly one text field, Description — no
+transcript field, no separate show-notes field exists at all. Then
+loaded the live ep5 episode page
+(`citrixaihotsheet.riverside.com/e/ai-knowledge-factories-...`) and
+clicked into its "Transcript" tab directly: confirmed it's Riverside's
+own uncorrected AI transcription, not editable in bulk — "La Riangre"
+for *la rentrée*, "Dave Brer" for Dave Brear, run-on unpunctuated
+sentences. Their docs describe only manual, word-by-word correction
+inside their own editor ("Correct the transcript and caption text,"
+"Correct Everywhere") as the available lever — no upload/replace path
+for an externally-cleaned transcript. Conclusion, stated plainly rather
+than hedged: Riverside's transcript will never be authoritative: don't
+try to make it so.
+
+**That settles the canonical-link question too, and it isn't actually
+an either/or.** `CLAUDE.md` already states the repo's own purpose
+outright — "built for AI consumption via MCP... not humans browsing
+files" — which is a direct argument against ever sending a human
+listener to GitHub as "the show page." Substack (`brianmadden.ai`)
+already is the polished, unlimited-length, comment-enabled page humans
+land on, and it was already working for ep5 (Riverside's own description
+already points there). So: Substack stays canonical for humans, this
+repo stays canonical for AI/machine consumption via MCP — two audiences
+the repo already serves, not a decision Brian needed to make from
+scratch.
+
+**Built the actual workflow docs, not just a decision record:**
+- `MAINTAINER.md` — new Working-conventions bullet stating podcast
+  production now happens natively here, first transcript onward,
+  pointing at `podcast/bible.md` for the how.
+- `podcast/bible.md` (new) — the production reference: the
+  two-canonical-links rule, Riverside's real constraints (including the
+  character-budget formula from the ep5 material, `66 + 2×len(url)` per
+  link against a ~4,000-char stored-HTML limit, calibrated against one
+  real data point from 2026-09-01 — flagged explicitly as a
+  reconstruction to verify against Riverside's live counter, not
+  something this repo has tested in bulk, since shipping an unverified
+  "precise" counter risked a real mistake: an over-budget description
+  silently truncated on a live episode), the publishing-prep doc format
+  (`outputs/podcast/epNN-publishing.md`, tier 3), the episode-level
+  publish checklist, the final-file format (mirrors ep1-5 exactly), and
+  the index/stats checklist to run on every future episode — including
+  the `json.dump`-reformats-everything trap hit and fixed earlier this
+  same session, written down so a future session doesn't repeat it.
+  Deliberately kept out of `_index.json`/`COLLECTIONS.md`/`llms.txt` —
+  maintainer/production reference, not consumer module content, same
+  treatment as `MAINTAINER.md`/`BUILD.md` itself.
+- `governance-log.md` — new entry, since this is a publishing-process
+  change (MAINTAINER.md's rule 3/8 territory), not a content change.
+
+**Deliberately not built:** a `tools/riverside_description.py` character
+counter. The formula is derivable from the ep5 material and one
+calibration point, but one data point isn't enough to ship a tool Brian
+would trust for a real publish decision — `podcast/bible.md` documents
+the formula and the constraint but says explicitly to verify against
+Riverside's live counter rather than presenting an unverified script as
+authoritative. Build it for real if/when there's appetite to calibrate
+it properly.
+
+No canon content touched — process docs only. `check_doc_accuracy.py`
+clean.

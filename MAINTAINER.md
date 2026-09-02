@@ -136,4 +136,17 @@ that exclusion, confirmed by the merge's KV sync running clean.
   gitignored; secret scanning and push protection stay enabled.
 - Commit messages are plain and honest; the git history is a public audit
   trail and part of the product.
+- **Podcast production defaults to this repo, not the private work
+  brain.** As of 2026-09-02, episode processing (transcript cleanup,
+  publishing-asset drafting, platform description variants, checklists)
+  happens natively in `brianmadden-ai` from the first transcript onward.
+  Episodes 1-5 were drafted privately and mirrored over after the fact,
+  but every Hotsheet episode is public content the moment it's recorded,
+  so there's no private-first step to justify. Working drafts live in
+  `outputs/podcast/epNN-publishing.md` (tier 3); the finished canon file
+  is `podcast/epNN.md` (tier 2). Substack (`brianmadden.ai`) stays the
+  canonical link for human listeners; this repo stays the canonical
+  source for AI/machine consumption — two audiences, not a choice
+  between them. See `podcast/bible.md` for the full format and publish
+  checklist.
   

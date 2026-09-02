@@ -4,6 +4,59 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-09-02 — Podcast production defaults to this repo, not the private work brain
+
+**What changed (process, not content):**
+- `MAINTAINER.md`: new Working-conventions bullet declaring that podcast
+  episode processing (transcript cleanup, publishing-asset drafting,
+  checklists) now happens natively in `brianmadden-ai` from the first
+  transcript onward, instead of being drafted in Brian's private/work
+  second brain and mirrored over after the fact.
+- `podcast/bible.md` (new): the production reference for future
+  episodes — the two-canonical-links rule (Substack for human listeners,
+  this repo for AI/machine consumption), Riverside's real field/character
+  constraints (researched live this session, see below), the
+  publishing-prep doc format, the publish checklist, and the index/stats
+  checklist to run every time an episode lands. Deliberately excluded
+  from `_index.json`/`COLLECTIONS.md`/`llms.txt` — maintainer/production
+  reference, not consumer module content, same treatment as
+  `MAINTAINER.md`/`BUILD.md`.
+
+**Why:** Brian did episode 5's processing on the private work brain as
+usual, then noted mid-session that it should really happen on the public
+brain going forward, since the podcast is public content from the moment
+it's recorded — there's no private-first step to justify, unlike content
+that starts as internal material and gets promoted later. He then asked,
+separately, where the canonical link and transcript should actually live
+(Riverside's own transcript is auto-generated and rough; its description
+field is capped at ~4,000 characters). Researched Riverside's hosting
+product directly (their help docs, and the live ep5 episode page) rather
+than guessing: confirmed the publish form has exactly one text field
+(Description, no transcript upload), and the public "Transcript" tab is
+Riverside's own uncorrected AI transcription — mangled ("La Riangre" for
+*la rentrée*, "Dave Brer" for Dave Brear) — with no bulk-replace path,
+only manual word-by-word correction inside Riverside's own editor. That
+settles the canonical-link question: Substack (`brianmadden.ai`) stays
+the human-facing canonical link (already live, already working, no
+character limit); this repo stays the canonical machine-readable source
+per `CLAUDE.md`'s own stated purpose ("built for AI consumption via
+MCP... not humans browsing files"). Not a choice between the two — they
+serve different audiences and both were already in place for ep5.
+
+**No canon content touched.** Process documentation only —
+`MAINTAINER.md` and a new maintainer-reference file. No `me/`,
+`frameworks/`, `posts/`, `talks/`, `podcast/epN.md`, `interviews/`, or
+`pages/` file changed.
+
+**Automated checks:** `python3 scripts/check_doc_accuracy.py` clean (no
+top-level tree change — `podcast/bible.md` is nested inside an existing
+directory, not a new top-level entry).
+
+**Result: COMMITTED AND PUSHED** — see the commit that includes this
+entry.
+
+---
+
 ## 2026-08-24 — Reconciled me/voice.md against the private source
 
 **What was synced:**
