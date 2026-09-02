@@ -552,6 +552,51 @@ asked to do, not as a template to re-run.
     warning alone didn't surface this either; Brian spotted it by eye in
     the published post, same pattern as the sources issue above.
 
+    **2026-09-02 update: current concrete list, re-pulled from that
+    morning's real `ingest/.last_run_sources.json`, not re-derived from
+    the original count.** 24 Substack-hosted feeds are 403ing on every
+    scheduled run (down from the original "~39" estimate — likely just a
+    more precise count this time, not evidence anything's been fixed;
+    cross-checked against every sender who's actually emailed `brain@`
+    since launch and confirmed **zero overlap** — none of these 24 have
+    been migrated yet, this is 100% still outstanding manual Substack
+    work). Same fix as before: subscribe to each via the `brianmaddenai`
+    Substack account with "email me new posts" on. The concrete list,
+    for Brian to work through:
+
+    - David Shapiro's Substack — https://daveshap.substack.com
+    - Demis Hassabis — https://demishassabis.substack.com
+    - Dr. Fei-Fei Li — https://drfeifei.substack.com
+    - Emerging Physical AI — https://emergingphysicalai.substack.com
+    - Extended_Brain — https://extendedbrain.substack.com
+    - Forked Lightning — https://forklightning.substack.com
+    - In the pool with Esther — https://estherdyson.substack.com
+    - Kevin Roose — https://kevinroose.substack.com
+    - Kinder Futures — https://mollykinder2.substack.com
+    - Theory of the Game (Reid Hoffman) — https://reidhoffman.substack.com
+    - Work Evolved — https://workevolved.substack.com
+    - Center for Humane Technology — https://centerforhumanetechnology.substack.com
+    - BIG by Matt Stoller — https://www.thebignewsletter.com
+    - Cory Doctorow — https://doctorow.substack.com
+    - Ghosts of Electricity — https://aleximas.substack.com
+    - The Wake Up Call — https://thewakeupcallnewsletter.substack.com
+    - 80,000 Hours — https://80000hours.substack.com
+    - TECH EMPIRES — https://techempires.substack.com
+    - Asimov's Addendum — https://asimovaddendum.substack.com
+    - The AI Report — https://theaireport.substack.com
+    - The Economics of AI — https://economicsofai.substack.com
+    - The EU AI Act Newsletter — https://artificialintelligenceact.substack.com
+    - METR — https://metr.substack.com
+    - Lex Fridman — https://lexfridman.substack.com
+
+    (`nate-b-jones`'s dead YouTube feed, 404 not 403, is the one other
+    non-`ok` feed source — separate, already-documented gap, not part of
+    this list.) The 15 sources already on `ingest_method: email` plus the
+    ~24 more auto-registered senders already arriving through `brain-inbox`
+    are all healthy — confirmed by scanning every ingest note's `author`
+    field since launch, every one of them has actually delivered at least
+    once. This list is only the ones that haven't started yet.
+
 ## Day plan (checklist — details in the plan doc §8)
 
 - [x] D1 — Workspace + aliases + MX · lock naming · carve-out note sent
@@ -2290,3 +2335,115 @@ way, given the same-day X reliability findings in the entry above),
 (exposed a second time this session, on top of the first). Not
 something this session can do — all of these require Brian's own
 action in each provider's dashboard.
+
+### 2026-09-02 — `/maintain` session: X still failing (new cause, not
+the 08-31 one), #15's thread-dedup prompt fix, and a concrete
+newsletter-migration checklist
+
+Bootstrap: 1 commit behind (that morning's automated run), clean
+fast-forward, no conflict. Brian opened with three asks: today's brief
+was still missing X content, do open decision #15 today, and figure out
+which newsletters aren't actually sending mail yet.
+
+**X — ruled out the 08-31 cause, found a new one, didn't fully close
+it.** Checked `ingest/.last_run_sources.json` history across every
+commit since X was wired in: the scheduled run has failed with the same
+`401 Client Error: Unauthorized for url: .../oauth2/token` on **every
+single day** X has been live (08-31, 09-01, 09-02) — not a one-off.
+That looked at first like the 08-31 write-back-gate bug recurring, but
+it isn't: `X_REFRESH_TOKEN`'s GitHub secret and local `.env` were
+provably in sync and untouched between 09-01's local fix-verification
+run (07:53:56 UTC) and today's failed scheduled run (06:34-38 UTC) —
+confirmed via secret `updated_at` and `.env`'s file mtime, one second
+apart, both frozen across that whole window. A local dry-run just now,
+using that exact same untouched token, succeeded immediately and
+rotated cleanly. So the token that failed in Actions this morning was
+proven valid two hours later from this machine — ruling out a stale
+credential. Also checked whether `X_CLIENT_ID`/`X_CLIENT_SECRET` (the
+app credentials, not the rotating refresh token) could be the real
+culprit — session's own end-of-day recommendation was for Brian to
+rotate the X app secret after the credential-exposure incident below —
+but their GitHub secrets show `updated_at` frozen at 08-26 (initial
+setup, never touched since), and the successful local test just now
+used whatever's in local `.env` right now, so if Brian had rotated the
+app secret and only updated it locally, that local test would have
+failed too. It didn't. Ruled out.
+
+What's left: three-for-three failures from Actions, two-for-two
+successes from a normal local network, same credential, same code. The
+leading unconfirmed hypothesis is the same shape of problem BUILD.md
+already has hard evidence for on the Substack side (see decision #16
+below) — X's OAuth token endpoint treating GitHub Actions' hosted-runner
+IP ranges differently than a residential one, surfacing as a clean 401
+rather than Cloudflare's 403 shape. Genuinely unconfirmed, not asserted
+as fact. **What's actually built, safe, and shippable regardless of
+which theory is right:** `_x_refresh_access_token()` in
+`skills/ingest/ingest.py` was swallowing X's real OAuth error body
+behind a bare `raise_for_status()`, collapsing "wrong app credentials"
+(`invalid_client`), "stale refresh token" (`invalid_grant`), and
+anything else into the same generic "401 Client Error: Unauthorized"
+message — verified this by deliberately breaking the client secret
+in-process (never touched `.env`) and confirming X returns a real,
+specific error body (`{"error":"unauthorized_client",...}`) that was
+being thrown away. Now captured and surfaced into `reason`, which
+flows through to `last_run_sources.json` and the brief's "Sources
+checked today" section — so the *next* scheduled failure (if there is
+one) will show the actual X error code instead of a bare 401, turning
+this from a guessing game into real evidence without needing to pull
+Actions logs by hand. Deliberately did not re-trigger the real
+`daily-pipeline.yml` to force a live Actions-network test — that
+workflow has no diagnostics-only path; a manual `workflow_dispatch`
+would re-run the full ingest → brief → publish → email chain and risk a
+second brief email today. Left for Brian: whether to greenlight a
+one-off safe test (e.g. a temporary workflow_dispatch-only diagnostic
+step, no commit/publish/email) to confirm the IP-block theory directly,
+or just let tomorrow's real run surface the real error code
+organically now that it's actually captured.
+
+**#15 — thread-dedup prompt fix, built.** Exactly the scoped fix Brian
+proposed when this was flagged (see decision #15 above): no second LLM
+call, a `prompt.md` instruction change. Added a paragraph right after
+the `new_threads` JSON spec in `skills/brief/prompt.md` telling the
+model to check any new-thread candidate against the tracked list it
+already sees for *semantic* overlap — not just exact-slug — before
+inventing a new slug, and to use `recurring` against the existing slug
+instead when the underlying evidence (the same incident, the same
+finding) is already tracked under a different name. Checked
+`update_tracker()` in `skills/brief/brief.py` first to confirm this is
+architecturally sufficient: `recurring` merges by exact slug already
+(so a correctly-identified match just works), and `new_threads`
+dedup is genuinely exact-slug-only downstream (the documented v1
+limitation) — meaning preventing the bad slug from being proposed in
+the first place, at the prompt level, is the only lever that actually
+fixes it, confirming Brian's own scoping was right. Did **not** touch
+the four already-duplicated tracker entries from the original diagnosis
+(`emergent-agent-coordination-via-shared-storage`,
+`reasoning-trace-as-attack-surface`, `skills-as-supply-chain`,
+`agent-to-agent-contagion-via-shared-artifacts`) or the three smaller
+ones (`labs-as-compute-landlords`, `open-weight-floor-is-subsidized`,
+`labs-withholding-frontier-from-api`) — checked
+`.thread_tracker.json` and all seven are already `status:
+promoted-candidate`, meaning they're already queued in
+`promotion-candidates.md` for Brian's own call in the next
+`/weekly-update` ceremony. Merging them silently would have been the
+system making the call MAINTAINER.md's own convention reserves for a
+human; leaving them queued is the correct behavior, not a gap.
+
+**Newsletter audit — concrete list built, not just re-confirmed.**
+Cross-referenced `sources.yaml`'s 15 curated `ingest_method: email`
+sources against every `author` field across every ingest note ever
+written under `source_id: brain-inbox` — all 15 have delivered at least
+once; none are silently broken. Then did the harder half of the ask:
+which of the ~39 originally-flagged blocked-RSS sources (decision #16)
+have quietly started arriving by email since, vs. which are still 100%
+stuck. Answer: **zero overlap** — none of the 24 currently-403ing
+Substack feeds (the 39 estimate was imprecise; 24 is today's real,
+re-counted number) match any sender that has ever emailed `brain@`.
+Full list with names and URLs written into decision #16 above as an
+actual checklist, not just a count — this is real manual work only
+Brian can do (subscribe + enable "email me new posts" per publication
+in Substack's own UI), same conclusion as the original diagnosis, just
+now with the exact 24 named instead of an estimate.
+
+`python3 -m py_compile skills/ingest/ingest.py` clean;
+`check_doc_accuracy.py` clean. Committed and pushed.

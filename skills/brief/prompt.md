@@ -208,3 +208,20 @@ Part 1 — be conservative, one or two entries on a normal day, `[]` on a day
 with nothing new. Every "What doesn't fit yet" item worth watching should
 have a corresponding `new_threads` entry with a stable, descriptive slug;
 don't invent slugs for things you didn't discuss in Part 1.
+
+**Before adding anything to `new_threads`, check it against the tracked
+list above for semantic overlap — not just an exact slug match.** The
+merge logic downstream only dedupes on exact slug, so if today's pattern
+is really the same underlying evidence as something already tracked —
+the same incident, the same reported finding, the same specific claim —
+just noticed from a different angle, it belongs in `recurring` against
+that existing slug (with a fresh `note` on the new angle), not as a
+new entry under a new name. Ask directly: does a slug above already name
+this same underlying thing, worded differently? If yes, use it. Reserve
+`new_threads` for patterns that genuinely have no home in the tracked
+list yet. (2026-09-02, after four separately-named tracked threads —
+`emergent-agent-coordination-via-shared-storage`,
+`reasoning-trace-as-attack-surface`, `skills-as-supply-chain`,
+`agent-to-agent-contagion-via-shared-artifacts` — turned out to all cite
+the same underlying Hugging Face/OpenAI incident and Anthropic's
+100k+-run finding, just described four different ways.)

@@ -495,7 +495,18 @@ def _x_refresh_access_token() -> str:
         data={"grant_type": "refresh_token", "refresh_token": os.environ["X_REFRESH_TOKEN"]},
         timeout=15,
     )
-    resp.raise_for_status()
+    if not resp.ok:
+        # Bare raise_for_status() collapses every failure into "401 Client
+        # Error: Unauthorized" with no way to tell "wrong app credentials"
+        # (invalid_client) apart from "stale refresh token" (invalid_grant)
+        # apart from anti-bot IP blocking — X's own error body in the
+        # response is the only place that distinction lives. Surfacing it
+        # here is what let a scheduled-run-only failure (three days running,
+        # 2026-08-31 through 2026-09-02, while every local retest succeeded)
+        # actually get diagnosed instead of re-guessed each time.
+        raise requests.HTTPError(
+            f"{resp.status_code} {resp.reason} — body: {resp.text[:300]}", response=resp
+        )
     tokens = resp.json()
     new_refresh = tokens.get("refresh_token")
     if new_refresh and new_refresh != os.environ["X_REFRESH_TOKEN"]:
