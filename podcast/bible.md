@@ -51,6 +51,11 @@ replaces the other.
   swapping in an already-cleaned transcript. **Don't try to make
   Riverside's transcript authoritative. It never will be.** The
   Substack post and this repo's `podcast/epN.md` carry the real one.
+- Riverside added rich-text support to the Description field at some
+  point after this was first written — Brian's live call (2026-09-02):
+  "pretty garbagey." Not worth building against yet; the plain-text,
+  character-budget-constrained approach below is still the practical
+  one until that changes.
 - **The Description field's practical limit is ~4,000 characters of
   stored HTML**, and Riverside auto-links every URL it detects into
   `<a href="URL" target="_blank" rel="noopener noreferrer nofollow">URL</a>`
@@ -81,16 +86,42 @@ Working draft for an in-progress episode → `outputs/podcast/epNN-publishing.md
 
 1. **Title** — candidates, then Brian's final call marked explicitly.
 2. **SHORT** (~250 chars) — for previews, social, RSS summary.
-3. **SUBSTACK** — the full show notes: complete description, chapters,
-   every link mentioned, the complete transcript. This is the canonical
-   page (see above) and goes live **before** Riverside or YouTube, since
-   both point at it.
+3. **SUBSTACK** — the show notes: YouTube link (plain text, own line —
+   not a hyperlink, so Substack's own paste-detection can auto-embed it
+   as a player), description, every link mentioned, the complete
+   transcript. No chapters, no platform-links block beyond YouTube —
+   Brian's explicit call (2026-09-02). This is the canonical page (see
+   above) and goes live **before** Riverside or YouTube, since both
+   point at it. Render it from the finished `podcast/epN.md` with
+   `python3 scripts/render_substack_html.py podcast/epN.md` (or `--all`
+   for every episode) — see Tools below.
 4. **RIVERSIDE** — prose + one link out, character-budget-constrained per
    the rules above.
 5. **LONG** — the YouTube description: full narrative, chapter list with
    timestamps, links mentioned, a "Find us online" block, show boilerplate.
 6. **Links checklist** — every URL mentioned, checked off as verified.
 7. **Publish checklist** — the episode-level steps (below).
+
+## Tools
+
+- **`scripts/render_substack_html.py`** (added 2026-09-02) — renders a
+  finished `podcast/epN.md` into Substack-paste-ready HTML:
+  `outputs/podcast/epN-substack.html`. Pulls exactly four things (YouTube
+  URL as plain text, Description, Links mentioned, Transcript — nothing
+  else), splits the transcript into speaker turns so names land on their
+  own bold line instead of folding into the paragraph (plain markdown
+  conversion alone doesn't do this — a `**Name**` line immediately
+  followed by text with no blank line is one soft-wrapped paragraph
+  under CommonMark), and autolinks any bare URLs in the links list.
+  Usage: `python3 scripts/render_substack_html.py podcast/epN.md` for
+  one episode, or `--all` for every `podcast/ep*.md`. Output is meant to
+  be opened in a real browser, selected all, copied, and pasted into
+  Substack's editor — Substack's rich-text paste carries over the
+  headings/bold/links/lists, and a bare YouTube URL on its own line is
+  what triggers Substack's auto-embed into a video player.
+- No script exists yet for the Riverside description's character-budget
+  count — see the caveat above. Not urgent per Brian's 2026-09-02 call
+  on Riverside's rich-text field.
 
 ## Publish checklist (episode level)
 
@@ -178,3 +209,8 @@ Riverside" disclaimer even after publish, matching existing episodes.
   surface from the pasted material (2026-09-02).
 - This file was written the same day, to make episode 6 onward default
   to happening here from the start.
+- Also 2026-09-02: Brian asked where the actual Substack content for
+  episodes 1-5 lived, since he needed it as pasteable HTML and didn't
+  have it in hand. `scripts/render_substack_html.py` was built in
+  response and run with `--all`, producing
+  `outputs/podcast/ep{1,2,3,4,5}-substack.html`.
