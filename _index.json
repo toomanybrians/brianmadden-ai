@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-09-02",
+  "generated": "2026-09-03",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 123,
-  "total_words": 250530,
+  "total_files": 124,
+  "total_words": 264471,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2454,6 +2454,32 @@
       "audience": "DanofficeIT partners, customers, and IT professionals (~25 people, intimate roundtable format)",
       "format": "~60-minute talk with integrated Q&A",
       "recording": "Full transcript available"
+    },
+    {
+      "path": "talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md",
+      "title": "Brian Madden demonstrates how to connect to and use his AI second brain",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "second-brain",
+        "knowledge-factory",
+        "canon-governance",
+        "agent-identity",
+        "shadow-ai",
+        "wave-3",
+        "local-models",
+        "forward-deployed-engineer",
+        "ai-observability",
+        "mcp",
+        "live-demo"
+      ],
+      "word_count": 13941,
+      "staleness_threshold": "stable",
+      "date": "2026-09-02",
+      "event": "Follow-up to the Citrix ASEAN webcast (self-produced video demo)",
+      "format": "Solo video demo — live Q&A using his own second brain via Claude + MCP",
+      "recording": "https://www.youtube.com/watch?v=8XC3UJsfIFE",
+      "substack_url": "https://www.brianmadden.ai/p/brian-madden-demonstrates-how-to"
     }
   ]
 }

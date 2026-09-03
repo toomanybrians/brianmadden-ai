@@ -1,5 +1,12 @@
 [
   {
+    "title": "Brian Madden demonstrates how to connect to and use his AI second brain",
+    "url": "https://bmad.com/talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo",
+    "date": "2026-09-02",
+    "type": "speech",
+    "description": "Follow-up to a Citrix ASEAN webcast — instead of writing up leftover Q&A separately, Brian connects a fresh, incognito Claude instance to his own public second brain live on camera over MCP and asks it the questions in order, demonstrating the knowledge factory and canon-governance framework instead of just describing it. Nine unedited exchanges covering canon governance (canon built backward from outputs, not forward from inputs), agent identity and shadow AI, off-device leakage, Wave 3 local models, augmentation vs. autonomy, observability, policy across the three waves, the forward-deployed-engineer career path, and the minimum AI baseline for non-technical workers."
+  },
+  {
     "title": "Citrix AI Hotsheet EP 5: AI knowledge factories and company-wide second brains",
     "url": "https://youtu.be/z_9wLRgjh24",
     "date": "2026-09-01",

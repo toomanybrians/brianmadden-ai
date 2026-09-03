@@ -8,6 +8,11 @@ I co-host the **Citrix AI Hotsheet** with Dave Brear — a monthly podcast on AI
 
 ## Available content
 
+**Brian Madden demonstrates how to connect to and use his AI second brain** (2026-09-02)
+Follow-up to a Citrix ASEAN webcast — solo video demo, not a stage talk
+[Watch](https://www.youtube.com/watch?v=8XC3UJsfIFE) | [Substack post](https://www.brianmadden.ai/p/brian-madden-demonstrates-how-to)
+Rather than write up leftover webcast Q&A separately, connects a fresh, incognito Claude instance to his own public second brain live on camera and asks it the questions in order — the knowledge factory and canon-governance framework demonstrated, not just described. Nine exchanges, unedited, covering canon governance, agent identity and shadow AI, off-device leakage, Wave 3 local models, augmentation vs. autonomy, observability, policy across the three waves, the FDE career path, and the minimum AI baseline for non-technical workers. Full narration and complete chat transcript available.
+
 **What is a worker in 2031?** (2026-07-16)
 Arrow Forum 2026, Germany — ~40-minute channel keynote (reconstructed from slides; no recording)
 The main-stage version of the "AI strategy that survives the bubble pop" argument. Frames the next five years as a set of assumptions to stress-test: AI capabilities keep climbing, but frontier access is now a government-and-bubble variable, so the only guaranteed floor is Sonnet-class open-weight models (GLM-5.2, Opus 4.8 / GPT-5.5 class). Diffusion is slow, but forward-deployed engineers can close the gap — and Palantir, OpenAI, Anthropic, AWS, and Microsoft are pouring billions into them. The move: figure out what an FDE does (reach the invisible 80% and make it visible) and do it in-house. Walks the seven-stage roadmap, the three worker types (cognitive owners, operators, curators), the per-worker token ladder (100K → 10B/day), and the EUC-primitive audit. Close: build your own brain — "you have to feel it before you can govern it; you have to have one before you can manage thousands."

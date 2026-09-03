@@ -1,6 +1,6 @@
 # brianmadden.ai
 
-> Brian Madden's expert knowledge module for AI — v3.9 (120 files, ~249k words, 11 frameworks, 58 posts, 20 talks, updated 2026-09-02)
+> Brian Madden's expert knowledge module for AI — v3.9 (121 files, ~264k words, 11 frameworks, 58 posts, 21 talks, updated 2026-09-03)
 
 Contains his frameworks, arguments, positions, and current thinking on how AI is reshaping knowledge work and the enterprise. Brian is VP & Futurist at Citrix, with 32 years in end-user computing, 6 books, 2,000+ articles, and 1,000+ talks globally.
 
@@ -47,7 +47,7 @@ This is not a content archive. It is a structured representation of how Brian th
 
 - [posts/citrix-blog/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/citrix-blog/index.md): Index of 37 Citrix blog posts with summaries and links to full text
 - [posts/linkedin/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/posts/linkedin/index.md): Index of 21 LinkedIn articles and posts
-- [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): 20 speech and podcast-appearance transcripts
+- [talks/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/talks/index.md): 21 speech and podcast-appearance transcripts
 - [podcast/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/podcast/index.md): Citrix AI Hotsheet—Brian's own podcast, co-hosted with Dave Brear. Show page plus 5 episode transcripts.
 - [interviews/index.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/interviews/index.md): Press interviews, commentary, and podcast guest appearances
 
