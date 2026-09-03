@@ -1,7 +1,7 @@
 ---
 title: "Where Brian's head is right now"
-updated: "2026-08-28"
-last_reviewed: "2026-08-28"
+updated: "2026-09-03"
+last_reviewed: "2026-09-03"
 authority_level: 2
 file_type: frontier
 tags: ["current-thinking", "frontier", "developing-arguments"]
@@ -15,7 +15,7 @@ status: reviewed-and-updated
 
 This is the frontier map. `me/published-thinking.md` captures what I've published. This captures where my head is *today*—the arguments forming, the connections emerging, the questions I'm chewing on.
 
-**Last updated:** August 28, 2026
+**Last updated:** September 3, 2026
 
 **Why this file exists and why it's public:** Anyone who publishes regularly—blogs, LinkedIn, tweets—is already doing this. They share half-formed ideas, ask questions, show threads developing, change their mind. Scroll their feed and you can piece together what they're thinking about and where their arguments are heading. This file is just that process made explicit. The difference is that instead of being scattered across a social media timeline where old posts get buried by new ones, it's a single living document. When my thinking evolves, I edit it in place rather than adding another entry to a chronological list. *Arguments get sharper, not longer.* Things I was wrong about get removed, not corrected with a follow-up post. If you want to know what I've *concluded*, read my published work in `me/published-thinking.md`. If you want to know what I'm *working through right now*, this is it.
 
@@ -204,6 +204,8 @@ Things I'm noticing that don't have a home yet:
 **August 28 update: "harness" is the vocabulary—decided, not just tracked.** The industry converged on it fast: Mitchell Hashimoto's February 2026 post coined "harness engineering," and within months it's standard—Claude Code's own docs call itself "the agentic harness around Claude," Hugging Face's glossary formally distinguishes harness/model/scaffold, there's now a Wikipedia page for it. SemiAnalysis ranks harness quality above benchmark score for real-world outcomes (Claude Code beating higher-scoring models), DeepSeek open-sourced a 160k-star harness framework, and AlphaSignal states it outright: "model plus harness is becoming one unit." Adopting "harness" as the name for the cognitive stack's differentiating middle layer—above the commodity model, below context and judgment—rather than contesting the term.
 
 **August 28 update: the compute-availability risk is the same pattern that broke the "pure pay-as-you-go cloud" promise, now playing out with AI inference.** Early cloud computing promised true on-demand elasticity—pay only for what you use, scale infinitely. In practice, when everyone needs capacity at once, spot pricing spikes and on-demand access isn't actually guaranteed. The real fix enterprises learned was reserved capacity—commit to servers for the year, not the hour, to guarantee availability. The theoretical benefit of pure elasticity quietly went away. The same dynamic is forming in AI: as labs redirect compute from external inference toward their own R&D (Patel—Anthropic and OpenAI toward most of the world's usable flops by 2028), "just pay per token when you need it" stops being reliable, because availability, not price, becomes the constraint. This isn't a new lesson—it's "control your own destiny," the cloud-computing lesson enterprises already learned, now applying to AI compute. Worth a real piece built around that analogy—likely Brian's next post.
+
+**September 2 update: canon gets built backward from outputs, not forward from inputs—and it came out sharper live, answering my own second brain's Q&A, than it had ever been written down.** Recorded a video answering Citrix ASEAN webcast follow-up questions by connecting a fresh Claude instance to this second brain and asking it the questions live—a real-time demo of the knowledge factory framework rather than a description of it. Talking through my own answer alongside the AI's forced a clearer articulation than the framework file had: you don't triage the raw slurry first and decide what's canon in the abstract. You start from the specific output you need, find whoever currently produces it, ask them directly where the facts/layout/branding actually come from, and pull only those sources into canon. Generate a draft, find out whether a wrong answer means bad instructions, noise in canon, or an actual hole, and fix the specific thing. This has already been folded into `frameworks/knowledge-factory.md` itself as a new paragraph, since it's a refinement of already-published thinking rather than a new frontier question—see [the full video and transcript](../talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md) for where it came from.
 
 ---
 
