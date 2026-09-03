@@ -554,5 +554,23 @@
     "count": 1,
     "status": "watching",
     "history": []
+  },
+  {
+    "slug": "model-access-revocable-for-competitive-reasons",
+    "description": "AI model access cut off from a customer for competitive/ownership reasons (OpenAI cutting Cursor off after SpaceX's acquisition) rather than technical, safety, or pricing reasons \u2014 a portability risk distinct from the open-weight license-restriction thread already tracked.",
+    "first_seen": "2026-09-03",
+    "last_seen": "2026-09-03",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "cot-legibility-traded-for-capability",
+    "description": "Labs weighing chain-of-thought legibility against raw capability gains (OpenAI's Astra recurrent-depth tradeoff, chief scientist's public warning against a 'race into unmonitorability') in the same window as an incident that argued for more monitorability, not less.",
+    "first_seen": "2026-09-03",
+    "last_seen": "2026-09-03",
+    "count": 1,
+    "status": "watching",
+    "history": []
   }
 ]

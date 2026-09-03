@@ -340,7 +340,9 @@ sources:
     name: Forked Lightning
     type: person
     url: https://forklightning.substack.com
-    feed_url: https://forklightning.substack.com/feed
+    feed_url: null
+    sender: forklightning@substack.com
+    ingest_method: email
     priority: regular
     note: "David Deming — labor economics, future of work"
 
@@ -1009,3 +1011,30 @@ sources:
     sender: hyperdimensional@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-02 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: brian-brianmadden-ai
+    name: "brian@brianmadden.ai"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: brianmaddenai+brian@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-03 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: alberto-romero-from-the-algorithmic-bridge
+    name: "Alberto Romero from The Algorithmic Bridge"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: thealgorithmicbridge@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-03 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: evalsignal
+    name: "EvalSignal"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: newsletter@evalsignal.xyz
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-03 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."

@@ -1,12 +1,12 @@
 {
-  "run_utc": "2026-09-02T06:39:02.362791+00:00",
+  "run_utc": "2026-09-03T06:33:39.593317+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "error",
-      "reason": "X auth failed: 401 Client Error: Unauthorized for url: https://api.x.com/2/oauth2/token"
+      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"}"
     },
     {
       "id": "ethan-mollick",
@@ -36,32 +36,32 @@
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 16,
-      "new_entries": 16
+      "entries_in_window": 20,
+      "new_entries": 20
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "moonshots",
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "dwarkesh",
       "name": "Dwarkesh",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "bg2",
@@ -84,8 +84,8 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "on-with-kara-swisher",
@@ -124,24 +124,24 @@
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "algorithmic-bridge",
       "name": "The Algorithmic Bridge",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "exponential-view",
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ahead-of-ai",
@@ -193,8 +193,8 @@
       "name": "Emerging AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 3,
+      "new_entries": 3
     },
     {
       "id": "emerging-physical-ai",
@@ -213,9 +213,10 @@
     {
       "id": "forked-lightning",
       "name": "Forked Lightning",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://forklightning.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "the-generalist",
@@ -230,8 +231,8 @@
       "name": "Hyperdimensional",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "import-ai",
@@ -315,16 +316,16 @@
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "simon-willison",
@@ -421,8 +422,8 @@
       "name": "Hard Reset",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "kuns-field-notes",
@@ -467,8 +468,8 @@
       "name": "AI Frontiers",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "chinai-newsletter",
@@ -577,8 +578,8 @@
       "name": "Dwarkesh Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "lex-fridman-2",
@@ -731,6 +732,27 @@
     {
       "id": "last-week-in-ai-2",
       "name": "Last Week in AI",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "opinion-ai",
+      "name": "Opinion AI",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "cathy-mcphillips-smarterx",
+      "name": "Cathy McPhillips, SmarterX",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "dean-w-ball-from-hyperdimensional",
+      "name": "Dean W. Ball from Hyperdimensional",
       "method": "feed",
       "status": "skipped",
       "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
