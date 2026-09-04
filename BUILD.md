@@ -634,6 +634,23 @@ asked to do, not as a template to re-run.
     flagged by name/reputation only, not fetched content, so treat as a
     starting point for Brian's own look, not a verified finding.
 
+    **2026-09-04, later the same day: Brian checked all 14 by hand —
+    the block isn't costing anything, for these 14 specifically.** He
+    clicked through every one of the 14 already-personally-followed
+    publications above (confirming, in passing, that email delivery is
+    genuinely on for them) and found none had published anything new in
+    the ~2-3 weeks this pipeline has been live, except BIG by Matt
+    Stoller — one post a few days ago, not about AI, so the extraction
+    step's relevance filter would likely have skipped it even with a
+    working feed (the same judgment call that already skips plenty of
+    fetched-but-irrelevant entries from working sources every day — see
+    any day's "skipped (not relevant)" ingest.py output). So: the
+    403-block is real and still worth the eventual email-routing fix,
+    but for these 14 it has cost zero actual missed insights so far, not
+    an unknown backlog quietly piling up. Doesn't tell us anything about
+    the other 8 (not followed anywhere, so unverified) — those remain a
+    real unknown, not confirmed either way.
+
 ## Day plan (checklist — details in the plan doc §8)
 
 - [x] D1 — Workspace + aliases + MX · lock naming · carve-out note sent
