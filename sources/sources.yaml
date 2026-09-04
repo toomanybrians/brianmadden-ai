@@ -613,7 +613,9 @@ sources:
     name: 80,000 Hours
     type: newsletter
     url: https://80000hours.substack.com
-    feed_url: https://80000hours.substack.com/feed
+    feed_url: null
+    sender: 80000hours@substack.com
+    ingest_method: email
     priority: regular
     note: "Substack companion to the 80,000 Hours Podcast, tracked separately above"
 
@@ -1038,3 +1040,12 @@ sources:
     sender: newsletter@evalsignal.xyz
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-03 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: brianmadden-ai
+    name: "brianmadden.ai"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: brianmaddenai@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-04 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
