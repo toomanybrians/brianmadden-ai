@@ -504,8 +504,32 @@ def _x_refresh_access_token() -> str:
         # here is what let a scheduled-run-only failure (three days running,
         # 2026-08-31 through 2026-09-02, while every local retest succeeded)
         # actually get diagnosed instead of re-guessed each time.
+        #
+        # 2026-09-04 addition: the error body itself (see 2026-09-02 entry
+        # in BUILD.md) started reading "unauthorized_client — Missing valid
+        # authorization header" on every scheduled run while the identical
+        # request succeeds from a normal network — i.e. X's own server
+        # claims the header we sent never arrived. `requests` builds that
+        # header client-side before the request leaves this process, so
+        # checking whether it was actually attached (never logging its
+        # value) tells us whether the header is being stripped in transit
+        # (a WAF/CDN intercept ahead of X's real backend, matching the
+        # Substack-side 403 pattern already confirmed for GitHub Actions'
+        # IP ranges — decision #16) versus never being built at all (a
+        # client-side bug, which the credential checks already ruled out
+        # separately). A few non-sensitive response headers (server/via/
+        # cf-ray) are logged too — safe to record even though this
+        # `reason` string ends up committed to the repo, unlike the
+        # credentials themselves.
+        sent_auth_header = "Authorization" in resp.request.headers
+        edge_headers = {
+            k: v for k, v in resp.headers.items()
+            if k.lower() in ("server", "via", "cf-ray", "cf-cache-status", "x-cache")
+        }
         raise requests.HTTPError(
-            f"{resp.status_code} {resp.reason} — body: {resp.text[:300]}", response=resp
+            f"{resp.status_code} {resp.reason} — body: {resp.text[:300]} "
+            f"[diagnostics: sent_auth_header={sent_auth_header}, edge_headers={edge_headers}]",
+            response=resp,
         )
     tokens = resp.json()
     new_refresh = tokens.get("refresh_token")

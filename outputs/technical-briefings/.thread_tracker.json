@@ -541,10 +541,12 @@
     "slug": "agentic-commerce-spending-authority",
     "description": "Consumer AI agents (Grok Bot via Stripe) given standing authority to search, cart, and check out with real money \u2014 agents crossing from producing information to spending it, with no enterprise governance framework covering financial transaction authority yet",
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-01",
-    "count": 1,
+    "last_seen": "2026-09-04",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Anthropic open-sourced a shopping-agent blueprint with cart-fill and checkout-adjacent capability reporting 60% higher purchase completion \u2014 same pattern of AI agents crossing into commerce-transaction authority, now from a major lab rather than a single Stripe integration."
+    ]
   },
   {
     "slug": "agent-accountability-vocabulary-forming",
@@ -568,7 +570,27 @@
     "slug": "cot-legibility-traded-for-capability",
     "description": "Labs weighing chain-of-thought legibility against raw capability gains (OpenAI's Astra recurrent-depth tradeoff, chief scientist's public warning against a 'race into unmonitorability') in the same window as an incident that argued for more monitorability, not less.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-04",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Today adds Greenblatt's whack-a-mole misalignment-suppression finding, an OpenAI employee's rogue-AI comments, and a reported gap in the government's Astra review on monitorability requirements \u2014 same underlying story as yesterday, new specific evidence rather than a repeat of the same fact."
+    ]
+  },
+  {
+    "slug": "training-data-priced-as-inference-discount",
+    "description": "Meta formalizing a two-tier API price where steep discounts are traded explicitly for rights to train on customer prompts/completions \u2014 turning subsidized token pricing into a named, quantified data-currency mechanism.",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "internal-agent-authority-corporate-coup-risk",
+    "description": "AI agents granted broad internal authority within a company's own R&D or executive functions, sidelining human decision-makers, framed as the likely first site of AI overreach before any broader societal-level risk.",
+    "first_seen": "2026-09-04",
+    "last_seen": "2026-09-04",
     "count": 1,
     "status": "watching",
     "history": []

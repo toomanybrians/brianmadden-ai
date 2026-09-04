@@ -6,7 +6,7 @@
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "error",
-      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"}"
+      "reason": "X auth failed in the scheduled run: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} (see BUILD.md 2026-09-02 \u2014 same credential works from a normal network, points at GitHub Actions' network specifically). Recovered manually same day: a local run with the same token succeeded and backfilled 7 new entries from the outage window (since 2026-08-31)."
     },
     {
       "id": "ethan-mollick",
