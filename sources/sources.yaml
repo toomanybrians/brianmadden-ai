@@ -736,6 +736,30 @@ sources:
     priority: regular
     note: "Brian Solis"
 
+  - id: planned-obsolescence
+    name: Planned Obsolescence
+    type: newsletter
+    url: https://www.planned-obsolescence.org
+    feed_url: https://www.planned-obsolescence.org/feed
+    priority: regular
+    note: "Personal Substack follow, initially flagged as possibly off-topic during a routine review, confirmed on-topic by Brian 2026-09-04."
+
+  - id: edith-yeung
+    name: Edith Yeung
+    type: person
+    url: https://edithyeung.substack.com
+    feed_url: https://edithyeung.substack.com/feed
+    priority: regular
+    note: "Silicon Valley Funding Weekly Briefing. Personal Substack follow, initially flagged as possibly off-topic during a routine review, confirmed on-topic by Brian 2026-09-04."
+
+  - id: linas-newsletter
+    name: "Linas's Newsletter"
+    type: newsletter
+    url: https://linas.substack.com
+    feed_url: https://linas.substack.com/feed
+    priority: regular
+    note: "Personal Substack follow, initially flagged as possibly off-topic during a routine review, confirmed on-topic by Brian 2026-09-04."
+
   - id: the-deep-view
     name: "The Deep View"
     type: newsletter
