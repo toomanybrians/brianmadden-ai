@@ -634,6 +634,19 @@ asked to do, not as a template to re-run.
     flagged by name/reputation only, not fetched content, so treat as a
     starting point for Brian's own look, not a verified finding.
 
+    **Resolved same day: 3 of the 5 were false positives, now real
+    sources.** Brian's actual call: Planned Obsolescence, Silicon Valley
+    Funding Weekly Briefing (Edith Yeung), and Linas's Newsletter are
+    legit for this project — the guess-by-name-only flagging was wrong
+    for these three. Registered all three in `sources.yaml`
+    (`planned-obsolescence`, `edith-yeung`, `linas-newsletter`) with
+    real, verified-live `feed_url`s, right in the normal feed-source
+    section (not the auto-discovered/documentation-only cluster) since
+    these are freshly-registered real sources, not brain@ artifacts.
+    Slow Boring and Loaded for Bear were correctly flagged — Brian is
+    hiding those two from his public follow list himself, no repo change
+    needed for that half.
+
     **2026-09-04, later the same day: Brian checked all 14 by hand —
     the block isn't costing anything, for these 14 specifically.** He
     clicked through every one of the 14 already-personally-followed
