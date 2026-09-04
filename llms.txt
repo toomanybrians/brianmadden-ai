@@ -56,6 +56,7 @@ This is not a content archive. It is a structured representation of how Brian th
 - [me/career.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/career.md): Career chronology and key milestones
 - [me/books.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/books.md): Books Brian has written and/or edited
 - [me/links.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/links.md): What Brian reads and listens to for AI in business
+- [me/post-ideas.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/post-ideas.md): Pieces Brian is considering writing. Ideas and intentions only — not positions, and never to be cited as things he argues.
 
 ## Optional
 

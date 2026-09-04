@@ -664,6 +664,58 @@ asked to do, not as a template to re-run.
     the other 8 (not followed anywhere, so unverified) — those remain a
     real unknown, not confirmed either way.
 
+17. **Belief-currency inside canon: "we treat all my writing as canon, but
+    my writing evolves" (raised by Brian 2026-09-04, flagged for later, not
+    designed).** Brian's own framing, reacting to the Weekly Wrap Up prep
+    doc: the knowledge factory model has inputs, a middle tier of canonical
+    knowledge blocks, and outputs — and he wants the same shape applied to
+    *himself*, internally. "Right now there's a lot of stuff mixed together
+    and we sort of treat all my writing as canon, but my writing evolves
+    over time, and certainly some of the things I wrote a year ago were
+    things I don't really believe anymore." He also named a second, smaller
+    gap in the same breath: "a whole bunch of random little things that
+    aren't ideas necessarily, but just little things I believe" — currently
+    homeless, or dumped undifferentiated into the Scratchpad.
+
+    Findings from this session, so whoever picks it up doesn't re-derive
+    them:
+
+    - The tier-1/2/3 split (MAINTAINER.md) is about *provenance*, not
+      *currency*. It says where content came from and whether a human
+      checked it. It says nothing about whether Brian still believes it.
+      That's the actual gap — not a missing tier, a missing axis.
+    - **The staleness triage never looks at the oldest, highest-authority
+      material.** `skills/triage/` reads `me/developing-thinking.md`'s
+      "What's connecting"/"Scratchpad" plus active `frameworks/` as its
+      *subjects*, and reads `me/published-thinking.md` only as the
+      *reference* it checks them against. So the file that carries
+      `authority_level: 1`, is synthesized from posts going back to June
+      2020, and is presented to consuming AIs as Brian's standing position
+      is the one file nothing ever triages. That is precisely the material
+      Brian says he no longer fully believes.
+    - `posts/` correctly isn't triaged — a post from 2024 says what it
+      says, and CLAUDE.md's freshness section already tells consumers to
+      date it rather than caveat it. The problem isn't the historical
+      record, it's `published-thinking.md`, which reads as *current
+      position* while being *derived from the archive*. Those two things
+      have been conflated since v1.
+    - `frameworks/` got a real currency mechanism on 2026-08-14
+      (`status: archived`, plus `brief.py` skipping archived files).
+      `published-thinking.md` has no per-argument equivalent — it's one
+      ~10K-word file, so there's nothing to flip a status on. Any fix
+      probably has to make its individual arguments addressable first.
+    - The "little things I believe" gap is real but smaller, and partly
+      already solved by accident: the Scratchpad is exactly that pile. What
+      it lacks is any distinction between "unfinished argument," "durable
+      small belief," and "note I'll never use again."
+
+    Not designed, deliberately. Brian's instruction was to flag it, not to
+    solve it today. Worth doing as its own session, the way canon
+    governance (#8) was — and it's plausibly the same session as #12 (the
+    ported monthly-maintenance skill), since a deeper periodic pass is
+    where a published-thinking triage would actually run.
+
+
 ## Day plan (checklist — details in the plan doc §8)
 
 - [x] D1 — Workspace + aliases + MX · lock naming · carve-out note sent
@@ -2913,3 +2965,189 @@ session; added the restacks-only caveat instead). Also updated
 `python3 -m py_compile` clean on both changed scripts,
 `check_doc_accuracy.py` clean, `--dry-run` verified against real data.
 Committed and pushed.
+
+### 2026-09-04 (continued) — Brian's live reaction to the Wrap Up prep
+doc, applied to canon; new `me/post-ideas.md`; open decision #17
+
+Brian dictated a running reaction while reading today's Weekly Wrap Up
+prep doc out loud — not a `/weekly-update` ceremony, just the raw pass
+through it. Roughly a dozen calls, most of them decisions, a few of them
+questions. What got applied:
+
+**The restacks.** *Meta's two-tier Muse Spark pricing* → Scratchpad item
+in `developing-thinking.md`, written around his own reasoning rather than
+the brief's: the $454K/year gap at a billion tokens a day is a big number,
+but a genuinely heavy individual knowledge worker burns maybe 50M
+tokens/day, so the personal version of that trade is ~$20K/year, which for
+what you get is arguably a good deal. His caveat is the sharper half and
+is in the note: the discount tier is obviously subsidized by data, but the
+full-price tier is widely believed to be subsidized by investor money too,
+so the gap prices the *data*, not the cost of inference. Both tiers may be
+below cost. *CrowdStrike's Agentic Identity Provider* ("that's really
+great, truly — I don't know what to do with it other than flag it") and
+*the race into unmonitorability* → folded together into one new
+"What's connecting" argument, because Brian's own commentary made them one
+idea: if you can't read an agent's reasoning, agents land where humans
+already are — you supervise behavior, not thought — except behavior-watching
+is itself getting hard, so the observable surface has to become everything
+an agent touches and how, which is exactly what a cryptographic agent
+identity plus a full trail is for. That argument also absorbed the
+`agents-defeating-chain-of-thought-monitoring` promotion candidate, which
+Brian identified as the same idea unprompted. *Hugging Face* → nothing,
+per Brian: already covered on the podcast.
+
+**The promotion queue.** `ai-erodes-entry-level-white-collar-ladder`
+**dismissed** — his words, near-verbatim in the status line: true, but
+everyone's been saying it for a long time and he doesn't need to talk
+about it. Not a dispute with the evidence, a judgment that it's consensus.
+(The adjacent question he *does* still consider open — how future experts
+build judgment when AI absorbs the tactical rungs — already lives in
+"What I'm unsure about" and is untouched.) `machine-speed-vs-human-absorption`
+stays deferred as a canon promotion (the plain-language-descriptions work
+it's waiting on still hasn't happened), but he gave a much sharper version
+of the argument itself, so that's now written up: one superhuman person
+plus an unchanged company just moves the queue; a workflow is only as fast
+as its slowest step; after AI the slowest steps are all human; the measured
+evidence says the human review step isn't performing its function anyway
+(13.6% catch rate vs. 89% for an automated check); so the rational move is
+removing it — and then you're back in front of "what's left for humans?",
+which he's published on and still can't answer. He called it out as a
+probable article himself.
+
+**The staleness queue.** The one he actually resolved was
+`frameworks/bitter-lesson.md`, and he resolved it well: the framework isn't
+wrong, it's a claim about *later*. Now, if you want AI inside the systems
+you actually run, you build the knowledge factory — FDEs, deliberate
+capture, curated canon, the whole apparatus. Later, once the factory exists
+and progressively automates itself, the system starts cutting pieces out.
+*That's* the bitter lesson arriving, as what happens to the build
+afterward, not as a reason to skip it. Written in as a third dated
+correction plus a rewritten "Using this framework" that retires the
+"IT is trying to capture institutional knowledge — AI may not need it"
+deployment trigger, which was the actual thing the triage kept flagging.
+On *three waves*: he doesn't love "waves" because it implies sequence —
+one crests and recedes, then the next — when they actually pile up, and
+there may be more than three. Added as a dated note on the section rather
+than a rename, since everything downstream uses the name. Not resolved
+this session: the 2031-worker-shape cut, the Sept 2 canon-backward cut,
+the harness-vocabulary fold, and the Switzerland rewrite — see the open
+questions at the end of this entry.
+
+**`me/post-ideas.md` (new).** He asked directly whether a list of blog
+post ideas exists — "we should create that if not." It didn't; searched
+the repo and there was nothing of the kind anywhere. Created as tier 2
+with `authority_level: 5`, the lowest in the repo, and a header that says
+plainly it's intentions rather than positions and must never be cited as
+something Brian argues. Seeded with four: compute-availability (his own
+note already called it his likely next post), the bottleneck argument,
+agent unmonitorability (marked warm — it has no ending yet), and the
+knowledge-worker-productivity-measurement gap from the Scratchpad. Each
+entry names where the real argument already lives, so writing a post means
+expanding canon rather than starting blank. Wired into `_index.json`,
+`llms.txt`, `CLAUDE.md`, and `AGENTS.md`; deliberately *not* added to
+`COLLECTIONS.md`, which groups by theme and has no theme for unwritten
+work. **Flagged for Brian:** he wondered aloud whether this belongs on the
+private brain instead. Built it public on this repo's public-by-default
+rule (and because `developing-thinking.md` already says "likely Brian's
+next post" in public), but it's four index references and one file to
+reverse if he'd rather.
+
+**Open decision #17 added** — the big one, and the thing he asked to have
+flagged rather than solved: "we sort of treat all my writing as canon, but
+my writing evolves over time, and certainly some of the things I wrote a
+year ago were things I don't really believe anymore." The finding worth
+keeping from this session is that the tier-1/2/3 split is about
+*provenance*, not *currency*, and that `skills/triage/` reads
+`me/published-thinking.md` only as the reference it checks other things
+against — never as a subject. So the file carrying `authority_level: 1`,
+synthesized from posts back to June 2020 and presented to consuming AIs as
+Brian's standing position, is the one file nothing ever triages. That's
+exactly the material he says he no longer fully believes. See #17 for the
+rest, including why `posts/` correctly stays untriaged and why
+`published-thinking.md` probably needs its arguments made individually
+addressable before any status mechanism can attach to them.
+
+`check_doc_accuracy.py` clean, `_index.json` parses, `CLAUDE.md`/`AGENTS.md`
+verified still identical apart from their cross-reference line.
+Governance-log entry added.
+
+**Still open, needs Brian:** (1) the four unresolved staleness items above
+— he read past them without a verdict, and three of them (2031
+worker-shape, Sept 2 canon-backward, harness vocabulary) are cuts or folds
+that shouldn't happen on a guess; (2) what he meant on the Switzerland item
+— "I get what you're saying about your writings, I don't think that
+connects to what I'm doing so much" is genuinely ambiguous about whether
+he's rejecting the triage's reasoning or the thesis; (3) whether
+`me/post-ideas.md` stays public.
+
+### 2026-09-04 (continued again) — resolved the four staleness items;
+drafted and rendered the Weekly Wrap Up post
+
+Same live session, continuing. Brian asked for the four still-open
+staleness items to be reduced to one line each with a recommendation, and
+said to just act rather than re-ask him item by item. Applied:
+
+- **2031 worker-shape** — cut, plus its attached Aug 24 wage note. Already
+  fully captured in `frameworks/2031-worker-shape.md`, nothing lost.
+- **Sept 2 canon-built-backward** — cut. Already folded into
+  `frameworks/knowledge-factory.md`, which carries the same Sept 2 video
+  link in its own epigraph, so no separate pointer needed.
+- **Harness vocabulary** — cut from developing-thinking.md, folded into
+  `frameworks/cognitive-stack.md` as a new dated section naming "harness"
+  the term for layers 3-4 (skills + agentic sub-processes), with the
+  industry-convergence evidence carried over.
+- **"Switzerland of agent workspaces"** — cut outright, Brian's explicit
+  call after hearing the one-liner: "there's nothing that I am that
+  interested in right now."
+
+No blank-line artifacts from the four cuts (checked — zero triple
+newlines). `_index.json` word counts updated for both changed files
+(developing-thinking.md 10360 → 9828; cognitive-stack.md 796 → 1007).
+
+**Corrected a process miss from earlier today:** the two promotion-queue
+resolutions (chain-of-thought-monitoring promoted, entry-level-ladder
+dismissed) had been left in `promotion-candidates.md` with status
+annotations rather than deleted. Re-read `.claude/skills/weekly-update/
+SKILL.md` step 3 while building the actual post and caught that the real
+convention is deletion — "promoted is resolved, not still queued";
+"Rejected is also resolved" — so removed both entries outright. The
+still-deferred `machine-speed-vs-human-absorption` entry stays, per the
+same convention (not-yet-decided items remain queued).
+
+**Re-ran `triage.py`** for an honest staleness snapshot now that the four
+flagged items are gone — 5 new developing-thinking items and 2 frameworks
+flagged this run (none reviewed yet; that's the next `/review-thinking`
+or `/weekly-update`'s work, not this session's).
+
+**Drafted and rendered the Weekly Wrap Up post
+(`outputs/weekly-updates/2026/09/2026-09-04.md`)** — this was effectively
+running `/weekly-update` steps 9-13 inline, since steps 3-5 (the queue
+walks and takeaways) had already happened across this session's two live
+reactions rather than through a fresh invocation of the skill. Followed
+the skill's section order and voice rules closely: stories condensed by
+reading each day's actual published brief (`outputs/published/`, not the
+denser internal `outputs/technical-briefings/`) rather than the prep
+doc's now-removed pre-extraction; Brian's takeaways written from his
+actual dictated reasoning across both turns of this session, not
+paraphrased summaries; every promoted/folded item links to where it
+actually lives now; content candidates rewritten in plain language per
+the skill's own worked example. One real catch running the skill's own
+pre-render checklist: the first draft used spaced em-dashes throughout
+(43 instances) — `me/style-guide.md` requires unspaced — caught by the
+prescribed `grep -n ' — \| -- '` check before rendering, fixed with a
+global replace, re-verified clean. `python3 skills/weekly/render.py
+--date 2026-09-04` ran clean, wrote the gitignored `.html`.
+`outputs/weekly-updates/.last_run.json` bumped to now.
+
+`check_doc_accuracy.py` clean throughout. Governance-log entry added
+(also corrects the earlier entry's "HELD" result line — Brian continuing
+the session without objecting to `me/post-ideas.md` staying public is
+being read as resolving that open question, not left hanging).
+
+**Still open:** the same three items flagged in the immediately-prior
+BUILD.md entry are now closed (the four staleness items, and implicitly
+the post-ideas public/private question). Open decision #17 (belief-
+currency in canon) stands as written — untouched by this pass, which
+resolved specific queued items, not the structural question. Publishing
+to Substack itself is still Brian's own manual paste-and-click step, same
+as every other output — nothing here posts on his behalf.

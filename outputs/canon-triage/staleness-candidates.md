@@ -26,51 +26,57 @@ sources:
 
 Mirror image of `outputs/technical-briefings/promotion-candidates.md`: that queue proposes additions to canon, this one proposes cuts, promotions, or a second look at what's already there. Everything below is one model's read against the current published record — nothing here is a decision. An item leaves `me/developing-thinking.md`, or a framework's `status` flips to `archived`, only if Brian does it himself, same non-negotiable as every other tier-3 output. **This file is overwritten fresh on every run — it's a snapshot of the current state, not an accumulating log.** Items not mentioned below were read and judged still genuinely developing; their absence is the "keep" signal, not an oversight.
 
-This run reviewed the full "What's connecting" and "Scratchpad" sections of `me/developing-thinking.md`, plus 11 active framework(s). Flagged: 5 developing-thinking item(s), 1 framework(s).
+This run reviewed the full "What's connecting" and "Scratchpad" sections of `me/developing-thinking.md`, plus 11 active framework(s). Flagged: 5 developing-thinking item(s), 2 framework(s).
 
 ---
 
 ## Developing-thinking items
 
-### "The 2031 worker-shape forecast is consolidating into a specific picture." — already-published
+### "Human clock speed is the invariant AI hasn't changed—and this reframes everything about knowledge work productivity." — promote-candidate
 
-The item lays out the one-human-plus-N-agents shape, the owners/operators/curators split, the collapsing generic middle, and the Roetzer Apprentice-gap corroboration. All of it — including the follow-on "**August 24 note:** wage data adds a leading indicator" paragraph, which appears verbatim in substance under "The evidence, not just the shape" — is now `frameworks/2031-worker-shape.md`, promoted from this exact thread on 2026-08-28.
-
-**Section:** What's connecting
-**Suggested action:** cut this item and its August 24 wage-data follow-on from developing-thinking.md; the framework file is now the canonical home and the developing version only risks drifting out of sync.
-
-### "September 2 update: canon gets built backward from outputs, not forward from inputs" — already-published
-
-The item describes starting from the output, finding whoever produces it, pulling only those sources into canon, then diagnosing wrong drafts as bad instructions vs. canon noise vs. a real hole. The item itself notes this has already been folded into `frameworks/knowledge-factory.md`, and it reads there as the "start from the output, not the input pile" paragraph under "How the canon gets built."
+The claim — AI compresses gathering but not absorption, so "AI makes knowledge work faster" is a category error and the right frame is *deeper* — is fully formed, has a clean statement, a testable prediction (speed-framing orgs will disappoint), and a hard edge against the substitution argument. It's already load-bearing elsewhere in the file: the September 4 bottleneck note leans on it explicitly ("the absorption problem restated as throughput"), which means it's doing framework work without being a framework.
 
 **Section:** What's connecting
-**Suggested action:** cut from developing-thinking.md — fully absorbed into [frameworks/knowledge-factory.md](../frameworks/knowledge-factory.md), leaving at most a pointer to the [Sept 2 demo transcript](../talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md).
+**Suggested action:** write it up as a standalone framework file (absorption vs. gathering) so the bottleneck and substitution notes can cite it instead of restating it.
 
 ### "August 28 update: the compute-availability risk is the same pattern that broke the "pure pay-as-you-go cloud" promise, now playing out with AI inference." — promote-candidate
 
-The claim — that AI's real constraint is shifting from token price to token *availability*, and the enterprise answer is the reserved-capacity lesson cloud already taught — is a complete argument with a historical analogy, a named mechanism, and a clear enterprise prescription. It also plugs a specific hole in the July 20 bubble-pop post, which handles price and model access but not availability, and the item already says as much ("likely Brian's next post").
+Reads as finished thinking rather than a note: a historical analogy with a known ending (reserved capacity), a named mechanism (labs redirecting flops to internal R&D), a specific source, and a conclusion that plugs straight into the July 20 bubble-pop checklist as a sixth move. The item says so itself — "likely Brian's next post."
 
 **Section:** What's connecting
-**Suggested action:** write it as the next Citrix post, positioned as the availability sequel to [How to build an AI strategy that survives the bubble pop](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/).
+**Suggested action:** draft it as the post; it extends [How to build an AI strategy that survives the bubble pop](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/) from price risk to availability risk.
 
-### "August 28 update: "harness" is the vocabulary—decided, not just tracked." — promote-candidate
+### "Second brain data integrity: selection bias is the primary failure mode." — promote-candidate
 
-This isn't a note about industry vocabulary anymore — it's a decision to name the cognitive stack's differentiating middle layer, with the evidence (Hashimoto, Claude Code docs, Hugging Face glossary, SemiAnalysis ranking harness above benchmark score) already assembled. A naming decision that alters a published framework's terminology should live in the framework, not in a scratch list where the rest of the record still calls that layer "skills."
+Has everything a published piece needs and nothing the file needs: a first-person incident, a named mechanism ("selection bias operating on a training set of one"), a generalization beyond the anecdote, and a design conclusion that reinforces the file-based-over-vector-DB position also argued in the test-time-training note. Nothing in the published record addresses second brain data quality from the owner's side.
+
+**Section:** Scratchpad
+**Suggested action:** promote to a framework file or a post — it's the strongest counterweight to the second brain material and currently sits in the "don't want to lose" pile.
+
+### "The agent-to-human ratio question replaces headcount planning." — already-published
+
+Two sentences claiming workforce planning shifts from headcount to agent ratios, backed by revenue-per-employee data. `frameworks/2031-worker-shape.md` (Aug 28) covers this in full — the worker as "one human plus N agents," the three-type split, and deployment guidance for exactly the case where "workforce planning conversations default to headcount reduction." That framework notes it was promoted from a recurring thread here, and this looks like a leftover fragment of it.
 
 **Section:** What's connecting
-**Suggested action:** fold the harness terminology into `frameworks/cognitive-stack.md` as a dated update, the way the August 28 hierarchy-convergence note was added, and reconcile it against the existing layer-3 "skills" naming.
+**Suggested action:** cut from developing-thinking.md — absorbed by `frameworks/2031-worker-shape.md`; move the revenue-per-employee data point into that file if it's worth keeping.
 
-### ""Switzerland of agent workspaces" thesis is sharper post-research." — worth-revisiting
+### "Token economics are the emerging macro constraint." — worth-revisiting
 
-The item bets that the agnostic governance layer above vendor agent stacks is "structurally unoccupied" and that the next 12-18 months decides it. Two later entries in the same file have since undercut that: the August 24 routing note observes the neutral seat is being taken by payments companies (Stripe/OpenRouter at $7B+, Ramp/router.com), and the August 28 note concludes outright that "neutrality was never a stable resting state, just a phase before consolidation." The thesis needs re-argument on different ground — governance-as-neutrality rather than market-position-as-neutrality — or it reads as overtaken by its own follow-ups.
+The framing has been overtaken by Brian's own record: token economics stopped being "emerging" once the DUCUG talk published real usage data and layer-cost math, the May 7 post published routing-as-task-selection, and the July 20 post named token economics an *invariant* with "don't assume the price you pay today is the price you'll pay tomorrow." Dimensions (1) and (3) — the structural consumer/enterprise price gap and model quality as a class stratifier — are the only parts still unpublished, and they're a different argument (access stratification) than the one this item's headline makes.
 
 **Section:** What's connecting
-**Suggested action:** rewrite the item to argue why the workspace is the referee *despite* consolidation, or retire it in favour of the later routing-consolidation notes.
+**Suggested action:** rewrite down to the stratification claim alone, since the macro-constraint framing is now published position rather than developing thought.
 
 ## Frameworks
 
-### frameworks/bitter-lesson.md — worth-revisiting
+### frameworks/workspace-as-control-plane.md — worth-revisiting
 
-The framework body has already been corrected twice — first to concede that AI needs the invisible 80% captured deliberately (Skills, crawl/walk/run, the knowledge factory), then to drop the "dissolves" endpoint — but the "Using this framework" section still instructs the reader that "IT is trying to 'capture institutional knowledge' to feed into AI systems—the bitter lesson says AI may not need it." That deployment guidance now contradicts the corrections above it in the same file, and contradicts [Skills are all you need](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/) and `frameworks/knowledge-factory.md`, which is an entire engineered apparatus for exactly that capture.
+The central claim — that the workspace is the one place consistent governance can be applied — is stated without contest, but the developing record has since put real market evidence against the seat being available: the Aug 24 note documents Stripe/OpenRouter, Ramp/router.com, Snowflake and NVIDIA all claiming the routing-and-governance layer, and the Aug 28 note concludes flatly that "neutrality was never a stable resting state, just a phase before consolidation." The framework should either answer why the referee is the workspace rather than whoever holds the invoice, or absorb the executor-seam argument as the narrower, still-unoccupied version of the claim.
 
-**Suggested action:** rewrite the "Using this framework" bullets so the deployment advice matches the corrected body — the lesson is now "don't engineer the tool, do engineer the knowledge," not "don't bother capturing."
+**Suggested action:** add a section answering the consolidation objection, rather than leaving the framework asserting a position Brian's own notes now treat as contested.
+
+### frameworks/invisible-80-percent.md — worth-revisiting
+
+The file presents the 20/80 split as a fixed property of knowledge work, but the corrected position is already on the record elsewhere: `frameworks/bitter-lesson.md`'s 2026-08-28 correction states that the boundary moves as AI erodes into the 80% ("the split might become 60/40, or 40/60") and that the remainder needs permanent deliberate capture. `frameworks/knowledge-factory.md` builds on the moving-boundary version. As written, the source framework is the only place the split still reads as static.
+
+**Suggested action:** add the moving-boundary correction to this file so it doesn't contradict the two frameworks that revise it.

@@ -29,6 +29,10 @@ A five-layer model showing how intelligence organizes itself to coordinate compl
 4. **Agentic sub-processes:** How skills get executed. The agents that reach into systems, navigate interfaces, call APIs, coordinate with other agents. This is where the "agent" hype lives—and it's the second lowest-value layer.
 5. **Interfaces:** The simplest, most mechanical layer. APIs, MCP, CUA, RPA, A2A, file interfaces, connectors, webhooks, scripts. Important plumbing, but interchangeable commodity infrastructure.
 
+## Vocabulary update: "harness" for the differentiating middle
+
+**2026-09-04.** The industry has converged on a name for layers 3-4 together—the skills and the agentic sub-processes that turn a commodity model into something that actually does work: **the harness.** Mitchell Hashimoto's February 2026 post coined "harness engineering," and within months it's standard usage—Claude Code's own docs describe itself as "the agentic harness around Claude," Hugging Face's glossary formally distinguishes harness/model/scaffold, and there's now a Wikipedia page for the term. The evidence that it's not just vocabulary: SemiAnalysis ranks harness quality above benchmark score for real-world outcomes (a lower-scoring model with a better harness beating a higher-scoring one), DeepSeek open-sourced a 160k-star harness framework, and AlphaSignal states the thesis outright—"model plus harness is becoming one unit." Adopting "harness" as the name for layers 3-4 here rather than contesting the term: it's a better fit than "skills" alone, which named only layer 3 and left layer 4's execution machinery unnamed.
+
 ## Two trajectories colliding
 
 The bottom-up trajectory: RPA and automation vendors started at layer 5 and have been climbing upward for decades. Each time automations hit a ceiling requiring judgment, they moved up a layer. Exception handling, decision logic, now AI for ambiguous cases.

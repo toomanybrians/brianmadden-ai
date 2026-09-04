@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-09-03",
+  "generated": "2026-09-04",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 124,
-  "total_words": 264471,
+  "total_files": 125,
+  "total_words": 266563,
   "files": [
     {
       "path": "AGENTS.md",
@@ -69,9 +69,9 @@
         "frontier",
         "developing-arguments"
       ],
-      "word_count": 9270,
+      "word_count": 9828,
       "staleness_threshold": "weeks",
-      "updated": "2026-08-28",
+      "updated": "2026-09-04",
       "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
     },
     {
@@ -128,7 +128,7 @@
         "governance",
         "shadow-ai"
       ],
-      "word_count": 874,
+      "word_count": 1264,
       "staleness_threshold": "stable",
       "date": "2025-09-17",
       "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
@@ -181,7 +181,7 @@
         "enterprise-ai-strategy",
         "second-brain"
       ],
-      "word_count": 796,
+      "word_count": 1007,
       "staleness_threshold": "stable",
       "date": "2026-02-25",
       "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
@@ -491,6 +491,17 @@
       "word_count": 550,
       "staleness_threshold": "months",
       "description": "Curated AI resources, people, and podcasts Brian follows for workplace AI insights."
+    },
+    {
+      "path": "me/post-ideas.md",
+      "title": "Post ideas — what I might write next",
+      "authority_level": 5,
+      "file_type": "queue",
+      "tags": ["current-thinking", "frontier", "post-ideas", "pipeline"],
+      "word_count": 933,
+      "staleness_threshold": "weeks",
+      "updated": "2026-09-04",
+      "description": "A curated queue of pieces Brian is considering writing. Ideas only — nothing here is a position, a commitment, or a schedule. The lowest-authority file in the repo."
     },
     {
       "path": "posts/citrix-blog/2025-04-07-why-i-joined-citrix-and-what-im-excited-about.md",

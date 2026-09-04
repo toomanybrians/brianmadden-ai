@@ -4,6 +4,134 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-09-04 — Brian's live reaction to the Weekly Wrap Up prep doc, applied to canon
+
+**What changed:**
+- `me/developing-thinking.md` — two new "What's connecting" arguments
+  (agent oversight converging on how we supervise humans, now that
+  chain-of-thought legibility is eroding; and the bottleneck argument
+  that says remove the human from the loop and lands back on "what's
+  left for humans?"). One new Scratchpad item (Meta's two-tier Muse
+  Spark pricing as the first published price on a customer's own usage
+  data, with Brian's own per-worker rescaling and his caveat that it
+  prices the data, not the true cost of inference). One dated note on
+  the three-waves section flagging that "waves" implies a sequence he
+  doesn't mean. `Right now` bullet on human-in-the-loop repointed at the
+  new fuller argument. Dates bumped.
+- `frameworks/bitter-lesson.md` — new "The third correction: it's a
+  sequencing claim, not a standing one" section, plus a rewritten "Using
+  this framework" that retires the "IT is trying to capture institutional
+  knowledge — the bitter lesson says AI may not need it" deployment
+  trigger. This closes the framework flag that has been sitting in
+  `outputs/canon-triage/staleness-candidates.md`.
+- `me/post-ideas.md` (new, tier 2, `authority_level: 5`) — a curated
+  queue of pieces Brian is considering writing, seeded with four:
+  compute-availability, the bottleneck argument, agent
+  unmonitorability, and knowledge-worker productivity measurement.
+- `outputs/technical-briefings/promotion-candidates.md` (tier 3) —
+  status updates on three queued threads: one promoted, one dismissed,
+  one still deferred but with its destination named.
+- Index wiring for the new file: `_index.json`, `llms.txt`, `CLAUDE.md`,
+  `AGENTS.md`.
+
+**Why:** Brian dictated a live reaction while reading today's Weekly Wrap
+Up prep doc. Everything above is his call, transcribed and applied —
+including the two he declined (the entry-level-white-collar-ladder thread,
+dismissed as true-but-not-novel; and the Hugging Face material, already
+covered on the podcast). The bitter-lesson resolution is his: the
+framework isn't wrong, it's a claim about *later* — you build the
+knowledge factory with FDEs now, and the system starts cutting pieces out
+once the factory automates.
+
+**Public-content check:** clear. Everything added is Brian's own reasoning
+about publicly-reported events (Meta's published API pricing, CrowdStrike's
+shipped product, OpenAI's own public statements about Astra and
+monitorability) plus his own published posts. No Citrix-proprietary,
+confidential, or NDA'd material. No third-party text reproduced beyond
+short attributed characterizations.
+
+**One judgment call flagged for Brian:** `me/post-ideas.md` was created as
+a **public** tier-2 file, on this repo's public-by-default rule and
+because `developing-thinking.md` already says things like "likely Brian's
+next post" in public. Brian raised the possibility that a post-ideas list
+belongs on the private brain instead. If he'd rather it be private, the
+file and its four index references come back out cleanly.
+
+**Not added to `COLLECTIONS.md`:** deliberate. That file groups content by
+theme for "everything about X" queries; a queue of unwritten pieces has no
+theme to sit under and would only dilute the groupings.
+
+**Automated checks:** `python3 scripts/check_doc_accuracy.py` clean.
+`_index.json` parses. `CLAUDE.md`/`AGENTS.md` verified still identical
+apart from their cross-reference line.
+
+**Result: COMMITTED** — see the commit that includes this entry. The
+public/private question on `me/post-ideas.md` was resolved by continuing:
+Brian reviewed the summary of what was built, including that file, and
+gave no objection — read as confirmation to keep it public, on this
+repo's public-by-default rule, not as a decision he didn't make.
+
+---
+
+## 2026-09-04 (continued) — resolved the four flagged staleness items;
+drafted and rendered the Weekly Wrap Up post
+
+**What changed:**
+- `me/developing-thinking.md` — four items removed from "What's
+  connecting": the 2031 worker-shape forecast + its Aug 24 wage note (cut,
+  fully captured in `frameworks/2031-worker-shape.md`), the September 2
+  canon-built-backward note (cut, fully folded into
+  `frameworks/knowledge-factory.md`, which already carries the same
+  September 2 video link), the harness-vocabulary note (cut, folded into
+  `frameworks/cognitive-stack.md` instead), and the "Switzerland of agent
+  workspaces" thesis (cut outright — Brian's explicit call, not a
+  rewrite: "there's nothing that I am that interested in right now").
+- `frameworks/cognitive-stack.md` — new "Vocabulary update: 'harness' for
+  the differentiating middle" section adopting "harness" as the name for
+  layers 3-4, with the industry-convergence evidence from the cut
+  developing-thinking note.
+- `outputs/technical-briefings/promotion-candidates.md` — the two
+  resolved entries from the earlier entry today (`agents-defeating-
+  chain-of-thought-monitoring`, promoted; `ai-erodes-entry-level-white-
+  collar-ladder`, dismissed) deleted outright, per the actual
+  `/weekly-update` ceremony convention (resolved entries are deleted, not
+  left annotated) — the earlier entry in this log recorded them with
+  status annotations only; this entry corrects that to match convention.
+- `outputs/canon-triage/staleness-candidates.md` — regenerated fresh via
+  `triage.py` now that the four flagged items are resolved; 5 new
+  developing-thinking items and 2 frameworks flagged on this run, not
+  yet reviewed by Brian.
+- `outputs/weekly-updates/2026/09/2026-09-04.md` (new) — the drafted
+  Weekly Wrap Up post itself, `status: reviewed` (Brian live for the
+  whole ceremony), plus its rendered `.html` (gitignored, Substack
+  paste-in only).
+- `outputs/weekly-updates/.last_run.json` — bumped to now.
+- `_index.json` — word counts updated for `developing-thinking.md` and
+  `cognitive-stack.md`.
+
+**Why:** direct continuation of the same live session. Brian asked for
+one-line summaries of the four staleness items plus a recommendation,
+confirmed the cut on all four (three by not objecting to the
+recommended action, one — Switzerland — explicitly), then asked for the
+Weekly Wrap Up post itself. This is the `/weekly-update` ceremony's
+steps 3-4 and 9-13, run inline rather than as a separate invocation of
+the skill, since the queue-walking (steps 3-4) and the takeaway-gathering
+(step 5) had already happened across the two live reactions in this
+session.
+
+**Public-content check:** clear — same basis as the earlier entry
+today; nothing new introduced beyond Brian's own reasoning about already-
+public events and his own published posts.
+
+**Automated checks:** `python3 scripts/check_doc_accuracy.py` clean.
+`_index.json` parses. Em-dash and backtick pre-render checks run against
+the weekly-update draft per the skill's own checklist — no spaced
+em-dashes, no inline-code backticks. `render.py` ran clean.
+
+**Result: COMMITTED** — see the commit that includes this entry.
+
+---
+
 ## 2026-09-02 — Podcast production defaults to this repo, not the private work brain
 
 **What changed (process, not content):**
