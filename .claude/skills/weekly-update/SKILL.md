@@ -33,14 +33,21 @@ in the same spirit as [review-thinking](../review-thinking/SKILL.md), and
 reuses that skill's mechanics for the developing-thinking.md portion
 rather than duplicating them.
 
-**One part of the pipeline does run unattended, added 2026-08-24, Brian's
-own ask:** [skills/weekly/gather.py](../../../skills/weekly/gather.py)
+**One part of the pipeline is scripted, but run manually, not
+unattended:** [skills/weekly/gather.py](../../../skills/weekly/gather.py)
 assembles the prep doc deterministically (no LLM call of its own beyond
-re-running `triage.py`) and, with `--send`, emails it to Brian. Wired into
-`daily-pipeline.yml` to run on Fridays, after that day's Daily Brief. It
-does **not** run the interactive ceremony — steps 4 onward below still
-need Brian live, whenever he actually sits down with the emailed prep
-doc, not necessarily the same day it lands.
+re-running `triage.py`) and, with `--send`, emails it to Brian. Added
+2026-08-24 wired into `daily-pipeline.yml` to run automatically on
+Fridays; **changed 2026-09-04 to manual-only** (Brian's call — an
+auto-run right after that day's Daily Brief always missed whatever he
+did in reaction to Friday's own post, since restacking or commenting on
+it happens after he's read the email, not before it's sent). Brian now
+reads Friday's post as normal, then runs `gather.py` himself — usually by
+just starting this ceremony, since step 1 below runs it as part of
+kicking off — whenever he's actually ready to sit down with it, so the
+prep doc reflects everything he's flagged, not a few-hours-stale
+snapshot. It does **not** run the interactive ceremony — steps 3 onward
+below still need Brian live.
 [skills/weekly/render.py](../../../skills/weekly/render.py) is the other
 reusable script — Substack-paste HTML for the finished post.
 
@@ -51,27 +58,23 @@ ideally a week, could be a few days, could be a few weeks." Driven by
 `outputs/weekly-updates/.last_run.json` (same `{"last_run_utc": "..."}`
 shape as `outputs/technical-briefings/.last_run.json`), read at the start
 of every run — by both `gather.py` and this ceremony. No prior run
-recorded → default the window to 7 days back. `gather.py`'s automated
-Friday run and the live ceremony share the same clock: whichever runs
-last (usually `gather.py`, since it's unattended) sets the window the
-other picks up from next time.
+recorded → default the window to 7 days back. Since `gather.py` is now
+manual-only (2026-09-04), the common case is one atomic session: Brian
+starts `/weekly-update`, step 1 below runs `gather.py` fresh, and the
+live ceremony continues right after — no more separate "unattended run
+sets the clock, live session picks it up later" gap to reason about.
 
 ## Steps
 
-1. **Check for an existing same-batch prep doc before regenerating.**
-   `gather.py`'s Friday run may have already written and emailed
-   `outputs/weekly-updates/YYYY/MM/YYYY-MM-DD-prep.md` earlier — if a prep
-   doc exists from since the last live ceremony ran (check its `date`
-   against `outputs/weekly-updates/.last_run.json`... but note `gather.py`
-   updates that same file, so in practice: if a prep doc's file date is
-   after the *ceremony's* last run — track this separately if needed, or
-   just ask Brian whether he's already seen a prep email), read that
-   file instead of re-gathering from scratch. Re-run `triage.py` anyway
-   if more than a day or two has passed since the prep doc was written —
-   a stale staleness-queue snapshot defeats the point (same non-negotiable
-   as `review-thinking` step 1). If no recent prep doc exists (Brian
-   triggering this ad hoc, off the Friday cadence), gather fresh — same
-   logic `gather.py` runs, described there.
+1. **Run `gather.py` fresh at the start of every session**, unless Brian
+   says he already has a prep doc open from earlier today (he might, if
+   he ran it separately before starting this session — check
+   `outputs/weekly-updates/YYYY/MM/YYYY-MM-DD-prep.md` for today's date
+   first and use that instead of re-gathering, same reasoning as
+   `review-thinking` step 1: don't regenerate something that already
+   exists and hasn't gone stale). Either way, re-run `triage.py` if more
+   than a day or two has passed since whatever prep doc you're using was
+   written — a stale staleness-queue snapshot defeats the point.
 
 2. **Present the prep doc to Brian before discussing anything.** If it
    arrived by email days ago, don't assume he remembers the details —
@@ -117,10 +120,12 @@ other picks up from next time.
    this look right," but what actually struck him, what he'd push back
    on, what he wants people to know he thinks about it. This is the part
    only he can supply; don't draft placeholder reactions and ask him to
-   approve them backwards. If the prep doc's "Comments you left this
-   week" section has anything in it (built 2026-08-26, after Brian
-   commented directly on a Daily Brief and asked for it to feed the
-   ceremony), treat those comments as a real takeaway already in his own
+   approve them backwards. If the prep doc's "What Brian flagged this
+   week (restacks & comments)" section has anything in it (built
+   2026-08-26 for comments, extended 2026-09-04 to also pull his
+   restacks — see `skills/weekly/gather.py`'s `fetch_own_notes_in_window()`
+   — after Brian reacted directly to a Daily Brief and asked for it to
+   feed the ceremony), treat those as a real takeaway already in his own
    words, not just background color — surface them here rather than
    asking him to re-articulate a reaction he already wrote down live.
 
@@ -189,12 +194,17 @@ other picks up from next time.
      reactions in isolation.
    - **This week's stories** — renamed 2026-08-28 from "What happened
      this week" (Brian's ask: read as a real title, not a log-file
-     header). The week's biggest stories, condensed from the prep doc's
-     list, not the full daily-brief detail — **every story needs a real
-     inline Markdown link to its actual source**, pulled from the
-     relevant day's ingest note or technical briefing (2026-08-28 fix:
-     issue 1's draft had none; never invent a URL — if a story's source
-     genuinely has no direct link, name it without one rather than
+     header). The week's biggest stories, condensed by actually reading
+     each day's technical briefing linked in the prep doc's "This week's
+     daily briefs" list (2026-09-04: the prep doc stopped pre-extracting
+     story text — see `skills/weekly/gather.py`'s docstring for why — so
+     this step now means opening those files directly, not skimming
+     something already assembled), not the full daily-brief detail —
+     **every story needs a real inline Markdown link to its actual
+     source**, pulled from the relevant day's ingest note or technical
+     briefing (2026-08-28 fix: issue 1's draft had none; never invent a
+     URL — if a story's source genuinely has no direct link, name it
+     without one rather than
      guessing). Explainer: be honest that these are the AI's picks from
      each day's "what this changes" list, not stories Brian hand-selected
      — don't overclaim his personal curation of each one.
@@ -304,10 +314,10 @@ Never edits `me/developing-thinking.md`, `promotion-candidates.md`, or a
 framework's `status` without Brian's live decision on that specific item
 — identical non-negotiable to `review-thinking` and `triage.py`. Never
 publishes to Substack itself — that stays a manual paste-and-click step,
-same as the Daily Brief. `gather.py`'s automated Friday run never makes
-any of these decisions either — it only assembles and emails the prep
-doc, exactly the same read-only gathering the live ceremony's own first
-steps do.
+same as the Daily Brief. `gather.py` never makes any of these decisions
+either, run manually or not — it only assembles and emails the prep doc,
+exactly the same read-only gathering the live ceremony's own first steps
+do.
 
 ## Known limitations (v1)
 
@@ -315,21 +325,21 @@ steps do.
   7 days, which happened to line up with the 10 daily briefs that existed
   since launch (2026-08-11 through 2026-08-24). A genuinely variable gap
   (Brian's "could be a few weeks") is untested until it actually happens.
-- **Partial automation, added 2026-08-24.** `gather.py` on Fridays
-  handles the deterministic prep-and-email step. The interactive ceremony
-  itself (steps 3 onward here) still needs a live Claude Code session —
-  nothing schedules or reminds Brian to actually run `/weekly-update`
-  after the email lands. If that gap turns out to matter in practice,
-  a `schedule`-skill reminder is the natural next piece, not a change to
-  this ceremony.
-- **`gather.py` and this ceremony share one `.last_run.json`, which has a
-  real edge case:** if Brian doesn't run the live ceremony before the
-  *next* Friday's `gather.py` run, that next prep doc's window starts
-  from the previous Friday (gather.py's own last run), not from whenever
-  the live ceremony actually happens to catch up — meaning a skipped week
-  could show up compressed into a later prep doc's "stories" list, or
-  get missed if `gather.py` overwrites the clock before the backlog's
-  been cleared. Not yet stress-tested; watch the first few real Fridays.
+- **Manual trigger, changed 2026-09-04 from Friday automation.** Nothing
+  schedules or reminds Brian to actually run this — he has to remember to
+  read Friday's post, react to it, and then kick this off himself. That's
+  a deliberate tradeoff (see `gather.py`'s docstring): automation meant
+  the prep doc systematically missed Friday's own reactions, which
+  mattered more than the reminder would have. If forgetting to run it
+  turns out to be the bigger problem in practice, a `schedule`-skill
+  reminder (not a return to auto-running `gather.py` itself) is the
+  natural fix.
+- **The restacks/comments feed (`fetch_own_notes_in_window()`) only
+  covers Substack's "Notes" mechanism** (restacking a post, with or
+  without added commentary) — every real example seen so far, but if
+  Brian ever leaves a genuine reply inside a post's own comment thread
+  *without* restacking, that wouldn't show up here. Worth revisiting only
+  if that pattern actually shows up.
 - **Byline mechanics on Substack are still manual.** Frontmatter records
   `byline: [brianmadden.ai, Brian Madden]`, but actually setting two
   contributors on the Substack post (and, if Brian follows through on

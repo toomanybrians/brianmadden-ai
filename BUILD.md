@@ -2829,3 +2829,87 @@ explicit OK, asked but not yet answered as of this entry. The Substack
 follow/email-delivery work itself (14 + 8 publications) and the
 possible-off-topic-subscription check are both queued as Brian's own
 manual Substack-UI work, not this session's.
+
+### 2026-09-04 (continued) — found and fixed a real bug in the Weekly
+Wrap Up prep doc; replaced its comments mechanism with restacks
+
+Brian raised two things, continuing the same session. First: since this
+session is running on his home machine/IP, of course X and the Substack
+feeds work right now — that's not evidence anything's fixed for the
+actual GitHub Actions scheduled runs, which are a different network
+path. Agreed, nothing to conclude from local success; the diagnostic
+shipped earlier today is what will actually tell us something, the next
+time Monday's scheduled run either fails again (with real header
+evidence this time) or doesn't.
+
+**Second: today's Weekly Wrap Up prep email had a blank "Stories since
+last time" section for every single day.** Traced it: `gather.py`'s
+`extract_worth_attention()` has always searched for a literal `##
+Worth Brian's attention` heading in each day's dense brief — but
+`skills/brief/prompt.md` itself renamed that section to `## What this
+changes` on 2026-08-28 (confirmed via `skills/brief/publish.py`'s own
+comment about the rename). `gather.py` was never updated to match, so
+that section has silently returned nothing on every run since — a real,
+confirmed bug, not a Brian's-memory issue.
+
+Brian's actual ask wasn't just "fix the string match" — he's started
+using Substack's restack feature (highlight a passage, click Restack,
+optionally add commentary) as his way of flagging what stood out in each
+day's brief, and asked whether restacks could feed the ceremony the same
+way his comments already do. Investigated via the Browser tool
+(inspecting `https://substack.com/@briansmadden`'s network calls) and
+found `https://substack.com/api/v1/reader/feed/profile/{profile_id}` — a
+genuinely public, unauthenticated JSON API (confirmed with a plain
+`requests.get`, no session/cookies) returning a profile's full activity
+feed, restacks included, with the exact highlighted excerpt and any
+added commentary. Checking it against the existing (regex/HTML-scraping)
+"Comments you left this week" mechanism turned up something neither of
+us expected: the two comments that mechanism had ever found were
+themselves restacks under the hood — same timestamps, same text, just
+reached by parsing rendered HTML for something Substack already exposes
+as a clean API.
+
+**Rebuilt `skills/weekly/gather.py` around this:** removed the fragile
+HTML-regex comment scraper (`COMMENT_BLOCK_RE`/`COMMENT_PERMALINK_RE`/
+`fetch_own_comments_in_window`) and the broken story-extraction
+(`extract_worth_attention`/`build_stories_section`) entirely. Added
+`fetch_own_notes_in_window()` (paginates the profile-feed API via its own
+`nextCursor` until an item older than the window shows up) and
+`build_notes_section()`, feeding one new prep-doc section: "## What
+Brian flagged this week (restacks & comments)" — each entry shows the
+restacked post, the highlighted excerpt (if any), and his added
+commentary (if any). "Stories since last time" is now just "## This
+week's daily briefs" — a bare links list; the live ceremony's step 9
+("this week's stories") now reads those files directly rather than
+relying on pre-extracted text, since the pre-extraction was both broken
+and, even when it worked, mostly just said "None today." Verified with
+`--dry-run` against real data — real restacks with real excerpts showed
+up correctly, sources list deduped. One caveat documented in the code
+and the skill file: this feed is restacks/notes only — a genuine
+comment-thread reply that never went through the restack mechanism
+wouldn't show up here, though every real example so far (2026-08-26
+through today) has been a restack.
+
+**Also changed the weekly cadence itself, per Brian's own reasoning
+in this session.** He noticed a real gap: `gather.py` auto-ran every
+Friday right after that day's Daily Brief, which meant the prep doc
+always missed whatever he did *after* reading that email — restacking
+or commenting on Friday's own post. He weighed a delta-update pass
+after the fact against just not auto-scheduling it at all, and landed on
+the latter as the simpler fix: read Friday's post as normal, then
+manually kick off the whole wrap-up process whenever actually ready.
+Removed the "Run Deeper Thinking prep (Fridays only)" step from
+`daily-pipeline.yml` entirely. Updated `.claude/skills/weekly-update/
+SKILL.md` throughout to match: the intro, the Cadence section, step 1
+(now just "run `gather.py` fresh at the start of every session" instead
+of checking whether Friday's auto-run already produced one), step 5's
+reference to the renamed section, step 9's "this week's stories" now
+pointing at reading the daily briefs directly, "What this doesn't do,"
+and "Known limitations" (dropped the stale-clock-race-condition entry,
+which mostly stops applying once gather+ceremony are one atomic manual
+session; added the restacks-only caveat instead). Also updated
+`skills/weekly/README.md`'s description of `gather.py`.
+
+`python3 -m py_compile` clean on both changed scripts,
+`check_doc_accuracy.py` clean, `--dry-run` verified against real data.
+Committed and pushed.

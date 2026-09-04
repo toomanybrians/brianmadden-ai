@@ -4,22 +4,29 @@ gather.py — deterministic prep step for Weekly Wrap Up (the weekly
 ceremony formerly/internally called "weekly-update", publication named
 "Deeper Thinking" at launch and renamed by Brian on Substack 2026-08-26;
 see .claude/skills/weekly-update/SKILL.md). Assembles the prep doc Brian
-reads before the live ceremony and, with --send, emails it to him — this
-is the "initial recap" Brian asked to have delivered automatically
-(2026-08-24), run from daily-pipeline.yml on Fridays after that day's
-Daily Briefing.
+reads before the live ceremony and, with --send, emails it to him.
+
+**2026-09-04: switched from an automated Friday cron trigger to fully
+manual.** Originally run from daily-pipeline.yml every Friday, right
+after that day's Daily Briefing — but that meant the prep doc always
+missed whatever Brian did in reaction to Friday's own post (restacking
+it, commenting on it), since those actions happen after he's read the
+email, not before it's sent. Brian's own call: read Friday's Substack
+post as normal, then manually kick off this script (and the live
+ceremony) whenever he's actually ready to sit down with it — simpler
+than either running a second delta-update pass after the fact, or
+trying to guess a time of day Friday reading is reliably done by.
 
 Deliberately no LLM call except the one triage.py already makes on its
 own (re-run as a subprocess here, same as the live ceremony does it) —
-everything else is pure assembly of already-written text (this week's
-daily-brief "Worth Brian's attention" sections, the promotion-candidates
-queue, the current developing-thinking.md "Right now" section, and
-Brian's own Substack comments from the week — see
-find_own_comments_in_window()), matching MAINTAINER.md's "deterministic
-plumbing is plain code" principle. This script does NOT run the
-interactive decisions (steps 4-10 of the skill) — those need Brian live.
-It only gets the prep doc into his inbox before he sits down to do that
-part.
+everything else is pure assembly of already-written text (the
+promotion-candidates queue, the current developing-thinking.md "Right
+now" section, links to this week's daily briefs, and Brian's own
+restacks/comments from the week — see fetch_own_notes_in_window()),
+matching MAINTAINER.md's "deterministic plumbing is plain code"
+principle. This script does NOT run the interactive decisions (steps
+3-9 of the skill) — those need Brian live. It only gets the prep doc
+into his inbox before he sits down to do that part.
 
 Running it:
 
@@ -48,7 +55,7 @@ sys.path.insert(0, str(ROOT / "skills"))
 sys.path.insert(0, str(ROOT / "skills" / "brief"))
 sys.path.insert(0, str(ROOT / "skills" / "ingest"))
 
-from brief import load_dotenv, read_frontmatter_and_body  # noqa: E402
+from brief import load_dotenv  # noqa: E402
 from ingest import strip_html  # noqa: E402
 from lib import gmail_send  # noqa: E402
 
@@ -62,130 +69,119 @@ STALENESS_CANDIDATES_PATH = ROOT / "outputs" / "canon-triage" / "staleness-candi
 DEVELOPING_THINKING_PATH = ROOT / "me" / "developing-thinking.md"
 GITHUB_BLOB = "https://github.com/toomanybrians/brianmadden-ai/blob/main/"
 
-# --- Brian's own Substack comments, for the "what did I flag this week"
-# section — see find_own_comments_in_window() below for the full design
-# note. Plain HTTP, no browser: confirmed empirically 2026-08-26 that
-# brianmadden.ai's post/comments pages are server-rendered and (with the
-# same plain UA the rest of this pipeline uses) not behind the Cloudflare
-# bot-block that hits *.substack.com/feed for the ~39 sources in open
-# decision #16 — worth re-confirming on the first real GitHub Actions
-# run of this script, since local-machine testing isn't the same network
-# path. If it ever does start failing from GH Actions the way the feed
-# endpoints do, the fix is the same one already used there: run this step
-# from a residential network instead (see BUILD.md, 2026-08-26 for the
-# tradeoffs Brian and this session weighed on that).
+# --- Brian's own restacks and comments, for the "what did I flag this
+# week" section. Superseded 2026-09-04's original design (see below) —
+# see fetch_own_notes_in_window() for the full note.
 PUBLICATION_URL = "https://www.brianmadden.ai"
 BRIAN_SUBSTACK_PROFILE_ID = "400769399"  # confirmed via the archive API's own byline data
 COMMENTS_USER_AGENT = "brianmadden-ai-weekly-prep/1.0 (+https://github.com/toomanybrians/brianmadden-ai)"
 
-# Matches one comment block in a rendered /p/<slug>/comments page: the
-# author's profile-id + display name (from the "comment-author-name"
-# byline), then the comment body (from "comment-body"). Confirmed
-# empirically 2026-08-26 against a real comment on a real published post
-# — see BUILD.md for the worked example. Matching on profile id, not
-# display name, avoids a false positive from some other reader also
-# named "Brian".
-COMMENT_BLOCK_RE = re.compile(
-    r'comment-author-name[^"]*"[^>]*>.*?href="https://substack\.com/profile/'
-    r'(?P<profile_id>\d+)-[^"]*"[^>]*>(?P<name>[^<]+)</a>'
-    r'.*?comment-body[^"]*">(?P<body>.*?)</div>',
-    re.DOTALL,
-)
-# The permalink+timestamp anchor Substack renders just above each
-# comment body — used to give each surfaced comment a real link and a
-# real date rather than just quoting it unattributed.
-COMMENT_PERMALINK_RE = re.compile(
-    r'href="(?P<url>https://www\.brianmadden\.ai/p/[^/"]+/comment/\d+)"'
-    r'\s+rel="nofollow"\s+title="(?P<when>[^"]+)"'
-)
+# Substack's own "Notes" activity feed for a profile — a genuinely
+# public, unauthenticated JSON API (confirmed 2026-09-04 via a plain
+# `requests.get` with no session/cookies at all, same as
+# skills/lib/substack_follows.py's public_profile endpoint), not the
+# fragile HTML-regex scrape this replaces. Every restack Brian makes
+# (highlighting a passage and clicking Restack, with or without adding
+# his own commentary) shows up here as a `type: "comment"` /
+# `context.type: "note"` item, carrying the restacked post's title/URL,
+# the exact excerpt he highlighted (`comment.attachments[0].postSelection
+# .text`, absent for a whole-post restack with nothing highlighted), and
+# his own added text (`comment.body`, often empty). `type: "post"` items
+# are just "brianmaddenai published something" system entries showing up
+# because Brian's profile is that publication's author — not something
+# he did, filtered out.
+#
+# This replaces the original 2026-08-26 design (a regex scrape of every
+# recent post's /comments HTML subpage, matching blocks by Brian's
+# profile id) once a real side-by-side showed the two "comments" that
+# scraper had ever found were themselves restacks under the hood — same
+# timestamps, same text, just reached by parsing rendered HTML for
+# something Substack already exposes as a clean API. One caveat carried
+# over, not yet observed to matter: this feed is restacks/notes only: if
+# Brian ever replies inside a post's own comment thread *without* going
+# through the restack/highlight mechanism, that reply wouldn't appear
+# here. Every real example seen so far (2026-08-26 through 2026-09-04)
+# has been a restack, so this hasn't been a real gap in practice — worth
+# revisiting only if that ever changes.
+NOTES_FEED_URL = f"https://substack.com/api/v1/reader/feed/profile/{BRIAN_SUBSTACK_PROFILE_ID}"
+NOTES_MAX_PAGES = 20  # generous cap — a real week's activity is never this deep; guards a pagination bug, not a real limit
 
 
-def fetch_own_comments_in_window(window_start: datetime) -> list[dict]:
-    """Finds every comment Brian left on his own posts within the window,
-    for the weekly prep doc's "Comments you left this week" section —
-    built 2026-08-26 at Brian's direct request, after he left a real
-    comment on that day's Daily Briefing and asked whether it could feed
-    into the weekly ceremony.
-
-    Two-step, both plain HTTP (see the module-level note above on why
-    that's expected to work from GitHub Actions unlike the RSS-feed
-    sources): (1) the publication's own /api/v1/archive endpoint gives
-    every recent post's real slug, post_date, and comment_count in one
-    call — real slugs, not derived from the post's display title, since
-    Substack doesn't change a post's slug when its title gets edited
-    (confirmed 2026-08-26 renaming this very publication's own weekly
-    section — the Aug 24 post's slug is still `weekly-deeper-thinking-
-    august-17` even though its title now reads "Weekly Wrap Up...").
-    (2) for every post in the window with comment_count > 0, fetch its
-    /comments subpage and regex out any comment authored by Brian's own
-    profile id. Degrades gracefully on any fetch failure — a broken
-    comments check should never take down the rest of the prep doc, so
-    this returns an empty list and prints a warning rather than raising."""
-    try:
-        resp = requests.get(
-            f"{PUBLICATION_URL}/api/v1/archive",
-            params={"sort": "new", "limit": 24},
-            headers={"User-Agent": COMMENTS_USER_AGENT}, timeout=15,
-        )
-        resp.raise_for_status()
-        posts = resp.json()
-    except (requests.RequestException, ValueError) as e:
-        print(f"    comments check: couldn't read the publication archive ({e}) — skipping")
-        return []
-
-    found = []
-    for post in posts:
-        slug = post.get("slug")
-        post_date_raw = post.get("post_date")
-        if not slug or not post_date_raw or not post.get("comment_count"):
-            continue
-        try:
-            post_date = datetime.fromisoformat(post_date_raw.replace("Z", "+00:00"))
-        except ValueError:
-            continue
-        if post_date < window_start:
-            continue
+def fetch_own_notes_in_window(window_start: datetime) -> list[dict]:
+    """Every restack (optionally with added commentary) Brian's made
+    since window_start, newest first (matching the feed's own order).
+    Paginates via the API's own `nextCursor` until
+    an item older than window_start is seen (items arrive newest-first,
+    so that's the real stopping point, not just a page-count guess).
+    Degrades gracefully on any fetch failure, same contract the old
+    comments scraper had: a broken check here should never take down the
+    rest of the prep doc."""
+    notes = []
+    cursor = None
+    for _ in range(NOTES_MAX_PAGES):
         try:
             resp = requests.get(
-                f"{PUBLICATION_URL}/p/{slug}/comments",
+                NOTES_FEED_URL,
+                params={"cursor": cursor} if cursor else {},
                 headers={"User-Agent": COMMENTS_USER_AGENT}, timeout=15,
             )
             resp.raise_for_status()
-        except requests.RequestException as e:
-            print(f"    comments check: couldn't fetch comments for '{slug}' ({e}) — skipping that post")
-            continue
-        html = resp.text
-        permalinks = [(m.start(), m.groupdict()) for m in COMMENT_PERMALINK_RE.finditer(html)]
-        for m in COMMENT_BLOCK_RE.finditer(html):
-            if m.group("profile_id") != BRIAN_SUBSTACK_PROFILE_ID:
+            data = resp.json()
+        except (requests.RequestException, ValueError) as e:
+            print(f"    restacks/comments check: couldn't read the profile feed ({e}) — skipping")
+            break
+        items = data.get("items") or []
+        if not items:
+            break
+        stop = False
+        for item in items:
+            if item.get("type") != "comment":
                 continue
-            # The permalink+timestamp anchor for a comment sits *inside*
-            # that same comment's DOM subtree, between the author byline
-            # and the comment body — i.e. within this match's own [start,
-            # end) span, not before it. Confirmed empirically 2026-08-26
-            # against the real HTML (see BUILD.md for the worked example).
-            link_info = next(
-                (g for pos, g in permalinks if m.start() <= pos <= m.end()), {}
-            )
-            found.append({
-                "post_title": post.get("title", slug),
-                "post_slug": slug,
-                "text": strip_html(m.group("body")).strip(),
-                "url": link_info.get("url", f"{PUBLICATION_URL}/p/{slug}/comments"),
-                "when": link_info.get("when", post_date_raw),
+            ctx = item.get("context") or {}
+            ts_raw = ctx.get("timestamp")
+            if not ts_raw:
+                continue
+            try:
+                ts = datetime.fromisoformat(ts_raw.replace("Z", "+00:00"))
+            except ValueError:
+                continue
+            if ts < window_start:
+                stop = True
+                break  # newest-first order — everything after this is even older
+            comment = item.get("comment") or {}
+            attachments = comment.get("attachments") or []
+            attachment = attachments[0] if attachments else {}
+            post = attachment.get("post") or {}
+            selection = attachment.get("postSelection") or {}
+            notes.append({
+                "when": ts_raw,
+                "body": strip_html(comment.get("body") or "").strip(),
+                "excerpt": strip_html(selection.get("text") or "").strip(),
+                "post_title": post.get("title") or "a post",
+                "post_url": post.get("canonical_url") or PUBLICATION_URL,
             })
-    return found
+        cursor = data.get("nextCursor")
+        if stop or not cursor:
+            break
+    return notes
 
 
-def build_comments_section(comments: list[dict]) -> str:
-    if not comments:
-        return "*No comments from Brian on brianmadden.ai posts this week.*"
+def build_notes_section(notes: list[dict]) -> str:
+    if not notes:
+        return "*No restacks or comments from Brian this week.*"
     parts = []
-    for c in comments:
-        parts.append(
-            f'**On ["{c["post_title"]}"]({c["url"]})** ({c["when"]}):\n\n> {c["text"]}'
-        )
-    return "\n\n".join(parts)
+    for n in notes:
+        try:
+            when = datetime.fromisoformat(n["when"].replace("Z", "+00:00")).strftime("%b %-d, %Y %H:%M UTC")
+        except ValueError:
+            when = n["when"]
+        block = [f'**Restacked ["{n["post_title"]}"]({n["post_url"]})** ({when}):']
+        if n["excerpt"]:
+            block.append(f'> {n["excerpt"]}')
+        if n["body"]:
+            block.append(n["body"])
+        parts.append("\n\n".join(block))
+    return "\n\n---\n\n".join(parts)
 
 
 def read_last_run() -> datetime | None:
@@ -218,10 +214,9 @@ def resolve_window(explicit_days: float | None) -> tuple[datetime, str]:
 
 def list_briefs_in_window(since: datetime) -> list[tuple[str, Path]]:
     """(date_str, path) for every dense daily brief dated on/after `since`,
-    oldest first. Dense (not published) is the source, same reasoning as
-    the live ceremony — full detail, and 'Worth Brian's attention' is the
-    section name there (the published copy renames it 'Worth your
-    attention' but the content's identical)."""
+    oldest first. Dense (not published) is the source — full detail for
+    whoever reads these directly, same reasoning the live ceremony uses
+    everywhere else."""
     since_date = since.date()
     out = []
     if not BRIEFINGS_ROOT.exists():
@@ -236,17 +231,6 @@ def list_briefs_in_window(since: datetime) -> list[tuple[str, Path]]:
     return out
 
 
-def extract_worth_attention(body: str) -> str:
-    """Pulls the '## Worth Brian's attention' numbered list out of a dense
-    brief's body. Returns '' if the section isn't found (a brief with no
-    stories worth flagging is possible, if rare)."""
-    match = re.search(
-        r"^## Worth Brian's attention\s*\n(.*?)(?=\n## |\Z)",
-        body, flags=re.MULTILINE | re.DOTALL,
-    )
-    return match.group(1).strip() if match else ""
-
-
 def extract_right_now(text: str) -> str:
     match = re.search(
         r"^## Right now\s*\n(.*?)(?=\n## )",
@@ -255,19 +239,20 @@ def extract_right_now(text: str) -> str:
     return match.group(1).strip() if match else "(section not found)"
 
 
-def build_stories_section(briefs: list[tuple[str, Path]]) -> str:
+def build_briefs_index_section(briefs: list[tuple[str, Path]]) -> str:
+    """A bare links list, not a content pre-extraction — see the
+    2026-09-04 note above build_prep_doc() for why this replaced a
+    section that used to try to summarize each day. Read these directly
+    during the live ceremony (step 9's "this week's stories") rather than
+    relying on anything pre-extracted here."""
     if not briefs:
         return "*No daily briefs in this window.*"
     parts = []
     for date_str, path in briefs:
-        _, body = read_frontmatter_and_body(path)
-        worth_attention = extract_worth_attention(body)
         weekday = datetime.strptime(date_str, "%Y-%m-%d").strftime("%A, %b %-d")
-        if worth_attention:
-            parts.append(f"### {weekday}\n{worth_attention}")
-        else:
-            parts.append(f"### {weekday}\n*(no \"Worth Brian's attention\" section found)*")
-    return "\n\n".join(parts)
+        github_url = f"{GITHUB_BLOB}{path.relative_to(ROOT).as_posix()}"
+        parts.append(f"- [{weekday}]({github_url})")
+    return "\n".join(parts)
 
 
 def run_triage(dry_run: bool) -> None:
@@ -292,7 +277,7 @@ def run_triage(dry_run: bool) -> None:
 
 def build_prep_doc(window_start: datetime, run_date: str) -> tuple[str, list[str]]:
     briefs = list_briefs_in_window(window_start)
-    stories = build_stories_section(briefs)
+    briefs_index = build_briefs_index_section(briefs)
 
     promotion_text = (
         PROMOTION_CANDIDATES_PATH.read_text(encoding="utf-8")
@@ -308,8 +293,8 @@ def build_prep_doc(window_start: datetime, run_date: str) -> tuple[str, list[str
     # Live external fetch, not a repo file — always attempted (including
     # under --dry-run, unlike run_triage()'s skip) since it has no
     # persistent side effect of its own to worry about, just a read.
-    own_comments = fetch_own_comments_in_window(window_start)
-    comments_section = build_comments_section(own_comments)
+    own_notes = fetch_own_notes_in_window(window_start)
+    notes_section = build_notes_section(own_notes)
 
     sources = [str(p.relative_to(ROOT).as_posix()) for _, p in briefs]
     sources += [
@@ -317,7 +302,7 @@ def build_prep_doc(window_start: datetime, run_date: str) -> tuple[str, list[str
         "outputs/canon-triage/staleness-candidates.md",
         "me/developing-thinking.md",
     ]
-    sources += [c["url"] for c in own_comments]
+    sources += list(dict.fromkeys(n["post_url"] for n in own_notes))  # dedup, preserve order — multiple restacks often point at the same post
 
     frontmatter = {
         "title": f"Weekly Wrap Up prep — {run_date}",
@@ -335,13 +320,13 @@ def build_prep_doc(window_start: datetime, run_date: str) -> tuple[str, list[str
 
 Auto-generated by `skills/weekly/gather.py` — nothing here is written or judged by a model except `staleness-candidates.md`'s own contents (that's `triage.py`'s job, re-run fresh by this script). This file is the memory-jog Brian reads before the live ceremony (`/weekly-update`) — the actual decisions happen there, not here.
 
-## Stories since last time
+## This week's daily briefs
 
-{stories}
+{briefs_index}
 
-## Comments you left this week
+## What Brian flagged this week (restacks & comments)
 
-{comments_section}
+{notes_section}
 
 ## Promotion candidates awaiting a decision
 

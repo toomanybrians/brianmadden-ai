@@ -13,11 +13,16 @@ Two scripts here, both genuinely reusable mechanics rather than judgment:
 
 - **`gather.py`** — added 2026-08-24, Brian's ask ("make it so that this
   thing emails me the initial recap"). Deterministic assembly of the prep
-  doc (this week's daily-brief "Worth Brian's attention" sections, the
-  promotion-candidates queue, a freshly re-run `staleness-candidates.md`,
-  the current `## Right now`) — no LLM call of its own beyond re-running
-  `triage.py`. Wired into `daily-pipeline.yml` to run on Fridays, after
-  that day's Daily Brief, and email the result. Does **not** run the
+  doc (links to this week's daily briefs, Brian's own restacks/comments
+  from the week, the promotion-candidates queue, a freshly re-run
+  `staleness-candidates.md`, the current `## Right now`) — no LLM call of
+  its own beyond re-running `triage.py`. **Run manually, not on a
+  schedule** (changed 2026-09-04 — see the file's own docstring: it used
+  to run automatically every Friday via `daily-pipeline.yml`, but that
+  always missed whatever Brian did in reaction to Friday's own post, since
+  those reactions happen after the email goes out, not before). Brian
+  reads Friday's post as normal, then runs this (or `/weekly-update`,
+  which runs it for him) whenever he's ready. Does **not** run the
   interactive ceremony — that still needs Brian live, whenever he actually
   sits down with it.
   ```bash
@@ -45,10 +50,10 @@ rendered-for-Substack file in this repo.
 ## Where things live
 
 - `outputs/weekly-updates/YYYY/MM/YYYY-MM-DD-prep.md` — the prep doc
-  (week's stories recap, promotion/staleness queues, current
-  `## Right now`) Brian reads before the conversation starts. Written by
-  `gather.py` (usually, on Fridays) or by the live ceremony itself if
-  none exists yet for the current window.
+  (daily-brief links, restacks/comments, promotion/staleness queues,
+  current `## Right now`) Brian reads before the conversation starts.
+  Written by `gather.py`, run manually whenever Brian's ready (or by the
+  live ceremony itself if none exists yet for the current window).
 - `outputs/weekly-updates/YYYY/MM/YYYY-MM-DD.md` — the finished, dual-byline
   (`brianmadden.ai` + `Brian Madden`) Weekly Wrap Up post, drafted live.
 - `outputs/weekly-updates/.last_run.json` — pipeline state (last run
