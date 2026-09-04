@@ -597,6 +597,43 @@ asked to do, not as a template to re-run.
     field since launch, every one of them has actually delivered at least
     once. This list is only the ones that haven't started yet.
 
+    **2026-09-04 update: list re-verified (2 self-resolved), cross-checked
+    against Brian's personal Substack follows.** Re-pulled from today's
+    `ingest/.last_run_sources.json`: 22 of the original 24 are still
+    403ing. Forked Lightning and 80,000 Hours now fetch cleanly — no code
+    change here caused that, whatever was blocking them on Substack/
+    Cloudflare's side apparently lifted on its own. Also fetched Brian's
+    personal Substack account's public follow list
+    (`https://substack.com/@briansmadden`) via the same mechanism
+    `skills/lib/substack_follows.py` already uses for `brianmaddenai`
+    (just with `handle` overridden — the endpoint is public/unauthenticated
+    for any handle, no code change needed) and diffed it against the
+    current 22: **14 are publications Brian already personally follows**
+    (David Shapiro's Substack, Demis Hassabis, Dr. Fei-Fei Li, Emerging
+    Physical AI, Extended_Brain, Kevin Roose, Kinder Futures, Theory of
+    the Game, Work Evolved, Center for Humane Technology, BIG by Matt
+    Stoller, Cory Doctorow, Ghosts of Electricity, The Wake Up Call); **8
+    are not followed anywhere**: In the pool with Esther, TECH EMPIRES,
+    Asimov's Addendum, The AI Report, The Economics of AI, The EU AI Act
+    Newsletter, METR, Lex Fridman. Doesn't change the fix itself — it
+    still has to happen on the `brianmaddenai` account specifically,
+    since that's the one wired to `brain@` — but the 14 already-personally-
+    followed ones are publications Brian's already vouched for, so
+    probably the ones worth doing first. Confirmed no write path exists
+    anywhere in this pipeline for the actual fix: `substack_follows.py` is
+    read-only (a public GET, no login); the "session-cookie draft-push
+    client" floated in the original plan doc (§6/§7) was never built, and
+    building one now would mean scripting Substack's private endpoints
+    against a real login session — a bigger, deliberate call, not
+    something to add quietly while fixing X. Brian's doing this by hand;
+    also separately asked to flag anything in his personal follow list
+    that reads as off-topic (he thought he'd already hidden all non-AI
+    subscriptions from public view) — see this session's chat for the
+    candidates flagged (Slow Boring, Planned Obsolescence, Loaded for
+    Bear, Silicon Valley Funding Weekly Briefing, Linas's Newsletter),
+    flagged by name/reputation only, not fetched content, so treat as a
+    starting point for Brian's own look, not a verified finding.
+
 ## Day plan (checklist — details in the plan doc §8)
 
 - [x] D1 — Workspace + aliases + MX · lock naming · carve-out note sent
@@ -2676,3 +2713,89 @@ it), ep3/ep4/ep5 show all three, matching each file's real data rather
 than a hardcoded platform list. `check_doc_accuracy.py` clean. Re-sent
 all five to Brian. **Committed and pushed** — see the commit that
 includes this entry.
+
+### 2026-09-04 — `/maintain` session: X recovered from the outage
+(local backfill + brief redo), Substack follow-check cross-referenced
+
+Bootstrap: 1 commit behind (that morning's automated run), clean
+fast-forward, no conflict. Also confirmed `/maintain` itself already
+opens with a git sync (step 1 of the skill) — Brian asked, nothing to
+add. Brian opened with three asks: fix X, pull it in (possibly requiring
+a re-run of today's brief), and check his personal Substack account
+against the 24-feed Substack block list from decision #16.
+
+**X — not fixed at the root (still can't test GitHub Actions' network
+from here), but recovered for real.** A plain local run of just the
+`x-timeline` source succeeded immediately, same as every prior local
+retest since the outage started 08-31 — confirming again it's something
+about Actions' network specifically, not the credentials or the code.
+The default auto window only would have looked back 1.6h (since
+`ingest/.last_run.json`'s last full-registry run this morning), so widened
+to `--since-days 7 --max-per-source 20` to catch the whole outage
+backlog instead of just today's slice: 16 candidate entries, 7 real notes
+written after the model's own relevance filter. Redoing today's *brief*
+to include them required care, not just a rerun: `brief.py`'s own
+dedup guard (`load_previously_briefed_paths()` in `skills/brief/brief.py`)
+skips any ingest note already listed as a source in some prior brief, so
+a naive second run today would have picked up *only* the 7 new X notes
+and overwritten the whole day's file with a thin X-only brief, silently
+dropping this morning's other 15 notes' synthesis. Fix: temporarily moved
+today's already-written brief out of `outputs/technical-briefings/` (so
+none of its 15 sources counted as "already briefed"), reran `brief.py
+--since-days 1` fresh so all 22 notes got synthesized together as one
+real brief, then ran `publish.py --date 2026-09-04` (no `--send`) to
+regenerate the public draft to match. Checked first that this couldn't
+double-count thread-tracker recurrences: this morning's original run had
+touched neither `.thread_tracker.json` nor `promotion-candidates.md` (a
+real diff against the prior commit confirmed zero changes), so the redo
+is the only real tracker update for today, not a second one stacked on
+top of a live one. Also hand-corrected the "Sources checked today"
+line (both the technical and published copies) — it still said X simply
+"failed," which would have read as wrong sitting next to X-sourced
+stories now genuinely in the brief; reworded to state what actually
+happened (scheduled run failed, manual same-day run recovered it) and
+updated `ingest/.last_run_sources.json` to match, keeping the "checked
+cleanly"/"failed"/"skipped" ledger honest without touching the parts of
+that file the rest of the registry's real automated run wrote.
+
+**Shipped, not just diagnosed:** `_x_refresh_access_token()`
+(`skills/ingest/ingest.py`) now also logs whether `requests` actually
+attached an `Authorization` header client-side before sending, plus a
+few non-sensitive edge headers (`server`/`via`/`cf-ray`/`cf-cache-status`/
+`x-cache`) on failure. The 2026-09-04 error body already reads
+"unauthorized_client — Missing valid authorization header," which is a
+different failure shape than a plain wrong-credential 401 — X's server
+saying the header itself never arrived. If that's a WAF/CDN intercept on
+GitHub Actions' IP ranges (the same shape as the confirmed Substack
+403s, decision #16) versus a client-side bug that the credential checks
+already ruled out separately, tomorrow's scheduled run (if it still
+fails) will now say which, instead of needing another guess-and-diagnose
+cycle like 2026-09-02's. `python3 -m py_compile` clean, `check_doc_accuracy.py`
+clean. Committed and pushed (`18f896e`).
+
+**Substack follow-check — done for the read side, confirmed absent for
+the write side.** See decision #16's 2026-09-04 update above for the
+full cross-reference (14 of 22 currently-blocked feeds already personally
+followed, 8 aren't, plus flagged possible off-topic entries in Brian's
+public follow list per his own ask). The mechanically interesting part:
+`skills/lib/substack_follows.py`'s `fetch_follows()` takes a `handle`
+parameter that already defaults to `brianmaddenai` but works for any
+public profile — no code change needed to point it at Brian's personal
+account for a one-off read. Confirmed there is no equivalent write
+path anywhere in this repo (subscribing to a publication, or toggling
+its "email me new posts" setting) — `substack_follows.py` only ever
+hits the public, unauthenticated profile endpoint. The "session-cookie
+draft-push client" that could in principle do this was floated in the
+original plan doc back in the D3-era open decisions and never built.
+Told Brian this is manual, by his own request, rather than reaching for
+either building that client on the spot or using browser automation
+(CUA) for a couple-dozen repetitive Subscribe clicks — he'd already
+flagged the CUA option as not worth the tokens before I got to it.
+
+**Open after this session:** whether to actually email Brian the
+corrected 2026-09-04 brief (`publish.py --send`) — the automated run
+already sent one without X this morning, so a second send needs his
+explicit OK, asked but not yet answered as of this entry. The Substack
+follow/email-delivery work itself (14 + 8 publications) and the
+possible-off-topic-subscription check are both queued as Brian's own
+manual Substack-UI work, not this session's.
