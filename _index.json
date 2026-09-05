@@ -3,7 +3,7 @@
   "generated": "2026-09-05",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
   "total_files": 126,
-  "total_words": 267203,
+  "total_words": 267348,
   "files": [
     {
       "path": "AGENTS.md",
@@ -56,7 +56,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 616,
+      "word_count": 761,
       "staleness_threshold": null
     },
     {

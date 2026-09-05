@@ -4,6 +4,39 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-09-05 (continued) — CHANGELOG.md: added the Sept 2 second-brain demo milestone
+
+**What changed:** Brian asked for one more milestone in `CHANGELOG.md`: the
+Citrix ASEAN webcast follow-up video (2026-09-02), where he connected a
+fresh, incognito Claude instance to his own public second brain live on
+camera and worked through nine leftover Q&A questions — already fully
+documented in canon at
+`talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md`
+(tier 2, `status: reviewed`, existing file, untouched). Rewrote the
+existing "September 2" changelog entry to lead with this (Brian's own
+framing: "the first time I actually used it myself, and it was legit")
+rather than folding it under the podcast note that was already there for
+the same day; both now sit under one dated section. Pulled one detail
+straight from the talk's own narration for a nice connecting thread: on
+camera, still running plain keyword search, Brian says he should
+eventually switch the MCP server to a vector database — two days before
+the 2026-09-04 milestone already in this file made that true. `_index.json`
+word count corrected for the longer file.
+
+**Why:** Direct request, no research needed beyond confirming which
+existing talk file matched his description ("Citrix Asian speech" →
+Citrix ASEAN; "video... for Q&A... live in camera" →
+the second-brain-demo talk file, identified by content, not by asking).
+
+**No canon content touched** — the talk file itself already existed and
+was already `reviewed`; this only added a pointer to it from the new
+changelog.
+
+**Automated checks:** em-dash check clean; `_index.json` validated as
+JSON; `python3 scripts/check_doc_accuracy.py` clean.
+
+**Result: COMMITTED AND PUSHED.**
+
 ## 2026-09-05 — New CHANGELOG.md; first `outputs/essays/` draft on the vector-database build
 
 **What changed:**

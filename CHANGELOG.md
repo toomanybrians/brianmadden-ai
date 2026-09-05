@@ -32,9 +32,11 @@ The briefing skill lands: the part of the pipeline that reads a whole day's inge
 
 Weekly Wrap Up (launched as "Deeper Thinking," renamed by Brian two days later once it was actually live) starts running: a lower-frequency companion to the Daily Brief that steps back and looks at the week instead of the day.
 
-## September 2—The podcast comes home
+## September 2—Brian uses his own brain for real, and the podcast comes home
 
-Episode 5 of the Citrix AI Hotsheet is the first episode drafted natively inside the public brain instead of privately and mirrored over afterward—Brian's own call that a podcast that's public the moment it's recorded has no private-first step to justify.
+A week after a Citrix ASEAN business webcast on knowledge factories and second brains, Brian owed the audience the leftover Q&A. Instead of writing up answers, he recorded himself doing the thing the webcast was actually about: opened a fresh, incognito Claude instance, connected it live to his own public second brain, on camera, and asked it the leftover questions one at a time. Nine exchanges, unedited. This is the one that actually landed for him—the first time the brain stopped being something that technically worked and became something he'd actually used himself, for real, and watched hold up. Partway through, still running on plain keyword search, he notes on camera that he should eventually switch the server over to a vector database—two days before that became true. [Watch the demo](https://www.youtube.com/watch?v=8XC3UJsfIFE) · [full narration + transcript](talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md)
+
+Same day: Episode 5 of the Citrix AI Hotsheet becomes the first episode drafted natively inside the public brain instead of privately and mirrored over afterward—Brian's own call that a podcast that's public the moment it's recorded has no private-first step to justify.
 
 ## September 4—Vector database
 
