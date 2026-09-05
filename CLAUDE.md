@@ -77,6 +77,7 @@ brianmadden-ai/
 ├── MAINTAINER.md      # Operating constitution for the maintaining AI (Claude Code sessions, pipeline)
 ├── BUILD.md           # v2 rebuild session journal
 ├── README.md          # Human-readable orientation
+├── CHANGELOG.md       # Headline milestones in the brain's own build, from Day Zero
 ├── GOVERNANCE.md      # Publishing principles: what goes in, what stays out
 ├── governance-log.md  # Audit trail for every sync/commit
 ├── llms.txt           # MCP/LLM discovery file (links here first for loading order)

@@ -22,6 +22,10 @@ This is not a content archive. It is a structured representation of how Brian th
 - [GOVERNANCE.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/GOVERNANCE.md): Publishing principles—what goes into this repo, what stays out, and the review process every sync follows.
 - [governance-log.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/governance-log.md): Audit trail showing what was checked and cleared before each commit.
 
+## History
+
+- [CHANGELOG.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/CHANGELOG.md): Headline milestones in how brianmadden.ai itself was built, from the day Brian decided to rebuild it onward. Not required reading for answering questions about Brian's thinking—useful if the question is about the system itself.
+
 ## Core knowledge (load in this order)
 
 - [me/profile.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/profile.md): Who Brian is—background, credentials, links

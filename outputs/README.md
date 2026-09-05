@@ -72,6 +72,14 @@ and canon); it's committed for audit, not treated as truth.
   `.last_run.json` is pipeline state, shared between `gather.py` and the
   live ceremony, same convention as
   `technical-briefings/.last_run.json`.
+- **`essays/`** — one-off long-form pieces that don't belong to any recurring
+  cadence (not a Daily Brief, not a Weekly Wrap Up entry) — a milestone in
+  the brain's own build worth writing up properly, the kind of thing
+  [`CHANGELOG.md`](../CHANGELOG.md) at the repo root links out to instead of
+  trying to tell the full story itself. Hand-drafted per piece, same as
+  `substack-migration/` below: no `brief.py`/`publish.py` involved, drafted
+  directly and hand-pasted into Substack by Brian. Started 2026-09-04 with
+  the first one, on the `semantic_search`/Vectorize build.
 - **`substack-migration/`** — one-off drafts for Workstream C
   (`docs/substack-as-primary-home.md`): moving the ~90-item back catalog
   (podcast, talks, LinkedIn, Citrix blog, frameworks) onto Substack.

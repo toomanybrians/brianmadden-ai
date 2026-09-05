@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-09-04",
+  "generated": "2026-09-05",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 125,
-  "total_words": 266563,
+  "total_files": 126,
+  "total_words": 267203,
   "files": [
     {
       "path": "AGENTS.md",
@@ -11,7 +11,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 1529,
+      "word_count": 1541,
       "staleness_threshold": null
     },
     {
@@ -20,7 +20,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 1529,
+      "word_count": 1541,
       "staleness_threshold": null
     },
     {
@@ -48,6 +48,15 @@
       "file_type": null,
       "tags": [],
       "word_count": 624,
+      "staleness_threshold": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "title": "Changelog",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 616,
       "staleness_threshold": null
     },
     {
