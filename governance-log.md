@@ -4,6 +4,111 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-09-05 (continued) — CHANGELOG.md: added the Sept 2 second-brain demo milestone
+
+**What changed:** Brian asked for one more milestone in `CHANGELOG.md`: the
+Citrix ASEAN webcast follow-up video (2026-09-02), where he connected a
+fresh, incognito Claude instance to his own public second brain live on
+camera and worked through nine leftover Q&A questions — already fully
+documented in canon at
+`talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md`
+(tier 2, `status: reviewed`, existing file, untouched). Rewrote the
+existing "September 2" changelog entry to lead with this (Brian's own
+framing: "the first time I actually used it myself, and it was legit")
+rather than folding it under the podcast note that was already there for
+the same day; both now sit under one dated section. Pulled one detail
+straight from the talk's own narration for a nice connecting thread: on
+camera, still running plain keyword search, Brian says he should
+eventually switch the MCP server to a vector database — two days before
+the 2026-09-04 milestone already in this file made that true. `_index.json`
+word count corrected for the longer file.
+
+**Why:** Direct request, no research needed beyond confirming which
+existing talk file matched his description ("Citrix Asian speech" →
+Citrix ASEAN; "video... for Q&A... live in camera" →
+the second-brain-demo talk file, identified by content, not by asking).
+
+**No canon content touched** — the talk file itself already existed and
+was already `reviewed`; this only added a pointer to it from the new
+changelog.
+
+**Automated checks:** em-dash check clean; `_index.json` validated as
+JSON; `python3 scripts/check_doc_accuracy.py` clean.
+
+**Result: COMMITTED AND PUSHED.**
+
+## 2026-09-05 — New CHANGELOG.md; first `outputs/essays/` draft on the vector-database build
+
+**What changed:**
+- `CHANGELOG.md` (new, root-level, no frontmatter — same convention as
+  `README.md`/`GOVERNANCE.md`) — a hand-curated, headline-only history of
+  the brain's own build, starting at Day Zero (2026-08-09, the day Brian
+  decided to rebuild) and running through today's `semantic_search`/
+  Vectorize milestone. Spans both repos: content/pipeline milestones from
+  this repo, and the vector-database milestone from
+  `brianmadden-ai-server` (a separate repo this session cloned read-only
+  to verify dates and commit detail — no write access used or needed
+  there). Nine milestones total, each dated and sourced against real git
+  history in both repos rather than BUILD.md's prose account of itself.
+- `outputs/essays/2026-09-04-semantic-search.md` (new, tier 3,
+  `status: not-reviewed-by-human`) — the first file in a new `essays/`
+  subdirectory for one-off long-form pieces outside the Daily
+  Brief/Weekly Wrap Up cadence. A magazine-style writeup of the
+  `semantic_search` build for Substack: the old exact-substring `search`
+  tool's limitation, what a vector database actually does and why it's
+  fast, how it runs on Cloudflare (Workers AI embeddings, Vectorize, KV,
+  a cron trigger), and the three real bugs `brianmadden-ai-server`'s own
+  commit history surfaced (a chunking assumption that broke on
+  bullet-list files, a reindex job silently discarding its own progress
+  on interruption, and two literal NUL bytes in a chunk-id hash that
+  never broke anything functionally but flagged the file as binary to
+  git). Sourced directly from three commits in the server repo (frontmatter
+  `sources:` field), not paraphrased from memory.
+- Index wiring for `CHANGELOG.md`: `_index.json` (new entry, plus
+  corrected word counts on `CLAUDE.md`/`AGENTS.md` after the tree edit
+  below), `llms.txt` (new "History" section), `CLAUDE.md`/`AGENTS.md`
+  (repo-structure tree — kept identical, per the parity rule),
+  `README.md` ("What's inside" bullet), `outputs/README.md` (new
+  `essays/` subdirectory entry). `outputs/essays/` itself is Tier 3 and
+  deliberately **not** indexed in `_index.json`, consistent with every
+  other `outputs/` subdirectory.
+
+**Why:** Brian asked (dictated, informally) for two things: a change
+tracker covering the brain's own build history since he first decided to
+rebuild it, headline milestones only, not every commit; and a
+magazine-style article about today's vector-database addition, explaining
+the old limitation, how vector search actually works, how it runs on
+Cloudflare, and a real before/after example, for eventual Substack
+publication. Both were read from this session's own research, not
+invented: milestone dates and the vector-database technical detail come
+from real commit history and code in both repos, cross-checked against
+`BUILD.md`'s own account rather than trusting it blind (this session's
+`/maintain` bootstrap found `BUILD.md` had no mention of the
+vector-database work at all — confirming it happened in the separate
+server repo, not this one, which is why that repo was added read-only
+this session).
+
+**No canon content touched.** `me/`, `frameworks/`, `posts/`, `talks/`,
+`podcast/`, `interviews/`, `pages/` untouched. Nothing here is Brian's
+stated position on anything — it's the pipeline's own build history and
+one technical explainer, both explicitly `not-reviewed-by-human` until
+Brian edits them.
+
+**Automated checks:** `_index.json` edited surgically (not regenerated
+wholesale, to avoid reformatting unrelated entries) and validated as
+JSON; `python3 scripts/check_doc_accuracy.py` clean, including the
+top-level-tree check that would have caught a missed `CLAUDE.md`/
+`AGENTS.md` update for the new root file. Em-dash check
+(`grep -n ' — \| -- '`) run against both new files per `me/style-guide.md`
+and corrected — first drafts used spaced em-dashes throughout, same
+mistake the 2026-09-04 Weekly Wrap Up session caught and fixed in its own
+draft.
+
+**Result: COMMITTED AND PUSHED** — Brian hasn't reviewed the essay draft
+yet (`status: not-reviewed-by-human`, as with any first-pass draft); the
+changelog and index wiring are mechanical/factual and not waiting on a
+voice review the way a Substack-bound piece is.
+
 ## 2026-09-04 — Brian's live reaction to the Weekly Wrap Up prep doc, applied to canon
 
 **What changed:**

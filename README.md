@@ -36,6 +36,7 @@ Once you're connected, try things like:
 - A "current thinking" file that captures where my head is right now—updated frequently
 - AI loading instructions, knowledge hierarchy, and engagement rules
 - A published [governance document](GOVERNANCE.md) that defines what goes in, what stays out, and how the publishing process works
+- A [changelog](CHANGELOG.md) tracking the headline milestones in how this whole thing got built, from the day I decided to rebuild it
 
 Everything in brianmadden.ai is already public. The module adds structure and AI accessibility, not new content.
 
