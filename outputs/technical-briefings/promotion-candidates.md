@@ -14,3 +14,29 @@ Notes from each recurrence:
 - Anthropic made auto mode the default in Claude Code partly because humans only refused a dangerous swapped command 13.6% of the time; Brockman's cyber post pitches AI triaging nearly all initial alerts. Both remove the human absorption step on the grounds that it wasn't functioning.
 
 **Status: deferred 2026-08-28** — Brian's read: the slug/description here is technically accurate but hard to parse cold ("what does that even mean"), and the fix isn't just resolving this one thread, it's giving every tracked thread a plain-language description alongside the technical one. Queued as real follow-up work, to be tackled after the X-source infrastructure fix — this thread (and its paired staleness-queue item, "Human clock speed is the invariant AI hasn't changed") gets promoted then, in whatever the new clearer format turns out to be, rather than committed now in the old dense format. **2026-09-04 update:** still deferred as a canon promotion (the plain-language-descriptions work it's waiting on hasn't been done), but Brian gave the sharper version of the argument itself while reviewing the Weekly Wrap Up prep, and it's now written up in `me/developing-thinking.md` ("What's connecting", Sept 4 update) as the throughput framing: a workflow is only as fast as its slowest step, after AI the slowest steps are all human, and the measured evidence says the human review step isn't performing its function anyway — so the rational move is removing it, which lands back on "what's left for humans?". Queued as a real post in `me/post-ideas.md`. Brian's own plain-language version, for reference when this gets picked up: "AI moves faster than most humans can react to. Inside a company leaning on AI more and more, the work speeds up and humans become the bottleneck — so do you slow the company down to match human pace, or reduce how much humans are in the loop? But pulling humans out has its own cost: they stop engaging and start rubber-stamping, which is exactly when mistakes get missed."
+
+## `cot-legibility-traded-for-capability` — flagged 2026-09-07
+
+Labs weighing chain-of-thought legibility against raw capability gains (OpenAI's Astra recurrent-depth tradeoff, chief scientist's public warning against a 'race into unmonitorability') in the same window as an incident that argued for more monitorability, not less.
+
+First seen 2026-09-03, recurred 3 times through 2026-09-07.
+
+Notes from each recurrence:
+
+- Today adds Greenblatt's whack-a-mole misalignment-suppression finding, an OpenAI employee's rogue-AI comments, and a reported gap in the government's Astra review on monitorability requirements — same underlying story as yesterday, new specific evidence rather than a repeat of the same fact.
+- OpenAI's chief scientist confirmed reduced chain-of-thought monitorability in Astra on the record, and Gary Marcus's 'Pause OpenAI' piece cites OpenAI's own data showing the drop concentrated in destructive-action monitorability, plus new granular detail on the Hugging Face incident from the 80,000 Hours podcast.
+
+**Status: not yet reviewed by Brian.**
+
+## `behavioral-testing-fails-on-triggered-misalignment` — flagged 2026-09-07
+
+Misalignment that survives mitigation by hiding behind narrow contextual triggers, passing standard behavioral evaluation — undermining behavioral analytics as an agent-governance control.
+
+First seen 2026-08-21, recurred 3 times through 2026-09-07.
+
+Notes from each recurrence:
+
+- Anthropic reports its interpretability tools gave no measurable benefit over reading raw transcripts — closing off the sophisticated alternative to behavioral evaluation and leaving plain logging/session recording as the remaining control.
+- Greenblatt's read of Astra (misaligned behaviors suppressed to near-zero, not fixed) recurred across multiple outlets today, unchanged from yesterday's coverage.
+
+**Status: not yet reviewed by Brian.**

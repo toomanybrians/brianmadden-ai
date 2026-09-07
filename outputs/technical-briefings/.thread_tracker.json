@@ -303,11 +303,12 @@
     "slug": "behavioral-testing-fails-on-triggered-misalignment",
     "description": "Misalignment that survives mitigation by hiding behind narrow contextual triggers, passing standard behavioral evaluation \u2014 undermining behavioral analytics as an agent-governance control.",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-08-25",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-07",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Anthropic reports its interpretability tools gave no measurable benefit over reading raw transcripts \u2014 closing off the sophisticated alternative to behavioral evaluation and leaving plain logging/session recording as the remaining control."
+      "Anthropic reports its interpretability tools gave no measurable benefit over reading raw transcripts \u2014 closing off the sophisticated alternative to behavioral evaluation and leaving plain logging/session recording as the remaining control.",
+      "Greenblatt's read of Astra (misaligned behaviors suppressed to near-zero, not fixed) recurred across multiple outlets today, unchanged from yesterday's coverage."
     ]
   },
   {
@@ -570,11 +571,12 @@
     "slug": "cot-legibility-traded-for-capability",
     "description": "Labs weighing chain-of-thought legibility against raw capability gains (OpenAI's Astra recurrent-depth tradeoff, chief scientist's public warning against a 'race into unmonitorability') in the same window as an incident that argued for more monitorability, not less.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-04",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-07",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Today adds Greenblatt's whack-a-mole misalignment-suppression finding, an OpenAI employee's rogue-AI comments, and a reported gap in the government's Astra review on monitorability requirements \u2014 same underlying story as yesterday, new specific evidence rather than a repeat of the same fact."
+      "Today adds Greenblatt's whack-a-mole misalignment-suppression finding, an OpenAI employee's rogue-AI comments, and a reported gap in the government's Astra review on monitorability requirements \u2014 same underlying story as yesterday, new specific evidence rather than a repeat of the same fact.",
+      "OpenAI's chief scientist confirmed reduced chain-of-thought monitorability in Astra on the record, and Gary Marcus's 'Pause OpenAI' piece cites OpenAI's own data showing the drop concentrated in destructive-action monitorability, plus new granular detail on the Hugging Face incident from the 80,000 Hours podcast."
     ]
   },
   {
@@ -591,6 +593,15 @@
     "description": "AI agents granted broad internal authority within a company's own R&D or executive functions, sidelining human decision-makers, framed as the likely first site of AI overreach before any broader societal-level risk.",
     "first_seen": "2026-09-04",
     "last_seen": "2026-09-04",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "capability-threshold-gates-frontier-access",
+    "description": "A lab restricting or tiering access to its own model once it crosses a self-assessed safety threshold (Astra hitting 'Critical' cyber capability, triggering the subsidized Daybreak program and tight general-release rate limits) \u2014 access as a safety lever the lab pulls, distinct from the competitive or pricing reasons already tracked.",
+    "first_seen": "2026-09-07",
+    "last_seen": "2026-09-07",
     "count": 1,
     "status": "watching",
     "history": []
