@@ -697,7 +697,9 @@ sources:
     name: The EU AI Act Newsletter
     type: person
     url: https://artificialintelligenceact.substack.com
-    feed_url: https://artificialintelligenceact.substack.com/feed
+    feed_url: null
+    sender: artificialintelligenceact@substack.com
+    ingest_method: email
     priority: regular
     note: "Risto Uuk — EU AI Act policy tracking"
 
@@ -1084,3 +1086,12 @@ sources:
     sender: futurism@mail.beehiiv.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-07 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: last-week-in-ai-3
+    name: "Last Week in AI"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: lastweekinai+news@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-08 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."

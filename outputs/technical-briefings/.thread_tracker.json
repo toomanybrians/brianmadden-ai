@@ -601,7 +601,18 @@
     "slug": "capability-threshold-gates-frontier-access",
     "description": "A lab restricting or tiering access to its own model once it crosses a self-assessed safety threshold (Astra hitting 'Critical' cyber capability, triggering the subsidized Daybreak program and tight general-release rate limits) \u2014 access as a safety lever the lab pulls, distinct from the competitive or pricing reasons already tracked.",
     "first_seen": "2026-09-07",
-    "last_seen": "2026-09-07",
+    "last_seen": "2026-09-08",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "second occurrence \u2014 Astra's Critical cybersecurity threshold and the Daybreak access program recur across multiple outlets today with added detail (sandboxing, mandatory chain-of-thought monitoring), same underlying claim as yesterday"
+    ]
+  },
+  {
+    "slug": "eu-ai-act-scope-of-internal-unreleased-models",
+    "description": "EU Commission's first formal enforcement requests to AI labs, triggered by lab security incidents, alongside an unresolved legal question of whether internal, unreleased research models fall under the AI Act's scope at all",
+    "first_seen": "2026-09-08",
+    "last_seen": "2026-09-08",
     "count": 1,
     "status": "watching",
     "history": []

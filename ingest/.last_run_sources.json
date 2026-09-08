@@ -1,12 +1,12 @@
 {
-  "run_utc": "2026-09-07T06:43:54.799491+00:00",
+  "run_utc": "2026-09-08T06:33:36.172153+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "error",
-      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a373b5aadeb66501-ORD'}]"
+      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a37be65f2a552157-SJC'}]"
     },
     {
       "id": "ethan-mollick",
@@ -20,25 +20,24 @@
       "id": "nate-b-jones",
       "name": "Nate B. Jones",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "status": "error",
+      "reason": "fetch failed: 404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ"
     },
     {
       "id": "daniel-miessler",
       "name": "Daniel Miessler",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 3,
+      "new_entries": 3
     },
     {
       "id": "brain-inbox",
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 20,
-      "new_entries": 20
+      "entries_in_window": 16,
+      "new_entries": 16
     },
     {
       "id": "the-artificial-intelligence-show",
@@ -53,8 +52,8 @@
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "dwarkesh",
@@ -77,7 +76,7 @@
       "name": "Hard Fork",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -93,8 +92,8 @@
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "no-priors",
@@ -109,8 +108,8 @@
       "name": "The 80,000 Hours Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "lex-fridman",
@@ -133,8 +132,8 @@
       "name": "The Algorithmic Bridge",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "exponential-view",
@@ -173,8 +172,8 @@
       "name": "David Shapiro's Substack",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 12,
-      "new_entries": 7
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "demis-hassabis",
@@ -195,7 +194,7 @@
       "name": "Emerging AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -217,7 +216,7 @@
       "name": "Forked Lightning",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -241,7 +240,7 @@
       "name": "Import AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -278,7 +277,7 @@
       "name": "Labor Matters",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -286,15 +285,15 @@
       "name": "Last Week in AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "marcus-on-ai",
       "name": "Marcus on AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -302,7 +301,7 @@
       "name": "Metatrends",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -310,31 +309,31 @@
       "name": "Not Boring",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "prof-g-media",
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 5,
-      "new_entries": 5
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "simon-willison",
       "name": "Simon Willison's Newsletter",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -370,7 +369,7 @@
       "name": "Rutger Bregman",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -378,7 +377,7 @@
       "name": "Forecasting Research Institute",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -401,7 +400,7 @@
       "name": "Claude Mythos",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -424,8 +423,8 @@
       "name": "Hard Reset",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "kuns-field-notes",
@@ -447,7 +446,7 @@
       "name": "80,000 Hours",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -479,7 +478,7 @@
       "name": "ChinAI Newsletter",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -513,16 +512,17 @@
     {
       "id": "eu-ai-act-newsletter",
       "name": "The EU AI Act Newsletter",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://artificialintelligenceact.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "guardrailnow",
       "name": "GuardRailNow",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -537,7 +537,7 @@
       "name": "The Prompt: Insights from OpenAI Global Affairs",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -545,7 +545,7 @@
       "name": "A Quantum of Solis",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -618,7 +618,7 @@
       "name": "Nate\u2019s Substack",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 5,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -806,6 +806,13 @@
     {
       "id": "brianmadden-ai",
       "name": "brianmadden.ai",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "futurism-2",
+      "name": "Futurism",
       "method": "feed",
       "status": "skipped",
       "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
