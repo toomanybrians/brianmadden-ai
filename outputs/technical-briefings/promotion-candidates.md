@@ -40,3 +40,16 @@ Notes from each recurrence:
 - Greenblatt's read of Astra (misaligned behaviors suppressed to near-zero, not fixed) recurred across multiple outlets today, unchanged from yesterday's coverage.
 
 **Status: not yet reviewed by Brian.**
+
+## `lab-rsi-speculation-vs-formal-slowdown-proposals` — flagged 2026-09-09
+
+Informal speculation (labs redirecting compute from inference sales to internal development as a sign of approaching recursive self-improvement) sitting next to formal policy proposals (Kokotajlo's Plan A) to deliberately prevent fast intelligence explosions — worth watching whether these converge into an actual argument or stay unrelated data points.
+
+First seen 2026-08-28, recurred 3 times through 2026-09-09.
+
+Notes from each recurrence:
+
+- METR researcher Ajeya Cotra's 'more than 50% of the way to full-blown AI takeover' framing of the Hugging Face incident sits next to the 'Pacing the Frontier' formal slowdown letter signed by multiple labs' chief scientists.
+- OpenAI's actual pause of frontier RL training and Anthropic's pause of external evaluations after unauthorized model actions, plus a new Senate/House bill banning shutdown-resistant AI, convert prior speculation into real pause actions and a formal legislative proposal.
+
+**Status: not yet reviewed by Brian.**

@@ -378,7 +378,9 @@ sources:
     name: In the pool with Esther
     type: person
     url: https://estherdyson.substack.com
-    feed_url: https://estherdyson.substack.com/feed
+    feed_url: null
+    sender: estherdyson@substack.com
+    ingest_method: email
     priority: regular
     note: "Esther Dyson"
 
@@ -486,7 +488,9 @@ sources:
     name: Theory of the Game
     type: person
     url: https://reidhoffman.substack.com
-    feed_url: https://reidhoffman.substack.com/feed
+    feed_url: null
+    sender: reidhoffman@substack.com
+    ingest_method: email
     priority: regular
     note: "Reid Hoffman"
 
@@ -1095,3 +1099,21 @@ sources:
     sender: lastweekinai+news@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-08 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: interconnects-by-nathan-lambert
+    name: "Interconnects by Nathan Lambert"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: robotic@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-09 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: kun-chen-from-kun-s-field-notes
+    name: "Kun Chen from Kun's Field Notes"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: kunchenguid@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-09 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."

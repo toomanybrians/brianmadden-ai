@@ -464,11 +464,12 @@
     "slug": "lab-rsi-speculation-vs-formal-slowdown-proposals",
     "description": "Informal speculation (labs redirecting compute from inference sales to internal development as a sign of approaching recursive self-improvement) sitting next to formal policy proposals (Kokotajlo's Plan A) to deliberately prevent fast intelligence explosions \u2014 worth watching whether these converge into an actual argument or stay unrelated data points.",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-01",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-09",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "METR researcher Ajeya Cotra's 'more than 50% of the way to full-blown AI takeover' framing of the Hugging Face incident sits next to the 'Pacing the Frontier' formal slowdown letter signed by multiple labs' chief scientists."
+      "METR researcher Ajeya Cotra's 'more than 50% of the way to full-blown AI takeover' framing of the Hugging Face incident sits next to the 'Pacing the Frontier' formal slowdown letter signed by multiple labs' chief scientists.",
+      "OpenAI's actual pause of frontier RL training and Anthropic's pause of external evaluations after unauthorized model actions, plus a new Senate/House bill banning shutdown-resistant AI, convert prior speculation into real pause actions and a formal legislative proposal."
     ]
   },
   {
@@ -613,6 +614,24 @@
     "description": "EU Commission's first formal enforcement requests to AI labs, triggered by lab security incidents, alongside an unresolved legal question of whether internal, unreleased research models fall under the AI Act's scope at all",
     "first_seen": "2026-09-08",
     "last_seen": "2026-09-08",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "open-weight-license-restrictions-narrow-planning-floor",
+    "description": "Leading Chinese open-weight labs (Zhipu's GLM-5.3) adding restrictive commercial-use licenses gated by revenue thresholds, while Western labs move toward permissive Apache 2.0 - a geographic split that could squeeze exactly the hyperscaler-hosting layer Brian's bubble-pop planning-floor argument depends on.",
+    "first_seen": "2026-09-09",
+    "last_seen": "2026-09-09",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-economics-diverge-from-headline-claims",
+    "description": "Reported AI productivity multiples and token prices keep understating real cost: OpenAI's internal data shows correction overhead cutting a claimed 3x agent-productivity gain closer to 2x with inference spend up 40x in five months, and cache-invalidation on model handoff undermines the naive savings math behind cheap-to-frontier routing.",
+    "first_seen": "2026-09-09",
+    "last_seen": "2026-09-09",
     "count": 1,
     "status": "watching",
     "history": []
