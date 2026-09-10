@@ -3296,3 +3296,90 @@ judgment call each time, same as everything else in this manual lane.
 and pushed: the two ingest.py changes, the sources.yaml addition, and 48
 new ingest notes total from this session's verification + real-content
 runs (41 x-timeline + 7 aaron-levie-linkedin).
+
+### 2026-09-10 (continued) — audited real `brain@` AI/Skipped emails;
+found and fixed two real bugs, not just relevance calls
+
+Brian shared a screenshot of the `brain@` Gmail inbox, several messages
+labeled `AI/Skipped`, and asked to walk through each one and explain why
+— specifically asking whether link-following was blocked, and whether
+running locally would help. Pulled all 11 real `AI/Skipped` messages
+visible in the screenshot directly via the Gmail API (not guessed) and
+reconstructed exactly what `fetch_entries_email()` actually saw for each.
+
+**Two real, previously-undiagnosed bugs found — neither is a network
+block, so running locally would not have helped either one:**
+
+1. `fetch_entries_email()` never followed the "view online"/"read the
+   full post" link it already detects (`_gmail_find_view_online_link()`)
+   — it only ever used that URL as `source_url`, never fetched the page's
+   actual text. `fetch_entries_x()` has done exactly this for external
+   links in tweets since 2026-08-12; the email path never got the same
+   treatment. Fixed: `fetch_entries_email()` now fetches the linked
+   page via the same `_fetch_external_link_content()` helper and appends
+   it to the email body before extraction, same pattern, never replacing
+   the raw body (a short personal note plus a link can be the whole
+   signal, e.g. a flagged white paper).
+2. `strip_html()` was a bare tag-stripping regex (`<[^>]+>`) that leaves
+   `<script>`/`<style>` block *content* behind as plain text, since that
+   text isn't itself inside a tag. Confirmed real via the Claude Mythos
+   case below: a fetched Substack page came back as 20,000 characters of
+   `@font-face` CSS declarations, hitting `EXTERNAL_LINK_MAX_CHARS`'s cap
+   before any real article text was ever reached. This affects every
+   caller of `strip_html()` — RSS body fallback, the new email-link
+   fetch above, and `_fetch_external_link_content()` for X — not just
+   the email path. Fixed: strip `<script>`/`<style>` blocks (tag and
+   content) before the generic tag-strip.
+
+**Verified against all 11 real flagged emails, not asserted — final
+verdicts:**
+
+- **Work Evolved** ("Exploring the Future of Work in the Age of AI") —
+  genuine miss, now fixed. Thin personal-update email; the real content
+  (a white paper on exactly this brain's core beat) only existed at the
+  linked page. Recovered and written as a real note
+  (`ingest/2026/09/2026-09-10-work-evolved-exploring-the-future-of-work-in-the-age-of-ai.md`).
+- **The Generalist** ("An Ex-SpaceX Engineer on Elon Musk, Starship...")
+  — genuinely borderline, not force-included. With the linked page
+  fetched, one verification pass extracted real insight (AI accelerating
+  high-consequence engineering without replacing testing/review); a
+  second pass with the properly-registered source returned not-relevant.
+  Content is primarily about hardware/Starship with a partial AI angle —
+  sits right at the relevance threshold, and different LLM sampling
+  runs landed on different sides of it. Not written as a note; flagged
+  here rather than picking whichever answer looked better.
+- **Claude Mythos** ("Semiconductors: The Hidden AI Race") — the case
+  that surfaced the `strip_html` bug. After the fix, the fetched page
+  reads as a genuine paywall ("Keep reading with a 7-day free trial...
+  Subscribe to Claude Mythos") — correctly thin, a real access
+  limitation, not something this pipeline can fetch around.
+- **Futurism** (both "Human annihilation via A.I." and "delivery robots
+  swarming") — link-following didn't apply here at all: Futurism's
+  beehiiv-templated digest format (headline + one pull-quote + big
+  sponsored-ad block, then "HEADLINES FROM TODAY"/"OF INTEREST" sections)
+  doesn't match `_gmail_find_view_online_link()`'s phrase-matching regex,
+  so no link was even detected to follow. Still skipped on the raw
+  ~5,000-character body alone. A real, separate, undiagnosed gap — which
+  of several per-story "READ MORE" links in one digest email would even
+  be "the" story is a harder problem than the Substack case, not solved
+  this session.
+- **NFX, Ed Elson, both Prof G Pod episodes, Matt Stoller, Diamandis** —
+  all re-verified with the full linked page fetched (3,500-26,000 real
+  characters each, confirmed CSS-garbage-free post-fix) and all still
+  correctly judged not relevant: general startup-speed advice (NFX),
+  billionaire psychology/culture explicitly framed as *not* about AI in
+  its own opening (Ed Elson), EU political movements and a podcast
+  teaser with no transcript (Prof G Pod), an antitrust/meat-industry
+  piece with one passing AI-adjacent clause in an intro list (Stoller),
+  and UFOs/non-human intelligence, not AI at all (Diamandis). The
+  original relevance judgments were right — this was never a technical
+  gap for these six.
+
+**Not done this session, deliberately:** correcting the `AI/Skipped`
+Gmail label on the Work Evolved message to `AI/Ingested` (and archiving
+it, matching what a normally-processed message gets) — a live
+Gmail-account-state change, flagged to Brian for explicit go-ahead
+rather than just done. The two code fixes and the one recovered note
+are committed regardless; only the label correction is pending.
+
+`python3 -m py_compile` clean, `check_doc_accuracy.py` clean.

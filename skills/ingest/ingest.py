@@ -45,6 +45,16 @@ DEFAULT_SINCE_DAYS = 7.0  # fallback when there's no recorded prior run
 MIN_SINCE_DAYS = 0.1      # floor (~2.4h), avoids a zero-width window on rapid reruns
 
 TAG_RE = re.compile(r"<[^>]+>")
+# <script>/<style> blocks' *content* isn't inside a tag itself, so a plain
+# tag-stripping regex leaves it behind as plain text. Confirmed real
+# 2026-09-10, diagnosing why a real skipped brain@ email (Claude Mythos's
+# "Semiconductors: The Hidden AI Race") still read as not-relevant after
+# fetching its full linked article: the fetched page was 20,000 characters
+# of @font-face CSS declarations before EXTERNAL_LINK_MAX_CHARS's cap was
+# ever reached — the real article text was in there somewhere, past the
+# cap, never seen. Strip these blocks (tags and content) before the
+# generic tag-strip below.
+SCRIPT_STYLE_RE = re.compile(r"<(script|style)\b[^>]*>.*?</\1>", re.IGNORECASE | re.DOTALL)
 SLUG_RE = re.compile(r"[^a-z0-9]+")
 
 
@@ -118,7 +128,8 @@ def resolve_since_days(explicit: float | None) -> tuple[float, str]:
 # -------------------------------------------------------------- fetching --
 
 def strip_html(text: str) -> str:
-    text = TAG_RE.sub(" ", text or "")
+    text = SCRIPT_STYLE_RE.sub(" ", text or "")
+    text = TAG_RE.sub(" ", text)
     text = html.unescape(text)
     return re.sub(r"\s+", " ", text).strip()
 
@@ -1137,6 +1148,25 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
             date_published = published_dt.strftime("%Y-%m-%d")
 
         content = _gmail_extract_body(payload)
+        link = _gmail_find_view_online_link(payload)
+        # Confirmed real 2026-09-10, walking a batch of real brain@ skips
+        # Brian flagged: several genuinely-relevant newsletters (Claude
+        # Mythos's "Semiconductors: The Hidden AI Race" was the clearest
+        # case — 870-char email body, one teaser sentence, real essay only
+        # at the "view online" link) got skipped not because the model
+        # judged them off-topic, but because the email body itself never
+        # carried the actual content — same shape of gap as fetch_entries_x
+        # already closed for external links in tweets, just never applied
+        # here. Reusing that same _fetch_external_link_content() helper:
+        # append the linked article's real text alongside the raw email
+        # body (never replacing it — a short personal note plus a link is
+        # itself sometimes the whole signal, e.g. a flagged white paper)
+        # rather than trying to first guess whether the body "looks thin"
+        # enough to bother.
+        if link:
+            linked_text = _fetch_external_link_content(link)
+            if linked_text:
+                content = f"{content}\n\n[linked page: {link}]: {linked_text}"
         truncated = len(content) > MAX_CONTENT_CHARS
         content = content[:MAX_CONTENT_CHARS]
         if truncated:
@@ -1144,7 +1174,7 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
 
         entries.append({
             "title": header_map.get("Subject", "(no subject)").strip(),
-            "link": _gmail_find_view_online_link(payload),
+            "link": link,
             "author": header_map.get("From", "(unknown sender)").strip(),
             "date_published": date_published,
             "published_dt": published_dt,
