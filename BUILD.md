@@ -3375,11 +3375,9 @@ verdicts:**
   original relevance judgments were right — this was never a technical
   gap for these six.
 
-**Not done this session, deliberately:** correcting the `AI/Skipped`
-Gmail label on the Work Evolved message to `AI/Ingested` (and archiving
-it, matching what a normally-processed message gets) — a live
-Gmail-account-state change, flagged to Brian for explicit go-ahead
-rather than just done. The two code fixes and the one recovered note
-are committed regardless; only the label correction is pending.
+**Gmail label correction:** flagged as pending Brian's go-ahead above;
+he confirmed same session. Work Evolved's message moved from
+`AI/Skipped` to `AI/Ingested` and archived (INBOX removed) via the
+Gmail API, matching exactly what a normally-processed message gets.
 
 `python3 -m py_compile` clean, `check_doc_accuracy.py` clean.
