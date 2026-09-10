@@ -3151,3 +3151,101 @@ currency in canon) stands as written — untouched by this pass, which
 resolved specific queued items, not the structural question. Publishing
 to Substack itself is still Brian's own manual paste-and-click step, same
 as every other output — nothing here posts on his behalf.
+
+### 2026-09-10 — real `x-timeline` sourcing bug found and fixed (not just
+the auth outage); LinkedIn/Aaron Levie investigated, not built
+
+Continuing the `/maintain` session from earlier the same day (the X
+7-day-outage report). Brian's steer: he doesn't have the N100-class
+always-on home box yet, so the "run X locally" infrastructure decision
+(self-hosted runner vs. standalone local script — see the two options
+raised earlier this session) is deferred until that hardware exists — not
+resolved, just explicitly parked. In the meantime: "check twitter from
+here" (this machine's network isn't blocked, same as every prior local
+retest since 08-31), plus a real content complaint — Brian named Aaron
+Levie's LinkedIn as the kind of true enterprise/regulated-environment
+voice this brain's sources are missing, and asked about computer-use/
+browser options for LinkedIn specifically.
+
+**X — ran locally, and found a second, more important bug than the auth
+outage.** Confirmed `@levie` (Aaron Levie) is one of only 15 accounts
+`brianmaddenai` follows on X, and — checked directly via
+`/2/users/{id}/tweets` — posts roughly daily on exactly the material
+Brian wants (Box's own enterprise evals of GPT-6/Fable 5.1, Q2 earnings,
+enterprise AI strategy, agent security). A local `--source x-timeline
+--since-days 7` catch-up run nonetheless surfaced zero Levie content,
+one Gary Marcus item. Root cause, confirmed via the raw API response, not
+guessed: `fetch_entries_x()` requested only `max_per_source` raw tweets
+from the API in one page (5 on a normal scheduled run) — identical shape
+to the `EMAIL_MIN_PER_SOURCE` bug already fixed 2026-08-14 for `brain@`,
+just never applied to X. Widening the raw request alone wasn't enough
+either: a direct check of the raw payload showed `meta.next_token`
+present and `result_count: 92` covering only ~1.3 days back — Gary Marcus
+alone posted 65 times in that span, meaning **no single-page fetch, at
+any size, can reach a 7-day window** once one followed account is this
+prolific. Fixed in two parts, both verified against real data before
+committing:
+
+1. **Real pagination** (`X_TIMELINE_MAX_PAGES = 10`, following
+   `meta.next_token`) so the full `since_days` window is actually
+   covered, not just one page of it — bounded by a safety cap, but the
+   real termination condition is `start_time` itself (server-enforced),
+   so an ordinary day's run stops after 1-2 pages, not 10.
+2. **Per-author cap** (`X_PER_AUTHOR_CAP = 5`) applied before the overall
+   `X_MIN_PER_SOURCE = 30` size cap. Pagination alone wasn't sufficient —
+   confirmed by testing: even after fetching the full window, a plain
+   recency-sorted top-30 slice *still* handed Levie zero slots, because
+   Marcus's ~50-65/day volume alone filled all 30 positions. Capping each
+   followed account's contribution first, then taking the overall top-N,
+   is what actually let a quieter high-value account through regardless
+   of how prolific others in the follow list are.
+
+Verified end to end with three sequential real runs (not a synthetic
+test): first run (pre-fix) — 1 note, no Levie. Second run (pagination
+only) — 5 notes, still no Levie. Third run (both fixes) — 7 more notes,
+two genuinely attributed to `@levie` (`author: '@levie'` in frontmatter,
+real `source_url` pointing at his actual posts) plus one more from
+`@citrix`. 13 total new ingest notes this session, zero duplicate
+`source_url`s across all three runs (dedup via already-written notes
+worked correctly throughout). `python3 -m py_compile` clean.
+
+**Deliberately not done this session:** regenerating or re-sending
+today's already-published brief/email with this new material — same
+question the 2026-09-04 X-recovery session left open (whether a second
+send needs Brian's explicit OK), not re-decided here. These 13 notes sit
+in `ingest/` unbriefed; the next full pipeline run (tomorrow, if
+`brief.py`'s dedup is date-of-write-agnostic the way the 09-04 recovery
+already demonstrated) or an explicit `/maintain` follow-up will pick them
+up. Also worth flagging: this fix fires correctly from this local
+machine, but does **not** touch the actual auth-outage-on-Actions problem
+from earlier today's report — X is still 401ing on the GitHub-hosted
+scheduled runner network; this bug was independent and additive (would
+have silently starved out Levie even on a day X's Actions auth worked
+fine, back before 08-31).
+
+**LinkedIn/Aaron Levie — investigated directly, not built.** Checked
+what's actually visible logged out rather than assuming: a guessed
+`/in/levie/` vanity URL resolved to an unrelated Indonesian student's
+public-preview profile (real person, nothing to do with Aaron Levie —
+LinkedIn's public-preview behavior for low-traffic profiles, not a match)
+— confirms guessing vanity slugs is unreliable. `/in/aaronlevie/`, his
+real profile, hit a full sign-up/login wall with zero public preview —
+no logged-out path exists to his posts at all, unlike Substack's public
+`/reads` endpoint or X's API. Reading his LinkedIn activity would require
+driving the browser with Brian's own logged-in session (computer use) —
+flagged to Brian as a materially different risk than every other source
+in this pipeline: LinkedIn actively detects and can suspend accounts for
+automated/bot-like browsing, and it's explicitly against their ToS, in a
+way Substack's public JSON endpoints and X's official API are not. Not
+attempted this session — a deliberate call for Brian to make (one-off
+manual logged-in read vs. a recurring automated job vs. skipping
+LinkedIn and finding another RSS/API-reachable voice with the same
+enterprise/regulated-environment lens), same treatment this repo already
+gives the Substack session-cookie draft-push question.
+
+Committed: `skills/ingest/ingest.py` (the two fixes above) + the 13 new
+ingest notes. `ingest/.last_run_sources.json` deliberately left untouched
+— it still accurately shows this morning's scheduled run failing on the
+auth block, which remains true; today's local run was a `--source`-
+filtered test, not a full-registry run, so it doesn't belong in that
+file's per-day account.
