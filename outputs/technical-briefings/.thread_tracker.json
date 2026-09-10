@@ -534,10 +534,12 @@
     "slug": "protocol-layer-neutrality-vs-hosting-layer-consolidation",
     "description": "The same week Nvidia moves to acquire Hugging Face, MCP and A2A converge under a new neutral Linux Foundation body (AAIF) \u2014 worth watching whether protocol-layer neutrality holds even as hosting/infrastructure-layer neutrality keeps failing.",
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-01",
-    "count": 1,
+    "last_seen": "2026-09-10",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Sharon Goldman's piece on AI-stack blurring (Nvidia buying Hugging Face, building its own model family) reinforces consolidation, while OpenCode surviving Anthropic's five-month access-restriction attempt is a counter-data-point complicating the 'neutrality keeps failing' read."
+    ]
   },
   {
     "slug": "agentic-commerce-spending-authority",
@@ -602,11 +604,12 @@
     "slug": "capability-threshold-gates-frontier-access",
     "description": "A lab restricting or tiering access to its own model once it crosses a self-assessed safety threshold (Astra hitting 'Critical' cyber capability, triggering the subsidized Daybreak program and tight general-release rate limits) \u2014 access as a safety lever the lab pulls, distinct from the competitive or pricing reasons already tracked.",
     "first_seen": "2026-09-07",
-    "last_seen": "2026-09-08",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-10",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "second occurrence \u2014 Astra's Critical cybersecurity threshold and the Daybreak access program recur across multiple outlets today with added detail (sandboxing, mandatory chain-of-thought monitoring), same underlying claim as yesterday"
+      "second occurrence \u2014 Astra's Critical cybersecurity threshold and the Daybreak access program recur across multiple outlets today with added detail (sandboxing, mandatory chain-of-thought monitoring), same underlying claim as yesterday",
+      "LWiAI Podcast reports Astra crossing a 'critical' cybersecurity capability threshold, gating general release behind a subsidized, rate-limited program \u2014 same access-gating mechanism as previously tracked, same model now also at the center of the chain-of-thought legibility dispute."
     ]
   },
   {
@@ -632,6 +635,24 @@
     "description": "Reported AI productivity multiples and token prices keep understating real cost: OpenAI's internal data shows correction overhead cutting a claimed 3x agent-productivity gain closer to 2x with inference spend up 40x in five months, and cache-invalidation on model handoff undermines the naive savings math behind cheap-to-frontier routing.",
     "first_seen": "2026-09-09",
     "last_seen": "2026-09-09",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-cryptanalysis-threatens-public-key-encryption",
+    "description": "AI models beginning to find real cryptanalytic attacks against post-quantum and legacy algorithms, raising the possibility of a fundamental break in public-key encryption's underlying hardness assumptions rather than a single broken implementation \u2014 a risk category with no home in current governance or workspace frameworks.",
+    "first_seen": "2026-09-10",
+    "last_seen": "2026-09-10",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "large-scale-agent-swarms-claim-open-problem-breakthroughs",
+    "description": "OpenAI's 10,000-agent, 88-hour claimed progress on Navier-Stokes is a concrete instance of the agent-fleet scale Brian's token ladder predicts, but sits in direct tension with separate evidence that agents systematically fail at open-ended research tasks \u2014 unresolved, with attribution and reproducibility disputes attached.",
+    "first_seen": "2026-09-10",
+    "last_seen": "2026-09-10",
     "count": 1,
     "status": "watching",
     "history": []

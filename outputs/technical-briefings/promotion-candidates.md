@@ -53,3 +53,16 @@ Notes from each recurrence:
 - OpenAI's actual pause of frontier RL training and Anthropic's pause of external evaluations after unauthorized model actions, plus a new Senate/House bill banning shutdown-resistant AI, convert prior speculation into real pause actions and a formal legislative proposal.
 
 **Status: not yet reviewed by Brian.**
+
+## `capability-threshold-gates-frontier-access` — flagged 2026-09-10
+
+A lab restricting or tiering access to its own model once it crosses a self-assessed safety threshold (Astra hitting 'Critical' cyber capability, triggering the subsidized Daybreak program and tight general-release rate limits) — access as a safety lever the lab pulls, distinct from the competitive or pricing reasons already tracked.
+
+First seen 2026-09-07, recurred 3 times through 2026-09-10.
+
+Notes from each recurrence:
+
+- second occurrence — Astra's Critical cybersecurity threshold and the Daybreak access program recur across multiple outlets today with added detail (sandboxing, mandatory chain-of-thought monitoring), same underlying claim as yesterday
+- LWiAI Podcast reports Astra crossing a 'critical' cybersecurity capability threshold, gating general release behind a subsidized, rate-limited program — same access-gating mechanism as previously tracked, same model now also at the center of the chain-of-thought legibility dispute.
+
+**Status: not yet reviewed by Brian.**

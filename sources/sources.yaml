@@ -579,7 +579,9 @@ sources:
     name: Ghosts of Electricity
     type: person
     url: https://aleximas.substack.com
-    feed_url: https://aleximas.substack.com/feed
+    feed_url: null
+    sender: aleximas@substack.com
+    ingest_method: email
     priority: regular
     note: "Alex Imas"
 
@@ -602,7 +604,9 @@ sources:
     name: The Wake Up Call
     type: person
     url: https://thewakeupcallnewsletter.substack.com
-    feed_url: https://thewakeupcallnewsletter.substack.com/feed
+    feed_url: null
+    sender: thewakeupcallnewsletter@substack.com
+    ingest_method: email
     priority: regular
     note: "Scott Barker"
 
@@ -1117,3 +1121,12 @@ sources:
     sender: kunchenguid@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-09 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: sebastian-raschka-phd-from-ahead-of-ai
+    name: "Sebastian Raschka, PhD from Ahead of AI"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: sebastianraschka@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-10 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
