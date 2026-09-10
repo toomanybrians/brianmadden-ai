@@ -3249,3 +3249,50 @@ ingest notes. `ingest/.last_run_sources.json` deliberately left untouched
 auth block, which remains true; today's local run was a `--source`-
 filtered test, not a full-registry run, so it doesn't belong in that
 file's per-day account.
+
+### 2026-09-10 (continued) — Brian's explicit call: no count cap on
+`x-timeline` at all; Levie's LinkedIn wired up manually, both verified
+
+Brian's reaction to the per-author-cap fix above: don't arbitrarily cap
+this — "I don't even care if it's 300 or 3000 or 30... don't try to save
+$0.02 for my $700k salary career that is critical." Removed
+`X_MIN_PER_SOURCE` and `X_PER_AUTHOR_CAP` entirely. `fetch_entries_x` now
+paginates the full `since_days` window (bumped `X_TIMELINE_MAX_PAGES` to
+100 — a pure runaway guard, not a working limit; the real stopping
+condition is `start_time`, enforced server-side) and hands every entry
+straight to `extract()` uncapped — relevance filtering there is the only
+gate now, same as it always was for every other source. `max_per_source`
+is still accepted by the function signature for interface parity with
+`fetch_entries()`/`fetch_entries_email()` but is deliberately unused.
+Verified against real data before committing: a `--since-days 3` run (no
+artificial limit) found 204 entries, wrote 41 real notes — order of
+magnitude more than the old 5-per-run default ever surfaced, including 4
+more genuinely attributed to `@levie`.
+
+**Aaron Levie's LinkedIn — wired up manually, not via browser automation.**
+Brian: don't browse LinkedIn (confirmed the account-risk/ToS concern
+flagged in the entry above was the right call to surface, not to solve
+by just doing it). Instead: he pastes the feed content himself, this
+brain treats it like any other source. Registered `aaron-levie-linkedin`
+in `sources/sources.yaml` with a new `ingest_method: manual` value
+(documented in the file's own header comment) — ingest.py never polls
+it; it exists purely so hand-processed notes cite a real, curated source
+instead of an ad hoc one, same shape as the `brain@` personal-flag path
+(open decision #9) just arriving via chat instead of email. Processed
+Brian's first real paste (9 posts, 2 skipped as content-free — a pure
+company repost and an image-only "always fun hearing from customers"
+post with nothing to extract) through the exact same `extract()`/
+`write_note()` pipeline every other source uses, calling those functions
+directly rather than hand-writing prose, so the output matches the
+established insights format exactly. 7 real notes written, `ingest_method:
+manual` in each one's frontmatter, `source_url` pointing at his profile
+(no per-post permalink survives a plain copy-paste of the feed view — a
+real, disclosed limitation, not fabricated). Going forward: Brian pastes
+again whenever he wants a capture; nothing here dedups across pastes
+automatically since there's no unique per-post URL to key on — a human
+judgment call each time, same as everything else in this manual lane.
+
+`python3 -m py_compile` clean, `check_doc_accuracy.py` clean. Committed
+and pushed: the two ingest.py changes, the sources.yaml addition, and 48
+new ingest notes total from this session's verification + real-content
+runs (41 x-timeline + 7 aaron-levie-linkedin).

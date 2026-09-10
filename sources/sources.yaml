@@ -39,7 +39,14 @@
 #               (polls brain@brianmadden.ai via Gmail API) instead of the
 #               feed_url poll. "x" routes through fetch_entries_x() instead
 #               (polls the brianmaddenai account's home timeline — see the
-#               x-timeline entry below). Omit for normal RSS/Atom sources.
+#               x-timeline entry below). "manual" means ingest.py never
+#               polls this source at all — content only arrives when Brian
+#               pastes it into a session for hand-extraction (added
+#               2026-09-10 for aaron-levie-linkedin: no feed exists, and his
+#               profile requires a LinkedIn login even to view, so there's
+#               no automatable path — same human-in-the-loop shape as a
+#               brain@ personal flag, open decision #9, just via chat
+#               instead of email). Omit for normal RSS/Atom sources.
 #   transcript_mode — podcast sources only. "published" fetches a real
 #               transcript URL (currently only 80000-hours-podcast has one,
 #               via its feed's <podcast:transcript> tag). "transcribe"
@@ -771,6 +778,29 @@ sources:
     feed_url: https://linas.substack.com/feed
     priority: regular
     note: "Personal Substack follow, initially flagged as possibly off-topic during a routine review, confirmed on-topic by Brian 2026-09-04."
+
+  - id: aaron-levie-linkedin
+    name: "Aaron Levie (LinkedIn)"
+    type: person
+    url: https://www.linkedin.com/in/boxaaron/
+    feed_url: null
+    ingest_method: manual
+    priority: must-follow
+    note: >
+      Box CEO — exactly the enterprise/regulated-environment AI perspective
+      Brian flagged this brain's sources were missing (2026-09-10). Followed
+      on X too (see x-timeline), but his LinkedIn posts are often longer and
+      arrive first there. No feed exists and his real profile requires a
+      LinkedIn login even to view (confirmed directly, 2026-09-10 — no
+      public preview at all, unlike a lower-traffic profile's), and Brian
+      declined browser automation against his own LinkedIn session (real
+      ToS/account-risk, unlike Substack's public endpoints or X's official
+      API). So: manual only — Brian pastes his feed activity into a session
+      when he wants it captured, same human-in-the-loop shape as a brain@
+      personal flag (open decision #9), just arriving via chat instead of
+      email. Not polled by ingest.py; exists here for attribution/
+      registration so notes written this way cite a real, curated source
+      instead of an ad hoc one.
 
   - id: the-deep-view
     name: "The Deep View"

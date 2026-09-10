@@ -395,21 +395,17 @@ def enrich_with_transcript(entry: dict, source: dict) -> None:
 X_API_BASE = "https://api.x.com/2"
 X_TOKEN_URL = "https://api.x.com/2/oauth2/token"
 X_ENV_VARS = ("X_CLIENT_ID", "X_CLIENT_SECRET", "X_ACCESS_TOKEN", "X_REFRESH_TOKEN")
-# Same shape as EMAIL_MIN_PER_SOURCE below: max_per_source's general default
-# (5) is tuned for a single RSS feed, not a combined home timeline aggregating
-# every account brianmaddenai follows. Confirmed real 2026-09-10: at cap 25,
-# Aaron Levie (one of only 15 followed accounts, posting ~daily on exactly
-# the enterprise-AI material this brain wants) was crowded out entirely by
-# one higher-volume followed account's retweets within the same 7-day
-# window — real, valuable content silently never reaching the extraction
-# step, not a relevance-filter judgment call.
-X_MIN_PER_SOURCE = 30
-# Caps any single followed account's contribution to the combined timeline
-# before the overall size cap above is applied — see fetch_entries_x's
-# diversification step. Without this, a top-N-by-recency slice just re-crowds
-# out quieter accounts one level later than the raw-fetch fix does (confirmed
-# real 2026-09-10: Gary Marcus alone filled all 30 of X_MIN_PER_SOURCE).
-X_PER_AUTHOR_CAP = 5
+# max_per_source does NOT apply to fetch_entries_x — Brian's explicit call,
+# 2026-09-10: this is a combined home timeline aggregating every account
+# brianmaddenai follows, and any count cap here (even a generous one) just
+# recreates the crowding-out bug found the same day in a different shape —
+# whatever the cap, a high-volume followed account fills it and a quieter
+# one (the reason this was being investigated: Aaron Levie) loses. Real
+# relevance filtering already happens downstream, per entry, in extract()
+# — that's the actual gate, and the per-call LLM cost of running every
+# fetched post through it is not a real constraint here. So: paginate the
+# full since_days window (see X_TIMELINE_MAX_PAGES below) and hand every
+# entry in it to extraction, uncapped.
 EXTERNAL_LINK_MAX_CHARS = 20000  # per linked article — keeps one long page from dominating an entry
 
 
@@ -570,13 +566,19 @@ def _fetch_external_link_content(url: str) -> str:
 
 def fetch_entries_x(source: dict, since_days: float, max_per_source: int):
     """Polls the authenticated X account's reverse-chronological home
-    timeline — everyone it follows, in one call, rather than polling each
-    person separately (docs/full-source-text-ingestion.md Workstream F).
-    Same (entries, error) contract as fetch_entries(). For retweets/
-    quotes, folds in the full referenced post's text, not just the
-    wrapper; for posts linking elsewhere, fetches that page's content too.
-    Both are ephemeral input to the one extraction call downstream, same
-    as everything else — never persisted raw (MAINTAINER.md rule 2).
+    timeline — everyone it follows, paginated across the full since_days
+    window, rather than polling each person separately
+    (docs/full-source-text-ingestion.md Workstream F). Same (entries, error)
+    contract as fetch_entries(). For retweets/quotes, folds in the full
+    referenced post's text, not just the wrapper; for posts linking
+    elsewhere, fetches that page's content too. Both are ephemeral input to
+    the one extraction call downstream, same as everything else — never
+    persisted raw (MAINTAINER.md rule 2).
+
+    max_per_source is accepted only for interface parity with
+    fetch_entries()/fetch_entries_email() (the caller dispatches all three
+    the same way) — deliberately unused here, see the comment above
+    X_ENV_VARS.
     """
     if not x_is_configured():
         return [], "X_CLIENT_ID/SECRET/ACCESS_TOKEN/REFRESH_TOKEN not set — see .env.example"
@@ -603,14 +605,15 @@ def fetch_entries_x(source: dict, since_days: float, max_per_source: int):
     # showed there was plenty more. That silently pushed a lower-volume
     # followed account (Aaron Levie, posting ~daily on exactly the
     # enterprise-AI material this brain wants) entirely out of the window
-    # before extraction ever saw his posts — same shape of bug as
-    # EMAIL_MIN_PER_SOURCE below, just one level earlier (page count, not
-    # per-source cap). Paginate for real via `next_token`, bounded by
-    # MAX_PAGES as a safety cap against a pathological loop — the real
-    # stopping condition is `start_time` itself, which the API already
-    # enforces server-side, so this naturally terminates once the window's
-    # tweets are exhausted rather than running to the cap on an ordinary day.
-    X_TIMELINE_MAX_PAGES = 10
+    # before extraction ever saw his posts. Paginate for real via
+    # `next_token` — Brian's explicit call, same session: don't cap this to
+    # save API/LLM cost, completeness matters more here. X_TIMELINE_MAX_PAGES
+    # is a pure runaway guard, not a working limit — the real stopping
+    # condition is `start_time`, enforced server-side, so an ordinary run
+    # (even a multi-day catch-up) terminates naturally well under this long
+    # before it would ever bind; a real API rate-limit error also stops the
+    # loop cleanly (see the except clause below) rather than raising.
+    X_TIMELINE_MAX_PAGES = 100
     tweets: list = []
     included_tweets: dict = {}
     included_users: dict = {}
@@ -700,24 +703,10 @@ def fetch_entries_x(source: dict, since_days: float, max_per_source: int):
         key=lambda e: e["published_dt"] or datetime.min.replace(tzinfo=timezone.utc),
         reverse=True,
     )
-    # A pure recency top-N here would just reintroduce the crowding problem
-    # one level later: confirmed real 2026-09-10, even after paginating the
-    # full window (above), the plain most-recent-N slice still handed
-    # Aaron Levie zero slots — Gary Marcus's ~50-65/day volume alone filled
-    # every position in the top 30. Cap per author first, preserving
-    # relative recency order, so a quieter high-value account gets a real
-    # floor regardless of how prolific others in the follow list are; only
-    # then apply the overall size cap.
-    per_author_counts: dict[str, int] = {}
-    diversified = []
-    for e in entries:
-        author = e["author"]
-        if per_author_counts.get(author, 0) >= X_PER_AUTHOR_CAP:
-            continue
-        per_author_counts[author] = per_author_counts.get(author, 0) + 1
-        diversified.append(e)
-    effective_max = max(max_per_source, X_MIN_PER_SOURCE)
-    return diversified[:effective_max], None
+    # No count cap here — see the module-level comment on X_ENV_VARS above.
+    # Every entry in the paginated window goes to extraction; relevance
+    # filtering there is the real, and only, gate.
+    return entries, None
 
 
 GMAIL_USER = "brain@brianmadden.ai"
