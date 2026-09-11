@@ -411,7 +411,9 @@ sources:
     name: "Kinder Futures: Dispatches on AI, Work & What Comes Next"
     type: person
     url: https://mollykinder2.substack.com
-    feed_url: https://mollykinder2.substack.com/feed
+    feed_url: null
+    sender: mollykinder2@substack.com
+    ingest_method: email
     priority: regular
     note: "Molly Kinder — AI's effect on labor markets"
 

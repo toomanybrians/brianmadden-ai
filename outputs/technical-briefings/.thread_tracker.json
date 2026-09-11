@@ -652,7 +652,18 @@
     "slug": "large-scale-agent-swarms-claim-open-problem-breakthroughs",
     "description": "OpenAI's 10,000-agent, 88-hour claimed progress on Navier-Stokes is a concrete instance of the agent-fleet scale Brian's token ladder predicts, but sits in direct tension with separate evidence that agents systematically fail at open-ended research tasks \u2014 unresolved, with attribution and reproducibility disputes attached.",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-10",
+    "last_seen": "2026-09-11",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "The Navier-Stokes claim now carries a specific attribution dispute \u2014 mathematicians allege OpenAI used their private communications/work without credit, OpenAI's denial is being called evasive, and Sen. Blumenthal has sent a formal letter demanding details on the episode."
+    ]
+  },
+  {
+    "slug": "sector-specific-hiring-freeze-vs-net-job-creation-claims",
+    "description": "Concrete BLS/JOLTS data showing a 700K-job, hiring-freeze-driven hollowing-out in finance/info/professional-services since April 2023 directly contradicts widely-cited 'AI is a net job creator' claims (Economist, 1M+ new positions) \u2014 neither side engages with the other's evidence.",
+    "first_seen": "2026-09-11",
+    "last_seen": "2026-09-11",
     "count": 1,
     "status": "watching",
     "history": []

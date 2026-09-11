@@ -1,12 +1,12 @@
 {
-  "run_utc": "2026-09-10T06:34:53.994103+00:00",
+  "run_utc": "2026-09-11T06:34:02.867010+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "error",
-      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a38c6126da0ae056-IAD'}]"
+      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a3949d8ef8d31be5-SJC'}]"
     },
     {
       "id": "ethan-mollick",
@@ -21,7 +21,7 @@
       "name": "Nate B. Jones",
       "method": "feed",
       "status": "error",
-      "reason": "fetch failed: 500 Server Error: Internal Server Error for url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ"
+      "reason": "fetch failed: 404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ"
     },
     {
       "id": "daniel-miessler",
@@ -44,16 +44,16 @@
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "moonshots",
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "dwarkesh",
@@ -92,24 +92,24 @@
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "no-priors",
       "name": "No Priors",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "80000-hours-podcast",
       "name": "The 80,000 Hours Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "lex-fridman",
@@ -132,8 +132,8 @@
       "name": "The Algorithmic Bridge",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "exponential-view",
@@ -148,8 +148,8 @@
       "name": "Ahead of AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ai-futures-project",
@@ -269,9 +269,10 @@
     {
       "id": "kinder-futures",
       "name": "Kinder Futures: Dispatches on AI, Work & What Comes Next",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://mollykinder2.substack.com/feed"
+      "method": "email",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "labor-matters",
@@ -286,8 +287,8 @@
       "name": "Last Week in AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "marcus-on-ai",
@@ -310,8 +311,8 @@
       "name": "Not Boring",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "prof-g-media",
@@ -474,8 +475,8 @@
       "name": "AI Frontiers",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "chinai-newsletter",
@@ -573,6 +574,13 @@
       "method": "feed",
       "status": "error",
       "reason": "fetch failed: 403 Client Error: Forbidden for url: https://linas.substack.com/feed"
+    },
+    {
+      "id": "aaron-levie-linkedin",
+      "name": "Aaron Levie (LinkedIn)",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "no feed_url and no sender configured \u2014 not currently being checked"
     },
     {
       "id": "the-deep-view",
@@ -838,6 +846,13 @@
     {
       "id": "kun-chen-from-kun-s-field-notes",
       "name": "Kun Chen from Kun's Field Notes",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "sebastian-raschka-phd-from-ahead-of-ai",
+      "name": "Sebastian Raschka, PhD from Ahead of AI",
       "method": "feed",
       "status": "skipped",
       "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
