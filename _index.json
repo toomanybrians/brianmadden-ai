@@ -78,7 +78,7 @@
         "frontier",
         "developing-arguments"
       ],
-      "word_count": 9828,
+      "word_count": 10432,
       "staleness_threshold": "weeks",
       "updated": "2026-09-04",
       "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
@@ -190,7 +190,7 @@
         "enterprise-ai-strategy",
         "second-brain"
       ],
-      "word_count": 1007,
+      "word_count": 1308,
       "staleness_threshold": "stable",
       "date": "2026-02-25",
       "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
@@ -241,7 +241,7 @@
         "cognitive-stack",
         "enterprise-ai-strategy"
       ],
-      "word_count": 950,
+      "word_count": 1075,
       "staleness_threshold": "stable",
       "date": "2025-12-18",
       "original_url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/",
@@ -253,7 +253,8 @@
         "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
         "2026-02-25-cognitive-stack"
       ],
-      "description": "Workers don't think like programmers, they think like managers. They want to hand off tasks, not build workflows. The industry is investing at the wrong layer of the stack."
+      "description": "Workers don't think like programmers, they think like managers. They want to hand off tasks, not build workflows. The industry is investing at the wrong layer of the stack.",
+      "status": "archived"
     },
     {
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
@@ -507,7 +508,7 @@
       "authority_level": 5,
       "file_type": "queue",
       "tags": ["current-thinking", "frontier", "post-ideas", "pipeline"],
-      "word_count": 933,
+      "word_count": 1404,
       "staleness_threshold": "weeks",
       "updated": "2026-09-04",
       "description": "A curated queue of pieces Brian is considering writing. Ideas only — nothing here is a position, a commitment, or a schedule. The lowest-authority file in the repo."

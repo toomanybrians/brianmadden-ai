@@ -3381,3 +3381,68 @@ he confirmed same session. Work Evolved's message moved from
 Gmail API, matching exactly what a normally-processed message gets.
 
 `python3 -m py_compile` clean, `check_doc_accuracy.py` clean.
+
+### 2026-09-13 — Weekly Wrap Up ceremony (window Sep 5–11), run live on a plane
+
+`/maintain` + `/weekly-update` in one session. Sync was clean: 1 commit
+behind origin (that morning's automated 09-11 ingest+brief run),
+fast-forwarded, working tree clean, nothing local ahead.
+
+**Window correction worth remembering:** `gather.py` defaulted the window
+to "since last run" = 2026-09-04 11:12 UTC, which re-swept the Sep 4 daily
+brief that was *already* covered in last week's "Aug 28–Sep 4" issue.
+Brian caught it. This week was published as **Sep 5–11** (the Sep 7–11
+weekday briefs), no overlap, no gap. This is a structural quirk of the
+last-run timestamp landing on a day whose brief was already used — worth
+watching each ceremony: check the prep doc's "This week's daily briefs"
+list against the *previous* issue's date range before drafting.
+
+**Both queues cleared.** Promotion-candidates (5 entries) and staleness
+(5 items + 1 framework) fully resolved, all on Brian's live calls:
+- **Promoted** (into `me/developing-thinking.md` "What's connecting"):
+  (1) the **AI-slowdown second-order effect** on enterprise — Brian's own
+  lens on the week's doom coverage, and the consolidation home for the
+  four AI-safety promotion threads (CoT-legibility, behavioral-testing,
+  RSI-speculation, capability-threshold-gates) rather than four separate
+  doom threads; (2) the **execute-now / knowledge-factory-as-destination**
+  argument ("shit or get off the pot"; no point doing "Wave 1" unless
+  building toward the factory; Nancy's "interstitial tissue" line).
+- **Reframed:** the "three waves" section for Hector's pushback —
+  factory is the destination, old Wave 1 is the permanent connective
+  layer, not a passing stage.
+- **Revised:** agent-identity note dropped the "no vendor building this"
+  claim (CrowdStrike shipped it), kept the IT-provisioning bottleneck.
+- **Cut:** "leave a PDF" consulting note (covered by published work);
+  "AI switchboard" naming note (neutral-routing market closed).
+- **Archived:** `frameworks/delegation-not-automation.md` → folded its
+  unique bits (automation-vs-delegation table, BlackBerry/iPhone analogy,
+  RPA track record) into `cognitive-stack.md`. 2nd archived framework;
+  active count 11→10. All machine indexes + consumer docs updated to
+  match (see governance-log 2026-09-13); `check_doc_accuracy.py` clean.
+
+**Brian's takeaways this session (his words, captured in the post):**
+(1) AI doom isn't his beat, but the second-order enterprise effect of a
+slowdown is — air cover for laggards vs. AI-native shops that won't slow,
+and it collides with his "mid-tier already does everything important"
+position; he genuinely can't call which way it breaks. (2) "Shit or get
+off the pot" (his dad's phrase) — the factory works, the model is no
+longer the blocker (Astra/Fable 5.1), so it's execution time. (3) On the
+oversight fight: the label doesn't matter — a model deciding without a
+logged thought process is an oversight problem regardless of the reason
+(from his own Sep 10 restack). (4) Genuinely pleased to see another
+subscriber-AI-second-brain project ship (as an installable skill).
+
+**Follow-up writing tasks — Brian's own count: ~5 posts owed.** In
+`me/post-ideas.md`: the knowledge-factory/execute post (the "make a plan"
+one), the slowdown second-order post, the compute-availability/cloud-
+elasticity post (still wanted), and the bottleneck / "deeper not faster"
+post. Plus one he has queued for "tomorrow" that he'll share separately,
+and the knowledge-factory post he named directly (= the execute-now idea).
+
+**Queues now empty.** `promotion-candidates.md` cleared; staleness file is
+a fresh snapshot (overwritten each run). Nothing pending in either.
+
+**Result:** committed this session. Rendered post at
+`outputs/weekly-updates/2026/09/2026-09-13.md` (+ gitignored `.html`).
+**Push pending Brian's go-ahead** — he was reviewing the rendered post
+when this was written; Substack paste-in is manual as always.

@@ -1163,3 +1163,70 @@ found later).
 
 **Result: COMMITTED AND PUSHED** (`5df0294`) — Brian confirmed live,
 same pattern as the entry above.
+
+## 2026-09-13 — Weekly Wrap Up ceremony (window Sep 5–11): promotion +
+staleness queues cleared, one framework archived, two developing-thinking
+promotes
+
+**What changed in canon (Brian's live decisions, not machine-generated):**
+- `me/developing-thinking.md` — **promoted** two new "What's connecting"
+  entries: (1) the second-order effect of an AI slowdown on enterprise AI
+  (Brian's own lens on the week's doom coverage — not whether the doom is
+  real, but what a pause does to companies; honest that he can't call
+  which way it breaks), which **consolidates** the four AI-safety
+  promotion-candidate threads into one enterprise question rather than
+  four doom threads; (2) the "knowledge factory is the destination — now
+  execute" argument ("shit or get off the pot"; no reason to bring AI into
+  the estate unless building toward the factory; Nancy's "interstitial
+  tissue" framing). **Folded/reframed:** the "three waves" section updated
+  for Hector's pushback — factory-as-destination, old "Wave 1" recast as
+  the permanent connective layer, not a passing stage. **Revised:** the
+  agent-identity note dropped its "no vendor is building this" claim
+  (overtaken by CrowdStrike's Agentic Identity Provider, per the Sept 4
+  note), keeping the IT-operationalization bottleneck. **Cut:** "The
+  consulting 'leave a PDF' model is dead" (fully covered by the published
+  *Hey creators* piece + `subscribable-brains.md`) and the "AI switchboard"
+  naming note (neutral-routing market has closed, per Brian's own August
+  notes). `## Right now` refreshed to 4 items; `updated`/`last_reviewed`
+  bumped to 2026-09-13, `status: reviewed-and-updated`.
+- `frameworks/delegation-not-automation.md` — **archived** (`status:
+  archived` + banner), superseded by `cognitive-stack.md`. Its distinctive
+  artifacts (automation-vs-delegation table, BlackBerry/iPhone analogy, RPA
+  1%-vs-99% track record) folded into `frameworks/cognitive-stack.md` as a
+  new "The automation fallacy" section. Second framework to be archived
+  (after `five-levels-of-ai-in-knowledge-work.md`); active count 11 → 10.
+- `me/post-ideas.md` — added two ideas (the knowledge-factory/execute post;
+  the slowdown second-order post) and folded the cleared
+  `machine-speed-vs-human-absorption` thread into the existing bottleneck
+  post idea, which also gained the "deeper, not faster" strand. Brian's
+  running tally: 5 posts now queued/owed.
+- `outputs/technical-briefings/promotion-candidates.md` — all 5 entries
+  resolved (4 consolidated into the slowdown thread, 1 folded into a post
+  idea); queue now empty.
+
+**Machine indexes / consumer docs updated for the archival:**
+`_index.json` (delegation entry marked `status: archived`; word counts
+refreshed for the four changed canon files), `CLAUDE.md`/`AGENTS.md`
+(active-framework count 11→10, "2 archived" in the tree, delegation line
+annotated), `README.md` (11→10), `llms.txt` (header count 11→10, delegation
+bullet removed, date bumped), `COLLECTIONS.md` (delegation framework line
+removed, mirroring the five-levels precedent — the delegation *post* stays).
+
+**Process/product:**
+- `outputs/weekly-updates/2026/09/2026-09-13.md` — the Weekly Wrap Up issue
+  for Sep 5–11 (window corrected off the double-counted Sep 4, which was
+  already covered in last week's Aug 28–Sep 4 issue). Rendered to HTML for
+  Substack paste-in.
+
+**Why:** Manual weekly ceremony, run live with Brian (on a plane, Sunday).
+Both new promotes and the whole `## Right now` refresh came directly from
+Brian's own commentary this session, not queue triage — captured in his
+words per the ceremony's non-negotiable.
+
+**Automated checks:** `_index.json` re-validated as JSON after surgical
+edits; `python3 scripts/check_doc_accuracy.py` clean (0 warnings); em-dash
+and backtick pre-publish checks clean on the rendered post per
+`me/style-guide.md`.
+
+**Result: COMMITTED** this session; push pending Brian's go-ahead (he's
+reviewing the rendered post).

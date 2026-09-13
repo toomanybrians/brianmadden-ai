@@ -41,6 +41,20 @@ The top-down trajectory: AI companies entered from layer 1. LLMs that understand
 
 These trajectories overlap in the middle (layers 3 and 4). Both modern AI companies and legacy automation vendors cover the skills and agentic layers. But humans prefer to connect at the intelligence layer—the delegation thesis holds that workers don't care about automations and agents. They want to tell their AI what they want and have it happen.
 
+## The automation fallacy: why workers delegate instead of building
+
+**Absorbed 2026-09-13 from the standalone "delegation, not automation" framework.** The enterprise AI pitch has been the same for decades—give workers tools to automate their own workflows. RPA, low-code, citizen development, AI automation studios. Each generation makes the tools easier and the connectors more numerous, and the result is always the same: the ~1% of workers who think like programmers build amazing things, and the other 99% keep doing their jobs the way they always have. That's not a failure of the tools, it's a failure of the premise. Knowledge workers don't have stable, repeatable workflows worth the effort of designing and maintaining—their work is fluid, reactive, different every day—and even when something could be automated, they don't want to stop working to figure out how. They want to hand it off and move on, the way a manager delegates.
+
+| Automation model | Delegation model |
+|---|---|
+| Worker designs a workflow | Worker states an intent |
+| Requires programmer mindset | Requires manager mindset |
+| Front-loaded effort (build, then benefit) | Immediate (just ask) |
+| Brittle (breaks when process changes) | Adaptive (AI figures out the path) |
+| Tool-centric (which studio? which connector?) | Conversation-centric (just talk to your AI) |
+
+This is why the industry keeps building from the wrong end (below): automation studios ask the 99% to become the 1%. **Today's AI automation studios are the equivalent of building BlackBerry apps**—powerful, useful for the few who invest the time, and beside the point once the real interface arrives. The iPhone didn't ask users to learn a new programming paradigm; it hid decades of technical magic behind an interface intuitive enough for anyone. AI gets there the same way: workers won't build automations, they'll talk to their AI, and if it needs to fire up an agent, open a browser, call an API, or trigger a workflow, it does—in the background, invisibly. The automation studios being built today aren't wasted effort; they're the plumbing—connectors, access patterns, integrations—that the cognitive layer will use. But they're stepping stones, not the destination.
+
 ## Claws, not brains
 
 Karpathy coined "claws" for personal AI agents—a play on OpenClaw. The analogy is precise: claws are appendages. They grip, manipulate, and reach into systems. But they serve the brain, which decides what needs to happen, in what order, and with what judgment.

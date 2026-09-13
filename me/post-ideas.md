@@ -1,8 +1,8 @@
 ---
 title: "Post ideas — what I might write next"
 date: 2026-09-04
-updated: "2026-09-04"
-last_reviewed: "2026-09-04"
+updated: "2026-09-13"
+last_reviewed: "2026-09-13"
 authority_level: 5
 file_type: queue
 tags: ["current-thinking", "frontier", "post-ideas", "pipeline"]
@@ -24,6 +24,16 @@ status: not-reviewed-by-human
 
 ## Next up
 
+### The knowledge factory works—now execute. Shit or get off the pot.
+
+**Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 13 update (the execute-now note), building on "The knowledge factory" and "The three waves."
+
+Companies have spent a couple of years kicking AI ideas around. That phase is over. We know the knowledge factory works—we built one. We know AI can come in, read how a company actually works, and analyze the existing systems—and in regulated environments we already know how to handle PII and redaction. The playbook exists, and models like GPT-6 Astra and Fable 5.1 mean the *model* is no longer what you're waiting on. The sharp reframe: there's no point bringing AI into your existing estate unless you're building toward the factory—doing it for security alone is short-sighted. The estate doesn't get torn down (especially in regulated, old-school companies); it becomes the connective tissue that feeds the factory and receives its outputs. Skate to where the puck is going.
+
+**Why it's a real piece:** it's the "make an actual plan" post the whole knowledge-factory arc has been building toward, and it's the one with the clearest call to action for an enterprise reader. This is the knowledge-factory post.
+
+**What's missing:** the decision on how much Citrix shows up by name (fine to mention—it's the job—but the piece shouldn't be *about* Citrix), and Nancy's "interstitial tissue" framing worked in cleanly rather than bolted on.
+
 ### The compute-availability risk is the cloud elasticity lesson, again
 
 **Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → August 28 update.
@@ -36,19 +46,27 @@ Early cloud promised true on-demand elasticity; what enterprises actually learne
 
 ### The bottleneck argument, and what it leaves for humans
 
-**Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 4 update. Related: the deferred `machine-speed-vs-human-absorption` thread in `outputs/technical-briefings/promotion-candidates.md`.
+**Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 4 update. Absorbs the `machine-speed-vs-human-absorption` thread, cleared from the promotion queue 2026-09-13 and folded in here.
 
 Make one person superhuman with AI and change nothing else and the company doesn't get faster — the queue just moves. A workflow is only as fast as its slowest step, and after AI the slowest steps are all the human ones. Meanwhile the evidence on human-in-the-loop review keeps landing the same way: the human isn't actually reviewing. So the human step is both the bottleneck and not doing its job, and the rational move is to remove it — the system gets faster and, on the measured evidence, no less safe. Then you're standing in front of [What's left for humans?](https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/) again, with worse news than last time.
 
+**The other half of the same post: AI makes knowledge work deeper, not faster.** AI compresses the *gathering* phase but not the *absorption* phase—you still need the same time to make new material your own. "AI makes knowledge work faster" is a category error; the real claim is that it makes the work *deeper*. This is the invariant the bottleneck argument runs into, and it's the thesis this whole publication is named after—worth writing as its own strand of the piece rather than a footnote.
+
 **Why it's a real piece:** it's uncomfortable, it's supported by numbers rather than vibes, and it revisits my own published post with evidence that has moved since. The honest version ends without a clean answer, which is the point.
 
-**What's missing:** the plain-language framing work the `machine-speed-vs-human-absorption` thread is waiting on. Don't write this one in the dense version.
+**What's missing:** just the writing—the plain-language framing the old `machine-speed` thread was waiting on is now in the developing-thinking notes. Don't write this one in the dense version.
 
 ---
 
 ## Warm — real, not ready
 
-### Watching what agents do, because you can't watch what they think
+### If the AI-safety panic forces a slowdown, what happens to enterprise AI?
+
+**Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 13 update (the slowdown second-order note).
+
+The whole industry is talking about AI doom right now. Whether the doom is real isn't my beat—the second-order effect is. If the "race into unmonitorability" fear actually forces a pause or slowdown at the frontier, what happens inside companies? Two forces pull opposite ways: a collapse in the frontier-progress narrative could give cautious enterprises the air cover they've wanted to slow down ("even the labs are braking, so we can wait"), while the AI-native companies the VCs are funding won't slow at all. And it runs into a position I already hold—everything important in the enterprise can be done with mid-tier models that have already shipped—so a frontier slowdown shouldn't dent the enterprise thesis much, unless the narrative collapse changes behavior more than the lost capability does.
+
+**What's missing:** the ending, honestly. I don't know which way it breaks, and I think it depends on what actually happens. It might not be publishable until there's a real event to hang it on—but it's the right lens for whenever that event arrives, so it's worth having ready.
 
 **Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 4 update (the unmonitorability item).
 
