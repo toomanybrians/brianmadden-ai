@@ -102,3 +102,13 @@ https://substack.com/@newcomer
 
 ---
 
+## 2026-09-13 — flagged in chat, not email
+
+**Runway's Solaris announcement ("this seems right up my alley")**
+
+Ingest note written: `ingest/2026/09/2026-09-13-brain-flag-runway-solaris-interface-world-model.md`
+
+Brian flagged this live in a Claude Code chat rather than emailing brain@brianmadden.ai, and asked for two things beyond the normal brain-flag handling: (1) confirm the brain@ email lane already does what he described — it does, see `skills/ingest/README.md`'s "Email inbox (brain@)" section, no new skill needed; (2) search canon for prior related thinking and note the connection in the ingest note itself, rather than waiting for `brief.py`'s synthesis pass. Done by hand this time — see the note's "Connects to Brian's existing thinking" section (talks/2025-10-10-appmanagevent-keynote.md and talks/2025-10-15-shi-fall-summit.md both describe AI generating a UI on demand, ~11 months before Solaris shipped). This is a deliberate one-off deviation from `skills/ingest/prompt.md`'s rule that ingest-time extraction shouldn't connect to Brian's frameworks (that's normally reserved for the whole-canon `brief.py` pass) — flagged here rather than quietly done, since making it standard for brain-flags would be a real pipeline change, not assumed from one ask.
+
+---
+
