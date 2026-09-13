@@ -1176,7 +1176,8 @@ promotes
   which way it breaks), which **consolidates** the four AI-safety
   promotion-candidate threads into one enterprise question rather than
   four doom threads; (2) the "knowledge factory is the destination — now
-  execute" argument ("shit or get off the pot"; no reason to bring AI into
+  execute" argument (Brian's "it's time to actually start moving on AI";
+  no reason to bring AI into
   the estate unless building toward the factory; Nancy's "interstitial
   tissue" framing). **Folded/reframed:** the "three waves" section updated
   for Hector's pushback — factory-as-destination, old "Wave 1" recast as
@@ -1230,3 +1231,24 @@ and backtick pre-publish checks clean on the rendered post per
 
 **Result: COMMITTED** this session; push pending Brian's go-ahead (he's
 reviewing the rendered post).
+
+**Follow-up same session (2nd commit):** (1) removed the crude idiom from
+every file this session wrote it into, per Brian's request to keep the
+four-letter word out of the brain — aligned on his own published wording,
+plain "it's time to actually start moving on AI," not a substitute idiom;
+the historical `talks/` quote and Tier-1 `ingest/` notes left untouched
+(real quotes / quarantined). (2) Updated
+`.claude/skills/weekly-update/SKILL.md` so "Worth a future post" stops
+re-pitching ideas already covered under "What moved → Promoted" — Brian
+flagged the triple-listing (takeaway → promote → future-post); left as-is
+in this issue per his call, fixed for future ones. (3) Folded Brian's own
+live edits to the published post back into the skill template AND synced
+the repo copy of the issue to match: opening paragraph italicized and
+brianmadden.ai labeled "the AI"; head-of-mind section retitled "Where
+Brian's head is at right now" (not "my head"); takeaways explainer made
+honest that the section is AI-written from conversation, not typed by
+Brian (dropped "unprompted, unedited" and the "co-written... live" footer
+claim); footer reworded to describe what the AI does and to frame the
+pipeline as not-yet-fully-open-sourced. Issue `status` → `reviewed-and-updated`.
+The brain-vs-AI clarity and AI-authorship honesty are the durable
+template lessons.

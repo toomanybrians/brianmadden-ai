@@ -3405,7 +3405,8 @@ list against the *previous* issue's date range before drafting.
   four AI-safety promotion threads (CoT-legibility, behavioral-testing,
   RSI-speculation, capability-threshold-gates) rather than four separate
   doom threads; (2) the **execute-now / knowledge-factory-as-destination**
-  argument ("shit or get off the pot"; no point doing "Wave 1" unless
+  argument (Brian's "it's time to actually start moving on AI"; no point
+  doing "Wave 1" unless
   building toward the factory; Nancy's "interstitial tissue" line).
 - **Reframed:** the "three waves" section for Hector's pushback —
   factory is the destination, old Wave 1 is the permanent connective
@@ -3424,8 +3425,8 @@ list against the *previous* issue's date range before drafting.
 (1) AI doom isn't his beat, but the second-order enterprise effect of a
 slowdown is — air cover for laggards vs. AI-native shops that won't slow,
 and it collides with his "mid-tier already does everything important"
-position; he genuinely can't call which way it breaks. (2) "Shit or get
-off the pot" (his dad's phrase) — the factory works, the model is no
+position; he genuinely can't call which way it breaks. (2) "It's time for
+companies to actually start moving on AI" — the factory works, the model is no
 longer the blocker (Astra/Fable 5.1), so it's execution time. (3) On the
 oversight fight: the label doesn't matter — a model deciding without a
 logged thought process is an oversight problem regardless of the reason
@@ -3446,3 +3447,33 @@ a fresh snapshot (overwritten each run). Nothing pending in either.
 `outputs/weekly-updates/2026/09/2026-09-13.md` (+ gitignored `.html`).
 **Push pending Brian's go-ahead** — he was reviewing the rendered post
 when this was written; Substack paste-in is manual as always.
+
+**Follow-up same session (2nd commit):** three things, all from Brian's
+review after the first commit:
+(1) **The crude idiom, out of the brain.** He didn't want the four-letter
+word anywhere. Rather
+than a substitute idiom, aligned everything on his own published wording —
+plain "it's time to actually start moving on AI" — in the post,
+`developing-thinking.md`, `post-ideas.md`, and these logs. Left the
+verbatim historical quote in `talks/2026-02-06-wharton-tech-conference.md`
+and the Tier-1 `ingest/` notes alone (real quotes / quarantined).
+(2) **Future-post dedup.** He flagged that the post lists its two lead
+ideas (execute-now, slowdown) three times — takeaway → promote →
+future-post. Left this issue as-is per his call; updated
+`.claude/skills/weekly-update/SKILL.md` step 9 so future issues compress an
+already-promoted idea into a single pointer line under "Worth a future
+post" instead of re-pitching it.
+(3) **Learned from his live post edits.** He hand-edited the published
+Substack post and asked me to update the template. Pulled the live version
+(WebFetch), diffed it, folded the changes into both the skill and the repo
+copy of the issue: opening paragraph italicized + brianmadden.ai labeled
+"the AI"; head-of-mind section retitled "Where Brian's head is at right
+now" (not "my head"); takeaways explainer made honest that the section is
+AI-written from conversation, not typed by Brian (dropped "unprompted,
+unedited" and the footer's "co-written... live" claim); footer reworded to
+say what the AI does and to frame the pipeline as not-yet-fully-open-
+sourced. Issue `status` → `reviewed-and-updated`. **Durable lesson: be
+relentless about brain-vs-AI clarity, and never imply AI-written prose is
+verbatim Brian.** Note for Brian: his *published* post still has the crude
+idiom in the "What moved → Promoted" line (he missed one); the repo copy
+is clean.

@@ -24,7 +24,7 @@ status: not-reviewed-by-human
 
 ## Next up
 
-### The knowledge factory works—now execute. Shit or get off the pot.
+### The knowledge factory works—now execute
 
 **Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 13 update (the execute-now note), building on "The knowledge factory" and "The three waves."
 

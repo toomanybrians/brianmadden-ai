@@ -182,9 +182,20 @@ sets the clock, live session picks it up later" gap to reason about.
    - **Opening paragraph** — what Weekly Wrap Up is, in plain terms,
      varies naturally issue to issue rather than being a fixed
      boilerplate string. First issue's version: "the daily is fast... this
-     is slow, on purpose."
-   - **Where my head's at right now** — moved to lead, right after the
-     opener (was near the end in issue 1). The current `## Right now`
+     is slow, on purpose." **Set this whole paragraph in italics** (Brian
+     did this by hand on the Sep 5–11 issue — it reads as the framing note
+     it is), and **name brianmadden.ai as "the AI" explicitly** the first
+     time it appears — Brian's edit: "me (brianmadden.ai, the AI) reading
+     everything overnight...". The brain-vs-AI distinction has to be
+     unambiguous from the first line; the same rule runs through the next
+     bullet and the takeaways explainer.
+   - **Where Brian's head is at right now** — moved to lead, right after
+     the opener (was near the end in issue 1). **Title it "Where Brian's
+     head is at right now," not "Where my head's at"** (Brian's Sep 5–11
+     edit): the AI narrates this whole post, so "my head" is ambiguous in
+     the one section that's specifically about the *human's* thinking —
+     third-person "Brian's" keeps the brain-vs-AI line clean. The current
+     `## Right now`
      bullets, quoted, with a real link to
      `me/developing-thinking.md` on GitHub and an explanation of why that
      file is public and worth linking to (it's the tangible proof of "a
@@ -208,8 +219,16 @@ sets the clock, live session picks it up later" gap to reason about.
      guessing). Explainer: be honest that these are the AI's picks from
      each day's "what this changes" list, not stories Brian hand-selected
      — don't overclaim his personal curation of each one.
-   - **Brian's takeaways** — his actual words from step 5, with a short
-     explainer that this part is entirely his, unprompted.
+   - **Brian's takeaways** — Brian's thinking from step 5, rendered in his
+     voice. **Be honest in the explainer that this section is still
+     AI-written from the conversation, not typed verbatim by Brian** —
+     Brian's Sep 5–11 edit rewrote the explainer to: "Everything above is
+     the pipeline's (the AI's) work. This part is Brian (the human),
+     reacting to the week. (Though to be clear this was written by AI,
+     based on conversations with Brian.)" Don't claim "unprompted,
+     unedited," and don't say Brian "gives the takeaways live" (the footer
+     used to) — both overclaim human authorship. Label the pipeline "(the
+     AI)" and Brian "(the human)" here too, same discipline as the opener.
    - **What moved in the thinking** — moved later in the order 2026-08-28
      (was earlier; this is pipeline bookkeeping, not the broad-appeal
      material). Promotions, cuts, framework revisions — **2026-08-28
@@ -237,6 +256,21 @@ sets the clock, live session picks it up later" gap to reason about.
      explanation of why it matters). Every item needs this treatment —
      this is the section most likely to actually get read and shared, so
      it's worth the extra drafting effort.
+
+     **Don't re-pitch an idea this same issue already covered in full
+     under "What moved → Promoted" (or in "Brian's takeaways") as if it
+     were new here.** An idea that just entered canon *and* is worth
+     writing is common — but a reader who already read the promote two
+     sections up doesn't need the full hook a third time. Compress those
+     into a single pointer line (e.g. "Both promotes above are also
+     headed for real posts") and save the full plain-language hook
+     treatment for candidates that *don't* already appear elsewhere in
+     the issue — a Scratchpad item, a takeaway that didn't become a
+     promote, a story with legs. Added 2026-09-13: the Sep 5–11 issue
+     listed its two lead promotes (execute-now, the AI-slowdown thread)
+     a third time here, and Brian flagged the repetition — the same two
+     ideas reading as takeaway, then promote, then future-post is the
+     failure mode to avoid.
    - **Closing footer** — written directly into the body (not injected by
      `render.py`, which does no disclosure/footer injection for this
      format — see that file's own docstring for why), matching the Daily
@@ -244,7 +278,17 @@ sets the clock, live session picks it up later" gap to reason about.
      bmad.com ("Who's Brian?"), link to the GitHub repo. Keep it roughly
      consistent issue to issue for brand recognition across the whole
      publication, but it's plain text in the body, not a fixed constant —
-     fine to vary slightly.
+     fine to vary slightly. **Two things to carry forward from Brian's Sep
+     5–11 edit:** (1) describe what the AI actually does rather than
+     claiming co-authorship — his version: "brianmadden.ai — Brian
+     Madden's AI second brain, which reads everything he follows (blogs,
+     podcasts, YouTubers, Substacks) and reports back daily," and he cut
+     the old "The Weekly Wrap Up is co-written: I track the week... Brian
+     gives the takeaways live" line (same overclaim the takeaways explainer
+     now avoids); (2) the pipeline isn't fully open-sourced yet, so frame
+     it as in progress — his wording: "The full pipeline is being
+     developed now and will soon be included in his open source second
+     brain, which can be explored, forked, or modified on GitHub."
 
    Frontmatter: `title`/`substack_title`: `"Weekly Wrap Up: [date range]"`
    (Substack's own slug doesn't change when a post's display title is
