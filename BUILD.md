@@ -3477,3 +3477,28 @@ relentless about brain-vs-AI clarity, and never imply AI-written prose is
 verbatim Brian.** Note for Brian: his *published* post still has the crude
 idiom in the "What moved → Promoted" line (he missed one); the repo copy
 is clean.
+
+### 2026-09-14 — `/maintain` + new blog post: You can't transform the AI you can't see
+
+Sync was clean: 0 behind, 0 ahead, working tree clean at session start.
+Two commits sat in history since the last BUILD.md entry without a
+narrated account here — `82f0e6a` (Brian's live brain-flag of Runway
+Solaris) and `9bb41c1` (brief.py change guaranteeing real Daily Brief
+treatment for anything Brian personally flags) — both legitimate prior
+work, just not yet logged; noting them here rather than treating them as
+unexplained drift.
+
+Added Brian's new Citrix blog post (published 2026-09-14) to canon,
+following the exact pattern of the 2026-07-22 bubble-pop-post commit:
+fetched the live page directly (not summarized), wrote
+`posts/citrix-blog/2026-09-14-you-cant-transform-the-ai-you-cant-see.md`
+verbatim, added index entry #38, added a key-argument section +
+post-by-post note + "New signature phrases (September 2026)" to
+`me/published-thinking.md`, and updated every metadata surface
+(`_content-index.json`, `_index.json`, `llms.txt`, `README.md`,
+`CLAUDE.md`/`AGENTS.md`). `_relationships.json` deliberately left
+untouched, matching the July precedent — that cross-reference map gets
+regenerated in its own separate full pass, not incrementally per post.
+`python3 scripts/check_doc_accuracy.py` clean before committing.
+Committed and pushed straight to `main` (040902a), per the established
+workflow for this repo.
