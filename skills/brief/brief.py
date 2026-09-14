@@ -258,6 +258,7 @@ def load_recent_notes(since_days: float) -> list[dict]:
             "author": _clean_author_name(author_raw),
             "homepage_url": homepage_url,
             "date_published": fm.get("date_published"),
+            "ingest_method": fm.get("ingest_method", ""),
             "body": body,
         })
     return notes
@@ -498,6 +499,16 @@ def _format_note_for_prompt(n: dict) -> str:
     naming a newsletter with nothing to click through to."""
     lines = [
         f"### {n['title']} ({n['source']}, published {n['date_published'] or 'undated'})",
+    ]
+    if n.get("ingest_method") == "brain-flag":
+        # Brian flagged this one directly rather than it arriving through a
+        # routine feed — prompt.md's "Brian's own flagged items" rule says
+        # these can never be silently cut for brevity/relevance the way an
+        # ordinary news item can. Tagging it inline, right where the model
+        # reads the note, is belt-and-suspenders on top of that rule living
+        # far above in a long prompt (Brian's ask, 2026-09-13).
+        lines.append("**Brian flagged this directly — see the \"Brian's own flagged items\" rule: this must get real analysis in the brief, not just a mention.**")
+    lines += [
         f"Author/newsletter: {n['author'] or '(not captured)'}",
         f"Source URL: {n['source_url'] or '(none captured)'}",
     ]

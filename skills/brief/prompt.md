@@ -151,6 +151,21 @@ correction, 2026-09-01, after Nvidia buying Hugging Face got a full
 paragraph in both "What this confirms" and "What doesn't fit yet" the
 same day — see also the cross-day repetition guidance above.)
 
+**Brian's own flagged items never get silently cut.** A note marked
+inline as flagged directly by Brian (`ingest_method: brain-flag`) is not
+a routine feed item — the relevance/brevity/no-padding guidance above
+governs everything else in the batch, not these. Every such note must
+get real, explicit treatment somewhere in Part 1 below — position
+doesn't matter (top, bottom, whichever of the three sections actually
+fits), and it's fine to be one or two sentences rather than a full
+paragraph. "Real treatment" means naming what it is, linking its source
+(or writing "flagged by Brian" if the note says no source URL was
+captured — never invent a link), and an honest judgment of how it
+connects to canon or to the rest of today's batch — or plainly saying
+it doesn't connect to anything yet, which counts as the analysis on a
+day like that. What doesn't count: a bare mention with no judgment at
+all, or dropping it because the day was busy. (Brian's ask, 2026-09-13.)
+
 Write two parts, in this exact order, and nothing else — no preamble
 before part 1, no text after part 2.
 
