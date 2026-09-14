@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-09-05",
+  "generated": "2026-09-14",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 126,
-  "total_words": 267348,
+  "total_files": 127,
+  "total_words": 270093,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2304,6 +2304,18 @@
       "date": "2026-06-10",
       "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
       "related_frameworks": ["cognitive-stack", "invisible-80-percent", "five-levels-of-ai-in-knowledge-work"]
+    },
+    {
+      "path": "posts/citrix-blog/2026-09-14-you-cant-transform-the-ai-you-cant-see.md",
+      "title": "You can't transform the AI you can't see",
+      "authority_level": 5,
+      "file_type": "blog-post",
+      "tags": ["shadow-ai", "ai-visibility", "ai-governance", "workspace-as-control-plane", "agent-identity", "knowledge-factory", "mcp-security", "netscaler"],
+      "word_count": 2745,
+      "staleness_threshold": "stable",
+      "date": "2026-09-14",
+      "original_url": "https://www.citrix.com/blogs/2026/09/14/you-cant-transform-the-ai-you-cant-see/",
+      "related_frameworks": ["workspace-as-control-plane", "invisible-80-percent", "knowledge-factory"]
     },
     {
       "path": "posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md",

@@ -14,7 +14,7 @@ status: reviewed
 
 This document synthesizes the core ideas, frameworks, and arguments from my published work on AI and the future of work (~2023–June 2026). It represents my intellectual foundation for understanding AI's impact on knowledge work and the enterprise.
 
-**Last updated:** July 20, 2026 (41 posts + key talks through July 20, 2026)
+**Last updated:** September 14, 2026 (42 posts + key talks through September 14, 2026)
 
 ---
 
@@ -367,6 +367,18 @@ The five moves that pay off in every scenario: build your second brain (portable
 
 ---
 
+### You can't transform the AI you can't see
+
+Reframes "AI strategy" as a visibility problem, not a platform-selection problem. AI is already in every company from every direction — personal accounts on unmanaged devices, AI-native SaaS, departmental pilots with their own token sources, workers snapping phone photos of their screens into personal subscriptions when guardrails get in the way. The consumerization-of-IT playbook that worked for the last wave of shadow tech isn't closing this gap, no matter how well companies run it, which means shadow AI isn't just shadow IT again — treating it that way is comforting but wrong.
+
+The reframe: stop asking "which AI platform should we standardize on" and start asking "what AI is running in my company right now, what data does it reach, whose identity is it using, and who can see it." Most companies can't answer those basic questions, which means every other AI decision — including which platform to standardize on — is being made blind. Visibility isn't a detour from transformation; it's step one of it, and it's the one step available today, before a platform or model commitment.
+
+The concrete instantiation: the same access/governance/control playbook IT has run for decades, pointed at AI instead of at human workers. Access — route enterprise AI traffic through a gateway to see who's using what, and give AI agents their own restricted-rights identities instead of letting them inherit and exploit whatever permissions the launching human accumulated over the years. Governance — record and replay what agents do, govern token consumption and model choice centrally, act on suspicious agent sessions the same way you'd act on a suspicious human one. Control — govern immature AI protocols (MCP: "the S stands for security") by delivering them through infrastructure that already handles identity and policy, the same way HTTP got wrapped in security before it was trusted with credit cards.
+
+The payoff is bigger than compliance: the instrumentation you build to govern AI is the same instrumentation that finally lets a company see how work actually happens — the tacit judgment and undocumented workarounds that were never digitized, as opposed to the mere artifacts (docs, email, chat) that only prove work happened. That visibility is the on-ramp to the knowledge factory — the organizational second brain — not a separate security initiative. Connects directly to workspace-as-control-plane (governing the environment, not the tool), the invisible 80% (what visibility actually surfaces), AI agents as insider threats (the identity/permissions argument), and the knowledge factory (where the visibility data actually goes). See `posts/citrix-blog/2026-09-14-you-cant-transform-the-ai-you-cant-see.md`.
+
+---
+
 ## Signature phrases
 
 - **"Shadow strategy, not shadow IT"** — worker-led AI isn't a compliance problem, it's the innovation engine
@@ -397,6 +409,10 @@ The five moves that pay off in every scenario: build your second brain (portable
 ## Post-by-post notes (newest first)
 
 The full text of each published post is in `posts/citrix-blog/` and `posts/linkedin/`. For earlier LinkedIn articles (2020-2024), see `posts/linkedin/index.md`.
+
+### September 14, 2026: You can't transform the AI you can't see
+[Original post](https://www.citrix.com/blogs/2026/09/14/you-cant-transform-the-ai-you-cant-see/)
+**Argues the real first move on AI isn't picking a platform, it's getting visibility into the AI already running.** The through-line: most companies are treating AI as a strategy problem (committees, platform evaluations, pilots) while AI has already entered from every direction — personal accounts on unmanaged devices, AI built into SaaS, departmental pilots with their own tokens, workers photographing their own screens into personal subscriptions to route around blocked access. Three major moves: (1) **Distinguishes this from last decade's shadow IT.** The instinct to treat shadow AI as "just more shadow IT" is comforting but wrong — companies are running the consumerization playbook perfectly and the shadow-AI gap still isn't closing, because AI is genuinely different this time. The reframe: you're not going to block or remove AI, your only real choice is whether you can see it. (2) **Names visibility as step one of transformation, not a prerequisite separate from it** — a project you can start this quarter, before any platform commitment, built on the same access/governance/control playbook IT has run for decades, now pointed at AI: *access* (route enterprise AI traffic through a gateway like NetScaler AI Gateway/MCP Gateway; give AI agents their own restricted-rights identities instead of letting them inherit and exploit a launching human's accumulated permissions; isolate agents into their own DaaS sessions published via HDX/seamless windows so the security boundary changes but the worker experience doesn't); *governance* (record and replay everything an agent does, redact PII at the source, govern token consumption and model choice, alert/shadow/disconnect suspicious agent sessions using triggers that already exist); *control* (govern immature AI protocols — "the S in MCP stands for security" — by delivering them through infrastructure that already does identity and policy, the same way HTTP got wrapped in security before it was safe for credit card payments). None of it requires a migration: regulated systems of record stay exactly where they are: the existing EUC estate becomes the connective tissue feeding AI its raw material and receiving its output. (3) **Lands on the deeper payoff: the governance instrumentation is also observation instrumentation.** Companies today only see the artifacts of knowledge work (docs, email, chat) — evidence that work happened, not the work itself (the judgment, the undocumented workarounds). Instrumenting the estate for AI governance is what finally makes that tacit layer visible, and that visibility is the on-ramp to the knowledge factory — the AI second brain built at company scale, "the new source code of the business" — not a separate initiative from it. Connects directly to workspace-as-control-plane, the invisible 80%, AI agents as insider threats (the identity/permissions argument extended into agent-specific accounts), and the knowledge factory (names it as the destination visibility leads to, with a next-post promise to go deeper on building it). Reference when discussing: shadow AI vs. shadow IT, AI agent identity and permissions, MCP security, or visibility as the prerequisite to any real AI transformation.
 
 ### July 20, 2026: How to build an AI strategy that survives the bubble pop
 [Original post](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/)
@@ -720,6 +736,25 @@ The definition of an AI strategy built on invariants. Everything on the do-now c
 
 **"Don't assume the price you pay today is the price you'll pay tomorrow."**
 Tokens are subsidized for commercial and geopolitical reasons, even for open-weight hosting. Token economics is an invariant precisely because the price is not.
+
+---
+
+## New signature phrases (September 2026)
+
+**"You can't transform the AI you can't see."**
+The title and thesis of the visibility post. Before any platform choice, model choice, or workflow redesign, a company has to be able to answer what AI is running, what it touches, whose identity it's using, and who can see it.
+
+**"Your only real choice is whether you can see it or not."**
+The shadow-AI reframe. AI is already in the building from every direction; blocking or removing it isn't on the table, so the only lever left is visibility.
+
+**"You can't redesign work you can't see."**
+Why visibility comes before transformation rather than being a separate security initiative — it's literally step one of the same process.
+
+**"The S in MCP stands for security."**
+The recycled joke that makes the point plainly: MCP is useful but immature on security, the same way early HTTP was, and the fix is the same — wrap it in infrastructure that already handles identity and policy rather than waiting for the protocol to grow up.
+
+**"Everything described here is a configuration, not a transformation."**
+Why the visibility playbook is low-risk to start: create an account, publish an app, set some policies. Nothing commits a company to a platform it can't unwind by deleting an account and a published app.
 
 ---
 

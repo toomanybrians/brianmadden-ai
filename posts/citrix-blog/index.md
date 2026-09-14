@@ -1,10 +1,14 @@
 # Citrix blog posts
 
-Full text of my 37 Citrix blog posts (April 2025 through July 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
+Full text of my 38 Citrix blog posts (April 2025 through September 2026), newest first. All originally published at [citrix.com/blogs](https://www.citrix.com/blogs/?s=bmadden&type=author).
 
 For the full intellectual synthesis across all posts, see `me/published-thinking.md`.
 
 ---
+
+**38. You can't transform the AI you can't see** (2026-09-14)
+[citrix.com](https://www.citrix.com/blogs/2026/09/14/you-cant-transform-the-ai-you-cant-see/)
+Reframes "AI strategy" as a visibility problem: AI is already in every company from every direction (personal accounts, AI-native SaaS, departmental pilots, unsanctioned phone-to-screen use), so the real first-step questions aren't "which platform should we standardize on" but "what AI is running right now, what data does it reach, whose identity is it using, who can see it." Argues shadow AI is not just another round of shadow IT — the consumerization playbook isn't closing the gap this time. Visibility is framed as step one of transformation, not an alternative to it, using the existing IT access/governance/control playbook pointed at AI: access (route enterprise AI traffic through a gateway like NetScaler AI Gateway/MCP Gateway to see who's using what; give agents their own restricted-rights identities instead of inheriting the launching user's permissions; isolate agents into their own DaaS sessions published via HDX/seamless windows); governance (record and replay everything agents do, redact PII at the source, govern token consumption and model choice, alert/shadow/disconnect on suspicious agent sessions); control (govern AI protocols like MCP — "the S in MCP stands for security" — by delivering it through infrastructure that already handles identity and policy, the same way HTTP got wrapped in security before it was safe for credit cards). None of this requires a migration — regulated systems of record stay put, the existing EUC estate becomes the connective tissue feeding AI its raw material. Lands on the deeper point: the governance instrumentation is also the observation instrumentation — it's how you finally see the tacit judgment and workarounds that never got digitized, which is the on-ramp to the knowledge factory (the AI second brain built at company scale, "the new source code of the business").
 
 **37. How to build an AI strategy that survives the bubble pop** (2026-07-20)
 [citrix.com](https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/)

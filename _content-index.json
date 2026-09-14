@@ -1,5 +1,12 @@
 [
   {
+    "title": "You can't transform the AI you can't see",
+    "url": "https://www.citrix.com/blogs/2026/09/14/you-cant-transform-the-ai-you-cant-see/",
+    "date": "2026-09-14",
+    "type": "blog",
+    "description": "Reframes AI strategy as a visibility problem, not a platform-selection problem: AI is already in every company from every direction, so the real first-step questions are what AI is running, what data it reaches, whose identity it uses, and who can see it. Shadow AI isn't just another round of shadow IT — the consumerization playbook isn't closing the gap. Visibility is step one of transformation, not a separate security initiative, built on the same access/governance/control playbook IT has run for decades pointed at AI: gateway-routed traffic, agent-specific restricted identities instead of inherited human permissions, recorded/replayable agent sessions, and MCP delivered through infrastructure that already handles identity and policy (\"the S in MCP stands for security\"). None of it requires a migration. The payoff: the same instrumentation that governs AI is what finally makes tacit, undocumented work visible — the on-ramp to the knowledge factory."
+  },
+  {
     "title": "Brian Madden demonstrates how to connect to and use his AI second brain",
     "url": "https://bmad.com/talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo",
     "date": "2026-09-02",

@@ -4,6 +4,43 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-09-14 — New blog post: You can't transform the AI you can't see
+
+**What was synced:**
+- Created `posts/citrix-blog/2026-09-14-you-cant-transform-the-ai-you-cant-see.md` (full post text, verbatim from citrix.com, published 2026-09-14)
+- Updated `posts/citrix-blog/index.md` (added #38, count 37→38, date range → September 2026)
+- Updated `me/published-thinking.md` (added "You can't transform the AI you can't see" key argument, September 14 post-by-post note, "New signature phrases (September 2026)" section, date/count → 42 posts / September 14 2026)
+- Updated `_content-index.json` (added blog entry at top, newest first)
+- Updated `_index.json` (added file entry; total_files 126→127, total_words 267348→270093, generated → 2026-09-14)
+- Updated `llms.txt` (version line: 121→122 files, ~264k→~267k words, 58→59 posts, date → 2026-09-14)
+- Updated `README.md` (37→38 Citrix blog posts)
+- Updated `CLAUDE.md` and `AGENTS.md` (38 blog posts, Apr 2025–Sep 2026; kept the two files identical except the self-reference line)
+
+**Automated checks:**
+- Wiki-links (`[[`): none found — CLEAR
+- Internal names (Nancy, Hector, Sridhar, Saikat, Abhilash, Kireeti, etc.): none found. Only "Dave Brear" appears (public podcast co-host, in pre-existing entries) — CLEAR
+- `bmad/` path references: none — CLEAR
+- Email addresses / phone numbers: none — CLEAR
+- Em-dashes: the post body uses tight em-dashes consistent with Brian's own published style (faithful verbatim archival, not new writing — same convention as the 2026-07-22 bubble-pop entry); new synthesis prose in `published-thinking.md` uses spaced em-dashes consistent with that file's existing post-by-post-notes convention throughout — CLEAR
+- JSON validity: `_index.json`, `_content-index.json`, and `_relationships.json` (untouched, not re-validated for content but confirmed still parses) all parse — CLEAR
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+
+**Tone checks:**
+- Colleague test: public-facing, consistent with Brian's published voice
+- Competitor test: no competitive positioning that would embarrass — CLEAR
+- Journalist test: names Citrix products (NetScaler AI Gateway, MCP Gateway, Citrix DaaS, HDX) exactly as the published post does — no unreleased detail, no internal roadmap — CLEAR
+- Fossil record test: content is the published blog post, timestamped to its publish date
+- Register test: direct and plainspoken, consistent with other blog posts
+
+**Manual review notes:**
+- The post is already published on citrix.com; this sync mirrors public content, fetched and transcribed directly from the live page (not summarized or paraphrased)
+- New public argument: visibility (not platform selection) as the actual first move on enterprise AI, instantiated as the existing IT access/governance/control playbook pointed at AI agents instead of human workers. Consistent with and extends workspace-as-control-plane, the invisible 80%, AI agents as insider threats, and the knowledge factory
+- `_relationships.json` intentionally left untouched — that cross-reference map is regenerated in a separate full pass (per the 2026-08-14 "Regenerate indexes and loading surfaces" commit), not incrementally per post-add, matching the precedent set by the 2026-07-22 bubble-pop-post commit
+
+**Result: CLEAR TO COMMIT**
+
+---
+
 ## 2026-09-05 (continued) — CHANGELOG.md: added the Sept 2 second-brain demo milestone
 
 **What changed:** Brian asked for one more milestone in `CHANGELOG.md`: the

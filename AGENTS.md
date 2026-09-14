@@ -18,7 +18,7 @@ Read these files in this order:
 
 1. **This file** (`CLAUDE.md` or `AGENTS.md`) — orientation and instructions
 2. **`me/profile.md`** — who Brian is, background, credentials
-3. **`me/published-thinking.md`** — intellectual foundation derived from published work (37 Citrix blog posts, Apr 2025–Jul 2026 + 21 LinkedIn articles, Jun 2020–Feb 2026)
+3. **`me/published-thinking.md`** — intellectual foundation derived from published work (38 Citrix blog posts, Apr 2025–Sep 2026 + 21 LinkedIn articles, Jun 2020–Feb 2026)
 4. **`me/developing-thinking.md`** — where Brian's head is *right now* (the frontier—developing arguments, connecting ideas, open questions)
 5. **`me/voice.md`** — how Brian thinks, argues, and communicates
 
@@ -110,7 +110,7 @@ brianmadden-ai/
 │   ├── subscribable-brains.md
 │   └── workspace-as-control-plane.md
 ├── posts/             # Full text of published work
-│   ├── citrix-blog/   # Citrix blog posts (37 posts, Apr 2025–July 2026)
+│   ├── citrix-blog/   # Citrix blog posts (38 posts, Apr 2025–September 2026)
 │   └── linkedin/      # LinkedIn content
 │       ├── articles/  # Long-form LinkedIn articles
 │       └── posts/     # Short-form LinkedIn feed posts
