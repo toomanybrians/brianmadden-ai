@@ -2,8 +2,8 @@
   "version": "1.0",
   "generated": "2026-09-14",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 127,
-  "total_words": 270093,
+  "total_files": 125,
+  "total_words": 274834,
   "files": [
     {
       "path": "AGENTS.md",
@@ -507,7 +507,12 @@
       "title": "Post ideas — what I might write next",
       "authority_level": 5,
       "file_type": "queue",
-      "tags": ["current-thinking", "frontier", "post-ideas", "pipeline"],
+      "tags": [
+        "current-thinking",
+        "frontier",
+        "post-ideas",
+        "pipeline"
+      ],
       "word_count": 1404,
       "staleness_threshold": "weeks",
       "updated": "2026-09-04",
@@ -1794,7 +1799,10 @@
       "staleness_threshold": "stable",
       "date": "2026-05-18",
       "show": "Citrix AI Hotsheet",
-      "hosts": ["Brian Madden", "Dave Brear"],
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ],
       "format": "Podcast (Brian's own show)",
       "recording": "Full episode transcript"
     },
@@ -1823,7 +1831,9 @@
       "staleness_threshold": "stable",
       "date": "2026-06-13",
       "show": "Citrix AI Hotsheet",
-      "hosts": ["Brian Madden"],
+      "hosts": [
+        "Brian Madden"
+      ],
       "format": "Podcast (Brian's own show — special solo edition)",
       "recording": "Full episode transcript (Brian's EUCTech keynote, adapted for podcast)"
     },
@@ -1851,7 +1861,10 @@
       "staleness_threshold": "stable",
       "date": "2026-06-19",
       "show": "Citrix AI Hotsheet",
-      "hosts": ["Brian Madden", "Dave Brear"],
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ],
       "format": "Podcast (Brian's own show)",
       "recording": "Full episode transcript"
     },
@@ -1884,7 +1897,10 @@
       "staleness_threshold": "stable",
       "date": "2026-07-15",
       "show": "Citrix AI Hotsheet",
-      "hosts": ["Brian Madden", "Dave Brear"],
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ],
       "format": "Podcast (Brian's own show)",
       "recording": "Full episode transcript"
     },
@@ -1917,7 +1933,10 @@
       "staleness_threshold": "stable",
       "date": "2026-09-01",
       "show": "Citrix AI Hotsheet",
-      "hosts": ["Brian Madden", "Dave Brear"],
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ],
       "format": "Podcast (Brian's own show)",
       "recording": "Full episode transcript"
     },
@@ -2287,59 +2306,119 @@
       "title": "The cognitive stack: what comes after building AI platforms",
       "authority_level": 5,
       "file_type": "talk",
-      "tags": ["cognitive-stack", "second-brain", "knowledge-work", "token-economics", "ai-governance", "enterprise-ai"],
+      "tags": [
+        "cognitive-stack",
+        "second-brain",
+        "knowledge-work",
+        "token-economics",
+        "ai-governance",
+        "enterprise-ai"
+      ],
       "word_count": 850,
       "staleness_threshold": "stable",
       "date": "2026-04-21",
-      "related_frameworks": ["cognitive-stack", "invisible-80-percent", "bitter-lesson"]
+      "related_frameworks": [
+        "cognitive-stack",
+        "invisible-80-percent",
+        "bitter-lesson"
+      ]
     },
     {
       "path": "posts/citrix-blog/2026-06-10-the-7-stage-roadmap-2026-edition.md",
       "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
       "authority_level": 5,
       "file_type": "blog-post",
-      "tags": ["7-stage-roadmap", "cognitive-extension", "second-brain", "ai-fleet", "published-self", "worker-led-ai", "human-plus-ai"],
+      "tags": [
+        "7-stage-roadmap",
+        "cognitive-extension",
+        "second-brain",
+        "ai-fleet",
+        "published-self",
+        "worker-led-ai",
+        "human-plus-ai"
+      ],
       "word_count": 1700,
       "staleness_threshold": "stable",
       "date": "2026-06-10",
       "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
-      "related_frameworks": ["cognitive-stack", "invisible-80-percent", "five-levels-of-ai-in-knowledge-work"]
+      "related_frameworks": [
+        "cognitive-stack",
+        "invisible-80-percent",
+        "five-levels-of-ai-in-knowledge-work"
+      ]
     },
     {
       "path": "posts/citrix-blog/2026-09-14-you-cant-transform-the-ai-you-cant-see.md",
       "title": "You can't transform the AI you can't see",
       "authority_level": 5,
       "file_type": "blog-post",
-      "tags": ["shadow-ai", "ai-visibility", "ai-governance", "workspace-as-control-plane", "agent-identity", "knowledge-factory", "mcp-security", "netscaler"],
+      "tags": [
+        "shadow-ai",
+        "ai-visibility",
+        "ai-governance",
+        "workspace-as-control-plane",
+        "agent-identity",
+        "knowledge-factory",
+        "mcp-security",
+        "netscaler"
+      ],
       "word_count": 2745,
       "staleness_threshold": "stable",
       "date": "2026-09-14",
       "original_url": "https://www.citrix.com/blogs/2026/09/14/you-cant-transform-the-ai-you-cant-see/",
-      "related_frameworks": ["workspace-as-control-plane", "invisible-80-percent", "knowledge-factory"]
+      "related_frameworks": [
+        "workspace-as-control-plane",
+        "invisible-80-percent",
+        "knowledge-factory"
+      ]
     },
     {
       "path": "posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md",
       "title": "How to build an AI strategy that survives the bubble pop",
       "authority_level": 5,
       "file_type": "blog-post",
-      "tags": ["ai-bubble", "invariants", "open-weight-models", "second-brain", "knowledge-factory", "workspace-as-control-plane", "token-economics", "data-portability", "futurism"],
+      "tags": [
+        "ai-bubble",
+        "invariants",
+        "open-weight-models",
+        "second-brain",
+        "knowledge-factory",
+        "workspace-as-control-plane",
+        "token-economics",
+        "data-portability",
+        "futurism"
+      ],
       "word_count": 1766,
       "staleness_threshold": "stable",
       "date": "2026-07-20",
       "original_url": "https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/",
-      "related_frameworks": ["7-stage-roadmap", "workspace-as-control-plane"]
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "workspace-as-control-plane"
+      ]
     },
     {
       "path": "posts/citrix-blog/2026-06-30-how-a-futurist-reads-ai-news.md",
       "title": "How a futurist reads AI news. (Hint: ignore most of it.)",
       "authority_level": 5,
       "file_type": "blog-post",
-      "tags": ["futurism", "methodology", "cone-of-uncertainty", "invariants", "second-brain", "cognitive-stack", "7-stage-roadmap"],
+      "tags": [
+        "futurism",
+        "methodology",
+        "cone-of-uncertainty",
+        "invariants",
+        "second-brain",
+        "cognitive-stack",
+        "7-stage-roadmap"
+      ],
       "word_count": 1605,
       "staleness_threshold": "stable",
       "date": "2026-06-30",
       "original_url": "https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/",
-      "related_frameworks": ["7-stage-roadmap", "cognitive-stack"]
+      "related_frameworks": [
+        "7-stage-roadmap",
+        "cognitive-stack"
+      ]
     },
     {
       "path": "talks/2026-06-01-future-of-less-work-ai-brain-resume.md",
@@ -2513,6 +2592,32 @@
       "format": "Solo video demo — live Q&A using his own second brain via Claude + MCP",
       "recording": "https://www.youtube.com/watch?v=8XC3UJsfIFE",
       "substack_url": "https://www.brianmadden.ai/p/brian-madden-demonstrates-how-to"
+    },
+    {
+      "path": "talks/2026-09-15-customer-webcast-digital-workspace-ai-powered-work.md",
+      "title": "From digital workspace to AI-powered work",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "visibility-before-transformation",
+        "three-waves",
+        "invisible-80-percent",
+        "ai-knowledge-layer",
+        "knowledge-factory",
+        "forward-deployed-engineers",
+        "workspace-as-control-plane",
+        "agent-identity",
+        "mcp",
+        "second-brain",
+        "ai-governance"
+      ],
+      "word_count": 4741,
+      "staleness_threshold": "stable",
+      "date": "2026-09-15",
+      "event": "Customer webcast (customer name withheld at Brian's request)",
+      "format": "Solo webcast keynote with slides, ~35 minutes; ran out of time for live Q&A",
+      "status": "not-reviewed-by-human",
+      "substack_url": "https://www.brianmadden.ai/p/speech-transcript-from-digital-workspace"
     }
   ]
 }

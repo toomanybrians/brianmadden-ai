@@ -8,6 +8,12 @@ I co-host the **Citrix AI Hotsheet** with Dave Brear — a monthly podcast on AI
 
 ## Available content
 
+**From digital workspace to AI-powered work** (2026-09-15)
+Customer webcast (customer name withheld) — solo webcast keynote with slides, ~35 minutes
+[Substack post, with the slide deck attached](https://www.brianmadden.ai/p/speech-transcript-from-digital-workspace)
+No public recording — private customer session. Full transcript available.
+Argues that "what's our AI strategy" is the wrong first question when AI is already operating in the company from every direction, official and unofficial — the actual first move is visibility, not strategy. Walks the three waves: the AI that's already there (a configuration exercise using tools already owned, not a migration — "visibility is the new security"), the AI knowledge layer that visibility unlocks (why pointing AI straight at raw inputs produces "hallucination-filled garbage," and the knowledge-factory fix), and AI becoming portable to the device and to a region via open-weight models. Closes with where Citrix fits (37 years of delivering, governing, and securing whatever "existing work" runs on) and the second-brain pitch. Full transcript available.
+
 **Brian Madden demonstrates how to connect to and use his AI second brain** (2026-09-02)
 Follow-up to a Citrix ASEAN webcast — solo video demo, not a stage talk
 [Watch](https://www.youtube.com/watch?v=8XC3UJsfIFE) | [Substack post](https://www.brianmadden.ai/p/brian-madden-demonstrates-how-to)

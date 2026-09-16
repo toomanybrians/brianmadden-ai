@@ -139,6 +139,7 @@ How enterprises govern AI. The workspace-as-control-plane framework, agent ident
 - `posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md` -- 2026: The year your AI strategy becomes irrelevant (2026-02-27) (authority: 5)
 - `podcast/ep5.md` -- Citrix AI Hotsheet EP 5: AI Knowledge Factories — Company-Wide Second Brains (2026-09-01) (authority: 5)
 - `talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md` -- Brian Madden demonstrates how to connect to and use his AI second brain (2026-09-02) (authority: 5)
+- `talks/2026-09-15-customer-webcast-digital-workspace-ai-powered-work.md` -- From digital workspace to AI-powered work (2026-09-15) (authority: 5)
 
 ## Knowledge work and the invisible 80%
 
@@ -162,6 +163,7 @@ What knowledge work actually is, why 80% of it is invisible to corporate IT, and
 - `talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md` -- The cognitive stack: what comes after building AI platforms (2026-04-21) (authority: 5)
 - `talks/2026-06-03-euctech-the-last-chapter-of-euc.md` -- The Last Chapter of EUC (2026-06-03) (authority: 5)
 - `talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md` -- What is a worker in 2031? (2026-07-16) (authority: 5)
+- `talks/2026-09-15-customer-webcast-digital-workspace-ai-powered-work.md` -- From digital workspace to AI-powered work (2026-09-15) (authority: 5)
 
 ## Second brains and subscribable knowledge
 
@@ -189,6 +191,7 @@ Personal AI knowledge systems, subscribable brains, the creator economy disrupti
 - `podcast/ep4.md` -- Citrix AI Hotsheet EP 4: OSWorld 2.0, AI Reconciliation Maps, & the Futurist's Playbook (2026-07-15) (authority: 5)
 - `podcast/ep5.md` -- Citrix AI Hotsheet EP 5: AI Knowledge Factories — Company-Wide Second Brains (2026-09-01) (authority: 5)
 - `talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md` -- Brian Madden demonstrates how to connect to and use his AI second brain (2026-09-02) (authority: 5)
+- `talks/2026-09-15-customer-webcast-digital-workspace-ai-powered-work.md` -- From digital workspace to AI-powered work (2026-09-15) (authority: 5)
 
 ## Enterprise AI strategy
 
@@ -245,6 +248,7 @@ The big-picture enterprise transformation argument. Infrastructure, adoption pat
 - `talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md` -- What is a worker in 2031? (2026-07-16) (authority: 5)
 - `podcast/ep5.md` -- Citrix AI Hotsheet EP 5: AI Knowledge Factories — Company-Wide Second Brains (2026-09-01) (authority: 5)
 - `talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md` -- Brian Madden demonstrates how to connect to and use his AI second brain (2026-09-02) (authority: 5)
+- `talks/2026-09-15-customer-webcast-digital-workspace-ai-powered-work.md` -- From digital workspace to AI-powered work (2026-09-15) (authority: 5)
 
 ## Human-AI collaboration
 
