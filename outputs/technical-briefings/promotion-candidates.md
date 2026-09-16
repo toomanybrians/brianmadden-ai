@@ -16,3 +16,16 @@ Notes from each recurrence:
 - Multiple newsletters (Exponential View, Not Boring, others) covered OpenAI's 10,000-agent Navier-Stokes claim today, including the unreadable 500+ page proof and the Anthropic attribution dispute.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-safety-pacing-as-antitrust-exemption-bid` — flagged 2026-09-16
+
+Commentary (Stoller, others) reading Amodei's 'pace the frontier' proposal as a bid for antitrust exemption and R&D cost-cutting cover ahead of Anthropic's IPO, rather than a pure safety position.
+
+First seen 2026-09-14, recurred 3 times through 2026-09-16.
+
+Notes from each recurrence:
+
+- Tunguz's five-camp breakdown of what pacing means, including a regulatory-capture camp, extends yesterday's Stoller framing with a broader taxonomy and no shared speed target.
+- Three more sources same day (Deep View, Gary Marcus, Hard Reset) reading Amodei's pacing essay as competitive cover ahead of IPOs.
+
+**Status: not yet reviewed by Brian.**

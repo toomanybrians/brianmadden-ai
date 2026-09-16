@@ -686,10 +686,12 @@
     "slug": "compute-availability-bottleneck-is-physical-not-price",
     "description": "Second consecutive day of evidence (US power-plant permitting yesterday, EU grid-connection queues today) that AI compute availability is bound by real-world infrastructure timelines rather than price or chip supply.",
     "first_seen": "2026-09-14",
-    "last_seen": "2026-09-14",
-    "count": 1,
+    "last_seen": "2026-09-16",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "SemiAnalysis complicates the thread: moratoriums specifically account for only 7.6% of at-risk capacity actually delayed, more political signaling than real physical constraint."
+    ]
   },
   {
     "slug": "generative-ui-as-post-application-variant",
@@ -704,16 +706,28 @@
     "slug": "ai-safety-pacing-as-antitrust-exemption-bid",
     "description": "Commentary (Stoller, others) reading Amodei's 'pace the frontier' proposal as a bid for antitrust exemption and R&D cost-cutting cover ahead of Anthropic's IPO, rather than a pure safety position.",
     "first_seen": "2026-09-14",
-    "last_seen": "2026-09-15",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-16",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Tunguz's five-camp breakdown of what pacing means, including a regulatory-capture camp, extends yesterday's Stoller framing with a broader taxonomy and no shared speed target."
+      "Tunguz's five-camp breakdown of what pacing means, including a regulatory-capture camp, extends yesterday's Stoller framing with a broader taxonomy and no shared speed target.",
+      "Three more sources same day (Deep View, Gary Marcus, Hard Reset) reading Amodei's pacing essay as competitive cover ahead of IPOs."
     ]
   },
   {
     "slug": "ai-skill-retention-diverges-by-experience-level",
     "description": "A study of AI-assisted patent lawyers found senior users retained a durable performance gain after the tool was removed, while junior users' gains vanished once removed - first data point on whether AI absorbing tactical work still lets junior workers build lasting judgment.",
+    "first_seen": "2026-09-15",
+    "last_seen": "2026-09-16",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "PISA/Wharton finding on daily-AI-user high schoolers is a separate-but-similar occurrence of yesterday's patent-lawyer pattern, not the same study."
+    ]
+  },
+  {
+    "slug": "compute-commitment-escalation-vs-pacing-rhetoric",
+    "description": "Anthropic's compute commitments grew from $180B to $517B in the same eleven months its CEO called for slowing the industry down - a concrete gap between pacing rhetoric and actual capital deployment worth tracking for recurrence.",
     "first_seen": "2026-09-15",
     "last_seen": "2026-09-15",
     "count": 1,
@@ -721,10 +735,10 @@
     "history": []
   },
   {
-    "slug": "compute-commitment-escalation-vs-pacing-rhetoric",
-    "description": "Anthropic's compute commitments grew from $180B to $517B in the same eleven months its CEO called for slowing the industry down - a concrete gap between pacing rhetoric and actual capital deployment worth tracking for recurrence.",
-    "first_seen": "2026-09-15",
-    "last_seen": "2026-09-15",
+    "slug": "secret-government-frontier-model-evaluation-opacity",
+    "description": "FOIA lawsuit forced release of the US government's secret framework for approving frontier AI model releases, returned almost entirely redacted -- domestic mirror of the EU AI Act's unresolved scope question, no governance position in canon yet.",
+    "first_seen": "2026-09-16",
+    "last_seen": "2026-09-16",
     "count": 1,
     "status": "watching",
     "history": []

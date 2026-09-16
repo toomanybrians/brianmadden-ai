@@ -515,7 +515,9 @@ sources:
     name: Center for Humane Technology
     type: newsletter
     url: https://centerforhumanetechnology.substack.com
-    feed_url: https://centerforhumanetechnology.substack.com/feed
+    feed_url: null
+    sender: centerforhumanetechnology@substack.com
+    ingest_method: email
     priority: regular
 
   # --- Resolved from the "genuinely unsure" batch, 2026-08-10 (Brian's call) ---
@@ -1198,3 +1200,21 @@ sources:
     sender: aisnakeoil@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-15 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: cio-journal
+    name: "CIO Journal"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: access@interactive.wsj.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-16 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: ed-elson
+    name: "Ed Elson"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: edwardelson@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-16 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
