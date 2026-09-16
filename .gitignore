@@ -20,3 +20,11 @@ pages/*.html
 
 # Same convenience rendering for the Weekly Update (skills/weekly/render.py).
 outputs/weekly-updates/**/*.html
+
+# Same convenience rendering for podcast episodes (scripts/render_substack_html.py).
+outputs/podcast/**/*.html
+
+# Same convenience rendering for one-off talk/post Substack drafts — the
+# canon file (talks/, posts/, frameworks/) is the source of truth, and the
+# Substack post itself is the published copy. No HTML lives in this repo.
+outputs/substack-migration/**/*.html
