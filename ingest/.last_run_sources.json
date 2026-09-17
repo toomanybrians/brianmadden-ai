@@ -1,12 +1,12 @@
 {
-  "run_utc": "2026-09-16T06:34:24.618101+00:00",
+  "run_utc": "2026-09-17T06:34:36.921545+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "error",
-      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a3bdd2868a04a5b8-IAD'}]"
+      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a3c610d398d76994-DFW'}]"
     },
     {
       "id": "ethan-mollick",
@@ -21,7 +21,7 @@
       "name": "Nate B. Jones",
       "method": "feed",
       "status": "error",
-      "reason": "fetch failed: 500 Server Error: Internal Server Error for url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ"
+      "reason": "fetch failed: 404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ"
     },
     {
       "id": "daniel-miessler",
@@ -36,24 +36,24 @@
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 19,
-      "new_entries": 19
+      "entries_in_window": 15,
+      "new_entries": 15
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "moonshots",
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "dwarkesh",
@@ -84,8 +84,8 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "on-with-kara-swisher",
@@ -116,16 +116,16 @@
       "name": "Lex Fridman",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "hbr-ideacast",
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "algorithmic-bridge",
@@ -140,8 +140,8 @@
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ahead-of-ai",
@@ -319,16 +319,16 @@
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 3,
-      "new_entries": 3
+      "entries_in_window": 4,
+      "new_entries": 4
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "simon-willison",
@@ -882,6 +882,20 @@
     {
       "id": "arvind-and-sayash-from-ai-as-normal-technology",
       "name": "Arvind and Sayash from AI as Normal Technology",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "cio-journal",
+      "name": "CIO Journal",
+      "method": "feed",
+      "status": "skipped",
+      "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"
+    },
+    {
+      "id": "ed-elson",
+      "name": "Ed Elson",
       "method": "feed",
       "status": "skipped",
       "reason": "documentation only \u2014 arrives via the shared brain-inbox source, attributed by sender"

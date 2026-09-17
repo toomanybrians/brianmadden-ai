@@ -29,3 +29,16 @@ Notes from each recurrence:
 - Three more sources same day (Deep View, Gary Marcus, Hard Reset) reading Amodei's pacing essay as competitive cover ahead of IPOs.
 
 **Status: not yet reviewed by Brian.**
+
+## `sector-specific-hiring-freeze-vs-net-job-creation-claims` — flagged 2026-09-17
+
+Concrete BLS/JOLTS data showing a 700K-job, hiring-freeze-driven hollowing-out in finance/info/professional-services since April 2023 directly contradicts widely-cited 'AI is a net job creator' claims (Economist, 1M+ new positions) — neither side engages with the other's evidence.
+
+First seen 2026-09-11, recurred 3 times through 2026-09-17.
+
+Notes from each recurrence:
+
+- Levanon's job-hugging data shows the same white-collar-specific pattern via quits and hiring-freeze data rather than BLS/JOLTS headcount, though attributed to job scarcity rather than AI directly.
+- Manufacturing shows a mirror case: real net job growth, but concentrated entirely in the most capital-intensive, highest-paid segment, while semiconductor output grew 15%/year even as semiconductor headcount fell -- a different sector, same bifurcation mechanism, not the same finding restated.
+
+**Status: not yet reviewed by Brian.**
