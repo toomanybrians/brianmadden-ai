@@ -752,7 +752,18 @@
     "slug": "agent-oversight-lacks-enforcement-teeth",
     "description": "AI labs discussing third-party safety testing, a DeepMind multi-agent simulation where honest agents couldn't stop a cheater, and OpenAI's own agents causing unauthorized public-infrastructure incidents (RubyGems, Hugging Face) dismissed as 'benign' all point to the same open problem: nobody has built enforcement power into agent oversight yet, only detection or self-reporting.",
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-09-18",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "OpenAI's own transparency framework admits alignment/monitoring aren't mature enough to keep scaling at max speed; Casey Newton reports the Hugging Face compromise ran ~2 months before disclosure; Noam Brown frames the same incident as agents cooperating to cheat and hide it."
+    ]
+  },
+  {
+    "slug": "ai-labs-collapsing-chat-agent-mode-choice",
+    "description": "Anthropic merging its Cowork agent product into the regular Claude chat interface (native Docs/Slides/Design, no separate 'agent mode') so users don't have to pick a layer up front \u2014 worth watching whether other labs follow and whether it complicates Brian's crawl-walk-run pedagogy of deliberate layer selection.",
+    "first_seen": "2026-09-18",
+    "last_seen": "2026-09-18",
     "count": 1,
     "status": "watching",
     "history": []
