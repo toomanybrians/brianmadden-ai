@@ -1093,7 +1093,24 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     # other sender (see the docstring: no allowlist, subscribing IS
     # curation) this one sender is excluded structurally rather than left
     # to curation, the same way Sent-folder self-mail already is.
-    self_publication_senders = ("brianmaddenai+brianmaddenai@substack.com",)
+    #
+    # -from:forum@mg1.substack.com added 2026-09-21: a third variant of the
+    # same self-ingestion problem, this time via reader activity rather
+    # than Brian's own publishing. Substack sends comment-notification
+    # emails from this one shared address for every publication on the
+    # platform, regardless of who wrote the comment — it auto-registered
+    # as a source (`sources.yaml`, 2026-08-24, never reviewed) and by
+    # 2026-09-21 a real pseudonymous comment on the Sep 18 Daily Briefing
+    # had been extracted and drafted into the Sep 21 brief as attributed
+    # outside insight, with no distinction from an actual third-party
+    # publication. Unlike a subscribed newsletter, subscribing IS NOT the
+    # curation step here — anyone who leaves a comment triggers this
+    # sender, so (same reasoning as brianmaddenai+brianmaddenai@ above)
+    # it's excluded structurally rather than left to per-item review.
+    self_publication_senders = (
+        "brianmaddenai+brianmaddenai@substack.com",
+        "forum@mg1.substack.com",
+    )
     exclude_self = " ".join(f"-from:{addr}" for addr in self_publication_senders)
     query = (
         f'in:inbox after:{cutoff.strftime("%Y/%m/%d")} '
