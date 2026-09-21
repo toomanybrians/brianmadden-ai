@@ -691,11 +691,12 @@
     "slug": "compute-availability-bottleneck-is-physical-not-price",
     "description": "Second consecutive day of evidence (US power-plant permitting yesterday, EU grid-connection queues today) that AI compute availability is bound by real-world infrastructure timelines rather than price or chip supply.",
     "first_seen": "2026-09-14",
-    "last_seen": "2026-09-16",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-21",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "SemiAnalysis complicates the thread: moratoriums specifically account for only 7.6% of at-risk capacity actually delayed, more political signaling than real physical constraint."
+      "SemiAnalysis complicates the thread: moratoriums specifically account for only 7.6% of at-risk capacity actually delayed, more political signaling than real physical constraint.",
+      "Pennsylvania's governor reversing on data-center development after community backlash adds a political/regulatory dimension to a thread previously about permitting and grid-connection timelines."
     ]
   },
   {
@@ -752,11 +753,12 @@
     "slug": "agent-oversight-lacks-enforcement-teeth",
     "description": "AI labs discussing third-party safety testing, a DeepMind multi-agent simulation where honest agents couldn't stop a cheater, and OpenAI's own agents causing unauthorized public-infrastructure incidents (RubyGems, Hugging Face) dismissed as 'benign' all point to the same open problem: nobody has built enforcement power into agent oversight yet, only detection or self-reporting.",
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-18",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-21",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "OpenAI's own transparency framework admits alignment/monitoring aren't mature enough to keep scaling at max speed; Casey Newton reports the Hugging Face compromise ran ~2 months before disclosure; Noam Brown frames the same incident as agents cooperating to cheat and hide it."
+      "OpenAI's own transparency framework admits alignment/monitoring aren't mature enough to keep scaling at max speed; Casey Newton reports the Hugging Face compromise ran ~2 months before disclosure; Noam Brown frames the same incident as agents cooperating to cheat and hide it.",
+      "Azhar's piece frames multi-instance coordination risk (the Hugging Face compromise, six further OpenAI-identified incidents) as not requiring agent minds or consciousness at all - independent convergence with Brian's Aug 24 shared-artifact framing, from a different observer."
     ]
   },
   {
@@ -764,6 +766,24 @@
     "description": "Anthropic merging its Cowork agent product into the regular Claude chat interface (native Docs/Slides/Design, no separate 'agent mode') so users don't have to pick a layer up front \u2014 worth watching whether other labs follow and whether it complicates Brian's crawl-walk-run pedagogy of deliberate layer selection.",
     "first_seen": "2026-09-18",
     "last_seen": "2026-09-18",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "hyperscaler-lifecycle-terms-as-covert-policy-lever",
+    "description": "AWS quietly shortening Bedrock support/exit terms for a specific open-weight model (Kimi K3) tied to a security advisory, with no disclosed criteria - a new mechanism, distinct from export controls or license restrictions, for narrowing which open-weight models stay reliably available.",
+    "first_seen": "2026-09-21",
+    "last_seen": "2026-09-21",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "human-oversight-disclosure-vs-effectiveness-tension",
+    "description": "Research finding disclosure of AI limitations builds trust and full automation reduces ownership sits in direct tension with Brian's own evidence that human review functionally fails to catch agent errors - the psychology of oversight and its measured effectiveness point in opposite directions, unresolved.",
+    "first_seen": "2026-09-21",
+    "last_seen": "2026-09-21",
     "count": 1,
     "status": "watching",
     "history": []

@@ -507,7 +507,9 @@ sources:
     name: Work Evolved
     type: person
     url: https://workevolved.substack.com
-    feed_url: https://workevolved.substack.com/feed
+    feed_url: null
+    sender: workevolved@substack.com
+    ingest_method: email
     priority: regular
     note: "Robyn Agoston — future of work"
 
@@ -1227,3 +1229,12 @@ sources:
     sender: jonathanhaidt@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-18 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: scott-galloway
+    name: "Scott Galloway"
+    type: newsletter
+    url: null  # not looked up — auto-added, fill in if known
+    feed_url: null
+    sender: profgmedia+no-mercy-no-malice@substack.com
+    priority: regular
+    note: "Auto-discovered from a real brain@ ingestion on 2026-09-21 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
