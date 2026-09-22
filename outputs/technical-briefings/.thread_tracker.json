@@ -629,10 +629,12 @@
     "slug": "open-weight-license-restrictions-narrow-planning-floor",
     "description": "Leading Chinese open-weight labs (Zhipu's GLM-5.3) adding restrictive commercial-use licenses gated by revenue thresholds, while Western labs move toward permissive Apache 2.0 - a geographic split that could squeeze exactly the hyperscaler-hosting layer Brian's bubble-pop planning-floor argument depends on.",
     "first_seen": "2026-09-09",
-    "last_seen": "2026-09-09",
-    "count": 1,
+    "last_seen": "2026-09-22",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Nathan Lambert's balance-of-power data shows Chinese open-weight models now leading on both capability and adoption (80%+ of OpenRouter open-model traffic), sharpening the exposure of the bubble-pop planning floor to exactly the models most likely to face export-control or hyperscaler policy restriction."
+    ]
   },
   {
     "slug": "ai-economics-diverge-from-headline-claims",
@@ -784,6 +786,24 @@
     "description": "Research finding disclosure of AI limitations builds trust and full automation reduces ownership sits in direct tension with Brian's own evidence that human review functionally fails to catch agent errors - the psychology of oversight and its measured effectiveness point in opposite directions, unresolved.",
     "first_seen": "2026-09-21",
     "last_seen": "2026-09-21",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "decision-models-as-commodity-layer",
+    "description": "A new class of specialized non-generative 'decision models' (Jev/System One, open clones like Kev) returning scores instead of text for narrow classification/routing tasks, priced 76x-238x cheaper than frontier calls, with an ecosystem of clones and benchmarks forming within a week of release.",
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-09-22",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "junior-training-rungs-replaced-by-motivation-role",
+    "description": "Organizations independently redefining junior/entry human roles away from tactical skill-building toward motivation and judgment coaching as AI absorbs the tactical work (Rokt's skipped 'grind' training, Alpha School's instruction-free 'guides') \u2014 bearing on the unresolved question of how future experts build judgment without the traditional ladder.",
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-09-22",
     "count": 1,
     "status": "watching",
     "history": []

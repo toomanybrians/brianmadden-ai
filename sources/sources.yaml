@@ -710,7 +710,9 @@ sources:
     name: The Economics of AI
     type: newsletter
     url: https://economicsofai.substack.com
-    feed_url: https://economicsofai.substack.com/feed
+    feed_url: null
+    sender: economicsofai@substack.com
+    ingest_method: email
     priority: regular
     note: "OpenAI Economic Research team — AI's effect on work, productivity, economic opportunity"
 
