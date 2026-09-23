@@ -549,11 +549,12 @@
     "slug": "agentic-commerce-spending-authority",
     "description": "Consumer AI agents (Grok Bot via Stripe) given standing authority to search, cart, and check out with real money \u2014 agents crossing from producing information to spending it, with no enterprise governance framework covering financial transaction authority yet",
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-04",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-23",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Anthropic open-sourced a shopping-agent blueprint with cart-fill and checkout-adjacent capability reporting 60% higher purchase completion \u2014 same pattern of AI agents crossing into commerce-transaction authority, now from a major lab rather than a single Stripe integration."
+      "Anthropic open-sourced a shopping-agent blueprint with cart-fill and checkout-adjacent capability reporting 60% higher purchase completion \u2014 same pattern of AI agents crossing into commerce-transaction authority, now from a major lab rather than a single Stripe integration.",
+      "Meta's Muse agent, via a Shopify integration, given standing purchase authority and hitting No. 1 in the App Store within two weeks \u2014 a separate occurrence of the same pattern as Grok Bot's Stripe integration, not new detail on that specific case."
     ]
   },
   {
@@ -776,10 +777,12 @@
     "slug": "hyperscaler-lifecycle-terms-as-covert-policy-lever",
     "description": "AWS quietly shortening Bedrock support/exit terms for a specific open-weight model (Kimi K3) tied to a security advisory, with no disclosed criteria - a new mechanism, distinct from export controls or license restrictions, for narrowing which open-weight models stay reliably available.",
     "first_seen": "2026-09-21",
-    "last_seen": "2026-09-21",
-    "count": 1,
+    "last_seen": "2026-09-23",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Harvey's production 'Tenet' model is built on Kimi K3, the same model AWS was reported quietly narrowing Bedrock support for \u2014 sharpens the stakes of the existing pattern from a real production dependency, not just a policy observation."
+    ]
   },
   {
     "slug": "human-oversight-disclosure-vs-effectiveness-tension",
@@ -804,6 +807,15 @@
     "description": "Organizations independently redefining junior/entry human roles away from tactical skill-building toward motivation and judgment coaching as AI absorbs the tactical work (Rokt's skipped 'grind' training, Alpha School's instruction-free 'guides') \u2014 bearing on the unresolved question of how future experts build judgment without the traditional ladder.",
     "first_seen": "2026-09-22",
     "last_seen": "2026-09-22",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "bureaucratic-friction-as-ai-security-asymmetry",
+    "description": "Argument that AI-enabled attackers hold a durable, structural advantage over defenders because effective organizations are embedded in change-control bureaucracy that slows response time, independent of any technology gap \u2014 complicates governance arguments that route enforcement through organizational process.",
+    "first_seen": "2026-09-23",
+    "last_seen": "2026-09-23",
     "count": 1,
     "status": "watching",
     "history": []

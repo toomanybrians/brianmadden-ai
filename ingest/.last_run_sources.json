@@ -1,12 +1,12 @@
 {
-  "run_utc": "2026-09-22T06:34:35.307944+00:00",
+  "run_utc": "2026-09-23T06:35:13.636294+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "error",
-      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a3ef424a59b5255f-IAD'}]"
+      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a3f78122bd00874f-ORD'}]"
     },
     {
       "id": "ethan-mollick",
@@ -20,40 +20,41 @@
       "id": "nate-b-jones",
       "name": "Nate B. Jones",
       "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ"
+      "status": "ok",
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "daniel-miessler",
       "name": "Daniel Miessler",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "brain-inbox",
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 20,
-      "new_entries": 20
+      "entries_in_window": 14,
+      "new_entries": 14
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "moonshots",
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "dwarkesh",
@@ -92,8 +93,8 @@
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "no-priors",
@@ -124,24 +125,24 @@
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "algorithmic-bridge",
       "name": "The Algorithmic Bridge",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "exponential-view",
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ahead-of-ai",
@@ -172,8 +173,8 @@
       "name": "David Shapiro's Substack",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "demis-hassabis",
@@ -319,16 +320,16 @@
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 5,
-      "new_entries": 5
+      "entries_in_window": 3,
+      "new_entries": 3
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "simon-willison",
@@ -429,8 +430,8 @@
       "name": "Hard Reset",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "kuns-field-notes",

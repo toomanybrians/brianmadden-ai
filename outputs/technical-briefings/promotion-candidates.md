@@ -68,3 +68,16 @@ Notes from each recurrence:
 - Pennsylvania's governor reversing on data-center development after community backlash adds a political/regulatory dimension to a thread previously about permitting and grid-connection timelines.
 
 **Status: not yet reviewed by Brian.**
+
+## `agentic-commerce-spending-authority` — flagged 2026-09-23
+
+Consumer AI agents (Grok Bot via Stripe) given standing authority to search, cart, and check out with real money — agents crossing from producing information to spending it, with no enterprise governance framework covering financial transaction authority yet
+
+First seen 2026-09-01, recurred 3 times through 2026-09-23.
+
+Notes from each recurrence:
+
+- Anthropic open-sourced a shopping-agent blueprint with cart-fill and checkout-adjacent capability reporting 60% higher purchase completion — same pattern of AI agents crossing into commerce-transaction authority, now from a major lab rather than a single Stripe integration.
+- Meta's Muse agent, via a Shopify integration, given standing purchase authority and hitting No. 1 in the App Store within two weeks — a separate occurrence of the same pattern as Grok Bot's Stripe integration, not new detail on that specific case.
+
+**Status: not yet reviewed by Brian.**
