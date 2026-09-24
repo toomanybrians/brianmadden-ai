@@ -734,6 +734,105 @@ sources:
     priority: regular
     note: "Personal Substack follow, initially flagged as possibly off-topic during a routine review, confirmed on-topic by Brian 2026-09-04."
 
+  # --- Personal-account follows not yet tracked, 2026-09-25 ---
+  # Diffed Brian's personal Substack subscriptions (substack.com/@briansmadden,
+  # 62 follows via the public profile API) against this file: 20 not tracked.
+  # Each feed was fetched from the home runner (all 200) and judged on its
+  # description and recent posts. These 11 are in. Skipped as off-beat:
+  # Intel Brief (Jacob Kaarsbo), Oil Market Brief, Spycraft 101, Notes from
+  # the Circus, Speak Easy, The Digital Contrarian (already excluded
+  # 2026-08-10), Quantum Analysis, The Palindrome. Skipped as empty: Daniel
+  # Kokotajlo's personal Substack (0 posts; covered by ai-futures-project).
+  # Plain RSS, not email: feeds work now that ingest runs on the home runner.
+
+  - id: khe-hy
+    name: "Future-Proof Your Career with AI"
+    type: person
+    url: https://khemaridh.substack.com
+    feed_url: https://khemaridh.substack.com/feed
+    priority: regular
+    note: "Khe Hy. AI for busy professionals: personal agents, evals, 'your agents need a company brain.' Directly on the knowledge-work beat."
+
+  - id: future-focused
+    name: "Future-Focused"
+    type: person
+    url: https://christopherlind.substack.com
+    feed_url: https://christopherlind.substack.com/feed
+    priority: regular
+    note: "Christopher Lind. Business, technology, and people: enterprise drift, talent, the future of value."
+
+  - id: ai-made-simple
+    name: "Artificial Intelligence Made Simple"
+    type: newsletter
+    url: https://www.artificialintelligencemadesimple.com
+    feed_url: https://www.artificialintelligencemadesimple.com/feed
+    priority: regular
+    note: "Devansh. AI across technical, social, and economic angles: lab business models, compute, open-weights economics."
+
+  - id: newcomer
+    name: "Newcomer"
+    type: newsletter
+    url: https://www.newcomer.co
+    feed_url: https://www.newcomer.co/feed
+    priority: regular
+    note: "Eric Newcomer. Venture capital and the startup industry, heavy on AI build-out financing."
+
+  - id: redwood-research
+    name: "Redwood Research blog"
+    type: newsletter
+    url: https://blog.redwoodresearch.org
+    feed_url: https://blog.redwoodresearch.org/feed
+    priority: regular
+    note: "AI control and oversight research: CoT monitorability, latent reasoning. Same lane as METR and the CoT-legibility thread promoted 2026-09-13."
+
+  - id: paradigm-3
+    name: "Paradigm 3 (Humans on AI)"
+    type: newsletter
+    url: https://p3humansonai.substack.com
+    feed_url: https://p3humansonai.substack.com/feed
+    priority: regular
+    note: "Twice-weekly roundup of the important AI developments, framed around self-improving AI."
+
+  - id: nita-farahany
+    name: "Thinking Freely with Nita Farahany"
+    type: person
+    url: https://nitafarahany.substack.com
+    feed_url: https://nitafarahany.substack.com/feed
+    priority: regular
+    note: "AI law and policy (her class write-ups), cognitive liberty, neurotech."
+
+  - id: andrew-morgan
+    name: "Andrew Morgan"
+    type: person
+    url: https://andrewmorgan.ai
+    feed_url: https://andrewmorgan.ai/feed
+    priority: regular
+    note: "Low-volume practitioner writing on building agents and operator/model behavior."
+
+  - id: discover-ai
+    name: "Discover AI"
+    type: newsletter
+    url: https://aidiscover.substack.com
+    feed_url: https://aidiscover.substack.com/feed
+    priority: regular
+    note: "New (first posts Sep 2026). Pitch: cuts through launches and hype to what matters for real work."
+
+  - id: andrew-yang
+    name: "Andrew Yang Newsletter"
+    type: person
+    url: https://blog.andrewyang.com
+    feed_url: https://blog.andrewyang.com/feed
+    priority: regular
+    note: "Politics and tech, recently heavy on AI and labor displacement, data-center backlash, alignment."
+
+  - id: musings-on-markets
+    name: "Musings on Markets"
+    type: person
+    url: https://aswathdamodaran.substack.com
+    feed_url: https://aswathdamodaran.substack.com/feed
+    priority: regular
+    note: "Aswath Damodaran. Valuation and markets; relevant when he turns to AI business economics (e.g. 'AI's Bar Mitzvah Moment?'). The ingest relevance gate filters the rest."
+
   - id: aaron-levie-linkedin
     name: "Aaron Levie (LinkedIn)"
     type: person
