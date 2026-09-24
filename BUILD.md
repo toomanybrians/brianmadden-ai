@@ -664,6 +664,16 @@ asked to do, not as a template to re-run.
     the other 8 (not followed anywhere, so unverified) — those remain a
     real unknown, not confirmed either way.
 
+    **2026-09-25: fixed by moving the pipeline, not the sources.**
+    `daily-pipeline.yml` now runs on a self-hosted runner on Brian's
+    home box (Beelink, label `beelink`). The 13 Substack feeds still
+    polled by RSS: 13/13 `403` from Actions, 13/13 `200` from the box,
+    and a real ingest through the runner succeeded. Email-routing is no
+    longer needed for the block itself. Separate finding: many of those
+    13 are simply quiet (6 have not posted in 2+ months; Doctorow's
+    Substack is dormant since Nov 2025, The AI Report ~17 months), so
+    worth a pruning pass. See the 2026-09-25 session entry.
+
 17. **Belief-currency inside canon: "we treat all my writing as canon, but
     my writing evolves" (raised by Brian 2026-09-04, flagged for later, not
     designed).** Brian's own framing, reacting to the Weekly Wrap Up prep
@@ -3502,3 +3512,50 @@ regenerated in its own separate full pass, not incrementally per post.
 `python3 scripts/check_doc_accuracy.py` clean before committing.
 Committed and pushed straight to `main` (040902a), per the established
 workflow for this repo.
+
+### 2026-09-25 — `/maintain` + home box: pipeline moved to a self-hosted runner; X root cause found
+
+Sync was clean: 3 behind (automated 09-22/23/24 runs), fast-forwarded,
+nothing ahead, tree clean. Brian bought the always-on home box the
+2026-09-10 entry parked the "run it locally" decision on: a Beelink Mini
+S (Intel, 16 GB, 500 GB), Ubuntu 24.04 Server (minimal, then
+`unminimize`), Wi-Fi `wlo1` on a reserved Orbi lease (10.168.168.188),
+Tailscale, Europe/Paris, unattended-upgrades, BIOS set to power on after
+AC loss. Repo cloned at `~/git/brianmadden-ai` with its own `.venv` and a
+copy of `.env` (mode 600). Claude Code installed but not logged in; the
+pipeline doesn't need it (plain Python on the API key).
+
+**Decision (the one parked 2026-09-10): self-hosted runner, not a local
+cron script.** Keeps `daily-pipeline.yml` the single definition, logs
+stay in Actions, secrets stay in GitHub Secrets (MAINTAINER.md rule).
+Runner `beelink` (v2.337.0, checksum-verified) runs as a systemd service
+under `brian`. Public-repo hardening: only this repo's two
+schedule/dispatch-only workflows target it, and fork-PR approval raised
+from `first_time_contributors` to `all_external_contributors`. Workflow
+change: `runs-on: [self-hosted, beelink]`, and a persistent venv at
+`~/.cache/brianmadden-ai-venv` replaces `setup-python` (24.04 blocks
+system pip). `ffmpeg` installed on the box (hosted runners had it
+preinstalled; podcast transcription needs it). Added
+`runner-smoke-test.yml`: manual-only dry run of X + one Substack feed,
+commits nothing. Needed because a full `workflow_dispatch` at that hour
+would have re-generated and re-emailed the 09-24 brief (UTC date).
+
+**Substack block: fixed.** 13/13 remaining RSS-polled Substack feeds
+`403` from Actions (09-24 run), 13/13 `200` from the box; smoke test ran
+a real extraction through the runner. See the note under open decision
+#16.
+
+**X: the IP-block theory is wrong.** The smoke test still got `401
+unauthorized_client` from the residential network. History: every
+scheduled run since at least 09-08 failed identically, while local runs
+using `.env` succeeded (09-10's local run is the last write to the
+`X_REFRESH_TOKEN` secret). A dry run on the box using `.env` pulled 48
+timeline entries and wrote the rotated refresh token back to Secrets.
+The difference is the app credentials: the `X_CLIENT_ID` /
+`X_CLIENT_SECRET` secrets (last set 2026-08-26) don't match `.env`.
+**Not yet fixed:** replacing those two secrets was blocked by the
+session's permission check, so it's left for Brian to run himself (the
+command is in the session). Until he does, X will keep failing in the
+scheduled run. Also: the Mac's `.env` `X_REFRESH_TOKEN` is now stale
+(the box rotated it). Don't run X from the Mac; the box and Secrets are
+the live copies.

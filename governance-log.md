@@ -1289,3 +1289,27 @@ claim); footer reworded to describe what the AI does and to frame the
 pipeline as not-yet-fully-open-sourced. Issue `status` → `reviewed-and-updated`.
 The brain-vs-AI clarity and AI-authorship honesty are the durable
 template lessons.
+
+## 2026-09-25 — Daily pipeline moved to a self-hosted home runner
+
+**What changed:** `daily-pipeline.yml` now runs on Brian's always-on
+home box (self-hosted runner `beelink`) instead of GitHub's hosted
+Ubuntu runners. Same steps, same schedule, same secrets from GitHub
+Actions Secrets; only the machine and the Python setup (persistent venv
+in place of `setup-python`) changed. Added `runner-smoke-test.yml`, a
+manual-only dry run that commits nothing.
+
+**Why:** GitHub's datacenter IPs are blocked by Substack's Cloudflare
+front (13/13 RSS-polled Substack feeds `403` every run; 13/13 `200` from
+the home network), so part of the source registry never reached the
+Daily Brief. Content policy is unchanged: what gets ingested, how it's
+labeled, and what gets published are identical.
+
+**Safeguards:** the repo is public, so the runner is used only by
+schedule/dispatch workflows (never `pull_request`), and every workflow
+run from an outside contributor's fork PR now requires approval.
+
+**Automated checks:** workflow YAML validated; `python3
+scripts/check_doc_accuracy.py` clean; smoke test passed on the runner.
+
+**Result: COMMITTED.**
