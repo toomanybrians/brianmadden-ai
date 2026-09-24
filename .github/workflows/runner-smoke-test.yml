@@ -1,0 +1,60 @@
+# Self-hosted runner smoke test (manual only)
+# ===========================================
+# Health check for the `beelink` home runner that daily-pipeline.yml
+# runs on (see that file's "WHY SELF-HOSTED" note). Dry-runs ingest
+# against the two source types the runner exists to fix — X and one
+# RSS-polled Substack feed — and commits nothing, so it's safe to fire
+# at any hour without producing or re-sending a Daily Brief.
+#
+# Not side-effect-free, deliberately: the X step really refreshes the
+# OAuth token, and ingest.py writes the rotated refresh token back to
+# the X_REFRESH_TOKEN secret (_persist_x_refresh_token) exactly as a
+# real run would. That's the point — it proves the refresh works from
+# this network and that the write-back keeps the secret valid for the
+# next scheduled run.
+
+name: Runner smoke test
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: daily-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: [self-hosted, beelink]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python venv + dependencies
+        run: |
+          VENV="$HOME/.cache/brianmadden-ai-venv"
+          [ -x "$VENV/bin/python3" ] || python3 -m venv "$VENV"
+          "$VENV/bin/pip" install -q -r requirements.txt
+          echo "$VENV/bin" >> "$GITHUB_PATH"
+
+      - name: Tooling present
+        run: |
+          python3 --version
+          gh --version | head -1
+          ffmpeg -version | head -1
+
+      - name: Substack feed (dry run)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 skills/ingest/ingest.py --source linas-newsletter --since-days 3 --max-per-source 1 --dry-run
+
+      - name: X timeline (dry run, real token refresh)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          X_CLIENT_ID: ${{ secrets.X_CLIENT_ID }}
+          X_CLIENT_SECRET: ${{ secrets.X_CLIENT_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_REFRESH_TOKEN: ${{ secrets.X_REFRESH_TOKEN }}
+          SECRETS_WRITE_PAT: ${{ secrets.SECRETS_WRITE_PAT }}
+        run: python3 skills/ingest/ingest.py --source x-timeline --since-days 1 --max-per-source 2 --dry-run

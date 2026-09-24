@@ -22,6 +22,22 @@
 # hour of drift in either direction doesn't matter enough to double the
 # schedule complexity.
 #
+# WHY SELF-HOSTED (2026-09-25)
+# ----------------------------
+# Runs on Brian's always-on home box (a Beelink mini PC, Ubuntu 24.04,
+# runner name/label `beelink`), not GitHub's hosted runners. Substack's
+# Cloudflare front 403s GitHub's datacenter IP ranges on every run
+# (BUILD.md open decision #16 — all 13 remaining RSS-polled Substack
+# feeds, every day), and X's OAuth refresh 401'd from Actions while
+# succeeding from residential networks. Same feeds from the home box:
+# 13/13 200. Secrets still come from GitHub Actions Secrets exactly as
+# before — nothing on the box's runner workspace holds a .env. Because
+# this repo is public, the runner is only ever targeted by this
+# workflow, which only fires on schedule/workflow_dispatch (never on
+# pull_request), and fork PRs from any outside contributor require
+# approval before any workflow runs. The runner service is
+# `actions.runner.toomanybrians-brianmadden-ai.beelink` on the box.
+#
 # X (brianmaddenai home timeline) INGESTION
 # ------------------------------------------
 # Wired in for real 2026-08-28. Its OAuth refresh token rotates on use;
@@ -81,19 +97,24 @@ permissions:
 
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, beelink]
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      # The box's system Python is 3.12 (Ubuntu 24.04), same version the
+      # hosted runner used, but 24.04 refuses a system-wide pip install
+      # (PEP 668), so deps live in a venv that persists between runs
+      # outside the workspace (checkout's clean step would wipe one
+      # inside it). Putting its bin/ on GITHUB_PATH makes every later
+      # step's `python3` the venv's.
+      - name: Set up Python venv + dependencies
+        run: |
+          VENV="$HOME/.cache/brianmadden-ai-venv"
+          [ -x "$VENV/bin/python3" ] || python3 -m venv "$VENV"
+          "$VENV/bin/pip" install -q -r requirements.txt
+          echo "$VENV/bin" >> "$GITHUB_PATH"
 
       - name: Configure git identity
         run: |
