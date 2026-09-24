@@ -81,3 +81,16 @@ Notes from each recurrence:
 - Meta's Muse agent, via a Shopify integration, given standing purchase authority and hitting No. 1 in the App Store within two weeks — a separate occurrence of the same pattern as Grok Bot's Stripe integration, not new detail on that specific case.
 
 **Status: not yet reviewed by Brian.**
+
+## `hyperscaler-lifecycle-terms-as-covert-policy-lever` — flagged 2026-09-24
+
+AWS quietly shortening Bedrock support/exit terms for a specific open-weight model (Kimi K3) tied to a security advisory, with no disclosed criteria - a new mechanism, distinct from export controls or license restrictions, for narrowing which open-weight models stay reliably available.
+
+First seen 2026-09-21, recurred 3 times through 2026-09-24.
+
+Notes from each recurrence:
+
+- Harvey's production 'Tenet' model is built on Kimi K3, the same model AWS was reported quietly narrowing Bedrock support for — sharpens the stakes of the existing pattern from a real production dependency, not just a policy observation.
+- Harvey's Kimi K3-based Tenet model posts a strong new performance result (beats Sonnet 5 at 55% lower cost), raising the stakes on whether AWS's narrowed Bedrock support terms for Kimi K3 actually lapse on a real production business.
+
+**Status: not yet reviewed by Brian.**

@@ -621,10 +621,12 @@
     "slug": "eu-ai-act-scope-of-internal-unreleased-models",
     "description": "EU Commission's first formal enforcement requests to AI labs, triggered by lab security incidents, alongside an unresolved legal question of whether internal, unreleased research models fall under the AI Act's scope at all",
     "first_seen": "2026-09-08",
-    "last_seen": "2026-09-08",
-    "count": 1,
+    "last_seen": "2026-09-24",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "A Lawfare analysis via the EU AI Act Newsletter argues the AI Act's obligations reach internal-only models never released, using OpenAI's Hugging Face-incident model as the test case."
+    ]
   },
   {
     "slug": "open-weight-license-restrictions-narrow-planning-floor",
@@ -738,10 +740,12 @@
     "slug": "compute-commitment-escalation-vs-pacing-rhetoric",
     "description": "Anthropic's compute commitments grew from $180B to $517B in the same eleven months its CEO called for slowing the industry down - a concrete gap between pacing rhetoric and actual capital deployment worth tracking for recurrence.",
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-15",
-    "count": 1,
+    "last_seen": "2026-09-24",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Anthropic renewed its slowdown call the same week it shipped Opus 5.5 at lower cost and higher speed, and OpenAI matched pricing within the hour \u2014 a sharper instance of the same gap between pacing rhetoric and actual deployment."
+    ]
   },
   {
     "slug": "secret-government-frontier-model-evaluation-opacity",
@@ -777,11 +781,12 @@
     "slug": "hyperscaler-lifecycle-terms-as-covert-policy-lever",
     "description": "AWS quietly shortening Bedrock support/exit terms for a specific open-weight model (Kimi K3) tied to a security advisory, with no disclosed criteria - a new mechanism, distinct from export controls or license restrictions, for narrowing which open-weight models stay reliably available.",
     "first_seen": "2026-09-21",
-    "last_seen": "2026-09-23",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-24",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Harvey's production 'Tenet' model is built on Kimi K3, the same model AWS was reported quietly narrowing Bedrock support for \u2014 sharpens the stakes of the existing pattern from a real production dependency, not just a policy observation."
+      "Harvey's production 'Tenet' model is built on Kimi K3, the same model AWS was reported quietly narrowing Bedrock support for \u2014 sharpens the stakes of the existing pattern from a real production dependency, not just a policy observation.",
+      "Harvey's Kimi K3-based Tenet model posts a strong new performance result (beats Sonnet 5 at 55% lower cost), raising the stakes on whether AWS's narrowed Bedrock support terms for Kimi K3 actually lapse on a real production business."
     ]
   },
   {
@@ -816,6 +821,15 @@
     "description": "Argument that AI-enabled attackers hold a durable, structural advantage over defenders because effective organizations are embedded in change-control bureaucracy that slows response time, independent of any technology gap \u2014 complicates governance arguments that route enforcement through organizational process.",
     "first_seen": "2026-09-23",
     "last_seen": "2026-09-23",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "frontier-labs-insourcing-gpu-infra",
+    "description": "Frontier labs building their own GPU cluster scheduler/control-plane infrastructure in-house rather than renting from neoclouds, producing a bifurcated market where the largest labs get preferential financing and pricing and smaller labs get worse terms \u2014 a compute-access stratification axis distinct from the neocloud security-baseline gap already tracked.",
+    "first_seen": "2026-09-24",
+    "last_seen": "2026-09-24",
     "count": 1,
     "status": "watching",
     "history": []
