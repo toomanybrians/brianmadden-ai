@@ -3559,3 +3559,15 @@ command is in the session). Until he does, X will keep failing in the
 scheduled run. Also: the Mac's `.env` `X_REFRESH_TOKEN` is now stale
 (the box rotated it). Don't run X from the Mac; the box and Secrets are
 the live copies.
+
+**Update, same session: X fixed.** Brian replaced the `X_CLIENT_ID` /
+`X_CLIENT_SECRET` secrets from the box's `.env` (22:48 UTC). The re-run
+smoke test on the runner pulled 47 timeline entries and wrote 7 notes
+(dry run). The next scheduled run is X's first working one since at least
+09-08. **Also pruned 8 dead Substack sources** from `sources.yaml`
+(122 → 114), on Brian's call; he's unsubscribing on Substack himself.
+5 had no post in 2+ months (demis-hassabis, fei-fei-li, kevin-roose,
+cory-doctorow, the-ai-report) and 3 feeds were empty
+(emerging-physical-ai, tech-empires, lex-fridman-2). Kevin Roose is still
+covered through Hard Fork. Doctorow's real output is pluralistic.net, if
+he's wanted back.

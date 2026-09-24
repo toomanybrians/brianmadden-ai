@@ -305,21 +305,6 @@ sources:
     ingest_method: email
     priority: regular
 
-  - id: demis-hassabis
-    name: Demis Hassabis
-    type: person
-    url: https://demishassabis.substack.com
-    feed_url: https://demishassabis.substack.com/feed
-    priority: regular
-    note: "Google DeepMind CEO"
-
-  - id: fei-fei-li
-    name: Dr. Fei-Fei Li
-    type: person
-    url: https://drfeifei.substack.com
-    feed_url: https://drfeifei.substack.com/feed
-    priority: regular
-
   - id: emerging-ai
     name: Emerging AI
     type: newsletter
@@ -329,13 +314,6 @@ sources:
     ingest_method: email
     priority: regular
     note: "by Opinion AI — practical/builder-focused AI newsletter"
-
-  - id: emerging-physical-ai
-    name: Emerging Physical AI
-    type: newsletter
-    url: https://emergingphysicalai.substack.com
-    feed_url: https://emergingphysicalai.substack.com/feed
-    priority: regular
 
   - id: extended-brain
     name: Extended_Brain
@@ -398,14 +376,6 @@ sources:
     feed_url: https://www.interconnects.ai/feed
     priority: regular
     note: "Nathan Lambert"
-
-  - id: kevin-roose
-    name: Kevin Roose
-    type: person
-    url: https://kevinroose.substack.com
-    feed_url: https://kevinroose.substack.com/feed
-    priority: regular
-    note: "Also Hard Fork co-host, tracked separately above"
 
   - id: kinder-futures
     name: "Kinder Futures: Dispatches on AI, Work & What Comes Next"
@@ -551,14 +521,6 @@ sources:
     ingest_method: email
     priority: regular
 
-  - id: cory-doctorow
-    name: Cory Doctorow
-    type: person
-    url: https://doctorow.substack.com
-    feed_url: https://doctorow.substack.com/feed
-    priority: regular
-    note: "Tech/digital rights, 'enshittification.' Primary site is pluralistic.net — this is his native Substack cross-post feed, which is what's actually followed."
-
   - id: claude-cowork
     name: Claude Cowork
     type: newsletter
@@ -675,14 +637,6 @@ sources:
     priority: regular
     note: "Jeffrey Ding — AI development in China"
 
-  - id: tech-empires
-    name: TECH EMPIRES
-    type: person
-    url: https://techempires.substack.com
-    feed_url: https://techempires.substack.com/feed
-    priority: regular
-    note: "Sasha Fegan"
-
   # --- Added directly by Brian, 2026-08-11 ---
 
   - id: asimovs-addendum
@@ -698,13 +652,6 @@ sources:
   # follows since the last check. 8 new names appeared; 1 (Asimov's
   # Addendum) was already tracked (added separately, see above). The other
   # 7 below are genuinely new.
-
-  - id: the-ai-report
-    name: The AI Report
-    type: newsletter
-    url: https://theaireport.substack.com
-    feed_url: https://theaireport.substack.com/feed
-    priority: regular
 
   - id: economics-of-ai
     name: The Economics of AI
@@ -851,14 +798,6 @@ sources:
     type: newsletter
     url: "https://www.dwarkesh.com"
     feed_url: "https://www.dwarkesh.com/feed"
-    priority: regular
-    note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-08-17 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
-
-  - id: lex-fridman-2
-    name: "Lex Fridman"
-    type: newsletter
-    url: "https://lexfridman.substack.com"
-    feed_url: "https://lexfridman.substack.com/feed"
     priority: regular
     note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-08-17 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
 
