@@ -36,7 +36,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
 from lib import llm  # noqa: E402  (needs sys.path set first)
 
-DEFAULT_MODEL = "claude-opus-5"
+DEFAULT_MODEL = "claude-opus-5-5"
 # Cross-checking ~90 developing-thinking items and 10 frameworks against the
 # full published record is real judgment (does this overlap substantially,
 # is it actually redundant), not extraction — same reasoning as brief.py's

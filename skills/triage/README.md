@@ -76,8 +76,8 @@ every other machine-surfaces-human-decides surface in this repo.
 
 ## Model
 
-Defaults to `claude-opus-5`, same reasoning as `brief.py`'s Opus default —
-judging whether an idea is genuinely redundant with published work (versus
+Defaults to `claude-opus-5-5` (moved from `claude-opus-5` 2026-09-25,
+Brian's call, alongside `brief.py`) — judging whether an idea is genuinely redundant with published work (versus
 just thematically related) is real judgment, and this runs occasionally,
 not per-item, so the cost multiplier is small. Override with `--llm-model`
 / `LLM_MODEL`, or switch providers with `--provider` — see
