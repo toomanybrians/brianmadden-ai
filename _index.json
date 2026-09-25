@@ -78,9 +78,9 @@
         "frontier",
         "developing-arguments"
       ],
-      "word_count": 10432,
+      "word_count": 10826,
       "staleness_threshold": "weeks",
-      "updated": "2026-09-04",
+      "updated": "2026-09-25",
       "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
     },
     {
@@ -135,13 +135,15 @@
         "enterprise-ai",
         "worker-led-adoption",
         "governance",
-        "shadow-ai"
+        "shadow-ai",
+        "knowledge-factory"
       ],
-      "word_count": 1264,
+      "word_count": 1012,
       "staleness_threshold": "stable",
       "date": "2025-09-17",
       "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
       "related_frameworks": [
+        "knowledge-factory",
         "invisible-80-percent",
         "factory-electrification",
         "workspace-as-control-plane"
@@ -149,7 +151,7 @@
       "related_posts": [
         "2025-09-17-the-bitter-lesson-of-workplace-ai"
       ],
-      "description": "Simple, worker-driven AI adoption beats elaborate IT-engineered solutions. Every time. The endgame is more radical than most enterprises expect."
+      "description": "A sequencing claim: build the knowledge factory now, and the bitter lesson thins its scaffolding later. For AI tooling, enable what workers already chose instead of engineering a replacement."
     },
     {
       "path": "frameworks/factory-electrification.md",

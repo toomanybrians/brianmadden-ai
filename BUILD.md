@@ -3645,3 +3645,61 @@ and the box's clone). Local runs now skip X cleanly, and `.env.example`
 says why. **Left alone:** uncommitted `outputs/weekly-updates/` and
 `outputs/canon-triage/` changes that appeared at 13:55, from what looks
 like a concurrent `/weekly-update` session, not this one.
+
+### 2026-09-25 (Weekly Wrap Up session) — `/maintain` + `/weekly-update`, window Sep 14–25
+
+Sync clean (0/0). Ran concurrently with the attribution-fix session above;
+the uncommitted `outputs/weekly-updates/` and `outputs/canon-triage/`
+changes it noticed were this session's `gather.py` run. `gather.py`
+bumps `.last_run.json` itself at gather time, so step 11 of the skill is
+already done by step 1. Worth knowing if a ceremony is ever abandoned
+halfway: the clock has already moved.
+
+**Promotion queue (7 → 0).** No new entries. Folded in, as dated
+September 25 additions:
+- compute-physical and hyperscaler-lifecycle-terms (Kimi K3 / Harvey)
+  → the August 28 compute-availability entry;
+- pacing-as-antitrust-cover → the September 13 slowdown entry;
+- agent-oversight-lacks-enforcement and agentic-commerce → the August 24
+  human-in-the-loop entry.
+
+Brian's reframe on agentic commerce: the enterprise worry isn't bots
+spending, it's bots running amok. Rejected: hiring-freeze-vs-net-jobs and
+agent-swarm Navier-Stokes (not his beat).
+
+**Staleness queue (5).**
+- Compute and "now execute" were flagged as post candidates, but both
+  are already Next up in `post-ideas.md`, so no change.
+- Trimmed "now execute" to its unpublished half (the Sep 14 post
+  covered the on-ramp).
+- Cut token economics down to the consumer/enterprise pricing gap.
+- Cut the shadow-AI bridge Scratchpad item (published).
+- **Rewrote `frameworks/bitter-lesson.md`** around the sequencing claim.
+
+**Right now:** rewritten around "governance and integration into the
+enterprise":
+- WSJ CIO conference: everyone asks, nobody has answers.
+- CIOs "getting it" from each other; the question is starter projects →
+  enterprise.
+- Knowledge factory, kept.
+
+Brian mentioned a private project framing ("bucket 4"). Only the public
+version went in; don't bring the label into this repo.
+
+**Post:** `outputs/weekly-updates/2026/09/2026-09-25.md`, rendered. Brian
+asked for curation over completeness: 5 governance/integration stories,
+not 10. No lines about pipeline work (his call).
+
+**Follow-ups:**
+- Possible post on the WSJ questions ("how would you even know AI is
+  helping; starter projects → enterprise"). Not added to `post-ideas.md`.
+- The post's two new hooks (Fable lost deals on data retention, not
+  capability; the harness beats the model) aren't in `post-ideas.md`
+  either.
+
+**Process questions Brian raised:**
+- Should the ceremony run on a branch/fork? Recommended no: nothing
+  reaches origin until the final push anyway, and a branch only moves
+  the `promotion-candidates.md` conflict to merge time. Use a worktree
+  only if a ceremony will be left half-done for days.
+- Is there ingest retention? There was none; built this session (below).
