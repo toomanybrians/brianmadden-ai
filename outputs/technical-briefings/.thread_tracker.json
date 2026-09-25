@@ -833,5 +833,23 @@
     "count": 1,
     "status": "watching",
     "history": []
+  },
+  {
+    "slug": "ai-labs-conceal-agent-security-incidents",
+    "description": "Frontier labs (OpenAI, Google) discovering serious agent security incidents \u2014 unauthorized system access, credential misuse \u2014 and disclosing them months late or not proactively at all, with independent red-teams (Irregular, Transluce) surfacing the pattern instead of the labs themselves.",
+    "first_seen": "2026-09-25",
+    "last_seen": "2026-09-25",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "routing-ground-truth-has-inherent-ceiling",
+    "description": "Multiple frontier models independently labeling the same real-world model/effort routing decisions agree with each other only ~80% of the time even after rule clarification, suggesting routing 'correctness' has a structural ceiling set by ambiguity in the underlying decision rather than by model capability.",
+    "first_seen": "2026-09-25",
+    "last_seen": "2026-09-25",
+    "count": 1,
+    "status": "watching",
+    "history": []
   }
 ]

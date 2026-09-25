@@ -1,12 +1,13 @@
 {
-  "run_utc": "2026-09-24T06:34:39.795666+00:00",
+  "run_utc": "2026-09-25T06:48:18.998992+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
-      "status": "error",
-      "reason": "X auth failed: 401 Unauthorized \u2014 body: {\"error\":\"unauthorized_client\",\"error_description\":\"Missing valid authorization header\"} [diagnostics: sent_auth_header=True, edge_headers={'Server': 'cloudflare envoy', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a3ffbdc85d3911d4-LAX'}]"
+      "status": "ok",
+      "entries_in_window": 38,
+      "new_entries": 38
     },
     {
       "id": "ethan-mollick",
@@ -36,16 +37,16 @@
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 19,
-      "new_entries": 19
+      "entries_in_window": 20,
+      "new_entries": 20
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "moonshots",
@@ -84,32 +85,32 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "on-with-kara-swisher",
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "no-priors",
       "name": "No Priors",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "80000-hours-podcast",
       "name": "The 80,000 Hours Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "lex-fridman",
@@ -124,16 +125,16 @@
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "algorithmic-bridge",
       "name": "The Algorithmic Bridge",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "exponential-view",
@@ -164,59 +165,39 @@
       "name": "The AI Realist",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "david-shapiro",
       "name": "David Shapiro's Substack",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
-    },
-    {
-      "id": "demis-hassabis",
-      "name": "Demis Hassabis",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://demishassabis.substack.com/feed"
-    },
-    {
-      "id": "fei-fei-li",
-      "name": "Dr. Fei-Fei Li",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://drfeifei.substack.com/feed"
+      "entries_in_window": 8,
+      "new_entries": 6
     },
     {
       "id": "emerging-ai",
       "name": "Emerging AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
-    },
-    {
-      "id": "emerging-physical-ai",
-      "name": "Emerging Physical AI",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://emergingphysicalai.substack.com/feed"
     },
     {
       "id": "extended-brain",
       "name": "Extended_Brain",
       "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://extendedbrain.substack.com/feed"
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "forked-lightning",
       "name": "Forked Lightning",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -240,7 +221,7 @@
       "name": "Import AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -248,7 +229,7 @@
       "name": "In the pool with Esther",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -260,18 +241,11 @@
       "new_entries": 0
     },
     {
-      "id": "kevin-roose",
-      "name": "Kevin Roose",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://kevinroose.substack.com/feed"
-    },
-    {
       "id": "kinder-futures",
       "name": "Kinder Futures: Dispatches on AI, Work & What Comes Next",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -279,7 +253,7 @@
       "name": "Labor Matters",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -287,15 +261,15 @@
       "name": "Last Week in AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "marcus-on-ai",
       "name": "Marcus on AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -303,7 +277,7 @@
       "name": "Metatrends",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -311,8 +285,8 @@
       "name": "Not Boring",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "prof-g-media",
@@ -327,15 +301,15 @@
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "simon-willison",
       "name": "Simon Willison's Newsletter",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -343,7 +317,7 @@
       "name": "Theory of the Game",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -351,7 +325,7 @@
       "name": "Work Evolved",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -359,22 +333,23 @@
       "name": "Center for Humane Technology",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
       "id": "big-by-matt-stoller",
       "name": "BIG by Matt Stoller",
       "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://www.thebignewsletter.com/feed"
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "rutger-bregman",
       "name": "Rutger Bregman",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -382,15 +357,8 @@
       "name": "Forecasting Research Institute",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
-    },
-    {
-      "id": "cory-doctorow",
-      "name": "Cory Doctorow",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://doctorow.substack.com/feed"
     },
     {
       "id": "claude-cowork",
@@ -405,7 +373,7 @@
       "name": "Claude Mythos",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -421,7 +389,7 @@
       "name": "Ghosts of Electricity",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -445,7 +413,7 @@
       "name": "The Wake Up Call",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -453,7 +421,7 @@
       "name": "80,000 Hours",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -461,8 +429,8 @@
       "name": "After Babel",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ai-as-normal-technology",
@@ -477,44 +445,31 @@
       "name": "AI Frontiers",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "chinai-newsletter",
       "name": "ChinAI Newsletter",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
-    },
-    {
-      "id": "tech-empires",
-      "name": "TECH EMPIRES",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://techempires.substack.com/feed"
     },
     {
       "id": "asimovs-addendum",
       "name": "Asimov's Addendum",
       "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://asimovaddendum.substack.com/feed"
-    },
-    {
-      "id": "the-ai-report",
-      "name": "The AI Report",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://theaireport.substack.com/feed"
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "economics-of-ai",
       "name": "The Economics of AI",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -522,7 +477,7 @@
       "name": "The EU AI Act Newsletter",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -530,22 +485,23 @@
       "name": "GuardRailNow",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
       "id": "metr",
       "name": "METR",
       "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://metr.substack.com/feed"
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "openai-global-affairs",
       "name": "The Prompt: Insights from OpenAI Global Affairs",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -553,7 +509,7 @@
       "name": "A Quantum of Solis",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {
@@ -568,15 +524,105 @@
       "id": "edith-yeung",
       "name": "Edith Yeung",
       "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://edithyeung.substack.com/feed"
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "linas-newsletter",
       "name": "Linas's Newsletter",
       "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://linas.substack.com/feed"
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "khe-hy",
+      "name": "Future-Proof Your Career with AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "future-focused",
+      "name": "Future-Focused",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "ai-made-simple",
+      "name": "Artificial Intelligence Made Simple",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "newcomer",
+      "name": "Newcomer",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "redwood-research",
+      "name": "Redwood Research blog",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "paradigm-3",
+      "name": "Paradigm 3 (Humans on AI)",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "nita-farahany",
+      "name": "Thinking Freely with Nita Farahany",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "andrew-morgan",
+      "name": "Andrew Morgan",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "discover-ai",
+      "name": "Discover AI",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
+    },
+    {
+      "id": "andrew-yang",
+      "name": "Andrew Yang Newsletter",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
+    },
+    {
+      "id": "musings-on-markets",
+      "name": "Musings on Markets",
+      "method": "feed",
+      "status": "ok",
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "aaron-levie-linkedin",
@@ -622,18 +668,11 @@
       "new_entries": 0
     },
     {
-      "id": "lex-fridman-2",
-      "name": "Lex Fridman",
-      "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 403 Client Error: Forbidden for url: https://lexfridman.substack.com/feed"
-    },
-    {
       "id": "nate-s-substack",
       "name": "Nate\u2019s Substack",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 2,
       "new_entries": 0
     },
     {

@@ -221,3 +221,11 @@ I’m not sure if the information is a source that the brain subscribes too, sin
 
 ---
 
+## 2026-09-25 — substack unfollow
+
+**9 publication(s) no longer followed**
+
+No longer in the brianmaddenai account's live follows: demishassabis, doctorow, drfeifei, emergingai, emergingphysicalai, kevinroose, lexfridman, techempires, theaireport. Corresponding sources.yaml entries (if any) were left as-is — review whether to keep or archive them.
+
+---
+

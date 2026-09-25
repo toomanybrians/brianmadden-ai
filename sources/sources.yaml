@@ -1289,3 +1289,19 @@ sources:
     sender: profgmedia+no-mercy-no-malice@substack.com
     priority: regular
     note: "Auto-discovered from a real brain@ ingestion on 2026-09-21 — documentation only, not a gate (see the header comment above 'sources:'). Not yet reviewed by Brian."
+
+  - id: ground-level-ai
+    name: "Ground Level AI"
+    type: newsletter
+    url: "https://www.groundlevel-ai.com"
+    feed_url: "https://www.groundlevel-ai.com/feed"
+    priority: regular
+    note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-09-25 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
+
+  - id: opinion-ai-2
+    name: "Opinion AI"
+    type: newsletter
+    url: "https://opinionai.substack.com"
+    feed_url: "https://opinionai.substack.com/feed"
+    priority: regular
+    note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-09-25 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
