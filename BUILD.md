@@ -3724,3 +3724,13 @@ yet run or wired in.**
     deletions.
 - Once it's live, update `ingest.py`'s `handle_brain_flag` docstring,
   which still calls dated notes "a permanent historical log."
+
+**Update, same session: wired in.** Brian approved a daily step:
+"Prune ingest notes older than 30 days" runs after publish and before
+"Commit and push" in `daily-pipeline.yml` (`continue-on-error: true`).
+Monday 2026-09-28's run will be the first real prune, a bigger batch than
+usual (~330+ notes). After that it's a day's worth each run. Checked
+first: nothing links to ingest notes on `main`. The pipeline's fallback
+disclosure link points at the technical brief, and briefs cite ingest
+paths only as plain frontmatter text. `ingest.py`'s `handle_brain_flag`
+docstring updated to match.

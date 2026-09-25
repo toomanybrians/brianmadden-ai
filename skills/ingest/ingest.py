@@ -1529,7 +1529,8 @@ def append_to_queue(kind: str, subject: str, detail: str, dry_run: bool = False)
     get, because these are Brian's own raw unreviewed flags — not vetted
     canon, and not something to publish before he's looked at it. Plain
     text append; Brian clears entries by deleting them as he handles them,
-    unlike dated ingest/ notes which are a permanent historical log."""
+    unlike dated ingest/ notes, which the daily pipeline prunes after 30
+    days (scripts/prune_ingest.py) but which stay in git history."""
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     entry = f"## {today} — {kind}\n\n**{subject}**\n\n{detail}\n\n---\n\n"
 
