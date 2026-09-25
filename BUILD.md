@@ -3619,3 +3619,29 @@ for those. That also makes the `ground-level-ai` / `opinion-ai-2` RSS
 rows the right ones to keep. **Open side issue:** some notes credited to
 `david-shapiro` share titles with Last Week in AI and Prof G, which looks
 like email attribution going wrong, not routing. Not investigated.
+
+**Four small open items closed (same session).** (1) **The "David
+Shapiro" attribution bug was bigger than it looked:** every one of the 27
+`ingest_method: email` rows ran the same whole-inbox read, capped at 20,
+so overflow past brain-inbox's 20 got filed under the next email row in
+file order. 130 notes were misattributed (40 under david-shapiro).
+Sender fields were always right; only `source`/`source_id` were wrong.
+Fixed: only `brain-inbox` reads the inbox now (`BRAIN_INBOX_SOURCE_ID`),
+the cap is 100, and the 130 notes are refiled under brain-inbox
+(frontmatter only; filenames unchanged because published briefs link to
+them). **Found alongside it:** `flip_source_to_email()` had set 26 rows
+to email-only with `feed_url: null`, so once Brian turned off Substack
+email delivery they would have stopped arriving entirely. Removed the
+flip. All 26 feeds were verified from the box (all 200) and 25 went back
+to RSS. Emerging AI has renamed itself Opinion AI (its feed 301s to
+opinionai.substack.com, already `opinion-ai-2`), so it's documentation
+with a `renamed_to` note. (2) **nate-b-jones isn't dead, it's flaky:**
+same channel ID, 404/500 on 17 of 24 runs since 08-25 on both runner
+types, 200 when retried by hand. YouTube feeds now get 4 attempts with
+backoff, alternating with the uploads playlist (UU…). (3) **Doctorow is
+back** as `pluralistic` (pluralistic.net/feed/). (4) **Stale X token:**
+the `X_REFRESH_TOKEN` line is removed from both local `.env` files (Mac
+and the box's clone). Local runs now skip X cleanly, and `.env.example`
+says why. **Left alone:** uncommitted `outputs/weekly-updates/` and
+`outputs/canon-triage/` changes that appeared at 13:55, from what looks
+like a concurrent `/weekly-update` session, not this one.

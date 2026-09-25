@@ -1,7 +1,7 @@
 ---
 title: 'LWiAI Podcast #257 - GPT 6 Astra, AI Extinction, Security Incidents'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://lastweekinai.substack.com/p/lwiai-podcast-257-gpt-6-astra-ai
 author: Last Week in AI <lastweekinai+podcast@substack.com>
 date_published: '2026-09-24'

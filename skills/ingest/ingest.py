@@ -157,6 +157,34 @@ def fix_episode_link(source_id: str, title: str, link: str) -> str:
     return template.format(n=m.group(1))
 
 
+# YouTube's RSS endpoint fails intermittently for a channel that exists:
+# nate-b-jones got 404 (and sometimes 500) on 17 of 24 runs between
+# 2026-08-25 and 2026-09-25, on GitHub's runners and the home runner
+# alike, while the same URL returned 200 when retested by hand minutes
+# later. So YouTube feeds get a few retries with backoff, alternating
+# with the channel's uploads playlist (UC… -> UU…), which serves the same
+# videos. Other feeds keep a single attempt.
+YOUTUBE_FEED_ATTEMPTS = 4
+YOUTUBE_CHANNEL_FEED_RE = re.compile(r"[?&]channel_id=UC([A-Za-z0-9_-]{22})")
+
+
+def _get_feed(feed_url: str) -> requests.Response:
+    m = YOUTUBE_CHANNEL_FEED_RE.search(feed_url)
+    if not m:
+        resp = requests.get(feed_url, timeout=15, headers={"User-Agent": USER_AGENT})
+        resp.raise_for_status()
+        return resp
+    urls = [feed_url, f"https://www.youtube.com/feeds/videos.xml?playlist_id=UU{m.group(1)}"]
+    for attempt in range(YOUTUBE_FEED_ATTEMPTS):
+        resp = requests.get(urls[attempt % 2], timeout=15, headers={"User-Agent": USER_AGENT})
+        retryable = resp.status_code == 404 or resp.status_code >= 500
+        if not retryable or attempt == YOUTUBE_FEED_ATTEMPTS - 1:
+            resp.raise_for_status()
+            return resp
+        time.sleep(3 * 2 ** attempt)
+    raise AssertionError("unreachable")
+
+
 def fetch_entries(source: dict, since_days: float, max_per_source: int):
     """Returns (entries, error). entries is [] on error."""
     feed_url = source.get("feed_url")
@@ -164,8 +192,7 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
         return [], "no feed_url set"
 
     try:
-        resp = requests.get(feed_url, timeout=15, headers={"User-Agent": USER_AGENT})
-        resp.raise_for_status()
+        resp = _get_feed(feed_url)
     except requests.RequestException as e:
         return [], f"fetch failed: {e}"
 
@@ -757,8 +784,15 @@ BRAIN_FLAGS_QUEUE = ROOT / "ingest" / "brain-flags" / "queue.md"
 URL_RE = re.compile(r"https?://\S+")
 _gmail_label_id_cache: dict[str, str] = {}
 # See fetch_entries_email()'s final sort-and-slice: max_per_source's
-# general default (5) is too low for real curated-inbox volume.
-EMAIL_MIN_PER_SOURCE = 20
+# general default (5) is too low for real curated-inbox volume. Raised
+# from 20 to 100 on 2026-09-25: until then, anything past 20 spilled into
+# the next email row (see BRAIN_INBOX_SOURCE_ID in main()), so the real
+# ceiling was much higher. Now one read has to hold the whole window,
+# including a Monday run that covers the weekend. Unread messages over
+# the cap stay unlabeled and get picked up next run while still inside
+# the window.
+EMAIL_MIN_PER_SOURCE = 100
+BRAIN_INBOX_SOURCE_ID = "brain-inbox"
 
 
 def gmail_is_configured() -> bool:
@@ -1293,51 +1327,6 @@ def find_feed_source_for_email_sender(address: str, sources: list[dict]) -> dict
         if "." not in token and token in (sender_first_label, local_part):
             return s
     return None
-
-
-def flip_source_to_email(source: dict, address: str, sources_path: Path) -> bool:
-    """Rewrites one existing sources.yaml entry in place to route through
-    the brain@ email path instead of its (likely 403-blocked) feed_url —
-    adds `sender`, sets `ingest_method: email`, nulls `feed_url` (unused
-    once ingest_method is email — see main()'s dispatch — nulled rather
-    than left stale so the row reads the same as every other email-routed
-    entry). Line-level surgery on just this one entry's block, not a
-    full-file YAML re-dump — preserves every other entry's comments and
-    this entry's own `note`/`lens`/`pov` fields untouched, same reasoning
-    as auto_register_email_source(). Mutates `source` in place too (so a
-    second match against the same dict later in this run sees it as
-    already flipped) and returns whether the flip actually happened —
-    False if the entry's feed_url line couldn't be found (shouldn't
-    happen for a row find_feed_source_for_email_sender() would have
-    matched, but no silent corruption if the file's shape ever changes)."""
-    source_id = source["id"]
-    lines = sources_path.read_text(encoding="utf-8").splitlines(keepends=True)
-    start = next((i for i, l in enumerate(lines) if l.strip() == f"- id: {source_id}"), None)
-    if start is None:
-        return False
-    end = len(lines)
-    for i in range(start + 1, len(lines)):
-        if re.match(r"^\s{2}- id:\s", lines[i]):
-            end = i
-            break
-
-    feed_line_idx = None
-    for i in range(start, end):
-        if re.match(r"^    feed_url:", lines[i]):
-            feed_line_idx = i
-            break
-    if feed_line_idx is None:
-        return False
-
-    lines[feed_line_idx] = "    feed_url: null\n"
-    lines.insert(feed_line_idx + 1, f"    sender: {address}\n    ingest_method: email\n")
-    sources_path.write_text("".join(lines), encoding="utf-8")
-
-    source["feed_url"] = None
-    source["sender"] = address
-    source["ingest_method"] = "email"
-    print(f"    sources.yaml: flipped '{source_id}' from feed to email (sender confirmed: {address})")
-    return True
 
 
 def auto_register_email_source(
@@ -2055,6 +2044,22 @@ def main() -> None:
         is_email = ingest_method == "email"
         is_x = ingest_method == "x"
         method = "email" if is_email else ("x" if is_x else "feed")
+        # Only the brain-inbox row reads brain@ (2026-09-25).
+        # fetch_entries_email() reads the whole inbox with no sender
+        # filter, so every other `ingest_method: email` row used to run
+        # the same read again, capped at EMAIL_MIN_PER_SOURCE. Whatever
+        # brain-inbox's cap left over went to the next email row in file
+        # order, filed under the wrong source: 130 notes, mostly under
+        # "David Shapiro's Substack". Other email rows are now
+        # documentation, same as the sender-only rows below.
+        if is_email and source["id"] != BRAIN_INBOX_SOURCE_ID:
+            reason = "documentation only — arrives via the shared brain-inbox source, attributed by sender"
+            print(f"[{source['id']}] skipped — {reason}")
+            source_results.append({
+                "id": source["id"], "name": source.get("name", source["id"]),
+                "method": method, "status": "skipped", "reason": reason,
+            })
+            continue
         if not is_email and not is_x and not source.get("feed_url"):
             # A `sender` field means this row is documentation for a
             # publication actually captured through the shared brain-inbox
@@ -2144,8 +2149,14 @@ def main() -> None:
             if is_email and not args.dry_run:
                 gmail_apply_label(entry.get("gmail_msg_id"), GMAIL_LABEL_INGESTED, archive=True)
                 _, sender_address = _parse_sender_header(entry["author"])
+                # A publication that already has an RSS row keeps it. This
+                # used to flip the row to email-only (flip_source_to_email,
+                # removed 2026-09-25), which stopped its feed being polled:
+                # once Brian turned off Substack email delivery, those
+                # publications would have stopped arriving at all. The
+                # cross-route dedupe (dedupe_keys) handles the overlap.
                 matched = find_feed_source_for_email_sender(sender_address, sources)
-                if matched and flip_source_to_email(matched, sender_address, sources_path):
+                if matched:
                     known_email_senders.add(sender_address)
                 else:
                     auto_register_email_source(entry["author"], sources_path, known_email_senders)

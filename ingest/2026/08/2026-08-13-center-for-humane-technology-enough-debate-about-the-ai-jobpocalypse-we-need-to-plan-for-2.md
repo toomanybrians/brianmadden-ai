@@ -1,7 +1,7 @@
 ---
 title: Enough Debate about the AI Jobpocalypse. We Need To Plan for the Messy Middle.
-source: Center for Humane Technology
-source_id: center-for-humane-technology
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://centerforhumanetechnology.substack.com/p/enough-debate-about-the-ai-jobpocalypse
 author: Center for Humane Technology
 date_published: '2026-08-13'

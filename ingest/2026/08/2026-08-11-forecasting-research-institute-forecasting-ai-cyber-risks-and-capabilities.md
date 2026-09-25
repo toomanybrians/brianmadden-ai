@@ -1,7 +1,7 @@
 ---
 title: Forecasting AI Cyber Risks and Capabilities
-source: Forecasting Research Institute
-source_id: forecasting-research-institute
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://forecastingresearch.substack.com/p/forecasting-ai-cyber-risks-and-capabilities
 author: Forecasting Research Institute
 date_published: '2026-07-23'

@@ -1,8 +1,8 @@
 ---
 title: No, Dario Amodei, we will not be curing cancer and “most human disease” in
   five to ten years
-source: Marcus on AI
-source_id: marcus-on-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/no-dario-amodei-we-will-not-be-curing
 author: Gary Marcus
 date_published: '2026-08-17'

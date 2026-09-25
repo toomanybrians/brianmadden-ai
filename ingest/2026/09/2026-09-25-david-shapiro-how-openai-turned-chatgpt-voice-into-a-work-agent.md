@@ -1,7 +1,7 @@
 ---
 title: ⚙️ How OpenAI turned ChatGPT Voice into a work agent
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://archive.thedeepview.com/p/meta-s-new-audio-only-ai-glasses-are-a-privacy-win
 author: The Deep View <newsletter@thedeepview.co>
 date_published: '2026-09-24'

@@ -1,7 +1,7 @@
 ---
 title: 'ChinAI #368: The Affordable Luxury of Kimi K3'
-source: ChinAI Newsletter
-source_id: chinai-newsletter
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://chinai.substack.com/p/chinai-368-the-affordable-luxury
 author: Jeffrey Ding
 date_published: '2026-07-27'

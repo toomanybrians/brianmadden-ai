@@ -1,7 +1,7 @@
 ---
 title: Designing Organisations in the Age of AI
-source: Work Evolved
-source_id: work-evolved
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://workevolved.substack.com/p/designing-organisations-in-the-age
 author: Robyn Agoston
 date_published: '2026-07-28'

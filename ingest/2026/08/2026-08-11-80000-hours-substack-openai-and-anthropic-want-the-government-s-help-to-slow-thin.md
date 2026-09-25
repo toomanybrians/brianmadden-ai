@@ -1,7 +1,7 @@
 ---
 title: OpenAI and Anthropic want the government’s help to slow things down
-source: 80,000 Hours
-source_id: 80000-hours-substack
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://80000hours.substack.com/p/ai-companies-want-the-governments
 author: Aaron Gertler
 date_published: '2026-07-31'

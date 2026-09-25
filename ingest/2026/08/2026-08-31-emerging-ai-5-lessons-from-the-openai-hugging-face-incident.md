@@ -1,7 +1,7 @@
 ---
 title: 5 lessons from the OpenAI / Hugging Face incident
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/5-lessons-from-the-openai-hugging
 author: Gary Marcus and Zack Korman from Marcus on AI <garymarcus@substack.com>
 date_published: '2026-08-28'

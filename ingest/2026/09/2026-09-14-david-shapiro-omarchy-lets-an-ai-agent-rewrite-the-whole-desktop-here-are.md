@@ -1,8 +1,8 @@
 ---
 title: Omarchy lets an AI agent rewrite the whole desktop. Here are 8 changes you
   can make on your Mac instead.
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://natesnewsletter.substack.com/p/omarchy-agentic-os
 author: '"Nate from Nate’s Substack" <natesnewsletter@substack.com>'
 date_published: '2026-09-11'

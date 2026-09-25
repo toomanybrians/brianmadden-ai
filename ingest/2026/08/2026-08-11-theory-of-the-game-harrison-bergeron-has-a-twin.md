@@ -1,7 +1,7 @@
 ---
 title: Harrison Bergeron has a twin
-source: Theory of the Game
-source_id: theory-of-the-game
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://reidhoffman.substack.com/p/harrison-bergeron-has-a-twin
 author: Reid Hoffman
 date_published: '2026-07-29'

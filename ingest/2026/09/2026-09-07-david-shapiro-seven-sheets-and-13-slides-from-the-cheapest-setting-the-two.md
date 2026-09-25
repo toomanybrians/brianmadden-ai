@@ -1,8 +1,8 @@
 ---
 title: 'Seven sheets and 13 slides from the cheapest setting: the two-step guide and
   the exact prompts I use for Excel, Po…'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://natesnewsletter.substack.com/p/fable-5-1-low-effort
 author: '"Nate from Nate’s Substack" <natesnewsletter@substack.com>'
 date_published: '2026-09-04'

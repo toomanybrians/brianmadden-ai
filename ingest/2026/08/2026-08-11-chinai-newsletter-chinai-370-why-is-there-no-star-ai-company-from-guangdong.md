@@ -1,7 +1,7 @@
 ---
 title: 'ChinAI #370: Why is there No Star AI Company from Guangdong?'
-source: ChinAI Newsletter
-source_id: chinai-newsletter
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://chinai.substack.com/p/chinai-370-why-is-there-no-star-ai
 author: Jeffrey Ding
 date_published: '2026-08-10'

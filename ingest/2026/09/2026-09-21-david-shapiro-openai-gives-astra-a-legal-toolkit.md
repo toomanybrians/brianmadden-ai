@@ -1,7 +1,7 @@
 ---
 title: ⚖️ OpenAI Gives Astra a Legal Toolkit
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://link.mail.beehiiv.com/v2/c/6624bada71250a27abb66bd45f8149bee6f9d782f1e1f2db66f5f6b756e02382e2910ebc52cc73816759f848156f5d26a80801383f7def890b8de38e15368ef3855582721cff5a9f112adb837ea002e21e482f3313ed13590d69313f01b42469a7f0c013e43cdeb419dd79a6d4cee8c78a89176a2817da971cdf477628f7320171cde7d88fab126625e0653de574b5842b505500764c4a74cb2bab3960a332c4/b486314096a5d215
 author: Superintelligence <superintel@mail.beehiiv.com>
 date_published: '2026-09-18'

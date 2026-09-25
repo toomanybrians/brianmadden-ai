@@ -1,7 +1,7 @@
 ---
 title: ⚙️ Why AI rivals are uniting to prevent cyber crisis
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://archive.thedeepview.com/p/nvidia-eyes-hugging-face-in-full-stack-ai-push
 author: The Deep View <newsletter@thedeepview.co>
 date_published: '2026-08-28'

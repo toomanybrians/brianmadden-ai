@@ -1,7 +1,7 @@
 ---
 title: 'Greg Brockman: Cyber Defenders’ AI Moment Is Now'
-source: 'The Prompt: Insights from OpenAI Global Affairs'
-source_id: openai-global-affairs
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://openaiglobalaffairs.substack.com/p/greg-brockman-cyber-defenders-ai
 author: 'The Prompt: Insights from OpenAI Global Affairs'
 date_published: '2026-08-17'

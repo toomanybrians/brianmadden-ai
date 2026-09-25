@@ -1,7 +1,7 @@
 ---
 title: Alert! New forms of diabetes on the rise
-source: In the pool with Esther
-source_id: esther-dyson
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://estherdyson.substack.com/p/alert-new-forms-of-diabetes-on-the
 author: Esther Dyson
 date_published: '2026-08-11'

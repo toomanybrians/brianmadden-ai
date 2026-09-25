@@ -1,7 +1,7 @@
 ---
 title: AI Escapes Containment (But it doesn't matter)
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://daveshap.substack.com/p/ai-escapes-containment-but-it-doesnt
 author: David Shapiro
 date_published: '2026-08-07'

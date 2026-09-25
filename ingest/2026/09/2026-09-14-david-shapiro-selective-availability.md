@@ -1,7 +1,7 @@
 ---
 title: Selective Availability
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://julsimon.substack.com/p/selective-availability
 author: Julien Simon from The AI Realist <julsimon@substack.com>
 date_published: '2026-09-11'

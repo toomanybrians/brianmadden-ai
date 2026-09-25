@@ -1,7 +1,7 @@
 ---
 title: Should we treat autonomous AI agents like children?
-source: Forked Lightning
-source_id: forked-lightning
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://forklightning.substack.com/p/should-we-treat-autonomous-ai-agents
 author: David Deming
 date_published: '2026-08-13'

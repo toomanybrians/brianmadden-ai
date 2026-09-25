@@ -1,7 +1,7 @@
 ---
 title: That feeling you’re having about AI? It's telling you something important.
-source: Center for Humane Technology
-source_id: center-for-humane-technology
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://centerforhumanetechnology.substack.com/p/that-feeling-youre-having-about-ai
 author: Julie Guirado
 date_published: '2026-07-23'

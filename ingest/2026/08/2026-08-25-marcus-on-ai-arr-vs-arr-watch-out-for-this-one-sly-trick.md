@@ -1,7 +1,7 @@
 ---
 title: ARR vs ARR. Watch out for this one sly trick.
-source: Marcus on AI
-source_id: marcus-on-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/arr-vs-arr-watch-out-for-this-one
 author: Gary Marcus
 date_published: '2026-08-22'

@@ -1,7 +1,7 @@
 ---
 title: I distilled myself, and you should too
-source: Labor Matters
-source_id: labor-matters
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://kunchenguid.substack.com/p/i-distilled-myself-and-you-should
 author: '"Kun Chen from Kun''s Field Notes" <kunchenguid@substack.com>'
 date_published: '2026-09-09'

@@ -1,7 +1,7 @@
 ---
 title: 'Executive Briefing: The $350K Job Has Three Parts and You Already Do One'
-source: Nate’s Substack
-source_id: nate-s-substack
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://natesnewsletter.substack.com/p/become-forward-deployed-engineer
 author: Nate
 date_published: '2026-08-23'

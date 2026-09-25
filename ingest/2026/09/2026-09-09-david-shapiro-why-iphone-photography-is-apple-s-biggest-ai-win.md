@@ -1,7 +1,7 @@
 ---
 title: ⚙️ Why iPhone photography is Apple's biggest AI win
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://archive.thedeepview.com/p/why-iphone-photography-is-apple-s-biggest-ai-win
 author: The Deep View <newsletter@thedeepview.co>
 date_published: '2026-09-08'

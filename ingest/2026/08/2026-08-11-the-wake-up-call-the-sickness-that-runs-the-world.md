@@ -1,7 +1,7 @@
 ---
 title: The sickness that runs the world
-source: The Wake Up Call
-source_id: the-wake-up-call
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://thewakeupcallnewsletter.substack.com/p/the-sickness-that-runs-the-world
 author: Scott Barker
 date_published: '2026-07-23'

@@ -1,7 +1,7 @@
 ---
 title: Forecasting the Impacts of Anthropic's ASL-3 Safeguards on Biosecurity Risks
-source: Forecasting Research Institute
-source_id: forecasting-research-institute
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://forecastingresearch.substack.com/p/forecasting-the-impacts-of-anthropics
 author: Forecasting Research Institute
 date_published: '2026-08-12'

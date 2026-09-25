@@ -1,7 +1,7 @@
 ---
 title: Ford Rehired the Experts AI Was Supposed to Replace, That’s the Story
-source: A Quantum of Solis
-source_id: quantum-of-solis
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://briansolis.substack.com/p/ford-rehired-the-people-ai-was-supposed
 author: Brian Solis
 date_published: '2026-08-16'

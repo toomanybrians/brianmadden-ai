@@ -1,7 +1,7 @@
 ---
 title: The most important word in AI discourse right now? “Humans.”
-source: Center for Humane Technology
-source_id: center-for-humane-technology
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://centerforhumanetechnology.substack.com/p/the-most-important-word-in-ai-discourse
 author: Julie Guirado
 date_published: '2026-07-28'

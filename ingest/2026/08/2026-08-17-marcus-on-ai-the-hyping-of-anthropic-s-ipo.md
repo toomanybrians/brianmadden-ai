@@ -1,7 +1,7 @@
 ---
 title: The hyping of Anthropic’s IPO
-source: Marcus on AI
-source_id: marcus-on-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/the-hyping-of-anthropics-ipo
 author: Gary Marcus
 date_published: '2026-08-16'

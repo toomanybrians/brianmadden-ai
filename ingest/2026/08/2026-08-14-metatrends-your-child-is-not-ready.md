@@ -1,7 +1,7 @@
 ---
 title: YOUR CHILD IS NOT READY
-source: Metatrends
-source_id: metatrends
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://metatrends.substack.com/p/your-child-is-not-ready
 author: Peter H. Diamandis
 date_published: '2026-08-14'

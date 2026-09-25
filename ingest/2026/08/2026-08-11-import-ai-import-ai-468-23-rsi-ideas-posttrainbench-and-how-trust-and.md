@@ -1,8 +1,8 @@
 ---
 title: 'Import AI 468: 23 RSI ideas; PostTrainBench+; and how trust and transparency
   interplay with AI racing'
-source: Import AI
-source_id: import-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://importai.substack.com/p/import-ai-468-23-rsi-ideas-posttrainbench
 author: Jack Clark
 date_published: '2026-08-10'

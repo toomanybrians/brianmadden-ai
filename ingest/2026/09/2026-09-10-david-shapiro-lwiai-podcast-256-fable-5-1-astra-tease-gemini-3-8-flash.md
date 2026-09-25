@@ -1,7 +1,7 @@
 ---
 title: 'LWiAI Podcast #256 - Fable 5.1, Astra Tease, Gemini 3.8 Flash'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://lastweekinai.substack.com/p/lwiai-podcast-256-fable-51-astra
 author: Last Week in AI <lastweekinai+podcast@substack.com>
 date_published: '2026-09-09'

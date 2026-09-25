@@ -1,7 +1,7 @@
 ---
 title: Millions of AI agents are coming. Who keeps them under control?
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://sharongoldman.substack.com/p/millions-of-ai-agents-are-coming
 author: Sharon Goldman <sharongoldman@substack.com>
 date_published: '2026-09-21'

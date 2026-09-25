@@ -1,7 +1,7 @@
 ---
 title: A trans-Atlantic mirror
-source: In the pool with Esther
-source_id: esther-dyson
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://estherdyson.substack.com/p/a-trans-atlantic-mirror
 author: Esther Dyson
 date_published: '2026-08-25'

@@ -37,7 +37,11 @@
 #               skill, not just ingest. Blank = no framing applied.
 #   ingest_method — "email" routes this source through fetch_entries_email()
 #               (polls brain@brianmadden.ai via Gmail API) instead of the
-#               feed_url poll. "x" routes through fetch_entries_x() instead
+#               feed_url poll. Since 2026-09-25 only the brain-inbox row
+#               uses it: the read covers the whole inbox, so any other email
+#               row is reported as documentation, not polled. A publication
+#               that also emails brain@ keeps its RSS row; the pipeline no
+#               longer flips rows to email. "x" routes through fetch_entries_x() instead
 #               (polls the brianmaddenai account's home timeline — see the
 #               x-timeline entry below). "manual" means ingest.py never
 #               polls this source at all — content only arrives when Brian
@@ -300,9 +304,8 @@ sources:
     name: David Shapiro's Substack
     type: person
     url: https://daveshap.substack.com
-    feed_url: null
+    feed_url: https://daveshap.substack.com/feed
     sender: daveshap@substack.com
-    ingest_method: email
     priority: regular
 
   - id: emerging-ai
@@ -311,9 +314,9 @@ sources:
     url: https://emergingai.substack.com
     feed_url: null
     sender: emergingai@substack.com
-    ingest_method: email
     priority: regular
     note: "by Opinion AI — practical/builder-focused AI newsletter"
+    renamed_to: opinion-ai-2  # 2026-09-25: emergingai.substack.com/feed now 301s to opinionai.substack.com/feed
 
   - id: extended-brain
     name: Extended_Brain
@@ -327,9 +330,8 @@ sources:
     name: Forked Lightning
     type: person
     url: https://forklightning.substack.com
-    feed_url: null
+    feed_url: https://forklightning.substack.com/feed
     sender: forklightning@substack.com
-    ingest_method: email
     priority: regular
     note: "David Deming — labor economics, future of work"
 
@@ -353,9 +355,8 @@ sources:
     name: Import AI
     type: person
     url: https://importai.substack.com
-    feed_url: null
+    feed_url: https://importai.substack.com/feed
     sender: importai@substack.com
-    ingest_method: email
     priority: regular
     note: "Jack Clark (Anthropic)"
 
@@ -363,9 +364,8 @@ sources:
     name: In the pool with Esther
     type: person
     url: https://estherdyson.substack.com
-    feed_url: null
+    feed_url: https://estherdyson.substack.com/feed
     sender: estherdyson@substack.com
-    ingest_method: email
     priority: regular
     note: "Esther Dyson"
 
@@ -381,9 +381,8 @@ sources:
     name: "Kinder Futures: Dispatches on AI, Work & What Comes Next"
     type: person
     url: https://mollykinder2.substack.com
-    feed_url: null
+    feed_url: https://mollykinder2.substack.com/feed
     sender: mollykinder2@substack.com
-    ingest_method: email
     priority: regular
     note: "Molly Kinder — AI's effect on labor markets"
 
@@ -391,9 +390,8 @@ sources:
     name: Labor Matters
     type: person
     url: https://gadlevanon.substack.com
-    feed_url: null
+    feed_url: https://gadlevanon.substack.com/feed
     sender: gadlevanon@substack.com
-    ingest_method: email
     priority: regular
     note: "Gad Levanon — labor economics"
 
@@ -408,9 +406,8 @@ sources:
     name: Marcus on AI
     type: person
     url: https://garymarcus.substack.com
-    feed_url: null
+    feed_url: https://garymarcus.substack.com/feed
     sender: garymarcus@substack.com
-    ingest_method: email
     priority: regular
     note: "Gary Marcus — prominent AI skeptic, good for dissenting takes"
     lens: skeptical-but-useful
@@ -424,9 +421,8 @@ sources:
     name: Metatrends
     type: person
     url: https://metatrends.substack.com
-    feed_url: null
+    feed_url: https://metatrends.substack.com/feed
     sender: metatrends@substack.com
-    ingest_method: email
     priority: regular
     note: "Peter Diamandis's newsletter — also tracked via the Moonshots podcast above"
 
@@ -458,18 +454,16 @@ sources:
     name: Simon Willison's Newsletter
     type: person
     url: https://simonw.substack.com
-    feed_url: null
+    feed_url: https://simonw.substack.com/feed
     sender: simonw@substack.com
-    ingest_method: email
     priority: regular
 
   - id: theory-of-the-game
     name: Theory of the Game
     type: person
     url: https://reidhoffman.substack.com
-    feed_url: null
+    feed_url: https://reidhoffman.substack.com/feed
     sender: reidhoffman@substack.com
-    ingest_method: email
     priority: regular
     note: "Reid Hoffman"
 
@@ -477,9 +471,8 @@ sources:
     name: Work Evolved
     type: person
     url: https://workevolved.substack.com
-    feed_url: null
+    feed_url: https://workevolved.substack.com/feed
     sender: workevolved@substack.com
-    ingest_method: email
     priority: regular
     note: "Robyn Agoston — future of work"
 
@@ -487,9 +480,8 @@ sources:
     name: Center for Humane Technology
     type: newsletter
     url: https://centerforhumanetechnology.substack.com
-    feed_url: null
+    feed_url: https://centerforhumanetechnology.substack.com/feed
     sender: centerforhumanetechnology@substack.com
-    ingest_method: email
     priority: regular
 
   # --- Resolved from the "genuinely unsure" batch, 2026-08-10 (Brian's call) ---
@@ -506,9 +498,8 @@ sources:
     name: Rutger Bregman
     type: person
     url: https://rutgerbregman.substack.com
-    feed_url: null
+    feed_url: https://rutgerbregman.substack.com/feed
     sender: rutgerbregman@substack.com
-    ingest_method: email
     priority: regular
     note: "UBI, future of work, humanism"
 
@@ -516,9 +507,8 @@ sources:
     name: Forecasting Research Institute
     type: newsletter
     url: https://forecastingresearch.substack.com
-    feed_url: null
+    feed_url: https://forecastingresearch.substack.com/feed
     sender: forecastingresearch@substack.com
-    ingest_method: email
     priority: regular
 
   - id: claude-cowork
@@ -533,9 +523,8 @@ sources:
     name: Claude Mythos
     type: newsletter
     url: https://claudemythos.substack.com
-    feed_url: null
+    feed_url: https://claudemythos.substack.com/feed
     sender: claudemythos@substack.com
-    ingest_method: email
     priority: regular
 
   # --- Remaining "genuinely unsure" batch resolved, 2026-08-10 (Brian's call) ---
@@ -554,9 +543,8 @@ sources:
     name: Ghosts of Electricity
     type: person
     url: https://aleximas.substack.com
-    feed_url: null
+    feed_url: https://aleximas.substack.com/feed
     sender: aleximas@substack.com
-    ingest_method: email
     priority: regular
     note: "Alex Imas"
 
@@ -579,9 +567,8 @@ sources:
     name: The Wake Up Call
     type: person
     url: https://thewakeupcallnewsletter.substack.com
-    feed_url: null
+    feed_url: https://thewakeupcallnewsletter.substack.com/feed
     sender: thewakeupcallnewsletter@substack.com
-    ingest_method: email
     priority: regular
     note: "Scott Barker"
 
@@ -598,9 +585,8 @@ sources:
     name: 80,000 Hours
     type: newsletter
     url: https://80000hours.substack.com
-    feed_url: null
+    feed_url: https://80000hours.substack.com/feed
     sender: 80000hours@substack.com
-    ingest_method: email
     priority: regular
     note: "Substack companion to the 80,000 Hours Podcast, tracked separately above"
 
@@ -631,9 +617,8 @@ sources:
     name: ChinAI Newsletter
     type: person
     url: https://chinai.substack.com
-    feed_url: null
+    feed_url: https://chinai.substack.com/feed
     sender: chinai@substack.com
-    ingest_method: email
     priority: regular
     note: "Jeffrey Ding — AI development in China"
 
@@ -657,9 +642,8 @@ sources:
     name: The Economics of AI
     type: newsletter
     url: https://economicsofai.substack.com
-    feed_url: null
+    feed_url: https://economicsofai.substack.com/feed
     sender: economicsofai@substack.com
-    ingest_method: email
     priority: regular
     note: "OpenAI Economic Research team — AI's effect on work, productivity, economic opportunity"
 
@@ -667,9 +651,8 @@ sources:
     name: The EU AI Act Newsletter
     type: person
     url: https://artificialintelligenceact.substack.com
-    feed_url: null
+    feed_url: https://artificialintelligenceact.substack.com/feed
     sender: artificialintelligenceact@substack.com
-    ingest_method: email
     priority: regular
     note: "Risto Uuk — EU AI Act policy tracking"
 
@@ -677,9 +660,8 @@ sources:
     name: GuardRailNow
     type: newsletter
     url: https://guardrailnow.substack.com
-    feed_url: null
+    feed_url: https://guardrailnow.substack.com/feed
     sender: guardrailnow@substack.com
-    ingest_method: email
     priority: regular
     note: "The AI Risk Network — AI safety"
 
@@ -695,18 +677,16 @@ sources:
     name: "The Prompt: Insights from OpenAI Global Affairs"
     type: newsletter
     url: https://openaiglobalaffairs.substack.com
-    feed_url: null
+    feed_url: https://openaiglobalaffairs.substack.com/feed
     sender: openaiglobalaffairs@substack.com
-    ingest_method: email
     priority: regular
 
   - id: quantum-of-solis
     name: A Quantum of Solis
     type: person
     url: https://briansolis.substack.com
-    feed_url: null
+    feed_url: https://briansolis.substack.com/feed
     sender: briansolis@substack.com
-    ingest_method: email
     priority: regular
     note: "Brian Solis"
 
@@ -833,6 +813,14 @@ sources:
     priority: regular
     note: "Aswath Damodaran. Valuation and markets; relevant when he turns to AI business economics (e.g. 'AI's Bar Mitzvah Moment?'). The ingest relevance gate filters the rest."
 
+  - id: pluralistic
+    name: "Pluralistic (Cory Doctorow)"
+    type: person
+    url: https://pluralistic.net
+    feed_url: https://pluralistic.net/feed/
+    priority: regular
+    note: "Replaces the dormant cory-doctorow Substack row (removed 2026-09-25; last post Nov 2025). Pluralistic is where he actually publishes, several times a week. Tech power, enshittification, AI-boss skepticism; his politics posts get filtered by the ingest relevance gate."
+
   - id: aaron-levie-linkedin
     name: "Aaron Levie (LinkedIn)"
     type: person
@@ -904,9 +892,8 @@ sources:
     name: "Nate’s Substack"
     type: newsletter
     url: "https://natesnewsletter.substack.com"
-    feed_url: null
+    feed_url: https://natesnewsletter.substack.com/feed
     sender: natesnewsletter@substack.com
-    ingest_method: email
     priority: regular
     note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-08-17 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
 

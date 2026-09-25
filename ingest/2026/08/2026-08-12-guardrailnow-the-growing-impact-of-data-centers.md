@@ -1,7 +1,7 @@
 ---
 title: The Growing Impact Of Data Centers
-source: GuardRailNow
-source_id: guardrailnow
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://guardrailnow.substack.com/p/the-growing-impact-of-data-centers
 author: The AI Risk Network. AI Safety
 date_published: '2026-08-12'

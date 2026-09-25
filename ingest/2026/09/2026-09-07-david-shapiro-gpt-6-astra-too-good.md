@@ -1,7 +1,7 @@
 ---
 title: 'GPT-6 Astra: Too Good'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://thealgorithmicbridge.substack.com/p/gpt-6-astra-too-good
 author: Alberto Romero from The Algorithmic Bridge <thealgorithmicbridge@substack.com>
 date_published: '2026-09-04'

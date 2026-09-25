@@ -1,7 +1,7 @@
 ---
 title: The Pangloss of Pangram
-source: Theory of the Game
-source_id: theory-of-the-game
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://reidhoffman.substack.com/p/the-pangloss-of-pangram
 author: Reid Hoffman
 date_published: '2026-08-06'

@@ -1,7 +1,7 @@
 ---
 title: The Boy Who Cried AI
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://gadlevanon.substack.com/p/the-boy-who-cried-ai
 author: Labor Matters from Gad Levanon <gadlevanon@substack.com>
 date_published: '2026-09-18'

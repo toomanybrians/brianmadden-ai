@@ -1,7 +1,7 @@
 ---
 title: 'Automating Catastrophic Risk Forecasts: Introducing AIRO'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://forecastingresearch.substack.com/p/automating-catastrophic-risk-forecasts
 author: Forecasting Research Institute <forecastingresearch@substack.com>
 date_published: '2026-09-11'

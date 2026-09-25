@@ -1,7 +1,7 @@
 ---
 title: Moderna's Cancer Vaccine Used AI. It Wasn't the Kind You're Worried About.
-source: GuardRailNow
-source_id: guardrailnow
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://guardrailnow.substack.com/p/modernas-cancer-vaccine-used-ai-it
 author: The AI Risk Network. AI Safety
 date_published: '2026-08-23'

@@ -1,7 +1,7 @@
 ---
 title: CLAUDE MYTHOS CAN FIND THE DOOR. HERE’S HOW TO KEEP YOUR AGENTS INSIDE
-source: Claude Mythos
-source_id: claude-mythos
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://claudemythos.substack.com/p/claude-mythos-can-find-the-door-heres
 author: Claude Mythos
 date_published: '2026-08-12'

@@ -1,7 +1,7 @@
 ---
 title: Vibe Coding 2.0
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://emergingai.substack.com/p/vibe-coding-20
 author: Opinion AI
 date_published: '2026-08-17'

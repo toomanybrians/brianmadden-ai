@@ -1,7 +1,7 @@
 ---
 title: AI Is an Elite Crime Spree
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://mattstoller.substack.com/p/ai-is-an-elite-crime-spree
 author: Matt Stoller <mattstoller@substack.com>
 date_published: '2026-09-18'

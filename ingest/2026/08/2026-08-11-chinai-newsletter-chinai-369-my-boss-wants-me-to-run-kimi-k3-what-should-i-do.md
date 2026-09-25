@@ -1,7 +1,7 @@
 ---
 title: 'ChinAI #369: My Boss Wants Me to Run Kimi K3, What Should I Do?'
-source: ChinAI Newsletter
-source_id: chinai-newsletter
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://chinai.substack.com/p/chinai-369-my-boss-wants-me-to-run
 author: Jeffrey Ding
 date_published: '2026-08-03'

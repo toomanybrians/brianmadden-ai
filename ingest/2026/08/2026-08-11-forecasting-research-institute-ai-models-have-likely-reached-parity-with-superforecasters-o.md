@@ -1,7 +1,7 @@
 ---
 title: AI models have likely reached parity with superforecasters on ForecastBench
-source: Forecasting Research Institute
-source_id: forecasting-research-institute
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://forecastingresearch.substack.com/p/ai-models-have-likely-reached-parity
 author: Forecasting Research Institute
 date_published: '2026-07-16'

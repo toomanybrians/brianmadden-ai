@@ -1,7 +1,7 @@
 ---
 title: HYPER-EXPONENTIAL BREAKTHROUGHS
-source: Metatrends
-source_id: metatrends
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://metatrends.substack.com/p/hyper-exponential-breakthroughs
 author: Peter H. Diamandis
 date_published: '2026-08-10'

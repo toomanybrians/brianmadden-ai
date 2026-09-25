@@ -1,7 +1,7 @@
 ---
 title: The $8,976 Robot Body and the Race to Build Its Brain
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://emergingai.substack.com/p/the-8976-robot-body-and-the-race
 author: Opinion AI
 date_published: '2026-08-13'

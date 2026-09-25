@@ -1,7 +1,7 @@
 ---
 title: 'ChinAI #372: China’s Overhyped Embodied AI Sector'
-source: ChinAI Newsletter
-source_id: chinai-newsletter
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://chinai.substack.com/p/chinai-372-chinas-overhyped-embodied
 author: Jeffrey Ding
 date_published: '2026-08-24'

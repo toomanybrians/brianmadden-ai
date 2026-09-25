@@ -1,7 +1,7 @@
 ---
 title: The AI-as-Normal-Technology view of loss-of-control incidents
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://aisnakeoil.substack.com/p/the-ai-as-normal-technology-view
 author: Arvind and Sayash from AI as Normal Technology <aisnakeoil@substack.com>
 date_published: '2026-09-14'

@@ -1,7 +1,7 @@
 ---
 title: You're About to Live Like a Millionaire
-source: Metatrends
-source_id: metatrends
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://metatrends.substack.com/p/youre-about-to-live-like-a-millionaire
 author: Peter H. Diamandis
 date_published: '2026-08-16'

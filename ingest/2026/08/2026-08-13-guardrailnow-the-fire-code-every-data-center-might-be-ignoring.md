@@ -1,7 +1,7 @@
 ---
 title: The Fire Code Every Data Center Might Be Ignoring
-source: GuardRailNow
-source_id: guardrailnow
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://guardrailnow.substack.com/p/the-fire-code-every-data-center-might
 author: The AI Risk Network. AI Safety
 date_published: '2026-08-13'

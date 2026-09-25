@@ -1,7 +1,7 @@
 ---
 title: '6 Major AI Agent Incidents: Full Report'
-source: Claude Mythos
-source_id: claude-mythos
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://claudemythos.substack.com/p/6-major-ai-agent-incidents-full-report
 author: Claude Mythos
 date_published: '2026-08-17'

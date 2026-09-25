@@ -1,7 +1,7 @@
 ---
 title: CPUs and the rise of neurosymbolic AI
-source: Marcus on AI
-source_id: marcus-on-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/cpus-and-the-rise-of-neurosymbolic
 author: Gary Marcus
 date_published: '2026-08-07'

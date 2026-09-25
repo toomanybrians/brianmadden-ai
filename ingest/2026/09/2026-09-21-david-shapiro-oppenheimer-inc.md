@@ -1,7 +1,7 @@
 ---
 title: Oppenheimer, Inc.
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://profgmedia.substack.com/p/oppenheimer-inc
 author: Scott Galloway <profgmedia+no-mercy-no-malice@substack.com>
 date_published: '2026-09-18'

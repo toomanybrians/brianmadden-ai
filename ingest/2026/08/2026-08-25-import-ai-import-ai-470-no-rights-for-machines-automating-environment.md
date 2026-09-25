@@ -1,8 +1,8 @@
 ---
 title: 'Import AI 470: No rights for machines; automating environment generation with
   SPADE; and building better GPU kernels with Hawkeye'
-source: Import AI
-source_id: import-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://importai.substack.com/p/import-ai-470-no-rights-for-machines
 author: Jack Clark
 date_published: '2026-08-24'

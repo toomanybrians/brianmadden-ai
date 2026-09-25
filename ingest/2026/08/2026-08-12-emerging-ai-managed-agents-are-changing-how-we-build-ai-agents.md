@@ -1,7 +1,7 @@
 ---
 title: Managed Agents Are Changing How We Build AI Agents
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://emergingai.substack.com/p/managed-agents-are-changing-how-we
 author: Opinion AI
 date_published: '2026-08-12'

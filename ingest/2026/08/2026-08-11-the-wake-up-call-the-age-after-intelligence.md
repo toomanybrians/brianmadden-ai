@@ -1,7 +1,7 @@
 ---
 title: The age after intelligence
-source: The Wake Up Call
-source_id: the-wake-up-call
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://thewakeupcallnewsletter.substack.com/p/the-age-after-intelligence
 author: Scott Barker
 date_published: '2026-08-10'

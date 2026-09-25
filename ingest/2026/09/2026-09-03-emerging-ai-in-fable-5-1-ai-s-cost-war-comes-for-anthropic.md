@@ -1,7 +1,7 @@
 ---
 title: ⚙️ In Fable 5.1, AI's cost war comes for Anthropic
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://archive.thedeepview.com/p/in-fable-5-1-ai-s-cost-war-comes-for-anthropic
 author: The Deep View <newsletter@thedeepview.co>
 date_published: '2026-09-02'

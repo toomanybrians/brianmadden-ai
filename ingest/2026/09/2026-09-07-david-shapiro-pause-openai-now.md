@@ -1,7 +1,7 @@
 ---
 title: Pause OpenAI, now
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/pause-openai-now
 author: Gary Marcus from Marcus on AI <garymarcus@substack.com>
 date_published: '2026-09-04'

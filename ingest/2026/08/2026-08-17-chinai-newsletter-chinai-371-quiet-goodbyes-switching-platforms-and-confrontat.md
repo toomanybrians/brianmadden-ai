@@ -1,8 +1,8 @@
 ---
 title: 'ChinAI #371: Quiet Goodbyes, Switching Platforms, and Confrontation: Reactions
   to China''s AI Companion Regulations'
-source: ChinAI Newsletter
-source_id: chinai-newsletter
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://chinai.substack.com/p/chinai-371-a-quiet-goodbye-adaptation
 author: Jeffrey Ding
 date_published: '2026-08-17'

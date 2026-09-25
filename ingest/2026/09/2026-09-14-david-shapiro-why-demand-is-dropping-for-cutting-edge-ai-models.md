@@ -1,7 +1,7 @@
 ---
 title: ⚙️ Why demand is dropping for cutting edge AI models
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://archive.thedeepview.com/p/ai-s-safety-warnings-are-getting-harder-to-ignore
 author: The Deep View <newsletter@thedeepview.co>
 date_published: '2026-09-11'

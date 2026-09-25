@@ -1,8 +1,8 @@
 ---
 title: OpenAI’s accidental cyberattack against Hugging Face is science fiction that
   happened
-source: Simon Willison's Newsletter
-source_id: simon-willison
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://simonw.substack.com/p/openais-accidental-cyberattack-against
 author: Simon Willison
 date_published: '2026-07-24'

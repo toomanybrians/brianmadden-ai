@@ -1,7 +1,7 @@
 ---
 title: The Orbit Charges Twice
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://link.mail.beehiiv.com/v2/c/8b9569716f824112844a28df62864b4dbacb0b0588cf2341d038ae2270bd85e261ea1ed2edc18f7a561eec50864224a709bc88e93b887d6c4cbee2aa507bd6a5d3d59ad0736182e430865b5ca7bf5bb73cf4743497d7baa5005d438117fc3e63a2c58199461a97c121a0403df2588352e6d7941017115c4bffcba80473da38add82af4dec0cc6097d8c740931690aaae50f952391c00d416606e03cb517dc621/fde94834da03881a
 author: Superintelligence <superintel@mail.beehiiv.com>
 date_published: '2026-08-29'

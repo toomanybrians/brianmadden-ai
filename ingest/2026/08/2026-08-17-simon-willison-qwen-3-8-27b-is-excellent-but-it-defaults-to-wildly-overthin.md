@@ -1,7 +1,7 @@
 ---
 title: Qwen 3.8 27B is excellent, but it defaults to wildly overthinking things
-source: Simon Willison's Newsletter
-source_id: simon-willison
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://simonw.substack.com/p/qwen-38-27b-is-excellent-but-it-defaults
 author: Simon Willison
 date_published: '2026-08-17'

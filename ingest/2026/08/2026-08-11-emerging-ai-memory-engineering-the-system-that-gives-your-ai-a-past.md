@@ -1,7 +1,7 @@
 ---
 title: 'Memory Engineering: The System That Gives Your AI a Past'
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://emergingai.substack.com/p/memory-engineering-the-system-that
 author: Opinion AI
 date_published: '2026-08-08'

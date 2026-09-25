@@ -1,7 +1,7 @@
 ---
 title: ⚙️ OpenAI's Astra leans into agentic tasks and safety
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://archive.thedeepview.com/p/openai-s-gpt-6-astra-is-here-is-the-world-ready
 author: The Deep View <newsletter@thedeepview.co>
 date_published: '2026-09-04'

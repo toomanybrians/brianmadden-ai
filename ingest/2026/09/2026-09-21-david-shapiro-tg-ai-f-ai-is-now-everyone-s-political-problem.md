@@ -1,7 +1,7 @@
 ---
 title: 'TG-AI-F: AI is now everyone’s political problem'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://sharongoldman.substack.com/p/tg-ai-f-ai-is-now-everyones-political
 author: Sharon Goldman <sharongoldman@substack.com>
 date_published: '2026-09-18'

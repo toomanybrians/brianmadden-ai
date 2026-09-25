@@ -1,8 +1,8 @@
 ---
 title: AI safety and cybersecurity have long been two different worlds. In the age
   of AI agents, they’re colliding.
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://sharongoldman.substack.com/p/ai-safety-and-cybersecurity-have
 author: Sharon Goldman <sharongoldman@substack.com>
 date_published: '2026-09-04'

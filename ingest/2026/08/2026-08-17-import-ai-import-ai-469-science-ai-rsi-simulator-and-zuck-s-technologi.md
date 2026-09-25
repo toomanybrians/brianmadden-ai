@@ -1,7 +1,7 @@
 ---
 title: 'Import AI 469: Science AI; RSI simulator; and Zuck''s technological pessimism'
-source: Import AI
-source_id: import-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://importai.substack.com/p/import-ai-469-science-ai-rsi-simulator
 author: Jack Clark
 date_published: '2026-08-17'

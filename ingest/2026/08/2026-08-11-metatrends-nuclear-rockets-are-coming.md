@@ -1,7 +1,7 @@
 ---
 title: Nuclear Rockets Are Coming
-source: Metatrends
-source_id: metatrends
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://metatrends.substack.com/p/nuclear-rockets-are-coming
 author: Peter H. Diamandis
 date_published: '2026-08-08'

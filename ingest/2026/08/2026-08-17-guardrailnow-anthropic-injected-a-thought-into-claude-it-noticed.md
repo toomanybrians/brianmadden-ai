@@ -1,7 +1,7 @@
 ---
 title: Anthropic Injected A Thought Into Claude. It Noticed.
-source: GuardRailNow
-source_id: guardrailnow
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://guardrailnow.substack.com/p/anthropic-injected-a-thought-into
 author: The AI Risk Network. AI Safety
 date_published: '2026-08-16'

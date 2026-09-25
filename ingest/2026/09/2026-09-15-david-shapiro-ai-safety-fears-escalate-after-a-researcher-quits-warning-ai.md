@@ -1,8 +1,8 @@
 ---
 title: AI Safety Fears Escalate After a Researcher Quits, Warning AI Could Kill Us
   All
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://profgmedia.substack.com/p/ai-safety-fears-escalate-after-a
 author: '"Scott Galloway & Ed Elson" <profgmedia+markets-newsletter@substack.com>'
 date_published: '2026-09-14'

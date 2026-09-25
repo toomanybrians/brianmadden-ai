@@ -1,7 +1,7 @@
 ---
 title: 'A Black Box Problem: Missing Data On How AI Affects the Human Mind'
-source: Center for Humane Technology
-source_id: center-for-humane-technology
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://centerforhumanetechnology.substack.com/p/missing-data-ai
 author: Imran Khan
 date_published: '2026-08-04'

@@ -1,7 +1,7 @@
 ---
 title: These Harvard Students Don't Want to Waste Their Careers at McKinsey
-source: Rutger Bregman
-source_id: rutger-bregman
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://rutgerbregman.substack.com/p/these-harvard-students-dont-want
 author: Rutger Bregman
 date_published: '2026-07-22'

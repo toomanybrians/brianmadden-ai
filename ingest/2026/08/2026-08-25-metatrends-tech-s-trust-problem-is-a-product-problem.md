@@ -1,7 +1,7 @@
 ---
 title: Tech's Trust Problem Is a Product Problem
-source: Metatrends
-source_id: metatrends
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://metatrends.substack.com/p/techs-trust-problem-is-a-product
 author: Peter H. Diamandis
 date_published: '2026-08-23'

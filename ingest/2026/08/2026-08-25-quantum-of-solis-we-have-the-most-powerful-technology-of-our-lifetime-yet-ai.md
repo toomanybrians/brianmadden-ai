@@ -1,8 +1,8 @@
 ---
 title: We Have the Most Powerful Technology of Our Lifetime, Yet AI Is Exposing the
   Limits of How We Think
-source: A Quantum of Solis
-source_id: quantum-of-solis
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://briansolis.substack.com/p/we-have-the-most-powerful-technology
 author: Brian Solis
 date_published: '2026-08-23'

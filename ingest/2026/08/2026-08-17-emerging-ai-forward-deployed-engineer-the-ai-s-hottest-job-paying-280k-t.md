@@ -1,8 +1,8 @@
 ---
 title: 'Forward Deployed Engineer: The AI''s Hottest Job Paying $280K to $1M+ (Full
   Course with resources)'
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://emergingai.substack.com/p/forward-deployed-engineer-the-ais
 author: Opinion AI
 date_published: '2026-08-16'

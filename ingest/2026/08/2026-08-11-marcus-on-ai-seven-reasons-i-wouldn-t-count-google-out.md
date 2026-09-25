@@ -1,7 +1,7 @@
 ---
 title: Seven reasons I wouldn’t count Google out
-source: Marcus on AI
-source_id: marcus-on-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/seven-reasons-i-wouldnt-count-google
 author: Gary Marcus
 date_published: '2026-08-06'

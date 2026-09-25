@@ -1,7 +1,7 @@
 ---
 title: 'TG-AI-F: The AI doom monsters escape into the mainstream'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://sharongoldman.substack.com/p/tg-ai-f-the-ai-doom-monsters-escape
 author: Sharon Goldman <sharongoldman@substack.com>
 date_published: '2026-09-11'

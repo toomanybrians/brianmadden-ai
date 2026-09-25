@@ -1,7 +1,7 @@
 ---
 title: 🦆 The $399 Robot You Can Retrain
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://link.mail.beehiiv.com/v2/c/1a320d95bb206ba1d1110ee5b3f50dcc2d7cbd649ffe00fe3945cbbe81724730568d1ec294a27dae83267ea4dc6f55865102e9443fd2901a8b7d6e02afd8ec9a3d7b0397d9537a805bae357cf16cb04daebf30939d75131a6b0419b616d10e3d4e07ae260aa211f2498768c7d15447f5e469433b9d2cfda517a4b5cc528ec1e4b3722ac6fabf513e8cecea5f7b846c90d9cbb5586d1b7ed3c5008ab49c6425b4/00990eefab477ee9
 author: Superintelligence <superintel@mail.beehiiv.com>
 date_published: '2026-08-28'

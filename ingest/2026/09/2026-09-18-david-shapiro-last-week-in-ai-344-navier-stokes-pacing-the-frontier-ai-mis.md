@@ -1,7 +1,7 @@
 ---
 title: 'Last Week in AI #344 - Navier–Stokes, Pacing the Frontier, AI Misuse'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://lastweekinai.substack.com/p/last-week-in-ai-344-navierstokes
 author: Last Week in AI <lastweekinai+news@substack.com>
 date_published: '2026-09-17'

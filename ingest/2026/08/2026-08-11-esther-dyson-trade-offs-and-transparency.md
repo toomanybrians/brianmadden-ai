@@ -1,7 +1,7 @@
 ---
 title: Trade-offs and transparency
-source: In the pool with Esther
-source_id: esther-dyson
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://estherdyson.substack.com/p/trade-offs-and-transparency
 author: Esther Dyson
 date_published: '2026-07-28'

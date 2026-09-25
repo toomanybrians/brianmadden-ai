@@ -1,7 +1,7 @@
 ---
 title: 'Shared AI Harness: One Memory, Many Models'
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://emergingai.substack.com/p/shared-ai-harness-one-memory-many
 author: Opinion AI
 date_published: '2026-08-11'

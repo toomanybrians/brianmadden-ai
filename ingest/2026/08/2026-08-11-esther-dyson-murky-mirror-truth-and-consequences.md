@@ -1,7 +1,7 @@
 ---
 title: 'Murky Mirror: Truth and Consequences'
-source: In the pool with Esther
-source_id: esther-dyson
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://estherdyson.substack.com/p/murky-mirror-truth-and-consequences
 author: Esther Dyson
 date_published: '2026-07-14'

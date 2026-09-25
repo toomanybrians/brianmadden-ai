@@ -1,7 +1,7 @@
 ---
 title: Conceptual integrity and counting lines of code
-source: Simon Willison's Newsletter
-source_id: simon-willison
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://simonw.substack.com/p/conceptual-integrity-and-counting
 author: Simon Willison
 date_published: '2026-08-23'

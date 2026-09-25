@@ -1,7 +1,7 @@
 ---
 title: The “We Must Act Now” Letter
-source: Labor Matters
-source_id: labor-matters
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://gadlevanon.substack.com/p/the-we-must-act-now-letter
 author: Labor Matters
 date_published: '2026-08-07'

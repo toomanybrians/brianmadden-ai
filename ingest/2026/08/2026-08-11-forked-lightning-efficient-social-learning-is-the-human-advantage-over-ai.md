@@ -1,7 +1,7 @@
 ---
 title: Efficient social learning is the human advantage over AI
-source: Forked Lightning
-source_id: forked-lightning
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://forklightning.substack.com/p/efficient-social-learning-is-the
 author: David Deming
 date_published: '2026-07-15'

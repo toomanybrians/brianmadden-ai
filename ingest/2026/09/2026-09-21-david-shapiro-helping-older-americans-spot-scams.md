@@ -1,7 +1,7 @@
 ---
 title: Helping Older Americans Spot Scams
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://openaiglobalaffairs.substack.com/p/helping-older-americans-spot-scams
 author: '"Editors @ The Prompt @ OpenAI Global Affairs" <openaiglobalaffairs@substack.com>'
 date_published: '2026-09-18'

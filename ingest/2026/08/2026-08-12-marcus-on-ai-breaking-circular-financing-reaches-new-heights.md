@@ -1,7 +1,7 @@
 ---
 title: 'BREAKING: Circular financing reaches new heights'
-source: Marcus on AI
-source_id: marcus-on-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/breaking-circular-financing-reaches
 author: Gary Marcus
 date_published: '2026-08-11'

@@ -1,8 +1,8 @@
 ---
 title: 'Inside NVIDIA: What a world model actually is, and how it connects to the
   LLM you already use.'
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://natesnewsletter.substack.com/p/inside-nvidia-what-a-world-model
 author: '"Nate from Nate’s Substack" <natesnewsletter@substack.com>'
 date_published: '2026-09-24'

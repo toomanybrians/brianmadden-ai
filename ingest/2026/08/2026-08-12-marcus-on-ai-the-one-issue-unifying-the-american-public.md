@@ -1,7 +1,7 @@
 ---
 title: The one issue unifying the American public
-source: Marcus on AI
-source_id: marcus-on-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://garymarcus.substack.com/p/the-one-issue-unifying-the-american
 author: Gary Marcus
 date_published: '2026-08-11'

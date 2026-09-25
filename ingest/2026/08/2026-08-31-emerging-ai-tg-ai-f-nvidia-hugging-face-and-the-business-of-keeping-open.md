@@ -1,7 +1,7 @@
 ---
 title: 'TG-AI-F: Nvidia, Hugging Face and the business of keeping open source AI alive'
-source: Emerging AI
-source_id: emerging-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://sharongoldman.substack.com/p/tg-ai-f-nvidia-hugging-face-and-the
 author: Sharon Goldman <sharongoldman@substack.com>
 date_published: '2026-08-28'

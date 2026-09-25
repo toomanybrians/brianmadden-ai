@@ -1,7 +1,7 @@
 ---
 title: Stateless MCP has recaptured my interest
-source: Simon Willison's Newsletter
-source_id: simon-willison
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://simonw.substack.com/p/stateless-mcp-has-recaptured-my-interest
 author: Simon Willison
 date_published: '2026-08-01'

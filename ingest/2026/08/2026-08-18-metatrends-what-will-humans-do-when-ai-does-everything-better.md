@@ -1,7 +1,7 @@
 ---
 title: What Will Humans Do When AI Does Everything Better?
-source: Metatrends
-source_id: metatrends
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://metatrends.substack.com/p/what-will-humans-do-when-ai-does
 author: Peter H. Diamandis
 date_published: '2026-08-18'

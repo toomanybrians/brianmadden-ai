@@ -1,8 +1,8 @@
 ---
 title: Codex, Grok and Claude all agree, and you still don't know if they're right.
   The guide I use to decide.
-source: Nate’s Substack
-source_id: nate-s-substack
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://natesnewsletter.substack.com/p/fight-ai-brain-rot
 author: Nate
 date_published: '2026-08-28'

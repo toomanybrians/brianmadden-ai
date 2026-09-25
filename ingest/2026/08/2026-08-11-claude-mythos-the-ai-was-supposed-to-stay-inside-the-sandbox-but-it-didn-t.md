@@ -1,7 +1,7 @@
 ---
 title: The AI was supposed to stay inside the sandbox. But it didn’t.
-source: Claude Mythos
-source_id: claude-mythos
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://claudemythos.substack.com/p/the-ai-was-supposed-to-stay-inside
 author: Claude Mythos
 date_published: '2026-08-10'

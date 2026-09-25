@@ -1,7 +1,7 @@
 ---
 title: Experts Forecast Rapid AI Progress Could Bring Health and Wealth Without Happiness
-source: Forecasting Research Institute
-source_id: forecasting-research-institute
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://forecastingresearch.substack.com/p/forecasting-ai-benefits
 author: Forecasting Research Institute
 date_published: '2026-07-28'

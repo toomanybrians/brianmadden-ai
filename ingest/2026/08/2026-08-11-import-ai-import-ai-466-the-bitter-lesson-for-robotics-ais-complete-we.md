@@ -1,8 +1,8 @@
 ---
 title: 'Import AI 466: The bitter lesson for robotics, AIs complete week-long programming
   tasks; and OpenAI''s accidental AI hacker'
-source: Import AI
-source_id: import-ai
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://importai.substack.com/p/import-ai-466-the-bitter-lesson-for
 author: Jack Clark
 date_published: '2026-07-27'

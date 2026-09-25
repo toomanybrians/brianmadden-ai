@@ -1,7 +1,7 @@
 ---
 title: Now we have a timeline of the OpenAI accidental attack against Hugging Face
-source: Simon Willison's Newsletter
-source_id: simon-willison
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://simonw.substack.com/p/now-we-have-a-timeline-of-the-openai
 author: Simon Willison
 date_published: '2026-08-08'

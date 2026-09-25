@@ -1,7 +1,7 @@
 ---
 title: 'The EU AI Act Newsletter #109: The Watermarking Era'
-source: The EU AI Act Newsletter
-source_id: eu-ai-act-newsletter
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://artificialintelligenceact.substack.com/p/the-eu-ai-act-newsletter-109-the
 author: Risto Uuk
 date_published: '2026-08-24'

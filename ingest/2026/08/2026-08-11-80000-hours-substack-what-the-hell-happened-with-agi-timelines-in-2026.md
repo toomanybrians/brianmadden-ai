@@ -1,7 +1,7 @@
 ---
 title: What the hell happened with AGI timelines in 2026?
-source: 80,000 Hours
-source_id: 80000-hours-substack
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://80000hours.substack.com/p/what-the-hell-happened-with-agi-timelines-453
 author: Rob Wiblin
 date_published: '2026-08-06'

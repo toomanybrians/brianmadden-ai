@@ -1,7 +1,7 @@
 ---
 title: How to job again..
-source: David Shapiro's Substack
-source_id: david-shapiro
+source: brain@ inbox (curated newsletters)
+source_id: brain-inbox
 source_url: https://workevolved.substack.com/p/how-to-job-again
 author: Robyn Agoston from Work Evolved <workevolved@substack.com>
 date_published: '2026-09-18'
