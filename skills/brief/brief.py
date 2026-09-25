@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
 from lib import llm  # noqa: E402  (needs sys.path set first)
 
-DEFAULT_MODEL = "claude-sonnet-5"
+DEFAULT_MODEL = "claude-opus-5-5"
 # Cross-note synthesis over a full day's ingest batch (and a first run over
 # a 30-day catch-up batch) is the hardest judgment call in the pipeline so
 # far — Brian's original call (2026-08-11) was Opus over Sonnet for this
@@ -40,8 +40,12 @@ DEFAULT_MODEL = "claude-sonnet-5"
 # added the same day) that made the brief hard to read; a same-batch,
 # same-prompt side-by-side after the prompt fixes still showed Sonnet
 # writing plainer and ~35% shorter with zero flourish artifacts, Opus with
-# some residual. Still overridable via --llm-model / LLM_MODEL, same as
-# every other skill.
+# some residual. Switched to Opus 5.5 2026-09-25 (Brian's call) after the
+# same kind of same-batch test on that day's 33 notes: the Aug 26
+# flourishes didn't come back (0 italics-for-emphasis, 0 bolded slugs in
+# prose), and it made more connections to canon (25 links vs. 16) at ~70%
+# more length (1,795 words vs. 1,046). Still overridable via --llm-model /
+# LLM_MODEL, same as every other skill.
 SIGNAL_DELIMITER = "---THREAD-SIGNALS---"
 PROMOTION_THRESHOLD = 3  # distinct briefing runs a thread must recur in before it's queued for Brian's review
 

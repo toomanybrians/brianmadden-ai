@@ -49,7 +49,12 @@ from brief import (  # noqa: E402 — reuse brief.py's helpers rather than dupli
 )
 from render import render_to_html  # noqa: E402 — auto-render straight to HTML, see main()
 
-DEFAULT_MODEL = "claude-fable-5"  # prose, not synthesis — Brian's call, 2026-08-11
+# Originally claude-fable-5 for the condensing rewrite (Brian's call,
+# 2026-08-11). Since 2026-08-14 the body passes through unchanged and this
+# model only writes the subtitle, so it now matches brief.py's Opus 5.5
+# (Brian's call, 2026-09-25): no reason to send the whole brief to a
+# pricier model for one sentence.
+DEFAULT_MODEL = "claude-opus-5-5"
 SUBTITLE_DELIMITER = "---SUBTITLE---"
 # Substack's real limit, confirmed empirically 2026-08-12: a 258-char
 # subtitle got silently cut to exactly 200 chars, mid-word, no ellipsis.

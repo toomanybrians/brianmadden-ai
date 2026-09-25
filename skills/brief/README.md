@@ -96,10 +96,13 @@ was tuned after seeing real extractions.
 
 ## Model
 
-Defaults to `claude-opus-5` (Brian's explicit call, 2026-08-11 — this is
-the hardest judgment call in the pipeline so far, and it's one call a day,
-not one per article like ingest, so the cost multiplier is smaller than it
-looks). Override with `--llm-model` / `LLM_MODEL`, or switch providers
+Defaults to `claude-opus-5-5` (Brian's call, 2026-09-25, after a
+same-batch comparison against Sonnet 5 on that day's notes). History:
+`claude-opus-5` from 2026-08-11 (the hardest judgment call in the
+pipeline, and one call a day rather than one per article, so the cost
+multiplier is small), then `claude-sonnet-5` from 2026-08-26 when Opus 5's
+prose drifted into flourishes (see the comment on `DEFAULT_MODEL` in
+`brief.py`). Override with `--llm-model` / `LLM_MODEL`, or switch providers
 entirely with `--provider` — same mechanism as `skills/ingest/`, see
 [skills/lib/llm.py](../lib/llm.py).
 
@@ -154,14 +157,14 @@ near-identical framing for the same underlying story.
 
 ```bash
 python3 skills/brief/publish.py                    # today's brief, dense (default)
-python3 skills/brief/publish.py --condensed         # today's brief, Fable-condensed instead
+python3 skills/brief/publish.py --condensed         # today's brief, condensed instead
 python3 skills/brief/publish.py --date 2026-08-11   # a specific date
 python3 skills/brief/publish.py --dry-run           # read output without writing
 ```
 
-Defaults to `claude-fable-5` (Brian's call, 2026-08-11 — prose, not
-synthesis, so a different model than `brief.py`'s Opus default) for
-whichever call actually runs (the subtitle-only call by default, the full
+Defaults to `claude-opus-5-5`, the same model as `brief.py` (Brian's call,
+2026-09-25; it was `claude-fable-5` from 2026-08-11, chosen when this step
+still rewrote the whole body) for whichever call actually runs (the subtitle-only call by default, the full
 condensing call under `--condensed`). Overridable the same way as every
 other skill (`--llm-model`, `--provider`).
 

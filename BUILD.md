@@ -3571,3 +3571,29 @@ cory-doctorow, the-ai-report) and 3 feeds were empty
 (emerging-physical-ai, tech-empires, lex-fridman-2). Kevin Roose is still
 covered through Hard Fork. Doctorow's real output is pluralistic.net, if
 he's wanted back.
+
+### 2026-09-25 (continued) — first home-runner run verified; brief + subtitle moved to Opus 5.5
+
+**First scheduled run on `beelink`: clean.** 22 min (up from ~9, more to
+process), every step green. Sources 79 ok / 45 skipped / **1 error**
+(down from 16; the one left is `nate-b-jones`'s YouTube 404, the old
+known dead feed). X worked on a scheduled run for the first time since at
+least 09-08: 38 entries, 5 notes, rotated token written back to Secrets at
+06:30 UTC. New sources already contributed (redwood-research, khe-hy,
+future-focused, discover-ai). **Open:** the run's Substack auto-discovery
+added `ground-level-ai` and `opinion-ai-2` as RSS rows, but both already
+arrive by email (`sharon-goldman`, `opinion-ai`), so their posts may be
+double-ingested. I suggested removing the two new RSS rows; waiting on
+Brian's answer.
+
+**Model change (Brian's call): `brief.py` and `publish.py` now default to
+`claude-opus-5-5`.** Same-batch dry run on the day's 33 notes against the
+Sonnet 5 brief that was emailed: 1,795 vs. 1,046 words, 25 vs. 16 links,
+0 italics-for-emphasis and 0 bolded slugs in prose for both (so the Aug 26
+Opus 5 tics didn't come back), and a different lead story. Brian read both
+and picked Opus 5.5. `publish.py` has only written the subtitle since
+08-14 (the body passes through), so the Fable 5 subtitle call moves to
+the same model. Opus 5.5's sample subtitle was 176 chars (limit 200).
+`skills/brief/README.md` fixed too: it still said Opus 5 for the brief,
+which had been wrong since 08-26. Ingest stays on Sonnet 5 (high volume).
+Triage (`claude-opus-5`) not changed yet.
