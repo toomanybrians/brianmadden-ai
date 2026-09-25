@@ -20,6 +20,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import unicodedata
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
@@ -204,7 +205,7 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
             # 2026-08-13 against real feed content: moonshots, no-priors,
             # on-with-kara-swisher all return link=None from feedparser,
             # not a parsing bug). Left empty, this silently breaks dedup:
-            # load_ingested_urls() only tracks truthy source_url values, so
+            # load_ingested_keys() only tracks truthy source_url values, so
             # an empty link is never "seen," and the same already-ingested
             # episode gets treated as new on every future run until a real
             # new episode replaces it. feedparser's raw['id'] is a stable
@@ -1068,7 +1069,7 @@ def fetch_entries_email(source: dict, since_days: float, max_per_source: int):
     # existing date_captured handling elsewhere. -label excludes anything a
     # prior run already labeled (ingested or skipped), on top of the
     # frontmatter-based dedup every source type already gets from
-    # load_ingested_urls(). No from: filter — whole inbox, see docstring.
+    # load_ingested_keys(). No from: filter — whole inbox, see docstring.
     # in:inbox added 2026-08-20: without it, Gmail's default search scope
     # is "all mail except Spam/Trash", which includes Sent — so once
     # skills/lib/gmail_send.py started sending brain@'s daily-brief email
@@ -1791,15 +1792,67 @@ def read_frontmatter(path: Path) -> dict | None:
         return None
 
 
-def load_ingested_urls(ingest_root: Path) -> set[str]:
-    urls = set()
+# Cross-route dedupe (2026-09-25). A Substack post can arrive twice: once
+# from the publication's RSS feed and once as a brain@ email (the email
+# route began as the workaround for Cloudflare's 403 on GitHub's runners,
+# BUILD.md open decision #16, so many publications ended up on both).
+# Exact-link matching missed every publication with a custom domain,
+# because RSS links the custom domain (www.dwarkesh.com/p/noam-brown) and
+# _rewrite_substack_app_link() rebuilds the email's link on the
+# substack.com subdomain (dwarkesh.substack.com/p/noam-brown). 61 of
+# September's 495 notes were second copies. The fix adds a second key for
+# Substack-shaped /p/<slug> links: slug plus normalized title, so the same
+# post matches across domains. Requiring the title too keeps two
+# different publications that reuse a slug (say, "weekly-roundup") from
+# colliding.
+#
+# The URL key itself stays nearly exact (only lowercased host, no "www.",
+# no trailing slash). The query string and #fragment are kept on purpose:
+# YouTube identifies the video in ?v=, and some podcast feeds (no-priors)
+# identify the episode only in the #fragment.
+SUBSTACK_POST_PATH_RE = re.compile(r"^/p/([^/]+)/?$")
+
+
+def _url_key(url: str) -> str:
+    parts = urlsplit(url.strip())
+    host = parts.netloc.lower().removeprefix("www.")
+    key = host + parts.path.rstrip("/")
+    if parts.query:
+        key += "?" + parts.query
+    if parts.fragment:
+        key += "#" + parts.fragment
+    return "url:" + key
+
+
+def _title_key(title: str) -> str:
+    t = unicodedata.normalize("NFKC", title or "").lower()
+    t = re.sub(r"[^\w\s]", "", t)
+    return " ".join(t.split())
+
+
+def dedupe_keys(link: str, title: str) -> set[str]:
+    """Every key that identifies this post. Two entries are the same post
+    if their key sets intersect. An entry with no link gets no keys and is
+    never treated as a duplicate (same as before this existed)."""
+    if not link:
+        return set()
+    keys = {_url_key(link)}
+    m = SUBSTACK_POST_PATH_RE.match(urlsplit(link.strip()).path)
+    title_key = _title_key(title)
+    if m and title_key:
+        keys.add(f"post:{m.group(1).lower()}|{title_key}")
+    return keys
+
+
+def load_ingested_keys(ingest_root: Path) -> set[str]:
+    keys = set()
     for path in ingest_root.rglob("*.md"):
         if path.name == "README.md":
             continue
         fm = read_frontmatter(path)
         if fm and fm.get("source_url"):
-            urls.add(fm["source_url"])
-    return urls
+            keys |= dedupe_keys(fm["source_url"], fm.get("title") or "")
+    return keys
 
 
 # -------------------------------------------------------------- prompting --
@@ -1953,7 +2006,7 @@ def main() -> None:
             sys.exit(1)
 
     ingest_root = ROOT / "ingest"
-    seen_urls = load_ingested_urls(ingest_root)
+    seen_keys = load_ingested_keys(ingest_root)
 
     provider = args.provider or llm.current_provider()
     model_used = llm.resolve_model(provider, args.llm_model)
@@ -2036,8 +2089,18 @@ def main() -> None:
             })
             continue
 
-        new_entries = [e for e in entries if e["link"] not in seen_urls]
+        new_entries, duplicates = [], []
+        for e in entries:
+            (duplicates if dedupe_keys(e["link"], e["title"]) & seen_keys else new_entries).append(e)
         print(f"[{source['id']}] {len(entries)} entries in window, {len(new_entries)} new")
+        # A duplicate email still has to be labeled, or it sits unlabeled in
+        # brain@ and gets re-fetched every run until it ages out of the
+        # window. Only emails that duplicate a post from *another* route
+        # land here in practice (same-route repeats are already labeled).
+        for e in duplicates:
+            if is_email and e.get("gmail_msg_id") and not args.dry_run:
+                print(f"    skipped (already ingested via another route): {e['title']}")
+                gmail_apply_label(e["gmail_msg_id"], GMAIL_LABEL_SKIPPED)
         total_new += len(new_entries)
         source_results.append({
             "id": source["id"], "name": source.get("name", source["id"]),
@@ -2086,7 +2149,7 @@ def main() -> None:
                     known_email_senders.add(sender_address)
                 else:
                     auto_register_email_source(entry["author"], sources_path, known_email_senders)
-            seen_urls.add(entry["link"])
+            seen_keys |= dedupe_keys(entry["link"], entry["title"])
             total_written += 1
 
     # Daily follows-diff (open decision #7, resolved into #9's design

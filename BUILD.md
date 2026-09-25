@@ -3597,3 +3597,25 @@ the same model. Opus 5.5's sample subtitle was 176 chars (limit 200).
 `skills/brief/README.md` fixed too: it still said Opus 5 for the brief,
 which had been wrong since 08-26. Ingest stays on Sonnet 5 (high volume).
 Triage (`claude-opus-5`) not changed yet.
+
+**Cross-route dedupe (same session).** Found while answering Brian's
+question about email vs. RSS: 61 of September's 495 notes (~12%) were
+second copies of posts that arrived both by RSS and as brain@ email. Exact
+link matching missed every custom-domain publication, because RSS links
+the custom domain and the email path rebuilds the link on
+`<pub>.substack.com`. Worst: Hard Reset 10, Exponential View 8,
+Interconnects 6. `ingest.py` now dedupes on key sets (`dedupe_keys()`): a
+near-exact URL key (query and fragment kept; YouTube and no-priors need
+them) plus, for `/p/<slug>` links, a slug + normalized-title key.
+Duplicate emails are now labeled `AI/Skipped` instead of sitting unlabeled
+and being re-fetched every run. Replayed over September: catches 58 of
+61. The 3 misses are 80,000 Hours (podcast site and Substack use
+different slugs) and one email with no link; I left those alone rather
+than match on title alone. No new false positives (the 6 other replay
+hits are the Levie LinkedIn notes that share a profile URL, and the old
+check flags the same 6). Brian is turning off Substack email delivery to
+brain@ for publications that have RSS, so RSS becomes the single route
+for those. That also makes the `ground-level-ai` / `opinion-ai-2` RSS
+rows the right ones to keep. **Open side issue:** some notes credited to
+`david-shapiro` share titles with Last Week in AI and Prof G, which looks
+like email attribution going wrong, not routing. Not investigated.
