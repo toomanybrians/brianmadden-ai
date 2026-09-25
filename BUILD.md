@@ -3703,3 +3703,24 @@ not 10. No lines about pipeline work (his call).
   the `promotion-candidates.md` conflict to merge time. Use a worktree
   only if a ceremony will be left half-done for days.
 - Is there ingest retention? There was none; built this session (below).
+
+**Ingest retention (same session): `scripts/prune_ingest.py` built, not
+yet run or wired in.**
+- Deletes dated notes under `ingest/YYYY/MM/` whose `date_captured` (or
+  filename date) is older than `--days` (default 30). It never touches
+  `brain-flags/`, `README.md` or the state files.
+- Pruned notes stay in git history, and the brief disclosure links point
+  at commits, so they keep working.
+- Dedupe is safe because ingest only looks at entries newer than its last
+  run. The exception is a manual `--since-days` backfill longer than the
+  retention window.
+- Dry run on 2026-09-25: would delete 321 of 884 notes (all captured
+  before 08-26).
+- The first real run was blocked by the session's permission check
+  (irreversible delete), so this is left for Brian:
+  - Option 1: run `python3 scripts/prune_ingest.py` himself and commit.
+  - Option 2: approve adding it as a step before "Commit and push" in
+    `daily-pipeline.yml`. `git add -A -- ingest/` already picks up the
+    deletions.
+- Once it's live, update `ingest.py`'s `handle_brain_flag` docstring,
+  which still calls dated notes "a permanent historical log."
