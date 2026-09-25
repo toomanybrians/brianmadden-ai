@@ -1,8 +1,8 @@
 ---
 title: "Post ideas — what I might write next"
 date: 2026-09-04
-updated: "2026-09-13"
-last_reviewed: "2026-09-13"
+updated: "2026-09-25"
+last_reviewed: "2026-09-25"
 authority_level: 5
 file_type: queue
 tags: ["current-thinking", "frontier", "post-ideas", "pipeline"]
@@ -73,6 +73,32 @@ The whole industry is talking about AI doom right now. Whether the doom is real 
 Agent oversight assumed chain-of-thought was legible. That assumption is dissolving, which puts agents exactly where humans already are — you supervise behavior, not thought. Except behavior-watching is getting harder at the same moment it becomes mandatory, so the observable surface has to become everything an agent touches and how. The counterweight (cryptographic agent identity, task-scoped permissions, traceable handoffs) is already shipping.
 
 **What's missing:** the ending. Watching everything an agent touches is only tractable if something else does the watching, and that something is another agent whose reasoning you also can't read. I don't have the resolution, and a piece that just names the regress isn't obviously worth publishing yet.
+
+### Every CIO is asking the same questions, and nobody has answers
+
+**Where the argument lives:** `me/developing-thinking.md` → "Right now" (September 25), from the WSJ CIO conference in New York.
+
+The questions were the same from every direction: "I have no idea what's going on in my environment." "We know we're supposed to transform with IT, but we don't know where to start." "We have to thaw the frozen core of the business—where do we begin?" And the sobering one is the *best* case: the CIO with an AI gateway who can see every user, token, and model and still can't tell whether the work is getting better or just more expensive. At the same time, CIOs are convincing each other that AI can really change things, from their own small projects. So the question has moved past "should we" and past "copilots everywhere" to two harder ones: how would you even know it's helping, and how do you get from starter projects to the enterprise?
+
+**Why it's a real piece:** it's first-hand, from the room, and it's the question every enterprise reader is actually sitting with.
+
+**What's missing:** the answer, and a decision on shape. Its two halves overlap with other entries here: "how would you know" is the productivity-measurement piece below, and "starter projects to the enterprise" is the knowledge-factory execute post. This may end up as the opening of one of those rather than its own post.
+
+### The best AI model is losing enterprise deals, and it's not about what it can do
+
+**Where the argument lives:** not in canon yet. Evidence in the September 16 daily brief (Nvidia, Palantir, and Booz Allen restricting Fable for sensitive work) and the September 14–25 Weekly Wrap Up. Related: the Scratchpad note that data now has a published price.
+
+When the biggest enterprise buyers restrict a frontier model, the reason is where the data goes and whether the zero-retention promise can be revoked, not capability. A utility walked away from a trial over it, and competitors are selling into the distrust. For the enterprise, trust and control are the product; capability is table stakes.
+
+**What's missing:** a second and third example beyond Fable, so it's a pattern and not one news cycle, and a tie back to workspace-as-control-plane (where the data boundary actually gets enforced).
+
+### The harnesses are almost more important than the models
+
+**Where the argument lives:** not in canon yet. Evidence in the September 18–23 daily briefs (Berkeley's HarnessTax study, the "harness engineering" conference track). Related: "The executor seam is the unowned thing in agent architecture" and the September 25 addition to the human-in-the-loop entry, both in `me/developing-thinking.md`.
+
+Swap nothing but the orchestration around the same model and cost per task drops by up to 71%, with no loss in accuracy; one vendor's own harness lost to a competitor's in 9 of 12 matchups. A mediocre model in a great harness beats a great model in a bad one. That changes what an enterprise should be evaluating and buying, and it's also where governance enforcement has to live.
+
+**What's missing:** Brian's own position. So far this is a strong finding he agreed was worth a post, not an argument he's made.
 
 ### Nobody can measure knowledge-worker productivity, and here's how to think about it anyway
 

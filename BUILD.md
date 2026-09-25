@@ -3734,3 +3734,12 @@ first: nothing links to ingest notes on `main`. The pipeline's fallback
 disclosure link points at the technical brief, and briefs cite ingest
 paths only as plain frontmatter text. `ingest.py`'s `handle_brain_flag`
 docstring updated to match.
+
+**Post ideas added (same session, Brian's call).** Three new Warm entries
+in `me/post-ideas.md`: the WSJ CIO questions, the best model losing deals
+over data retention rather than capability, and the harness beating the
+model. The WSJ entry notes that it overlaps the productivity-measurement
+and execute-now entries and may end up as the opening of one of them.
+**Pre-existing glitch, not fixed:** the unmonitorability entry under Warm
+has no `###` heading, so it reads as part of the slowdown entry above it.
+
