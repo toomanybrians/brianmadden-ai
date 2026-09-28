@@ -674,6 +674,14 @@ asked to do, not as a template to re-run.
     Substack is dormant since Nov 2025, The AI Report ~17 months), so
     worth a pruning pass. See the 2026-09-25 session entry.
 
+    **2026-09-28: pruning pass run, nothing left to prune — closed.**
+    The 6 quiet feeds this entry flagged were among the 8 actually pruned
+    later the same day (2026-09-25, see that session entry). Re-checked
+    live today against all 37 currently-registered Substack feeds (not
+    just the former 13): none are dead, two are slow (`metr` 45 days,
+    `asimovs-addendum` 38 days) but neither crosses the 60-day bar.
+    Brian's call: leave both. See the 2026-09-28 session entry.
+
 17. **Belief-currency inside canon: "we treat all my writing as canon, but
     my writing evolves" (raised by Brian 2026-09-04, flagged for later, not
     designed).** Brian's own framing, reacting to the Weekly Wrap Up prep
@@ -3740,6 +3748,80 @@ in `me/post-ideas.md`: the WSJ CIO questions, the best model losing deals
 over data retention rather than capability, and the harness beating the
 model. The WSJ entry notes that it overlaps the productivity-measurement
 and execute-now entries and may end up as the opening of one of them.
-**Pre-existing glitch, not fixed:** the unmonitorability entry under Warm
-has no `###` heading, so it reads as part of the slowdown entry above it.
+~~**Pre-existing glitch, not fixed:** the unmonitorability entry under Warm
+has no `###` heading, so it reads as part of the slowdown entry above it.~~
+— fixed a025d5d, three commits later the same week.
+
+### 2026-09-28 — `/maintain` + open decision #16 follow-up (dormant Substack check, nate-b-jones diagnosis, 12 vendor sources added)
+
+Sync clean (0/0). Brian asked to revisit #16's dormant-Substack angle now
+that the home runner is live, plus three side questions: is nate-b-jones's
+YouTube feed ever going to work, are podcast transcripts real, and can we
+add vendor blogs (MSFT/AWS/others) now that non-Substack polling is
+reliable.
+
+**Dormant Substack check: nothing to prune.** Live-fetched all 37
+registered Substack feeds directly (not from cached run data) and read
+each one's actual latest-post date. None are dead — the real dead ones
+were already pruned 2026-09-25 (8 sources, see that entry). Two are
+notably slow (`metr` 45 days, `asimovs-addendum` 38 days) but neither
+crosses even the old 60-day bar. Brian's call: leave both. #16 itself
+looks closed now — the 2026-09-25 runner move fixed the block, and
+today's check found no fresh dormancy to act on.
+
+**nate-b-jones YouTube: diagnosed, not fixed, on purpose.** Pulled real
+history from `ingest/.last_run_sources.json` across 26 tracked runs going
+back to 08-25: 7 successes (~27%), spread across both the old
+single-attempt code and the new 09-25 retry-with-backoff code — it does
+work sometimes, it's not dead. The 4-attempt retry logic has only
+actually executed once for real (09-28, since it was built mid-day
+09-25 after that morning's run already happened) and it still failed all
+4 attempts within ~21 seconds. Tested live the same session: 10/10
+requests succeeded instantly from a residential connection hours later —
+so the outage is a narrow time-window thing (most likely early-UTC
+YouTube edge behavior), not a constant block, and 21 seconds of backoff
+doesn't span it. Also surfaced: `nate-s-substack` (his newsletter) is
+already tracked separately and posts daily, so his written thinking isn't
+actually being missed when the video feed fails, only the video-specific
+content. Brian's call: leave as-is, no code change — the redundancy makes
+this low-stakes.
+
+**Podcast transcripts: confirmed real, not just documented.** 11 podcast
+sources, 10 on `transcribe` (real audio via `gpt-4o-transcribe`), 1
+(`80000-hours-podcast`) on `published` (real `<podcast:transcript>` tag).
+Spot-checked today's Moonshots ingest note against what show notes alone
+would produce — panel-discussion-level specificity and a direct quote,
+consistent with a real transcript, not just an episode description.
+
+**12 vendor/company blog sources added, `sources.yaml`
+(17cdfaa).** New `type: company` (documented in the header alongside the
+existing `type: x`, which had never been added to that comment). Every
+`feed_url` was live-fetched and verified the same day — real 200s, real
+recent entries, not guessed from a URL pattern. Azure Blog, Microsoft 365
+Copilot Blog, Microsoft Research Blog, Microsoft AI news
+(news.microsoft.com), AWS News Blog, AWS Machine Learning Blog, Google
+Cloud Blog, Google DeepMind Blog, OpenAI News, Salesforce News, Hugging
+Face Blog, and Anthropic News. Each carries a `pov` steering extraction
+toward substance over marketing — validated for real with a `--dry-run`
+on `azure-blog`, which correctly flagged a customer stat as
+"vendor-sourced claim, not independently verified" rather than repeating
+it uncritically.
+
+**Anthropic is the one real caveat.** No official RSS feed exists —
+confirmed by checking `anthropic.com/news` for a feed link (none) and
+researching known community alternatives. Routed through a public
+RSSHub instance (`rsshub.bestblogs.dev/anthropic/news`) instead — not
+Anthropic's own infrastructure, so it can go stale or disappear without
+notice. Verified live with a real `--dry-run` (pulled a genuine, current
+Anthropic post, correctly attributed as coming through the mirror, not
+misrepresented as official). If it breaks, the existing "Sources checked
+today" brief section will surface it, same mechanism as every other
+source; fallback is Brian pasting posts in by hand, same shape as other
+no-feed sources (e.g. `aaron-levie-linkedin`).
+
+**Searched for and did not find a working feed (official or
+community-maintained-and-live) for:** xAI, Mistral, Cohere, Perplexity,
+IBM, Meta AI. Flagged rather than forced in — revisit if any of these
+ship an official feed later, or if a specific community mirror is found
+to be reliably live.
 
