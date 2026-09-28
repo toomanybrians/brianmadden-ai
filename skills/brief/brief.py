@@ -300,6 +300,73 @@ def write_tracker(entries: list[dict]) -> None:
     TRACKER_PATH.write_text(json.dumps(entries, indent=2) + "\n", encoding="utf-8")
 
 
+_COUNT_WORDS = {
+    1: "once", 2: "twice", 3: "three times", 4: "four times", 5: "five times",
+    6: "six times", 7: "seven times", 8: "eight times", 9: "nine times",
+    10: "ten times",
+}
+
+
+def _count_phrase(n: int) -> str:
+    return _COUNT_WORDS.get(n, f"{n} times")
+
+
+_ACRONYMS = {
+    "ai", "llm", "llms", "api", "apis", "ceo", "cio", "cto", "eu", "us",
+    "uk", "gpu", "gpus", "rag", "mcp", "sdk", "ui", "ux", "seo", "roi",
+    "kpi", "nlp", "hr", "it", "b2b", "saas",
+}
+
+
+def _humanize_slug(slug: str) -> str:
+    words = slug.split("-")
+    out = []
+    for i, w in enumerate(words):
+        if w.lower() in _ACRONYMS:
+            out.append(w.upper())
+        elif i == 0 and w:
+            out.append(w[0].upper() + w[1:])
+        else:
+            out.append(w)
+    return " ".join(out)
+
+
+def _relative_date(date_str: str, brief_date: str) -> str:
+    """Human phrasing relative to the brief's own date — calendar weeks
+    (Mon-Sun), not a rolling day count, so "last week" matches how Brian'd
+    actually say it out loud (Brian's ask, 2026-09-28)."""
+    d = datetime.strptime(date_str, "%Y-%m-%d")
+    today = datetime.strptime(brief_date, "%Y-%m-%d")
+    diff_days = (today - d).days
+    if diff_days == 0:
+        return "today"
+    if diff_days == 1:
+        return "yesterday"
+    this_monday = today - timedelta(days=today.weekday())
+    last_monday = this_monday - timedelta(days=7)
+    if d >= this_monday:
+        return "earlier this week"
+    if d >= last_monday:
+        return "last week"
+    d_monday = d - timedelta(days=d.weekday())
+    weeks_ago = (this_monday - d_monday).days // 7
+    if weeks_ago <= 4:
+        return f"{weeks_ago} weeks ago"
+    return f"in {d.strftime('%B')}"
+
+
+def _seen_phrase(count: int, first_seen: str, last_seen: str, brief_date: str) -> str:
+    if count == 1:
+        if first_seen == brief_date:
+            return "seen today, for the first time"
+        return f"seen once, {_relative_date(first_seen, brief_date)}"
+    if count == 2:
+        return (f"seen twice, once {_relative_date(first_seen, brief_date)} "
+                f"and once {_relative_date(last_seen, brief_date)}")
+    return (f"seen {_count_phrase(count)}, first {_relative_date(first_seen, brief_date)}, "
+            f"most recently {_relative_date(last_seen, brief_date)}")
+
+
 def render_tracked_threads(tracker: list[dict], brief_date: str) -> str:
     """Rendered, reader-facing list only — build_prompt() gives the model
     the full unfiltered 'watching' list separately (it needs every tracked
@@ -329,27 +396,30 @@ def render_tracked_threads(tracker: list[dict], brief_date: str) -> str:
                 "outputs/technical-briefings/.thread_tracker.json)")
     lines = []
     for t in shown:
-        lines.append(f"- **{t['slug']}** — {t['description']} (seen {t['count']}x, first {t['first_seen']}, last {t['last_seen']})")
+        seen = _seen_phrase(t["count"], t["first_seen"], t["last_seen"], brief_date)
+        lines.append(f"- \"{_humanize_slug(t['slug'])}\" — {t['description']} ({seen})")
     return "\n".join(lines)
 
 
 def render_tracked_threads_section(tracker: list[dict], brief_date: str) -> str:
     body = render_tracked_threads(tracker, brief_date)
-    # Bold slugs, italicized+linked .md references (not backtick/inline-code)
-    # — Substack's editor renders pasted inline code in an oversized,
-    # visually odd Courier face (Brian's call, 2026-08-16; see
-    # me/style-guide.md). Links point at `main` (GITHUB_BASE), not `v2` —
-    # they 404 until the v2 launch PR merges, which Brian's explicitly fine
-    # with for the few days until then, since main is where this actually
-    # resolves once merged.
+    # Quoted human-readable titles (not bold raw slugs — Brian's ask,
+    # 2026-09-28, see _humanize_slug()), italicized+linked .md references
+    # (not backtick/inline-code) — Substack's editor renders pasted inline
+    # code in an oversized, visually odd Courier face (Brian's call,
+    # 2026-08-16; see me/style-guide.md). Links point at `main` (GITHUB_BASE),
+    # not `v2` — they 404 until the v2 launch PR merges, which Brian's
+    # explicitly fine with for the few days until then, since main is where
+    # this actually resolves once merged.
     candidates_link = f"[outputs/technical-briefings/promotion-candidates.md]({GITHUB_BASE}outputs/technical-briefings/promotion-candidates.md)"
     developing_link = f"[me/developing-thinking.md]({GITHUB_BASE}me/developing-thinking.md)"
     return (
-        "## Threads being tracked\n\n"
-        "Patterns flagged as \"doesn't fit yet\" on a previous day, being watched "
-        "for recurrence. Only threads today's batch touched, or that are "
-        "trending (2+ recurrences within the last day), are listed here — "
-        "the rest are still being watched, just not printed daily. A thread "
+        "## New ideas being tracked\n\n"
+        "Patterns flagged as \"interesting, but doesn't fit anywhere in canon "
+        "yet\" on a previous day, being watched for recurrence. Only threads "
+        "today's batch touched, or that are trending (2+ recurrences within "
+        "the last day), are listed here — the rest are still being watched, "
+        "just not printed daily. A thread "
         f"that recurs {PROMOTION_THRESHOLD}+ times gets queued in "
         f"*{candidates_link}* for Brian to "
         f"review — nothing here is ever written into *{developing_link}* "
@@ -444,9 +514,9 @@ def update_tracker(tracker: list[dict], signals: dict, run_date: str) -> tuple[l
             # sometimes emits a new_threads item with a blank description
             # (valid JSON, so parse_response() doesn't catch it) — a thread
             # with no description can't be watched or rendered
-            # meaningfully (" — (seen 1x...)" with nothing between the dash
-            # and the parenthetical), so drop it here rather than seed
-            # permanent dead weight into the tracker.
+            # meaningfully (" — (seen once, today)" with nothing between
+            # the dash and the parenthetical), so drop it here rather than
+            # seed permanent dead weight into the tracker.
             continue
         entry = {
             "slug": slug,
