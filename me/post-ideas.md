@@ -68,6 +68,8 @@ The whole industry is talking about AI doom right now. Whether the doom is real 
 
 **What's missing:** the ending, honestly. I don't know which way it breaks, and I think it depends on what actually happens. It might not be publishable until there's a real event to hang it on—but it's the right lens for whenever that event arrives, so it's worth having ready.
 
+### When you can't read an agent's reasoning, you can only watch what it does
+
 **Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 4 update (the unmonitorability item).
 
 Agent oversight assumed chain-of-thought was legible. That assumption is dissolving, which puts agents exactly where humans already are — you supervise behavior, not thought. Except behavior-watching is getting harder at the same moment it becomes mandatory, so the observable surface has to become everything an agent touches and how. The counterweight (cryptographic agent identity, task-scoped permissions, traceable handoffs) is already shipping.
