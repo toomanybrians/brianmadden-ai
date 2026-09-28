@@ -20,7 +20,7 @@
 # Fields:
 #   id        — stable slug, used in ingest note frontmatter
 #   name      — display name
-#   type      — person | podcast | newsletter
+#   type      — person | podcast | newsletter | company | x
 #   url       — homepage / profile link (from me/links.md)
 #   feed_url  — actual feed endpoint for polling (null until confirmed)
 #   priority  — must-follow | regular (from links.md's own grouping)
@@ -1292,3 +1292,123 @@ sources:
     feed_url: "https://opinionai.substack.com/feed"
     priority: regular
     note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-09-25 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
+
+  # --- Vendor/company blogs, added 2026-09-28 (Brian's ask, now that the
+  # home runner makes non-Substack polling reliable). Every feed_url below
+  # was live-fetched and verified (real 200 + real recent entries) the same
+  # day, not guessed. New `type: company` — same free-text role as person/
+  # podcast/newsletter, fed into the extraction prompt as {{SOURCE_TYPE}},
+  # not branched on in code. Each carries a `pov` steering the extraction
+  # toward substance over marketing, since these are official corporate
+  # channels. Researched beyond MSFT/AWS per Brian's ask for other AI labs
+  # (Anthropic, xAI, etc.) — Mistral, Cohere, Perplexity, IBM, Meta AI, and
+  # xAI have no working feed (official or otherwise) as of this search;
+  # dropped rather than forced. ---
+
+  - id: azure-blog
+    name: "Azure Blog"
+    type: company
+    url: "https://azure.microsoft.com/en-us/blog/"
+    feed_url: "https://azure.microsoft.com/en-us/blog/feed/"
+    priority: regular
+    note: "Microsoft's cloud/AI platform announcements — Citrix-adjacent enterprise infrastructure competitor and partner."
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: microsoft-365-copilot-blog
+    name: "Microsoft 365 Copilot Blog"
+    type: company
+    url: "https://www.microsoft.com/en-us/microsoft-365/blog/"
+    feed_url: "https://www.microsoft.com/en-us/microsoft-365/blog/feed/"
+    priority: regular
+    note: "Microsoft's knowledge-work/Copilot product line — directly on Brian's knowledge-factory beat."
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: microsoft-research-blog
+    name: "Microsoft Research Blog"
+    type: company
+    url: "https://www.microsoft.com/en-us/research/"
+    feed_url: "https://www.microsoft.com/en-us/research/feed/"
+    priority: regular
+    note: "Microsoft Research's own publications — more technical, less marketing-inflected than the product blogs."
+    pov: "Official vendor blog, research-flavored. Still extract real substance over promotional framing."
+
+  - id: microsoft-ai-news
+    name: "Microsoft AI (news.microsoft.com)"
+    type: company
+    url: "https://news.microsoft.com/source/topics/ai/"
+    feed_url: "https://news.microsoft.com/source/topics/ai/feed/"
+    priority: regular
+    note: "Microsoft's own newsroom, AI topic feed — company-wide AI announcements not covered by the product-specific blogs above."
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: aws-news-blog
+    name: "AWS News Blog"
+    type: company
+    url: "https://aws.amazon.com/blogs/aws/"
+    feed_url: "https://aws.amazon.com/blogs/aws/feed/"
+    priority: regular
+    note: "AWS's general announcement blog — cloud/enterprise infrastructure competitor and partner."
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: aws-ml-blog
+    name: "AWS Machine Learning Blog"
+    type: company
+    url: "https://aws.amazon.com/blogs/machine-learning/"
+    feed_url: "https://aws.amazon.com/blogs/machine-learning/feed/"
+    priority: regular
+    note: "AWS's AI/ML-specific blog — more technical than the general AWS News Blog."
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: google-cloud-blog
+    name: "Google Cloud Blog"
+    type: company
+    url: "https://cloud.google.com/blog"
+    feed_url: "https://cloudblog.withgoogle.com/rss/"
+    priority: regular
+    note: "Google Cloud's own blog — cloud/enterprise infrastructure competitor and partner."
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: google-deepmind-blog
+    name: "Google DeepMind Blog"
+    type: company
+    url: "https://deepmind.google/blog/"
+    feed_url: "https://deepmind.google/blog/rss.xml"
+    priority: regular
+    note: "Google's frontier AI lab — model/research announcements."
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: openai-news
+    name: "OpenAI News"
+    type: company
+    url: "https://openai.com/news/"
+    feed_url: "https://openai.com/news/rss.xml"
+    priority: regular
+    note: "OpenAI's own news feed — frontier-lab announcements. (openai.com/blog/rss.xml serves identical content; this is the current canonical path.)"
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: salesforce-news
+    name: "Salesforce News"
+    type: company
+    url: "https://www.salesforce.com/news/"
+    feed_url: "https://www.salesforce.com/news/rss/"
+    priority: regular
+    note: "Salesforce's own newsroom — enterprise SaaS/agentic-AI (Agentforce) competitor and partner."
+    pov: "Official vendor blog. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: hugging-face-blog
+    name: "Hugging Face Blog"
+    type: company
+    url: "https://huggingface.co/blog"
+    feed_url: "https://huggingface.co/blog/feed.xml"
+    priority: regular
+    note: "Open-model/tooling hub — found while broadening the vendor search past MSFT/AWS per Brian's ask; genuinely relevant to the AI-lab landscape, more technical/community-driven than the corporate blogs above."
+    pov: "Community/vendor hybrid blog, mostly technical posts from HF staff and partners rather than pure marketing."
+
+  - id: anthropic-news
+    name: "Anthropic News (unofficial mirror)"
+    type: company
+    url: "https://www.anthropic.com/news"
+    feed_url: "https://rsshub.bestblogs.dev/anthropic/news"
+    priority: regular
+    note: "Anthropic publishes no official RSS feed (confirmed 2026-09-28 — no feed link anywhere in the /news page). This is a public RSSHub instance mirroring the page into RSS in real time — not Anthropic's own infrastructure, so it can go stale, rate-limit, or disappear without notice. Verified live and current (real recent entries) the day it was added; watch the daily brief's 'Sources checked today' section for it going quiet. If it breaks, the fallback is Brian pasting Anthropic posts in by hand, same as any other no-feed source."
+    pov: "Official vendor content relayed through an unofficial third-party proxy. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
