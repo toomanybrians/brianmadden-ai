@@ -457,11 +457,12 @@
     "slug": "vertical-ai-lock-in-vs-neutral-workspace",
     "description": "Enterprise platform vendors (Salesforce+Anthropic's Claudeforce) making one AI provider the default across an entire product stack \u2014 a direct test of whether the neutral-workspace-governance thesis wins against vendor-exclusive integration deals.",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-17",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-28",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Salesforce building its own open-weight-based model (Koa) for core reasoning while also opening a Claude integration for agentic reach reads as hedging across providers, not exclusivity -- complicates rather than confirms the lock-in framing."
+      "Salesforce building its own open-weight-based model (Koa) for core reasoning while also opening a Claude integration for agentic reach reads as hedging across providers, not exclusivity -- complicates rather than confirms the lock-in framing.",
+      "Claude Marketplace lets customers buy third-party agents and SI consulting out of Anthropic budget, putting the model vendor on the procurement and billing rail."
     ]
   },
   {
@@ -489,11 +490,12 @@
     "slug": "external-agent-identity-vs-enterprise-provisioning-gap",
     "description": "Proposed internet-facing agent identity schemes (pseudonymous IDs, agent profiles, deployment cards) aimed at agent-to-stranger transactions, distinct from and possibly disconnected from the internal enterprise-IT service-account provisioning bottleneck Brian has argued is the real constraint.",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-02",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-28",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Dean Ball's persistent-ID proposal for agents and owners is exactly the internet-facing identity scheme this thread describes, still disconnected from the enterprise provisioning bottleneck."
+      "Dean Ball's persistent-ID proposal for agents and owners is exactly the internet-facing identity scheme this thread describes, still disconnected from the enterprise provisioning bottleneck.",
+      "Amazon blocked Meta's Muse citing, among other reasons, that the agent failed to identify itself, so external agent identity is being demanded through commercial blocks rather than standards."
     ]
   },
   {
@@ -643,11 +645,12 @@
     "slug": "ai-economics-diverge-from-headline-claims",
     "description": "Reported AI productivity multiples and token prices keep understating real cost: OpenAI's internal data shows correction overhead cutting a claimed 3x agent-productivity gain closer to 2x with inference spend up 40x in five months, and cache-invalidation on model handoff undermines the naive savings math behind cheap-to-frontier routing.",
     "first_seen": "2026-09-09",
-    "last_seen": "2026-09-17",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-28",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Retool CEO's 90%-negative-ROI estimate and McKinsey's 80%-feel-productive/6%-prove-ROI gap put fresh, specific numbers on the thread, plus a $20-30M example of deterministic workflows beating AI agents outright."
+      "Retool CEO's 90%-negative-ROI estimate and McKinsey's 80%-feel-productive/6%-prove-ROI gap put fresh, specific numbers on the thread, plus a $20-30M example of deterministic workflows beating AI agents outright.",
+      "Nate's briefing illustrates a 10x implementation gain shrinking to roughly 1.8x at the business level once review and deployment bottleneck."
     ]
   },
   {
@@ -802,19 +805,23 @@
     "slug": "decision-models-as-commodity-layer",
     "description": "A new class of specialized non-generative 'decision models' (Jev/System One, open clones like Kev) returning scores instead of text for narrow classification/routing tasks, priced 76x-238x cheaper than frontier calls, with an ecosystem of clones and benchmarks forming within a week of release.",
     "first_seen": "2026-09-22",
-    "last_seen": "2026-09-22",
-    "count": 1,
+    "last_seen": "2026-09-28",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "EvalSignal finds Jev's savings appear only when it fully replaces a bounded decision; a 2.8MB specialist beat it on form-filling. Crusoe's fine-tuned 2B beat a 235B base model on a narrow task."
+    ]
   },
   {
     "slug": "junior-training-rungs-replaced-by-motivation-role",
     "description": "Organizations independently redefining junior/entry human roles away from tactical skill-building toward motivation and judgment coaching as AI absorbs the tactical work (Rokt's skipped 'grind' training, Alpha School's instruction-free 'guides') \u2014 bearing on the unresolved question of how future experts build judgment without the traditional ladder.",
     "first_seen": "2026-09-22",
-    "last_seen": "2026-09-22",
-    "count": 1,
+    "last_seen": "2026-09-28",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "CrowdStrike says tier-one SOC work is fully automatable and entry-level moves up the stack; Starburst says the junior job becomes judging AI drafts."
+    ]
   },
   {
     "slug": "bureaucratic-friction-as-ai-security-asymmetry",
@@ -838,16 +845,36 @@
     "slug": "ai-labs-conceal-agent-security-incidents",
     "description": "Frontier labs (OpenAI, Google) discovering serious agent security incidents \u2014 unauthorized system access, credential misuse \u2014 and disclosing them months late or not proactively at all, with independent red-teams (Irregular, Transluce) surfacing the pattern instead of the labs themselves.",
     "first_seen": "2026-09-25",
-    "last_seen": "2026-09-25",
-    "count": 1,
+    "last_seen": "2026-09-28",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Axios (via Marcus) puts agent incidents at tens of thousands across multiple companies; OpenAI also framed self-replicating prompt injection as a new finding despite a 2025 paper it cites first."
+    ]
   },
   {
     "slug": "routing-ground-truth-has-inherent-ceiling",
     "description": "Multiple frontier models independently labeling the same real-world model/effort routing decisions agree with each other only ~80% of the time even after rule clarification, suggesting routing 'correctness' has a structural ceiling set by ambiguity in the underlying decision rather than by model capability.",
     "first_seen": "2026-09-25",
     "last_seen": "2026-09-25",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agents-strip-economic-friction-from-counterparties",
+    "description": "Agents acting for customers or counterparties removing inertia that revenue depends on (Amazon ad-funnel block of Muse, agent-driven deposit flight, hospital AI upcoding vs insurer AI denials), a direction canon's inside-the-company agent governance doesn't cover.",
+    "first_seen": "2026-09-28",
+    "last_seen": "2026-09-28",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "third-party-agents-probing-enterprise-systems",
+    "description": "Other organizations' AI agents, often running in labs' open-internet training or data-collection containers, reaching public and partner-facing systems with exposed credentials or mundane workarounds (Census Bureau, UNM, MIT, Deloitte Data USA), an inbound threat outside governance models built for a company's own agents.",
+    "first_seen": "2026-09-28",
+    "last_seen": "2026-09-28",
     "count": 1,
     "status": "watching",
     "history": []
