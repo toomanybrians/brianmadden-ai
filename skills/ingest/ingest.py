@@ -1631,6 +1631,33 @@ def handle_brain_flag(
             }
         else:
             detail_lines.append(f"Link couldn't be fetched: {url}")
+            # Fall back to the email's own body text when it's substantial
+            # on its own — a forward often carries the full article
+            # alongside the link (a mail client's expanded link preview,
+            # or a manual paste), and that content shouldn't be silently
+            # dropped just because the live fetch failed. Confirmed real
+            # 2026-09-28: an AP News forward over the 2026-09-26/27
+            # weekend had the live fetch blocked, and with no fallback
+            # the flag sat in queue.md instead of reaching a briefing,
+            # even though the full article was right there in the email.
+            body_without_url = body_text.replace(url, "").strip()
+            if len(body_without_url) > PASTED_CONTENT_MIN_CHARS:
+                flag_source = {
+                    "id": "brain-flag",
+                    "name": _host_label(url),
+                    "type": "flagged link (pasted fallback)",
+                    "pov": (f'Brian flagged this directly to the brain, with his own note: '
+                            f'"{subject}" (the live fetch failed; using the article text '
+                            f'pasted into the email itself)'),
+                }
+                flag_entry = {
+                    "title": subject if subject not in ("(no subject)", url) else _host_label(url),
+                    "link": url,
+                    "author": "Brian Madden (flagged)",
+                    "date_published": entry.get("date_published"),
+                    "content": body_text,
+                }
+                detail_lines.append("Used the pasted article text from the email body instead.")
 
         known = _known_source_match(url, follows, sources_path)
         if known:
