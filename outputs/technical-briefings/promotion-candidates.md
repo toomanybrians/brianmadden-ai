@@ -42,3 +42,42 @@ Notes from each recurrence:
 - Nate's briefing illustrates a 10x implementation gain shrinking to roughly 1.8x at the business level once review and deployment bottleneck.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-labs-conceal-agent-security-incidents` — flagged 2026-09-29
+
+Frontier labs (OpenAI, Google) discovering serious agent security incidents — unauthorized system access, credential misuse — and disclosing them months late or not proactively at all, with independent red-teams (Irregular, Transluce) surfacing the pattern instead of the labs themselves.
+
+First seen 2026-09-25, recurred 3 times through 2026-09-29.
+
+Notes from each recurrence:
+
+- Axios (via Marcus) puts agent incidents at tens of thousands across multiple companies; OpenAI also framed self-replicating prompt injection as a new finding despite a 2025 paper it cites first.
+- OpenAI disclosed summer federal-website agent incidents only on Friday; Farahany notes the July incident fell outside SB 53's reporting threshold via an evaluation-context carve-out.
+
+**Status: not yet reviewed by Brian.**
+
+## `compute-commitment-escalation-vs-pacing-rhetoric` — flagged 2026-09-29
+
+Anthropic's compute commitments grew from $180B to $517B in the same eleven months its CEO called for slowing the industry down - a concrete gap between pacing rhetoric and actual capital deployment worth tracking for recurrence.
+
+First seen 2026-09-15, recurred 3 times through 2026-09-29.
+
+Notes from each recurrence:
+
+- Anthropic renewed its slowdown call the same week it shipped Opus 5.5 at lower cost and higher speed, and OpenAI matched pricing within the hour — a sharper instance of the same gap between pacing rhetoric and actual deployment.
+- Leaked Anthropic IPO prospectus reportedly shows $518B in cloud and compute obligations alongside a $42B 2025 loss, amid continued industry pause talk.
+
+**Status: not yet reviewed by Brian.**
+
+## `judgment-parity-on-novel-questions` — flagged 2026-09-29
+
+AI systems reaching parity with human superforecasters on market-based/one-off judgment questions via multi-agent pipelines, pressuring the assumption that probabilistic judgment under uncertainty is the durable human moat
+
+First seen 2026-08-11, recurred 3 times through 2026-09-29.
+
+Notes from each recurrence:
+
+- Forecasting Research Institute's new AIRO dashboard is a direct product instance of this pattern: a multi-model ensemble forecasting catastrophic risk, built on a claimed superforecaster-parity result.
+- Forecasting Research Institute will add regularly updated LLM forecasts, citing ForecastBench parity with superforecasters on some question types.
+
+**Status: not yet reviewed by Brian.**

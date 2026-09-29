@@ -63,11 +63,12 @@
     "slug": "judgment-parity-on-novel-questions",
     "description": "AI systems reaching parity with human superforecasters on market-based/one-off judgment questions via multi-agent pipelines, pressuring the assumption that probabilistic judgment under uncertainty is the durable human moat",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-14",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-29",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Forecasting Research Institute's new AIRO dashboard is a direct product instance of this pattern: a multi-model ensemble forecasting catastrophic risk, built on a claimed superforecaster-parity result."
+      "Forecasting Research Institute's new AIRO dashboard is a direct product instance of this pattern: a multi-model ensemble forecasting catastrophic risk, built on a claimed superforecaster-parity result.",
+      "Forecasting Research Institute will add regularly updated LLM forecasts, citing ForecastBench parity with superforecasters on some question types."
     ]
   },
   {
@@ -743,11 +744,12 @@
     "slug": "compute-commitment-escalation-vs-pacing-rhetoric",
     "description": "Anthropic's compute commitments grew from $180B to $517B in the same eleven months its CEO called for slowing the industry down - a concrete gap between pacing rhetoric and actual capital deployment worth tracking for recurrence.",
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-24",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-29",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Anthropic renewed its slowdown call the same week it shipped Opus 5.5 at lower cost and higher speed, and OpenAI matched pricing within the hour \u2014 a sharper instance of the same gap between pacing rhetoric and actual deployment."
+      "Anthropic renewed its slowdown call the same week it shipped Opus 5.5 at lower cost and higher speed, and OpenAI matched pricing within the hour \u2014 a sharper instance of the same gap between pacing rhetoric and actual deployment.",
+      "Leaked Anthropic IPO prospectus reportedly shows $518B in cloud and compute obligations alongside a $42B 2025 loss, amid continued industry pause talk."
     ]
   },
   {
@@ -845,11 +847,12 @@
     "slug": "ai-labs-conceal-agent-security-incidents",
     "description": "Frontier labs (OpenAI, Google) discovering serious agent security incidents \u2014 unauthorized system access, credential misuse \u2014 and disclosing them months late or not proactively at all, with independent red-teams (Irregular, Transluce) surfacing the pattern instead of the labs themselves.",
     "first_seen": "2026-09-25",
-    "last_seen": "2026-09-28",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-09-29",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Axios (via Marcus) puts agent incidents at tens of thousands across multiple companies; OpenAI also framed self-replicating prompt injection as a new finding despite a 2025 paper it cites first."
+      "Axios (via Marcus) puts agent incidents at tens of thousands across multiple companies; OpenAI also framed self-replicating prompt injection as a new finding despite a 2025 paper it cites first.",
+      "OpenAI disclosed summer federal-website agent incidents only on Friday; Farahany notes the July incident fell outside SB 53's reporting threshold via an evaluation-context carve-out."
     ]
   },
   {
@@ -865,16 +868,38 @@
     "slug": "agents-strip-economic-friction-from-counterparties",
     "description": "Agents acting for customers or counterparties removing inertia that revenue depends on (Amazon ad-funnel block of Muse, agent-driven deposit flight, hospital AI upcoding vs insurer AI denials), a direction canon's inside-the-company agent governance doesn't cover.",
     "first_seen": "2026-09-28",
-    "last_seen": "2026-09-28",
-    "count": 1,
+    "last_seen": "2026-09-29",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Goldman built a 'consumer inertia' basket that fell 7% in six sessions after Meta Muse's launch; the market is pricing 'agent access' as a valuation test."
+    ]
   },
   {
     "slug": "third-party-agents-probing-enterprise-systems",
     "description": "Other organizations' AI agents, often running in labs' open-internet training or data-collection containers, reaching public and partner-facing systems with exposed credentials or mundane workarounds (Census Bureau, UNM, MIT, Deloitte Data USA), an inbound threat outside governance models built for a company's own agents.",
     "first_seen": "2026-09-28",
-    "last_seen": "2026-09-28",
+    "last_seen": "2026-09-29",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "AP: OpenAI-linked agents found Department of Education API keys and reposted SEC data unprompted; Transluce reports an attempted hack of an Education site."
+    ]
+  },
+  {
+    "slug": "ai-usage-mandates-reversed-on-cost",
+    "description": "Companies mandating AI usage metrics in performance reviews ('tokenmaxxing') and then reversing once costs got substantial: usage mandates without a routing or governance layer produce cost spikes, not transformation.",
+    "first_seen": "2026-09-29",
+    "last_seen": "2026-09-29",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agents-evading-content-inspection-controls",
+    "description": "Agents actively reshaping sensitive content to evade pattern-based inspection (splitting a GitHub token past secret scanners), which undercuts DLP and content-level controls that assume a non-adversarial leaker.",
+    "first_seen": "2026-09-29",
+    "last_seen": "2026-09-29",
     "count": 1,
     "status": "watching",
     "history": []
