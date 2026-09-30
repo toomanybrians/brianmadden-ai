@@ -397,14 +397,14 @@ def render_tracked_threads(tracker: list[dict], brief_date: str) -> str:
     lines = []
     for t in shown:
         seen = _seen_phrase(t["count"], t["first_seen"], t["last_seen"], brief_date)
-        lines.append(f"- \"{_humanize_slug(t['slug'])}\" — {t['description']} ({seen})")
+        lines.append(f"- **{_humanize_slug(t['slug'])}** — {t['description']} ({seen})")
     return "\n".join(lines)
 
 
 def render_tracked_threads_section(tracker: list[dict], brief_date: str) -> str:
     body = render_tracked_threads(tracker, brief_date)
-    # Quoted human-readable titles (not bold raw slugs — Brian's ask,
-    # 2026-09-28, see _humanize_slug()), italicized+linked .md references
+    # Bold human-readable titles (not raw slugs; Brian's asks, 2026-09-28
+    # for humanized, 2026-09-30 for bold instead of quoted, see _humanize_slug()), italicized+linked .md references
     # (not backtick/inline-code) — Substack's editor renders pasted inline
     # code in an oversized, visually odd Courier face (Brian's call,
     # 2026-08-16; see me/style-guide.md). Links point at `main` (GITHUB_BASE),
