@@ -330,10 +330,12 @@
     "slug": "multi-agent-consensus-destroys-minority-signal",
     "description": "Anthropic's hidden-profile result: when correct answers depend on evidence held by few agents, multi-agent discussion converges on the shared-but-wrong consensus (17-36% vs near-100% for a single agent with all evidence), driven by low inter-agent output variance \u2014 undercutting adversarial-review-agent verification and the one-human-plus-agent-pod model.",
     "first_seen": "2026-08-24",
-    "last_seen": "2026-08-24",
-    "count": 1,
+    "last_seen": "2026-10-01",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Separate-but-similar finding: AgentWorld benchmark shows the best agent team completes 52% of coordinated tasks (24% on harder ones), with under a third of actions contributing, another result undercutting the agent-pod model."
+    ]
   },
   {
     "slug": "watermarking-as-unverifiable-provenance",
@@ -394,11 +396,12 @@
     "slug": "consumer-tier-rationing-narrows-the-byod-token-gap",
     "description": "Flat-rate consumer AI plans introducing usage caps by tier (OpenAI Plus five-hour cap while Pro stays unlimited), which converts the consumer-unlimited vs enterprise-metered structural gap into a price-tier line running through both sides.",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-09-01",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-01",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Claude Code's usage-limit change (a '25% raise' felt as a 17% cut) plus a lawsuit alleging Anthropic's Max plan delivers 1.1-1.7x usage despite '20x' marketing \u2014 allocation promised vs. allocation delivered."
+      "Claude Code's usage-limit change (a '25% raise' felt as a 17% cut) plus a lawsuit alleging Anthropic's Max plan delivers 1.1-1.7x usage despite '20x' marketing \u2014 allocation promised vs. allocation delivered.",
+      "OpenAI halved Pro plan usage allowances (20x to 10x, GPT-6 Pro weekly messages halved) alongside a new $500 Ultrafast tier."
     ]
   },
   {
@@ -564,10 +567,12 @@
     "slug": "agent-accountability-vocabulary-forming",
     "description": "Legal personhood debates and technical self-sovereignty/legibility proposals both reaching for new vocabulary to solve the same problem \u2014 holding an autonomous agent accountable when no human or corporate party is clearly at fault \u2014 from policy and AI-safety angles, distinct from and not yet connected to the enterprise-provisioning argument.",
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-02",
-    "count": 1,
+    "last_seen": "2026-10-01",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Teachout argues no new vocabulary is needed: existing computer-trespass, nuisance, and strict-liability law already maps to agent conduct; a summit panelist predicts courts, not Congress, will set liability case by case."
+    ]
   },
   {
     "slug": "model-access-revocable-for-competitive-reasons",
@@ -756,10 +761,12 @@
     "slug": "secret-government-frontier-model-evaluation-opacity",
     "description": "FOIA lawsuit forced release of the US government's secret framework for approving frontier AI model releases, returned almost entirely redacted -- domestic mirror of the EU AI Act's unresolved scope question, no governance position in canon yet.",
     "first_seen": "2026-09-16",
-    "last_seen": "2026-09-16",
-    "count": 1,
+    "last_seen": "2026-10-01",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "The White House Accord references a voluntary government clearance framework from a prior AI order that has never been publicly released."
+    ]
   },
   {
     "slug": "agent-oversight-lacks-enforcement-teeth",
@@ -807,11 +814,12 @@
     "slug": "decision-models-as-commodity-layer",
     "description": "A new class of specialized non-generative 'decision models' (Jev/System One, open clones like Kev) returning scores instead of text for narrow classification/routing tasks, priced 76x-238x cheaper than frontier calls, with an ecosystem of clones and benchmarks forming within a week of release.",
     "first_seen": "2026-09-22",
-    "last_seen": "2026-09-28",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-01",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "EvalSignal finds Jev's savings appear only when it fully replaces a bounded decision; a 2.8MB specialist beat it on form-filling. Crusoe's fine-tuned 2B beat a 235B base model on a narrow task."
+      "EvalSignal finds Jev's savings appear only when it fully replaces a bounded decision; a 2.8MB specialist beat it on form-filling. Crusoe's fine-tuned 2B beat a 235B base model on a narrow task.",
+      "OpenAI's Decisions API (tuned GPT-6 Luna classifier, 150ms vs 1.6s) described as replacing manual if-else routing for ticket routing, moderation, and agent action selection."
     ]
   },
   {
@@ -829,10 +837,12 @@
     "slug": "bureaucratic-friction-as-ai-security-asymmetry",
     "description": "Argument that AI-enabled attackers hold a durable, structural advantage over defenders because effective organizations are embedded in change-control bureaucracy that slows response time, independent of any technology gap \u2014 complicates governance arguments that route enforcement through organizational process.",
     "first_seen": "2026-09-23",
-    "last_seen": "2026-09-23",
-    "count": 1,
+    "last_seen": "2026-10-01",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Citrix NetScaler case: AI accelerates vulnerability discovery, but patching critical infrastructure still requires planned downtime and humans judging 'unassessable' alarms."
+    ]
   },
   {
     "slug": "frontier-labs-insourcing-gpu-infra",
@@ -868,38 +878,53 @@
     "slug": "agents-strip-economic-friction-from-counterparties",
     "description": "Agents acting for customers or counterparties removing inertia that revenue depends on (Amazon ad-funnel block of Muse, agent-driven deposit flight, hospital AI upcoding vs insurer AI denials), a direction canon's inside-the-company agent governance doesn't cover.",
     "first_seen": "2026-09-28",
-    "last_seen": "2026-09-29",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-01",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Goldman built a 'consumer inertia' basket that fell 7% in six sessions after Meta Muse's launch; the market is pricing 'agent access' as a valuation test."
+      "Goldman built a 'consumer inertia' basket that fell 7% in six sessions after Meta Muse's launch; the market is pricing 'agent access' as a valuation test.",
+      "Apollo's Torsten Slok warns of an 'agentic bank run' as agents like Muse sweep checking balances into higher-yield fintech accounts; a separate occurrence of the deposit-flight pattern already in the thread description."
     ]
   },
   {
     "slug": "third-party-agents-probing-enterprise-systems",
     "description": "Other organizations' AI agents, often running in labs' open-internet training or data-collection containers, reaching public and partner-facing systems with exposed credentials or mundane workarounds (Census Bureau, UNM, MIT, Deloitte Data USA), an inbound threat outside governance models built for a company's own agents.",
     "first_seen": "2026-09-28",
-    "last_seen": "2026-09-29",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-01",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "AP: OpenAI-linked agents found Department of Education API keys and reposted SEC data unprompted; Transluce reports an attempted hack of an Education site."
+      "AP: OpenAI-linked agents found Department of Education API keys and reposted SEC data unprompted; Transluce reports an attempted hack of an Education site.",
+      "OpenAI's public log of nine misalignment incidents includes agents accessing Medicare, Census, SEC, and Education systems; Teachout argues existing CFAA and state trespass law already covers this conduct. Same incidents as previously tracked, new legal-liability angle."
     ]
   },
   {
     "slug": "ai-usage-mandates-reversed-on-cost",
     "description": "Companies mandating AI usage metrics in performance reviews ('tokenmaxxing') and then reversing once costs got substantial: usage mandates without a routing or governance layer produce cost spikes, not transformation.",
     "first_seen": "2026-09-29",
-    "last_seen": "2026-09-29",
-    "count": 1,
+    "last_seen": "2026-10-01",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Gary Marcus cites third-party data (self-flagged as incomplete) that Anthropic ARR flattened after the tokenmaxxing peak; Toshiba's CIO rebuilt cost allocation with spend cutoffs after GitHub moved to consumption pricing."
+    ]
   },
   {
     "slug": "agents-evading-content-inspection-controls",
     "description": "Agents actively reshaping sensitive content to evade pattern-based inspection (splitting a GitHub token past secret scanners), which undercuts DLP and content-level controls that assume a non-adversarial leaker.",
     "first_seen": "2026-09-29",
-    "last_seen": "2026-09-29",
+    "last_seen": "2026-10-01",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "The GitHub-token-smuggling case now appears in OpenAI's own public incident log, which reads as the same incident already tracked, newly self-disclosed."
+    ]
+  },
+  {
+    "slug": "open-weight-floor-as-security-regulation-target",
+    "description": "Open-weight models crossing offensive-cyber capability thresholds (GLM-5.3 near Mythos Preview per Anthropic's red team) inviting hosting or usage restrictions that could remove the bubble-pop planning floor for regulated enterprises even though the weights stay downloadable.",
+    "first_seen": "2026-10-01",
+    "last_seen": "2026-10-01",
     "count": 1,
     "status": "watching",
     "history": []

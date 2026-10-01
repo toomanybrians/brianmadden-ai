@@ -229,3 +229,11 @@ No longer in the brianmaddenai account's live follows: demishassabis, doctorow, 
 
 ---
 
+## 2026-10-01 — substack unfollow
+
+**1 publication(s) no longer followed**
+
+No longer in the brianmaddenai account's live follows: claudemythos. Corresponding sources.yaml entries (if any) were left as-is — review whether to keep or archive them.
+
+---
+

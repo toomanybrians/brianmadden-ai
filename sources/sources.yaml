@@ -1412,3 +1412,11 @@ sources:
     priority: regular
     note: "Anthropic publishes no official RSS feed (confirmed 2026-09-28 — no feed link anywhere in the /news page). This is a public RSSHub instance mirroring the page into RSS in real time — not Anthropic's own infrastructure, so it can go stale, rate-limit, or disappear without notice. Verified live and current (real recent entries) the day it was added; watch the daily brief's 'Sources checked today' section for it going quiet. If it breaks, the fallback is Brian pasting Anthropic posts in by hand, same as any other no-feed source."
     pov: "Official vendor content relayed through an unofficial third-party proxy. Extract real product/technical substance and strategic signals; treat superlative marketing claims skeptically."
+
+  - id: super-intelligence-school
+    name: "Super Intelligence School"
+    type: newsletter
+    url: "https://sischool.substack.com"
+    feed_url: "https://sischool.substack.com/feed"
+    priority: regular
+    note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-10-01 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
