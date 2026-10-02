@@ -133,3 +133,42 @@ Notes from each recurrence:
 - OpenAI's Decisions API (tuned GPT-6 Luna classifier, 150ms vs 1.6s) described as replacing manual if-else routing for ticket routing, moderation, and agent action selection.
 
 **Status: not yet reviewed by Brian.**
+
+## `agent-accountability-vocabulary-forming` — flagged 2026-10-02
+
+Legal personhood debates and technical self-sovereignty/legibility proposals both reaching for new vocabulary to solve the same problem — holding an autonomous agent accountable when no human or corporate party is clearly at fault — from policy and AI-safety angles, distinct from and not yet connected to the enterprise-provisioning argument.
+
+First seen 2026-09-02, recurred 3 times through 2026-10-02.
+
+Notes from each recurrence:
+
+- Teachout argues no new vocabulary is needed: existing computer-trespass, nuisance, and strict-liability law already maps to agent conduct; a summit panelist predicts courts, not Congress, will set liability case by case.
+- Goldstein/Salib propose limited economic legal personhood for agents; House Democrats question liability for Robinhood's trading agents.
+
+**Status: not yet reviewed by Brian.**
+
+## `enterprise-ai-de-adoption-signal` — flagged 2026-10-02
+
+A named enterprise customer (Thomson Reuters/Claude) scaling back paid AI usage after real adoption, not stalling in pilot, alongside a lab reportedly asking prospective hires about zero-equity outcomes — a sharper counter-signal to valuation-maximalism narratives than pilot purgatory.
+
+First seen 2026-08-26, recurred 3 times through 2026-10-02.
+
+Notes from each recurrence:
+
+- Thomson Reuters launched an in-house model specifically to cut reliance on Anthropic — same named customer, further move away from vendor dependence.
+- Ramp AI Index shows business AI spend falling, but attributed to price cuts and cheaper tiers rather than customers scaling back usage, so it is not a de-adoption signal on its face.
+
+**Status: not yet reviewed by Brian.**
+
+## `watermarking-as-unverifiable-provenance` — flagged 2026-10-02
+
+Sampling-stage watermarking (Claude, SynthID-Text) embeds vendor-verifiable, owner-unverifiable authorship signals into every generated deliverable, with no broadly available detection API — creating a provenance channel inside an organization's own knowledge outputs that the organization cannot read, audit, or reliably strip.
+
+First seen 2026-08-24, recurred 3 times through 2026-10-02.
+
+Notes from each recurrence:
+
+- EU mandate live since Aug 2, 2026. Anthropic's implementation adds no tokens or characters and is untraceable to a person/conversation; the ~200-token degradation threshold was negotiated directly with providers; engagement reportedly drops significantly once content is flagged as AI-generated. The AI Act does not treat agents as a separate legal category.
+- DeepMind's SynthID Bio watermarks AI-designed protein sequences and releases verification for DNA labs, a case where the verifier is the third party, unlike text watermarking.
+
+**Status: not yet reviewed by Brian.**

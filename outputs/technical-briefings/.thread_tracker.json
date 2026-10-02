@@ -120,10 +120,12 @@
     "slug": "legibility-mandates-as-brain-input",
     "description": "Organizations changing human communication behavior on purpose \u2014 Zapier tracking and publishing % of Slack sent in public channels \u2014 to convert tacit/private work into machine-readable input for a shared org brain, inverting the direction of the invisible-80% problem and raising surveillance questions nobody has a position on.",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
-    "count": 1,
+    "last_seen": "2026-10-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Salesforce/Slack 'Multiplayer AI' pushes agent work into shared channels specifically so the organization retains context, a vendor-side version of converting private work into machine-readable shared input."
+    ]
   },
   {
     "slug": "reasoning-trace-as-attack-surface",
@@ -341,11 +343,12 @@
     "slug": "watermarking-as-unverifiable-provenance",
     "description": "Sampling-stage watermarking (Claude, SynthID-Text) embeds vendor-verifiable, owner-unverifiable authorship signals into every generated deliverable, with no broadly available detection API \u2014 creating a provenance channel inside an organization's own knowledge outputs that the organization cannot read, audit, or reliably strip.",
     "first_seen": "2026-08-24",
-    "last_seen": "2026-08-25",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-02",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "EU mandate live since Aug 2, 2026. Anthropic's implementation adds no tokens or characters and is untraceable to a person/conversation; the ~200-token degradation threshold was negotiated directly with providers; engagement reportedly drops significantly once content is flagged as AI-generated. The AI Act does not treat agents as a separate legal category."
+      "EU mandate live since Aug 2, 2026. Anthropic's implementation adds no tokens or characters and is untraceable to a person/conversation; the ~200-token degradation threshold was negotiated directly with providers; engagement reportedly drops significantly once content is flagged as AI-generated. The AI Act does not treat agents as a separate legal category.",
+      "DeepMind's SynthID Bio watermarks AI-designed protein sequences and releases verification for DNA labs, a case where the verifier is the third party, unlike text watermarking."
     ]
   },
   {
@@ -387,10 +390,12 @@
     "slug": "silicon-differentiating-by-cognitive-stack-layer",
     "description": "Purpose-built hardware appearing for specific cognitive-stack layers rather than for models generally (Nvidia's Vera CPU for agent orchestration: tool calls, code execution, data movement) \u2014 raising whether the 'commodity, interchangeable' bottom layers acquire their own hardware economics and lock-in.",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-08-26",
-    "count": 1,
+    "last_seen": "2026-10-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Nvidia's Sentry watchdog chip on BlueField-4 puts agent quarantine/enforcement in dedicated silicon; Tendrils Compute raises on the thesis that agent tool-call inference makes CPU speed a new bottleneck."
+    ]
   },
   {
     "slug": "consumer-tier-rationing-narrows-the-byod-token-gap",
@@ -417,11 +422,12 @@
     "slug": "enterprise-ai-de-adoption-signal",
     "description": "A named enterprise customer (Thomson Reuters/Claude) scaling back paid AI usage after real adoption, not stalling in pilot, alongside a lab reportedly asking prospective hires about zero-equity outcomes \u2014 a sharper counter-signal to valuation-maximalism narratives than pilot purgatory.",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-09-01",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-02",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Thomson Reuters launched an in-house model specifically to cut reliance on Anthropic \u2014 same named customer, further move away from vendor dependence."
+      "Thomson Reuters launched an in-house model specifically to cut reliance on Anthropic \u2014 same named customer, further move away from vendor dependence.",
+      "Ramp AI Index shows business AI spend falling, but attributed to price cuts and cheaper tiers rather than customers scaling back usage, so it is not a de-adoption signal on its face."
     ]
   },
   {
@@ -567,11 +573,12 @@
     "slug": "agent-accountability-vocabulary-forming",
     "description": "Legal personhood debates and technical self-sovereignty/legibility proposals both reaching for new vocabulary to solve the same problem \u2014 holding an autonomous agent accountable when no human or corporate party is clearly at fault \u2014 from policy and AI-safety angles, distinct from and not yet connected to the enterprise-provisioning argument.",
     "first_seen": "2026-09-02",
-    "last_seen": "2026-10-01",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-02",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Teachout argues no new vocabulary is needed: existing computer-trespass, nuisance, and strict-liability law already maps to agent conduct; a summit panelist predicts courts, not Congress, will set liability case by case."
+      "Teachout argues no new vocabulary is needed: existing computer-trespass, nuisance, and strict-liability law already maps to agent conduct; a summit panelist predicts courts, not Congress, will set liability case by case.",
+      "Goldstein/Salib propose limited economic legal personhood for agents; House Democrats question liability for Robinhood's trading agents."
     ]
   },
   {
@@ -925,6 +932,15 @@
     "description": "Open-weight models crossing offensive-cyber capability thresholds (GLM-5.3 near Mythos Preview per Anthropic's red team) inviting hosting or usage restrictions that could remove the bubble-pop planning floor for regulated enterprises even though the weights stay downloadable.",
     "first_seen": "2026-10-01",
     "last_seen": "2026-10-01",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-identities-issued-outside-enterprise-idp",
+    "description": "Consumer platforms issuing agents their own email, phone numbers, wallets, and spending authority (Manus Cue, Robinhood Agents), so agents arrive with identities an enterprise didn't provision and can't revoke.",
+    "first_seen": "2026-10-02",
+    "last_seen": "2026-10-02",
     "count": 1,
     "status": "watching",
     "history": []
