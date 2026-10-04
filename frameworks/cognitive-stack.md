@@ -6,7 +6,7 @@ file_type: framework
 tags: ["cognitive-stack", "agents", "delegation", "claws", "skills-hierarchy", "enterprise-ai-strategy", "second-brain"]
 related_frameworks: ["invisible-80-percent"]
 related_posts: ["2026-02-25-cognitive-stack", "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate"]
-original_url: "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/"
+original_url: "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer"
 description: "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives."
 staleness_threshold: stable
 tier: 2
@@ -17,7 +17,7 @@ status: reviewed-and-updated
 
 A five-layer model showing how intelligence organizes itself to coordinate complex work—from human intent down to mechanical execution. The enterprise AI industry is spending billions on the bottom two layers. The real transformation lives at the top.
 
-*Published: February 25, 2026 — [Original post](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/)*
+*Published: February 25, 2026 — [Original post](https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer)*
 *Extends: the delegation-not-automation thesis (formalizes the skills hierarchy into a named framework)*
 *Incorporates: Karpathy's "claws" concept for personal AI agents*
 

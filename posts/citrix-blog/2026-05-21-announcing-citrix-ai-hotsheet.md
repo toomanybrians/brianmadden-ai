@@ -1,7 +1,7 @@
 ---
 title: "Announcing our new podcast: the Citrix AI Hotsheet"
 date: 2026-05-21
-url: https://www.citrix.com/blogs/2026/05/21/aihotsheet/
+url: https://www.citrix.com/blogs/2026-05/aihotsheet
 authority_level: 4
 file_type: blog-post
 tags: [podcast, second-brain, computer-use-agents, context-vault, mcp, enterprise-ai]

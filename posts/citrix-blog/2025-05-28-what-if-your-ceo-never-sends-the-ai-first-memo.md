@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [enterprise-ai-strategy, shadow-ai, worker-led-ai, workspace-as-control-plane, security]
 related_frameworks: [workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/05/28/what-if-your-ceo-never-sends-the-ai-first-memo/"
+original_url: "https://www.citrix.com/blogs/2025-05/what-if-your-ceo-never-sends-the-ai-first-memo"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # What if your CEO never sends the AI-first memo?
 
-[Original post](https://www.citrix.com/blogs/2025/05/28/what-if-your-ceo-never-sends-the-ai-first-memo/)
+[Original post](https://www.citrix.com/blogs/2025-05/what-if-your-ceo-never-sends-the-ai-first-memo)
 
 May 28, 2025
 

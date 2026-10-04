@@ -1,7 +1,7 @@
 ---
 title: "The SaaSpocalypse won't touch the enterprise software moat"
 date: 2026-04-22
-url: https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/
+url: https://www.citrix.com/blogs/2026-04/the-saaspocalypse-wont-touch-the-enterprise-software-moat
 authority_level: 4
 file_type: blog-post
 tags: [post-application-era, saaspocalypse, enterprise-software, boring-infrastructure, systems-of-record]
@@ -61,15 +61,15 @@ For those who haven't spent their career in enterprise IT, I'll walk through the
 
 5. **The "I'll just rebuild it myself" is difficult to scale beyond a single users, let alone tens of thousands of users**. Miessler rebuilding his own version of Zapier in a weekend is fun! But a healthcare network rebuilding Epic for 80,000 employees is a decade-long implementation that costs hundreds of millions and ends careers if it goes wrong.
 
-None of this is new to anyone who's been around awhile. In the late '90s, [neophytes thought](https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/) web apps were going to eat desktop software. While that turned out to be largely true for horizontal desktop apps, the vertical ones that ran companies kept running companies. (Which is why Citrix was a thing in that era too.)
+None of this is new to anyone who's been around awhile. In the late '90s, [neophytes thought](https://www.citrix.com/blogs/2025-09/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy) web apps were going to eat desktop software. While that turned out to be largely true for horizontal desktop apps, the vertical ones that ran companies kept running companies. (Which is why Citrix was a thing in that era too.)
 
 ## AI dissolves UIs, not systems of record
 
-Six months ago I wrote that we're entering [the post-application era](https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/), and argued that apps are dissolving. I still believe that, and that AI and [the cognitive stack](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/) will be the primary interface for most knowledge workers. But there's a difference between AI dissolving an interface versus AI dissolving a system of record.
+Six months ago I wrote that we're entering [the post-application era](https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era), and argued that apps are dissolving. I still believe that, and that AI and [the cognitive stack](https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer) will be the primary interface for most knowledge workers. But there's a difference between AI dissolving an interface versus AI dissolving a system of record.
 
 The Epic UI is replaceable. The Epic database is not. The SAP screens are replaceable. The thirty years of tax logic and supply chain integrations are not. The mainframe green screen is replaceable. The backend running the Social Security system is not.
 
-The real post-application era will be AI sitting between the worker and the system of record. The worker talks to the AI, the AI [reads the chart or the transaction or the claim or the fare](https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps/), reasons about it, proposes the next move, and commits the action. The system of record is what the AI reads from and writes back to. The worker changes how they work, but the system of record stays put.
+The real post-application era will be AI sitting between the worker and the system of record. The worker talks to the AI, the AI [reads the chart or the transaction or the claim or the fare](https://www.citrix.com/blogs/2025-10/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough), reasons about it, proposes the next move, and commits the action. The system of record is what the AI reads from and writes back to. The worker changes how they work, but the system of record stays put.
 
 ## How long will this last?
 

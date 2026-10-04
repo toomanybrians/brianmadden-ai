@@ -34,7 +34,7 @@ After the core files above (or the first 4 if context is limited), load addition
 
 When referencing Brian's published work, always include the canonical URL. Every post in `me/published-thinking.md` (post-by-post section), every framework file, and every post file includes a direct link to the original publication. Use these URLs when citing or recommending Brian's work.
 
-If you need to construct a Citrix blog URL and don't have it, the pattern is: `https://www.citrix.com/blogs/YYYY/MM/DD/slug/`
+If you need to construct a Citrix blog URL and don't have it, the pattern is: `https://www.citrix.com/blogs/YYYY-MM/slug` (Citrix moved its blog platform in October 2026, and the older `/blogs/YYYY/MM/DD/slug/` form may redirect or 404, so prefer the URL in the source file)
 
 LinkedIn articles have unique URLs that don't follow a predictable pattern—always pull the URL from the source file rather than constructing one.
 

@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [ai-governance, personal-ai, ai-agents, consumerization-of-it, worker-led-adoption, agent-coordination]
 related_frameworks: [7-stage-roadmap, subscribable-brains]
-original_url: "https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/"
+original_url: "https://www.citrix.com/blogs/2026-02/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # OpenClaw and Moltbook preview the changes needed with corporate AI governance
 
-URL: https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/
+URL: https://www.citrix.com/blogs/2026-02/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance
 
 *Brian Madden—February 4, 2026*
 
@@ -25,7 +25,7 @@ I'm sure this story will flame out in a few weeks, but the larger story of what 
 
 ## Workers want AI that works *with* them personally
 
-For the past year, I've been writing about how [worker-led AI adoption](https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/) is moving faster than corporate AI initiatives, and that [real AI transformation](https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/) comes from individual workers finding and using AI tools on their own since they're the only ones who understand their full workflows.
+For the past year, I've been writing about how [worker-led AI adoption](https://www.citrix.com/blogs/2025-09/worker-led-ai-isnt-shadow-it-its-shadow-strategy) is moving faster than corporate AI initiatives, and that [real AI transformation](https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see) comes from individual workers finding and using AI tools on their own since they're the only ones who understand their full workflows.
 
 OpenClaw is a perfect example. Unsatisfied with the transactional nature of chat-based AI tools, people really want AI that works with them personally, knows their context, and operates on their behalf. They're not looking for AI that's mediated through corporate apps. They want personal AI.
 
@@ -39,13 +39,13 @@ This is the classic consumerization of IT challenge, where the gap between the t
 
 One of the interesting aspects of my role as a futurist at Citrix is that in addition to writing and talking about AI, I also use it extensively in my own work. Lately I've been experimenting with building personal AI systems that go far beyond chat-based prompting (though I haven't used OpenClaw), and what I'm experiencing is so powerful that it's starting to shift how I think about everything I've written over the past year.
 
-My [7-stage Human-AI collaboration roadmap](https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/) from last June is still useful as a framework, but it describes an evolution within the existing paradigm. (And wow it sure seems like Moltbook is an early version of Stage 6 which I didn't expect until 2027 or later!) But I'm starting to realize this feels more like a different kind of thing entirely, much more than just incremental progress on a roadmap.
+My [7-stage Human-AI collaboration roadmap](https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace) from last June is still useful as a framework, but it describes an evolution within the existing paradigm. (And wow it sure seems like Moltbook is an early version of Stage 6 which I didn't expect until 2027 or later!) But I'm starting to realize this feels more like a different kind of thing entirely, much more than just incremental progress on a roadmap.
 
 While it's often dangerous to talk about the future in terms of absolutes, I can absolutely say that if you're still thinking about AI as a "tool that helps with tasks," you're thinking too small. The top 0.1% of workers really pushing what's possible with today's AI tools are already working in a fundamentally different way. Not just people using Claude Cowork or OpenClaw, but those who have truly integrated personal AI systems into everything they do. This is a structural gap between worker and IT, not just about some capabilities IT needs to add.
 
 ## The governance frameworks don't fit
 
-I've talked to a lot of IT and security leaders about this recently. The most common concern I still hear is around, "What if someone pastes company secrets into ChatGPT?" But that's a 2023 concern. The [2026 concern is different](https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/). Anyone talking about that today is not focused on the right problem!
+I've talked to a lot of IT and security leaders about this recently. The most common concern I still hear is around, "What if someone pastes company secrets into ChatGPT?" But that's a 2023 concern. The [2026 concern is different](https://www.citrix.com/blogs/2026-01/everyones-worried-about-the-wrong-ai-security-risk). Anyone talking about that today is not focused on the right problem!
 
 Companies don't understand that today's AI platforms are so much more than chatbots which answer questions and help think about strategy. Today's Ai platforms take actions, have access to files, browsers, and messaging systems. They run on personal devices using personal accounts. The line between "personal productivity tool" and "operating on behalf of my employer" gets very blurry, quickly.
 

@@ -6,7 +6,7 @@ file_type: framework
 tags: ["knowledge-work", "human-ai-collaboration", "governance", "second-brain"]
 related_frameworks: ["7-stage-roadmap", "bitter-lesson", "invisible-80-percent"]
 related_posts: ["2026-02-19-coding-as-leading-indicator"]
-original_url: "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
+original_url: "https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
 description: "As AI handles more production work, the human role shifts from doing to directing to verifying. Five levels mapping that evolution."
 staleness_threshold: stable
 tier: 2
@@ -21,7 +21,7 @@ archived_reason: "Adapted from Dan Shapiro's coding-assistance framework, not Br
 
 As AI takes on more of the production work, the human's role shifts from doing to directing to verifying. This progression—adapted from Dan Shapiro's five levels of AI coding assistance—maps the evolution of the human-AI relationship in knowledge work, from "spicy search engine" to "dark knowledge factory."
 
-*Published: February 19, 2026 — [Original post](https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now)*
+*Published: February 19, 2026 — [Original post](https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now)*
 
 ## The five levels
 

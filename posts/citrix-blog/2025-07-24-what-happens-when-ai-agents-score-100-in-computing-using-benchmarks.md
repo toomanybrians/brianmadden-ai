@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [computer-using-agents, ai-agents, benchmarks, human-ai-collaboration]
 related_frameworks: [7-stage-roadmap, workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/"
+original_url: "https://www.citrix.com/blogs/2025-07/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # What happens when AI agents score 100% in computing using benchmarks?
 
-[Original post](https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/)
+[Original post](https://www.citrix.com/blogs/2025-07/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks)
 
 July 24, 2025
 

@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [factory-electrification, workplace-transformation, ai-in-the-workplace, historical-analogy, frameworks]
 related_frameworks: [factory-electrification, 7-stage-roadmap]
-original_url: "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/"
+original_url: "https://www.citrix.com/blogs/2025-07/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # To understand AI's future impact, check out this playbook from 150 years ago
 
-[Original post](https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/)
+[Original post](https://www.citrix.com/blogs/2025-07/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago)
 
 July 8, 2025
 

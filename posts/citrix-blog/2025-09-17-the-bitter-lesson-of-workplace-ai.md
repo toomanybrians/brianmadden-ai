@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [ai-adoption, enterprise-ai, shadow-ai, worker-led-adoption, workspace-governance, computer-using-agents]
 related_frameworks: [bitter-lesson, factory-electrification]
-original_url: "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/"
+original_url: "https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # The bitter lesson of workplace AI: Stop engineering, start enabling
 
-[Original post](https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/)
+[Original post](https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling)
 
 Sept 17, 2025
 

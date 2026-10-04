@@ -121,6 +121,22 @@ def check_frontmatter(files):
         warnings.append(f"...and {len(missing) - 20} more frontmatter problems")
 
 
+def check_citrix_urls(files):
+    """Citrix moved its blog platform in Oct 2026: post URLs are now /blogs/YYYY-MM/slug and
+    the author page is /blogs/authors/brian-madden. Catch any old-format link creeping back in
+    (the pipeline or a hand-pasted link). Format check only, no network."""
+    old_post = re.compile(r"https://www\.citrix\.com/blogs/\d{4}/\d{2}/\d{2}/")
+    old_author = re.compile(r"citrix\.com/blogs/?\?s=bmadden")
+    hits = []
+    for f in files:
+        text = f.read_text(errors="replace")
+        if old_post.search(text) or old_author.search(text):
+            hits.append(rel(f))
+    metrics["old_format_citrix_links"] = len(hits)
+    for h in hits[:15]:
+        warnings.append(f"Old-format Citrix blog link (platform moved Oct 2026): {h}")
+
+
 def check_index_drift(files):
     """Files on disk vs _index.json, both directions."""
     idx = json.loads((ROOT / "_index.json").read_text())
@@ -305,6 +321,7 @@ def main():
     inbound = check_links(files)
     check_frontmatter(files)
     check_index_drift(files)
+    check_citrix_urls(files)
     check_quarantine()
     check_staleness()
     check_bloat(files)

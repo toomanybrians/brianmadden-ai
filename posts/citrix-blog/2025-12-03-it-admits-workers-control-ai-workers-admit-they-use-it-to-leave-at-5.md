@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [worker-led-adoption, ai-survey, microsoft-ignite, productivity, ai-governance, workspace-governance]
 related_frameworks: [workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/12/03/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5/"
+original_url: "https://www.citrix.com/blogs/2025-12/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # IT admits workers control AI. Workers admit they use it to leave at 5.
 
-[Original post](https://www.citrix.com/blogs/2025/12/03/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5/)
+[Original post](https://www.citrix.com/blogs/2025-12/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5)
 
 Dec 3, 2025
 

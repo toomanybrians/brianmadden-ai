@@ -3,7 +3,7 @@
     "7-stage-roadmap": {
       "path": "frameworks/7-stage-roadmap.md",
       "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
-      "original_url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
+      "original_url": "https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition",
       "referenced_in_posts": [
         "2026-06-10-the-7-stage-roadmap-2026-edition",
         "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
@@ -33,7 +33,7 @@
     "bitter-lesson": {
       "path": "frameworks/bitter-lesson.md",
       "title": "The bitter lesson of workplace AI",
-      "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
+      "original_url": "https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling",
       "referenced_in_posts": [
         "2025-09-17-the-bitter-lesson-of-workplace-ai"
       ],
@@ -56,7 +56,7 @@
     "factory-electrification": {
       "path": "frameworks/factory-electrification.md",
       "title": "The factory electrification analogy",
-      "original_url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/",
+      "original_url": "https://www.citrix.com/blogs/2025-07/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
       "referenced_in_posts": [
         "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
         "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy"
@@ -78,7 +78,7 @@
     "cognitive-stack": {
       "path": "frameworks/cognitive-stack.md",
       "title": "The cognitive stack",
-      "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
+      "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer",
       "referenced_in_posts": [
         "2026-02-25-cognitive-stack"
       ],
@@ -110,7 +110,7 @@
     "delegation-not-automation": {
       "path": "frameworks/delegation-not-automation.md",
       "title": "Delegation, not automation",
-      "original_url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/",
+      "original_url": "https://www.citrix.com/blogs/2025-12/workers-dont-want-to-build-automations-they-want-to-delegate",
       "referenced_in_posts": [
         "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
         "2026-02-25-cognitive-stack"
@@ -129,7 +129,7 @@
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
       "title": "The five levels of AI in knowledge work",
       "status": "archived",
-      "original_url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
+      "original_url": "https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
       "referenced_in_posts": [
         "2026-02-19-coding-as-leading-indicator"
       ],
@@ -147,7 +147,7 @@
     "invisible-80-percent": {
       "path": "frameworks/invisible-80-percent.md",
       "title": "The invisible 80% of knowledge work",
-      "original_url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/",
+      "original_url": "https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see",
       "referenced_in_posts": [
         "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
         "2026-02-10-second-brain-anchor"
@@ -201,7 +201,7 @@
     "post-application-era": {
       "path": "frameworks/post-application-era.md",
       "title": "The post-application era",
-      "original_url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/",
+      "original_url": "https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era",
       "referenced_in_posts": [
         "2025-10-01-welcome-to-the-post-application-era",
         "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps"
@@ -252,7 +252,7 @@
     "workspace-as-control-plane": {
       "path": "frameworks/workspace-as-control-plane.md",
       "title": "The workspace as control plane",
-      "original_url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/",
+      "original_url": "https://www.citrix.com/blogs/2025-05/the-desktop-has-dissolved-now-where-does-work-live-in-2025",
       "referenced_in_posts": [
         "2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025",
         "2025-06-05-ai-agents-need-a-secure-place-to-work"
@@ -300,7 +300,7 @@
       "path": "posts/citrix-blog/2025-04-07-why-i-joined-citrix-and-what-im-excited-about.md",
       "title": "Why I joined Citrix and what I'm excited about",
       "implements_frameworks": [],
-      "original_url": "https://www.citrix.com/blogs/2025/04/07/why-i-joined-citrix-and-what-im-excited-about/"
+      "original_url": "https://www.citrix.com/blogs/2025-04/why-i-joined-citrix-and-what-im-excited-about"
     },
     "2025-04-14-making-sense-of-ai-in-the-workplace": {
       "path": "posts/citrix-blog/2025-04-14-making-sense-of-ai-in-the-workplace.md",
@@ -308,13 +308,13 @@
       "implements_frameworks": [
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/04/14/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders/"
+      "original_url": "https://www.citrix.com/blogs/2025-04/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders"
     },
     "2025-04-21-what-does-ai-mean-at-citrix": {
       "path": "posts/citrix-blog/2025-04-21-what-does-ai-mean-at-citrix.md",
       "title": "What does \\\"AI\\\" mean at Citrix?",
       "implements_frameworks": [],
-      "original_url": "https://www.citrix.com/blogs/2025/04/21/what-does-ai-mean-at-citrix/"
+      "original_url": "https://www.citrix.com/blogs/2025-04/what-does-ai-mean-at-citrix"
     },
     "2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025": {
       "path": "posts/citrix-blog/2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025.md",
@@ -322,7 +322,7 @@
       "implements_frameworks": [
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/"
+      "original_url": "https://www.citrix.com/blogs/2025-05/the-desktop-has-dissolved-now-where-does-work-live-in-2025"
     },
     "2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what": {
       "path": "posts/citrix-blog/2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what.md",
@@ -330,7 +330,7 @@
       "implements_frameworks": [
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/05/19/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what/"
+      "original_url": "https://www.citrix.com/blogs/2025-05/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what"
     },
     "2025-05-28-what-if-your-ceo-never-sends-the-ai-first-memo": {
       "path": "posts/citrix-blog/2025-05-28-what-if-your-ceo-never-sends-the-ai-first-memo.md",
@@ -338,7 +338,7 @@
       "implements_frameworks": [
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/05/28/what-if-your-ceo-never-sends-the-ai-first-memo/"
+      "original_url": "https://www.citrix.com/blogs/2025-05/what-if-your-ceo-never-sends-the-ai-first-memo"
     },
     "2025-06-05-ai-agents-need-a-secure-place-to-work": {
       "path": "posts/citrix-blog/2025-06-05-ai-agents-need-a-secure-place-to-work.md",
@@ -347,7 +347,7 @@
         "workspace-as-control-plane",
         "post-application-era"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/06/05/forget-the-model-wars-the-real-ai-race-is-in-the-workplace/"
+      "original_url": "https://www.citrix.com/blogs/2025-06/forget-the-model-wars-the-real-ai-race-is-in-the-workplace"
     },
     "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace": {
       "path": "posts/citrix-blog/2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace.md",
@@ -356,7 +356,7 @@
         "7-stage-roadmap",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/"
+      "original_url": "https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
     },
     "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago": {
       "path": "posts/citrix-blog/2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago.md",
@@ -365,7 +365,7 @@
         "factory-electrification",
         "7-stage-roadmap"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/"
+      "original_url": "https://www.citrix.com/blogs/2025-07/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago"
     },
     "2025-07-16-why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers": {
       "path": "posts/citrix-blog/2025-07-16-why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers.md",
@@ -374,7 +374,7 @@
         "workspace-as-control-plane",
         "factory-electrification"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/07/16/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers/"
+      "original_url": "https://www.citrix.com/blogs/2025-07/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers"
     },
     "2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks": {
       "path": "posts/citrix-blog/2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks.md",
@@ -383,7 +383,7 @@
         "7-stage-roadmap",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/"
+      "original_url": "https://www.citrix.com/blogs/2025-07/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks"
     },
     "2025-08-04-ai-agents-are-the-new-insider-threat": {
       "path": "posts/citrix-blog/2025-08-04-ai-agents-are-the-new-insider-threat.md",
@@ -392,7 +392,7 @@
         "7-stage-roadmap",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/"
+      "original_url": "https://www.citrix.com/blogs/2025-08/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers"
     },
     "2025-08-11-if-ai-progress-stopped-today-we-can-still-transform-the-enterprise": {
       "path": "posts/citrix-blog/2025-08-11-if-ai-progress-stopped-today-we-can-still-transform-the-enterprise.md",
@@ -401,7 +401,7 @@
         "bitter-lesson",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/08/11/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have/"
+      "original_url": "https://www.citrix.com/blogs/2025-08/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have"
     },
     "2025-08-27-everyones-wrong-about-why-enterprise-ai-is-failing": {
       "path": "posts/citrix-blog/2025-08-27-everyones-wrong-about-why-enterprise-ai-is-failing.md",
@@ -410,7 +410,7 @@
         "invisible-80-percent",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/08/27/everyones-wrong-about-why-enterprise-ai-is-failing/"
+      "original_url": "https://www.citrix.com/blogs/2025-08/everyones-wrong-about-why-enterprise-ai-is-failing"
     },
     "2025-09-02-worker-led-ai-isnt-shadow-it-its-shadow-strategy": {
       "path": "posts/citrix-blog/2025-09-02-worker-led-ai-isnt-shadow-it-its-shadow-strategy.md",
@@ -419,7 +419,7 @@
         "workspace-as-control-plane",
         "invisible-80-percent"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/"
+      "original_url": "https://www.citrix.com/blogs/2025-09/worker-led-ai-isnt-shadow-it-its-shadow-strategy"
     },
     "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy": {
       "path": "posts/citrix-blog/2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy.md",
@@ -427,7 +427,7 @@
       "implements_frameworks": [
         "factory-electrification"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/"
+      "original_url": "https://www.citrix.com/blogs/2025-09/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy"
     },
     "2025-09-17-the-bitter-lesson-of-workplace-ai": {
       "path": "posts/citrix-blog/2025-09-17-the-bitter-lesson-of-workplace-ai.md",
@@ -436,7 +436,7 @@
         "bitter-lesson",
         "factory-electrification"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/"
+      "original_url": "https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling"
     },
     "2025-10-01-welcome-to-the-post-application-era": {
       "path": "posts/citrix-blog/2025-10-01-welcome-to-the-post-application-era.md",
@@ -445,7 +445,7 @@
         "post-application-era",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/"
+      "original_url": "https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era"
     },
     "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps": {
       "path": "posts/citrix-blog/2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps.md",
@@ -454,7 +454,7 @@
         "post-application-era",
         "factory-electrification"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/"
+      "original_url": "https://www.citrix.com/blogs/2025-10/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough"
     },
     "2025-11-13-everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it": {
       "path": "posts/citrix-blog/2025-11-13-everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it.md",
@@ -462,7 +462,7 @@
       "implements_frameworks": [
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it/"
+      "original_url": "https://www.citrix.com/blogs/2025-11/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it"
     },
     "2025-12-03-it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5": {
       "path": "posts/citrix-blog/2025-12-03-it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5.md",
@@ -470,7 +470,7 @@
       "implements_frameworks": [
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/12/03/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5/"
+      "original_url": "https://www.citrix.com/blogs/2025-12/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5"
     },
     "2025-12-10-ai-will-be-the-interface-to-knowledge-work": {
       "path": "posts/citrix-blog/2025-12-10-ai-will-be-the-interface-to-knowledge-work.md",
@@ -480,13 +480,13 @@
         "7-stage-roadmap",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2025/12/10/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there/"
+      "original_url": "https://www.citrix.com/blogs/2025-12/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there"
     },
     "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate": {
       "path": "posts/citrix-blog/2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate.md",
       "title": "Workers don't want to build automations. They want to delegate.",
       "implements_frameworks": [],
-      "original_url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/"
+      "original_url": "https://www.citrix.com/blogs/2025-12/workers-dont-want-to-build-automations-they-want-to-delegate"
     },
     "2026-01-07-vmblog-no-ai-bombshells": {
       "path": "posts/external/2026-01-07-vmblog-no-ai-bombshells.md",
@@ -500,7 +500,7 @@
       "implements_frameworks": [
         "invisible-80-percent"
       ],
-      "original_url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/"
+      "original_url": "https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see"
     },
     "2026-01-21-everyones-worried-about-the-wrong-ai-security-risk": {
       "path": "posts/citrix-blog/2026-01-21-everyones-worried-about-the-wrong-ai-security-risk.md",
@@ -509,7 +509,7 @@
         "7-stage-roadmap",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/"
+      "original_url": "https://www.citrix.com/blogs/2026-01/everyones-worried-about-the-wrong-ai-security-risk"
     },
     "2026-02-04-openclaw-governance": {
       "path": "posts/citrix-blog/2026-02-04-openclaw-governance.md",
@@ -518,7 +518,7 @@
         "7-stage-roadmap",
         "subscribable-brains"
       ],
-      "original_url": "https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/"
+      "original_url": "https://www.citrix.com/blogs/2026-02/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance"
     },
     "2026-02-11-second-brains-break-security-assumptions": {
       "path": "posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md",
@@ -529,7 +529,7 @@
         "7-stage-roadmap",
         "workspace-as-control-plane"
       ],
-      "original_url": "https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/"
+      "original_url": "https://www.citrix.com/blogs/2026-02/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work"
     },
     "2026-02-19-coding-as-leading-indicator": {
       "path": "posts/citrix-blog/2026-02-19-coding-as-leading-indicator.md",
@@ -538,7 +538,7 @@
         "five-levels-of-ai-in-knowledge-work",
         "7-stage-roadmap"
       ],
-      "original_url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
+      "original_url": "https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
     },
     "2026-03-12-skills-are-all-you-need": {
       "path": "posts/citrix-blog/2026-03-12-skills-are-all-you-need.md",
@@ -549,7 +549,7 @@
         "post-application-era",
         "subscribable-brains"
       ],
-      "original_url": "https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/"
+      "original_url": "https://www.citrix.com/blogs/2026-03/skills-are-all-you-need"
     },
     "2026-02-25-cognitive-stack": {
       "path": "posts/citrix-blog/2026-02-25-cognitive-stack.md",
@@ -559,7 +559,7 @@
         "invisible-80-percent",
         "five-levels-of-ai-in-knowledge-work"
       ],
-      "original_url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/"
+      "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer"
     },
     "2020-06-16-eulogy-brianmadden-com": {
       "path": "posts/linkedin/articles/2020-06-16-eulogy-brianmadden-com.md",

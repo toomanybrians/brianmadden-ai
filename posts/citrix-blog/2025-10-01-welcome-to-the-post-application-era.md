@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [post-application-era, citizen-development, shadow-ai, app-proliferation, workspace-governance, software-economics]
 related_frameworks: [post-application-era, workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/"
+original_url: "https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # AI just created 10,000 accidental citizen developers in your company. Welcome to the post-application era!
 
-[Original post](https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/)
+[Original post](https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era)
 
 Oct 01, 2025
 

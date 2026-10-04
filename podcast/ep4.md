@@ -89,8 +89,8 @@ The futurist's playbook. Brian's job isn't predicting the future — if he could
 ## Links mentioned
 
 - [OSWorld 2.0 (official project page)](https://osworld-v2.xlang.ai)
-- [Brian: What happens when AI agents score 100% in computer-using benchmarks? (Citrix, 2025)](https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/)
-- [Brian: How a futurist reads AI news (Citrix, 2026)](https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/)
+- [Brian: What happens when AI agents score 100% in computer-using benchmarks? (Citrix, 2025)](https://www.citrix.com/blogs/2025-07/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks)
+- [Brian: How a futurist reads AI news (Citrix, 2026)](https://www.citrix.com/blogs/2026-06/how-a-futurist-reads-ai-news-hint-ignore-most-of-it)
 - [EP 3: Second brains hit the enterprise wall — and why AI automations won't save you](https://www.youtube.com/watch?v=FjVOnYfJYRo)
 - [EP 2: The Last Chapter of EUC](https://www.youtube.com/watch?v=Bgxx4UCtb6k)
 - [EP 1: AI agents, second brains, and the enterprise AI gap](https://www.youtube.com/watch?v=55y_XUWGUnQ)

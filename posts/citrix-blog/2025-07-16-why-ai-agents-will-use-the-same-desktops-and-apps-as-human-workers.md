@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [ai-agents, computer-using-agents, workspace-as-control-plane, enterprise-ai-strategy, security]
 related_frameworks: [workspace-as-control-plane, factory-electrification]
-original_url: "https://www.citrix.com/blogs/2025/07/16/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers/"
+original_url: "https://www.citrix.com/blogs/2025-07/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # Why AI agents will use the same desktops and apps as human workers
 
-[Original post](https://www.citrix.com/blogs/2025/07/16/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers/)
+[Original post](https://www.citrix.com/blogs/2025-07/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers)
 
 July 16, 2025
 

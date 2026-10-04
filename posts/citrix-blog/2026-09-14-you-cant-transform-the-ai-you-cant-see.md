@@ -1,7 +1,7 @@
 ---
 title: "You can't transform the AI you can't see"
 date: 2026-09-14
-url: https://www.citrix.com/blogs/2026/09/14/you-cant-transform-the-ai-you-cant-see/
+url: https://www.citrix.com/blogs/2026-09/you-cant-transform-the-ai-you-cant-see
 tags: [shadow-ai, ai-visibility, ai-governance, workspace-as-control-plane, agent-identity, knowledge-factory, mcp-security, netscaler]
 authority_level: 5
 file_type: blog

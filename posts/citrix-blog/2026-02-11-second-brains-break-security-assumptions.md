@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [personal-ai-knowledge-systems, second-brain, ai-security, ai-governance, invisible-80-percent, workspace-governance, consumerization-of-it, mcp]
 related_frameworks: [invisible-80-percent, subscribable-brains, 7-stage-roadmap, workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/"
+original_url: "https://www.citrix.com/blogs/2026-02/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,18 +13,18 @@ status: reviewed
 
 # Workers' "second brains" break every assumption about how we secure knowledge work
 
-[Original post](https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/)
+[Original post](https://www.citrix.com/blogs/2026-02/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work)
 
 *Brian Madden—February 11, 2026*
 
 Today is my one-year anniversary at Citrix. I wrote "This is gonna be awesome" as the closing line in my inaugural Citrix blog post, and I truly meant it. Looking back over the year, I can happily say it was true. I was given the mental space and intellectual freedom to deeply & publicly explore how AI is transforming knowledge work and what it means for our customers, driving important industry-wide conversations including:
 
-* [Worker-led adoption is outpacing corporate AI strategy](https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/)
-* [The real value of knowledge work is invisible to IT](https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/)
-* [Applications are dissolving](https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/) as [AI is becoming the primary interface](https://www.citrix.com/blogs/2025/12/10/ai-will-be-the-interface-to-knowledge-work/)
-* [Governance frameworks built for a previous era don't fit what's coming](https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/)
+* [Worker-led adoption is outpacing corporate AI strategy](https://www.citrix.com/blogs/2025-09/worker-led-ai-isnt-shadow-it-its-shadow-strategy)
+* [The real value of knowledge work is invisible to IT](https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see)
+* [Applications are dissolving](https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era) as [AI is becoming the primary interface](https://www.citrix.com/blogs/2025-12/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there)
+* [Governance frameworks built for a previous era don't fit what's coming](https://www.citrix.com/blogs/2026-02/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance)
 
-Looking back at my [26 essays](https://www.citrix.com/blogs/?s=bmadden&type=author) and [dozens of talks & interviews](https://www.linkedin.com/pulse/everything-i-wrote-said-workplace-ai-2025-brian-madden-33byf/?trackingId=iUFCQsbuRvmMALs%2BwQ5xoQ%3D%3D) from my first year, I knew then that we were building toward something bigger, but I couldn't quite articulate what "it" was.
+Looking back at my [26 essays](https://www.citrix.com/blogs/authors/brian-madden) and [dozens of talks & interviews](https://www.linkedin.com/pulse/everything-i-wrote-said-workplace-ai-2025-brian-madden-33byf/?trackingId=iUFCQsbuRvmMALs%2BwQ5xoQ%3D%3D) from my first year, I knew then that we were building toward something bigger, but I couldn't quite articulate what "it" was.
 
 But now I can.
 
@@ -34,7 +34,7 @@ I recently built a personal AI knowledge system—a "[second brain](https://www.
 
 This has the potential to sound like a trendy "productivity hack," but I will stake my reputation based on 32 years of enterprise experience that this is much bigger. Workers using a "second brain" (or "personal AI knowledge system" or whatever you want to call it) is a fundamental and structural change to what knowledge work *is*.
 
-The key is the [80/20 split I've been writing about](https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/). Every AI tool on the market—Copilot, agents, chatbots—operates on the visible 20% of knowledge work: emails, docs, scheduling, formatting, administration, etc. The other 80%—the strategizing, pattern recognition, and judgment calls built on years of experience—has always been invisible. It lived and was processed in people's heads and nowhere else.
+The key is the [80/20 split I've been writing about](https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see). Every AI tool on the market—Copilot, agents, chatbots—operates on the visible 20% of knowledge work: emails, docs, scheduling, formatting, administration, etc. The other 80%—the strategizing, pattern recognition, and judgment calls built on years of experience—has always been invisible. It lived and was processed in people's heads and nowhere else.
 
 A second brain reaches the previously untapped 80%. For the first time, the actual *knowledge* part of knowledge work can be digital too. And once it's digital, everything changes.
 
@@ -56,7 +56,7 @@ This is incredibly powerful. It's starting to happen now. And it's a governance 
 
 Enterprise IT and company leadership are just flat-out not ready. Even worse, many are not even having the right conversations about AI and the future of work.
 
-I've had actual conversations with leaders, and listened to popular podcasts—both in the last month—where the most pressing security concern was, "What if someone pastes secrets into ChatGPT?" [That is a 2023 problem.](https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/) The 2026 problem is fundamentally different in scope.
+I've had actual conversations with leaders, and listened to popular podcasts—both in the last month—where the most pressing security concern was, "What if someone pastes secrets into ChatGPT?" [That is a 2023 problem.](https://www.citrix.com/blogs/2026-01/everyones-worried-about-the-wrong-ai-security-risk) The 2026 problem is fundamentally different in scope.
 
 Think about where a second brain gets its knowledge. Yes, it can connect to corporate apps and data via MCP. (Though that's easy enough to block with traditional security approaches.) But personal AI can also see what's on a worker's display, scrape content from browsers, and read screenshots. The app stores are full of tools that silently record and transcribe everything they hear (meetings, conversations, rambling thoughts and pontifications), which are easily fed into a personal AI. Amazon sells devices that do the same thing from your desk. A worker's second brain doesn't just pull from governed enterprise systems. (In fact that might not even be the right place to look.) It absorbs *everything a worker sees, hears, and reads* throughout their workday.
 
@@ -70,7 +70,7 @@ Nobody's governing any of this. Each AI platform—OpenAI, Anthropic, Google, Mi
 
 I realized in the past few weeks that I fell into my own trap.
 
-Everything I wrote in year one—the [7-stage roadmap](https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/), the [agent security](https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat/) pieces, the [workspace governance](https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it/) arguments—assumed that work was still happening within the traditional structure. I was looking at how AI enters the *existing* model: here's how workers access systems, here's how apps deliver data, here's how IT manages it all—and now add AI. Even when I said "[AI agents will be like coworkers](https://www.citrix.com/blogs/2025/06/05/ai-agents-need-a-secure-place-to-work/)," I was imagining a traditional coworker—someone who accesses a workspace, uses the apps, and follows the well-worn and current governed paths.
+Everything I wrote in year one—the [7-stage roadmap](https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace), the [agent security](https://www.citrix.com/blogs/2025-08/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers) pieces, the [workspace governance](https://www.citrix.com/blogs/2025-11/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it) arguments—assumed that work was still happening within the traditional structure. I was looking at how AI enters the *existing* model: here's how workers access systems, here's how apps deliver data, here's how IT manages it all—and now add AI. Even when I said "[AI agents will be like coworkers](https://www.citrix.com/blogs/2025-06/forget-the-model-wars-the-real-ai-race-is-in-the-workplace)," I was imagining a traditional coworker—someone who accesses a workspace, uses the apps, and follows the well-worn and current governed paths.
 
 I fell for the [faster-horse problem](https://www.collectivecampus.io/blog/henry-fords-customers-didnt-want-a-faster-horse). I was thinking about future frameworks for a present day world. But that world is dissolving.
 
@@ -88,7 +88,7 @@ I'm truly optimistic about this future. The productivity and cognitive gains fro
 
 But governance has to catch up.
 
-Luckily we have some precedent for how this could happen, as the [consumerization of IT](https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/) in the early 2010s played out the same way. Back then, workers wanted iPhones and Dropbox. IT said no and tried to block them. That didn't work, and workers found workarounds because the gap between what the company provided and what workers could get on their own was too wide to ignore. The ultimate (and positive for everyone) resolution was providing workers with a corporate-sanctioned experience that was as good or better than what they could get on their own, delivered within a managed and secure environment. EMM, enterprise file sync, BYOD programs... our whole industry figured out that everyone wins by enabling, not restricting.
+Luckily we have some precedent for how this could happen, as the [consumerization of IT](https://www.citrix.com/blogs/2026-02/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance) in the early 2010s played out the same way. Back then, workers wanted iPhones and Dropbox. IT said no and tried to block them. That didn't work, and workers found workarounds because the gap between what the company provided and what workers could get on their own was too wide to ignore. The ultimate (and positive for everyone) resolution was providing workers with a corporate-sanctioned experience that was as good or better than what they could get on their own, delivered within a managed and secure environment. EMM, enterprise file sync, BYOD programs... our whole industry figured out that everyone wins by enabling, not restricting.
 
 Personal AI systems will follow the same pattern, but at a much larger scale. Workers are building these today because the capability gap is massive (and is compounding daily). The answer in 2026 isn't to ban second brains any more than the answer in 2012 was to ban iPhones. The answer is to provide workers with AI-powered work environments that are just as powerful, within infrastructure that gives organizations the visibility, security, and governance they need.
 

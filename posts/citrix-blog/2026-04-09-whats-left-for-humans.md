@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [future-of-work, governance, enterprise-invariants, economics, judgment, cognitive-stack, post-application-era, bitter-lesson]
 related_frameworks: [cognitive-stack, bitter-lesson, post-application-era]
-original_url: "https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/"
+original_url: "https://www.citrix.com/blogs/2026-04/whats-left-for-humans"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,9 +13,9 @@ status: reviewed
 
 # What's left for humans?
 
-[Original post](https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/)
+[Original post](https://www.citrix.com/blogs/2026-04/whats-left-for-humans)
 
-A Citrix colleague and I were talking about AI's impact on knowledge work. I was droning on (and on and on) about [agents doing the work](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/), [apps dissolving](https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/), and [the cognitive stack](https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/) becoming the new workspace, when she stopped me and said: "Okay, but if AI is doing all of that, what's actually left for humans?"
+A Citrix colleague and I were talking about AI's impact on knowledge work. I was droning on (and on and on) about [agents doing the work](https://www.citrix.com/blogs/2026-03/skills-are-all-you-need), [apps dissolving](https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era), and [the cognitive stack](https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer) becoming the new workspace, when she stopped me and said: "Okay, but if AI is doing all of that, what's actually left for humans?"
 
 Way to get to the point!
 
@@ -63,14 +63,14 @@ Today's AI is not at a level where it replaced human judgment, relationships, an
 
 ## The bottleneck always shifts
 
-Everything I've described so far (governance, knowledge, economics, & judgment) are the parts of work that will remain human for the near future. But that's not to suggest these remain human for the long term future. As I've [written before about the bitter lesson of workplace AI](https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/), you never completely eliminate all bottlenecks, you just keep knocking them out and finding the next one.
+Everything I've described so far (governance, knowledge, economics, & judgment) are the parts of work that will remain human for the near future. But that's not to suggest these remain human for the long term future. As I've [written before about the bitter lesson of workplace AI](https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling), you never completely eliminate all bottlenecks, you just keep knocking them out and finding the next one.
 
-We're [already seeing this happen in software engineering](https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now). Now that AI solved the coding bottleneck (e.g. AI can write code), the work for humans moved to testing, verification, and orchestration. AI will solve those too, and the bottleneck will shift again, probably to something like writing specs or judgment about what's worth building. Eventually AI will get better at that, and the bottleneck will shift again.
+We're [already seeing this happen in software engineering](https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now). Now that AI solved the coding bottleneck (e.g. AI can write code), the work for humans moved to testing, verification, and orchestration. AI will solve those too, and the bottleneck will shift again, probably to something like writing specs or judgment about what's worth building. Eventually AI will get better at that, and the bottleneck will shift again.
 
 This is the pattern. The answer to "what's left for humans?" is a point-in-time snapshot, not an ultimate destination. Governance will be a human job until AI is trusted enough to govern itself. Knowledge curation will be a human job until AI can judge what's worth knowing. Judgment and taste will be human until the copilot becomes the autopilot.
 
-The question "what's left for humans?" assumes there's a stable answer somewhere. There probably isn't. We're [optimizing the horse](https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/), but at some point the car is going to be invented and our whole framework will shift. AI enabling everything will eventually make what it's enabling irrelevant, and we'll need a completely different question.
+The question "what's left for humans?" assumes there's a stable answer somewhere. There probably isn't. We're [optimizing the horse](https://www.citrix.com/blogs/2026-02/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work), but at some point the car is going to be invented and our whole framework will shift. AI enabling everything will eventually make what it's enabling irrelevant, and we'll need a completely different question.
 
-But none of that changes what you need to do right now. Your governance isn't ready for 500 agents per compliance officer. Your identity infrastructure wasn't designed for multi-entity trust chains. And your cost models still assume per-seat pricing. You have [years to fix this, not months](https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/), but also years, not decades.
+But none of that changes what you need to do right now. Your governance isn't ready for 500 agents per compliance officer. Your identity infrastructure wasn't designed for multi-entity trust chains. And your cost models still assume per-seat pricing. You have [years to fix this, not months](https://www.citrix.com/blogs/2025-09/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy), but also years, not decades.
 
 There's time to get it right if you start now. Then you can get ready to do it again.

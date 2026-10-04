@@ -6,7 +6,7 @@ file_type: framework
 tags: ["knowledge-work", "ai-agents", "human-ai-collaboration", "enterprise-ai", "second-brain", "cognitive-extension", "published-self"]
 related_frameworks: ["cognitive-stack", "invisible-80-percent", "factory-electrification"]
 related_posts: ["2026-06-10-the-7-stage-roadmap-2026-edition", "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"]
-original_url: "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/"
+original_url: "https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition"
 description: "From faster search to the published self—seven stages mapping how AI enters knowledge work, reframed in 2026 around what the worker does and becomes. Stage 3 (AI as a cognitive extension / second brain) is new for this version."
 staleness_threshold: stable
 tier: 2
@@ -17,7 +17,7 @@ status: reviewed
 
 My most comprehensive framework for understanding how AI enters knowledge work. Each stage builds on the previous—you can't skip steps.
 
-*2026 edition published June 10, 2026 — [Original post](https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/). Supersedes the [June 24, 2025 original](https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/).*
+*2026 edition published June 10, 2026 — [Original post](https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition). Supersedes the [June 24, 2025 original](https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace).*
 
 ## What changed from the 2025 version
 

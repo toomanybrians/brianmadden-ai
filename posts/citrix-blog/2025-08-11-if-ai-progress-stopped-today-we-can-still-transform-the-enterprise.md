@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [enterprise-ai-strategy, ai-in-the-workplace, shadow-ai, enterprise-integration, worker-led-ai, computer-using-agents]
 related_frameworks: [bitter-lesson, workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/08/11/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have/"
+original_url: "https://www.citrix.com/blogs/2025-08/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # If AI progress stopped today, we can still transform the enterprise with what we have
 
-[Original post](https://www.citrix.com/blogs/2025/08/11/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have/)
+[Original post](https://www.citrix.com/blogs/2025-08/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have)
 
 August 11, 2025
 

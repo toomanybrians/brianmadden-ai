@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [ai-governance, workspace-governance, ai-fragmentation, enterprise-ai, security, control-plane]
 related_frameworks: [workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it/"
+original_url: "https://www.citrix.com/blogs/2025-11/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # Everyone wants to provide your AI. Nobody wants to help you manage it.
 
-[Original post](https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it/)
+[Original post](https://www.citrix.com/blogs/2025-11/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it)
 
 Nov 13, 2025
 

@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [post-application-era, computer-using-agents, file-manipulation, legacy-apps, desktop-future, ai-agents]
 related_frameworks: [post-application-era, factory-electrification]
-original_url: "https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/"
+original_url: "https://www.citrix.com/blogs/2025-10/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # Will AI need to operate your legacy desktop apps, or is direct file manipulation enough?
 
-[Original post](https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/)
+[Original post](https://www.citrix.com/blogs/2025-10/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough)
 
 Oct 15, 2025
 

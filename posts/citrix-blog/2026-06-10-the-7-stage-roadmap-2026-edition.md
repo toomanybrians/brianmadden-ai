@@ -1,7 +1,7 @@
 ---
 title: "The 7-stage roadmap for human-AI collaboration (2026 Edition)"
 date: 2026-06-10
-url: https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/
+url: https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition
 authority_level: 5
 file_type: blog-post
 tags: [7-stage-roadmap, cognitive-extension, second-brain, ai-fleet, published-self, worker-led-ai, human-plus-ai, knowledge-work-future]
@@ -13,7 +13,7 @@ status: reviewed
 
 # The 7-stage roadmap for human-AI collaboration (2026 Edition)
 
-Last year I published the first version of my [7-stage roadmap](https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/) which detailed how human workers adopt AI over time. It started with workers using AI as simple answer bots in 2024 and stepped through the incremental changes up through full AI-orchestrated work by 2028.
+Last year I published the first version of my [7-stage roadmap](https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace) which detailed how human workers adopt AI over time. It started with workers using AI as simple answer bots in 2024 and stepped through the incremental changes up through full AI-orchestrated work by 2028.
 
 That roadmap was directionally correct, though my timelines were hilariously off. (My Phase 6, which I predicted for 2027+, accurately describes how I've been working every day since January 2026. In other words, what I thought would happen 18+ months in the future happened in only 6 months!)
 

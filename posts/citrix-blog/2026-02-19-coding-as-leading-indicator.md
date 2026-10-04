@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [knowledge-work, ai-coding, five-levels, dark-knowledge-factory, human-ai-collaboration, personal-ai-knowledge-systems, ai-verification]
 related_frameworks: [five-levels-of-ai-in-knowledge-work, 7-stage-roadmap]
-original_url: "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
+original_url: "https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # What will knowledge work be in 18 months? Look at what AI is doing to coding right now.
 
-[Original post](https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now)
+[Original post](https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now)
 
 *Brian Madden—February 19, 2026*
 
@@ -72,7 +72,7 @@ That last one is illustrates the power of this perfectly because that's a concep
 
 ## The five levels of AI use knowledge work
 
-Now let's take Shapiro's five levels of AI use in coding and translate them to knowledge work. (Some of these loosely map to my own [7-stage roadmap for human-AI collaboration in the workplace](https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/) from six months ago, though Shapiro's levels address what the human-AI relationship is like, whereas I focused on the mechanics of the collaboration.)
+Now let's take Shapiro's five levels of AI use in coding and translate them to knowledge work. (Some of these loosely map to my own [7-stage roadmap for human-AI collaboration in the workplace](https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace) from six months ago, though Shapiro's levels address what the human-AI relationship is like, whereas I focused on the mechanics of the collaboration.)
 
 Putting Shapiro's coding levels through our Mad Libs code-to-knowledge work translator:
 
@@ -103,10 +103,10 @@ In code, the answer turned out to be [end-to-end behavioral tests stored separat
 
 Everyone's talking about this as a story about software engineering. "Look what AI's doing to software engineering!" "Look what AI's doing to coders!" "Hey coders, get on board or lose your livelihood."
 
-But [coding was the beachhead, not the destination](https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/). Software was first because code has a built-in verification layers, languages have specific syntax, and there are billions of pages on the internet about how to write good code.
+But [coding was the beachhead, not the destination](https://www.citrix.com/blogs/2026-02/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work). Software was first because code has a built-in verification layers, languages have specific syntax, and there are billions of pages on the internet about how to write good code.
 
 Knowledge work is next, and the timeline will be compressed. (We have better AI now and lots of lessons from the software world.) If frontier coding teams are at Level 4-5 today while frontier knowledge workers are at Level 1-2, a pretty good way to know what knowledge work looks like in 18 months is to look at what coders are doing right now.
 
 Remember the bottleneck keeps moving. At Level 1 it's "how fast can you produce work?" At Level 4 it's "how precisely can you specify what should exist?" By Level 5 it's "how rigorously can you verify that it does?" That Level 5 one is a governance problem which nobody has a playbook for yet. Who owns the specs? Who defines the rubrics? Who's making sure the Dark Knowledge Factory isn't producing hallucinated strategy recommendations that look right but fall apart under scrutiny?
 
-The career progression from "doing" to "directing" used to take 20 years. AI is compressing that to months. Most enterprises don't have [the governance infrastructure](https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it/) for any of this, and it's coming whether they're ready or not.
+The career progression from "doing" to "directing" used to take 20 years. AI is compressing that to months. Most enterprises don't have [the governance infrastructure](https://www.citrix.com/blogs/2025-11/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it) for any of this, and it's coming whether they're ready or not.

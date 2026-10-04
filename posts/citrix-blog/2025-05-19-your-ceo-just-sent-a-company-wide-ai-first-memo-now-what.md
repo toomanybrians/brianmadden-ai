@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [enterprise-ai-strategy, ai-in-the-workplace, leadership, value-recalibration, worker-led-ai]
 related_frameworks: [workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/05/19/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what/"
+original_url: "https://www.citrix.com/blogs/2025-05/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # Your CEO just sent a company-wide "AI-First" memo. Now what?
 
-[Original post](https://www.citrix.com/blogs/2025/05/19/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what/)
+[Original post](https://www.citrix.com/blogs/2025-05/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what)
 
 May 19, 2025
 

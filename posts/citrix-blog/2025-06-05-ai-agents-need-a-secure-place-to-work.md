@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [ai-agents, workspace-as-control-plane, shadow-ai, computer-using-agents, security, enterprise-ai-strategy]
 related_frameworks: [workspace-as-control-plane, post-application-era]
-original_url: "https://www.citrix.com/blogs/2025/06/05/forget-the-model-wars-the-real-ai-race-is-in-the-workplace/"
+original_url: "https://www.citrix.com/blogs/2025-06/forget-the-model-wars-the-real-ai-race-is-in-the-workplace"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # AI agents need a secure place to work. The Citrix workspace is ready.
 
-[Original post](https://www.citrix.com/blogs/2025/06/05/forget-the-model-wars-the-real-ai-race-is-in-the-workplace/)
+[Original post](https://www.citrix.com/blogs/2025-06/forget-the-model-wars-the-real-ai-race-is-in-the-workplace)
 
 June 5, 2025
 

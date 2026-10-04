@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [workspace-evolution, workspace-as-control-plane, vdi, security, identity]
 related_frameworks: [workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/"
+original_url: "https://www.citrix.com/blogs/2025-05/the-desktop-has-dissolved-now-where-does-work-live-in-2025"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # The desktop has dissolved. Now where does work live in 2025?
 
-[Original post](https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/)
+[Original post](https://www.citrix.com/blogs/2025-05/the-desktop-has-dissolved-now-where-does-work-live-in-2025)
 
 May 1, 2025
 

@@ -30,7 +30,7 @@ Once you're connected, try things like:
 
 ## What's inside
 
-- 38 published [Citrix blog posts](https://www.citrix.com/blogs/?s=bmadden&type=author), 25 LinkedIn articles & posts, 22 speech and podcast-appearance transcripts, the 5-episode Citrix AI Hotsheet podcast, and press interviews
+- 38 published [Citrix blog posts](https://www.citrix.com/blogs/authors/brian-madden), 25 LinkedIn articles & posts, 22 speech and podcast-appearance transcripts, the 5-episode Citrix AI Hotsheet podcast, and press interviews
 - 10 standalone frameworks (knowledge factory, cognitive stack, invisible 80%, bitter lesson, post-application era, workspace-as-control-plane, and more)
 - A 30,000-word synthesis distilling the intellectual foundation across all published work
 - A "current thinking" file that captures where my head is right now—updated frequently
@@ -50,7 +50,7 @@ I explore how AI is reshaping knowledge work. My core thesis: the real AI transf
 
 - More details: [brianmadden.ai](https://brianmadden.ai)
 - Follow me on [LinkedIn](https://www.linkedin.com/in/bmadden/)
-- I write about these topics at [Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author)
+- I write about these topics at [Citrix blog](https://www.citrix.com/blogs/authors/brian-madden)
 - My personal website: [bmad.com](https://bmad.com)
 
 ## Two ways to see this

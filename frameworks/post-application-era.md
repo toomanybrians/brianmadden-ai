@@ -6,7 +6,7 @@ file_type: framework
 tags: ["enterprise-ai", "governance", "post-application", "mcp", "second-brain"]
 related_frameworks: ["workspace-as-control-plane", "subscribable-brains"]
 related_posts: ["2025-10-01-welcome-to-the-post-application-era", "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps"]
-original_url: "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/"
+original_url: "https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era"
 description: "Software creation costs are approaching zero. The application layer that defined enterprise IT for 30 years is collapsing. What replaces it changes everything."
 staleness_threshold: stable
 tier: 2
@@ -17,7 +17,7 @@ status: reviewed-and-updated
 
 AI has created 10,000 accidental citizen developers in your company. The old ratio (one app per ten users) has inverted to ten apps per employee. Software creation costs are approaching zero.
 
-*Published: October 1, 2025—[Original post](https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/); expanded [October 15, 2025](https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/)*
+*Published: October 1, 2025—[Original post](https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era); expanded [October 15, 2025](https://www.citrix.com/blogs/2025-10/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough)*
 
 ## The argument
 
@@ -32,7 +32,7 @@ Applications' value was always two things: capabilities + human interface. AI ha
 
 Nobody consciously decides "I'll never use Excel." But bit by bit, the app layer becomes optional.
 
-**2026-08-24 qualification—stage 4 has a scope limit the original post didn't state.** [The SaaSpocalypse Won't Touch the Enterprise Software Moat](https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/) later bounded this with a three-tier framework: shallow UX-as-moat SaaS dissolves the way stage 4 describes; middle horizontal enterprise SaaS gets squeezed but survives; deep vertical regulated systems of record (Epic, SAP, bank cores) endure for a different reason entirely—regulation, data gravity, encoded workflow, and mission-critical tolerance, not just app-layer inertia. The precise formulation: **AI dissolves UIs, not systems of record.** The Epic *UI* is replaceable; the Epic *database* is not. Stage 4's "do I need any of these apps?" question applies fully to tiers 1-2 and should not be read as applying to tier 3.
+**2026-08-24 qualification—stage 4 has a scope limit the original post didn't state.** [The SaaSpocalypse Won't Touch the Enterprise Software Moat](https://www.citrix.com/blogs/2026-04/the-saaspocalypse-wont-touch-the-enterprise-software-moat) later bounded this with a three-tier framework: shallow UX-as-moat SaaS dissolves the way stage 4 describes; middle horizontal enterprise SaaS gets squeezed but survives; deep vertical regulated systems of record (Epic, SAP, bank cores) endure for a different reason entirely—regulation, data gravity, encoded workflow, and mission-critical tolerance, not just app-layer inertia. The precise formulation: **AI dissolves UIs, not systems of record.** The Epic *UI* is replaceable; the Epic *database* is not. Stage 4's "do I need any of these apps?" question applies fully to tiers 1-2 and should not be read as applying to tier 3.
 
 ## What this means for enterprises
 

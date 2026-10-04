@@ -6,7 +6,7 @@ file_type: framework
 tags: ["enterprise-ai", "worker-led-adoption", "governance", "shadow-ai", "knowledge-factory"]
 related_frameworks: ["knowledge-factory", "invisible-80-percent", "factory-electrification", "workspace-as-control-plane"]
 related_posts: ["2025-09-17-the-bitter-lesson-of-workplace-ai"]
-original_url: "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/"
+original_url: "https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling"
 description: "A sequencing claim: build the knowledge factory now, and the bitter lesson thins its scaffolding later. For AI tooling, enable what workers already chose instead of engineering a replacement."
 staleness_threshold: stable
 tier: 2
@@ -19,7 +19,7 @@ The bitter lesson is a claim about *order*, not a standing rule. Now: if you wan
 
 One piece of the original argument holds unchanged, and it's about tooling: don't engineer a "better" AI tool to replace the ones workers already found. Enable those and govern the environment they run in.
 
-*Published: September 17, 2025—[Original post](https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/). Rewritten 2026-09-25 around the sequencing claim; see [how this framework changed](#how-this-framework-changed) for the lineage.*
+*Published: September 17, 2025—[Original post](https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling). Rewritten 2026-09-25 around the sequencing claim; see [how this framework changed](#how-this-framework-changed) for the lineage.*
 
 ## Two prescriptions, not one
 
@@ -49,7 +49,7 @@ The [invisible 80%](../frameworks/invisible-80-percent.md) framework established
 
 The observation behind the original claim is still true: AI can route around large parts of the cognitive scaffolding humans built to get from inputs to outputs. If you're getting SVP-level strategic support from AI, it didn't need the years of accumulated judgment beneath that level. It just arrived at the output.
 
-What doesn't follow is that the invisible part can be ignored. [Skills are all you need](https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/) is an argument *for* capturing tacit knowledge as text files. The [crawl/walk/run post](https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/) argues agents fail *precisely because* nobody did that capture work. And the invisible part never shrinks to zero: the boundary moves as AI erodes into it—60/40, 40/60, whatever the real number is for a given kind of work—but something always stays invisible, and that remainder needs deliberate capture permanently, not as a phase before AI absorbs everything.
+What doesn't follow is that the invisible part can be ignored. [Skills are all you need](https://www.citrix.com/blogs/2026-03/skills-are-all-you-need) is an argument *for* capturing tacit knowledge as text files. The [crawl/walk/run post](https://www.citrix.com/blogs/2026-05/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents) argues agents fail *precisely because* nobody did that capture work. And the invisible part never shrinks to zero: the boundary moves as AI erodes into it—60/40, 40/60, whatever the real number is for a given kind of work—but something always stays invisible, and that remainder needs deliberate capture permanently, not as a phase before AI absorbs everything.
 
 ## The connection to factory electrification
 

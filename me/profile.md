@@ -42,6 +42,6 @@ I joined Citrix in February 2025 because the AI transformation of knowledge work
 
 - [LinkedIn](https://www.linkedin.com/in/bmadden/)
 - [bmad.com](https://bmad.com)
-- [Citrix blog](https://www.citrix.com/blogs/?s=bmadden&type=author)
+- [Citrix blog](https://www.citrix.com/blogs/authors/brian-madden)
 - [Sessionize speaker profile](https://sessionize.com/brianmadden/)
 - [Speaking reel (YouTube)](https://www.youtube.com/playlist?list=PLCeRojJLb533BTXN60Io2DYRkP1wILNL7)

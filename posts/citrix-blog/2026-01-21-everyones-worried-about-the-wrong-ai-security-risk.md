@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [ai-security, ai-agents, workspace-governance, computer-using-agents, insider-threat, control-plane]
 related_frameworks: [7-stage-roadmap, workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/"
+original_url: "https://www.citrix.com/blogs/2026-01/everyones-worried-about-the-wrong-ai-security-risk"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # Everyone's worried about the wrong AI security risk
 
-[Original post](https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/)
+[Original post](https://www.citrix.com/blogs/2026-01/everyones-worried-about-the-wrong-ai-security-risk)
 
 21 Jan 2026
 

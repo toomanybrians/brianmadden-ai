@@ -1,7 +1,7 @@
 ---
 title: "How a futurist reads AI news. (Hint: ignore most of it.)"
 date: 2026-06-30
-url: https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/
+url: https://www.citrix.com/blogs/2026-06/how-a-futurist-reads-ai-news-hint-ignore-most-of-it
 tags: [futurism, methodology, cone-of-uncertainty, invariants, second-brain, cognitive-stack, 7-stage-roadmap]
 authority_level: 5
 file_type: blog
@@ -78,7 +78,7 @@ You can explore dozens of scenarios for each question, then ask yourself, "What 
 
 ## What won't change?
 
-The final technique I incorporate into my future thinking is attributed to Jeff Bezos: "Rather than asking what will change, ask what will stay the same. Then build your strategy around those constants." (I explored this fully a few months ago in the post, [What's left for humans?](https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/))
+The final technique I incorporate into my future thinking is attributed to Jeff Bezos: "Rather than asking what will change, ask what will stay the same. Then build your strategy around those constants." (I explored this fully a few months ago in the post, [What's left for humans?](https://www.citrix.com/blogs/2026-04/whats-left-for-humans))
 
 For AI specifically, coming up with a list of "what stays the same" is pretty straightforward. A couple examples off the top of my head:
 

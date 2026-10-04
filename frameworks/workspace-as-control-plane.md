@@ -6,7 +6,7 @@ file_type: framework
 tags: ["governance", "enterprise-ai", "security", "workspace"]
 related_frameworks: ["post-application-era", "bitter-lesson", "factory-electrification"]
 related_posts: ["2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025", "2025-06-05-ai-agents-need-a-secure-place-to-work"]
-original_url: "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/"
+original_url: "https://www.citrix.com/blogs/2025-05/the-desktop-has-dissolved-now-where-does-work-live-in-2025"
 description: "AI is showing up everywhere—in apps, browsers, OS, standalone tools. The only place you can govern all of it consistently is the workspace layer."
 staleness_threshold: stable
 tier: 2
@@ -17,7 +17,7 @@ status: reviewed
 
 The traditional desktop was the center of work—a physical machine where everything converged. That world is gone. The modern workspace is not a device, OS, or browser. It is a fungible abstraction that comes to life wherever apps, identity, security, and context converge around a worker.
 
-*Published: May 1, 2025 — [Original post](https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/)*
+*Published: May 1, 2025 — [Original post](https://www.citrix.com/blogs/2025-05/the-desktop-has-dissolved-now-where-does-work-live-in-2025)*
 
 ## The formula
 

@@ -1,7 +1,7 @@
 [
   {
     "title": "You can't transform the AI you can't see",
-    "url": "https://www.citrix.com/blogs/2026/09/14/you-cant-transform-the-ai-you-cant-see/",
+    "url": "https://www.citrix.com/blogs/2026-09/you-cant-transform-the-ai-you-cant-see",
     "date": "2026-09-14",
     "type": "blog",
     "description": "Reframes AI strategy as a visibility problem, not a platform-selection problem: AI is already in every company from every direction, so the real first-step questions are what AI is running, what data it reaches, whose identity it uses, and who can see it. Shadow AI isn't just another round of shadow IT — the consumerization playbook isn't closing the gap. Visibility is step one of transformation, not a separate security initiative, built on the same access/governance/control playbook IT has run for decades pointed at AI: gateway-routed traffic, agent-specific restricted identities instead of inherited human permissions, recorded/replayable agent sessions, and MCP delivered through infrastructure that already handles identity and policy (\"the S in MCP stands for security\"). None of it requires a migration. The payoff: the same instrumentation that governs AI is what finally makes tacit, undocumented work visible — the on-ramp to the knowledge factory."
@@ -22,7 +22,7 @@
   },
   {
     "title": "How to build an AI strategy that survives the bubble pop",
-    "url": "https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/",
+    "url": "https://www.citrix.com/blogs/2026-07/how-to-build-an-ai-strategy-that-survives-the-bubble-pop",
     "date": "2026-07-20",
     "type": "blog",
     "description": "Whether or when an AI investment bubble pops shouldn't change a well-built AI strategy, because a good one is built on invariants: what's true in every future. A pop means capabilities stop increasing and/or costs stop decreasing, and the 'we'll keep the infrastructure' comfort isn't guaranteed here. The reliable planning floor is open-weight models, whose weights are already released and servable no matter what happens to the labs. Today's best sit between Sonnet and Opus, so assume anything you can do with Sonnet today survives the pop. The five moves that pay off in every scenario: build your second brain, build the organizational knowledge factory, govern the workspace not the model, get serious about model routing and token economics, and keep your data portable."
@@ -43,7 +43,7 @@
   },
   {
     "title": "How a futurist reads AI news. (Hint: ignore most of it.)",
-    "url": "https://www.citrix.com/blogs/2026/06/30/how-a-futurist-reads-ai-news-hint-ignore-most-of-it/",
+    "url": "https://www.citrix.com/blogs/2026-06/how-a-futurist-reads-ai-news-hint-ignore-most-of-it",
     "date": "2026-06-30",
     "type": "blog",
     "description": "Most of what you read about AI doesn't matter — not because it's wrong, but because it's noise. A futurist's job isn't to predict the future; it's to narrow the cone of uncertainty and identify what's common across every plausible future. Two techniques: live 6+ months ahead of the mainstream (so your starting point sits further up the cone), and ask what stays the same across every scenario (Bezos invariants). A two-question filter for any AI news story: does it shift the cone of plausible futures, or just add another dot? Does it change any of the invariants? If neither, it's part of the 95% you can ignore."
@@ -79,7 +79,7 @@
   },
   {
     "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
-    "url": "https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/",
+    "url": "https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition",
     "date": "2026-06-10",
     "type": "blog",
     "description": "Major update to the original 2025 roadmap. Reframed around what the worker becomes, not what AI does. Stage 3 (AI as Cognitive Extension / second brain) is entirely new for 2026. Stage 7 is now The Published Self. Timelines were off by 3x—stages arrived much faster than predicted."
@@ -101,7 +101,7 @@
   },
   {
     "title": "Announcing our new podcast: the Citrix AI Hotsheet",
-    "url": "https://www.citrix.com/blogs/2026/05/21/aihotsheet/",
+    "url": "https://www.citrix.com/blogs/2026-05/aihotsheet",
     "date": "2026-05-21",
     "type": "blog",
     "description": "Brian Madden and Dave Brear launch the Citrix AI Hotsheet podcast. Brian (futurist: where things are going) + Dave (architect: what customers are dealing with today) covering AI entering the enterprise workspace for IT leaders in regulated environments. Episode 1 covers CUAs, semantic primitives, second brains / context vaults, and connecting two public second brains via MCP."
@@ -115,14 +115,14 @@
   },
   {
     "title": "Why enterprise AI agents disappoint (and why the fix is not 'better agents')",
-    "url": "https://www.citrix.com/blogs/2026/05/07/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents/",
+    "url": "https://www.citrix.com/blogs/2026-05/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents",
     "date": "2026-05-07",
     "type": "blog",
     "description": "Enterprise agent pilots are stalling because companies are skipping from 'crawl' (chat) to 'run' (autonomous agents) without 'walk' (context, skills, judgment). Even after you can run, you still mostly walk — successful AI use is choosing the right cognitive-stack layer per task. Includes the four-layer Excel example with token costs."
   },
   {
     "title": "The SaaSpocalypse won't touch the enterprise software moat",
-    "url": "https://www.citrix.com/blogs/2026/04/22/the-saaspocalypse-wont-touch-the-enterprise-software-moat/",
+    "url": "https://www.citrix.com/blogs/2026-04/the-saaspocalypse-wont-touch-the-enterprise-software-moat",
     "date": "2026-04-22",
     "type": "blog",
     "description": "AI isn't eating software as a category — it's eating a specific layer. Three tiers: shallow UX-as-moat SaaS is toast, middle horizontal enterprise SaaS is squeezed, the deep layer of vertical regulated systems of record (Epic, SAP, Amadeus, bank cores, industrial control) doesn't move. AI dissolves UIs, not systems of record."
@@ -143,7 +143,7 @@
   },
   {
     "title": "What's left for humans?",
-    "url": "https://www.citrix.com/blogs/2026/04/09/whats-left-for-humans/",
+    "url": "https://www.citrix.com/blogs/2026-04/whats-left-for-humans",
     "date": "2026-04-09",
     "type": "blog",
     "description": "If AI does everything, what's left for humans? Governance scope explodes, economics get quantified, and the bottleneck always shifts. The answer is a point-in-time snapshot, not a destination."
@@ -165,7 +165,7 @@
   },
   {
     "title": "Skills are all you need",
-    "url": "https://www.citrix.com/blogs/2026/03/12/skills-are-all-you-need/",
+    "url": "https://www.citrix.com/blogs/2026-03/skills-are-all-you-need",
     "date": "2026-03-12",
     "type": "blog",
     "description": "Why plain-English skill files are replacing software, automations, and entire job categories. Skills appreciate; software depreciates."
@@ -187,14 +187,14 @@
   },
   {
     "title": "Understanding the cognitive stack: why your AI strategy is focused on the wrong layer",
-    "url": "https://www.citrix.com/blogs/2026/02/25/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer/",
+    "url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer",
     "date": "2026-02-25",
     "type": "blog",
     "description": "A five-layer model of how intelligence coordinates complex work. The enterprise AI industry is spending billions on the bottom two layers."
   },
   {
     "title": "What will knowledge work be in 18 months? Look at what AI is doing to coding right now.",
-    "url": "https://www.citrix.com/blogs/2026/02/19/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
+    "url": "https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
     "date": "2026-02-19",
     "type": "blog",
     "description": "Software engineering is the leading indicator for all knowledge work. The five levels of human-AI collaboration map the trajectory."
@@ -208,7 +208,7 @@
   },
   {
     "title": "Workers' \"second brains\" break every assumption about how we secure knowledge work",
-    "url": "https://www.citrix.com/blogs/2026/02/11/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work/",
+    "url": "https://www.citrix.com/blogs/2026-02/workers-second-brains-break-every-assumption-about-how-we-secure-knowledge-work",
     "date": "2026-02-11",
     "type": "blog",
     "description": "Personal AI knowledge systems change the security threat model entirely. You must assume everything a worker hears or reads enters their knowledge base within seconds."
@@ -229,7 +229,7 @@
   },
   {
     "title": "OpenClaw and Moltbook preview the changes needed with corporate AI governance",
-    "url": "https://www.citrix.com/blogs/2026/02/04/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance/",
+    "url": "https://www.citrix.com/blogs/2026-02/openclaw-and-moltbook-preview-the-changes-needed-with-corporate-ai-governance",
     "date": "2026-02-04",
     "type": "blog",
     "description": "Worker-built AI tools are emerging faster than governance frameworks can handle. Two real examples of what is coming."
@@ -243,14 +243,14 @@
   },
   {
     "title": "Everyone's worried about the wrong AI security risk",
-    "url": "https://www.citrix.com/blogs/2026/01/21/everyones-worried-about-the-wrong-ai-security-risk/",
+    "url": "https://www.citrix.com/blogs/2026-01/everyones-worried-about-the-wrong-ai-security-risk",
     "date": "2026-01-21",
     "type": "blog",
     "description": "The real risk is not secrets leaking into AI models. It is workers building personal knowledge systems that leave with them."
   },
   {
     "title": "The invisible 80%—what corporate-led AI transformations can't see",
-    "url": "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/",
+    "url": "https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see",
     "date": "2026-01-13",
     "type": "blog",
     "description": "Corporate AI can only reach the 20% of work that is visible. The other 80% lives in workers' heads, and only they can reach it."
@@ -272,7 +272,7 @@
   },
   {
     "title": "Workers don't want to build automations. They want to delegate.",
-    "url": "https://www.citrix.com/blogs/2025/12/18/workers-dont-want-to-build-automations-they-want-to-delegate/",
+    "url": "https://www.citrix.com/blogs/2025-12/workers-dont-want-to-build-automations-they-want-to-delegate",
     "date": "2025-12-18",
     "type": "blog",
     "description": "The 'AI automation studio' vision fails because workers think like managers, not programmers. Delegation beats engineering."
@@ -287,7 +287,7 @@
   },
   {
     "title": "AI will be THE interface to knowledge work. Here's how we'll get there.",
-    "url": "https://www.citrix.com/blogs/2025/12/10/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there/",
+    "url": "https://www.citrix.com/blogs/2025-12/ai-will-be-the-interface-to-knowledge-work-heres-how-well-get-there",
     "date": "2025-12-10",
     "type": "blog",
     "description": "AI platforms, not apps, become the primary interface to work. The pathway from copilot to workspace to orchestrator."
@@ -301,7 +301,7 @@
   },
   {
     "title": "IT admits workers control AI. Workers admit they use it to leave at 5.",
-    "url": "https://www.citrix.com/blogs/2025/12/03/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5/",
+    "url": "https://www.citrix.com/blogs/2025-12/it-admits-workers-control-ai-workers-admit-they-use-it-to-leave-at-5",
     "date": "2025-12-03",
     "type": "blog",
     "description": "Microsoft Ignite survey confirms: workers control AI adoption, not IT. And workers keep the productivity gains for themselves."
@@ -315,7 +315,7 @@
   },
   {
     "title": "Everyone wants to provide your AI. Nobody wants to help you manage it.",
-    "url": "https://www.citrix.com/blogs/2025/11/13/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it",
+    "url": "https://www.citrix.com/blogs/2025-11/everyone-wants-to-provide-your-ai-nobody-wants-to-help-you-manage-it",
     "date": "2025-11-13",
     "type": "blog",
     "description": "A typical worker encounters 5+ different AIs daily. The governance gap between AI provision and AI management is widening."
@@ -329,7 +329,7 @@
   },
   {
     "title": "Will AI need to operate your legacy desktop apps, or is direct file manipulation enough?",
-    "url": "https://www.citrix.com/blogs/2025/10/15/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough/",
+    "url": "https://www.citrix.com/blogs/2025-10/will-ai-need-to-operate-your-legacy-desktop-apps-or-is-direct-file-manipulation-enough",
     "date": "2025-10-15",
     "type": "blog",
     "description": "An epiphany: Claude edited an Excel file without opening Excel. What happens when AI does not need the application at all?"
@@ -343,14 +343,14 @@
   },
   {
     "title": "AI just created 10,000 accidental citizen developers in your company. Welcome to the post-application era!",
-    "url": "https://www.citrix.com/blogs/2025/10/01/welcome-to-the-post-application-era/",
+    "url": "https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era",
     "date": "2025-10-01",
     "type": "blog",
     "description": "The ratio inverted from one app per ten users to ten apps per employee. Software creation costs approaching zero changes everything."
   },
   {
     "title": "The bitter lesson of workplace AI: Stop engineering, start enabling",
-    "url": "https://www.citrix.com/blogs/2025/09/17/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling/",
+    "url": "https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling",
     "date": "2025-09-17",
     "type": "blog",
     "description": "Applying Rich Sutton’s bitter lesson to the enterprise: simple, worker-driven AI adoption beats elaborate IT-engineered solutions. Every time."
@@ -364,7 +364,7 @@
   },
   {
     "title": "If AI is normal technology, boring infrastructure is your best strategy",
-    "url": "https://www.citrix.com/blogs/2025/09/10/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy/",
+    "url": "https://www.citrix.com/blogs/2025-09/if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy",
     "date": "2025-09-10",
     "type": "blog",
     "description": "If AI takes years to integrate like every other technology wave, stable and flexible infrastructure beats chasing shiny objects."
@@ -379,7 +379,7 @@
   },
   {
     "title": "Worker-led AI isn't shadow IT. It's shadow strategy.",
-    "url": "https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/",
+    "url": "https://www.citrix.com/blogs/2025-09/worker-led-ai-isnt-shadow-it-its-shadow-strategy",
     "date": "2025-09-02",
     "type": "blog",
     "description": "Reframing worker-led AI adoption from compliance problem to the real innovation engine that enterprises should enable, not contain."
@@ -393,21 +393,21 @@
   },
   {
     "title": "Everyone's wrong about why enterprise AI is failing",
-    "url": "https://www.citrix.com/blogs/2025/08/27/everyones-wrong-about-why-enterprise-ai-is-failing/",
+    "url": "https://www.citrix.com/blogs/2025-08/everyones-wrong-about-why-enterprise-ai-is-failing",
     "date": "2025-08-27",
     "type": "blog",
     "description": "The transformation McKinsey promises with future agents is being attempted right now by workers with today's consumer AI tools."
   },
   {
     "title": "If AI progress stopped today, we can still transform the enterprise with what we have",
-    "url": "https://www.citrix.com/blogs/2025/08/11/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have/",
+    "url": "https://www.citrix.com/blogs/2025-08/if-ai-progress-stopped-today-we-can-still-transform-the-enterprise-with-what-we-have",
     "date": "2025-08-11",
     "type": "blog",
     "description": "Even if all AI development stopped today, five-plus years of transformation ahead just integrating what already exists."
   },
   {
     "title": "AI agents are the new insider threat. Secure them like human workers.",
-    "url": "https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/",
+    "url": "https://www.citrix.com/blogs/2025-08/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers",
     "date": "2025-08-04",
     "type": "blog",
     "description": "AI agents are autonomous workers, not tools. They need identities, access controls, and governance like any other insider."
@@ -422,42 +422,42 @@
   },
   {
     "title": "What happens when AI agents score 100% in computing using benchmarks?",
-    "url": "https://www.citrix.com/blogs/2025/07/24/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks/",
+    "url": "https://www.citrix.com/blogs/2025-07/what-happens-when-ai-agents-score-100-in-computing-using-benchmarks",
     "date": "2025-07-24",
     "type": "blog",
     "description": "Exploring what perfect CUA benchmark scores mean for enterprise IT. Agents that can operate any application change the governance model."
   },
   {
     "title": "Why AI agents will use the same desktops and apps as human workers",
-    "url": "https://www.citrix.com/blogs/2025/07/16/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers/",
+    "url": "https://www.citrix.com/blogs/2025-07/why-ai-agents-will-use-the-same-desktops-and-apps-as-human-workers",
     "date": "2025-07-16",
     "type": "blog",
     "description": "AI operating GUIs is not a bug but a feature. Agents need the same workspace infrastructure as humans."
   },
   {
     "title": "To understand AI's future impact, check out this playbook from 150 years ago",
-    "url": "https://www.citrix.com/blogs/2025/07/08/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago/",
+    "url": "https://www.citrix.com/blogs/2025-07/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
     "date": "2025-07-08",
     "type": "blog",
     "description": "The factory electrification parallel: it took 30 years to redesign factories around electricity. AI adoption is following the same arc."
   },
   {
     "title": "The 7-stage roadmap for human-AI collaboration in the workplace",
-    "url": "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace",
+    "url": "https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace",
     "date": "2025-06-24",
     "type": "blog",
     "description": "Seven stages from “prompt and paste” to AI-orchestrated work. Your workers are already in Stage 2. Are you ready for Stage 5?"
   },
   {
     "title": "Forget the model wars. The real AI race is in the workplace.",
-    "url": "https://www.citrix.com/blogs/2025/06/05/forget-the-model-wars-the-real-ai-race-is-in-the-workplace/",
+    "url": "https://www.citrix.com/blogs/2025-06/forget-the-model-wars-the-real-ai-race-is-in-the-workplace",
     "date": "2025-06-05",
     "type": "blog",
     "description": "Mary Meeker’s 340-page AI report analyzed through the lens of workplace transformation and why agents need secure workspaces."
   },
   {
     "title": "What if your CEO never sends the AI-first memo?",
-    "url": "https://www.citrix.com/blogs/2025/05/28/what-if-your-ceo-never-sends-the-ai-first-memo/",
+    "url": "https://www.citrix.com/blogs/2025-05/what-if-your-ceo-never-sends-the-ai-first-memo",
     "date": "2025-05-28",
     "type": "blog",
     "description": "Workers are not waiting for strategy memos. The transformation is happening without permission, and that is the point."
@@ -471,28 +471,28 @@
   },
   {
     "title": "Your CEO just sent a company-wide \"AI-First\" memo. Now what?",
-    "url": "https://www.citrix.com/blogs/2025/05/19/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what/",
+    "url": "https://www.citrix.com/blogs/2025-05/your-ceo-just-sent-a-company-wide-ai-first-memo-now-what",
     "date": "2025-05-19",
     "type": "blog",
     "description": "Analyzing the CEO memo trend (Shopify, Duolingo, Box). What these memos get right, what they miss, and what to do next."
   },
   {
     "title": "The desktop has dissolved. Now where does work live in 2025?",
-    "url": "https://www.citrix.com/blogs/2025/05/01/the-desktop-has-dissolved-now-where-does-work-live-in-2025/",
+    "url": "https://www.citrix.com/blogs/2025-05/the-desktop-has-dissolved-now-where-does-work-live-in-2025",
     "date": "2025-05-01",
     "type": "blog",
     "description": "The workspace is not a device, OS, or browser. It is a dynamic abstraction where apps, identity, security, and context converge."
   },
   {
     "title": "What does \"AI\" mean at Citrix?",
-    "url": "https://www.citrix.com/blogs/2025/04/21/what-does-ai-mean-at-citrix/",
+    "url": "https://www.citrix.com/blogs/2025-04/what-does-ai-mean-at-citrix",
     "date": "2025-04-21",
     "type": "blog",
     "description": "Three categories: AI in products, AI used internally, and AI reshaping customers' workplaces. The third is the transformation that matters."
   },
   {
     "title": "Making sense of AI in the workplace: A starting point for leaders",
-    "url": "https://www.citrix.com/blogs/2025/04/14/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders",
+    "url": "https://www.citrix.com/blogs/2025-04/making-sense-of-ai-in-the-workplace-a-starting-point-for-leaders",
     "date": "2025-04-14",
     "type": "blog",
     "description": "AI did not wait for strategy memos. Workers do not care about ROI debates. Here is where to actually start."
@@ -506,7 +506,7 @@
   },
   {
     "title": "Why I joined Citrix and what I'm excited about",
-    "url": "https://www.citrix.com/blogs/2025/04/07/why-i-joined-citrix-and-what-im-excited-about/",
+    "url": "https://www.citrix.com/blogs/2025-04/why-i-joined-citrix-and-what-im-excited-about",
     "date": "2025-04-07",
     "type": "blog",
     "description": "After 30 years orbiting Citrix, the reason to join now: we are on the cusp of the greatest workplace transformation of our lives."

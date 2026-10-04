@@ -127,7 +127,7 @@ Bonus: OpenAI's agents hacking Hugging Face. New details came out in the last fe
 - [Citrix SecurSpaces](https://www.citrix.com/platform-flex/securspaces.html)
 - [NetScaler AI Gateway](https://docs.netscaler.com/en-us/citrix-adc/current-release/ai-gateway.html)
 - [Brian: I built a second brain using AI, and it's changed the way I work](https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote)
-- [Brian: AI agents are the new insider threat. Secure them like human workers. (Citrix, 2025)](https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/)
+- [Brian: AI agents are the new insider threat. Secure them like human workers. (Citrix, 2025)](https://www.citrix.com/blogs/2025-08/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers)
 - [EP 4: OSWorld 2.0, AI Reconciliation Maps, & the Futurist's Playbook](https://www.youtube.com/watch?v=iRokb-q-gsA)
 - [EP 3: Second brains hit the enterprise wall — and why AI automations won't save you](https://www.youtube.com/watch?v=FjVOnYfJYRo)
 - [EP 1: AI agents, second brains, and the enterprise AI gap](https://www.youtube.com/watch?v=55y_XUWGUnQ)

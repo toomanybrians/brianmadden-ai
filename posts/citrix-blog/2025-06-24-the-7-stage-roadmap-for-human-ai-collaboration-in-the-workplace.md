@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [ai-agents, human-ai-collaboration, computer-using-agents, workspace-as-control-plane, ai-in-the-workplace, frameworks]
 related_frameworks: [7-stage-roadmap, workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/"
+original_url: "https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # The 7-stage roadmap for human-AI collaboration in the workplace
 
-[Original post](https://www.citrix.com/blogs/2025/06/24/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace/)
+[Original post](https://www.citrix.com/blogs/2025-06/the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace)
 
 June 24, 2025
 

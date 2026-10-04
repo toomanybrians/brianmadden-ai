@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [enterprise-ai-strategy, worker-led-ai, shadow-ai, ai-in-the-workplace, workflow-transformation]
 related_frameworks: [invisible-80-percent, workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/08/27/everyones-wrong-about-why-enterprise-ai-is-failing/"
+original_url: "https://www.citrix.com/blogs/2025-08/everyones-wrong-about-why-enterprise-ai-is-failing"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # Everyone's wrong about why enterprise AI is failing
 
-[Original post](https://www.citrix.com/blogs/2025/08/27/everyones-wrong-about-why-enterprise-ai-is-failing/)
+[Original post](https://www.citrix.com/blogs/2025-08/everyones-wrong-about-why-enterprise-ai-is-failing)
 
 Aug 27, 2025
 

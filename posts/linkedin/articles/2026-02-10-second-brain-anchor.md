@@ -16,7 +16,7 @@ status: reviewed
 *Brian Madden—February 2026*
 *Published: https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote*
 
-I've spent over 30 years in enterprise IT. I've led analyst teams, done corporate strategy, built & sold companies, and now I'm VP & Futurist at [Citrix](https://www.citrix.com/blogs/?s=bmadden&type=author/). All of that knowledge—every framework, every hard-won insight, every pattern I've learned to recognize—lived in one place: my head. If you wanted access to it, you had to talk to me. And even then, I could only leverage what I happened to remember in the moment.
+I've spent over 30 years in enterprise IT. I've led analyst teams, done corporate strategy, built & sold companies, and now I'm VP & Futurist at [Citrix](https://www.citrix.com/blogs/authors/brian-madden). All of that knowledge—every framework, every hard-won insight, every pattern I've learned to recognize—lived in one place: my head. If you wanted access to it, you had to talk to me. And even then, I could only leverage what I happened to remember in the moment.
 
 Now it lives in a folder of plain text files on my laptop. And an AI reads all of them, maintains them, and builds on them every single day.
 

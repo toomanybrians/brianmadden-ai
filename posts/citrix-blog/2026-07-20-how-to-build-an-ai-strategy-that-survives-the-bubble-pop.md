@@ -1,7 +1,7 @@
 ---
 title: "How to build an AI strategy that survives the bubble pop"
 date: 2026-07-20
-url: https://www.citrix.com/blogs/2026/07/20/how-to-build-an-ai-strategy-that-survives-the-bubble-pop/
+url: https://www.citrix.com/blogs/2026-07/how-to-build-an-ai-strategy-that-survives-the-bubble-pop
 tags: [ai-bubble, invariants, open-weight-models, second-brain, knowledge-factory, workspace-as-control-plane, token-economics, data-portability, futurism]
 authority_level: 5
 file_type: blog

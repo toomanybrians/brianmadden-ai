@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [worker-led-ai, shadow-ai, enterprise-ai-strategy, workspace-as-control-plane, workflow-transformation]
 related_frameworks: [workspace-as-control-plane, invisible-80-percent]
-original_url: "https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/"
+original_url: "https://www.citrix.com/blogs/2025-09/worker-led-ai-isnt-shadow-it-its-shadow-strategy"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # Worker-led AI isn't shadow IT. It's shadow strategy.
 
-[Original post](https://www.citrix.com/blogs/2025/09/02/worker-led-ai-isnt-shadow-it-its-shadow-strategy/)
+[Original post](https://www.citrix.com/blogs/2025-09/worker-led-ai-isnt-shadow-it-its-shadow-strategy)
 
 Sept 2, 2025
 

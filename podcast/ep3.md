@@ -72,7 +72,7 @@ Dave closes with his own story: what happened when he moved his second brain fro
 
 ## Links mentioned
 
-- [Brian's 7-stage roadmap, 2026 edition (Citrix blog)](https://www.citrix.com/blogs/2026/06/10/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition/)
+- [Brian's 7-stage roadmap, 2026 edition (Citrix blog)](https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition)
 - [Dave Brear: My second brain just got a security clearance](https://www.linkedin.com/pulse/my-second-brain-just-got-security-clearance-dave-brear-akv9e/)
 - [EP 2: The Last Chapter of EUC](https://www.youtube.com/watch?v=Bgxx4UCtb6k)
 - [EP 1: AI agents, second brains, and the enterprise AI gap](https://www.youtube.com/watch?v=55y_XUWGUnQ)

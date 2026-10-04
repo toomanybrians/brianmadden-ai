@@ -19,7 +19,7 @@ They also have a free weekly newsletter ([ExecAI Insider Weekly](https://smarter
 - [Nate B. Jones](https://www.linkedin.com/in/natebjones/) -- [YouTube](https://www.youtube.com/@NateBJones) (must-watch for me), also has a [Substack](https://natesnewsletter.substack.com)
 - [Daniel Miessler](https://www.linkedin.com/in/danielmiessler/) -- [Unsupervised Learning](https://danielmiessler.com)
 - [Aaron Levie](https://www.linkedin.com/in/boxaaron/) -- CEO at Box
-- [Brian Madden](https://www.linkedin.com/in/bmadden) -- [My blog on Citrix.com](https://www.citrix.com/blogs/?s=bmadden&type=author/)
+- [Brian Madden](https://www.linkedin.com/in/bmadden) -- [My blog on Citrix.com](https://www.citrix.com/blogs/authors/brian-madden)
 
 ## Podcasts I never miss
 

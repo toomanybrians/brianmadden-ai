@@ -5,7 +5,7 @@ authority_level: 5
 file_type: citrix-blog-post
 tags: [ai-agents, security, identity, ai-agent-identity, insider-threat, workspace-as-control-plane]
 related_frameworks: [7-stage-roadmap, workspace-as-control-plane]
-original_url: "https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/"
+original_url: "https://www.citrix.com/blogs/2025-08/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers"
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -13,7 +13,7 @@ status: reviewed
 
 # AI agents are the new insider threat. Secure them like human workers.
 
-[Original post](https://www.citrix.com/blogs/2025/08/04/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers/)
+[Original post](https://www.citrix.com/blogs/2025-08/ai-agents-are-the-new-insider-threat-secure-them-like-human-workers)
 
 August 4, 2025
 

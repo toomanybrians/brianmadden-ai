@@ -6,7 +6,7 @@ file_type: framework
 tags: ["knowledge-work", "worker-led-adoption", "enterprise-ai", "second-brain"]
 related_frameworks: ["bitter-lesson", "factory-electrification"]
 related_posts: ["2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see", "2026-02-10-second-brain-anchor"]
-original_url: "https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/"
+original_url: "https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see"
 description: "The 80% of knowledge work that only the worker can see is exactly the 80% that corporate AI can't touch. That's why worker-led AI wins."
 staleness_threshold: stable
 tier: 2
@@ -17,7 +17,7 @@ status: reviewed
 
 My core argument for why corporate AI fails and worker-led AI succeeds.
 
-*Published: January 13, 2026 — [Original post](https://www.citrix.com/blogs/2026/01/13/the-invisible-80-what-corporate-led-ai-transformations-cant-see/); expanded in [February 10, 2026 LinkedIn article](https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote)*
+*Published: January 13, 2026 — [Original post](https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see); expanded in [February 10, 2026 LinkedIn article](https://www.linkedin.com/pulse/i-built-second-brain-using-ai-its-changed-way-work-future-madden-0tote)*
 
 ## The framework
 
