@@ -3849,3 +3849,10 @@ skills, the old daily-briefing scripts. Note: the KV sync workflow doesn't
 exclude `.claude/` or `outputs/`, so audit reports and lessons.md reach the
 public MCP; the red-team section of an audit should stay free of anything
 sensitive.
+
+**Follow-up, same day:** `sync-to-cloudflare-kv.yml` now also excludes `.claude/`
+and `outputs/audits/` (all four filter sites: changed-files, full sync, deletion
+handler, search-index builder; the rest of `outputs/` still syncs). This only
+stops future uploads. Keys already in KV (`file:.claude/...`, `file:outputs/audits/...`,
+possibly the older `.claude/skills/*` from August) are not removed by it and need
+a one-off manual delete with Cloudflare credentials.

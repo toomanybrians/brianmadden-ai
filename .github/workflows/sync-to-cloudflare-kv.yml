@@ -67,7 +67,11 @@ jobs:
       # v2-rebuild session journal — CLAUDE.md's own router sends
       # *maintaining* AIs to these instead of loading the module, so they
       # were never meant to be part of the module content itself; added to
-      # this exclusion at the v2 merge, 2026-08-19).
+      # this exclusion at the v2 merge, 2026-08-19). Also excluded
+      # (2026-10-04): .claude/ (maintainer skills, hooks, lessons.md) and
+      # outputs/audits/ (monthly system-audit reports) — repo-plumbing, not
+      # Brian's thinking; the rest of outputs/ still syncs. Exclusion only
+      # stops *future* uploads: keys already in KV need deleting by hand.
       - name: Get changed files
         id: changed
         run: |
@@ -76,7 +80,7 @@ jobs:
             echo "has_changes=false" >> $GITHUB_OUTPUT
             echo "needs_full_sync=true" >> $GITHUB_OUTPUT
           else
-            CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null | grep -vE '^ingest/|^MAINTAINER\.md$|^BUILD\.md$' || echo "")
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null | grep -vE '^ingest/|^MAINTAINER\.md$|^BUILD\.md$|^\.claude/|^outputs/audits/' || echo "")
             if [ -z "$CHANGED" ]; then
               echo "No content files changed"
               echo "has_changes=false" >> $GITHUB_OUTPUT
@@ -126,7 +130,7 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
         run: |
-          find . \( -name '*.md' -o -name '*.txt' -o -name '*.json' \) | grep -v node_modules | grep -v .github | grep -vE "^\./ingest/|^\./MAINTAINER\.md\$|^\./BUILD\.md\$" | while IFS= read -r file; do
+          find . \( -name '*.md' -o -name '*.txt' -o -name '*.json' \) | grep -v node_modules | grep -v .github | grep -vE "^\./ingest/|^\./MAINTAINER\.md\$|^\./BUILD\.md\$|^\./\.claude/|^\./outputs/audits/" | while IFS= read -r file; do
             file="${file#./}"
             KEY="file:${file}"
             echo "Uploading: $KEY"
@@ -151,7 +155,7 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
         run: |
-          DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null | grep -vE '^ingest/|^MAINTAINER\.md$|^BUILD\.md$' || echo "")
+          DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- '*.md' '*.txt' '*.json' 2>/dev/null | grep -vE '^ingest/|^MAINTAINER\.md$|^BUILD\.md$|^\.claude/|^outputs/audits/' || echo "")
           if [ -z "$DELETED" ]; then
             echo "No files deleted"
             exit 0
@@ -192,7 +196,8 @@ jobs:
               rel_root = os.path.relpath(root, ".")
               if rel_root == ".":
                   rel_root = ""
-              if rel_root == "ingest" or rel_root.startswith("ingest" + os.sep):
+              if any(rel_root == x or rel_root.startswith(x + os.sep)
+                     for x in ("ingest", ".claude", os.path.join("outputs", "audits"))):
                   continue
               for name in files:
                   if not (name.endswith(".md") or name.endswith(".txt") or name.endswith(".json")):
