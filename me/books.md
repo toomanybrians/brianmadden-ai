@@ -22,7 +22,7 @@ Employees have begun demanding to do work from mobile devices like iPhones, iPad
 
 The enterprise mobility management (EMM) industry has responded with technologies like mobile device management (MDM), mobile app management (MAM), mobile virtualization, app wrapping, "containerization," and mobile file syncing. All this technology is new, and it's evolving rapidly. The stakes are high: Thanks to the consumerization of IT, if a company doesn't figure out how to deal with mobility, users will bring in their own phones and tablets and do whatever they want anyway.
 
-[Amazon](https://www.amazon.com/Enterprise-Mobility-Management-Everything-about-ebook/dp/B00DK2GHHA)
+[Amazon](https://www.amazon.com/Enterprise-Mobility-Management-Everything-about/dp/0989650618/)
 
 ## The New VDI Reality
 

@@ -1,69 +1,55 @@
 ---
-title: "Brian Madden: full bio"
+title: "Brian Madden: bio"
 authority_level: 3
 file_type: page
 tags: ["biography", "identity", "books", "career"]
 staleness_threshold: months
 publish_target: "Substack custom page, linked from the site navigation (the short version stays on the About page)"
-description: "Brian Madden's full bio: VP & Futurist at Citrix, 32 years in end-user computing, author, conference founder, and pinball software maker."
+description: "Brian Madden's full bio. VP & futurist at Citrix, 32 years in enterprise tech, author, speaker, pinball maker."
+source_note: "Text is Brian's own, copied from bmad.com/bio on 2026-10-04. Only the photo block and two /books links were changed for Substack."
 tier: 2
 status: not-reviewed-by-human
 ---
-
 # Brian Madden
 
-I'm a VP & Futurist at [Citrix](https://citrix.com), where I explore how AI is reshaping knowledge work. I've spent 32 years in end-user computing and the digital workplace. Along the way I've written six books, published more than 2,000 articles, and given over 1,000 talks around the world.
+I'm a VP & futurist at [Citrix](https://citrix.com), where I explore how AI is reshaping knowledge work. I write regularly on [citrix.com/blogs](https://www.citrix.com/blogs/authors/brian-madden), discuss workplace AI on [LinkedIn](https://linkedin.com/in/bmadden) and [Bluesky](https://bsky.app/profile/bmad.com), and give talks globally on this topic.
 
-I grew up in Akron, Ohio, and now live in Paris.
+I've spent the past 32 years focusing on end-user computing, digital workplace trends, and the evolving nature of knowledge work. Along the way I've started and invested in companies, written 6 [books](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/books.md), published more than 2,000 articles, and delivered over 1,000 talks around the world.
+
+I've advised and invested in several startups, including FSLogix (acquired by Microsoft in 2018), and worked at VMware as a [Distinguished Technologist](https://www.youtube.com/watch?v=VqFJ7ns8FBU) in the EUC Office of the CTO.
 
 ## Right now
 
-I write about AI and the future of work on the [Citrix blog](https://www.citrix.com/blogs/authors/brian-madden) and here on this Substack. I co-host the [Citrix AI Hotsheet](https://citrixaihotsheet.riverside.com/) podcast with Dave Brear. I also speak at conferences and customer events. You can find [the speeches and talks](https://www.brianmadden.ai/t/speech) in the archive here.
+I'm at Citrix working to connect the dots between AI, secure workspaces, and the future of work. That includes shaping our strategy, writing about the shift in knowledge work, and showing how Citrix is uniquely positioned to support the rise of AI-assisted and AI-driven workers securely and at scale.
 
-Most of my work comes down to one question. How do real workers use technology, and how do companies govern that without killing what makes it useful? I've watched every wave of enterprise technology follow the same pattern: hype, resistance, workers adopting the consumer version anyway, and IT eventually providing a governed one. AI is following the same pattern, only faster.
+## BrianMadden.com & BriForum
 
-## My thinking, in the open
+I launched The Brian Madden Company—best known for our independent EUC industry site [BrianMadden.com](https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/)—and founded the [BriForum](https://www.linkedin.com/feed/update/urn:li:activity:7316429841770205184/) conference, which ran for over a decade across cities worldwide. TechTarget acquired us in 2008, and I stayed on until 2016.
 
-I keep my frameworks and my current thinking in a public [GitHub repo](https://github.com/toomanybrians/brianmadden-ai), so you can read the real files instead of my summary of them.
+## Best-selling author
 
-- [My frameworks](https://github.com/toomanybrians/brianmadden-ai/tree/main/frameworks): the 7-stage roadmap, the cognitive stack, the invisible 80%, the post-application era, and others.
-- [What I'm thinking about right now](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/developing-thinking.md): the unfinished arguments, updated often.
+I've written six books and edited & published four others, all about end-user computing technologies and strategies. My favorite is The VDI Delusion from 2012. My most recent book was a strategy guide on Desktops as a Service. Details are on the [books](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/books.md) page.
 
-## Career
+## Creator of the Mission Pinball Framework (MPF)
 
-**1994 to 2003: consulting.** I started as an independent IT consultant in Ohio, doing desktop architecture and Microsoft systems management for places like NASA, Telxon, and Diebold. I later worked at Vanstar and then Compaq/HP, on projects for the US Senate, the USDA, and the US Navy. My first public talk was in August 1998, about Citrix, at a seminar I put on for my local office.
+I love mechanical things and pinball. I started building my own pinball machine in high school in the 1990s and discovered there's a whole community of pinball makers and geeks who build their own pinball machines in the 2010s. In 2014, I started working on a free & open source pinball machine software framework (the software which runs a pinball machine) which I called the [Mission Pinball Framework](https://missionpinball.org). Today MPF is the de facto standard software framework for people building their own machines, having been used to power hundreds of personal projects and several commercial pinball machines.
 
-**2003 to 2016: The Brian Madden Company.** I went independent in 2003 and started blogging on BrianMadden.com. It grew into the main independent site for news and analysis on Citrix, thin clients, and end-user computing. In 2005 I started [BriForum](https://www.linkedin.com/feed/update/urn:li:ugcPost:7316147505925169154), an independent, vendor-neutral conference for EUC professionals. It ran 20 times over 12 years in Washington DC, Chicago, Denver, Boston, London, Amsterdam, and Frankfurt. TechTarget acquired the company in 2008, and I stayed until 2016. [Here's the eulogy I wrote for BrianMadden.com](https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/).
+## Creator of FAST Pinball's tech docs
 
-**2013 to 2018: FSLogix.** I advised and invested in FSLogix, which built profile container technology for virtual desktops. Microsoft acquired it in 2018.
+I love technical writing and I love pinball. From 2022-23, I took a sabbatical from enterprise tech and wrote [all of the technical documentation for FAST Pinball](https://fastpinball.com/docs/), including product docs, manuals, tutorials, how-to guides, etc. FAST Pinball is a pinball platform company who makes pinball control systems for pinball machines. Most of their business is as the hardware platform provider for commercial pinball companies, but they also provide their platform to individual pinball makers who build their own machines in their garages and basements.
 
-**2018 to 2022: VMware.** I was a Distinguished Technologist in the End-User Computing Office of the CTO, working with customers, partners, and analysts around the world.
+## Follow & connect
 
-**2024: ILKI.** I was the AI Tech Lead at ILKI, a consulting firm in Paris, where I led workplace transformation projects.
-
-**2025 to now: Citrix.** I joined in February 2025 because AI is the biggest shift in knowledge work I've seen in 32 years. The workspace is where it needs to be governed.
-
-## Books
-
-I wrote six books, and I also edited and published books by other authors. They're all about end-user computing, so they're dated now. The most recent is from 2014.
-
-- [*Desktops as a Service*](https://www.amazon.com/Desktops-Service-Everything-About-Hosted-ebook/dp/B00IOXG61C) (2014), with Gabe Knuth.
-- *Enterprise Mobility Management* (2013), written by Jack Madden and edited by me.
-- *The New VDI Reality* (2013), an update to *The VDI Delusion*.
-- [*The VDI Delusion*](https://www.amazon.com/VDI-Delusion-Desktop-Virtualization-Enterprise-ebook/dp/B007MWG378) (2012), with Gabe Knuth and Jack Madden. It's my favorite.
-- [*Terminal Services for Microsoft Windows Server 2003: Advanced Technical Design Guide*](https://www.amazon.com/Terminal-Services-Microsoft-Windows-Server/dp/0971151040) (2003), with Ron Oglesby.
-- [*Citrix MetaFrame XP: Advanced Technical Design Guide, Including Feature Release 2*](https://www.amazon.com/Citrix-MetaFrame-XP-Advanced-Technical/dp/0971151032) (2002).
-- [*Citrix MetaFrame XP: Advanced Technical Design Guide*](https://www.amazon.com/Citrix-MetaFrame-XP-Advanced-Technical/dp/0971151008) (2001). I self-published it because nobody had written a practical guide to designing Citrix systems. The two editions together sold about 60,000 copies.
-
-## Pinball
-
-I love mechanical things, and I've loved pinball since I started building my own machine in high school. In 2014 I started the [Mission Pinball Framework](https://missionpinball.org), free open-source software that runs a pinball machine. Today it's the standard framework for people building their own machines, and it powers hundreds of personal projects and several commercial pinball machines. In 2022 and 2023 I took a sabbatical from enterprise tech and wrote [all of the technical documentation for FAST Pinball](https://fastpinball.com/docs/).
-
-## Find me
-
-- [LinkedIn](https://www.linkedin.com/in/bmadden/): the best way to reach me.
-- [My posts on the Citrix blog](https://www.citrix.com/blogs/authors/brian-madden)
-- [Speeches and talks](https://www.brianmadden.ai/t/speech) and [podcast appearances](https://www.brianmadden.ai/t/podcast)
-- [GitHub](https://github.com/toomanybrians/brianmadden-ai)
+- [My blog on Citrix.com](https://www.citrix.com/blogs/authors/brian-madden)
+- [LinkedIn](http://linkedin.com/in/bmadden)
 - [Bluesky](https://bsky.app/profile/bmad.com)
-- [Sessionize speaker profile](https://sessionize.com/brianmadden/)
+- [GitHub](http://github.com/toomanybrians)
+- [Sessionize](https://sessionize.com/brianmadden/)
+
+## Contact me
+
+The best way to reach me is via [LinkedIn](http://linkedin.com/in/bmadden), or email [brian.madden@citrix.com](mailto:brian.madden@citrix.com).
+
+## Personal
+
+I grew up in [Akron, Ohio](https://en.wikipedia.org/wiki/Akron,_Ohio). I now live in Paris.

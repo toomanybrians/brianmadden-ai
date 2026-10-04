@@ -46,10 +46,10 @@ Founded by Brian, BriForum was the premier independent conference for end-user c
 
 Boutique IT book and DVD publisher. Brian's books were primarily on end-user computing technologies. The through-line: how enterprises deliver and govern the worker experience. BrianMadden.com Publishing also published additional titles by other authors—about 20 products total on Citrix, VMware, Microsoft, enterprise mobility, and thin client computing.
 
-Full list at [bmad.com/books](https://bmad.com/books).
+Full list in [books.md](books.md).
 
 - [*Desktops as a Service*](https://www.amazon.com/Desktops-Service-Everything-About-Hosted-ebook/dp/B00IOXG61C)—Brian Madden & Gabe Knuth, 2014
-- [*Enterprise Mobility Management*](https://www.amazon.com/Enterprise-Mobility-Management-Everything-about-ebook/dp/B00DK2GHHA)—Jack Madden (edited by Brian Madden), 2013
+- [*Enterprise Mobility Management*](https://www.amazon.com/Enterprise-Mobility-Management-Everything-about/dp/0989650618/)—Jack Madden (edited by Brian Madden), 2013
 - *The New VDI Reality*—Brian Madden, 2013 (update to The VDI Delusion)
 - [*The VDI Delusion*](https://www.amazon.com/VDI-Delusion-Desktop-Virtualization-Enterprise-ebook/dp/B007MWG378)—Brian Madden, Gabe Knuth, & Jack Madden, 2012
 - [*Terminal Services for Microsoft Windows Server 2003: Advanced Technical Design Guide*](https://www.amazon.com/Terminal-Services-Microsoft-Windows-Server/dp/0971151040)—Brian Madden & Ron Oglesby, 2003
