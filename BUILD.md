@@ -3856,3 +3856,20 @@ handler, search-index builder; the rest of `outputs/` still syncs). This only
 stops future uploads. Keys already in KV (`file:.claude/...`, `file:outputs/audits/...`,
 possibly the older `.claude/skills/*` from August) are not removed by it and need
 a one-off manual delete with Cloudflare credentials.
+
+### 2026-10-04 (later) — MCP stats dashboard moved + rebuilt (server repo)
+
+In `brianmadden-ai-server` (committed `66fb567`, NOT yet pushed/deployed — it needs
+the `STATS_PASSWORD` Worker secret set first): `bmad.com/mcp-stats` became
+`mcp.brianmadden.ai/stats` behind a password (signed cookie, fails closed, throttled
+login, bearer token on `/stats/data.json` only). Dashboard rebuilt: 7/30/90-day ranges,
+deltas, hover chart, content gaps, most-read files, weekday x hour heatmap. Recording
+now also stores zero-result searches, files read and hour-of-day (the result count was
+being passed to `log()` and dropped). 46-case test harness passed against the real code.
+
+Found along the way: nothing has written to the Analytics Engine dataset
+`brianmadden_ai_mcp` since server commit `20c0576` (KV rollups replaced it), so the
+`/brain-analytics` skill ported earlier today was querying a dead source. Rewritten to
+use `/stats/data.json` with `MCP_STATS_PASSWORD`. The unused `MCP_ANALYTICS` binding and
+the `CF_ANALYTICS_TOKEN` secret are still in the server repo, untouched.
+Known limit kept: KV read-modify-write counters can lose an update under concurrent calls.

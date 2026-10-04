@@ -1,50 +1,58 @@
 ---
 name: brain-analytics
-description: Pull and interpret usage analytics for the public MCP server (mcp.brianmadden.ai) from Cloudflare Analytics Engine: which tools get called, what people search for, zero-result searches (content gaps), most-read files. Use when the user runs /brain-analytics or asks "who's using my brain", "MCP stats", "what are people searching for", "how's the brain doing".
+description: Pull and interpret usage analytics for the public MCP server (mcp.brianmadden.ai) from its private stats endpoint: which tools get called, what people search for, zero-result searches (content gaps), most-read files, when it's used. Use when the user runs /brain-analytics or asks "who's using my brain", "MCP stats", "what are people searching for", "how's the brain doing".
 ---
 
 # Brain analytics
 
-Ported from the old private brain (2026-10-04). Fixes one thing from the
-original: the dataset is `brianmadden_ai_mcp` (the old skill had
-`brainmadden_ai_mcp`, a typo that fails every query).
+Ported from the old private brain (2026-10-04), then rewritten the same day.
+The original queried a Cloudflare Analytics Engine dataset that the server
+stopped writing to (commit `20c0576` in `brianmadden-ai-server`, "change how
+mcp analytics works"). The live source is the KV daily rollups behind the
+password-protected dashboard at **https://mcp.brianmadden.ai/stats**.
 
-## Prereqs
+Brian can just open that URL in a browser. This skill is for pulling the same
+data into a session so it can be interpreted and acted on.
 
-The query script lives in the sibling repo:
-`~/git/brianmadden-ai-server/scripts/query-analytics.mjs`. It needs two env
-vars, `CF_API_TOKEN` (Analytics Engine read access) and `CF_ACCOUNT_ID`.
-Check they're set **without printing them**: `test -n "$CF_API_TOKEN"` and
-`test -n "$CF_ACCOUNT_ID"`. If either is missing, ask Brian to export them in
-his shell. Never put them in a file in this repo or paste them into chat
-(MAINTAINER.md: secrets live only in GitHub Actions Secrets).
+## Prereq
 
-## Queries
+The endpoint's password lives in the Worker secret `STATS_PASSWORD`. For
+`curl` access, Brian exports the same value in his shell as
+`MCP_STATS_PASSWORD`. Check without printing it: `test -n "$MCP_STATS_PASSWORD"`.
+If it's missing, ask Brian to export it. Never write it to a file in this repo
+or paste it into chat (MAINTAINER.md: secrets live in secret stores only).
+
+## Pull the data
 
 ```bash
-node ~/git/brianmadden-ai-server/scripts/query-analytics.mjs tools       # which tools
-node ~/git/brianmadden-ai-server/scripts/query-analytics.mjs searches    # what people search
-node ~/git/brianmadden-ai-server/scripts/query-analytics.mjs files       # most-read files
-node ~/git/brianmadden-ai-server/scripts/query-analytics.mjs requests    # daily volume
-node ~/git/brianmadden-ai-server/scripts/query-analytics.mjs export      # last 7 days, JSON
-node ~/git/brianmadden-ai-server/scripts/query-analytics.mjs sql "<SQL>"
+curl -s -H "Authorization: Bearer $MCP_STATS_PASSWORD" \
+  "https://mcp.brianmadden.ai/stats/data.json?days=30" | python3 -m json.tool
 ```
 
-Table `brianmadden_ai_mcp`. Columns: `index1`/`blob1` tool name (`request`
-for raw HTTP), `blob2` query/path/framework (first 256 chars), `double1`
-result count, `timestamp`, `_sample_interval` (use `SUM(_sample_interval)`
-for counts, never `COUNT(*)`).
+`days` is 7, 30, or 90 (rollups expire after 90 days). The JSON has:
+
+- `current` / `previous`: `calls`, `searches`, `reads`, `activeDays`,
+  `zeroRate`. `previous` is the window before this one, or null.
+- `daily`: per-day `total`, `searches`, `reads`.
+- `tools`, `clients`, `queries` (top searches), `zero` (searches that found
+  nothing), `files` (most-read paths): each a list of `{label, value}`.
+- `heat`: weekday x UTC-hour call counts, tracked days only.
+- `trackedSince`: first day that has `zero`, `files`, and `heat` data. These
+  fields only started being recorded 2026-10-04, so earlier days lack them.
+  Say so rather than reading a missing field as zero.
 
 ## Report
 
-- **Usage:** connections, tool calls, trend direction.
-- **What people look for:** top searches and files, and searches with
-  `double1 = 0`. Zero-result searches are content gaps: list them as
-  candidates for a canon addition or a `me/post-ideas.md` entry (propose,
-  don't write).
-- **Depth:** calls per session. More calls per session means deeper use.
+- **Usage:** calls, searches and reads with the change against the previous
+  window; active days; trend direction.
+- **What people look for:** top searches and most-read files.
+- **Content gaps:** the `zero` list. Each entry is something someone asked
+  that canon couldn't answer. Propose candidates for a canon addition or a
+  `me/post-ideas.md` entry (propose, don't write: post-ideas are Brian's).
+  Treat `zeroRate` carefully: it only counts tracked days.
+- **Clients and timing:** which AI clients connect and when (UTC).
 - Privacy: queries are other people's input. Summarize patterns; don't
-  republish individual search strings that look personal or identifying.
+  republish individual strings that look personal or identifying.
 
-Plausible (plausible.io/brianmadden.ai) is Brian's own dashboard for site
+Plausible (plausible.io/brianmadden.ai) is Brian's dashboard for website
 traffic. Ask him to check it directly; there's no API access from here.
