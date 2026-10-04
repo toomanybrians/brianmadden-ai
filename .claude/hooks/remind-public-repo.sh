@@ -18,7 +18,7 @@ case "$tool" in
   Bash)
     # Mentions a journal AND looks like a write (redirect, sed -i, tee, python/open-for-write).
     if printf '%s' "$cmd" | grep -q -E "$names" && \
-       printf '%s' "$cmd" | grep -q -E '>>|[^>=]>[^>=]|sed +-i|tee |\.write\(|python3? '; then hit=1; fi ;;
+       printf '%s' "$cmd" | grep -q -E '>>|[^>=0-9&]>[^>=&]|sed +-i|tee |\.write\(|python3? '; then hit=1; fi ;;
 esac
 
 [ -z "$hit" ] && exit 0
