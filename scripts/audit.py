@@ -31,8 +31,9 @@ OUT_DIR = ROOT / "outputs" / "audits"
 
 CANON_DIRS = ["me", "frameworks", "posts", "talks", "podcast", "interviews", "pages"]
 ROOT_DOCS = ["CLAUDE.md", "AGENTS.md", "README.md", "GOVERNANCE.md", "COLLECTIONS.md", "llms.txt"]
-# Deliberately outside the curated surfaces (declared in the file's own header).
-INTENTIONALLY_UNINDEXED = {"podcast/bible.md"}
+# Deliberately outside the curated surfaces (bible.md says so in its own header;
+# style-guide.md and about.md confirmed by Brian 2026-10-04).
+INTENTIONALLY_UNINDEXED = {"podcast/bible.md", "me/style-guide.md", "pages/about.md"}  # pipeline docs / Substack-only page
 MACHINE_INDEXES = ["_index.json", "_relationships.json", "_content-index.json", "llms.txt", "COLLECTIONS.md"]
 REQUIRED_FM = ["title", "date", "status"]
 BLOAT_LINES = 500
