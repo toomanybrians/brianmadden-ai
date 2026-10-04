@@ -31,6 +31,8 @@ OUT_DIR = ROOT / "outputs" / "audits"
 
 CANON_DIRS = ["me", "frameworks", "posts", "talks", "podcast", "interviews", "pages"]
 ROOT_DOCS = ["CLAUDE.md", "AGENTS.md", "README.md", "GOVERNANCE.md", "COLLECTIONS.md", "llms.txt"]
+# Deliberately outside the curated surfaces (declared in the file's own header).
+INTENTIONALLY_UNINDEXED = {"podcast/bible.md"}
 MACHINE_INDEXES = ["_index.json", "_relationships.json", "_content-index.json", "llms.txt", "COLLECTIONS.md"]
 REQUIRED_FM = ["title", "date", "status"]
 BLOAT_LINES = 500
@@ -121,7 +123,7 @@ def check_index_drift(files):
     idx = json.loads((ROOT / "_index.json").read_text())
     indexed = {e["path"] for e in idx["files"]}
     on_disk = {rel(f) for f in files}
-    unindexed = sorted(p for p in on_disk - indexed if not p.endswith("index.md"))
+    unindexed = sorted(p for p in on_disk - indexed if not p.endswith("index.md") and p not in INTENTIONALLY_UNINDEXED)
     ghosts = sorted(p for p in indexed - on_disk if not (ROOT / p).exists())
     metrics["indexed_files"] = len(indexed)
     metrics["unindexed_files"] = len(unindexed)

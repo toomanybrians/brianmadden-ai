@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-09-14",
+  "generated": "2026-10-04",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 125,
-  "total_words": 274834,
+  "total_files": 126,
+  "total_words": 275208,
   "files": [
     {
       "path": "AGENTS.md",
@@ -2485,6 +2485,30 @@
       "related_frameworks": [
         "invisible-80-percent",
         "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/external/2026-06-22-techradar-ai-second-brain-future-of-knowledge-work.md",
+      "title": "The AI second brain: The future of knowledge work",
+      "authority_level": 5,
+      "file_type": "external-article",
+      "tags": [
+        "invisible-80-percent",
+        "second-brain",
+        "knowledge-work",
+        "future-of-work",
+        "enterprise-ai",
+        "worker-led-ai"
+      ],
+      "word_count": 374,
+      "staleness_threshold": "stable",
+      "date": "2026-06-22",
+      "original_url": "https://www.techradar.com/pro/the-ai-second-brain-the-future-of-knowledge-work",
+      "publication": "TechRadar Pro",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "cognitive-stack",
+        "subscribable-brains"
       ]
     },
     {
