@@ -58,7 +58,11 @@ Its one demand on us: keep the tiers clean.
 ## Non-negotiable rules
 
 1. **Public only.** No Citrix-proprietary, confidential, or NDA'd content,
-   ever, in any tier, in any commit. When in doubt, leave it out — it can
+   ever, in any tier, in any commit. **This includes BUILD.md and every other
+   maintainer file, and all their git history:** no personal finances,
+   private network or account details, or offhand personal quotes either.
+   `scripts/check_public_safe.py` (pre-commit hook + CI) catches patterns;
+   the judgment is the writer's. When in doubt, leave it out — it can
    arrive later via the promotion ceremony from the private side.
 2. **Insights, not reprints.** Never store the full text of third-party
    content. Ingest notes capture source, author, link, date, and insights in

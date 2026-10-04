@@ -1,5 +1,20 @@
 # BUILD.md — v2 rebuild journal
 
+> ## ⚠ THIS FILE IS PUBLIC. THINK BEFORE YOU WRITE HERE.
+>
+> This repo is public on GitHub, and so is **every past version of this file**.
+> Before adding anything, ask: *would I be fine with this on a conference slide,
+> in a journalist's inbox, and in my employer's HR inbox?*
+>
+> **Never record:** compensation or other personal finances · employer-internal <!-- public-ok: the banner names the forbidden topics -->
+> strategy, people, customers or disagreements · private network, machine or
+> account details · credentials, or where they live · private details about
+> other people · offhand personal quotes you wouldn't say on stage.
+>
+> Write **decisions and outcomes**, not asides. Deleting a line later does **not**
+> remove it from git history. `scripts/check_public_safe.py` runs on every commit
+> and in CI, but it only catches patterns, not judgment. The judgment is yours.
+
 The working memory of the brianmadden.ai v2 rebuild. Every session (human +
 Claude Code) starts by reading `CLAUDE.md`, this file, and
 `docs/brianmadden-ai-v2-architecture-and-launch-plan.md` — and ends by
@@ -884,7 +899,7 @@ to be reliably live.
 - **BUILD.md trimmed** (~3,900 lines to a few hundred): kickoff prompts and
   session entries 08-19 through 09-14 removed, #12 and #16 collapsed. A
   sensitivity pass found no Citrix-proprietary content and no secret values,
-  but did find private-network and runner details, a personal salary quote, a
+  but did find private-network and runner details, a personal financial aside, a
   personal email address, named colleagues, and details of the private brain.
   All removed or generalized in the kept text. **The old text is still in
   public git history**; scrubbing it would mean rewriting history of a public
@@ -905,3 +920,14 @@ Old-to-new lookup: `outputs/link-migration/2026-10-04-citrix-url-map.csv`.
 Still to fix by hand (Brian): LinkedIn, the Substack About page (two links),
 40 of 49 published Substack issues, and Apple Podcasts show notes for Hotsheet
 episodes 1-5. No replacement exists for Citrix's author RSS feed.
+
+**Public-safety gates added (same day).** A sensitivity review of this file found
+personal and operational detail that shouldn't live in a public repo (see the trim
+note above). Layers now in place: a loud banner at the top of this file and a
+widened rule 1 in MAINTAINER.md; `scripts/check_public_safe.py` (pattern lint over
+added lines) run by a `.githooks/pre-commit` hook (enable per clone with
+`git config core.hooksPath .githooks`), by `check-docs.yml` in CI, and by the monthly
+audit as a critical check; and `.claude/hooks/remind-public-repo.sh`, which injects a
+reminder into a Claude session whenever it writes to a maintainer journal. The lint
+catches patterns, not judgment, and a line can be waived with an inline `public-ok`
+marker plus a reason.

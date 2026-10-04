@@ -137,6 +137,20 @@ def check_citrix_urls(files):
         warnings.append(f"Old-format Citrix blog link (platform moved Oct 2026): {h}")
 
 
+def check_public_safe():
+    """This repo is public: run the commit-time lint over the whole tracked tree too, so
+    anything that got in via --no-verify, the automated pipeline, or an old pattern is caught."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("check_public_safe", ROOT / "scripts" / "check_public_safe.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    findings = mod.scan_tree()
+    metrics["public_safe_findings"] = len(findings)
+    for path, lineno, label, _text, _hit in findings[:15]:
+        critical.append(f"Public-safety lint: {path}:{lineno} [{label}] (see scripts/check_public_safe.py)")
+
+
 def check_index_drift(files):
     """Files on disk vs _index.json, both directions."""
     idx = json.loads((ROOT / "_index.json").read_text())
@@ -322,6 +336,7 @@ def main():
     check_frontmatter(files)
     check_index_drift(files)
     check_citrix_urls(files)
+    check_public_safe()
     check_quarantine()
     check_staleness()
     check_bloat(files)

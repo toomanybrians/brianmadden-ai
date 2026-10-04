@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Blocks a commit whose ADDED lines trip the public-safety lint
+# (scripts/check_public_safe.py). This repo is public: see the banner in
+# BUILD.md. Enable once per clone with:  git config core.hooksPath .githooks
+# Bypass only deliberately, and only after reading the finding:  git commit --no-verify
+exec python3 "$(git rev-parse --show-toplevel)/scripts/check_public_safe.py" --staged

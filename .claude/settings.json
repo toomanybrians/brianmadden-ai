@@ -8,6 +8,11 @@
             "type": "command",
             "command": "/Users/brian/git/brianmadden-ai/.claude/hooks/guard-env-read.sh",
             "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "/Users/brian/git/brianmadden-ai/.claude/hooks/remind-public-repo.sh",
+            "timeout": 10
           }
         ]
       },
@@ -17,6 +22,16 @@
           {
             "type": "command",
             "command": "/Users/brian/git/brianmadden-ai/.claude/hooks/guard-env-read-tool.sh",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/brian/git/brianmadden-ai/.claude/hooks/remind-public-repo.sh",
             "timeout": 10
           }
         ]
