@@ -5,15 +5,15 @@
   "indexed_files": 126,
   "unindexed_files": 0,
   "quarantine_leaks": 0,
-  "stale_me_frameworks_files": 2,
+  "stale_me_frameworks_files": 1,
   "developing_thinking_age_days": 4,
   "files_over_500_lines": 2,
   "orphans": 0,
   "skill_problems": 0,
   "claude_skills": 6,
-  "pipeline_runs_14d": 10,
+  "pipeline_runs_14d": 11,
   "pipeline_missing_weekdays_14d": 0,
-  "repo_pack_size": "4.22 MiB",
+  "repo_pack_size": "4.60 MiB",
   "possible_secrets": 0,
-  "stale_remote_branches": 2
+  "stale_remote_branches": 0
 }

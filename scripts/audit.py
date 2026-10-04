@@ -34,6 +34,8 @@ ROOT_DOCS = ["CLAUDE.md", "AGENTS.md", "README.md", "GOVERNANCE.md", "COLLECTION
 # Deliberately outside the curated surfaces (bible.md says so in its own header;
 # style-guide.md and about.md confirmed by Brian 2026-10-04).
 INTENTIONALLY_UNINDEXED = {"podcast/bible.md", "me/style-guide.md", "pages/about.md"}  # pipeline docs / Substack-only page
+# Frontmatter-less files Brian has declared stable (no staleness warning).
+STABLE_BY_DECISION = {"me/books.md"}  # no new books since 2014, none planned (Brian, 2026-10-04)
 MACHINE_INDEXES = ["_index.json", "_relationships.json", "_content-index.json", "llms.txt", "COLLECTIONS.md"]
 REQUIRED_FM = ["title", "date", "status"]
 BLOAT_LINES = 500
@@ -152,7 +154,7 @@ def check_staleness():
     now = dt.datetime.now(dt.timezone.utc)
     stale = []
     for f in canon_files():
-        if f.name == "voice.md":
+        if f.name == "voice.md" or rel(f) in STABLE_BY_DECISION:
             continue
         fm = frontmatter(f) or {}
         if fm.get("staleness_threshold", "") == "stable" or fm.get("status") == "archived":
