@@ -63,7 +63,8 @@ the note at the top of `## Session log`).
      history and deserves Brian's eyes before anything touches shared
      history.
 
-2. **Read `MAINTAINER.md` in full.** It's short and is the operating
+2. **Read `.claude/lessons.md`** (short; mistakes to avoid repeating),
+   then **`MAINTAINER.md` in full.** It's short and is the operating
    constitution — non-negotiable rules, tier definitions, working
    conventions. Changes rarely; safe to read in full every time.
 

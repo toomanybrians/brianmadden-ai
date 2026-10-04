@@ -3825,3 +3825,27 @@ IBM, Meta AI. Flagged rather than forced in — revisit if any of these
 ship an official feed later, or if a specific community mirror is found
 to be reliably live.
 
+
+### 2026-10-04 — `/maintain` + port of skills from the old private brain
+
+Scanned the pre-Citrix private brain (iCloud `bmad` folder; `~/Documents/brianmadden-ai`
+is only an Aug 11 snapshot of this repo). Ported, rewritten for the v2 tiers:
+
+- `scripts/audit.py` + `.github/workflows/monthly-audit.yml` (1st of the month,
+  hosted runner, no secrets, commits `outputs/audits/` only if metrics changed).
+  First baseline run found 1 real broken link (`me/published-thinking.md` ->
+  `talks/2026-03-18-ducug-the-new-cognitive-stack.md`) and 4 files missing from
+  `_index.json`; not fixed this session.
+- `.claude/skills/system-audit` (judgment half: rules drift, skill quality,
+  best-practices scan, quarterly public-brain red-team).
+- `.claude/skills/connect-the-dots` (canon-only deep synthesis + external
+  counterarguments, interactive, Opus).
+- `.claude/skills/brain-analytics` (MCP usage via Cloudflare Analytics Engine;
+  dataset name typo from the old skill fixed).
+- `.claude/lessons.md`, read by `/maintain` step 2.
+
+Not ported on purpose: sync-public-thinking, meeting/work/exec/journalist
+skills, the old daily-briefing scripts. Note: the KV sync workflow doesn't
+exclude `.claude/` or `outputs/`, so audit reports and lessons.md reach the
+public MCP; the red-team section of an audit should stay free of anything
+sensitive.

@@ -1,0 +1,45 @@
+name: Monthly system audit
+
+# Runs scripts/audit.py (deterministic only: no model calls, no secrets) on
+# the 1st of each month and commits the report to outputs/audits/. Hosted
+# runner is fine here: nothing it touches is IP-blocked, unlike the daily
+# ingest. The judgment half of the audit is the interactive /system-audit
+# skill, which reads this report instead of redoing the checks.
+#
+# Skips the commit when the report is identical to the last one apart from
+# the date, so a quiet month doesn't add noise (the old private brain ran
+# 17 straight weekly reviews on an unchanged repo; that's the failure this
+# guards against).
+
+on:
+  schedule:
+    - cron: "0 7 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run audit
+        run: python3 scripts/audit.py
+      - name: Commit report if metrics changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/audits/
+          if git diff --cached --quiet; then
+            echo "No report produced."; exit 0
+          fi
+          prev=$(ls outputs/audits/*-audit.json | grep -v "$(date -u +%Y-%m-%d)" | tail -1 || true)
+          new=$(ls outputs/audits/*-audit.json | tail -1)
+          if [ -n "$prev" ] && diff -q "$prev" "$new" >/dev/null; then
+            echo "Metrics unchanged since $prev; skipping commit."; exit 0
+          fi
+          git commit -m "Monthly system audit ($(date -u +%Y-%m-%d)) [automated]"
+          git push
