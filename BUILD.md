@@ -890,3 +890,18 @@ to be reliably live.
   public git history**; scrubbing it would mean rewriting history of a public
   repo, which was left as Brian's call.
 
+
+### 2026-10-04 (later) — Citrix blog platform migration: links fixed
+
+Citrix moved its blog platform (Adobe Edge Delivery). New scheme: posts at
+`/blogs/YYYY-MM/slug`, author page at `/blogs/authors/brian-madden`; the old
+`?s=bmadden&type=author` search link and the author RSS feed are gone, and some
+old `/YYYY/MM/DD/slug/` URLs 404 instead of redirecting. Matched all 38 posts by
+title against Citrix's live `/query-index.json` and fetched each new URL before
+rewriting. Fixed in this repo (361 links, 66 files), `brianmadden-ai-server`,
+and the plugin README; `audit.py` now flags any old-format link. Left alone:
+`outputs/` and `ingest/` (historical), the dormant `bmad.com` mkdocs repo.
+Old-to-new lookup: `outputs/link-migration/2026-10-04-citrix-url-map.csv`.
+Still to fix by hand (Brian): LinkedIn, the Substack About page (two links),
+40 of 49 published Substack issues, and Apple Podcasts show notes for Hotsheet
+episodes 1-5. No replacement exists for Citrix's author RSS feed.
