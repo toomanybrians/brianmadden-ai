@@ -33,7 +33,7 @@ CANON_DIRS = ["me", "frameworks", "posts", "talks", "podcast", "interviews", "pa
 ROOT_DOCS = ["CLAUDE.md", "AGENTS.md", "README.md", "GOVERNANCE.md", "COLLECTIONS.md", "llms.txt"]
 # Deliberately outside the curated surfaces (bible.md says so in its own header;
 # style-guide.md and about.md confirmed by Brian 2026-10-04).
-INTENTIONALLY_UNINDEXED = {"podcast/bible.md", "me/style-guide.md", "pages/about.md"}  # pipeline docs / Substack-only page
+INTENTIONALLY_UNINDEXED = {"podcast/bible.md", "me/style-guide.md", "pages/about.md", "pages/bio.md"}  # pipeline docs / Substack-only page
 # Frontmatter-less files Brian has declared stable (no staleness warning).
 STABLE_BY_DECISION = {"me/books.md"}  # no new books since 2014, none planned (Brian, 2026-10-04)
 MACHINE_INDEXES = ["_index.json", "_relationships.json", "_content-index.json", "llms.txt", "COLLECTIONS.md"]
