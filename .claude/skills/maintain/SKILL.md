@@ -19,8 +19,9 @@ history. As of 2026-08-24, its pre-launch entries (2026-08-09 through
 era's actual decisions already live in Decisions made / Open decisions
 above, and git history (`git log -p -- BUILD.md`) has the full text if
 the session-by-session narrative is ever genuinely needed. `BUILD.md`
-itself now starts at launch day (2026-08-19) and will grow from
-there — expect another trim eventually, same reasoning as this one (see
+itself starts at launch day (2026-08-19) and was trimmed a second time on
+2026-10-04 (session entries before 09-25 removed; see the note atop its
+Session log) and will grow from there — expect another trim eventually, same reasoning as this one (see
 the note at the top of `## Session log`).
 
 ## Steps
