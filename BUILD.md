@@ -931,3 +931,11 @@ audit as a critical check; and `.claude/hooks/remind-public-repo.sh`, which inje
 reminder into a Claude session whenever it writes to a maintainer journal. The lint
 catches patterns, not judgment, and a line can be waived with an inline `public-ok`
 marker plus a reason.
+
+
+### 2026-10-05 — `/maintain`: Node 20 deprecation warning in daily pipeline
+
+The daily run's annotation said `actions/checkout@v4` targets Node 20 and was
+being forced onto Node 24. It was the only third-party action in use, across all
+five workflows; bumped to `actions/checkout@v5` (Node 24 native). No other
+actions to update. Verify on the next weekday run that the annotation is gone.
