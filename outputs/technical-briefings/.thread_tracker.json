@@ -120,11 +120,12 @@
     "slug": "legibility-mandates-as-brain-input",
     "description": "Organizations changing human communication behavior on purpose \u2014 Zapier tracking and publishing % of Slack sent in public channels \u2014 to convert tacit/private work into machine-readable input for a shared org brain, inverting the direction of the invisible-80% problem and raising surveillance questions nobody has a position on.",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-10-02",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-05",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Salesforce/Slack 'Multiplayer AI' pushes agent work into shared channels specifically so the organization retains context, a vendor-side version of converting private work into machine-readable shared input."
+      "Salesforce/Slack 'Multiplayer AI' pushes agent work into shared channels specifically so the organization retains context, a vendor-side version of converting private work into machine-readable shared input.",
+      "OpenAI's Space/Pages joins Salesforce in moving work into shared surfaces that keep reasoning machine-readable, and sharing a Page exposes memory-derived content."
     ]
   },
   {
@@ -530,10 +531,12 @@
     "slug": "local-liability-pressure-on-agi-development",
     "description": "Local government resolutions opposing unproven AGI development, using D&O insurance liability as the enforcement lever rather than direct regulation \u2014 a new governance mechanism worth watching for spread to other jurisdictions.",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-08-31",
-    "count": 1,
+    "last_seen": "2026-10-05",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Separate but similar local-government move: NYC Council legislation mandating third-party validation of AI models, with Gary Marcus testifying for an FDA-like regime; different mechanism from D&O liability."
+    ]
   },
   {
     "slug": "ai-as-state-provisioned-public-utility",
@@ -812,10 +815,12 @@
     "slug": "human-oversight-disclosure-vs-effectiveness-tension",
     "description": "Research finding disclosure of AI limitations builds trust and full automation reduces ownership sits in direct tension with Brian's own evidence that human review functionally fails to catch agent errors - the psychology of oversight and its measured effectiveness point in opposite directions, unresolved.",
     "first_seen": "2026-09-21",
-    "last_seen": "2026-09-21",
-    "count": 1,
+    "last_seen": "2026-10-05",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Approval dialogs spreading (AWS web search, Claude Code rm -rf plugin) while CoreWeave pairs allow/ask/deny with mandatory traceable artifacts so review isn't a rubber stamp."
+    ]
   },
   {
     "slug": "decision-models-as-commodity-layer",
@@ -931,16 +936,29 @@
     "slug": "open-weight-floor-as-security-regulation-target",
     "description": "Open-weight models crossing offensive-cyber capability thresholds (GLM-5.3 near Mythos Preview per Anthropic's red team) inviting hosting or usage restrictions that could remove the bubble-pop planning floor for regulated enterprises even though the weights stay downloadable.",
     "first_seen": "2026-10-01",
-    "last_seen": "2026-10-01",
-    "count": 1,
+    "last_seen": "2026-10-05",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Same Anthropic red-team finding resurfacing via Humans on AI: GLM-5.3 closing on Mythos on exploit-building benchmarks."
+    ]
   },
   {
     "slug": "agent-identities-issued-outside-enterprise-idp",
     "description": "Consumer platforms issuing agents their own email, phone numbers, wallets, and spending authority (Manus Cue, Robinhood Agents), so agents arrive with identities an enterprise didn't provision and can't revoke.",
     "first_seen": "2026-10-02",
-    "last_seen": "2026-10-02",
+    "last_seen": "2026-10-05",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Separate occurrence: Robinhood Agents' standing authority over money, with liability placed on the user via a non-broker entity; Wells Fargo warns customers they may be liable for their AI tools' mistakes."
+    ]
+  },
+  {
+    "slug": "agent-liability-allocation-split",
+    "description": "Liability for agent actions being assigned in opposite directions at once: toward developers (LASST lawsuit vs OpenAI, FTC chair) and toward end users (Wells Fargo warning, Robinhood's non-broker AI entity), with no canon position on agent identity as a liability-allocation tool.",
+    "first_seen": "2026-10-05",
+    "last_seen": "2026-10-05",
     "count": 1,
     "status": "watching",
     "history": []

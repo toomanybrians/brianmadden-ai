@@ -172,3 +172,16 @@ Notes from each recurrence:
 - DeepMind's SynthID Bio watermarks AI-designed protein sequences and releases verification for DNA labs, a case where the verifier is the third party, unlike text watermarking.
 
 **Status: not yet reviewed by Brian.**
+
+## `legibility-mandates-as-brain-input` — flagged 2026-10-05
+
+Organizations changing human communication behavior on purpose — Zapier tracking and publishing % of Slack sent in public channels — to convert tacit/private work into machine-readable input for a shared org brain, inverting the direction of the invisible-80% problem and raising surveillance questions nobody has a position on.
+
+First seen 2026-08-13, recurred 3 times through 2026-10-05.
+
+Notes from each recurrence:
+
+- Salesforce/Slack 'Multiplayer AI' pushes agent work into shared channels specifically so the organization retains context, a vendor-side version of converting private work into machine-readable shared input.
+- OpenAI's Space/Pages joins Salesforce in moving work into shared surfaces that keep reasoning machine-readable, and sharing a Page exposes memory-derived content.
+
+**Status: not yet reviewed by Brian.**
