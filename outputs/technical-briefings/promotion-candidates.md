@@ -185,3 +185,55 @@ Notes from each recurrence:
 - OpenAI's Space/Pages joins Salesforce in moving work into shared surfaces that keep reasoning machine-readable, and sharing a Page exposes memory-derived content.
 
 **Status: not yet reviewed by Brian.**
+
+## `open-weight-floor-as-security-regulation-target` — flagged 2026-10-06
+
+Open-weight models crossing offensive-cyber capability thresholds (GLM-5.3 near Mythos Preview per Anthropic's red team) inviting hosting or usage restrictions that could remove the bubble-pop planning floor for regulated enterprises even though the weights stay downloadable.
+
+First seen 2026-10-01, recurred 3 times through 2026-10-06.
+
+Notes from each recurrence:
+
+- Same Anthropic red-team finding resurfacing via Humans on AI: GLM-5.3 closing on Mythos on exploit-building benchmarks.
+- AWS offers GLM 5.3 on Bedrock only to 'eligible enterprise customers' while Z.ai markets it on cyber capability (CyberGym 84.5, autonomous pentesting); hosting-level gating is already in place.
+
+**Status: not yet reviewed by Brian.**
+
+## `open-weight-license-restrictions-narrow-planning-floor` — flagged 2026-10-06
+
+Leading Chinese open-weight labs (Zhipu's GLM-5.3) adding restrictive commercial-use licenses gated by revenue thresholds, while Western labs move toward permissive Apache 2.0 - a geographic split that could squeeze exactly the hyperscaler-hosting layer Brian's bubble-pop planning-floor argument depends on.
+
+First seen 2026-09-09, recurred 3 times through 2026-10-06.
+
+Notes from each recurrence:
+
+- Nathan Lambert's balance-of-power data shows Chinese open-weight models now leading on both capability and adoption (80%+ of OpenRouter open-model traffic), sharpening the exposure of the bubble-pop planning floor to exactly the models most likely to face export-control or hyperscaler policy restriction.
+- Separate mechanism, same effect: Hesse excluded non-European models from a public tender regardless of benchmarks, so procurement eligibility rather than license terms removes Chinese open-weight models from some buyers' floor (Kolibri analysis).
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-usage-mandates-reversed-on-cost` — flagged 2026-10-06
+
+Companies mandating AI usage metrics in performance reviews ('tokenmaxxing') and then reversing once costs got substantial: usage mandates without a routing or governance layer produce cost spikes, not transformation.
+
+First seen 2026-09-29, recurred 3 times through 2026-10-06.
+
+Notes from each recurrence:
+
+- Gary Marcus cites third-party data (self-flagged as incomplete) that Anthropic ARR flattened after the tokenmaxxing peak; Toshiba's CIO rebuilt cost allocation with spend cutoffs after GitHub moved to consumption pricing.
+- Meta's Claude Code usage reportedly halved, Microsoft cut Claude spend for Copilot by over a third, and investors report corporate pullback on per-employee AI spend over unclear ROI; no stated reasons.
+
+**Status: not yet reviewed by Brian.**
+
+## `eu-ai-act-scope-of-internal-unreleased-models` — flagged 2026-10-06
+
+EU Commission's first formal enforcement requests to AI labs, triggered by lab security incidents, alongside an unresolved legal question of whether internal, unreleased research models fall under the AI Act's scope at all
+
+First seen 2026-09-08, recurred 3 times through 2026-10-06.
+
+Notes from each recurrence:
+
+- A Lawfare analysis via the EU AI Act Newsletter argues the AI Act's obligations reach internal-only models never released, using OpenAI's Hugging Face-incident model as the test case.
+- EU AI Act Newsletter #112: the OpenAI-agent Hugging Face breach fell into a blind spot because the Act generally exempts pre-release testing; MEP Axel Voss criticized enforcement as too slow.
+
+**Status: not yet reviewed by Brian.**

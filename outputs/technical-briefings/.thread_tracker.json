@@ -414,10 +414,12 @@
     "slug": "fde-training-throughput-as-wave-2-bottleneck",
     "description": "DXC/Anthropic having trained 86 forward-deployed engineers against a commitment of tens of thousands \u2014 evidence that the constraint on enterprise knowledge-layer buildout is human training throughput rather than funding or model capability.",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-08-26",
-    "count": 1,
+    "last_seen": "2026-10-06",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "AWS formalized its $1B FDE org and added Partner-Led FDE credential pathways, an attempt to scale FDE capacity through partners rather than direct hiring; OpenAI frames FDE work as capability transfer, not dependency."
+    ]
   },
   {
     "slug": "enterprise-ai-de-adoption-signal",
@@ -639,22 +641,24 @@
     "slug": "eu-ai-act-scope-of-internal-unreleased-models",
     "description": "EU Commission's first formal enforcement requests to AI labs, triggered by lab security incidents, alongside an unresolved legal question of whether internal, unreleased research models fall under the AI Act's scope at all",
     "first_seen": "2026-09-08",
-    "last_seen": "2026-09-24",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-06",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "A Lawfare analysis via the EU AI Act Newsletter argues the AI Act's obligations reach internal-only models never released, using OpenAI's Hugging Face-incident model as the test case."
+      "A Lawfare analysis via the EU AI Act Newsletter argues the AI Act's obligations reach internal-only models never released, using OpenAI's Hugging Face-incident model as the test case.",
+      "EU AI Act Newsletter #112: the OpenAI-agent Hugging Face breach fell into a blind spot because the Act generally exempts pre-release testing; MEP Axel Voss criticized enforcement as too slow."
     ]
   },
   {
     "slug": "open-weight-license-restrictions-narrow-planning-floor",
     "description": "Leading Chinese open-weight labs (Zhipu's GLM-5.3) adding restrictive commercial-use licenses gated by revenue thresholds, while Western labs move toward permissive Apache 2.0 - a geographic split that could squeeze exactly the hyperscaler-hosting layer Brian's bubble-pop planning-floor argument depends on.",
     "first_seen": "2026-09-09",
-    "last_seen": "2026-09-22",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-06",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Nathan Lambert's balance-of-power data shows Chinese open-weight models now leading on both capability and adoption (80%+ of OpenRouter open-model traffic), sharpening the exposure of the bubble-pop planning floor to exactly the models most likely to face export-control or hyperscaler policy restriction."
+      "Nathan Lambert's balance-of-power data shows Chinese open-weight models now leading on both capability and adoption (80%+ of OpenRouter open-model traffic), sharpening the exposure of the bubble-pop planning floor to exactly the models most likely to face export-control or hyperscaler policy restriction.",
+      "Separate mechanism, same effect: Hesse excluded non-European models from a public tender regardless of benchmarks, so procurement eligibility rather than license terms removes Chinese open-weight models from some buyers' floor (Kolibri analysis)."
     ]
   },
   {
@@ -914,11 +918,12 @@
     "slug": "ai-usage-mandates-reversed-on-cost",
     "description": "Companies mandating AI usage metrics in performance reviews ('tokenmaxxing') and then reversing once costs got substantial: usage mandates without a routing or governance layer produce cost spikes, not transformation.",
     "first_seen": "2026-09-29",
-    "last_seen": "2026-10-01",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-06",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Gary Marcus cites third-party data (self-flagged as incomplete) that Anthropic ARR flattened after the tokenmaxxing peak; Toshiba's CIO rebuilt cost allocation with spend cutoffs after GitHub moved to consumption pricing."
+      "Gary Marcus cites third-party data (self-flagged as incomplete) that Anthropic ARR flattened after the tokenmaxxing peak; Toshiba's CIO rebuilt cost allocation with spend cutoffs after GitHub moved to consumption pricing.",
+      "Meta's Claude Code usage reportedly halved, Microsoft cut Claude spend for Copilot by over a third, and investors report corporate pullback on per-employee AI spend over unclear ROI; no stated reasons."
     ]
   },
   {
@@ -936,11 +941,12 @@
     "slug": "open-weight-floor-as-security-regulation-target",
     "description": "Open-weight models crossing offensive-cyber capability thresholds (GLM-5.3 near Mythos Preview per Anthropic's red team) inviting hosting or usage restrictions that could remove the bubble-pop planning floor for regulated enterprises even though the weights stay downloadable.",
     "first_seen": "2026-10-01",
-    "last_seen": "2026-10-05",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-06",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Same Anthropic red-team finding resurfacing via Humans on AI: GLM-5.3 closing on Mythos on exploit-building benchmarks."
+      "Same Anthropic red-team finding resurfacing via Humans on AI: GLM-5.3 closing on Mythos on exploit-building benchmarks.",
+      "AWS offers GLM 5.3 on Bedrock only to 'eligible enterprise customers' while Z.ai markets it on cyber capability (CyberGym 84.5, autonomous pentesting); hosting-level gating is already in place."
     ]
   },
   {
@@ -959,6 +965,24 @@
     "description": "Liability for agent actions being assigned in opposite directions at once: toward developers (LASST lawsuit vs OpenAI, FTC chair) and toward end users (Wells Fargo warning, Robinhood's non-broker AI entity), with no canon position on agent identity as a liability-allocation tool.",
     "first_seen": "2026-10-05",
     "last_seen": "2026-10-05",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "chatgpt-as-third-party-identity-and-billing-layer",
+    "description": "OpenAI's 'Sign in with ChatGPT' lets third-party apps authenticate users and bill against their ChatGPT tokens, making a consumer AI account an identity and payment layer that sits outside the enterprise identity provider.",
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-swarm-diminishing-returns",
+    "description": "Toby Ord's swarm-scaling analysis: 10x more agents yields only 3-5x performance due to coordination overhead, trading tokens for wall-clock time, which complicates pod/fleet economics and the token-consumption ladder.",
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
     "count": 1,
     "status": "watching",
     "history": []
