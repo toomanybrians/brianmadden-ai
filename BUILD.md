@@ -951,3 +951,35 @@ Brian is getting up earlier and the brief wasn't always ready. Cron in
 `daily-pipeline.yml` changed from `0 6` to `0 5` UTC (07:00 Paris under CEST).
 Under CET from 2026-10-25 it runs at 06:00 Paris; if that's too early, move it
 to `0 6` then.
+
+
+### 2026-10-07 (later): mcp.brianmadden.ai connect page refresh
+
+Work was in `brianmadden-ai-server` (commit `aee3d5f`, committed locally, **not
+pushed**: a push to `main` there auto-deploys the live site). Embedded the Citrix
+live-demo video at 3:16, replaced the demo Q&A with five questions re-asked against
+the live server by independent agents (answers verified against source files), and
+re-checked every per-tool setup path against the vendors' own docs. Several were
+stale: Claude's menu is now Customize > Connectors and Free plans are allowed;
+Gemini now supports custom apps (US, 18+, personal accounts); ChatGPT's path is
+Settings > Apps > Advanced settings > Developer mode. Added Perplexity, Codex CLI,
+Gemini CLI, Cursor, VS Code, and Microsoft 365 Copilot's admin route. The page's
+"no data is collected" line contradicted what the server logs; reworded, and the
+privacy page now discloses the YouTube embed and Plausible script.
+
+**Found in the brain by the question agents (not fixed here):**
+- Search returns duplicate chunks under both old (`/blogs/YYYY/MM/DD/slug/`) and new
+  (`/blogs/YYYY-MM/slug`) Citrix URLs, so the index still holds pre-migration vectors.
+  Needs a clean reindex.
+- Two copies of the `developing-thinking.md` header chunk surface, one dated Sep 4 and
+  one Sep 25. The header says Sep 25 but the file's `updated` is Sep 30 and the
+  scratchpad has a Sep 30 item.
+- `talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md` holds an
+  AI-written "how Brian would answer" Q&A that retrieves like primary source.
+- `podcast/bible.md` and `me/style-guide.md` rank for generic queries.
+- The archived five-levels framework still ranks at the top for "where is his
+  thinking now", and published-thinking and the Feb 26 announcement still present it
+  as active. The announcement also says "9 frameworks" and a "30,000-word synthesis".
+- The Dan Office IT talk Q&A headed "On who owns your second brain" is about job
+  replacement, not ownership. The AI-vendor leg of the ownership question has no
+  content.
