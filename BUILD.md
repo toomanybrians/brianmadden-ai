@@ -983,3 +983,20 @@ privacy page now discloses the YouTube embed and Plausible script.
 - The Dan Office IT talk Q&A headed "On who owns your second brain" is about job
   replacement, not ownership. The AI-vendor leg of the ownership question has no
   content.
+
+
+### 2026-10-07 (later still): search index cleanup
+
+Root cause of the duplicate search results: the hourly reindex called Vectorize's
+`deleteByIds` with 500 ids per call, and Vectorize allows 100 (error 40007), so every
+run that had stale vectors to delete threw and the index grew to 3,008 vectors for
+1,487 chunks. Batch size fixed to 100 (`brianmadden-ai-server`). The 1,628 stale
+vectors were deleted by hand after confirming every current chunk was present, leaving
+1,420 (archived frameworks, `podcast/bible.md`, `me/style-guide.md` and sections headed
+"AI-generated" are now skipped by semantic search; they remain readable by path). The
+KV manifest still lists the old ids until the next hourly run prunes it. Also fixed in
+canon: five-levels marked archived in `published-thinking.md`, the Dan Office IT Q&A
+heading, and the ASEAN transcript heading labeled AI-generated. Not changed: the
+Feb 26 announcement (published record) still says 9 frameworks and lists five levels.
+The claude.ai connector for this server is cached with 1 of 7 tools on Brian's side; the
+server returns all 7.
