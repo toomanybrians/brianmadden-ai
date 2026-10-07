@@ -86,7 +86,7 @@ A concrete illustration of the integrity problem: my AI built a profile on a col
 
 The mechanism: **selection bias in what gets captured creates systematic distortion in the AI's model of the world.** If you only talk to your AI about problems and conflicts, it builds a problem-and-conflict-dominated worldview. The fix: file-based storage you can read, inspect, and edit directly. A vector database abstracts this away; a folder of markdown files doesn't. "These kinds of questions are absolutely the questions that we have to solve. The knowledge integrity problem was always a challenge for companies. But it was never something we in end-user computing thought about. Now it's our problem too."
 
-### On who owns your second brain
+### On what a second brain reveals about your job, and why the vault compounds
 
 "If a folder full of text files and a twenty-euro ChatGPT subscription can do my whole job — I want to know about that first. For real." After six months of working this way, the understanding of what the AI can and can't do, and what value I actually provide, is much clearer. Also worth noting: the context vault becomes *more* valuable as AI improves. Claude 4.5 → 4.6 → 4.7 → 4.8 — the same vault produces better outputs with each model generation. That's unusual. Most technology assets decay as AI advances; the context vault compounds.
 

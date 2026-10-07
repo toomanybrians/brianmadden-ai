@@ -781,7 +781,7 @@ download it, fork it, connect to it, and reach out — this is very
 fascinating, and I'm really glad you spent the time watching this. What
 an interesting time to be doing what we do. Thank you so much.
 
-## AI Q&A transcript
+## AI Q&A transcript (AI-generated answers, not Brian's own words)
 
 The complete, unedited chat conversation from the video — connecting a
 fresh Claude instance to [brianmadden.ai](https://brianmadden.ai) over MCP,
