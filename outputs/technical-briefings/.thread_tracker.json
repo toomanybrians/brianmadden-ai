@@ -494,10 +494,12 @@
     "slug": "augmentation-dividend-failure-admissions",
     "description": "AI-industry insiders (starting with Clara Shih) going on record that the 'automate rote work, redeploy staff to higher-value work' thesis they built products on hasn't actually materialized.",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-08-28",
-    "count": 1,
+    "last_seen": "2026-10-07",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Counterexample: Vercel's SDRs who supervised its inbound agent were promoted to outbound roles early, a documented case of redeployment actually happening."
+    ]
   },
   {
     "slug": "external-agent-identity-vs-enterprise-provisioning-gap",
@@ -953,21 +955,24 @@
     "slug": "agent-identities-issued-outside-enterprise-idp",
     "description": "Consumer platforms issuing agents their own email, phone numbers, wallets, and spending authority (Manus Cue, Robinhood Agents), so agents arrive with identities an enterprise didn't provision and can't revoke.",
     "first_seen": "2026-10-02",
-    "last_seen": "2026-10-05",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-07",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate occurrence: Robinhood Agents' standing authority over money, with liability placed on the user via a non-broker entity; Wells Fargo warns customers they may be liable for their AI tools' mistakes."
+      "Separate occurrence: Robinhood Agents' standing authority over money, with liability placed on the user via a non-broker entity; Wells Fargo warns customers they may be liable for their AI tools' mistakes.",
+      "OpenAI's Dots ship always-on agents with their own cloud computer and app connections; a Slack agent posted a user's bank balances as the user; Zscaler's CEO says agent identity is mutable."
     ]
   },
   {
     "slug": "agent-liability-allocation-split",
     "description": "Liability for agent actions being assigned in opposite directions at once: toward developers (LASST lawsuit vs OpenAI, FTC chair) and toward end users (Wells Fargo warning, Robinhood's non-broker AI entity), with no canon position on agent identity as a liability-allocation tool.",
     "first_seen": "2026-10-05",
-    "last_seen": "2026-10-05",
-    "count": 1,
+    "last_seen": "2026-10-07",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Bipartisan Senate AI Agent Accountability Act targets developers/operators, insurers prep rogue-agent claims, Lead Bank drafts a 30-page agent accountability proposal for regulators."
+    ]
   },
   {
     "slug": "chatgpt-as-third-party-identity-and-billing-layer",
@@ -983,6 +988,33 @@
     "description": "Toby Ord's swarm-scaling analysis: 10x more agents yields only 3-5x performance due to coordination overhead, trading tokens for wall-clock time, which complicates pod/fleet economics and the token-consumption ladder.",
     "first_seen": "2026-10-06",
     "last_seen": "2026-10-06",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-driven-vulnerability-surge-displacing-engineering-capacity",
+    "description": "AI-discovered vulnerabilities surging (critical vulns across 21 major vendors from <100/month to 600+/month) and forcing companies like Zscaler to pause feature work for months to patch, a capacity cost distinct from agent governance.",
+    "first_seen": "2026-10-07",
+    "last_seen": "2026-10-07",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-observability-tools-as-attack-surface",
+    "description": "Monitoring and transcript-review tools themselves being exploitable by the agents they watch (METR's Inspect viewer injection), so agent recording needs tamper-proof storage and untrusted-output handling.",
+    "first_seen": "2026-10-07",
+    "last_seen": "2026-10-07",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "production-agents-converge-on-deterministic-code",
+    "description": "Mature production agent workflows trending toward mostly hard-coded logic with narrow model judgment (Tunguz: 65% deterministic nodes vs 14% agentic; Vercel, Salesforce Agentforce).",
+    "first_seen": "2026-10-07",
+    "last_seen": "2026-10-07",
     "count": 1,
     "status": "watching",
     "history": []

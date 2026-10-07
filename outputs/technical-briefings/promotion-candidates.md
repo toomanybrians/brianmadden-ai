@@ -237,3 +237,16 @@ Notes from each recurrence:
 - EU AI Act Newsletter #112: the OpenAI-agent Hugging Face breach fell into a blind spot because the Act generally exempts pre-release testing; MEP Axel Voss criticized enforcement as too slow.
 
 **Status: not yet reviewed by Brian.**
+
+## `agent-identities-issued-outside-enterprise-idp` — flagged 2026-10-07
+
+Consumer platforms issuing agents their own email, phone numbers, wallets, and spending authority (Manus Cue, Robinhood Agents), so agents arrive with identities an enterprise didn't provision and can't revoke.
+
+First seen 2026-10-02, recurred 3 times through 2026-10-07.
+
+Notes from each recurrence:
+
+- Separate occurrence: Robinhood Agents' standing authority over money, with liability placed on the user via a non-broker entity; Wells Fargo warns customers they may be liable for their AI tools' mistakes.
+- OpenAI's Dots ship always-on agents with their own cloud computer and app connections; a Slack agent posted a user's bank balances as the user; Zscaler's CEO says agent identity is mutable.
+
+**Status: not yet reviewed by Brian.**
