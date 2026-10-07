@@ -6,21 +6,23 @@
 # originally this stopped after brief.py and left publish.py as a manual
 # step, but Brian's actual daily habit is "paste this into Substack over
 # coffee," which only works if the draft is already in his inbox when he
-# sits down — see BUILD.md open decision #3 for the 08:00-run vs.
+# sits down — see BUILD.md open decision #3 for the 08:00-run (since moved to 07:00) vs.
 # 9-11am-review split this still respects). Actually clicking publish on
 # Substack itself remains manual — nothing here can do that (no posting
 # API exists yet, D7).
 #
-# WHY 06:00 UTC
+# WHY 05:00 UTC
 # -------------
-# Target is 08:00 Paris time (BUILD.md open decision #3), but GitHub
-# Actions cron is always UTC and doesn't observe DST. 06:00 UTC matches
-# Paris exactly under CEST (summer, UTC+2 — true today). Under CET
-# (winter, UTC+1) this drifts to 07:00 Paris — an hour early, not late.
-# Deliberately not solved with a second seasonal cron entry: per Brian's
-# own reasoning for the 08:00 target, "not much breaks overnight," so an
-# hour of drift in either direction doesn't matter enough to double the
-# schedule complexity.
+# Target is 07:00 Paris time. Moved up from 08:00 on 2026-10-07 because
+# Brian is getting up earlier and the brief wasn't always ready (BUILD.md
+# open decision #3 has the original 08:00 reasoning). GitHub Actions cron
+# is always UTC and doesn't observe DST. 05:00 UTC matches 07:00 Paris
+# exactly under CEST (summer, UTC+2). Under CET (winter, UTC+1, from
+# 2026-10-25) it drifts to 06:00 Paris, an hour early, not late.
+# Deliberately not solved with a second seasonal cron entry: "not much
+# breaks overnight," so an hour of early drift doesn't matter enough to
+# double the schedule complexity. If winter's 06:00 is too early, change
+# this to 06:00 UTC then.
 #
 # WHY SELF-HOSTED (2026-09-25)
 # ----------------------------
@@ -84,7 +86,7 @@ name: Daily ingest + brief + publish
 
 on:
   schedule:
-    - cron: "0 6 * * 1-5"
+    - cron: "0 5 * * 1-5"
   workflow_dispatch:
 
 concurrency:

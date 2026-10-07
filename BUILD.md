@@ -69,7 +69,7 @@ The per-day kickoff prompts for Days 2, 4 and 5 were trimmed on 2026-10-04
    on Substack (a manual step — "Pipeline pushes drafts; human publishes,"
    per the Aug 9 decisions above — happens whenever Brian actually clicks
    publish, not something to schedule). Only the first is a real decision:
-   **08:00 Paris time, weekdays**, the natural D6 cron trigger — Brian's
+   **08:00 Paris time, weekdays** (moved to 07:00 on 2026-10-07, see session log), the natural D6 cron trigger — Brian's
    reasoning, not much breaks overnight so an 8am run mostly captures the
    previous day's news anyway, and he expects to review and hit publish
    himself sometime in the 9-11am Paris window most mornings. That
@@ -943,3 +943,11 @@ actions to update. Verify on the next weekday run that the annotation is gone.
 **Resolved (2026-10-05, Brian):** the hand-fixes for old Citrix blog links
 (LinkedIn, Substack About page and issues, Hotsheet show notes) are done. Decision:
 no scrubbing of pre-trim BUILD.md text from public git history; it stays as is.
+
+
+### 2026-10-07: daily pipeline moved to 07:00 Paris
+
+Brian is getting up earlier and the brief wasn't always ready. Cron in
+`daily-pipeline.yml` changed from `0 6` to `0 5` UTC (07:00 Paris under CEST).
+Under CET from 2026-10-25 it runs at 06:00 Paris; if that's too early, move it
+to `0 6` then.
