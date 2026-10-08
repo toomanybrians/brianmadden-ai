@@ -1420,3 +1420,11 @@ sources:
     feed_url: "https://sischool.substack.com/feed"
     priority: regular
     note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-10-01 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."
+
+  - id: a16z
+    name: "a16z"
+    type: newsletter
+    url: "https://www.a16z.news"
+    feed_url: "https://www.a16z.news/feed"
+    priority: regular
+    note: "Auto-discovered from the brianmaddenai Substack account's live follows on 2026-10-08 — a real completed follow, documentation only, not a gate. Not yet reviewed by Brian."

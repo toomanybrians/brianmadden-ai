@@ -250,3 +250,29 @@ Notes from each recurrence:
 - OpenAI's Dots ship always-on agents with their own cloud computer and app connections; a Slack agent posted a user's bank balances as the user; Zscaler's CEO says agent identity is mutable.
 
 **Status: not yet reviewed by Brian.**
+
+## `fde-training-throughput-as-wave-2-bottleneck` — flagged 2026-10-08
+
+DXC/Anthropic having trained 86 forward-deployed engineers against a commitment of tens of thousands — evidence that the constraint on enterprise knowledge-layer buildout is human training throughput rather than funding or model capability.
+
+First seen 2026-08-26, recurred 3 times through 2026-10-08.
+
+Notes from each recurrence:
+
+- AWS formalized its $1B FDE org and added Partner-Led FDE credential pathways, an attempt to scale FDE capacity through partners rather than direct hiring; OpenAI frames FDE work as capability transfer, not dependency.
+- Anthropic commits $100M to a Claude Frontier Academy to train 10,000 enterprise AI engineers, money aimed directly at the training-throughput gap (86 trained vs tens of thousands committed).
+
+**Status: not yet reviewed by Brian.**
+
+## `silicon-differentiating-by-cognitive-stack-layer` — flagged 2026-10-08
+
+Purpose-built hardware appearing for specific cognitive-stack layers rather than for models generally (Nvidia's Vera CPU for agent orchestration: tool calls, code execution, data movement) — raising whether the 'commodity, interchangeable' bottom layers acquire their own hardware economics and lock-in.
+
+First seen 2026-08-26, recurred 3 times through 2026-10-08.
+
+Notes from each recurrence:
+
+- Nvidia's Sentry watchdog chip on BlueField-4 puts agent quarantine/enforcement in dedicated silicon; Tendrils Compute raises on the thesis that agent tool-call inference makes CPU speed a new bottleneck.
+- Levie-cited estimate: Muse needs 65,000 CPUs and 75PB DRAM for 100M users (~$2.8B), so agent hosting carries a CPU/memory bill distinct from GPU inference.
+
+**Status: not yet reviewed by Brian.**
