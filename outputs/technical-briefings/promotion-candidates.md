@@ -276,3 +276,42 @@ Notes from each recurrence:
 - Levie-cited estimate: Muse needs 65,000 CPUs and 75PB DRAM for 100M users (~$2.8B), so agent hosting carries a CPU/memory bill distinct from GPU inference.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-skill-retention-diverges-by-experience-level` — flagged 2026-10-09
+
+A study of AI-assisted patent lawyers found senior users retained a durable performance gain after the tool was removed, while junior users' gains vanished once removed - first data point on whether AI absorbing tactical work still lets junior workers build lasting judgment.
+
+First seen 2026-09-15, recurred 3 times through 2026-10-09.
+
+Notes from each recurrence:
+
+- PISA/Wharton finding on daily-AI-user high schoolers is a separate-but-similar occurrence of yesterday's patent-lawyer pattern, not the same study.
+- Mollick (HBR) says less-experienced users do worse with AI; a16z says senior domain experts get the most leverage.
+
+**Status: not yet reviewed by Brian.**
+
+## `junior-training-rungs-replaced-by-motivation-role` — flagged 2026-10-09
+
+Organizations independently redefining junior/entry human roles away from tactical skill-building toward motivation and judgment coaching as AI absorbs the tactical work (Rokt's skipped 'grind' training, Alpha School's instruction-free 'guides') — bearing on the unresolved question of how future experts build judgment without the traditional ladder.
+
+First seen 2026-09-22, recurred 3 times through 2026-10-09.
+
+Notes from each recurrence:
+
+- CrowdStrike says tier-one SOC work is fully automatable and entry-level moves up the stack; Starburst says the junior job becomes judging AI drafts.
+- a16z finance teams shrinking toward 2% of headcount; Christopher Lind warns cutting junior hiring breaks the leadership pipeline.
+
+**Status: not yet reviewed by Brian.**
+
+## `agent-liability-allocation-split` — flagged 2026-10-09
+
+Liability for agent actions being assigned in opposite directions at once: toward developers (LASST lawsuit vs OpenAI, FTC chair) and toward end users (Wells Fargo warning, Robinhood's non-broker AI entity), with no canon position on agent identity as a liability-allocation tool.
+
+First seen 2026-10-05, recurred 3 times through 2026-10-09.
+
+Notes from each recurrence:
+
+- Bipartisan Senate AI Agent Accountability Act targets developers/operators, insurers prep rogue-agent claims, Lead Bank drafts a 30-page agent accountability proposal for regulators.
+- New detail on the Meta/Sierra Personal Agent Protocol: the merchant vouches for the agent and takes data control and liability, versus card networks or labs in rival designs.
+
+**Status: not yet reviewed by Brian.**
