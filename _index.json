@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-10-04",
+  "generated": "2026-10-11",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
   "total_files": 126,
-  "total_words": 275208,
+  "total_words": 282513,
   "files": [
     {
       "path": "AGENTS.md",
@@ -11,7 +11,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 1541,
+      "word_count": 1806,
       "staleness_threshold": null
     },
     {
@@ -20,7 +20,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 1541,
+      "word_count": 1806,
       "staleness_threshold": null
     },
     {
@@ -29,7 +29,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 1138,
+      "word_count": 972,
       "staleness_threshold": null
     },
     {
@@ -38,7 +38,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 2532,
+      "word_count": 3725,
       "staleness_threshold": null
     },
     {
@@ -47,7 +47,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 624,
+      "word_count": 748,
       "staleness_threshold": null
     },
     {
@@ -56,7 +56,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 761,
+      "word_count": 762,
       "staleness_threshold": null
     },
     {
@@ -65,37 +65,33 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 456,
+      "word_count": 736,
       "staleness_threshold": null
     },
     {
-      "path": "me/developing-thinking.md",
-      "title": "Where Brian's head is right now",
-      "authority_level": 2,
-      "file_type": "frontier",
+      "path": "frameworks/2031-worker-shape.md",
+      "title": "The 2031 worker-shape forecast",
+      "authority_level": 4,
+      "file_type": "framework",
       "tags": [
-        "current-thinking",
-        "frontier",
-        "developing-arguments"
+        "labor-market",
+        "worker-shape",
+        "cognitive-stack",
+        "second-brain",
+        "enterprise-ai-strategy",
+        "workforce"
       ],
-      "word_count": 10826,
-      "staleness_threshold": "weeks",
-      "updated": "2026-09-25",
-      "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
-    },
-    {
-      "path": "me/career.md",
-      "title": "Brian Madden — career chronology",
-      "authority_level": 1,
-      "file_type": "identity",
-      "tags": [
-        "biography",
-        "career-history",
-        "chronology"
+      "word_count": 553,
+      "staleness_threshold": "months",
+      "date": "2026-08-28",
+      "original_url": null,
+      "description": "By ~2031, a knowledge worker is a small team—one human plus N agents. The market splits into three types: cognitive owners, operators, and curators. The generic middle collapses first.",
+      "related_frameworks": [
+        "cognitive-stack",
+        "7-stage-roadmap",
+        "invisible-80-percent"
       ],
-      "word_count": 1050,
-      "staleness_threshold": "stable",
-      "description": "32-year career narrative from desktop tech in 1994 to AI futurist in 2026."
+      "related_posts": []
     },
     {
       "path": "frameworks/7-stage-roadmap.md",
@@ -111,10 +107,11 @@
         "cognitive-extension",
         "published-self"
       ],
-      "word_count": 990,
+      "word_count": 969,
       "staleness_threshold": "stable",
       "date": "2026-06-10",
       "original_url": "https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition",
+      "description": "From faster search to the published self—seven stages mapping how AI enters knowledge work, reframed in 2026 around what the worker does and becomes. Stage 3 (AI as a cognitive extension / second brain) is new for this version.",
       "related_frameworks": [
         "cognitive-stack",
         "invisible-80-percent",
@@ -123,8 +120,7 @@
       "related_posts": [
         "2026-06-10-the-7-stage-roadmap-2026-edition",
         "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace"
-      ],
-      "description": "From faster search to the published self—seven stages mapping how AI enters knowledge work, reframed in 2026 around what the worker does and becomes. Stage 3 (AI as a cognitive extension / second brain) is new for this version."
+      ]
     },
     {
       "path": "frameworks/bitter-lesson.md",
@@ -138,10 +134,11 @@
         "shadow-ai",
         "knowledge-factory"
       ],
-      "word_count": 1012,
+      "word_count": 946,
       "staleness_threshold": "stable",
       "date": "2025-09-17",
       "original_url": "https://www.citrix.com/blogs/2025-09/the-bitter-lesson-of-workplace-ai-stop-engineering-start-enabling",
+      "description": "A sequencing claim: build the knowledge factory now, and the bitter lesson thins its scaffolding later. For AI tooling, enable what workers already chose instead of engineering a replacement.",
       "related_frameworks": [
         "knowledge-factory",
         "invisible-80-percent",
@@ -150,33 +147,7 @@
       ],
       "related_posts": [
         "2025-09-17-the-bitter-lesson-of-workplace-ai"
-      ],
-      "description": "A sequencing claim: build the knowledge factory now, and the bitter lesson thins its scaffolding later. For AI tooling, enable what workers already chose instead of engineering a replacement."
-    },
-    {
-      "path": "frameworks/factory-electrification.md",
-      "title": "The factory electrification analogy",
-      "authority_level": 4,
-      "file_type": "framework",
-      "tags": [
-        "enterprise-ai",
-        "digital-transformation",
-        "infrastructure"
-      ],
-      "word_count": 296,
-      "staleness_threshold": "stable",
-      "date": "2025-07-08",
-      "original_url": "https://www.citrix.com/blogs/2025-07/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
-      "related_frameworks": [
-        "bitter-lesson",
-        "invisible-80-percent",
-        "workspace-as-control-plane"
-      ],
-      "related_posts": [
-        "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
-        "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy"
-      ],
-      "description": "Early factories wired electric motors to the same belt-drive shafts. It took 30 years to redesign around electricity. AI adoption is following the same arc."
+      ]
     },
     {
       "path": "frameworks/cognitive-stack.md",
@@ -196,39 +167,14 @@
       "staleness_threshold": "stable",
       "date": "2026-02-25",
       "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer",
+      "description": "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives.",
       "related_frameworks": [
         "invisible-80-percent"
       ],
       "related_posts": [
         "2026-02-25-cognitive-stack",
         "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate"
-      ],
-      "description": "The enterprise AI industry is spending billions on the wrong layers. A five-layer model showing where the real transformation lives."
-    },
-    {
-      "path": "frameworks/2031-worker-shape.md",
-      "title": "The 2031 worker-shape forecast",
-      "authority_level": 4,
-      "file_type": "framework",
-      "tags": [
-        "labor-market",
-        "worker-shape",
-        "cognitive-stack",
-        "second-brain",
-        "enterprise-ai-strategy",
-        "workforce"
-      ],
-      "word_count": 553,
-      "staleness_threshold": "months",
-      "date": "2026-08-28",
-      "original_url": null,
-      "related_frameworks": [
-        "cognitive-stack",
-        "7-stage-roadmap",
-        "invisible-80-percent"
-      ],
-      "related_posts": [],
-      "description": "By ~2031, a knowledge worker is a small team—one human plus N agents. The market splits into three types: cognitive owners, operators, and curators. The generic middle collapses first."
+      ]
     },
     {
       "path": "frameworks/delegation-not-automation.md",
@@ -237,26 +183,49 @@
       "file_type": "framework",
       "tags": [
         "delegation",
-        "automation",
-        "skills-hierarchy",
-        "agents",
+        "automation-fallacy",
         "cognitive-stack",
+        "agents",
         "enterprise-ai-strategy"
       ],
       "word_count": 1075,
       "staleness_threshold": "stable",
       "date": "2025-12-18",
       "original_url": "https://www.citrix.com/blogs/2025-12/workers-dont-want-to-build-automations-they-want-to-delegate",
+      "description": "Workers don't think like programmers, they think like managers — they want to delegate, not build automations. The industry keeps investing at the wrong layer of the stack.",
       "related_frameworks": [
-        "cognitive-stack",
-        "invisible-80-percent"
+        "cognitive-stack"
       ],
       "related_posts": [
         "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
         "2026-02-25-cognitive-stack"
       ],
-      "description": "Workers don't think like programmers, they think like managers. They want to hand off tasks, not build workflows. The industry is investing at the wrong layer of the stack.",
       "status": "archived"
+    },
+    {
+      "path": "frameworks/factory-electrification.md",
+      "title": "The factory electrification analogy",
+      "authority_level": 4,
+      "file_type": "framework",
+      "tags": [
+        "enterprise-ai",
+        "digital-transformation",
+        "infrastructure"
+      ],
+      "word_count": 296,
+      "staleness_threshold": "stable",
+      "date": "2025-07-08",
+      "original_url": "https://www.citrix.com/blogs/2025-07/to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
+      "description": "Early factories wired electric motors to the same belt-drive shafts. It took 30 years to redesign around electricity. AI adoption is following the same arc.",
+      "related_frameworks": [
+        "bitter-lesson",
+        "invisible-80-percent",
+        "workspace-as-control-plane"
+      ],
+      "related_posts": [
+        "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
+        "2025-09-10-if-ai-is-normal-technology-boring-infrastructure-is-your-best-strategy"
+      ]
     },
     {
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
@@ -269,10 +238,11 @@
         "governance",
         "second-brain"
       ],
-      "word_count": 1064,
+      "word_count": 1095,
       "staleness_threshold": "stable",
       "date": "2026-02-19",
       "original_url": "https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
+      "description": "As AI handles more production work, the human role shifts from doing to directing to verifying. Five levels mapping that evolution.",
       "related_frameworks": [
         "7-stage-roadmap",
         "bitter-lesson",
@@ -281,7 +251,6 @@
       "related_posts": [
         "2026-02-19-coding-as-leading-indicator"
       ],
-      "description": "As AI handles more production work, the human role shifts from doing to directing to verifying. Five levels mapping that evolution.",
       "status": "archived"
     },
     {
@@ -299,6 +268,7 @@
       "staleness_threshold": "stable",
       "date": "2026-01-13",
       "original_url": "https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corporate-led-ai-transformations-cant-see",
+      "description": "The 80% of knowledge work that only the worker can see is exactly the 80% that corporate AI can't touch. That's why worker-led AI wins.",
       "related_frameworks": [
         "bitter-lesson",
         "factory-electrification"
@@ -306,8 +276,7 @@
       "related_posts": [
         "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
         "2026-02-10-second-brain-anchor"
-      ],
-      "description": "The 80% of knowledge work that only the worker can see is exactly the 80% that corporate AI cannot touch. That is why worker-led AI wins."
+      ]
     },
     {
       "path": "frameworks/knowledge-factory.md",
@@ -324,10 +293,11 @@
         "forward-deployed-engineer",
         "knowledge-management"
       ],
-      "word_count": 1586,
+      "word_count": 1710,
       "staleness_threshold": "stable",
       "date": "2026-08-14",
       "original_url": null,
+      "description": "Stop pointing AI at your raw document pile. Build a curated canonical context layer of versioned, cross-linked knowledge blocks, let AI maintain it and generate every downstream asset from it—the shared, departmental second brain.",
       "related_frameworks": [
         "invisible-80-percent",
         "subscribable-brains",
@@ -338,9 +308,7 @@
       "related_posts": [
         "2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop",
         "2026-02-11-second-brains-break-security-assumptions"
-      ],
-      "description": "Stop pointing AI at your raw document pile. Build a curated canonical context layer of versioned, cross-linked knowledge blocks, let AI maintain it and generate every downstream asset from it—the shared, departmental second brain.",
-      "status": "reviewed"
+      ]
     },
     {
       "path": "frameworks/post-application-era.md",
@@ -354,10 +322,11 @@
         "mcp",
         "second-brain"
       ],
-      "word_count": 509,
+      "word_count": 503,
       "staleness_threshold": "stable",
       "date": "2025-10-01",
       "original_url": "https://www.citrix.com/blogs/2025-10/welcome-to-the-post-application-era",
+      "description": "Software creation costs are approaching zero. The application layer that defined enterprise IT for 30 years is collapsing. What replaces it changes everything.",
       "related_frameworks": [
         "workspace-as-control-plane",
         "subscribable-brains"
@@ -365,8 +334,7 @@
       "related_posts": [
         "2025-10-01-welcome-to-the-post-application-era",
         "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps"
-      ],
-      "description": "Software creation costs are approaching zero. The application layer that defined enterprise IT for 30 years is collapsing. What replaces it changes everything."
+      ]
     },
     {
       "path": "frameworks/subscribable-brains.md",
@@ -383,6 +351,7 @@
       "staleness_threshold": "stable",
       "date": "2026-02-17",
       "original_url": "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae",
+      "description": "Stop publishing content. Start publishing your structured knowledge repo—and let subscribers integrate your expertise into their own AI systems.",
       "related_frameworks": [
         "invisible-80-percent",
         "post-application-era"
@@ -390,8 +359,7 @@
       "related_posts": [
         "2026-02-17-subscribable-brains",
         "2026-02-10-second-brain-anchor"
-      ],
-      "description": "Stop publishing content. Start publishing your structured knowledge repo—and let subscribers integrate your expertise into their own AI systems."
+      ]
     },
     {
       "path": "frameworks/workspace-as-control-plane.md",
@@ -408,6 +376,7 @@
       "staleness_threshold": "stable",
       "date": "2025-05-01",
       "original_url": "https://www.citrix.com/blogs/2025-05/the-desktop-has-dissolved-now-where-does-work-live-in-2025",
+      "description": "AI is showing up everywhere—in apps, browsers, OS, standalone tools. The only place you can govern all of it consistently is the workspace layer.",
       "related_frameworks": [
         "post-application-era",
         "bitter-lesson",
@@ -416,8 +385,7 @@
       "related_posts": [
         "2025-05-01-the-desktop-has-dissolved-now-where-does-work-live-in-2025",
         "2025-06-05-ai-agents-need-a-secure-place-to-work"
-      ],
-      "description": "AI is showing up everywhere—in apps, browsers, OS, standalone tools. The only place you can govern all of it consistently is the workspace layer."
+      ]
     },
     {
       "path": "interviews/index.md",
@@ -425,53 +393,8 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 493,
+      "word_count": 491,
       "staleness_threshold": null
-    },
-    {
-      "path": "me/profile.md",
-      "title": "Brian Madden — profile",
-      "authority_level": 1,
-      "file_type": "identity",
-      "tags": [
-        "biography",
-        "credentials",
-        "background"
-      ],
-      "word_count": 348,
-      "staleness_threshold": "months"
-    },
-    {
-      "path": "me/published-thinking.md",
-      "title": "Brian Madden's intellectual foundation",
-      "authority_level": 1,
-      "file_type": "synthesis",
-      "tags": [
-        "knowledge-work",
-        "enterprise-ai",
-        "worker-led-adoption",
-        "automation",
-        "governance",
-        "ai-agents"
-      ],
-      "word_count": 10256,
-      "staleness_threshold": "months",
-      "updated": "2026-05-07",
-      "description": "Comprehensive synthesis of Brian's published ideas across 37+ posts. The authoritative source for his intellectual positions."
-    },
-    {
-      "path": "me/voice.md",
-      "title": "Brian Madden's voice and communication style",
-      "authority_level": 1,
-      "file_type": "identity",
-      "tags": [
-        "writing-style",
-        "voice",
-        "communication"
-      ],
-      "word_count": 551,
-      "staleness_threshold": "stable",
-      "description": "How Brian thinks, argues, and communicates. Reference for AI systems generating content in his voice."
     },
     {
       "path": "me/books.md",
@@ -485,9 +408,38 @@
         "VDI",
         "Citrix"
       ],
-      "word_count": 850,
+      "word_count": 807,
       "staleness_threshold": "stable",
-      "description": "Brian's 7 published books on end-user computing, VDI, enterprise mobility, and Citrix technologies (2001-2014)."
+      "description": "Brian's published books on end-user computing, VDI, enterprise mobility, and Citrix technologies (2001-2014)."
+    },
+    {
+      "path": "me/career.md",
+      "title": "Brian Madden — career chronology",
+      "authority_level": 1,
+      "file_type": "identity",
+      "tags": [
+        "biography",
+        "career-history",
+        "chronology"
+      ],
+      "word_count": 1176,
+      "staleness_threshold": "stable",
+      "description": "32-year career narrative from desktop tech in 1994 to AI futurist in 2026."
+    },
+    {
+      "path": "me/developing-thinking.md",
+      "title": "Where Brian's head is right now",
+      "authority_level": 2,
+      "file_type": "frontier",
+      "tags": [
+        "current-thinking",
+        "frontier",
+        "developing-arguments"
+      ],
+      "word_count": 11174,
+      "staleness_threshold": "weeks",
+      "updated": "2026-09-30",
+      "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
     },
     {
       "path": "me/links.md",
@@ -500,7 +452,7 @@
         "people",
         "AI-learning"
       ],
-      "word_count": 550,
+      "word_count": 309,
       "staleness_threshold": "stable",
       "description": "Curated AI resources, people, and podcasts Brian follows for workplace AI insights."
     },
@@ -515,10 +467,233 @@
         "post-ideas",
         "pipeline"
       ],
-      "word_count": 1994,
+      "word_count": 1948,
       "staleness_threshold": "weeks",
+      "date": "2026-09-04",
       "updated": "2026-09-25",
       "description": "A curated queue of pieces Brian is considering writing. Ideas only — nothing here is a position, a commitment, or a schedule. The lowest-authority file in the repo."
+    },
+    {
+      "path": "me/profile.md",
+      "title": "Brian Madden — profile",
+      "authority_level": 1,
+      "file_type": "identity",
+      "tags": [
+        "biography",
+        "credentials",
+        "background"
+      ],
+      "word_count": 346,
+      "staleness_threshold": "months"
+    },
+    {
+      "path": "me/published-thinking.md",
+      "title": "My intellectual foundation",
+      "authority_level": 1,
+      "file_type": "synthesis",
+      "tags": [
+        "knowledge-work",
+        "enterprise-ai",
+        "worker-led-adoption",
+        "automation",
+        "governance",
+        "ai-agents"
+      ],
+      "word_count": 13817,
+      "staleness_threshold": "months",
+      "updated": "2026-09-14",
+      "description": "Comprehensive synthesis of my published ideas across 42 posts. The authoritative source for my intellectual positions."
+    },
+    {
+      "path": "me/voice.md",
+      "title": "Brian Madden's voice and communication style",
+      "authority_level": 1,
+      "file_type": "identity",
+      "tags": [
+        "writing-style",
+        "voice",
+        "communication"
+      ],
+      "word_count": 1173,
+      "staleness_threshold": "stable",
+      "description": "How Brian thinks, argues, and communicates. Reference for AI systems generating content in his voice."
+    },
+    {
+      "path": "podcast/ep1.md",
+      "title": "EP 1: AI agents, second brains, and the enterprise AI gap",
+      "authority_level": 5,
+      "file_type": "podcast",
+      "tags": [
+        "computer-using-agents",
+        "second-brain",
+        "context-vault",
+        "enterprise-ai",
+        "cognitive-stack",
+        "enterprise-governance",
+        "post-application-era",
+        "token-economics",
+        "oSWorld",
+        "semantic-primitives",
+        "mcp",
+        "brain-to-brain"
+      ],
+      "word_count": 7186,
+      "staleness_threshold": "stable",
+      "date": "2026-05-18",
+      "format": "Podcast (Brian's own show)",
+      "show": "Citrix AI Hotsheet",
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ]
+    },
+    {
+      "path": "podcast/ep2.md",
+      "title": "EP 2: The Last Chapter of EUC",
+      "authority_level": 5,
+      "file_type": "podcast",
+      "tags": [
+        "euc",
+        "end-user-computing",
+        "second-brain",
+        "cognitive-extension",
+        "context-vault",
+        "7-stage-roadmap",
+        "post-application-era",
+        "token-economics",
+        "token-routing",
+        "ai-diffusion",
+        "invisible-80-percent",
+        "vdi",
+        "published-self",
+        "future-of-work"
+      ],
+      "word_count": 11445,
+      "staleness_threshold": "stable",
+      "date": "2026-06-13",
+      "format": "Podcast (Brian's own show — special solo edition)",
+      "show": "Citrix AI Hotsheet",
+      "hosts": [
+        "Brian Madden"
+      ]
+    },
+    {
+      "path": "podcast/ep3.md",
+      "title": "EP 3: Second brains hit the enterprise wall — and why AI automations won't save you",
+      "authority_level": 5,
+      "file_type": "podcast",
+      "tags": [
+        "second-brain",
+        "cognitive-extension",
+        "enterprise-ai",
+        "enterprise-governance",
+        "7-stage-roadmap",
+        "automation-fallacy",
+        "rpa",
+        "data-as-product",
+        "context-vault",
+        "knowledge-work",
+        "glass-ceiling",
+        "phase-three-to-four",
+        "non-human-personas"
+      ],
+      "word_count": 5430,
+      "staleness_threshold": "stable",
+      "date": "2026-06-19",
+      "format": "Podcast (Brian's own show)",
+      "show": "Citrix AI Hotsheet",
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ]
+    },
+    {
+      "path": "podcast/ep4.md",
+      "title": "EP 4: OSWorld 2.0, AI Reconciliation Maps, & the Futurist's Playbook",
+      "authority_level": 5,
+      "file_type": "podcast",
+      "tags": [
+        "osworld",
+        "computer-using-agents",
+        "benchmarks",
+        "reconciliation-map",
+        "context-vault",
+        "second-brain",
+        "enterprise-ai",
+        "hallucination",
+        "mcp",
+        "organizational-ai-maturity",
+        "treehouse-not-ladder",
+        "futurism",
+        "diffusion-gap",
+        "forward-deployed-engineering",
+        "ai-bubble",
+        "open-weight-models",
+        "sonnet-class-models",
+        "knowledge-work"
+      ],
+      "word_count": 9048,
+      "staleness_threshold": "stable",
+      "date": "2026-07-15",
+      "format": "Podcast (Brian's own show)",
+      "show": "Citrix AI Hotsheet",
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ]
+    },
+    {
+      "path": "podcast/ep5.md",
+      "title": "EP 5: AI Knowledge Factories — Company-Wide Second Brains",
+      "authority_level": 5,
+      "file_type": "podcast",
+      "tags": [
+        "knowledge-factory",
+        "canonical-knowledge-layer",
+        "second-brain",
+        "context-vault",
+        "three-tier-architecture",
+        "hallucination",
+        "provenance",
+        "forward-deployed-engineering",
+        "service-owner",
+        "open-knowledge-format",
+        "securspaces",
+        "netscaler-ai-gateway",
+        "ai-agent-security",
+        "non-human-personas",
+        "openai-hugging-face-incident",
+        "agentic-ai",
+        "enterprise-ai",
+        "governance"
+      ],
+      "word_count": 10514,
+      "staleness_threshold": "stable",
+      "date": "2026-09-01",
+      "format": "Podcast (Brian's own show)",
+      "show": "Citrix AI Hotsheet",
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ]
+    },
+    {
+      "path": "podcast/index.md",
+      "title": "Citrix AI Hotsheet — Brian Madden's podcast",
+      "authority_level": 5,
+      "file_type": "podcast",
+      "tags": [
+        "computer-using-agents",
+        "second-brain",
+        "context-vault",
+        "enterprise-ai",
+        "cognitive-stack",
+        "enterprise-governance",
+        "non-human-personas",
+        "knowledge-factory"
+      ],
+      "word_count": 670,
+      "staleness_threshold": "stable"
     },
     {
       "path": "posts/citrix-blog/2025-04-07-why-i-joined-citrix-and-what-im-excited-about.md",
@@ -560,7 +735,7 @@
     },
     {
       "path": "posts/citrix-blog/2025-04-21-what-does-ai-mean-at-citrix.md",
-      "title": "What does \\\"AI\\\" mean at Citrix?",
+      "title": "What does \"AI\" mean at Citrix?",
       "authority_level": 5,
       "file_type": "citrix-blog-post",
       "tags": [
@@ -597,7 +772,7 @@
     },
     {
       "path": "posts/citrix-blog/2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what.md",
-      "title": "Your CEO just sent a company-wide \\\"AI-First\\\" memo. Now what?",
+      "title": "Your CEO just sent a company-wide \"AI-First\" memo. Now what?",
       "authority_level": 5,
       "file_type": "citrix-blog-post",
       "tags": [
@@ -999,26 +1174,6 @@
       "related_frameworks": []
     },
     {
-      "path": "posts/external/2026-01-07-vmblog-no-ai-bombshells.md",
-      "title": "No AI Bombshells in 2026—Just Reality Catching Up",
-      "authority_level": 5,
-      "file_type": "external-article",
-      "publication": "VMBlog",
-      "tags": [
-        "ai-predictions",
-        "enterprise-ai",
-        "worker-led-adoption",
-        "ai-adoption",
-        "ai-skills-gap",
-        "shadow-ai"
-      ],
-      "word_count": 989,
-      "staleness_threshold": "stable",
-      "date": "2026-01-07",
-      "original_url": "https://vmblog.com/prediction/no-ai-bombshells-in-2026-just-reality-catching-up/",
-      "related_frameworks": []
-    },
-    {
       "path": "posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md",
       "title": "The invisible 80%—what corporate-led AI transformations can't see",
       "authority_level": 5,
@@ -1085,7 +1240,7 @@
     },
     {
       "path": "posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md",
-      "title": "Workers' \\\"second brains\\\" break every assumption about how we secure knowledge work",
+      "title": "Workers' \"second brains\" break every assumption about how we secure knowledge work",
       "authority_level": 5,
       "file_type": "citrix-blog-post",
       "tags": [
@@ -1133,68 +1288,53 @@
       ]
     },
     {
-      "path": "posts/citrix-blog/2026-05-21-announcing-citrix-ai-hotsheet.md",
-      "title": "Announcing our new podcast: the Citrix AI Hotsheet",
-      "authority_level": 4,
-      "file_type": "citrix-blog-post",
-      "tags": [
-        "podcast",
-        "second-brain",
-        "computer-use-agents",
-        "context-vault",
-        "mcp",
-        "enterprise-ai"
-      ],
-      "word_count": 380,
-      "staleness_threshold": "stable",
-      "date": "2026-05-21",
-      "original_url": "https://www.citrix.com/blogs/2026-05/aihotsheet",
-      "related_frameworks": [
-        "cognitive-stack",
-        "invisible-80-percent"
-      ]
-    },
-    {
-      "path": "posts/citrix-blog/2026-05-07-why-enterprise-ai-agents-disappoint.md",
-      "title": "Why enterprise AI agents disappoint (and why the fix is not 'better agents')",
+      "path": "posts/citrix-blog/2026-02-25-cognitive-stack.md",
+      "title": "Understanding the cognitive stack: why your AI strategy is focused on the wrong layer",
       "authority_level": 5,
       "file_type": "citrix-blog-post",
       "tags": [
+        "cognitive-stack",
         "agents",
-        "cognitive-stack",
-        "crawl-walk-run",
-        "skills",
-        "second-brain",
-        "token-routing"
+        "delegation",
+        "claws",
+        "skills-hierarchy",
+        "enterprise-ai-strategy",
+        "personal-ai-knowledge-systems",
+        "second-brain"
       ],
-      "word_count": 1280,
+      "word_count": 1246,
       "staleness_threshold": "stable",
-      "date": "2026-05-07",
-      "original_url": "https://www.citrix.com/blogs/2026-05/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents",
+      "date": "2026-02-25",
+      "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer",
       "related_frameworks": [
-        "cognitive-stack",
-        "7-stage-roadmap"
+        "invisible-80-percent",
+        "five-levels-of-ai-in-knowledge-work"
       ]
     },
     {
-      "path": "posts/citrix-blog/2026-04-22-saaspocalypse-wont-touch-enterprise-software-moat.md",
-      "title": "The SaaSpocalypse won't touch the enterprise software moat",
-      "authority_level": 4,
+      "path": "posts/citrix-blog/2026-03-12-skills-are-all-you-need.md",
+      "title": "Skills are all you need",
+      "authority_level": 5,
       "file_type": "citrix-blog-post",
       "tags": [
+        "skills",
+        "cognitive-stack",
+        "governance",
         "post-application-era",
-        "saaspocalypse",
-        "enterprise-software",
-        "boring-infrastructure",
-        "systems-of-record"
+        "knowledge-work",
+        "bitter-lesson",
+        "subscribable-brains",
+        "second-brain"
       ],
-      "word_count": 1459,
+      "word_count": 1365,
       "staleness_threshold": "stable",
-      "date": "2026-04-22",
-      "original_url": "https://www.citrix.com/blogs/2026-04/the-saaspocalypse-wont-touch-the-enterprise-software-moat",
+      "date": "2026-03-12",
+      "original_url": "https://www.citrix.com/blogs/2026-03/skills-are-all-you-need",
       "related_frameworks": [
+        "cognitive-stack",
+        "bitter-lesson",
         "post-application-era",
-        "bitter-lesson"
+        "subscribable-brains"
       ]
     },
     {
@@ -1212,7 +1352,7 @@
         "post-application-era",
         "bitter-lesson"
       ],
-      "word_count": 1370,
+      "word_count": 1371,
       "staleness_threshold": "stable",
       "date": "2026-04-09",
       "original_url": "https://www.citrix.com/blogs/2026-04/whats-left-for-humans",
@@ -1223,45 +1363,141 @@
       ]
     },
     {
-      "path": "posts/citrix-blog/2026-03-12-skills-are-all-you-need.md",
-      "title": "Skills are all you need",
-      "authority_level": 3,
-      "file_type": "post",
+      "path": "posts/citrix-blog/2026-04-22-saaspocalypse-wont-touch-enterprise-software-moat.md",
+      "title": "The SaaSpocalypse won't touch the enterprise software moat",
+      "authority_level": 4,
+      "file_type": "blog-post",
       "tags": [
-        "skills",
-        "cognitive-stack",
-        "governance",
         "post-application-era",
-        "knowledge-work"
+        "saaspocalypse",
+        "enterprise-software",
+        "boring-infrastructure",
+        "systems-of-record"
       ],
-      "word_count": 1450,
+      "word_count": 1393,
       "staleness_threshold": "stable",
-      "date": "2026-03-12",
-      "original_url": "https://www.citrix.com/blogs/2026-03/skills-are-all-you-need"
+      "date": "2026-04-22",
+      "description": "AI is eating software — but only a specific layer of it. The deep layer of vertical regulated systems of record (Epic, SAP, Amadeus, industrial control, bank cores) isn't going anywhere. AI dissolves UIs, not systems of record.",
+      "original_url": "https://www.citrix.com/blogs/2026-04/the-saaspocalypse-wont-touch-the-enterprise-software-moat"
     },
     {
-      "path": "posts/citrix-blog/2026-02-25-cognitive-stack.md",
-      "title": "Understanding the cognitive stack: why your AI strategy is focused on the wrong layer",
-      "authority_level": 5,
-      "file_type": "citrix-blog-post",
+      "path": "posts/citrix-blog/2026-05-07-why-enterprise-ai-agents-disappoint.md",
+      "title": "Why enterprise AI agents disappoint (and why the fix is not 'better agents')",
+      "authority_level": 4,
+      "file_type": "blog-post",
       "tags": [
-        "cognitive-stack",
         "agents",
-        "delegation",
-        "claws",
-        "skills-hierarchy",
-        "enterprise-ai-strategy",
-        "personal-ai-knowledge-systems",
-        "second-brain"
+        "cognitive-stack",
+        "crawl-walk-run",
+        "skills",
+        "second-brain",
+        "token-routing"
       ],
-      "word_count": 1850,
+      "word_count": 1198,
       "staleness_threshold": "stable",
-      "date": "2026-02-25",
-      "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer",
-      "related_frameworks": [
-        "invisible-80-percent",
-        "five-levels-of-ai-in-knowledge-work"
-      ]
+      "date": "2026-05-07",
+      "description": "Enterprise agent pilots are stalling because companies are skipping from 'crawl' (chat) to 'run' (autonomous agents) without 'walk' (context, skills, judgment). Even after you can run, you still mostly walk — successful AI use is choosing the right cognitive-stack layer per task. Includes the four-layer Excel example with token costs.",
+      "original_url": "https://www.citrix.com/blogs/2026-05/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents"
+    },
+    {
+      "path": "posts/citrix-blog/2026-05-21-announcing-citrix-ai-hotsheet.md",
+      "title": "Announcing our new podcast: the Citrix AI Hotsheet",
+      "authority_level": 4,
+      "file_type": "blog-post",
+      "tags": [
+        "podcast",
+        "second-brain",
+        "computer-use-agents",
+        "context-vault",
+        "mcp",
+        "enterprise-ai"
+      ],
+      "word_count": 556,
+      "staleness_threshold": "stable",
+      "date": "2026-05-21",
+      "description": "Brian Madden and Dave Brear launch the Citrix AI Hotsheet podcast. Brian (futurist: where things are going) + Dave (architect: what customers deal with today) covering AI entering the enterprise workspace. Episode 1: CUAs, semantic primitives vs. screenshots, second brains / context vaults, and connecting two public second brains via MCP.",
+      "original_url": "https://www.citrix.com/blogs/2026-05/aihotsheet"
+    },
+    {
+      "path": "posts/citrix-blog/2026-06-10-the-7-stage-roadmap-2026-edition.md",
+      "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
+      "authority_level": 5,
+      "file_type": "blog-post",
+      "tags": [
+        "7-stage-roadmap",
+        "cognitive-extension",
+        "second-brain",
+        "ai-fleet",
+        "published-self",
+        "worker-led-ai",
+        "human-plus-ai",
+        "knowledge-work-future"
+      ],
+      "word_count": 1338,
+      "staleness_threshold": "stable",
+      "date": "2026-06-10",
+      "description": "2026 update to the 7-stage roadmap for human-AI collaboration. Key reframe: the 2025 version focused on what AI does; this version focuses on what the worker does and becomes. Stage 3 (AI as Cognitive Extension / second brain) is entirely new, only viable since January 2026. Stage 7 is now The Published Self rather than AI-orchestrated work. Brian's self-reported position: deep in Stage 3, entering Stage 4, fully in Stage 7.",
+      "original_url": "https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition"
+    },
+    {
+      "path": "posts/citrix-blog/2026-06-30-how-a-futurist-reads-ai-news.md",
+      "title": "How a futurist reads AI news. (Hint: ignore most of it.)",
+      "authority_level": 5,
+      "file_type": "blog",
+      "tags": [
+        "futurism",
+        "methodology",
+        "cone-of-uncertainty",
+        "invariants",
+        "second-brain",
+        "cognitive-stack",
+        "7-stage-roadmap"
+      ],
+      "word_count": 1583,
+      "staleness_threshold": "stable",
+      "date": "2026-06-30",
+      "original_url": "https://www.citrix.com/blogs/2026-06/how-a-futurist-reads-ai-news-hint-ignore-most-of-it"
+    },
+    {
+      "path": "posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md",
+      "title": "How to build an AI strategy that survives the bubble pop",
+      "authority_level": 5,
+      "file_type": "blog",
+      "tags": [
+        "ai-bubble",
+        "invariants",
+        "open-weight-models",
+        "second-brain",
+        "knowledge-factory",
+        "workspace-as-control-plane",
+        "token-economics",
+        "data-portability",
+        "futurism"
+      ],
+      "word_count": 1766,
+      "staleness_threshold": "stable",
+      "date": "2026-07-20",
+      "original_url": "https://www.citrix.com/blogs/2026-07/how-to-build-an-ai-strategy-that-survives-the-bubble-pop"
+    },
+    {
+      "path": "posts/citrix-blog/2026-09-14-you-cant-transform-the-ai-you-cant-see.md",
+      "title": "You can't transform the AI you can't see",
+      "authority_level": 5,
+      "file_type": "blog",
+      "tags": [
+        "shadow-ai",
+        "ai-visibility",
+        "ai-governance",
+        "workspace-as-control-plane",
+        "agent-identity",
+        "knowledge-factory",
+        "mcp-security",
+        "netscaler"
+      ],
+      "word_count": 2745,
+      "staleness_threshold": "stable",
+      "date": "2026-09-14",
+      "original_url": "https://www.citrix.com/blogs/2026-09/you-cant-transform-the-ai-you-cant-see"
     },
     {
       "path": "posts/citrix-blog/index.md",
@@ -1269,16 +1505,84 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 1507,
+      "word_count": 2422,
       "staleness_threshold": null
     },
     {
-      "path": "posts/linkedin/index.md",
-      "title": "LinkedIn content",
+      "path": "posts/external/2026-01-07-vmblog-no-ai-bombshells.md",
+      "title": "No AI Bombshells in 2026—Just Reality Catching Up",
+      "authority_level": 5,
+      "file_type": "external-article",
+      "tags": [
+        "ai-predictions",
+        "enterprise-ai",
+        "worker-led-adoption",
+        "ai-adoption",
+        "ai-skills-gap",
+        "shadow-ai"
+      ],
+      "word_count": 989,
+      "staleness_threshold": "stable",
+      "date": "2026-01-07",
+      "original_url": "https://vmblog.com/prediction/no-ai-bombshells-in-2026-just-reality-catching-up/",
+      "publication": "VMBlog",
+      "related_frameworks": []
+    },
+    {
+      "path": "posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md",
+      "title": "2026: The year your AI strategy becomes irrelevant",
+      "authority_level": 5,
+      "file_type": "external-article",
+      "tags": [
+        "invisible-80-percent",
+        "governance",
+        "worker-led-ai",
+        "consumerization",
+        "workspace-as-control-plane",
+        "agentic-ai",
+        "future-of-work"
+      ],
+      "word_count": 218,
+      "staleness_threshold": "stable",
+      "date": "2026-02-27",
+      "original_url": "https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/",
+      "publication": "AI Journal",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "workspace-as-control-plane"
+      ]
+    },
+    {
+      "path": "posts/external/2026-06-22-techradar-ai-second-brain-future-of-knowledge-work.md",
+      "title": "The AI second brain: The future of knowledge work",
+      "authority_level": 5,
+      "file_type": "external-article",
+      "tags": [
+        "invisible-80-percent",
+        "second-brain",
+        "knowledge-work",
+        "future-of-work",
+        "enterprise-ai",
+        "worker-led-ai"
+      ],
+      "word_count": 325,
+      "staleness_threshold": "stable",
+      "date": "2026-06-22",
+      "original_url": "https://www.techradar.com/pro/the-ai-second-brain-the-future-of-knowledge-work",
+      "publication": "TechRadar Pro",
+      "related_frameworks": [
+        "invisible-80-percent",
+        "cognitive-stack",
+        "subscribable-brains"
+      ]
+    },
+    {
+      "path": "posts/external/index.md",
+      "title": "External articles",
       "authority_level": null,
-      "file_type": null,
+      "file_type": "index",
       "tags": [],
-      "word_count": 715,
+      "word_count": 70,
       "staleness_threshold": null
     },
     {
@@ -1320,7 +1624,7 @@
     },
     {
       "path": "posts/linkedin/articles/2023-06-26-ai-influence-levels.md",
-      "title": "How much \\\"help\\\" did AI provide? We should all disclose this.",
+      "title": "How much \"help\" did AI provide? We should all disclose this.",
       "authority_level": 5,
       "file_type": "linkedin-article",
       "tags": [
@@ -1688,7 +1992,7 @@
         "future-of-work",
         "creator-economy"
       ],
-      "word_count": 1594,
+      "word_count": 1552,
       "staleness_threshold": "stable",
       "date": "2026-02-26",
       "original_url": "https://www.linkedin.com/pulse/announcing-brianmaddenai-i-just-published-my-brain-you-brian-madden-yw71e/",
@@ -1701,19 +2005,13 @@
       ]
     },
     {
-      "path": "posts/linkedin/posts/standalone-posts-pre-2024.md",
-      "title": "LinkedIn posts — pre-2024",
-      "authority_level": 5,
-      "file_type": "linkedin-posts-collection",
-      "tags": [
-        "social-media",
-        "short-form",
-        "linkedin"
-      ],
-      "word_count": 2201,
-      "staleness_threshold": "stable",
-      "date": "2023-12-31",
-      "description": "Collection of notable short-form LinkedIn feed posts from 2009 to 2023."
+      "path": "posts/linkedin/index.md",
+      "title": "LinkedIn content",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 766,
+      "staleness_threshold": null
     },
     {
       "path": "posts/linkedin/posts/standalone-posts-2024.md",
@@ -1725,7 +2023,7 @@
         "short-form",
         "linkedin"
       ],
-      "word_count": 3746,
+      "word_count": 3716,
       "staleness_threshold": "stable",
       "date": "2024-12-31",
       "description": "Collection of short-form LinkedIn feed posts from 2024."
@@ -1740,7 +2038,7 @@
         "short-form",
         "linkedin"
       ],
-      "word_count": 8066,
+      "word_count": 8036,
       "staleness_threshold": "stable",
       "date": "2025-12-31",
       "description": "Collection of short-form LinkedIn feed posts from 2025."
@@ -1755,211 +2053,25 @@
         "short-form",
         "linkedin"
       ],
-      "word_count": 4560,
+      "word_count": 4524,
       "staleness_threshold": "weeks",
       "date": "2026-04-07",
       "description": "Collection of short-form LinkedIn feed posts from 2026. Updated as new posts are published."
     },
     {
-      "path": "podcast/index.md",
-      "title": "Citrix AI Hotsheet — Brian Madden's podcast",
+      "path": "posts/linkedin/posts/standalone-posts-pre-2024.md",
+      "title": "LinkedIn posts — pre-2024",
       "authority_level": 5,
-      "file_type": "podcast",
+      "file_type": "linkedin-posts-collection",
       "tags": [
-        "computer-using-agents",
-        "second-brain",
-        "context-vault",
-        "enterprise-ai",
-        "cognitive-stack",
-        "enterprise-governance",
-        "non-human-personas"
+        "social-media",
+        "short-form",
+        "linkedin"
       ],
-      "word_count": 514,
+      "word_count": 2168,
       "staleness_threshold": "stable",
-      "description": "Show page for the Citrix AI Hotsheet, Brian's monthly podcast co-hosted with Dave Brear. Links to all episode transcripts."
-    },
-    {
-      "path": "podcast/ep1.md",
-      "title": "EP 1: AI agents, second brains, and the enterprise AI gap",
-      "authority_level": 5,
-      "file_type": "podcast",
-      "tags": [
-        "computer-using-agents",
-        "second-brain",
-        "context-vault",
-        "enterprise-ai",
-        "cognitive-stack",
-        "enterprise-governance",
-        "post-application-era",
-        "token-economics",
-        "osworld",
-        "semantic-primitives",
-        "mcp",
-        "brain-to-brain"
-      ],
-      "word_count": 7110,
-      "staleness_threshold": "stable",
-      "date": "2026-05-18",
-      "show": "Citrix AI Hotsheet",
-      "hosts": [
-        "Brian Madden",
-        "Dave Brear"
-      ],
-      "format": "Podcast (Brian's own show)",
-      "recording": "Full episode transcript"
-    },
-    {
-      "path": "podcast/ep2.md",
-      "title": "EP 2: The Last Chapter of EUC",
-      "authority_level": 5,
-      "file_type": "podcast",
-      "tags": [
-        "euc",
-        "end-user-computing",
-        "second-brain",
-        "cognitive-extension",
-        "context-vault",
-        "7-stage-roadmap",
-        "post-application-era",
-        "token-economics",
-        "token-routing",
-        "ai-diffusion",
-        "invisible-80-percent",
-        "vdi",
-        "published-self",
-        "future-of-work"
-      ],
-      "word_count": 11357,
-      "staleness_threshold": "stable",
-      "date": "2026-06-13",
-      "show": "Citrix AI Hotsheet",
-      "hosts": [
-        "Brian Madden"
-      ],
-      "format": "Podcast (Brian's own show — special solo edition)",
-      "recording": "Full episode transcript (Brian's EUCTech keynote, adapted for podcast)"
-    },
-    {
-      "path": "podcast/ep3.md",
-      "title": "EP 3: Second brains hit the enterprise wall — and why AI automations won't save you",
-      "authority_level": 5,
-      "file_type": "podcast",
-      "tags": [
-        "second-brain",
-        "cognitive-extension",
-        "enterprise-ai",
-        "enterprise-governance",
-        "7-stage-roadmap",
-        "automation-fallacy",
-        "rpa",
-        "data-as-product",
-        "context-vault",
-        "knowledge-work",
-        "glass-ceiling",
-        "phase-three-to-four",
-        "non-human-personas"
-      ],
-      "word_count": 5380,
-      "staleness_threshold": "stable",
-      "date": "2026-06-19",
-      "show": "Citrix AI Hotsheet",
-      "hosts": [
-        "Brian Madden",
-        "Dave Brear"
-      ],
-      "format": "Podcast (Brian's own show)",
-      "recording": "Full episode transcript"
-    },
-    {
-      "path": "podcast/ep4.md",
-      "title": "EP 4: OSWorld 2.0, AI Reconciliation Maps, & the Futurist's Playbook",
-      "authority_level": 5,
-      "file_type": "podcast",
-      "tags": [
-        "osworld",
-        "computer-using-agents",
-        "benchmarks",
-        "reconciliation-map",
-        "context-vault",
-        "second-brain",
-        "enterprise-ai",
-        "hallucination",
-        "mcp",
-        "organizational-ai-maturity",
-        "treehouse-not-ladder",
-        "futurism",
-        "diffusion-gap",
-        "forward-deployed-engineering",
-        "ai-bubble",
-        "open-weight-models",
-        "sonnet-class-models",
-        "knowledge-work"
-      ],
-      "word_count": 8973,
-      "staleness_threshold": "stable",
-      "date": "2026-07-15",
-      "show": "Citrix AI Hotsheet",
-      "hosts": [
-        "Brian Madden",
-        "Dave Brear"
-      ],
-      "format": "Podcast (Brian's own show)",
-      "recording": "Full episode transcript"
-    },
-    {
-      "path": "podcast/ep5.md",
-      "title": "EP 5: AI Knowledge Factories — Company-Wide Second Brains",
-      "authority_level": 5,
-      "file_type": "podcast",
-      "tags": [
-        "knowledge-factory",
-        "canonical-knowledge-layer",
-        "second-brain",
-        "context-vault",
-        "three-tier-architecture",
-        "hallucination",
-        "provenance",
-        "forward-deployed-engineering",
-        "service-owner",
-        "open-knowledge-format",
-        "securspaces",
-        "netscaler-ai-gateway",
-        "ai-agent-security",
-        "non-human-personas",
-        "openai-hugging-face-incident",
-        "agentic-ai",
-        "enterprise-ai",
-        "governance"
-      ],
-      "word_count": 10514,
-      "staleness_threshold": "stable",
-      "date": "2026-09-01",
-      "show": "Citrix AI Hotsheet",
-      "hosts": [
-        "Brian Madden",
-        "Dave Brear"
-      ],
-      "format": "Podcast (Brian's own show)",
-      "recording": "Full episode transcript"
-    },
-    {
-      "path": "talks/2024-06-06-impact-of-ai-explored-workplace-ai.md",
-      "title": "Microsoft Recall: a new era for workplace AI",
-      "authority_level": 5,
-      "file_type": "talk",
-      "tags": [
-        "workplace-ai",
-        "microsoft-recall",
-        "vdi",
-        "ai-screen-recording",
-        "productivity-measurement",
-        "shadow-ai",
-        "consumerization",
-        "ai-compliance",
-        "employee-monitoring"
-      ],
-      "word_count": 2800,
-      "staleness_threshold": "stable"
+      "date": "2023-12-31",
+      "description": "Collection of notable short-form LinkedIn feed posts from 2009 to 2023."
     },
     {
       "path": "talks/2024-03-26-dutch-vmug-keynote.md",
@@ -1984,6 +2096,31 @@
       "recording": "https://www.youtube.com/watch?v=6JAEOS7iREw"
     },
     {
+      "path": "talks/2024-06-06-impact-of-ai-explored-workplace-ai.md",
+      "title": "Microsoft Recall: a new era for workplace AI",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "workplace-ai",
+        "microsoft-recall",
+        "vdi",
+        "ai-screen-recording",
+        "productivity-measurement",
+        "shadow-ai",
+        "consumerization",
+        "ai-compliance",
+        "gdpr",
+        "employee-monitoring"
+      ],
+      "word_count": 1350,
+      "staleness_threshold": "stable",
+      "date": "2024-06-06",
+      "event": "Impact of AI: Explored podcast",
+      "format": "Podcast guest appearance",
+      "hosts": "James O'Regan, Gerjon Kunst",
+      "recording": "https://www.youtube.com/watch?v=lzBnEPTgH2A"
+    },
+    {
       "path": "talks/2024-10-22-euc-world-keynote.md",
       "title": "EUC Past, Present, and Future",
       "authority_level": 5,
@@ -2006,27 +2143,6 @@
       "audience": "EUC practitioners, IT professionals",
       "format": "Opening keynote with slides",
       "recording": "https://www.youtube.com/watch?v=DkuoK-4PncM"
-    },
-    {
-      "path": "talks/2024-12-17-impact-of-ai-explored-predictions-2025.md",
-      "title": "The 2025 AI revolution: predictions and impact",
-      "authority_level": 5,
-      "file_type": "talk",
-      "tags": [
-        "ai-agents",
-        "computer-using-agents",
-        "windows-desktop",
-        "vdi",
-        "claude-computer-use",
-        "open-source-models",
-        "workplace-ai",
-        "shadow-ai",
-        "ai-predictions",
-        "non-human-licensing",
-        "physical-ai"
-      ],
-      "word_count": 3200,
-      "staleness_threshold": "stable"
     },
     {
       "path": "talks/2024-11-26-euc-forum-winter-meeting.md",
@@ -2056,6 +2172,33 @@
       "recording": "https://www.youtube.com/watch?v=wFgfFT3ILZo"
     },
     {
+      "path": "talks/2024-12-17-impact-of-ai-explored-predictions-2025.md",
+      "title": "The 2025 AI revolution: predictions and impact",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "computer-using-agents",
+        "windows-desktop",
+        "vdi",
+        "claude-computer-use",
+        "open-source-models",
+        "workplace-ai",
+        "shadow-ai",
+        "ai-predictions",
+        "non-human-licensing",
+        "physical-ai"
+      ],
+      "word_count": 2417,
+      "staleness_threshold": "stable",
+      "date": "2024-12-17",
+      "event": "Impact of AI: Explored podcast",
+      "location": "EUC Forum, London (recorded in person)",
+      "format": "Podcast guest appearance",
+      "hosts": "James O'Regan, Gerjon Kunst",
+      "recording": "https://www.youtube.com/watch?v=KJLp-KSbSu8"
+    },
+    {
       "path": "talks/2025-05-22-euctech-denmark-keynote.md",
       "title": "The future of work in an AI-native world",
       "authority_level": 5,
@@ -2082,6 +2225,56 @@
       "audience": "EUC practitioners, IT professionals",
       "format": "Closing keynote with slides",
       "recording": "https://www.youtube.com/watch?v=srNOw7uBQm4"
+    },
+    {
+      "path": "talks/2025-07-01-axess-connect-euc-futurism-ai.md",
+      "title": "What's next for EUC? Brian Madden talks futurism in the age of AI",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "computer-using-agents",
+        "7-stage-roadmap",
+        "mcp",
+        "a2a",
+        "knowledge-work",
+        "workspace-as-control-plane",
+        "euc",
+        "ai-as-worker"
+      ],
+      "word_count": 1179,
+      "staleness_threshold": "stable",
+      "date": "2025-07-01",
+      "event": "Axess Connect podcast",
+      "format": "Podcast guest appearance (Part 1 of 2)",
+      "hosts": "Kris Haynes, Stefan Stickley",
+      "recording": "https://axess.systems/information-technology-news/whats-next-for-euc-brian-madden-talks-futurism-in-the-age-of-ai/"
+    },
+    {
+      "path": "talks/2025-09-01-axess-connect-ai-real-impact.md",
+      "title": "Artificial intelligence, real impact: Brian Madden talks AI in the modern workplace",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-agents",
+        "computer-using-agents",
+        "knowledge-work",
+        "workspace-as-control-plane",
+        "euc",
+        "productivity",
+        "build-vs-buy",
+        "second-brain",
+        "custom-gpts",
+        "career-progression",
+        "ai-as-worker"
+      ],
+      "word_count": 1211,
+      "staleness_threshold": "stable",
+      "date": "2025-09-01",
+      "event": "Axess Connect podcast",
+      "format": "Podcast guest appearance (Part 2 of 2)",
+      "hosts": "Kris Haynes, Stefan Stickley",
+      "recording": "https://axess.systems/information-technology-news/brian-madden-workplace-ai/"
     },
     {
       "path": "talks/2025-10-10-appmanagevent-keynote.md",
@@ -2138,71 +2331,6 @@
       "recording": "https://www.youtube.com/watch?v=eBL9GtdAZjM"
     },
     {
-      "path": "talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md",
-      "title": "AI 2026: when agents, browsers, and security collide",
-      "authority_level": 5,
-      "file_type": "talk",
-      "tags": [
-        "ai-agents",
-        "computer-using-agents",
-        "osworld-benchmarks",
-        "ai-browsers",
-        "enterprise-browser",
-        "mcp",
-        "worker-led-ai",
-        "shadow-strategy",
-        "ai-predictions",
-        "ai-bubble",
-        "workspace-as-control-plane",
-        "second-brain",
-        "multi-agent",
-        "microsoft-ignite",
-        "work-iq"
-      ],
-      "word_count": 4100,
-      "staleness_threshold": "stable"
-    },
-    {
-      "path": "talks/2025-09-01-axess-connect-ai-real-impact.md",
-      "title": "Artificial intelligence, real impact: Brian Madden talks AI in the modern workplace",
-      "authority_level": 5,
-      "file_type": "talk",
-      "tags": [
-        "ai-agents",
-        "computer-using-agents",
-        "knowledge-work",
-        "workspace-as-control-plane",
-        "euc",
-        "productivity",
-        "build-vs-buy",
-        "second-brain",
-        "custom-gpts",
-        "career-progression",
-        "ai-as-worker"
-      ],
-      "word_count": 3800,
-      "staleness_threshold": "stable"
-    },
-    {
-      "path": "talks/2025-07-01-axess-connect-euc-futurism-ai.md",
-      "title": "What's next for EUC? Brian Madden talks futurism in the age of AI",
-      "authority_level": 5,
-      "file_type": "talk",
-      "tags": [
-        "ai-agents",
-        "computer-using-agents",
-        "7-stage-roadmap",
-        "mcp",
-        "a2a",
-        "knowledge-work",
-        "workspace-as-control-plane",
-        "euc",
-        "ai-as-worker"
-      ],
-      "word_count": 3200,
-      "staleness_threshold": "stable"
-    },
-    {
       "path": "talks/2025-12-04-ai-think-tank-paris.md",
       "title": "Our Vision for AI & the Future of Work",
       "authority_level": 5,
@@ -2229,54 +2357,34 @@
       "format": "Presentation with slides (no video recording available)"
     },
     {
-      "path": "talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md",
-      "title": "You can't automate your way to intelligence",
+      "path": "talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md",
+      "title": "AI 2026: when agents, browsers, and security collide",
       "authority_level": 5,
       "file_type": "talk",
       "tags": [
-        "cognitive-stack",
-        "second-brain",
-        "invisible-80-percent",
-        "worker-led-ai",
-        "vdi-delusion",
-        "applications-as-compatibility-layers",
-        "ai-security",
-        "dlp",
+        "ai-agents",
+        "computer-using-agents",
+        "osworld-benchmarks",
+        "ai-browsers",
+        "enterprise-browser",
         "mcp",
-        "coding-as-canary",
-        "enterprise-ai-roi",
-        "shadow-strategy"
-      ],
-      "word_count": 1800,
-      "staleness_threshold": "stable",
-      "date": "2026-03-31",
-      "event": "Liquidware Chats podcast",
-      "format": "Podcast guest appearance",
-      "recording": "https://www.youtube.com/watch?v=GfHOvJFGkAY"
-    },
-    {
-      "path": "talks/2026-03-18-ducug-the-new-cognitive-stack.md",
-      "title": "The New Cognitive Stack",
-      "authority_level": 5,
-      "file_type": "talk",
-      "tags": [
-        "cognitive-stack",
+        "worker-led-ai",
+        "shadow-strategy",
+        "ai-predictions",
+        "ai-bubble",
+        "workspace-as-control-plane",
         "second-brain",
-        "skills",
-        "token-economics",
-        "personal-knowledge-systems",
-        "ai-transformation",
-        "citrix",
-        "post-application-era"
+        "multi-agent",
+        "microsoft-ignite",
+        "work-iq"
       ],
-      "word_count": 2800,
+      "word_count": 2289,
       "staleness_threshold": "stable",
-      "date": "2026-03-18",
-      "event": "DUCUG — Dutch Citrix User Group Conference #28",
-      "location": "Oude Duikenburg, Echteld, Netherlands",
-      "audience": "Dutch Citrix User Group — admins, architects, IT pros",
-      "format": "60-minute closing session",
-      "recording": "Audio transcript"
+      "date": "2025-12-16",
+      "event": "Impact of AI: Explored podcast",
+      "format": "Podcast guest appearance",
+      "hosts": "James O'Regan, Gerjon Kunst",
+      "recording": "https://www.youtube.com/watch?v=9z0eVZEMOwg"
     },
     {
       "path": "talks/2026-02-06-wharton-tech-conference.md",
@@ -2297,11 +2405,59 @@
       "event": "Wharton Tech Conference 2026",
       "location": "University of Pennsylvania, Tangen Hall, Philadelphia",
       "audience": "~200-300 Wharton MBA students + UPenn grad/undergrad",
+      "conference_theme": "Blueprints for Tomorrow",
+      "other_speakers": "Heads of Product and AI leaders from Databricks, Apollo.ai, JPMorgan, Khosla Ventures, TikTok, and others",
       "format": "Solo presentation with slides (~35 min talk + ~10 min Q&A; ran long into extended Q&A)",
       "recording": "Voice memo transcript (on-device Whisper)",
-      "conference_theme": "Blueprints for Tomorrow",
-      "slides": "44-slide Keynote deck",
-      "other_speakers": "Heads of Product and AI leaders from Databricks, Apollo.ai, JPMorgan, Khosla Ventures, TikTok, and others"
+      "slides": "44-slide Keynote deck"
+    },
+    {
+      "path": "talks/2026-03-18-ducug-the-new-cognitive-stack.md",
+      "title": "The New Cognitive Stack",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "cognitive-stack",
+        "second-brain",
+        "invisible-80-percent",
+        "token-economics",
+        "skills",
+        "workspace-as-control-plane",
+        "ai-agents"
+      ],
+      "word_count": 1093,
+      "staleness_threshold": "stable",
+      "date": "2026-03-18",
+      "event": "DUCUG — Dutch Citrix User Group Conference",
+      "location": "Oude Duikenburg, Echteld, Netherlands",
+      "format": "Keynote (60-minute closing session)"
+    },
+    {
+      "path": "talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md",
+      "title": "You can't automate your way to intelligence",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "cognitive-stack",
+        "second-brain",
+        "invisible-80-percent",
+        "worker-led-ai",
+        "vdi-delusion",
+        "applications-as-compatibility-layers",
+        "ai-security",
+        "dlp",
+        "mcp",
+        "coding-as-canary",
+        "enterprise-ai-roi",
+        "shadow-strategy"
+      ],
+      "word_count": 1095,
+      "staleness_threshold": "stable",
+      "date": "2026-03-31",
+      "event": "Liquidware Chats podcast",
+      "format": "Podcast guest appearance",
+      "hosts": "James O'Regan",
+      "recording": "https://www.youtube.com/watch?v=GfHOvJFGkAY"
     },
     {
       "path": "talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md",
@@ -2316,111 +2472,13 @@
         "ai-governance",
         "enterprise-ai"
       ],
-      "word_count": 850,
+      "word_count": 647,
       "staleness_threshold": "stable",
       "date": "2026-04-21",
-      "related_frameworks": [
-        "cognitive-stack",
-        "invisible-80-percent",
-        "bitter-lesson"
-      ]
-    },
-    {
-      "path": "posts/citrix-blog/2026-06-10-the-7-stage-roadmap-2026-edition.md",
-      "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
-      "authority_level": 5,
-      "file_type": "blog-post",
-      "tags": [
-        "7-stage-roadmap",
-        "cognitive-extension",
-        "second-brain",
-        "ai-fleet",
-        "published-self",
-        "worker-led-ai",
-        "human-plus-ai"
-      ],
-      "word_count": 1700,
-      "staleness_threshold": "stable",
-      "date": "2026-06-10",
-      "original_url": "https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition",
-      "related_frameworks": [
-        "cognitive-stack",
-        "invisible-80-percent",
-        "five-levels-of-ai-in-knowledge-work"
-      ]
-    },
-    {
-      "path": "posts/citrix-blog/2026-09-14-you-cant-transform-the-ai-you-cant-see.md",
-      "title": "You can't transform the AI you can't see",
-      "authority_level": 5,
-      "file_type": "blog-post",
-      "tags": [
-        "shadow-ai",
-        "ai-visibility",
-        "ai-governance",
-        "workspace-as-control-plane",
-        "agent-identity",
-        "knowledge-factory",
-        "mcp-security",
-        "netscaler"
-      ],
-      "word_count": 2745,
-      "staleness_threshold": "stable",
-      "date": "2026-09-14",
-      "original_url": "https://www.citrix.com/blogs/2026-09/you-cant-transform-the-ai-you-cant-see",
-      "related_frameworks": [
-        "workspace-as-control-plane",
-        "invisible-80-percent",
-        "knowledge-factory"
-      ]
-    },
-    {
-      "path": "posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md",
-      "title": "How to build an AI strategy that survives the bubble pop",
-      "authority_level": 5,
-      "file_type": "blog-post",
-      "tags": [
-        "ai-bubble",
-        "invariants",
-        "open-weight-models",
-        "second-brain",
-        "knowledge-factory",
-        "workspace-as-control-plane",
-        "token-economics",
-        "data-portability",
-        "futurism"
-      ],
-      "word_count": 1766,
-      "staleness_threshold": "stable",
-      "date": "2026-07-20",
-      "original_url": "https://www.citrix.com/blogs/2026-07/how-to-build-an-ai-strategy-that-survives-the-bubble-pop",
-      "related_frameworks": [
-        "7-stage-roadmap",
-        "workspace-as-control-plane"
-      ]
-    },
-    {
-      "path": "posts/citrix-blog/2026-06-30-how-a-futurist-reads-ai-news.md",
-      "title": "How a futurist reads AI news. (Hint: ignore most of it.)",
-      "authority_level": 5,
-      "file_type": "blog-post",
-      "tags": [
-        "futurism",
-        "methodology",
-        "cone-of-uncertainty",
-        "invariants",
-        "second-brain",
-        "cognitive-stack",
-        "7-stage-roadmap"
-      ],
-      "word_count": 1605,
-      "staleness_threshold": "stable",
-      "date": "2026-06-30",
-      "original_url": "https://www.citrix.com/blogs/2026-06/how-a-futurist-reads-ai-news-hint-ignore-most-of-it",
-      "related_frameworks": [
-        "7-stage-roadmap",
-        "cognitive-stack"
-      ]
+      "event": "BWI Architecture Summit 2026",
+      "location": "Nuremberg, Germany",
+      "audience": "~150 architects at BWI GmbH (IT provider for the German Bundeswehr)",
+      "format": "Solo presentation with slides (20 min + 5 min Q&A)"
     },
     {
       "path": "talks/2026-06-01-future-of-less-work-ai-brain-resume.md",
@@ -2436,9 +2494,10 @@
         "consumerization",
         "subscribable-brains",
         "human-plus-ai",
-        "ai-performance"
+        "ai-performance",
+        "knowledge-work-future"
       ],
-      "word_count": 1200,
+      "word_count": 1400,
       "staleness_threshold": "stable",
       "date": "2026-06-01",
       "event": "The Future of Less Work podcast",
@@ -2446,96 +2505,50 @@
       "recording": "https://www.youtube.com/watch?v=YLw72rtP3Ms"
     },
     {
-      "path": "talks/index.md",
-      "title": "Talks and presentations",
-      "authority_level": null,
-      "file_type": null,
-      "tags": [],
-      "word_count": 521,
-      "staleness_threshold": null
-    },
-    {
-      "path": "posts/external/index.md",
-      "title": "External articles",
-      "authority_level": null,
-      "file_type": "index",
-      "tags": [],
-      "word_count": 50,
-      "staleness_threshold": null
-    },
-    {
-      "path": "posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md",
-      "title": "2026: The year your AI strategy becomes irrelevant",
-      "authority_level": 5,
-      "file_type": "external-article",
-      "tags": [
-        "invisible-80-percent",
-        "governance",
-        "worker-led-ai",
-        "consumerization",
-        "workspace-as-control-plane",
-        "agentic-ai",
-        "future-of-work"
-      ],
-      "word_count": 350,
-      "staleness_threshold": "stable",
-      "date": "2026-02-27",
-      "original_url": "https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/",
-      "publication": "AI Journal",
-      "related_frameworks": [
-        "invisible-80-percent",
-        "workspace-as-control-plane"
-      ]
-    },
-    {
-      "path": "posts/external/2026-06-22-techradar-ai-second-brain-future-of-knowledge-work.md",
-      "title": "The AI second brain: The future of knowledge work",
-      "authority_level": 5,
-      "file_type": "external-article",
-      "tags": [
-        "invisible-80-percent",
-        "second-brain",
-        "knowledge-work",
-        "future-of-work",
-        "enterprise-ai",
-        "worker-led-ai"
-      ],
-      "word_count": 374,
-      "staleness_threshold": "stable",
-      "date": "2026-06-22",
-      "original_url": "https://www.techradar.com/pro/the-ai-second-brain-the-future-of-knowledge-work",
-      "publication": "TechRadar Pro",
-      "related_frameworks": [
-        "invisible-80-percent",
-        "cognitive-stack",
-        "subscribable-brains"
-      ]
-    },
-    {
       "path": "talks/2026-06-03-euctech-the-last-chapter-of-euc.md",
       "title": "The Last Chapter of EUC",
       "authority_level": 5,
       "file_type": "talk",
       "tags": [
-        "euc",
-        "end-user-computing",
+        "euc-history",
+        "invisible-80-percent",
         "7-stage-roadmap",
-        "second-brain",
-        "cognitive-extension",
-        "post-application-era",
         "token-economics",
         "ai-diffusion",
-        "invisible-80-percent",
-        "future-of-work"
+        "workspace-as-control-plane",
+        "second-brain"
       ],
-      "word_count": 1212,
+      "word_count": 1238,
       "staleness_threshold": "stable",
       "date": "2026-06-03",
       "event": "EUCTech 2026 (Oslo-Kiel cruise)",
       "location": "Aboard the Oslo-Kiel cruise, Norway",
-      "audience": "EUC veterans, admins, architects, IT pros",
-      "format": "~45-minute keynote (Day 1)",
-      "recording": "Audio/video transcript (also published as Citrix AI Hotsheet EP 2)"
+      "format": "Keynote (~45 minutes, Day 1)",
+      "recording": "https://www.youtube.com/watch?v=Bgxx4UCtb6k"
+    },
+    {
+      "path": "talks/2026-06-17-danofficeit-future-of-citrix.md",
+      "title": "The near future of work",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "cognitive-stack",
+        "second-brain",
+        "knowledge-work",
+        "token-economics",
+        "euc",
+        "seven-phases",
+        "ai-governance",
+        "enterprise-ai",
+        "consulting"
+      ],
+      "word_count": 1904,
+      "staleness_threshold": "stable",
+      "date": "2026-06-17",
+      "event": "DanofficeIT — The Future of Citrix",
+      "location": "Copenhagen, Denmark",
+      "audience": "DanofficeIT partners, customers, and IT professionals (~25 people, intimate roundtable format)",
+      "format": "~60-minute talk with integrated Q&A"
     },
     {
       "path": "talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md",
@@ -2548,50 +2561,20 @@
         "open-weight-models",
         "forward-deployed-engineers",
         "diffusion-gap",
-        "7-stage-roadmap",
+        "seven-stage-roadmap",
         "second-brain",
         "knowledge-factory",
         "token-economics",
         "invisible-80-percent",
         "futurism"
       ],
-      "word_count": 1801,
+      "word_count": 1849,
       "staleness_threshold": "stable",
       "date": "2026-07-16",
       "event": "Arrow Forum 2026",
       "location": "Germany",
       "audience": "Arrow channel partners, resellers, and enterprise IT",
-      "format": "~40-minute keynote",
-      "recording": "Reconstructed from slides; no recording"
-    },
-    {
-      "path": "talks/2026-06-17-danofficeit-future-of-citrix.md",
-      "title": "The near future of work",
-      "authority_level": 5,
-      "file_type": "talk",
-      "tags": [
-        "euc",
-        "end-user-computing",
-        "7-stage-roadmap",
-        "second-brain",
-        "cognitive-extension",
-        "token-economics",
-        "ai-diffusion",
-        "invisible-80-percent",
-        "future-of-work",
-        "cognitive-stack",
-        "ai-governance",
-        "consulting",
-        "data-integrity"
-      ],
-      "word_count": 1843,
-      "staleness_threshold": "stable",
-      "date": "2026-06-17",
-      "event": "DanofficeIT — The Future of Citrix",
-      "location": "Copenhagen, Denmark",
-      "audience": "DanofficeIT partners, customers, and IT professionals (~25 people, intimate roundtable format)",
-      "format": "~60-minute talk with integrated Q&A",
-      "recording": "Full transcript available"
+      "format": "~40-minute keynote"
     },
     {
       "path": "talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md",
@@ -2611,13 +2594,13 @@
         "mcp",
         "live-demo"
       ],
-      "word_count": 13941,
+      "word_count": 13877,
       "staleness_threshold": "stable",
       "date": "2026-09-02",
+      "substack_url": "https://www.brianmadden.ai/p/brian-madden-demonstrates-how-to",
       "event": "Follow-up to the Citrix ASEAN webcast (self-produced video demo)",
       "format": "Solo video demo — live Q&A using his own second brain via Claude + MCP",
-      "recording": "https://www.youtube.com/watch?v=8XC3UJsfIFE",
-      "substack_url": "https://www.brianmadden.ai/p/brian-madden-demonstrates-how-to"
+      "recording": "https://www.youtube.com/watch?v=8XC3UJsfIFE"
     },
     {
       "path": "talks/2026-09-15-customer-webcast-digital-workspace-ai-powered-work.md",
@@ -2637,13 +2620,22 @@
         "second-brain",
         "ai-governance"
       ],
-      "word_count": 4741,
+      "word_count": 4715,
       "staleness_threshold": "stable",
       "date": "2026-09-15",
+      "substack_url": "https://www.brianmadden.ai/p/speech-transcript-from-digital-workspace",
       "event": "Customer webcast (customer name withheld at Brian's request)",
-      "format": "Solo webcast keynote with slides, ~35 minutes; ran out of time for live Q&A",
-      "status": "not-reviewed-by-human",
-      "substack_url": "https://www.brianmadden.ai/p/speech-transcript-from-digital-workspace"
+      "audience": "Customer business and IT stakeholders (webcast)",
+      "format": "Solo webcast keynote with slides, ~35 minutes; ran out of time for live Q&A"
+    },
+    {
+      "path": "talks/index.md",
+      "title": "Talks and presentations",
+      "authority_level": null,
+      "file_type": null,
+      "tags": [],
+      "word_count": 1901,
+      "staleness_threshold": null
     }
   ]
 }

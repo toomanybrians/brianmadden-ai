@@ -170,6 +170,19 @@ def check_index_drift(files):
         suggestions.append("Index drift found: regenerate the machine indexes (MAINTAINER rule 8).")
 
 
+def check_generated_surfaces():
+    """_index.json, _relationships.json, llms-full.txt and every quoted repo-size number must match the files."""
+    r = subprocess.run([sys.executable, str(ROOT / "scripts" / "build_indexes.py"), "--check"],
+                       cwd=ROOT, capture_output=True, text=True)
+    stale = r.returncode != 0
+    if stale and "No module named" in r.stderr:
+        suggestions.append("build_indexes.py --check skipped (PyYAML not installed here).")
+        return
+    metrics["stale_generated_surfaces"] = int(stale)
+    if stale:
+        warnings.append("Indexes or repo-size numbers are stale: run `python3 scripts/build_indexes.py --write`.")
+
+
 def check_quarantine():
     """Tier 1 (ingest/) must never leak into any machine index or loading surface."""
     leaks = []
@@ -337,6 +350,7 @@ def main():
     inbound = check_links(files)
     check_frontmatter(files)
     check_index_drift(files)
+    check_generated_surfaces()
     check_citrix_urls(files)
     check_public_safe()
     check_quarantine()

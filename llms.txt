@@ -1,6 +1,6 @@
 # brianmadden.ai
 
-> Brian Madden's expert knowledge module for AI — v3.9 (123 files, ~272k words, 10 frameworks, 59 posts, 22 talks, updated 2026-09-25)
+> Brian Madden's expert knowledge module for AI — v3.9 (126 files, ~283k words, 10 frameworks, 59 posts, 22 talks, updated 2026-10-11)
 
 Contains his frameworks, arguments, positions, and current thinking on how AI is reshaping knowledge work and the enterprise. Brian is VP & Futurist at Citrix, with 32 years in end-user computing, 6 books, 2,000+ articles, and 1,000+ talks globally.
 
@@ -16,6 +16,7 @@ This is not a content archive. It is a structured representation of how Brian th
 - [_relationships.json](https://github.com/toomanybrians/brianmadden-ai/blob/main/_relationships.json): Cross-reference map connecting frameworks to posts and posts to frameworks. Includes reverse lookups.
 - [_content-index.json](https://github.com/toomanybrians/brianmadden-ai/blob/main/_content-index.json): Latest-content feed (title, url, date, type, description) for every recent post/talk/podcast episode. Powers the bmad.com homepage feed.
 - [COLLECTIONS.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/COLLECTIONS.md): Thematic groupings for "everything about X" queries.
+- [llms-full.txt](https://github.com/toomanybrians/brianmadden-ai/blob/main/llms-full.txt): The core canon (CLAUDE.md, profile, published thinking, developing thinking, voice, active frameworks) concatenated in loading order, in one fetch. For AIs that can read a URL but can't run MCP. Generated; not served by the MCP server.
 
 ## Governance
 

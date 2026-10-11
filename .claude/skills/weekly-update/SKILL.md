@@ -378,18 +378,16 @@ sets the clock, live session picks it up later" gap to reason about.
     Friday or another live ceremony).
 
 12. **Housekeeping:**
-    - `_index.json` — surgical text edit only for any new/changed entries
-      (developing-thinking.md's word count, revised frameworks' word
-      counts), never a full `json.dump()` round-trip (same caution
-      confirmed 2026-08-15: a full re-dump collapsed one-line arrays
-      into multi-line blocks across ~90 unrelated entries and polluted
-      the diff). Confirmed 2026-08-24:
-      `outputs/` isn't tracked in `_index.json` at all, so no new entries
-      are needed there for the weekly-updates files themselves.
+    - Run `python3 scripts/build_indexes.py --write`. It regenerates
+      `_index.json` (word counts, updated dates), `_relationships.json`
+      and `llms-full.txt` from the files, and rewrites every repo-size
+      number in README / `llms.txt` / CLAUDE.md / AGENTS.md. Never hand-
+      edit those. CI fails if they're stale. Read its "advisory" lines.
     - If any framework's `status` or content changed, update
       `CLAUDE.md`/`AGENTS.md`/`README.md` active-framework counts (only
-      if a `status: archived` transition happened),
-      `llms.txt`, `COLLECTIONS.md`, and run
+      if a `status: archived` transition happened; the script rewrites the
+      numbers, but the prose around them is still yours), `COLLECTIONS.md`,
+      and run
       `python3 scripts/check_doc_accuracy.py`.
     - `governance-log.md` entry — same discipline as every other session
       touching canon content.

@@ -18,5 +18,9 @@ jobs:
       - uses: actions/checkout@v5
       - name: Run doc accuracy checks
         run: python3 scripts/check_doc_accuracy.py
+      - name: Machine indexes and repo-size numbers are current
+        run: |
+          pip install --quiet PyYAML==6.0.3
+          python3 scripts/build_indexes.py --check || { echo '::error::Run: python3 scripts/build_indexes.py --write, then commit'; exit 1; }
       - name: Public-safety lint (this repo is public)
         run: python3 scripts/check_public_safe.py

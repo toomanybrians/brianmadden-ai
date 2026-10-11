@@ -81,6 +81,7 @@ brianmadden-ai/
 ├── GOVERNANCE.md      # Publishing principles: what goes in, what stays out
 ├── governance-log.md  # Audit trail for every sync/commit
 ├── llms.txt           # MCP/LLM discovery file (links here first for loading order)
+├── llms-full.txt      # Core canon in one file, generated (for AIs that can't run MCP)
 ├── requirements.txt   # Python deps for skills/ and scripts/ pipeline code
 ├── _index.json        # Machine-readable file manifest (titles, tags, authority levels)
 ├── _relationships.json # Cross-reference map (frameworks ↔ posts)

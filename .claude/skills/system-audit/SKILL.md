@@ -61,8 +61,9 @@ more than one: clean the house before rearranging furniture.
 ## Auto-fix policy
 
 **Fix without asking:**
-- Regenerate machine indexes when `_index.json` drift is the only issue
-  (MAINTAINER rule 8), then confirm `ingest/` is still excluded.
+- Regenerate machine indexes and repo-size numbers when drift is the only
+  issue: `python3 scripts/build_indexes.py --write` (MAINTAINER rule 8),
+  then confirm `ingest/` is still excluded.
 - Fix a broken link when the right target is obvious (typo, renamed file).
 - Delete a remote branch only if Brian names it.
 

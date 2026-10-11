@@ -1,5 +1,18 @@
 {
   "frameworks": {
+    "2031-worker-shape": {
+      "path": "frameworks/2031-worker-shape.md",
+      "title": "The 2031 worker-shape forecast",
+      "original_url": null,
+      "referenced_in_posts": [],
+      "related_frameworks": [
+        "cognitive-stack",
+        "7-stage-roadmap",
+        "invisible-80-percent"
+      ],
+      "referenced_by_posts": [],
+      "referenced_by_talks": []
+    },
     "7-stage-roadmap": {
       "path": "frameworks/7-stage-roadmap.md",
       "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
@@ -14,7 +27,6 @@
         "factory-electrification"
       ],
       "referenced_by_posts": [
-        "2026-06-10-the-7-stage-roadmap-2026-edition",
         "2025-06-24-the-7-stage-roadmap-for-human-ai-collaboration-in-the-workplace",
         "2025-07-08-to-understand-ais-future-impact-check-out-this-playbook-from-150-years-ago",
         "2025-07-24-what-happens-when-ai-agents-score-100-in-computing-using-benchmarks",
@@ -26,9 +38,7 @@
         "2026-02-19-coding-as-leading-indicator",
         "2026-01-12-everything-i-wrote-said-workplace-ai-2025"
       ],
-      "referenced_by_talks": [
-        "2025-12-04-ai-think-tank-paris"
-      ]
+      "referenced_by_talks": []
     },
     "bitter-lesson": {
       "path": "frameworks/bitter-lesson.md",
@@ -46,11 +56,43 @@
       "referenced_by_posts": [
         "2025-08-11-if-ai-progress-stopped-today-we-can-still-transform-the-enterprise",
         "2025-09-17-the-bitter-lesson-of-workplace-ai",
-        "2026-01-12-everything-i-wrote-said-workplace-ai-2025",
         "2026-03-12-skills-are-all-you-need",
         "2026-04-09-whats-left-for-humans",
-        "2026-04-22-saaspocalypse-wont-touch-enterprise-software-moat"
+        "2026-01-12-everything-i-wrote-said-workplace-ai-2025"
       ],
+      "referenced_by_talks": []
+    },
+    "cognitive-stack": {
+      "path": "frameworks/cognitive-stack.md",
+      "title": "The cognitive stack",
+      "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer",
+      "referenced_in_posts": [
+        "2026-02-25-cognitive-stack",
+        "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate"
+      ],
+      "related_frameworks": [
+        "invisible-80-percent"
+      ],
+      "referenced_by_posts": [
+        "2026-03-12-skills-are-all-you-need",
+        "2026-04-09-whats-left-for-humans",
+        "2026-06-22-techradar-ai-second-brain-future-of-knowledge-work",
+        "2026-02-26-brianmadden-ai-announcement"
+      ],
+      "referenced_by_talks": []
+    },
+    "delegation-not-automation": {
+      "path": "frameworks/delegation-not-automation.md",
+      "title": "Delegation, not automation",
+      "original_url": "https://www.citrix.com/blogs/2025-12/workers-dont-want-to-build-automations-they-want-to-delegate",
+      "referenced_in_posts": [
+        "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
+        "2026-02-25-cognitive-stack"
+      ],
+      "related_frameworks": [
+        "cognitive-stack"
+      ],
+      "referenced_by_posts": [],
       "referenced_by_talks": []
     },
     "factory-electrification": {
@@ -75,60 +117,9 @@
       ],
       "referenced_by_talks": []
     },
-    "cognitive-stack": {
-      "path": "frameworks/cognitive-stack.md",
-      "title": "The cognitive stack",
-      "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer",
-      "referenced_in_posts": [
-        "2026-02-25-cognitive-stack"
-      ],
-      "related_frameworks": [
-        "invisible-80-percent"
-      ],
-      "referenced_by_posts": [
-        "2026-02-25-cognitive-stack",
-        "2026-03-12-skills-are-all-you-need",
-        "2026-04-09-whats-left-for-humans"
-      ],
-      "referenced_by_talks": []
-    },
-    "2031-worker-shape": {
-      "path": "frameworks/2031-worker-shape.md",
-      "title": "The 2031 worker-shape forecast",
-      "original_url": null,
-      "referenced_in_posts": [],
-      "related_frameworks": [
-        "cognitive-stack",
-        "7-stage-roadmap",
-        "invisible-80-percent"
-      ],
-      "referenced_by_posts": [],
-      "referenced_by_talks": [
-        "2026-07-16-arrow-forum-what-is-a-worker-in-2031"
-      ]
-    },
-    "delegation-not-automation": {
-      "path": "frameworks/delegation-not-automation.md",
-      "title": "Delegation, not automation",
-      "original_url": "https://www.citrix.com/blogs/2025-12/workers-dont-want-to-build-automations-they-want-to-delegate",
-      "referenced_in_posts": [
-        "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
-        "2026-02-25-cognitive-stack"
-      ],
-      "related_frameworks": [
-        "cognitive-stack",
-        "invisible-80-percent"
-      ],
-      "referenced_by_posts": [
-        "2025-12-18-workers-dont-want-to-build-automations-they-want-to-delegate",
-        "2026-02-25-cognitive-stack"
-      ],
-      "referenced_by_talks": []
-    },
     "five-levels-of-ai-in-knowledge-work": {
       "path": "frameworks/five-levels-of-ai-in-knowledge-work.md",
       "title": "The five levels of AI in knowledge work",
-      "status": "archived",
       "original_url": "https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now",
       "referenced_in_posts": [
         "2026-02-19-coding-as-leading-indicator"
@@ -140,7 +131,8 @@
       ],
       "referenced_by_posts": [
         "2026-02-19-coding-as-leading-indicator",
-        "2026-02-25-cognitive-stack"
+        "2026-02-25-cognitive-stack",
+        "2026-02-26-brianmadden-ai-announcement"
       ],
       "referenced_by_talks": []
     },
@@ -161,21 +153,22 @@
         "2025-09-02-worker-led-ai-isnt-shadow-it-its-shadow-strategy",
         "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see",
         "2026-02-11-second-brains-break-security-assumptions",
+        "2026-02-25-cognitive-stack",
+        "2026-02-27-aijourn-ai-strategy-irrelevant",
+        "2026-06-22-techradar-ai-second-brain-future-of-knowledge-work",
         "2026-02-10-second-brain-anchor",
         "2026-02-17-subscribable-brains",
-        "2026-02-25-cognitive-stack"
+        "2026-02-26-brianmadden-ai-announcement"
       ],
-      "referenced_by_talks": [
-        "2026-09-15-customer-webcast-digital-workspace-ai-powered-work"
-      ]
+      "referenced_by_talks": []
     },
     "knowledge-factory": {
       "path": "frameworks/knowledge-factory.md",
       "title": "The knowledge factory",
-      "status": "reviewed",
       "original_url": null,
       "referenced_in_posts": [
-        "2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop"
+        "2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop",
+        "2026-02-11-second-brains-break-security-assumptions"
       ],
       "related_frameworks": [
         "invisible-80-percent",
@@ -184,19 +177,8 @@
         "post-application-era",
         "bitter-lesson"
       ],
-      "referenced_by_posts": [
-        "2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop"
-      ],
-      "referenced_by_talks": [
-        "2026-07-16-arrow-forum-what-is-a-worker-in-2031",
-        "2026-09-02-citrix-asean-webcast-followup-second-brain-demo",
-        "2026-09-15-customer-webcast-digital-workspace-ai-powered-work"
-      ],
-      "referenced_by_podcast": [
-        "podcast/ep3.md",
-        "podcast/ep4.md",
-        "podcast/ep5.md"
-      ]
+      "referenced_by_posts": [],
+      "referenced_by_talks": []
     },
     "post-application-era": {
       "path": "frameworks/post-application-era.md",
@@ -215,16 +197,11 @@
         "2025-10-01-welcome-to-the-post-application-era",
         "2025-10-15-will-ai-need-to-operate-your-legacy-desktop-apps",
         "2025-12-10-ai-will-be-the-interface-to-knowledge-work",
-        "2026-01-12-everything-i-wrote-said-workplace-ai-2025",
         "2026-03-12-skills-are-all-you-need",
         "2026-04-09-whats-left-for-humans",
-        "2026-04-22-saaspocalypse-wont-touch-enterprise-software-moat"
+        "2026-01-12-everything-i-wrote-said-workplace-ai-2025"
       ],
-      "referenced_by_talks": [
-        "2025-10-10-appmanagevent-keynote",
-        "2025-10-15-shi-fall-summit",
-        "2025-12-04-ai-think-tank-paris"
-      ]
+      "referenced_by_talks": []
     },
     "subscribable-brains": {
       "path": "frameworks/subscribable-brains.md",
@@ -241,13 +218,13 @@
       "referenced_by_posts": [
         "2026-02-04-openclaw-governance",
         "2026-02-11-second-brains-break-security-assumptions",
+        "2026-03-12-skills-are-all-you-need",
+        "2026-06-22-techradar-ai-second-brain-future-of-knowledge-work",
         "2026-02-10-second-brain-anchor",
         "2026-02-17-subscribable-brains",
-        "2026-03-12-skills-are-all-you-need"
+        "2026-02-26-brianmadden-ai-announcement"
       ],
-      "referenced_by_talks": [
-        "2026-09-15-customer-webcast-digital-workspace-ai-powered-work"
-      ]
+      "referenced_by_talks": []
     },
     "workspace-as-control-plane": {
       "path": "frameworks/workspace-as-control-plane.md",
@@ -281,18 +258,12 @@
         "2025-12-10-ai-will-be-the-interface-to-knowledge-work",
         "2026-01-21-everyones-worried-about-the-wrong-ai-security-risk",
         "2026-02-11-second-brains-break-security-assumptions",
+        "2026-02-27-aijourn-ai-strategy-irrelevant",
         "2024-05-22-enterprise-desktop-still-matters",
-        "2024-06-13-ai-screen-recorders-vdi"
+        "2024-06-13-ai-screen-recorders-vdi",
+        "2026-02-26-brianmadden-ai-announcement"
       ],
-      "referenced_by_talks": [
-        "2024-10-22-euc-world-keynote",
-        "2024-11-26-euc-forum-winter-meeting",
-        "2025-05-22-euctech-denmark-keynote",
-        "2025-10-10-appmanagevent-keynote",
-        "2025-10-15-shi-fall-summit",
-        "2025-12-04-ai-think-tank-paris",
-        "2026-09-15-customer-webcast-digital-workspace-ai-powered-work"
-      ]
+      "referenced_by_talks": []
     }
   },
   "posts": {
@@ -312,7 +283,7 @@
     },
     "2025-04-21-what-does-ai-mean-at-citrix": {
       "path": "posts/citrix-blog/2025-04-21-what-does-ai-mean-at-citrix.md",
-      "title": "What does \\\"AI\\\" mean at Citrix?",
+      "title": "What does \"AI\" mean at Citrix?",
       "implements_frameworks": [],
       "original_url": "https://www.citrix.com/blogs/2025-04/what-does-ai-mean-at-citrix"
     },
@@ -326,7 +297,7 @@
     },
     "2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what": {
       "path": "posts/citrix-blog/2025-05-19-your-ceo-just-sent-a-company-wide-ai-first-memo-now-what.md",
-      "title": "Your CEO just sent a company-wide \\\"AI-First\\\" memo. Now what?",
+      "title": "Your CEO just sent a company-wide \"AI-First\" memo. Now what?",
       "implements_frameworks": [
         "workspace-as-control-plane"
       ],
@@ -488,12 +459,6 @@
       "implements_frameworks": [],
       "original_url": "https://www.citrix.com/blogs/2025-12/workers-dont-want-to-build-automations-they-want-to-delegate"
     },
-    "2026-01-07-vmblog-no-ai-bombshells": {
-      "path": "posts/external/2026-01-07-vmblog-no-ai-bombshells.md",
-      "title": "No AI Bombshells in 2026—Just Reality Catching Up",
-      "implements_frameworks": [],
-      "original_url": "https://vmblog.com/prediction/no-ai-bombshells-in-2026-just-reality-catching-up/"
-    },
     "2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see": {
       "path": "posts/citrix-blog/2026-01-13-the-invisible-80-what-corporate-led-ai-transformations-cant-see.md",
       "title": "The invisible 80%—what corporate-led AI transformations can't see",
@@ -522,7 +487,7 @@
     },
     "2026-02-11-second-brains-break-security-assumptions": {
       "path": "posts/citrix-blog/2026-02-11-second-brains-break-security-assumptions.md",
-      "title": "Workers' \\\"second brains\\\" break every assumption about how we secure knowledge work",
+      "title": "Workers' \"second brains\" break every assumption about how we secure knowledge work",
       "implements_frameworks": [
         "invisible-80-percent",
         "subscribable-brains",
@@ -540,6 +505,15 @@
       ],
       "original_url": "https://www.citrix.com/blogs/2026-02/what-will-knowledge-work-be-in-18-months-look-at-what-ai-is-doing-to-coding-right-now"
     },
+    "2026-02-25-cognitive-stack": {
+      "path": "posts/citrix-blog/2026-02-25-cognitive-stack.md",
+      "title": "Understanding the cognitive stack: why your AI strategy is focused on the wrong layer",
+      "implements_frameworks": [
+        "invisible-80-percent",
+        "five-levels-of-ai-in-knowledge-work"
+      ],
+      "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer"
+    },
     "2026-03-12-skills-are-all-you-need": {
       "path": "posts/citrix-blog/2026-03-12-skills-are-all-you-need.md",
       "title": "Skills are all you need",
@@ -551,15 +525,82 @@
       ],
       "original_url": "https://www.citrix.com/blogs/2026-03/skills-are-all-you-need"
     },
-    "2026-02-25-cognitive-stack": {
-      "path": "posts/citrix-blog/2026-02-25-cognitive-stack.md",
-      "title": "Understanding the cognitive stack: why your AI strategy is focused on the wrong layer",
+    "2026-04-09-whats-left-for-humans": {
+      "path": "posts/citrix-blog/2026-04-09-whats-left-for-humans.md",
+      "title": "What's left for humans?",
       "implements_frameworks": [
         "cognitive-stack",
-        "invisible-80-percent",
-        "five-levels-of-ai-in-knowledge-work"
+        "bitter-lesson",
+        "post-application-era"
       ],
-      "original_url": "https://www.citrix.com/blogs/2026-02/understanding-the-cognitive-stack-why-your-ai-strategy-is-focused-on-the-wrong-layer"
+      "original_url": "https://www.citrix.com/blogs/2026-04/whats-left-for-humans"
+    },
+    "2026-04-22-saaspocalypse-wont-touch-enterprise-software-moat": {
+      "path": "posts/citrix-blog/2026-04-22-saaspocalypse-wont-touch-enterprise-software-moat.md",
+      "title": "The SaaSpocalypse won't touch the enterprise software moat",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2026-04/the-saaspocalypse-wont-touch-the-enterprise-software-moat"
+    },
+    "2026-05-07-why-enterprise-ai-agents-disappoint": {
+      "path": "posts/citrix-blog/2026-05-07-why-enterprise-ai-agents-disappoint.md",
+      "title": "Why enterprise AI agents disappoint (and why the fix is not 'better agents')",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2026-05/why-enterprise-ai-agents-disappoint-and-why-the-fix-is-not-better-agents"
+    },
+    "2026-05-21-announcing-citrix-ai-hotsheet": {
+      "path": "posts/citrix-blog/2026-05-21-announcing-citrix-ai-hotsheet.md",
+      "title": "Announcing our new podcast: the Citrix AI Hotsheet",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2026-05/aihotsheet"
+    },
+    "2026-06-10-the-7-stage-roadmap-2026-edition": {
+      "path": "posts/citrix-blog/2026-06-10-the-7-stage-roadmap-2026-edition.md",
+      "title": "The 7-stage roadmap for human-AI collaboration (2026 Edition)",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2026-06/the-7-stage-roadmap-for-human-ai-collaboration-2026-edition"
+    },
+    "2026-06-30-how-a-futurist-reads-ai-news": {
+      "path": "posts/citrix-blog/2026-06-30-how-a-futurist-reads-ai-news.md",
+      "title": "How a futurist reads AI news. (Hint: ignore most of it.)",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2026-06/how-a-futurist-reads-ai-news-hint-ignore-most-of-it"
+    },
+    "2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop": {
+      "path": "posts/citrix-blog/2026-07-20-how-to-build-an-ai-strategy-that-survives-the-bubble-pop.md",
+      "title": "How to build an AI strategy that survives the bubble pop",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2026-07/how-to-build-an-ai-strategy-that-survives-the-bubble-pop"
+    },
+    "2026-09-14-you-cant-transform-the-ai-you-cant-see": {
+      "path": "posts/citrix-blog/2026-09-14-you-cant-transform-the-ai-you-cant-see.md",
+      "title": "You can't transform the AI you can't see",
+      "implements_frameworks": [],
+      "original_url": "https://www.citrix.com/blogs/2026-09/you-cant-transform-the-ai-you-cant-see"
+    },
+    "2026-01-07-vmblog-no-ai-bombshells": {
+      "path": "posts/external/2026-01-07-vmblog-no-ai-bombshells.md",
+      "title": "No AI Bombshells in 2026—Just Reality Catching Up",
+      "implements_frameworks": [],
+      "original_url": "https://vmblog.com/prediction/no-ai-bombshells-in-2026-just-reality-catching-up/"
+    },
+    "2026-02-27-aijourn-ai-strategy-irrelevant": {
+      "path": "posts/external/2026-02-27-aijourn-ai-strategy-irrelevant.md",
+      "title": "2026: The year your AI strategy becomes irrelevant",
+      "implements_frameworks": [
+        "invisible-80-percent",
+        "workspace-as-control-plane"
+      ],
+      "original_url": "https://aijourn.com/2026-the-year-your-ai-strategy-becomes-irrelevant/"
+    },
+    "2026-06-22-techradar-ai-second-brain-future-of-knowledge-work": {
+      "path": "posts/external/2026-06-22-techradar-ai-second-brain-future-of-knowledge-work.md",
+      "title": "The AI second brain: The future of knowledge work",
+      "implements_frameworks": [
+        "invisible-80-percent",
+        "cognitive-stack",
+        "subscribable-brains"
+      ],
+      "original_url": "https://www.techradar.com/pro/the-ai-second-brain-the-future-of-knowledge-work"
     },
     "2020-06-16-eulogy-brianmadden-com": {
       "path": "posts/linkedin/articles/2020-06-16-eulogy-brianmadden-com.md",
@@ -575,7 +616,7 @@
     },
     "2023-06-26-ai-influence-levels": {
       "path": "posts/linkedin/articles/2023-06-26-ai-influence-levels.md",
-      "title": "How much \\\"help\\\" did AI provide? We should all disclose this.",
+      "title": "How much \"help\" did AI provide? We should all disclose this.",
       "implements_frameworks": [],
       "original_url": "https://www.linkedin.com/pulse/how-much-help-did-ai-provide-we-should-all-disclose-brian-madden/"
     },
@@ -695,6 +736,24 @@
       ],
       "original_url": "https://www.linkedin.com/pulse/hey-creators-stop-publishing-content-start-your-second-brian-madden-ca0ae"
     },
+    "2026-02-26-brianmadden-ai-announcement": {
+      "path": "posts/linkedin/articles/2026-02-26-brianmadden-ai-announcement.md",
+      "title": "Announcing brianmadden.ai: I just published my brain for you to merge into your AI",
+      "implements_frameworks": [
+        "subscribable-brains",
+        "invisible-80-percent",
+        "workspace-as-control-plane",
+        "cognitive-stack",
+        "five-levels-of-ai-in-knowledge-work"
+      ],
+      "original_url": "https://www.linkedin.com/pulse/announcing-brianmaddenai-i-just-published-my-brain-you-brian-madden-yw71e/"
+    },
+    "standalone-posts-2024": {
+      "path": "posts/linkedin/posts/standalone-posts-2024.md",
+      "title": "LinkedIn posts — 2024",
+      "implements_frameworks": [],
+      "original_url": ""
+    },
     "standalone-posts-2025": {
       "path": "posts/linkedin/posts/standalone-posts-2025.md",
       "title": "LinkedIn posts — 2025",
@@ -704,6 +763,12 @@
     "standalone-posts-2026": {
       "path": "posts/linkedin/posts/standalone-posts-2026.md",
       "title": "LinkedIn posts — 2026",
+      "implements_frameworks": [],
+      "original_url": ""
+    },
+    "standalone-posts-pre-2024": {
+      "path": "posts/linkedin/posts/standalone-posts-pre-2024.md",
+      "title": "LinkedIn posts — pre-2024",
       "implements_frameworks": [],
       "original_url": ""
     }
@@ -718,6 +783,15 @@
       "recording": "https://www.youtube.com/watch?v=6JAEOS7iREw",
       "implements_frameworks": []
     },
+    "2024-06-06-impact-of-ai-explored-workplace-ai": {
+      "path": "talks/2024-06-06-impact-of-ai-explored-workplace-ai.md",
+      "title": "Microsoft Recall: a new era for workplace AI",
+      "event": "Impact of AI: Explored podcast",
+      "location": "",
+      "date": "2024-06-06",
+      "recording": "https://www.youtube.com/watch?v=lzBnEPTgH2A",
+      "implements_frameworks": []
+    },
     "2024-10-22-euc-world-keynote": {
       "path": "talks/2024-10-22-euc-world-keynote.md",
       "title": "EUC Past, Present, and Future",
@@ -725,9 +799,7 @@
       "location": "Silver Spring, Maryland, USA",
       "date": "2024-10-22",
       "recording": "https://www.youtube.com/watch?v=DkuoK-4PncM",
-      "implements_frameworks": [
-        "workspace-as-control-plane"
-      ]
+      "implements_frameworks": []
     },
     "2024-11-26-euc-forum-winter-meeting": {
       "path": "talks/2024-11-26-euc-forum-winter-meeting.md",
@@ -736,9 +808,16 @@
       "location": "London, UK",
       "date": "2024-11-26",
       "recording": "https://www.youtube.com/watch?v=wFgfFT3ILZo",
-      "implements_frameworks": [
-        "workspace-as-control-plane"
-      ]
+      "implements_frameworks": []
+    },
+    "2024-12-17-impact-of-ai-explored-predictions-2025": {
+      "path": "talks/2024-12-17-impact-of-ai-explored-predictions-2025.md",
+      "title": "The 2025 AI revolution: predictions and impact",
+      "event": "Impact of AI: Explored podcast",
+      "location": "EUC Forum, London (recorded in person)",
+      "date": "2024-12-17",
+      "recording": "https://www.youtube.com/watch?v=KJLp-KSbSu8",
+      "implements_frameworks": []
     },
     "2025-05-22-euctech-denmark-keynote": {
       "path": "talks/2025-05-22-euctech-denmark-keynote.md",
@@ -747,9 +826,25 @@
       "location": "Billund, Denmark",
       "date": "2025-05-22",
       "recording": "https://www.youtube.com/watch?v=srNOw7uBQm4",
-      "implements_frameworks": [
-        "workspace-as-control-plane"
-      ]
+      "implements_frameworks": []
+    },
+    "2025-07-01-axess-connect-euc-futurism-ai": {
+      "path": "talks/2025-07-01-axess-connect-euc-futurism-ai.md",
+      "title": "What's next for EUC? Brian Madden talks futurism in the age of AI",
+      "event": "Axess Connect podcast",
+      "location": "",
+      "date": "2025-07-01",
+      "recording": "https://axess.systems/information-technology-news/whats-next-for-euc-brian-madden-talks-futurism-in-the-age-of-ai/",
+      "implements_frameworks": []
+    },
+    "2025-09-01-axess-connect-ai-real-impact": {
+      "path": "talks/2025-09-01-axess-connect-ai-real-impact.md",
+      "title": "Artificial intelligence, real impact: Brian Madden talks AI in the modern workplace",
+      "event": "Axess Connect podcast",
+      "location": "",
+      "date": "2025-09-01",
+      "recording": "https://axess.systems/information-technology-news/brian-madden-workplace-ai/",
+      "implements_frameworks": []
     },
     "2025-10-10-appmanagevent-keynote": {
       "path": "talks/2025-10-10-appmanagevent-keynote.md",
@@ -758,10 +853,7 @@
       "location": "Utrecht, Netherlands",
       "date": "2025-10-10",
       "recording": "https://www.youtube.com/watch?v=XoJ5uL1op_E",
-      "implements_frameworks": [
-        "post-application-era",
-        "workspace-as-control-plane"
-      ]
+      "implements_frameworks": []
     },
     "2025-10-15-shi-fall-summit": {
       "path": "talks/2025-10-15-shi-fall-summit.md",
@@ -770,10 +862,7 @@
       "location": "Somerset, New Jersey, USA",
       "date": "2025-10-15",
       "recording": "https://www.youtube.com/watch?v=eBL9GtdAZjM",
-      "implements_frameworks": [
-        "post-application-era",
-        "workspace-as-control-plane"
-      ]
+      "implements_frameworks": []
     },
     "2025-12-04-ai-think-tank-paris": {
       "path": "talks/2025-12-04-ai-think-tank-paris.md",
@@ -781,18 +870,100 @@
       "event": "Citrix AI Think Tank",
       "location": "Paris, France",
       "date": "2025-12-04",
-      "implements_frameworks": [
-        "workspace-as-control-plane",
-        "post-application-era",
-        "7-stage-roadmap"
-      ]
+      "implements_frameworks": []
+    },
+    "2025-12-16-impact-of-ai-explored-agents-browsers-security": {
+      "path": "talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md",
+      "title": "AI 2026: when agents, browsers, and security collide",
+      "event": "Impact of AI: Explored podcast",
+      "location": "",
+      "date": "2025-12-16",
+      "recording": "https://www.youtube.com/watch?v=9z0eVZEMOwg",
+      "implements_frameworks": []
     },
     "2026-02-06-wharton-tech-conference": {
       "path": "talks/2026-02-06-wharton-tech-conference.md",
       "title": "Blueprints That Actually Get Built: How Change Really Happens in the Enterprise",
       "event": "Wharton Tech Conference 2026",
-      "location": "University of Pennsylvania, Philadelphia",
+      "location": "University of Pennsylvania, Tangen Hall, Philadelphia",
       "date": "2026-02-06",
+      "recording": "Voice memo transcript (on-device Whisper)",
+      "implements_frameworks": []
+    },
+    "2026-03-18-ducug-the-new-cognitive-stack": {
+      "path": "talks/2026-03-18-ducug-the-new-cognitive-stack.md",
+      "title": "The New Cognitive Stack",
+      "event": "DUCUG — Dutch Citrix User Group Conference",
+      "location": "Oude Duikenburg, Echteld, Netherlands",
+      "date": "2026-03-18",
+      "implements_frameworks": []
+    },
+    "2026-03-31-liquidware-chats-cant-automate-intelligence": {
+      "path": "talks/2026-03-31-liquidware-chats-cant-automate-intelligence.md",
+      "title": "You can't automate your way to intelligence",
+      "event": "Liquidware Chats podcast",
+      "location": "",
+      "date": "2026-03-31",
+      "recording": "https://www.youtube.com/watch?v=GfHOvJFGkAY",
+      "implements_frameworks": []
+    },
+    "2026-04-21-bwi-architecture-summit-cognitive-stack": {
+      "path": "talks/2026-04-21-bwi-architecture-summit-cognitive-stack.md",
+      "title": "The cognitive stack: what comes after building AI platforms",
+      "event": "BWI Architecture Summit 2026",
+      "location": "Nuremberg, Germany",
+      "date": "2026-04-21",
+      "implements_frameworks": []
+    },
+    "2026-06-01-future-of-less-work-ai-brain-resume": {
+      "path": "talks/2026-06-01-future-of-less-work-ai-brain-resume.md",
+      "title": "How AI is changing who performs best at work",
+      "event": "The Future of Less Work podcast",
+      "location": "",
+      "date": "2026-06-01",
+      "recording": "https://www.youtube.com/watch?v=YLw72rtP3Ms",
+      "implements_frameworks": []
+    },
+    "2026-06-03-euctech-the-last-chapter-of-euc": {
+      "path": "talks/2026-06-03-euctech-the-last-chapter-of-euc.md",
+      "title": "The Last Chapter of EUC",
+      "event": "EUCTech 2026 (Oslo-Kiel cruise)",
+      "location": "Aboard the Oslo-Kiel cruise, Norway",
+      "date": "2026-06-03",
+      "recording": "https://www.youtube.com/watch?v=Bgxx4UCtb6k",
+      "implements_frameworks": []
+    },
+    "2026-06-17-danofficeit-future-of-citrix": {
+      "path": "talks/2026-06-17-danofficeit-future-of-citrix.md",
+      "title": "The near future of work",
+      "event": "DanofficeIT — The Future of Citrix",
+      "location": "Copenhagen, Denmark",
+      "date": "2026-06-17",
+      "implements_frameworks": []
+    },
+    "2026-07-16-arrow-forum-what-is-a-worker-in-2031": {
+      "path": "talks/2026-07-16-arrow-forum-what-is-a-worker-in-2031.md",
+      "title": "What is a worker in 2031?",
+      "event": "Arrow Forum 2026",
+      "location": "Germany",
+      "date": "2026-07-16",
+      "implements_frameworks": []
+    },
+    "2026-09-02-citrix-asean-webcast-followup-second-brain-demo": {
+      "path": "talks/2026-09-02-citrix-asean-webcast-followup-second-brain-demo.md",
+      "title": "Brian Madden demonstrates how to connect to and use his AI second brain",
+      "event": "Follow-up to the Citrix ASEAN webcast (self-produced video demo)",
+      "location": "",
+      "date": "2026-09-02",
+      "recording": "https://www.youtube.com/watch?v=8XC3UJsfIFE",
+      "implements_frameworks": []
+    },
+    "2026-09-15-customer-webcast-digital-workspace-ai-powered-work": {
+      "path": "talks/2026-09-15-customer-webcast-digital-workspace-ai-powered-work.md",
+      "title": "From digital workspace to AI-powered work",
+      "event": "Customer webcast (customer name withheld at Brian's request)",
+      "location": "",
+      "date": "2026-09-15",
       "implements_frameworks": []
     }
   },
@@ -813,7 +984,7 @@
       "related_frameworks": []
     },
     "me/published-thinking.md": {
-      "title": "Brian Madden's intellectual foundation",
+      "title": "My intellectual foundation",
       "authority_level": 1,
       "related_frameworks": []
     },

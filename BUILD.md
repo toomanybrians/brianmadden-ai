@@ -1019,3 +1019,12 @@ now holds its mechanics, with `quick` (queues + Right now, no post) and `deep`/`
 script that doesn't exist), `llms-full.txt`, per-file `updated` dates in `llms.txt`.
 A worktree session can't merge `main` until the app's pinned git origin is re-confirmed
 (Help, Troubleshooting, Review Pinned Git Origins); rebasing by hand worked.
+
+Later the same day: built `scripts/build_indexes.py` (see MAINTAINER rule 8 and the
+governance-log entry). It replaces hand-maintenance of `_index.json`, `_relationships.json`
+and every quoted repo-size number, and generates `llms-full.txt`. Run it with `--write`
+after any content change; CI and the monthly audit run it with `--check`. To track a
+newly noticed hand-written number, add a line to `STAT_MENTIONS` in the script. Still
+human-maintained: `_content-index.json`, `COLLECTIONS.md`. Advisory it surfaces now: a
+blog post missing from `_content-index.json`, and developing-thinking's "Last updated"
+line (Sep 25) disagreeing with its frontmatter `updated` (Sep 30, pipeline scratchpad flags).

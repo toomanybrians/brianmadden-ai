@@ -4,6 +4,19 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-10-11 — Generated index surfaces: build_indexes.py, llms-full.txt, repo-size numbers
+
+**What changed:**
+- New `scripts/build_indexes.py`: regenerates `_index.json` (word counts computed from each file's body, `updated` and `status: archived` carried from frontmatter), `_relationships.json` (from `related_frameworks` / `related_posts`), and `llms-full.txt` (core canon in loading order). It also rewrites every hand-written repo-size number (README, `llms.txt`, CLAUDE.md, AGENTS.md, `posts/citrix-blog/index.md`) from the files. `--check` runs in CI (`check-docs.yml`) and in `scripts/audit.py`.
+- Corrections that fell out of the first run: `llms.txt` header said 123 files / ~272k words, actual 126 / ~283k; README said "30,000-word synthesis" (actual ~14,000) and "25 LinkedIn articles & posts" (now 21 articles plus 169 short posts); 59 `_index.json` word counts and 11 index/relationship entries were stale; `_relationships.json` was missing 13 posts and 14 talks.
+- `llms-full.txt` excluded from the Cloudflare KV sync (it would duplicate every core chunk in search results). Added to the CLAUDE.md/AGENTS.md tree and `llms.txt`.
+
+**Not generated (needs a human):** `_content-index.json` (curated feed), `COLLECTIONS.md` (hand-grouped), prose such as "6 books" in the About/career text.
+
+**Automated checks:** `build_indexes.py --check` exit 0; `check_doc_accuracy.py` OK; `audit.py --dry-run` 0 critical / 0 warnings; `ingest/` not referenced by any generated surface — CLEAR
+
+---
+
 ## 2026-09-25 — Weekly Wrap Up ceremony (window Sep 14–25): both queues cleared, bitter-lesson rewritten, Right now refreshed
 
 **What changed in canon (Brian's live decisions, not machine-generated):**

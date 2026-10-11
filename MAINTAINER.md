@@ -85,9 +85,14 @@ Its one demand on us: keep the tiers clean.
 7. **Voice lives in `me/voice.md` only.** It is part of the module and the
    single source of truth; nothing here duplicates it. Generation skills load
    it; edits to it are Brian's.
-8. **Machine indexes stay honest.** When content changes, regenerate
-   `_index.json`, `_relationships.json`, `_content-index.json`, `llms.txt`,
-   and `COLLECTIONS.md` (via `scripts/`) — and confirm they exclude `ingest/`.
+8. **Machine indexes stay honest.** When content changes, run
+   `python3 scripts/build_indexes.py --write`. It regenerates `_index.json`,
+   `_relationships.json` and `llms-full.txt` from the files, rewrites every
+   hand-written repo-size number (README, `llms.txt`, CLAUDE.md/AGENTS.md; the
+   list lives in `STAT_MENTIONS` in the script, so a newly noticed number gets a
+   line there, not a one-off fix), and flags what only a human can fix
+   (`_content-index.json` is a curated feed; `COLLECTIONS.md` is hand-grouped).
+   CI runs it with `--check`. It never touches `ingest/`.
 
 ## Governance surfaces
 
