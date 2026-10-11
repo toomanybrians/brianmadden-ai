@@ -1,13 +1,13 @@
 ---
 title: "Post ideas — what I might write next"
 date: 2026-09-04
-updated: "2026-09-25"
+updated: "2026-10-11"
 last_reviewed: "2026-09-25"
 authority_level: 5
 file_type: queue
 tags: ["current-thinking", "frontier", "post-ideas", "pipeline"]
 staleness_threshold: weeks
-description: "A curated queue of pieces Brian is considering writing. Ideas only — nothing here is a position, a commitment, or a schedule. The lowest-authority file in the repo."
+description: "A curated list of future post ideas Brian is considering writing. Ideas only—nothing here is a position, a commitment, or a schedule. The lowest-authority file in the repo."
 tier: 2
 status: not-reviewed-by-human
 ---
@@ -22,11 +22,13 @@ status: not-reviewed-by-human
 
 ---
 
-## Next up
+## Future post ideas
+
+Not ranked. Each entry's "What's missing" line is the readiness signal. An idea can be worth capturing even if the post never gets written.
 
 ### The knowledge factory works—now execute
 
-**Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 13 update (the execute-now note), building on "The knowledge factory" and "The three waves."
+**Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → September 13 update (the execute-now note), building on "The knowledge factory" and "The net-new layer."
 
 Companies have spent a couple of years kicking AI ideas around. That phase is over. We know the knowledge factory works—we built one. We know AI can come in, read how a company actually works, and analyze the existing systems—and in regulated environments we already know how to handle PII and redaction. The playbook exists, and models like GPT-6 Astra and Fable 5.1 mean the *model* is no longer what you're waiting on. The sharp reframe: there's no point bringing AI into your existing estate unless you're building toward the factory—doing it for security alone is short-sighted. The estate doesn't get torn down (especially in regulated, old-school companies); it becomes the connective tissue that feeds the factory and receives its outputs. Skate to where the puck is going.
 
@@ -55,10 +57,6 @@ Make one person superhuman with AI and change nothing else and the company doesn
 **Why it's a real piece:** it's uncomfortable, it's supported by numbers rather than vibes, and it revisits my own published post with evidence that has moved since. The honest version ends without a clean answer, which is the point.
 
 **What's missing:** just the writing—the plain-language framing the old `machine-speed` thread was waiting on is now in the developing-thinking notes. Don't write this one in the dense version.
-
----
-
-## Warm — real, not ready
 
 ### If the AI-safety panic forces a slowdown, what happens to enterprise AI?
 
@@ -109,6 +107,36 @@ Swap nothing but the orchestration around the same model and cost per task drops
 Engineers can answer the productivity question in commits. Knowledge workers can't answer it at all. Most AI-ROI writing quietly assumes engineering or call-center contexts because those have task units. An honest "we don't have a measurement framework, here's how to reason without one" piece would get cited widely, precisely because everyone is being asked for the number and nobody has it. Related and equally unsolved: token measurement itself, where no vendor provides adequate usage analytics and the cached-vs-generated distinction changes the incentives.
 
 **What's missing:** an actual point of view. Right now it's a well-observed gap, not an argument. Naming the gap is the easy half.
+
+### Knowledge work is a preview of what agents will need
+
+**Where the argument lives:** `me/developing-thinking.md` → Scratchpad → the two entries flagged 2026-09-30 (humans as the leading indicator for agents; the second hop of the coding thesis).
+
+I've said coding is a preview of knowledge work: what happens in software engineering shows up in knowledge work a step later. The extension is that knowledge work is a preview of agents. What humans do next is the leading indicator for what agents will need. People are adopting an AI knowledge layer, a second brain, so the AI knows who they are, what they know, and what they're allowed to do. Agents will need the same thing to succeed: a canonical access layer that tells them what they can do, what they can't, and what the organization expects of them. The human second brain is the prototype for the agent's. Two leading-indicator chains, stacked, stated as one argument: coding previews knowledge work, and knowledge work previews agents.
+
+**Why it's a real piece:** it's one sentence people can repeat, and it ties the second-brain argument to agent governance, which are usually treated as separate subjects.
+
+**What's missing:** whether the agent's layer is the same artifact as the human's brain, a governed subset of it, or something separate. And evidence beyond my own reasoning that agents are following the path humans took.
+
+### Run important work through two different models, always
+
+**Where the argument lives:** not in canon yet. It started as a note on the October 2 Daily Briefing restack (agents reshaping sensitive content, such as splitting a token, to get past secret scanners).
+
+At work we found it mattered to use a different model to evaluate the work than the model that did it. Not a different model in the same family, since those are trained and diffused together: one vendor's model does the work and another vendor's checks it. The idea is that companies will want to run everything important through two different models in parallel, always. It roughly doubles operating cost, but you would catch things that would otherwise slip by. It's how mission-critical systems have long worked (the Space Shuttle's redundant computers), and AI may get cheap enough to do this for anything that matters.
+
+**Why it's a real piece:** it turns "AI checking AI" from a vague idea into a specific architecture with a precedent from safety-critical engineering.
+
+**What's missing:** how far up and down the chain it has to go (data inputs and outputs, not just the final answer), whether a smaller model should coordinate and evaluate, and whether the doubled cost is worth it outside the highest-stakes work.
+
+### The AI stack is splitting into layers, the way computing did
+
+**Where the argument lives:** `frameworks/cognitive-stack.md` and the October 2 Daily Briefing restack.
+
+In the early days of computing one vendor and one set of hardware did everything: hardware, network, operating system, applications, security, management. Now every one of those is a specialized layer with its own vendors and standards. As the AI market matures, the AI stack should do the same, with its own hardware, software, vendors, and standards for each layer. Hardware is the first visible sign: Nvidia's Vera CPU is purpose-built for the agent-orchestration layer (tool calls, code execution, data movement) rather than for models in general.
+
+**Why it's a real piece:** it turns the cognitive stack from a way of organizing thinking into a prediction about market structure, and it raises whether the "commodity, interchangeable" bottom layers pick up their own hardware economics and lock-in.
+
+**What's missing:** my own read on what it means for an enterprise buyer (buy by layer?), and evidence beyond silicon.
 
 ---
 

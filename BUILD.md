@@ -1045,3 +1045,15 @@ Also appended one hand-written entry to `outputs/technical-briefings/promotion-c
 (the five "AI plus browser" scenarios). `brief.py` only appends to that file, so the entry
 survives later runs, and `skills/weekly/gather.py` reads the whole file, so it appears in the
 next Weekly Wrap Up prep. The 2026-10-11 prep was generated before it existed and does not list it.
+
+### 2026-10-11 (later again): Weekly Wrap Up, Sep 25 to Oct 11; first AI-files, human-reviews run
+
+Window Sep 25 to Oct 11, ten briefs. Both queues were filed by the AI with default dispositions instead of walked item by item: 25 promotion candidates (23 folded into existing entries, 2 rejected), the staleness queue (the three promote-ready items were already in `post-ideas.md`; the `invisible-80-percent` framework got a dated update section). Brian's decisions: retire the "waves" framing (section kept, labels dropped); no separate "beliefs" file; post ideas live in one unranked list. The edited canon files are marked `not-reviewed-by-human` until Brian reviews the diff; approving means flipping `status` and `last_reviewed` on `me/developing-thinking.md` and `frameworks/invisible-80-percent.md`.
+
+Findings worth keeping:
+
+- **Brief-window bug, fixed.** `skills/weekly/gather.py` compared dates (`>=`), so the ceremony day's brief appeared in two consecutive windows, in every window since 2026-08-24. It now compares publish time (`BRIEF_PUBLISHED_UTC_HOUR = 6`, tied to the 05:00 UTC cron in `daily-pipeline.yml`; move it if the cron moves).
+- **Podcasts are already read in full.** All 11 podcast sources use full text (10 `transcribe`, 1 `published`). What gets lost is the extraction: the standard note is capped at 3 to 6 bullets and 2048 tokens. A deeper pass (about 12 bullets, the host's pushback, and how the episode lines up against canon) was run once by hand for one episode and filed under the same `source_url`, so the daily run's dedupe skips the thin note. Open: whether to deepen podcast extraction in `ingest.py` and its prompt. Transcripts stay ephemeral (rule 2); a private store outside the repo is possible but not decided.
+- **Token budget gotcha.** With the default model, `llm.generate(..., max_tokens=5500)` returned no text on a long prompt because thinking used the whole budget; 16000 worked. Check `stop_reason` before assuming a call is empty.
+- **`gather.py` has no talks section**, so a new talk reaches the ceremony only if someone hand-flags a queue entry. The "Start here" overview in the 2026-10-11 prep doc was written by hand and would be overwritten by a re-run.
+- **Needs Brian:** whether AI-files, human-reviews-by-exception becomes the standing flow. That would replace the weekly-update skill's rule of a live decision on every item, so the skill and MAINTAINER.md need a matching edit, and per-entry labels or a per-entry review marker, since `status` is per file.
