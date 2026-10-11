@@ -64,6 +64,11 @@ WEEKLY_ROOT = ROOT / "outputs" / "weekly-updates"
 LAST_RUN_PATH = WEEKLY_ROOT / ".last_run.json"
 DEFAULT_DAYS_BACK = 7
 
+# A brief dated D counts as already published from D at this UTC hour on.
+# daily-pipeline.yml runs at 05:00 UTC Mon-Fri and the brief is committed
+# ~30 minutes later; if that cron moves, move this with it.
+BRIEF_PUBLISHED_UTC_HOUR = 6
+
 PROMOTION_CANDIDATES_PATH = BRIEFINGS_ROOT / "promotion-candidates.md"
 STALENESS_CANDIDATES_PATH = ROOT / "outputs" / "canon-triage" / "staleness-candidates.md"
 DEVELOPING_THINKING_PATH = ROOT / "me" / "developing-thinking.md"
@@ -213,11 +218,15 @@ def resolve_window(explicit_days: float | None) -> tuple[datetime, str]:
 
 
 def list_briefs_in_window(since: datetime) -> list[tuple[str, Path]]:
-    """(date_str, path) for every dense daily brief dated on/after `since`,
+    """(date_str, path) for every dense daily brief published after `since`,
     oldest first. Dense (not published) is the source — full detail for
     whoever reads these directly, same reasoning the live ceremony uses
-    everywhere else."""
-    since_date = since.date()
+    everywhere else.
+
+    Compares publish time, not calendar date: the prior ceremony runs the
+    same day as that morning's brief, so a date-only `>=` counted the
+    ceremony day's brief in two consecutive windows (every window since
+    2026-08-24). Fixed 2026-10-11."""
     out = []
     if not BRIEFINGS_ROOT.exists():
         return out
@@ -226,7 +235,11 @@ def list_briefs_in_window(since: datetime) -> list[tuple[str, Path]]:
             brief_date = datetime.strptime(path.stem, "%Y-%m-%d").date()
         except ValueError:
             continue
-        if brief_date >= since_date:
+        published = datetime(
+            brief_date.year, brief_date.month, brief_date.day,
+            BRIEF_PUBLISHED_UTC_HOUR, tzinfo=timezone.utc,
+        )
+        if published > since:
             out.append((path.stem, path))
     return out
 
