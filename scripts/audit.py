@@ -105,13 +105,15 @@ def check_links(files):
 def check_frontmatter(files):
     missing = []
     for f in files:
-        if f.name == "index.md" or f.parent == ROOT or f.parts[-2] in ("me", "pages") or f.name == "bible.md":
+        if f.name == "index.md" or f.parent == ROOT or f.parts[-2] == "pages" or f.name == "bible.md":
             continue
         fm = frontmatter(f)
         if fm is None:
             missing.append(f"{rel(f)}: no frontmatter")
             continue
-        gone = [k for k in REQUIRED_FM if k not in fm and not (k == "title" and "event" in fm)]
+        # me/ files track recency with `updated`, not a publication `date`
+        gone = [k for k in REQUIRED_FM if k not in fm and not (k == "title" and "event" in fm)
+                and not (k == "date" and f.parts[-2] == "me")]
         if gone:
             missing.append(f"{rel(f)}: missing {', '.join(gone)}")
     metrics["frontmatter_problems"] = len(missing)

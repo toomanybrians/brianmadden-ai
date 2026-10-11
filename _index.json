@@ -501,7 +501,7 @@
         "AI-learning"
       ],
       "word_count": 550,
-      "staleness_threshold": "months",
+      "staleness_threshold": "stable",
       "description": "Curated AI resources, people, and podcasts Brian follows for workplace AI insights."
     },
     {

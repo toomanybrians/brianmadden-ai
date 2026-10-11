@@ -1,3 +1,14 @@
+---
+title: "Brian Madden's published books"
+authority_level: 4
+file_type: reference
+tags: ["books", "bibliography", "EUC", "VDI", "Citrix"]
+staleness_threshold: stable
+description: "Brian's published books on end-user computing, VDI, enterprise mobility, and Citrix technologies (2001-2014)."
+tier: 2
+status: not-reviewed-by-human
+---
+
 # My books
 
 I've written, published, and/or edited several books over the past 20+ years.

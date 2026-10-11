@@ -33,6 +33,11 @@ The per-day kickoff prompts for Days 2, 4 and 5 were trimmed on 2026-10-04
 
 ## Decisions made (Aug 9, 2026)
 
+*Historical. Three of these are superseded (see MAINTAINER.md for current
+state): the long-lived `v2` branch was merged and deleted 2026-08-19; the
+pipeline's compute moved from GitHub-hosted Actions to a self-hosted runner
+2026-09-25; the September launch target was met by the 2026-08-19 merge.*
+
 - Architecture flipped: this repo is the public base layer; a separate
   private overlay sits downstream of it.
 - Same repo, long-lived `v2` branch, one launch PR; `main` + MCP server stay

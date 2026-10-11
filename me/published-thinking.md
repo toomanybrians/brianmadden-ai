@@ -1,11 +1,11 @@
 ---
 title: "My intellectual foundation"
-updated: "2026-06-30"
+updated: "2026-09-14"
 authority_level: 1
 file_type: synthesis
 tags: ["knowledge-work", "enterprise-ai", "worker-led-adoption", "automation", "governance", "ai-agents"]
 staleness_threshold: months
-description: "Comprehensive synthesis of my published ideas across 40 posts. The authoritative source for my intellectual positions."
+description: "Comprehensive synthesis of my published ideas across 42 posts. The authoritative source for my intellectual positions."
 tier: 2
 status: reviewed
 ---
@@ -757,6 +757,34 @@ The recycled joke that makes the point plainly: MCP is useful but immature on se
 
 **"Everything described here is a configuration, not a transformation."**
 Why the visibility playbook is low-risk to start: create an account, publish an app, set some policies. Nothing commits a company to a platform it can't unwind by deleting an account and a published app.
+
+---
+
+## Pre-Citrix LinkedIn era (2020–2024): historical context
+
+These are the LinkedIn articles I wrote before joining Citrix in February 2025. They're older and written before most of the frameworks above existed, so read them as context for how my thinking started, not as current positions. Where they conflict with the sections above, the sections above win. The seeds are visible, though: worker-led consumer AI adoption, the desktop as a governance surface, and suspicion of top-down hype all show up here first. Full text is in `posts/linkedin/articles/`.
+
+**2020**
+- [A Eulogy for BrianMadden.com](https://www.linkedin.com/pulse/eulogy-brianmaddencom-brian-madden/) (June 16, 2020): farewell to the site after 17 years, the home of independent end-user computing analysis.
+
+**2023: first reactions to generative AI**
+- [My AI journey and the links that set the stage](https://www.linkedin.com/pulse/my-ai-journey-links-set-stage-chatgpt-just-beginning-brian-madden/) (June 22): the readings and experiences that shaped my early thinking.
+- [How much "help" did AI provide? We should all disclose this.](https://www.linkedin.com/pulse/how-much-help-did-ai-provide-we-should-all-disclose-brian-madden/) (June 26): AI influence levels as a disclosure framework.
+- [AI is more than ChatGPT](https://www.linkedin.com/pulse/ai-more-than-chatgpt-brian-madden/) (June 30): the broader AI landscape beyond the ChatGPT hype.
+- [A look at ChatGPT's architecture](https://www.linkedin.com/pulse/chatgpt-more-like-standard-enterprise-app-than-you-think-brian-madden/) (July 5): ChatGPT is more like a standard enterprise app than people think, which matters for IT governance.
+- [The Consumerization of IT roars back, and this time they have AI!](https://www.linkedin.com/pulse/consumerization-roars-back-time-have-ai-brian-madden/) (August 15): workers adopt consumer AI the way they adopted iPhones, and IT faces the same governance challenge. The earliest version of the worker-led argument.
+
+**2024: the enterprise reality check**
+- [Generative AI in the enterprise: lots of hype, little practical advice](https://www.linkedin.com/pulse/generative-ai-enterprise-lots-hype-little-practical-advice-madden-fketc/) (February 13): a World AI Cannes Festival report, heavy on hype and light on enterprise guidance.
+- [Why the enterprise desktop still matters in 2024](https://www.linkedin.com/pulse/why-enterprise-desktop-still-matters-2024-hint-its-apps-brian-madden-fsgbc/) (May 22): the desktop matters as the governance surface for everything that happens in work, a precursor to workspace-as-control-plane.
+- [Microsoft Recall: An analysis of the issues](https://www.linkedin.com/pulse/microsoft-recall-analysis-issues-prediction-evolution-brian-madden-zoync/) (May 28): privacy implications and how AI-powered workplace monitoring would evolve.
+- [AI Screen Recorders + VDI](https://www.linkedin.com/pulse/ai-screen-recorders-vdi-ultimate-secure-compliant-powerful-madden-fa5dc/) (June 13): AI screen recording plus VDI as a possible secure, compliant AI desktop.
+- [Apple Intelligence is the beginning of a slippery slope](https://www.linkedin.com/pulse/apple-intelligence-beginning-slippery-slope-all-companies-madden-iyuyc/) (June 18): on-device AI and the governance implications every company needs to understand.
+- [I've been using Copilot for Office for months](https://www.linkedin.com/pulse/ive-been-using-copilot-office-months-heres-how-works-what-madden-nqu6c/) (June 25): a practitioner's first-hand assessment against the marketing pitch.
+- [Firing employees for simulated keyboard activity](https://www.linkedin.com/pulse/firing-employees-simulated-keyboard-activity-dangers-perverse-madden-aikuc/) (July 2): measure keystrokes and you get keystroke simulation; the perverse incentives of workplace monitoring.
+- [OpenAI CTO reminds us they care more about AGI than your company's safety](https://www.linkedin.com/pulse/open-ai-cto-reminds-us-care-more-inventing-agi-becoming-brian-madden-42l6c/) (July 18): vendor priorities and what they mean for corporate trust.
+- [Ignore that Goldman Sachs report questioning AI's value](https://www.linkedin.com/pulse/ignore-goldman-sachs-report-questioning-ais-value-doesnt-brian-madden-apqzc/) (July 22): the value shows up worker by worker, not in macro models.
+- [EUC World Independence 2024: A huge success!](https://www.linkedin.com/pulse/euc-world-independence-2024-huge-success-brian-madden-jgyle/) (October 24): conference report; the independent EUC community is still vibrant.
 
 ---
 

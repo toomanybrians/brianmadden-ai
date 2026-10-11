@@ -23,11 +23,10 @@ Two cadences, chosen by `args`:
   "What's connecting"/"Scratchpad" and every framework — not just what the
   model flagged — so Brian gets a chance to weigh in on things the triage
   pass stayed silent on too. This is the stopgap for "verify everything
-  periodically" until the deeper monthly-maintenance skill from Brian's
-  private brain gets ported in (tabled 2026-08-15 — needs his work login
-  and better internet than he had that day; see BUILD.md's open decisions
-  list). Don't confuse this mode with that future skill — it's a lighter
-  placeholder, not the real thing.
+  periodically." The deeper monthly skills from Brian's old private brain
+  were ported 2026-10-04 as `/system-audit` (repo health) and
+  `/connect-the-dots` (synthesis across the canon). This mode stays the
+  lighter developing-thinking walk-through, not a replacement for either.
 
 ## Steps
 

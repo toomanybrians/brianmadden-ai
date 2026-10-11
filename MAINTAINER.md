@@ -114,9 +114,12 @@ legacy in it. Both files are still load-bearing, now for the live v2 site:
 `check-docs.yml` runs `scripts/check_doc_accuracy.py` on every push/PR to
 `main`; `sync-to-cloudflare-kv.yml` is the actual publish pipeline —
 pushes changed `main` content to the Cloudflare KV store the live MCP
-server reads from, excluding `ingest/`, `MAINTAINER.md`, and `BUILD.md`
+server reads from, excluding `ingest/`, `MAINTAINER.md`, `BUILD.md`
 (the last two added at the v2 merge, 2026-08-19 — maintainer-only docs,
-not module content). The file-type/tier filter question raised here on
+not module content), `.claude/`, and `outputs/audits/` (both added
+2026-10-04 — repo plumbing, not Brian's thinking). The exclusion keeps
+them off the MCP server only; the GitHub repo is public, so they're still
+readable there. The file-type/tier filter question raised here on
 2026-08-18 was resolved at the merge itself: no adjustment needed beyond
 that exclusion, confirmed by the merge's KV sync running clean.
 

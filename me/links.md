@@ -1,3 +1,14 @@
+---
+title: "What Brian reads and listens to"
+authority_level: 4
+file_type: reference
+tags: ["resources", "podcasts", "people", "AI-learning"]
+staleness_threshold: stable
+description: "Curated AI resources, people, and podcasts Brian follows for workplace AI insights."
+tier: 2
+status: not-reviewed-by-human
+---
+
 # What I read & listen to
 
 If you want to understand and learn about the impact and use of AI in the business world, these are the people and resources I follow.
