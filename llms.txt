@@ -30,8 +30,8 @@ This is not a content archive. It is a structured representation of how Brian th
 ## Core knowledge (load in this order)
 
 - [me/profile.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/profile.md): Who Brian is—background, credentials, links
-- [me/published-thinking.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/published-thinking.md): Intellectual foundation derived from published posts. Highest-authority source for Brian's published arguments.
-- [me/developing-thinking.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/developing-thinking.md): Where Brian's head is RIGHT NOW. The frontier. Updates frequently. If this conflicts with published-thinking.md, this file represents his current position.
+- [me/published-thinking.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/published-thinking.md): Intellectual foundation derived from published posts. Highest-authority source for Brian's published arguments. (updated 2026-09-14)
+- [me/developing-thinking.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/developing-thinking.md): Where Brian's head is RIGHT NOW. The frontier. Updates frequently. If this conflicts with published-thinking.md, this file represents his current position. (updated 2026-09-25)
 - [me/voice.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/voice.md): How Brian thinks, argues, and communicates. Use this to match his tone.
 
 ## Frameworks
@@ -60,7 +60,7 @@ This is not a content archive. It is a structured representation of how Brian th
 - [me/career.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/career.md): Career chronology and key milestones
 - [me/books.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/books.md): Books Brian has written and/or edited
 - [me/links.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/links.md): What Brian reads and listens to for AI in business
-- [me/post-ideas.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/post-ideas.md): Pieces Brian is considering writing. Ideas and intentions only — not positions, and never to be cited as things he argues.
+- [me/post-ideas.md](https://github.com/toomanybrians/brianmadden-ai/blob/main/me/post-ideas.md): Pieces Brian is considering writing. Ideas and intentions only — not positions, and never to be cited as things he argues. (updated 2026-09-25)
 
 ## Optional
 

@@ -1025,6 +1025,5 @@ governance-log entry). It replaces hand-maintenance of `_index.json`, `_relation
 and every quoted repo-size number, and generates `llms-full.txt`. Run it with `--write`
 after any content change; CI and the monthly audit run it with `--check`. To track a
 newly noticed hand-written number, add a line to `STAT_MENTIONS` in the script. Still
-human-maintained: `_content-index.json`, `COLLECTIONS.md`. Advisory it surfaces now: a
-blog post missing from `_content-index.json`, and developing-thinking's "Last updated"
-line (Sep 25) disagreeing with its frontmatter `updated` (Sep 30, pipeline scratchpad flags).
+human-maintained: `_content-index.json`, `COLLECTIONS.md`. Body "Last updated" lines and llms.txt "(updated ...)" tags now follow
+`last_reviewed` (else `updated`), so pipeline scratchpad flags don't move Brian's date.

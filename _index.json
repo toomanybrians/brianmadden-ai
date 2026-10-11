@@ -3,7 +3,7 @@
   "generated": "2026-10-11",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
   "total_files": 126,
-  "total_words": 282513,
+  "total_words": 282519,
   "files": [
     {
       "path": "AGENTS.md",
@@ -65,7 +65,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 736,
+      "word_count": 742,
       "staleness_threshold": null
     },
     {
@@ -439,7 +439,8 @@
       "word_count": 11174,
       "staleness_threshold": "weeks",
       "updated": "2026-09-30",
-      "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
+      "description": "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction.",
+      "last_reviewed": "2026-09-25"
     },
     {
       "path": "me/links.md",
@@ -471,7 +472,8 @@
       "staleness_threshold": "weeks",
       "date": "2026-09-04",
       "updated": "2026-09-25",
-      "description": "A curated queue of pieces Brian is considering writing. Ideas only — nothing here is a position, a commitment, or a schedule. The lowest-authority file in the repo."
+      "description": "A curated queue of pieces Brian is considering writing. Ideas only — nothing here is a position, a commitment, or a schedule. The lowest-authority file in the repo.",
+      "last_reviewed": "2026-09-25"
     },
     {
       "path": "me/profile.md",
