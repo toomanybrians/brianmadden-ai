@@ -65,7 +65,7 @@ into the output, ever.
      important section. A brain that only confirms is a mirror.
 6. **Walk Brian through it.** He wants to be challenged. Don't soften the
    Challenges section. Apply only what he approves, live, the same way
-   `/review-thinking` does for developing-thinking.md.
+   `/weekly-update` does for developing-thinking.md.
 
 ## Rules
 

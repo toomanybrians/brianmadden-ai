@@ -1,6 +1,6 @@
 ---
 name: weekly-update
-description: Weekly Wrap Up (named "Deeper Thinking" at launch, renamed by Brian on Substack 2026-08-26) — the lower-frequency companion to the Daily Brief. A live ceremony with Brian that recaps the stories since the last one, clears the promotion-candidates and staleness-candidates queues, captures his real takeaways, and drafts a dual-byline "Weekly Wrap Up" post. Use when the user runs /weekly-update, or asks for a weekly review, a Weekly Wrap Up issue, or "what's changed since last time" walkthrough.
+description: Weekly Wrap Up (named "Deeper Thinking" at launch, renamed by Brian on Substack 2026-08-26) — the lower-frequency companion to the Daily Brief. A live ceremony with Brian that recaps the stories since the last one, clears the promotion-candidates and staleness-candidates queues, captures his real takeaways, and drafts a dual-byline "Weekly Wrap Up" post. Also the single review pass for me/developing-thinking.md (it absorbed the retired /review-thinking on 2026-10-11): args "quick" runs just the queues and front-of-mind check with no post, args "deep" or "monthly" adds an every-item walk. Use when the user runs /weekly-update (or the old /review-thinking), or asks for a weekly review, a Weekly Wrap Up issue, a "what's changed since last time" walkthrough, to review the staleness/triage candidates, or what's front-of-mind right now.
 ---
 
 # Weekly Wrap Up ceremony
@@ -28,10 +28,28 @@ work, same category of gap as the rest of Workstream E), but don't assume
 Unlike `brief.py`/`triage.py`, the actual ceremony is **not a script that
 runs unattended.** Brian's own framing was explicit: he wants to read a
 recap, talk it through live, and give his own reactions — the value is
-the conversation, not just the artifact. This skill is that conversation,
-in the same spirit as [review-thinking](../review-thinking/SKILL.md), and
-reuses that skill's mechanics for the developing-thinking.md portion
-rather than duplicating them.
+the conversation, not just the artifact. This skill is that conversation.
+
+**This is the one review pass for `me/developing-thinking.md`.** It
+absorbed the standalone `/review-thinking` skill on 2026-10-11 (Brian's
+call: one weekly-ish pass for everything, not two overlapping ceremonies;
+the old skill is in git history). `triage.py` surfaces candidates and
+applies no judgment; this skill is where Brian decides each one live and
+the edits happen in the same sitting.
+
+## Modes, chosen by `args`
+
+- **Full (default, no args).** Every step below, ending in the drafted
+  post.
+- **Quick (`args` mentions "quick" or "review").** The old
+  `/review-thinking` quick pass: skip `gather.py`, the story recap, the
+  takeaways, content candidates, the post and its render (steps 2, 5, 6,
+  9, 10, and the `.last_run.json` bump in 11). Run `triage.py` fresh
+  (step 1), walk both queues (steps 3-4), update `## Right now` (step 7),
+  bump `last_reviewed` (step 8), do housekeeping and report (steps 12-13).
+  Meant to run any time Brian wants a pass, not on a schedule.
+- **Deep (`args` mentions "deep" or "monthly").** Everything in Full or
+  Quick (Brian says which), plus the every-item walk in step 4b.
 
 **One part of the pipeline is scripted, but run manually, not
 unattended:** [skills/weekly/gather.py](../../../skills/weekly/gather.py)
@@ -70,11 +88,12 @@ sets the clock, live session picks it up later" gap to reason about.
    says he already has a prep doc open from earlier today (he might, if
    he ran it separately before starting this session — check
    `outputs/weekly-updates/YYYY/MM/YYYY-MM-DD-prep.md` for today's date
-   first and use that instead of re-gathering, same reasoning as
-   `review-thinking` step 1: don't regenerate something that already
-   exists and hasn't gone stale). Either way, re-run `triage.py` if more
-   than a day or two has passed since whatever prep doc you're using was
-   written — a stale staleness-queue snapshot defeats the point.
+   first and use that instead of re-gathering: don't regenerate something
+   that already exists and hasn't gone stale). **Always re-run
+   `python3 skills/triage/triage.py` fresh** (one model call) rather than
+   trusting whatever is already in
+   `outputs/canon-triage/staleness-candidates.md`: a stale snapshot means
+   Brian would be deciding on old data. Read the freshly written file.
 
 2. **Present the prep doc to Brian before discussing anything.** If it
    arrived by email days ago, don't assume he remembers the details —
@@ -106,15 +125,41 @@ sets the clock, live session picks it up later" gap to reason about.
    non-negotiable either way: never batch-apply, never promote or reject
    without his live call on that specific entry or group.
 
-4. **Walk the staleness-candidates queue the same way `review-thinking`
-   already does** (its steps 1-2, applied here rather than duplicated) —
-   quoted item, category, reasoning, his decision (cut / promote / leave
-   as-is / archive a framework), applied live. If a promotion-candidate
+4. **Walk the staleness-candidates queue, one item at a time, in the
+   order the file lists them (developing-thinking items, then
+   frameworks).** For each, show Brian the quoted item (or framework
+   path), its category (`already-published` / `promote-candidate` /
+   `worth-revisiting`), the model's reasoning and citation, and its
+   suggested action. Ask what he wants; don't assume the suggested action,
+   he may keep something the model flagged or want a different edit.
+   Apply his decision immediately, in the same turn:
+   - **Cut** — remove the item's paragraph/bullet from
+     `me/developing-thinking.md` directly.
+   - **Promote** — real writing work (a new framework file or a
+     published-thinking addition), not a one-line edit. Don't auto-draft
+     it inline unless Brian says to start now; capture the decision and
+     treat drafting as its own follow-up task.
+   - **Worth-revisiting, framework case** — ask whether to revise the
+     framework now, archive it (`status: archived` + `archived_date` +
+     `archived_reason`, per `docs/frontmatter-schema.md`; only Brian's
+     call, never inferred), or leave it.
+   - **Keep as-is** — no edit, next item. A fine and expected outcome.
+   Never batch-apply decisions without walking them individually first.
+   If a promotion-candidate
    from step 3 and a staleness-candidate here turn out to be evidence for
    the same underlying write-up (happened on the first real run — a
    tracked "machine speed vs. human absorption" thread was the evidence
    base for a staleness-flagged "human clock speed is the invariant"
    promote-candidate), resolve them together, not separately.
+
+4b. **Deep/monthly mode only:** after the queues, go through the *entire*
+   "What's connecting" and "Scratchpad" sections of
+   `me/developing-thinking.md`, item by item (including everything the
+   triage pass was silent on), and every `frameworks/*.md` file, briefly
+   surfacing each and asking if it's still live, needs a cut, or needs a
+   second look. Slower by design. (Repo health and cross-canon synthesis
+   live in `/system-audit` and `/connect-the-dots`; this is only the
+   developing-thinking walk.)
 
 5. **Ask directly for his takeaways on the week's stories** — not "does
    this look right," but what actually struck him, what he'd push back
@@ -140,8 +185,12 @@ sets the clock, live session picks it up later" gap to reason about.
    voice instruction: these need to read as an approachable hook, not a
    dense internal note.
 
-7. **Update `## Right now`**, same as `review-thinking` step 4 — ask
-   what's most front-of-mind independent of anything flagged above.
+7. **Update `## Right now`** — ask directly what's most front-of-mind,
+   independent of anything flagged above. Update the section at the top of
+   `me/developing-thinking.md` to match: add, remove or reword bullets so
+   it stays a genuine 3-5 item list, not a growing tracker. An item
+   dropping off doesn't mean it was resolved; say so if Brian seems to be
+   treating it that way.
 
 8. **Bump the review timestamp even if nothing else changed.** Add (or
    update) a `last_reviewed: YYYY-MM-DD` field in
@@ -332,8 +381,9 @@ sets the clock, live session picks it up later" gap to reason about.
     - `_index.json` — surgical text edit only for any new/changed entries
       (developing-thinking.md's word count, revised frameworks' word
       counts), never a full `json.dump()` round-trip (same caution
-      `review-thinking` already documents — a full re-dump reformats
-      unrelated entries and pollutes the diff). Confirmed 2026-08-24:
+      confirmed 2026-08-15: a full re-dump collapsed one-line arrays
+      into multi-line blocks across ~90 unrelated entries and polluted
+      the diff). Confirmed 2026-08-24:
       `outputs/` isn't tracked in `_index.json` at all, so no new entries
       are needed there for the weekly-updates files themselves.
     - If any framework's `status` or content changed, update
@@ -356,7 +406,8 @@ sets the clock, live session picks it up later" gap to reason about.
 
 Never edits `me/developing-thinking.md`, `promotion-candidates.md`, or a
 framework's `status` without Brian's live decision on that specific item
-— identical non-negotiable to `review-thinking` and `triage.py`. Never
+— the same non-negotiable as `triage.py` (MAINTAINER.md rule 4: status is
+never upgraded by machine; the principle extends to content edits). Never
 publishes to Substack itself — that stays a manual paste-and-click step,
 same as the Daily Brief. `gather.py` never makes any of these decisions
 either, run manually or not — it only assembles and emails the prep doc,

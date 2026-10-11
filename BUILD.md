@@ -317,9 +317,9 @@ pipeline's compute moved from GitHub-hosted Actions to a self-hosted runner
 12. ~~Port the private brain's deeper monthly-maintenance skill~~ — **done
     2026-10-04.** Ported as `/system-audit` (with `scripts/audit.py` and a
     monthly GitHub Action) and `/connect-the-dots`, rewritten for the v2
-    tiers. `/review-thinking`'s full/monthly mode stays as the lighter
-    on-demand pass; whether to retire it into `/weekly-update` is an open
-    question from the first `/system-audit` run.
+    tiers. `/review-thinking` was retired into `/weekly-update` on
+    2026-10-11 (Brian's call: one weekly-ish pass); its quick and
+    deep/monthly modes live on as `/weekly-update` args.
 
 13. ~~A weekly "how my thinking has changed" recap post~~ — **built
     2026-08-24.** Brian's actual ask, from a voice memo: not a fully
@@ -1005,3 +1005,17 @@ heading, and the ASEAN transcript heading labeled AI-generated. Not changed: the
 Feb 26 announcement (published record) still says 9 frameworks and lists five levels.
 The claude.ai connector for this server is cached with 1 of 7 tools on Brian's side; the
 server returns all 7.
+
+
+### 2026-10-11: first `/system-audit` follow-ups; `/review-thinking` retired
+
+Applied the first judgment pass's approved fixes: CLAUDE.md/AGENTS.md skills list,
+frontmatter on `me/links.md` and `me/books.md` (both `stable`), published-thinking
+header refresh plus a "Pre-Citrix LinkedIn era (2020-2024)" section, and stale text in
+MAINTAINER.md, this file and the skills. `scripts/audit.py` now checks frontmatter in
+`me/` too (`date` not required there). `/review-thinking` retired: `/weekly-update`
+now holds its mechanics, with `quick` (queues + Right now, no post) and `deep`/`monthly`
+(every-item walk) modes. Open from the audit: `scripts/build_indexes.py` (rule 8 cites a
+script that doesn't exist), `llms-full.txt`, per-file `updated` dates in `llms.txt`.
+A worktree session can't merge `main` until the app's pinned git origin is re-confirmed
+(Help, Troubleshooting, Review Pinned Git Origins); rebasing by hand worked.
