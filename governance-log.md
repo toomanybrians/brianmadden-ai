@@ -4,6 +4,26 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-10-11 — New talk: Inside the Browser, Episode 1 (Citrix and Google); one promotion-queue entry
+
+**What changed:**
+- New `talks/2026-10-08-inside-the-browser-citrix-google-ep1.md` (Citrix video series, Brian hosting, guest from Google's Chrome Enterprise team; video published 2026-10-08). Notes on Brian's arguments plus clearly attributed summaries of the guest's product claims, labeled as vendor claims and not independently verified. No transcript stored: the guest's remarks are third-party content (MAINTAINER rule 2). Quotes are Brian's own, each under 15 words, lightly cleaned from auto-captions. `status: not-reviewed-by-human`.
+- `talks/index.md`: new entry at the top of "Available content". `COLLECTIONS.md`: listed under "AI agents and the post-application era" and "Governance, security, and the control plane" (hand-edited, not generated).
+- `outputs/technical-briefings/promotion-candidates.md`: one hand-flagged entry (`ai-browser-interaction-five-scenarios`), Brian's five-way breakdown of how AI touches the browser. Queue only; nothing was added to `me/developing-thinking.md` or any framework. The entry says it did not come from the briefing tracker, so it carries no recurrence count.
+
+**Indexes:** regenerated with `scripts/build_indexes.py --write` (`_index.json`, `_relationships.json`, `README.md` and `llms.txt` counts: talks 22 to 23, files 126 to 127).
+
+**Automated checks:**
+- `python3 scripts/check_public_safe.py --staged` on the new and edited files: clean — CLEAR
+- `python3 scripts/check_doc_accuracy.py`: OK, 0 warnings — CLEAR
+- `python3 scripts/build_indexes.py --check`: exit 0 after the final `--write` — CLEAR
+- Guest identified by name and employer as stated in the video's own public description; no pronouns inferred for the guest; no private contact details, internal Citrix content or customer names in the new text — CLEAR
+- `ingest/` not referenced by any generated surface — CLEAR
+
+**Result: COMMITTED.**
+
+---
+
 ## 2026-10-11 — Generated index surfaces: build_indexes.py, llms-full.txt, repo-size numbers
 
 **What changed:**

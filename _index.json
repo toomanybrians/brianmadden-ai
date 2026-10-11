@@ -2,8 +2,8 @@
   "version": "1.0",
   "generated": "2026-10-11",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 126,
-  "total_words": 282519,
+  "total_files": 127,
+  "total_words": 283945,
   "files": [
     {
       "path": "AGENTS.md",
@@ -38,7 +38,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 3725,
+      "word_count": 3757,
       "staleness_threshold": null
     },
     {
@@ -2631,12 +2631,36 @@
       "format": "Solo webcast keynote with slides, ~35 minutes; ran out of time for live Q&A"
     },
     {
+      "path": "talks/2026-10-08-inside-the-browser-citrix-google-ep1.md",
+      "title": "Inside the Browser: A Citrix and Google Perspective (Episode 1)",
+      "authority_level": 5,
+      "file_type": "talk",
+      "tags": [
+        "ai-browsers",
+        "enterprise-browser",
+        "dlp",
+        "ai-security",
+        "computer-using-agents",
+        "shadow-ai",
+        "workspace-as-control-plane",
+        "ai-governance",
+        "citrix",
+        "agent-session-recording"
+      ],
+      "word_count": 1224,
+      "staleness_threshold": "stable",
+      "date": "2026-10-08",
+      "event": "Inside the Browser — Citrix video series, Episode 1",
+      "format": "Two-person video conversation, ~29 minutes; Brian hosts",
+      "recording": "https://www.youtube.com/watch?v=8nbpEISuTho"
+    },
+    {
       "path": "talks/index.md",
       "title": "Talks and presentations",
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 1901,
+      "word_count": 2071,
       "staleness_threshold": null
     }
   ]

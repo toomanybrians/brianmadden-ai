@@ -1027,3 +1027,21 @@ after any content change; CI and the monthly audit run it with `--check`. To tra
 newly noticed hand-written number, add a line to `STAT_MENTIONS` in the script. Still
 human-maintained: `_content-index.json`, `COLLECTIONS.md`. Body "Last updated" lines and llms.txt "(updated ...)" tags now follow
 `last_reviewed` (else `updated`), so pipeline scratchpad flags don't move Brian's date.
+
+
+### 2026-10-11 (later): Inside the Browser Episode 1 added as a talk; first hand-flagged queue entry
+
+Added `talks/2026-10-08-inside-the-browser-citrix-google-ep1.md` for the Citrix and Google
+video series (Episode 1, published 2026-10-08). Source was the YouTube auto-captions pulled with
+the `youtube_transcript_api` Python package (installed locally, not in `requirements.txt`);
+captions mangle names and product terms, so the file's quotes are lightly cleaned and
+timestamps approximate. Decisions: notes and attributed summaries only, no transcript, because
+the guest's side is third-party content; the guest's DLP details are labeled vendor claims; the
+date is the video's publish date, since no recording date is stated. The file stays
+`not-reviewed-by-human` until Brian reads it. Registered via `build_indexes.py --write` plus
+hand edits to `COLLECTIONS.md` (two sections) and `talks/index.md`.
+
+Also appended one hand-written entry to `outputs/technical-briefings/promotion-candidates.md`
+(the five "AI plus browser" scenarios). `brief.py` only appends to that file, so the entry
+survives later runs, and `skills/weekly/gather.py` reads the whole file, so it appears in the
+next Weekly Wrap Up prep. The 2026-10-11 prep was generated before it existed and does not list it.

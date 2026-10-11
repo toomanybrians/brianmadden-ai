@@ -8,6 +8,11 @@ I co-host the **Citrix AI Hotsheet** with Dave Brear — a monthly podcast on AI
 
 ## Available content
 
+**Inside the Browser: A Citrix and Google Perspective — Episode 1** (2026-10-08)
+Citrix video series — I host; guest is Rob Devito of Google's Chrome Enterprise team, ~29 minutes
+[Watch](https://www.youtube.com/watch?v=8nbpEISuTho)
+Argues that "AI plus the browser" is really at least five different problems, each with its own attack surface: a computer-using agent running the whole desktop (browser is one window), an AI app driving the browser through an extension, an agent operating the browser directly with no extension, a worker browsing to an agent website, and an ordinary SaaS app with an AI assistant built in. Since you can't sort tools into approved and shadow anymore, you have to be ready for all of them. Copy/paste becomes a graded policy decision (content, application, context, and whether a human or an AI is driving the session), and browser security and agent security are one defense-in-depth stack, not two problems. The guest's Chrome Enterprise Premium DLP details (masking, watermarking, archiving) are summarized as vendor claims. Notes and key arguments available; no transcript.
+
 **From digital workspace to AI-powered work** (2026-09-15)
 Customer webcast (customer name withheld) — solo webcast keynote with slides, ~35 minutes
 [Substack post, with the slide deck attached](https://www.brianmadden.ai/p/speech-transcript-from-digital-workspace)

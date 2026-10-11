@@ -965,6 +965,15 @@
       "location": "",
       "date": "2026-09-15",
       "implements_frameworks": []
+    },
+    "2026-10-08-inside-the-browser-citrix-google-ep1": {
+      "path": "talks/2026-10-08-inside-the-browser-citrix-google-ep1.md",
+      "title": "Inside the Browser: A Citrix and Google Perspective (Episode 1)",
+      "event": "Inside the Browser — Citrix video series, Episode 1",
+      "location": "",
+      "date": "2026-10-08",
+      "recording": "https://www.youtube.com/watch?v=8nbpEISuTho",
+      "implements_frameworks": []
     }
   },
   "core": {

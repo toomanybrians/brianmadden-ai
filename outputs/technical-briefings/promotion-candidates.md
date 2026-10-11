@@ -315,3 +315,17 @@ Notes from each recurrence:
 - New detail on the Meta/Sierra Personal Agent Protocol: the merchant vouches for the agent and takes data control and liability, versus card networks or labs in rival designs.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-browser-interaction-five-scenarios` — flagged 2026-10-11
+
+Brian's five-way breakdown of how AI touches the browser, each with a different attack surface and a different mitigation: (1) a computer-using agent operating the whole desktop, where the browser is just one window; (2) an AI app driving the browser through a store-distributed extension; (3) an agent driving the browser directly, with no extension, through the browser's object model; (4) a worker browsing to an agent website (Gemini, Claude); (5) a regular SaaS app with an embedded assistant.
+
+Hand-flagged from a Claude Code session on 2026-10-11, not from the briefing tracker, so there is no recurrence count. Source: Brian's own framing at ~4:00–5:00 of [Inside the Browser, Episode 1](https://www.youtube.com/watch?v=8nbpEISuTho) (notes in `talks/2026-10-08-inside-the-browser-citrix-google-ep1.md`).
+
+Why it's queued rather than in canon:
+
+- Canon currently treats "use an enterprise browser" as one recommendation (`talks/2025-12-16-impact-of-ai-explored-agents-browsers-security.md`). The nearest `me/developing-thinking.md` item is "The executor seam is the unowned thing in agent architecture," which covers where agent actions execute but not the browser-specific split by access path. The "attack surface" section of the Aug 2025 insider-threat post covers threats *to* agents (prompt injection and the like), a different axis.
+- Questions for the ceremony: does this fold into the executor-seam entry or stand alone? Which of the five can a browser-layer control actually see? Scenario 1 (agent on the whole desktop) is the obvious gap, and the episode doesn't test it with the guest.
+- Related, not queued: the same episode shows a human-vs-AI session signal feeding a DLP decision (allow the AI, but turn on session recording), a concrete instance of workspace-as-control-plane. It's recorded in the talk file only.
+
+**Status: not yet reviewed by Brian.**
