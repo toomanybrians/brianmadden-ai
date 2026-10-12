@@ -1,7 +1,7 @@
 ---
 title: "Post ideas — what I might write next"
 date: 2026-09-04
-updated: "2026-10-11"
+updated: "2026-10-12"
 last_reviewed: "2026-09-25"
 authority_level: 5
 file_type: queue
@@ -137,6 +137,29 @@ In the early days of computing one vendor and one set of hardware did everything
 **Why it's a real piece:** it turns the cognitive stack from a way of organizing thinking into a prediction about market structure, and it raises whether the "commodity, interchangeable" bottom layers pick up their own hardware economics and lock-in.
 
 **What's missing:** my own read on what it means for an enterprise buyer (buy by layer?), and evidence beyond silicon.
+
+### Token price is the wrong unit; price the accepted work
+
+**Where the argument lives:** `me/developing-thinking.md` → "What's connecting" → October 11 (token price is the wrong unit) and the February 27 Salesforce AWU entry. Related in this file: "Run important work through two different models, always" and "Nobody can measure knowledge-worker productivity."
+
+Not all tokens are equal, and much of what makes work valuable isn't tracked at all: how much you trust it, how secure it is. The comparison that matters is the cost of a unit of work at a given accuracy level, which also means pricing in the intelligence that went into it. Companies that had effectively unlimited token budgets for a year are now setting real ones.
+
+**Why it's a real piece:** "cost per task beats cost per token" is no longer news (see prior art), so the open space is the denominator. Most versions divide by a pass/fail success rate on a benchmark. None of the ones found treat trust and security as first-class costs. The economics literature says why they matter: when producing work gets cheap, the scarce thing is verifying it. That makes this a piece about what a unit of *accepted* work costs, with verification as the real price of accuracy.
+
+**What's missing:**
+- My own position. So far this is one dictated paragraph, not an argument.
+- A fix to the "run it three times" example before it's published. With independent errors and a coin-flip agent, a majority vote of three is still a coin flip. Best-of-three reaches 87.5% only if something can pick the right answer, so the verifier is the price of accuracy, and expected cost per success becomes (attempt + check) divided by the hit rate. Where no automatic checker exists, voting plateaus (Brown et al., below). Same-model reruns also tend to fail in correlated ways, which is the case for a second vendor's model.
+- How to say "how much intelligence went into it" without hand-waving. Economists call this quality adjustment, and it's the hardest part to measure for knowledge work.
+- Evidence for the budget-rationalization half (that's a belief, not yet a trend line).
+
+**Prior art (AI-filed 2026-10-12; abstracts and pages read, not full papers):**
+- Kapoor, Stroebl, Siegel, Nadgir and Narayanan, [AI Agents That Matter](https://arxiv.org/abs/2407.01502) (Jul 2024): accuracy-only agent benchmarks mislead; optimize cost and accuracy jointly.
+- Appenzeller (a16z), [LLMflation](https://www.a16z.com/llmflation-llm-inference-cost) (Nov 2024): about 10x a year decline in cost at a fixed MMLU score, by the author's own "far from perfect" method. Epoch AI, [LLM inference price trends](https://epoch.ai/data-insights/llm-inference-price-trends) (Mar 2025): price to reach a fixed benchmark score fell 9x to 900x a year depending on threshold. That is price at a given accuracy level, but still priced per token.
+- Catalini, Hui and Wu, [Some Simple Economics of AGI](https://arxiv.org/abs/2602.20946) (Feb 2026): execution cost falls toward zero while verification stays bounded by human capacity (their "Measurability Gap"). The strongest economic backing for "trust is the untracked cost."
+- Zhu, [The Price of Intelligence](https://arxiv.org/abs/2608.29843) (Aug 2026; single-author v1 preprint, not peer reviewed): quality-adjusted inference prices fall about 0.73 log points a year against about 0.10 unadjusted, but per completed task the buyer's price stopped falling because reasoning models burn more tokens. Hedonic quality adjustment is standard practice at statistical agencies ([BLS](https://www.bls.gov/ppi/quality-adjustment/hedonic-models-in-the-producer-price-index.htm)); this is its first serious application to AI prices.
+- Brown et al., [Large Language Monkeys](https://arxiv.org/abs/2407.21787) (2024): repeated sampling buys accuracy when an automatic verifier exists (one coding model went from 15.9% to 56% solved at 250 samples); without one, majority voting and reward models plateau.
+- Vendor writing, indicative only because both sell measurement tooling: DoiT, [Cost Per Task, Not Cost Per Token](https://www.doit.com/research/economics-of-claude-openai-and-grok) (Aug 2026), divides by success probability and adds a risk-adjusted variant (undetected-failure rate times cleanup cost), with numbers it calls illustrative; LangWatch, [Cost per Successful Task](https://langwatch.ai/blog/cost-per-successful-task) (Jul 2026), uses cost per run over success rate and leaves verification cost out of the formula.
+- The market already prices accepted outcomes: per-resolution pricing for support agents is reported at roughly $1 to $2 (Intercom Fin, Zendesk, Sierra; see [SaaStr](https://www.saastr.com/hubspot-switching-ai-pricing-from-per-use-to-per-resolution/)), and what counts as a "resolution" is where the contract risk sits. That is the accuracy risk moving onto the vendor.
 
 ---
 
