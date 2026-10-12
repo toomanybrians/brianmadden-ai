@@ -74,7 +74,9 @@ Its one demand on us: keep the tiers clean.
    consuming AIs *what to trust* when sources conflict. Review statuses (new:
    `not-reviewed-by-human` · `reviewed` · `reviewed-and-updated` ·
    `human-disputes-this`) record *what a human checked*. Both live in
-   frontmatter; neither is ever upgraded by machine. (Exact coexistence
+   frontmatter; neither is ever upgraded by machine, and machine edits to a
+   reviewed file lower its status until Brian approves them (the weekly
+   ceremony's standing flow, 2026-10-12). (Exact coexistence
    scheme: proposed by the Day-2 session, ratified by Brian.)
 5. **The ask@ lane is read-only.** Email-answering jobs read canon, write
    drafts to an approval queue, and take no other action. Inbound email
@@ -148,6 +150,18 @@ that exclusion, confirmed by the merge's KV sync running clean.
   gitignored; secret scanning and push protection stay enabled.
 - Commit messages are plain and honest; the git history is a public audit
   trail and part of the product.
+- **Shared checkout.** Several sessions (maintenance, podcast, audit, the
+  weekly ceremony) can work in this one checkout, on `main`, at the same
+  time. Stage specific paths, never `git add -A` or `commit -a`; fetch and
+  read `git status` before committing; run
+  `scripts/check_public_safe.py --staged`. Push code and ingest notes
+  straight to `main`; hold canon commits (`me/`, `frameworks/`) until Brian
+  approves them.
+- **The weekly ceremony is AI-files, Brian-reviews-by-exception** (Brian's
+  call, 2026-10-12). The AI applies a default disposition to every queue
+  item, labels machine-filed text inline, and hands back a short exception
+  list; Brian reacts, vetoes, and says "approved." The full flow is in
+  `.claude/skills/weekly-update/SKILL.md`.
 - **Podcast production defaults to this repo, not the private work
   brain.** As of 2026-09-02, episode processing (transcript cleanup,
   publishing-asset drafting, platform description variants, checklists)

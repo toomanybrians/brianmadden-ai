@@ -1,6 +1,6 @@
 ---
 name: weekly-update
-description: Weekly Wrap Up (named "Deeper Thinking" at launch, renamed by Brian on Substack 2026-08-26) — the lower-frequency companion to the Daily Brief. A live ceremony with Brian that recaps the stories since the last one, clears the promotion-candidates and staleness-candidates queues, captures his real takeaways, and drafts a dual-byline "Weekly Wrap Up" post. Also the single review pass for me/developing-thinking.md (it absorbed the retired /review-thinking on 2026-10-11): args "quick" runs just the queues and front-of-mind check with no post, args "deep" or "monthly" adds an every-item walk. Use when the user runs /weekly-update (or the old /review-thinking), or asks for a weekly review, a Weekly Wrap Up issue, a "what's changed since last time" walkthrough, to review the staleness/triage candidates, or what's front-of-mind right now.
+description: Weekly Wrap Up (named "Deeper Thinking" at launch, renamed by Brian on Substack 2026-08-26) — the lower-frequency companion to the Daily Brief. Brian reacts live (talking, dictating, restacking); the AI recaps the stories since the last one, files the promotion-candidates and staleness-candidates queues with default dispositions, drafts a dual-byline "Weekly Wrap Up" post, and hands back a short list of exceptions for Brian to veto (the standing flow since 2026-10-12). Also the single review pass for me/developing-thinking.md (it absorbed the retired /review-thinking on 2026-10-11): args "quick" runs just the queues and front-of-mind check with no post, args "deep" or "monthly" adds an every-item walk. Use when the user runs /weekly-update (or the old /review-thinking), or asks for a weekly review, a Weekly Wrap Up issue, a "what's changed since last time" walkthrough, to review the staleness/triage candidates, or what's front-of-mind right now.
 ---
 
 # Weekly Wrap Up ceremony
@@ -29,13 +29,15 @@ Unlike `brief.py`/`triage.py`, the actual ceremony is **not a script that
 runs unattended.** Brian's own framing was explicit: he wants to read a
 recap, talk it through live, and give his own reactions — the value is
 the conversation, not just the artifact. This skill is that conversation.
+Since 2026-10-12 the conversation is his *reactions*, not his filing
+decisions: see "The standing flow" below.
 
 **This is the one review pass for `me/developing-thinking.md`.** It
 absorbed the standalone `/review-thinking` skill on 2026-10-11 (Brian's
 call: one weekly-ish pass for everything, not two overlapping ceremonies;
 the old skill is in git history). `triage.py` surfaces candidates and
-applies no judgment; this skill is where Brian decides each one live and
-the edits happen in the same sitting.
+applies no judgment; this skill is where the AI applies a disposition to
+each one and Brian reviews by exception, in the same sitting.
 
 ## Modes, chosen by `args`
 
@@ -45,7 +47,7 @@ the edits happen in the same sitting.
   `/review-thinking` quick pass: skip `gather.py`, the story recap, the
   takeaways, content candidates, the post and its render (steps 2, 5, 6,
   9, 10, and the `.last_run.json` bump in 11). Run `triage.py` fresh
-  (step 1), walk both queues (steps 3-4), update `## Right now` (step 7),
+  (step 1), file both queues (steps 3-4), update `## Right now` (step 7),
   bump `last_reviewed` (step 8), do housekeeping and report (steps 12-13).
   Meant to run any time Brian wants a pass, not on a schedule.
 - **Deep (`args` mentions "deep" or "monthly").** Everything in Full or
@@ -82,6 +84,58 @@ starts `/weekly-update`, step 1 below runs `gather.py` fresh, and the
 live ceremony continues right after — no more separate "unattended run
 sets the clock, live session picks it up later" gap to reason about.
 
+## The standing flow: the AI files, Brian reviews by exception
+
+Brian's call, 2026-10-12, after a trial run on 2026-10-11. The
+item-by-item walk was where the effort went, and most of it was
+classification (promote, fold or reject; which file does this go in),
+which the AI does well. What only Brian can supply is what he believes,
+what he will say publicly, and what he cares about. So the flow is:
+
+- **Brian's part:** react. Talk, dictate, restack, flag. Skim one diff
+  and a short "needs you" list. Veto by exception. Say "approved" to
+  finish.
+- **The AI's part:** gather and triage, present the week, take his
+  reactions as dictation, apply a disposition to every queue item, draft
+  the post, run housekeeping, commit locally, and hand back the
+  exception list.
+
+Rules of the flow:
+
+1. **Dispositions are applied by default, not asked about.** Fold into an
+   existing entry is the default; promote to a new entry only when Brian
+   has stated the claim himself; reject when it's outside his beat;
+   keep only when a decision truly depends on something that hasn't
+   happened yet. A queue that never empties is the chore this flow exists
+   to remove. If Brian asks to walk the queue item by item, do that.
+2. **His voice comes only from his words.** Right now bullets and new
+   "What's connecting" entries that make a claim are written from what he
+   dictated or published, as nearly in his words as possible. The AI never
+   invents a position, a prediction, or a reaction for him. Evidence and
+   observations can be AI-filed.
+3. **Label what a machine wrote.** Every machine-filed paragraph carries an
+   inline label (`October 11 addition (AI-filed): ...`); text taken from
+   dictation carries `(dictated <date>)`. Review state is handled in step 8.
+4. **What stays Brian's:** archiving a framework, any edit to
+   `me/voice.md`, publishing to Substack (still a manual paste), and
+   anything he says to hold.
+5. **Sensitive third-party material goes to Brian first.** Competitors and
+   named private individuals: summarize neutrally for him, hold drafts
+   outside the repo (not in the working tree, where another session could
+   commit them), and write them up as "what's happening in the market,"
+   not as promotion. Nothing about them is committed until he has seen the
+   summary.
+6. **The exception list** (step 13) is the only thing Brian has to read
+   closely: seven items or fewer, each with the default that was applied
+   and what reversing it means. It can be empty.
+7. **Commits.** Split code, ingest notes, and canon plus outputs into
+   separate commits. Stage specific paths, never `git add -A`: other
+   sessions work in the same checkout. Run
+   `python3 scripts/check_public_safe.py --staged` before each commit.
+   Push code and ingest notes straight to `main`; hold the canon commit
+   (`me/`, `frameworks/`, `outputs/weekly-updates/`) until Brian says
+   "approved."
+
 ## Steps
 
 1. **Run `gather.py` fresh at the start of every session**, unless Brian
@@ -100,57 +154,40 @@ sets the clock, live session picks it up later" gap to reason about.
    summarize the scale (how many stories, how many queue items) and let
    him set the pace, same as the first live run did.
 
-3. **Walk the promotion-candidates queue, one entry at a time, in the
-   order the file lists them.** For each: show Brian the thread (what
-   recurred, how many times, the actual notes), ask what he wants to do,
-   apply immediately:
-   - **Promote** — draft the addition into `me/developing-thinking.md`'s
-     "What's connecting" section together, in his words as much as
-     possible, dated today. Then delete that entry from
-     `promotion-candidates.md` — promoted is resolved, not still queued.
-   - **Reject** — delete the entry from `promotion-candidates.md`, no
-     addition anywhere. Rejected is also resolved.
-   - **Not yet** — leave the entry in place, still open. Don't force a
-     decision on something he's genuinely unsure about.
-   - **Consolidate** — if two or more entries turn out to be the same
-     underlying story (the pipeline's thread-matching is exact-slug-only,
-     per `BUILD.md` open decision #15 — this happens), say so before
-     asking for a decision on each separately, and propose merging them
-     into one canon entry instead.
-   With a real backlog (more than a handful of entries), don't grind
-   through them one cold call at a time — group them by an honest read
-   first (obvious near-duplicates, clean promotes, genuine judgment
-   calls, low-interest ones) and give Brian that read before asking for
-   decisions; he can always ask for strict one-by-one instead. Same
-   non-negotiable either way: never batch-apply, never promote or reject
-   without his live call on that specific entry or group.
+3. **File the promotion-candidates queue.** Apply a disposition to every
+   entry yourself, then show Brian the grouped result rather than each
+   entry cold. Group near-duplicates first (the pipeline's thread-matching
+   is exact-slug-only, per `BUILD.md` open decision #15, so one story often
+   arrives as several entries):
+   - **Fold** (the default) — add the evidence to the existing "What's
+     connecting" entry, open question, or framework section it belongs to,
+     as a dated "(AI-filed)" paragraph; duplicates fold into one paragraph.
+   - **Promote** — a new "What's connecting" entry, only when Brian has
+     stated the claim himself, in his words as much as possible, dated
+     today and labeled "(dictated)".
+   - **Reject** — outside Brian's beat or not worth a line; say why in the
+     cleared note.
+   - **Keep** — leave it queued only if a decision truly depends on
+     something that hasn't happened yet.
+   Resolved entries (folded, promoted, rejected) are deleted from
+   `promotion-candidates.md` and the header note records where each one
+   went, so a later reader can follow it. Judgment calls (a reject near his
+   beat, a fold that complicates an argument) go on the exception list.
 
-4. **Walk the staleness-candidates queue, one item at a time, in the
-   order the file lists them (developing-thinking items, then
-   frameworks).** For each, show Brian the quoted item (or framework
-   path), its category (`already-published` / `promote-candidate` /
-   `worth-revisiting`), the model's reasoning and citation, and its
-   suggested action. Ask what he wants; don't assume the suggested action,
-   he may keep something the model flagged or want a different edit.
-   Apply his decision immediately, in the same turn:
-   - **Cut** — remove the item's paragraph/bullet from
-     `me/developing-thinking.md` directly.
-   - **Promote** — real writing work (a new framework file or a
-     published-thinking addition), not a one-line edit. Don't auto-draft
-     it inline unless Brian says to start now; capture the decision and
-     treat drafting as its own follow-up task.
-   - **Worth-revisiting, framework case** — ask whether to revise the
-     framework now, archive it (`status: archived` + `archived_date` +
-     `archived_reason`, per `docs/frontmatter-schema.md`; only Brian's
-     call, never inferred), or leave it.
-   - **Keep as-is** — no edit, next item. A fine and expected outcome.
-   Never batch-apply decisions without walking them individually first.
-   If a promotion-candidate
-   from step 3 and a staleness-candidate here turn out to be evidence for
-   the same underlying write-up (happened on the first real run — a
-   tracked "machine speed vs. human absorption" thread was the evidence
-   base for a staleness-flagged "human clock speed is the invariant"
-   promote-candidate), resolve them together, not separately.
+4. **File the staleness-candidates queue** the same way, in the file's order
+   (developing-thinking items, then frameworks). Cut: remove it. Already
+   published: point at where it lives. Promote-candidate: it's real writing
+   work, so make sure it's in `me/post-ideas.md` (add an idea if missing)
+   rather than drafting it inline. Worth-revisiting framework: add a dated
+   update section that reconciles it with newer canon, original text
+   untouched. Archiving a framework (`status: archived` + `archived_date` +
+   `archived_reason`, per `docs/frontmatter-schema.md`) stays Brian's
+   explicit call, never inferred. Keep-as-is is a fine outcome. If a
+   promotion-candidate from step 3 and a staleness-candidate here are
+   evidence for the same underlying write-up (happened on the first real
+   run — a tracked "machine speed vs. human absorption" thread was the
+   evidence base for a staleness-flagged "human clock speed is the
+   invariant" promote-candidate), resolve them together.
 
 4b. **Deep/monthly mode only:** after the queues, go through the *entire*
    "What's connecting" and "Scratchpad" sections of
@@ -173,6 +210,9 @@ sets the clock, live session picks it up later" gap to reason about.
    feed the ceremony), treat those as a real takeaway already in his own
    words, not just background color — surface them here rather than
    asking him to re-articulate a reaction he already wrote down live.
+   Dictation is the input: take what he says as-is and file it (Right now,
+   entries, post ideas). Ask a question only when the answer changes what
+   gets written.
 
 6. **Surface content candidates — topics worth a future blog post or
    podcast episode.** Added 2026-08-24, Brian's own idea mid-first-run:
@@ -192,20 +232,21 @@ sets the clock, live session picks it up later" gap to reason about.
    dropping off doesn't mean it was resolved; say so if Brian seems to be
    treating it that way.
 
-8. **Bump the review timestamp even if nothing else changed.** Add (or
-   update) a `last_reviewed: YYYY-MM-DD` field in
-   `me/developing-thinking.md`'s frontmatter — deliberately separate from
-   `updated`, which per existing convention only moves when content
-   actually changes. `last_reviewed` records "a human looked at this and
-   confirmed it still holds," which is real signal on its own even in a
-   week where every candidate was "keep as-is." If any content actually
-   changed this run (steps 3-4 almost always mean it did), bump `updated`
-   too and flip `status` to `reviewed-and-updated` — Brian was live for
-   every edit, so this isn't the machine upgrading its own status, it's
-   recording his direct approval of specific diffs, same rule
-   `render.py`'s hand-edit detection already applies elsewhere.
+8. **Handle review state honestly.** Machine-applied edits don't earn a
+   `reviewed*` status (MAINTAINER rule 4). When a file whose `status` is
+   `reviewed` or `reviewed-and-updated` gets machine-filed edits, set its
+   `status` to `not-reviewed-by-human`, bump `updated`, and leave
+   `last_reviewed` alone; the inline labels from the standing flow say
+   which paragraphs a machine wrote. When Brian says "approved" (or edits
+   the diff and then approves), flip `status` to `reviewed-and-updated`, set
+   `last_reviewed` to today, and run `build_indexes.py --write` so the body
+   "Last updated" lines follow. `last_reviewed` is deliberately separate from
+   `updated`: it records "a human looked at this and confirmed it still
+   holds," which is real signal even in a week where nothing changed, so
+   bump it on its own if Brian reviewed and nothing needed editing.
 
-9. **Draft the Weekly Wrap Up post itself**, collaboratively — not a
+9. **Draft the Weekly Wrap Up post itself** from the prep doc, the briefs,
+   and Brian's dictation — not a
    mechanical rehash of the prep doc, and not written in the pipeline's
    own internal shorthand. Brian's explicit ask (2026-08-24, reacting to
    the first draft): this should read as something a real person would
@@ -344,10 +385,10 @@ sets the clock, live session picks it up later" gap to reason about.
    edited later — confirmed 2026-08-26 renaming the first issue — so get
    the title right at draft time rather than relying on a later rename).
    `tier: 3`, `file_type: weekly-update`, `status:
-   reviewed` (Brian was live for the whole thing — this isn't
-   `not-reviewed-by-human` the way an unattended daily brief starts; if he
-   substantively rewrites a passage himself, that's `reviewed-and-updated`
-   instead, per the existing status rule), `authority_level`, `model`,
+   not-reviewed-by-human` (until Brian has read the draft; flip to
+   `reviewed` on his approval, or `reviewed-and-updated` if he
+   substantively rewrites a passage himself, per the existing status
+   rule), `authority_level`, `model`,
    `byline: [brianmadden.ai, Brian Madden]`, `sources` (the prep doc plus
    everything it drew on). Write to
    `outputs/weekly-updates/YYYY/MM/YYYY-MM-DD.md`.
@@ -394,23 +435,33 @@ sets the clock, live session picks it up later" gap to reason about.
     - Log the session in `BUILD.md`: what the week's window was, what got
       promoted/cut/archived, what Brian's takeaways were, what's still
       open in either queue, and any follow-up writing tasks (promotes,
-      content candidates) that still need drafting.
+      content candidates) that still need drafting. Both journals are
+      public history: decisions and outcomes only, no asides or quotes.
+    - Commit per the standing flow (rule 7): code, ingest notes, then canon
+      plus outputs; `check_public_safe.py --staged` before each.
 
-13. **Report back:** a short summary — what got promoted, cut, archived,
-    what's still pending in both queues, and a pointer to the rendered
-    post ready for Substack.
+13. **Report back with the exception list:** seven items or fewer, each
+    with the default the AI applied and what reversing it means (a reject
+    near his beat, a fold that complicates an argument, any change to his
+    words, public-facing claims and names). Then a short summary — what
+    got folded, promoted, cut, what's still queued — pointers to the diff
+    and the rendered post, and what is pushed versus held. Brian says
+    "approved" to finish (step 8), or vetoes items and the AI reverses
+    them.
 
 ## What this doesn't do
 
-Never edits `me/developing-thinking.md`, `promotion-candidates.md`, or a
-framework's `status` without Brian's live decision on that specific item
-— the same non-negotiable as `triage.py` (MAINTAINER.md rule 4: status is
-never upgraded by machine; the principle extends to content edits). Never
-publishes to Substack itself — that stays a manual paste-and-click step,
-same as the Daily Brief. `gather.py` never makes any of these decisions
-either, run manually or not — it only assembles and emails the prep doc,
-exactly the same read-only gathering the live ceremony's own first steps
-do.
+Never upgrades a status by machine (MAINTAINER rule 4), never edits
+`me/voice.md`, never archives a framework or flips a framework's `status`
+without Brian's explicit call, never writes a position, prediction, or
+reaction into Right now or a new entry that Brian didn't state himself, and
+never publishes to Substack — that stays a manual paste-and-click step, same
+as the Daily Brief. Machine edits to `me/developing-thinking.md`,
+`promotion-candidates.md`, and frameworks are allowed under the standing
+flow, labeled inline, with the file's status lowered until Brian approves.
+`gather.py` still makes no decisions, run manually or not — it only
+assembles and emails the prep doc, exactly the same read-only gathering the
+ceremony's own first steps do.
 
 ## Known limitations (v1)
 
@@ -439,3 +490,14 @@ do.
   wanting a dedicated Section, creating that Section) is manual editor
   work, same category of gap Workstream E already flagged for tags/
   Sections generally.
+- **Review is per file, labeling is per paragraph.** `status` can't say which
+  paragraphs Brian read, so the inline "(AI-filed)" and "(dictated)" labels
+  carry that. If consuming AIs get confused by it, a per-entry marker is the
+  next step.
+- **Drift risk.** Machine-filed evidence can drift from what Brian would
+  say. The mitigations are the rules that his voice comes only from his
+  words and that judgment calls go on the exception list; the exception
+  list is where drift gets caught, so keep it honest.
+- **The "Start here" overview** in a prep doc is written by the AI by hand;
+  `gather.py` doesn't generate it, and has no talks section, so a talk
+  reaches the ceremony only if someone hand-flags a queue entry.

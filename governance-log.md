@@ -4,6 +4,22 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-10-12 — Weekly ceremony becomes AI-files, Brian-reviews-by-exception (standing flow)
+
+**What changed:**
+- `.claude/skills/weekly-update/SKILL.md`: steps 3 and 4 now apply a default disposition to every queue item instead of walking them one at a time. New "standing flow" section covering dispositions, voice, inline labels, sensitive third-party material, the exception list, and commits. Step 8 handles review state (machine edits lower a reviewed file's `status` to `not-reviewed-by-human` and leave `last_reviewed` alone until Brian approves). The post starts `not-reviewed-by-human`. Step 13 reports an exception list. "What this doesn't do" rewritten; three known limitations added.
+- `MAINTAINER.md`: rule 4 gains the clause that machine edits to a reviewed file lower its status until Brian approves them. Two working conventions added: the shared checkout (stage specific paths, hold unapproved canon commits) and the weekly flow itself.
+
+**Why:** Brian's call after the 2026-10-11 trial run. Item-by-item filing was classification work the AI does well; what only Brian supplies is what he believes and what he will say publicly.
+
+**Unchanged:** no status is ever upgraded by machine; edits to `me/voice.md`, framework archiving, and Substack publishing stay Brian's; canon commits are held until he approves.
+
+**Automated checks:** `python3 scripts/check_public_safe.py --staged`: clean — CLEAR. `python3 scripts/check_doc_accuracy.py`: OK — CLEAR. No generated surface changed, so no index regeneration was needed.
+
+**Result: COMMITTED.**
+
+---
+
 ## 2026-10-11 — Weekly Wrap Up ceremony (window Sep 25–Oct 11): queues filed by the AI for Brian's review; "waves" framing retired
 
 **What changed in canon (applied by the AI at Brian's direction to process both queues with default dispositions; Brian reviews by exception, not yet reviewed):**
