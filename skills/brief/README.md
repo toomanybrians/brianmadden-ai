@@ -126,6 +126,21 @@ committing the batch and the disclosure line falls back to a plain
 `main`-branch blob link instead (still works, just not permalinked — the
 same trade every other GITHUB_BASE link in this pipeline already makes).
 
+The same commit is where the opener's count points: the brief's first line
+is "I read N posts today", and `publish.py` turns "N posts" into a link to
+the batch commit (`link_read_count()` in `render.py`), so a reader can click
+through to the notes behind the number. N is the count of ingest notes the
+brief was built from, so it can differ by a few from the commit's file
+count when a note was filed by hand outside the daily run. With no batch
+commit yet, the link goes to the dense brief's history page instead.
+
+`daily-pipeline.yml` makes the permalink available in CI by committing the
+batch locally (without pushing) before `publish.py`, then making a second
+commit for the published files and the prune, and pushing both at once.
+Pushing keeps the SHA, so the link resolves once the push lands. The day's
+history is therefore two commits, "Run today's ingest + daily brief" and
+"Publish today's brief, prune old ingest notes".
+
 **Default (2026-08-14): publish the dense brief close to verbatim.**
 The synthesis model's own prose from `brief.py`, unchanged (as of
 2026-08-28, `DENSE_SECTION_RENAMES` is empty — the one section that used

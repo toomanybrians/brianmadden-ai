@@ -47,7 +47,7 @@ from brief import (  # noqa: E402 — reuse brief.py's helpers rather than dupli
     load_dotenv,
     read_frontmatter_and_body,
 )
-from render import render_to_html  # noqa: E402 — auto-render straight to HTML, see main()
+from render import link_read_count, render_to_html  # noqa: E402 — auto-render straight to HTML, see main()
 
 # Originally claude-fable-5 for the condensing rewrite (Brian's call,
 # 2026-08-11). Since 2026-08-14 the body passes through unchanged and this
@@ -311,6 +311,11 @@ def main() -> None:
     subtitle = truncate_subtitle(subtitle)
     if subtitle != original_subtitle:
         print(f"warning: subtitle was {len(original_subtitle)} chars, truncated to {len(subtitle)} (Substack's real limit is {SUBTITLE_MAX_CHARS})", file=sys.stderr)
+    # "I read 57 posts today": link the count to the batch commit (see
+    # render.link_read_count()). Done here, at publish time, because the
+    # commit permalink only exists once the batch is committed, and the
+    # technical brief it's computed from is committed with the batch.
+    post_body = link_read_count(post_body, dense_path)
     post_body += FOOTER
 
     out_path = write_published(brief_date, post_body, subtitle, dense_path, model=model, dry_run=args.dry_run)

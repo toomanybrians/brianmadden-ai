@@ -143,12 +143,24 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python3 skills/brief/brief.py
 
-      # Publishes + emails BEFORE the commit below, same order Brian's own
-      # local runs use — the tradeoff (skills/brief/README.md) is that the
-      # disclosure line's "raw notes" link falls back to a plain
-      # main-branch blob link instead of a permalink to this exact batch's
-      # commit, since that commit doesn't exist yet at render time. Guarded
-      # on today's brief file actually existing: a quiet day (no new notes)
+      # Commits the day's batch (ingest notes, technical brief, queues)
+      # locally and does NOT push it yet. publish.py links "I read N posts"
+      # and the disclosure line to the commit that added today's brief
+      # (render.find_batch_commit()), and that lookup can only find a commit
+      # that already exists. Pushing later keeps the SHA, so the link works
+      # as soon as the push below lands. Until 2026-10-12 this commit came
+      # after publish, and both links fell back to plain file links.
+      - name: Commit the batch locally (for the permalink)
+        run: |
+          git add -A -- ingest/ outputs/technical-briefings/ outputs/canon-triage/ sources/
+          if git diff --cached --quiet; then
+            echo "No batch changes to commit"
+          else
+            git commit -m "Run today's ingest + daily brief ($(date -u +%Y-%m-%d)) [automated]"
+          fi
+
+      # Publishes + emails after the local batch commit above. Guarded on
+      # today's brief file actually existing: a quiet day (no new notes)
       # means brief.py wrote nothing, and publish.py has nothing to work
       # from.
       - name: Run publish + email
@@ -187,17 +199,23 @@ jobs:
         continue-on-error: true
         run: python3 scripts/prune_ingest.py --days 30
 
+      # Second commit for what publish and the prune produced, then one push
+      # for both commits (the batch commit from above and this one). Pushes
+      # whenever the branch is ahead of origin, so a day where only the
+      # batch commit exists still goes out.
       - name: Commit and push
         id: commit
         run: |
           git add -A -- ingest/ outputs/technical-briefings/ outputs/published/ outputs/weekly-updates/ outputs/canon-triage/ sources/
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            echo "pushed=false" >> "$GITHUB_OUTPUT"
-          else
-            git commit -m "Run today's ingest + daily brief ($(date -u +%Y-%m-%d)) [automated]"
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish today's brief, prune old ingest notes ($(date -u +%Y-%m-%d)) [automated]"
+          fi
+          if [ "$(git rev-list --count origin/main..HEAD)" -gt 0 ]; then
             git push
             echo "pushed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No changes to commit"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           fi
 
       # A push made with the default GITHUB_TOKEN deliberately does NOT

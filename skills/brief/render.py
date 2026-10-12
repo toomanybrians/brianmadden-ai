@@ -140,6 +140,28 @@ def find_batch_commit(dense_path: Path) -> str | None:
     return shas[-1] if shas else None
 
 
+READ_COUNT_RE = re.compile(r"^(I read )(\d[\d,]*)(?: posts| items)( today\b)", re.MULTILINE)
+
+
+def link_read_count(body: str, dense_path: Path) -> str:
+    """Links the opener's count: "I read 57 posts today" becomes "I read
+    [57 posts](...) today" (Brian's ask, 2026-10-12), pointing at the batch
+    commit, whose diff is the notes behind the number (see
+    find_batch_commit()). Falls back to the dense brief's history page when
+    the batch isn't committed yet, so a manual run before committing still
+    gets a working link (one click further). The count is the number of
+    ingest notes the brief was built from, so it can differ by a few from
+    the commit's file count when a note was filed by hand outside the daily
+    run. Only the first line that starts with the opener is touched; a body
+    with no such line comes back unchanged."""
+    commit_sha = find_batch_commit(dense_path)
+    if commit_sha:
+        url = f"{GITHUB_REPO}/commit/{commit_sha}"
+    else:
+        url = f"{GITHUB_REPO}/commits/main/{dense_path.relative_to(ROOT).as_posix()}"
+    return READ_COUNT_RE.sub(lambda m: f"{m.group(1)}[{m.group(2)} posts]({url}){m.group(3)}", body, count=1)
+
+
 REVIEW_CLAUSES = {
     "reviewed-and-updated": "reviewed and edited by Brian before publishing",
     "reviewed": "reviewed by Brian before publishing",
