@@ -1,21 +1,21 @@
 ---
 title: "Where Brian's head is right now"
 updated: "2026-10-11"
-last_reviewed: "2026-09-25"
+last_reviewed: "2026-10-12"
 authority_level: 2
 file_type: frontier
 tags: ["current-thinking", "frontier", "developing-arguments"]
 staleness_threshold: weeks
 description: "The frontier of Brian's thinking. Arguments forming, connections emerging, questions unresolved. This file changes frequently and is the best source for Brian's current direction."
 tier: 2
-status: not-reviewed-by-human
+status: reviewed-and-updated
 ---
 
 # Where my thinking is right now
 
 This is the frontier map. `me/published-thinking.md` captures what I've published. This captures where my head is *today*—the arguments forming, the connections emerging, the questions I'm chewing on.
 
-**Last updated:** September 25, 2026
+**Last updated:** October 12, 2026
 
 **Why this file exists and why it's public:** Anyone who publishes regularly—blogs, LinkedIn, tweets—is already doing this. They share half-formed ideas, ask questions, show threads developing, change their mind. Scroll their feed and you can piece together what they're thinking about and where their arguments are heading. This file is just that process made explicit. The difference is that instead of being scattered across a social media timeline where old posts get buried by new ones, it's a single living document. When my thinking evolves, I edit it in place rather than adding another entry to a chronological list. *Arguments get sharper, not longer.* Things I was wrong about get removed, not corrected with a follow-up post. If you want to know what I've *concluded*, read my published work in `me/published-thinking.md`. If you want to know what I'm *working through right now*, this is it.
 
@@ -31,7 +31,7 @@ Governance and integration into the enterprise—that's where my head is.
 - **Separating what's real from what isn't.** Agent reliability is still the Wild West. We can build secure containers, sandboxes, monitoring, even redundant agents—but I'm not sure all of that is going to work, or be worth it, if the agents underneath only work about half the time. I'm not saying AI has no value; we can clearly see the value. We just need to separate what's real from what isn't, and I think the crash is going to force that on a lot of people. I want to get out in front of it a bit, though I'm not sure yet what that means.
 - **[The knowledge factory is the destination—now execute](#the-knowledge-factory-how-the-second-brain-actually-enters-the-workplace).** We know it works—we built one. The open question stopped being "does the pattern hold" and became "why are companies still piloting?" Bringing AI into your existing estate only makes sense if you're building toward the factory; the estate doesn't get torn down (especially in regulated, old-school shops), it gets connected to it—Nancy's line: the factory as "the interstitial tissue that connects existing enterprise apps to human brains." Skate to where the puck is going. Full argument in [What's connecting](#whats-connecting) below.
 
-*Last updated: September 25, 2026.*
+*Last updated: October 12, 2026.*
 
 ---
 

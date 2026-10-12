@@ -10,7 +10,7 @@ original_url: "https://www.citrix.com/blogs/2026-01/the-invisible-80-what-corpor
 description: "The 80% of knowledge work that only the worker can see is exactly the 80% that corporate AI can't touch. That's why worker-led AI wins."
 staleness_threshold: stable
 tier: 2
-status: not-reviewed-by-human
+status: reviewed-and-updated
 ---
 
 # The invisible 80% of knowledge work
@@ -49,7 +49,7 @@ The 80% that matters most can only be unlocked by the people who already have it
 
 ## October 2026 update: reconciling "only the worker can unlock it" with the knowledge factory
 
-*AI-drafted on 2026-10-11 from existing canon, not yet reviewed by Brian. Nothing above has changed.*
+*AI-drafted on 2026-10-11 from existing canon; reviewed and approved by Brian on 2026-10-12. Nothing above has changed.*
 
 The argument above is about outside observers: consultants, workflow analysis, and automation studios can't extract the invisible 80%. That still holds. Two later pieces of canon change what follows from it, and a third development is moving the boundary on purpose.
 

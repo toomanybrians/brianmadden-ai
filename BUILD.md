@@ -1048,7 +1048,7 @@ next Weekly Wrap Up prep. The 2026-10-11 prep was generated before it existed an
 
 ### 2026-10-11 (later again): Weekly Wrap Up, Sep 25 to Oct 11; first AI-files, human-reviews run
 
-Window Sep 25 to Oct 11, ten briefs. Both queues were filed by the AI with default dispositions instead of walked item by item: 25 promotion candidates (23 folded into existing entries, 2 rejected), the staleness queue (the three promote-ready items were already in `post-ideas.md`; the `invisible-80-percent` framework got a dated update section). Brian's decisions: retire the "waves" framing (section kept, labels dropped); no separate "beliefs" file; post ideas live in one unranked list. The edited canon files are marked `not-reviewed-by-human` until Brian reviews the diff; approving means flipping `status` and `last_reviewed` on `me/developing-thinking.md` and `frameworks/invisible-80-percent.md`.
+Window Sep 25 to Oct 11, ten briefs. Both queues were filed by the AI with default dispositions instead of walked item by item: 25 promotion candidates (23 folded into existing entries, 2 rejected), the staleness queue (the three promote-ready items were already in `post-ideas.md`; the `invisible-80-percent` framework got a dated update section). Brian's decisions: retire the "waves" framing (section kept, labels dropped); no separate "beliefs" file; post ideas live in one unranked list. Brian approved the diff on 2026-10-12, and `status` and `last_reviewed` were flipped on `me/developing-thinking.md` and `frameworks/invisible-80-percent.md`.
 
 Findings worth keeping:
 
