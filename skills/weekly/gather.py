@@ -164,6 +164,15 @@ def fetch_own_notes_in_window(window_start: datetime) -> list[dict]:
                 "excerpt": strip_html(selection.get("text") or "").strip(),
                 "post_title": post.get("title") or "a post",
                 "post_url": post.get("canonical_url") or PUBLICATION_URL,
+                # Permalink to Brian's own note, so the draft can link "I
+                # restacked X" to the restack itself, not just the post it
+                # points at. Substack's note URL is /@handle/note/c-<comment
+                # id> (verified 2026-10-12 against a restack Brian linked by
+                # hand: comment id 350932190 is /note/c-350932190).
+                "note_url": (
+                    f"https://substack.com/@{comment['handle']}/note/c-{comment['id']}"
+                    if comment.get("handle") and comment.get("id") else ""
+                ),
             })
         cursor = data.get("nextCursor")
         if stop or not cursor:
@@ -180,7 +189,8 @@ def build_notes_section(notes: list[dict]) -> str:
             when = datetime.fromisoformat(n["when"].replace("Z", "+00:00")).strftime("%b %-d, %Y %H:%M UTC")
         except ValueError:
             when = n["when"]
-        block = [f'**Restacked ["{n["post_title"]}"]({n["post_url"]})** ({when}):']
+        when_text = f"[{when}]({n['note_url']})" if n.get("note_url") else when
+        block = [f'**Restacked ["{n["post_title"]}"]({n["post_url"]})** ({when_text}):']
         if n["excerpt"]:
             block.append(f'> {n["excerpt"]}')
         if n["body"]:

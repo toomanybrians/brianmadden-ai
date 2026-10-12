@@ -406,6 +406,22 @@ Rules of the flow:
    grep -n '`' outputs/weekly-updates/YYYY/MM/YYYY-MM-DD.md
    ```
 
+   **Link everything the draft says Brian did** (his ask, 2026-10-12, after
+   he added the restack link to the first standing-flow draft by hand). If
+   a sentence says he restacked, noted, wrote, posted, recorded or said
+   something, that sentence carries a link: a restack or note to its
+   permalink (the prep doc's "What Brian flagged" section links each
+   restack's timestamp to the note itself), a post, talk or episode to its
+   canonical URL (`me/published-thinking.md`, the posts and talks indexes).
+   Never invent one. When no URL is on hand, put the reference on the
+   exception list for Brian to supply instead of leaving it bare. Check
+   before rendering:
+   ```
+   grep -n -i 'restack\|i wrote\|i posted\|my note\|last week\|i said' outputs/weekly-updates/YYYY/MM/YYYY-MM-DD.md
+   ```
+   Every hit in Brian's voice should either carry a link or be on the
+   exception list.
+
 10. **Render for Substack paste-in:**
     ```
     python3 skills/weekly/render.py --date YYYY-MM-DD
