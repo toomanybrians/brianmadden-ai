@@ -4,6 +4,24 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-10-12 — Daily Brief: the post count links to the day's commit; weekly drafts link what Brian did
+
+**What changed:**
+- `skills/brief/prompt.md`, `render.py`, `publish.py`: the brief's opener now reads "I read N posts today" (was "items"), and `publish.py` links "N posts" to the commit that added that day's brief and ingest notes. With no batch commit yet, it links to the brief file's history page instead.
+- `.github/workflows/daily-pipeline.yml`: the batch (ingest notes, technical brief, queues) is committed locally before publish, so the commit permalink exists when the post is rendered. A second commit holds the published files and the 30-day prune, and both are pushed together. The day's history is now two commits instead of one. The same permalink fixes the disclosure line's "raw ingest notes" link, which had fallen back to a plain file link in CI.
+- `skills/weekly/gather.py`, `.claude/skills/weekly-update/SKILL.md`: the prep doc links each of Brian's restacks to its note permalink, and the skill requires any draft sentence about something Brian did (restacked, wrote, posted, said) to carry a link, or go on the exception list when no URL is on hand.
+- `outputs/weekly-updates/2026/10/2026-10-11.md`: updated to the wording Brian published on Substack. His edits were to the intro and four takeaways, plus dropping one rejected-threads bullet. `status` is now `reviewed-and-updated`, set in direct response to his own text, per the render docs and the skill.
+
+**Why:** Brian's ask. A reader of the daily post should be able to click through to what was read that day, and the weekly should link the things it says Brian did.
+
+**Content and rule 2:** unchanged. The linked commit contains the same public ingest notes already in the repo; nothing new is published.
+
+**Open for Brian:** his published takeaways intro drops the line saying the section was written by AI from conversations with him. The skill still requires that line. If the takeaways are now his own wording, dropping it is accurate and the skill should say so; if the AI still drafts them, the line should stay.
+
+**Automated checks:** `check_public_safe.py`, `check_doc_accuracy.py` and `build_indexes.py --check` clean; workflow YAML parses; the workflow's commit-then-push logic simulated in a throwaway repo (SHA computed before the push exists on the remote afterwards, quiet-day cases behave); `publish.py --dry-run` on the 2026-10-12 brief produced the linked opener. The first scheduled run with the new workflow is the next weekday.
+
+**Result: COMMITTED.**
+
 ## 2026-10-12 — Ingest: podcasts and videos extracted from the full transcript, depth set by relevance to Brian
 
 **What changed:**

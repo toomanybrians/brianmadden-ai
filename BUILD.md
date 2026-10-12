@@ -1077,3 +1077,14 @@ Open for Brian:
 - **Cost.** The canon block adds about 40k input tokens to each long-form item.
 - **Not covered:** a YouTube link flagged to brain@ still goes through the page-text fetch (description only), and the article prompt still caps at 3 to 6 bullets. Moving articles to the same fit-first prompt is a possible next step.
 - **Still open from before:** a private store for transcripts outside the repo.
+
+### 2026-10-12 (later): count link on the daily, link-everything rule for the weekly
+
+Brian's asks: the daily opener should say "I read N posts" with the count linked to the commit holding that day's notes, and the weekly should link things it says Brian did (a restack, something he wrote). He also pasted the final published Weekly Wrap Up; its edits were to the intro and the takeaways only (stories, thinking and framework sections were verbatim), and the repo copy now matches it with `status: reviewed-and-updated`.
+
+Decisions and findings:
+- **The permalink existed but never worked in CI.** `render.find_batch_commit()` already powered the disclosure line's commit link, but the workflow published before committing, so CI always fell back to a file link. The workflow now commits the batch locally, publishes, makes a second commit for the published files and the prune, and pushes once (SHAs survive a push). History is two `[automated]` commits per day; `audit.py` counts days, so it is unaffected.
+- **Count vs. commit.** The count is the number of ingest notes the brief used, so a hand-filed note from the day before makes it one higher than the commit's file count (today: 57 against 56).
+- **Restack permalinks.** The Substack profile feed's comment id gives `substack.com/@handle/note/c-<id>`; `gather.py` now puts it on each restack in the prep doc. Verified against the restack Brian linked by hand.
+- **Not decided here:** Brian's final drops the "written by AI, based on conversations" line from the takeaways intro that the weekly skill requires. Left for him (see the governance-log entry).
+- **Untested until the next weekday run:** the new workflow itself (only its git logic and `publish.py` were exercised locally).
