@@ -329,3 +329,42 @@ Why it's queued rather than in canon:
 - Related, not queued: the same episode shows a human-vs-AI session signal feeding a DLP decision (allow the AI, but turn on session recording), a concrete instance of workspace-as-control-plane. It's recorded in the talk file only.
 
 **Status: not yet reviewed by Brian.**
+
+## `human-oversight-disclosure-vs-effectiveness-tension` — flagged 2026-10-12
+
+Research finding disclosure of AI limitations builds trust and full automation reduces ownership sits in direct tension with Brian's own evidence that human review functionally fails to catch agent errors - the psychology of oversight and its measured effectiveness point in opposite directions, unresolved.
+
+First seen 2026-09-21, recurred 3 times through 2026-10-12.
+
+Notes from each recurrence:
+
+- Approval dialogs spreading (AWS web search, Claude Code rm -rf plugin) while CoreWeave pairs allow/ask/deny with mandatory traceable artifacts so review isn't a rubber stamp.
+- Anthropic's usage policy now mandates human-in-the-loop review for health, legal, financial, and livelihood apps, while JumpCloud data shows enterprises dropping human review of high-risk AI actions (40% to 25%) — mandate and practice diverging, neither matching the effectiveness evidence.
+
+**Status: not yet reviewed by Brian.**
+
+## `production-agents-converge-on-deterministic-code` — flagged 2026-10-12
+
+Mature production agent workflows trending toward mostly hard-coded logic with narrow model judgment (Tunguz: 65% deterministic nodes vs 14% agentic; Vercel, Salesforce Agentforce).
+
+First seen 2026-10-07, recurred 3 times through 2026-10-12.
+
+Notes from each recurrence:
+
+- Salesforce trust paper cites NVIDIA's thought-action disconnect (agent flags action unsafe, executes anyway) as the reason guardrails must be deterministic and outside the reasoning loop; AWS DevOps Agent remediation uses an allowlist of pre-approved tool functions.
+- Separate occurrences of the same pattern: OpenAI Decisions API, TypeSafe's Jev, and AWS Strands Decider 2B all ship small typed-output decision models meant to be called from code, not chatted with.
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-labs-collapsing-chat-agent-mode-choice` — flagged 2026-10-12
+
+Anthropic merging its Cowork agent product into the regular Claude chat interface (native Docs/Slides/Design, no separate 'agent mode') so users don't have to pick a layer up front — worth watching whether other labs follow and whether it complicates Brian's crawl-walk-run pedagogy of deliberate layer selection.
+
+First seen 2026-09-18, recurred 3 times through 2026-10-12.
+
+Notes from each recurrence:
+
+- Separate occurrence: OpenAI's Dots puts everything in one thread with no model or project choice, following Anthropic's Cowork merge.
+- Separate occurrence: Google's Gemini Agent auto-selects the model per task (including Claude) with optional manual override, removing the up-front layer/model choice inside the productivity suite.
+
+**Status: not yet reviewed by Brian.**

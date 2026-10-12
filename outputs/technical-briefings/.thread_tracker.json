@@ -807,11 +807,12 @@
     "slug": "ai-labs-collapsing-chat-agent-mode-choice",
     "description": "Anthropic merging its Cowork agent product into the regular Claude chat interface (native Docs/Slides/Design, no separate 'agent mode') so users don't have to pick a layer up front \u2014 worth watching whether other labs follow and whether it complicates Brian's crawl-walk-run pedagogy of deliberate layer selection.",
     "first_seen": "2026-09-18",
-    "last_seen": "2026-10-09",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-12",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate occurrence: OpenAI's Dots puts everything in one thread with no model or project choice, following Anthropic's Cowork merge."
+      "Separate occurrence: OpenAI's Dots puts everything in one thread with no model or project choice, following Anthropic's Cowork merge.",
+      "Separate occurrence: Google's Gemini Agent auto-selects the model per task (including Claude) with optional manual override, removing the up-front layer/model choice inside the productivity suite."
     ]
   },
   {
@@ -830,11 +831,12 @@
     "slug": "human-oversight-disclosure-vs-effectiveness-tension",
     "description": "Research finding disclosure of AI limitations builds trust and full automation reduces ownership sits in direct tension with Brian's own evidence that human review functionally fails to catch agent errors - the psychology of oversight and its measured effectiveness point in opposite directions, unresolved.",
     "first_seen": "2026-09-21",
-    "last_seen": "2026-10-05",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-12",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Approval dialogs spreading (AWS web search, Claude Code rm -rf plugin) while CoreWeave pairs allow/ask/deny with mandatory traceable artifacts so review isn't a rubber stamp."
+      "Approval dialogs spreading (AWS web search, Claude Code rm -rf plugin) while CoreWeave pairs allow/ask/deny with mandatory traceable artifacts so review isn't a rubber stamp.",
+      "Anthropic's usage policy now mandates human-in-the-loop review for health, legal, financial, and livelihood apps, while JumpCloud data shows enterprises dropping human review of high-risk AI actions (40% to 25%) \u2014 mandate and practice diverging, neither matching the effectiveness evidence."
     ]
   },
   {
@@ -1000,10 +1002,12 @@
     "slug": "agent-swarm-diminishing-returns",
     "description": "Toby Ord's swarm-scaling analysis: 10x more agents yields only 3-5x performance due to coordination overhead, trading tokens for wall-clock time, which complicates pod/fleet economics and the token-consumption ladder.",
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-06",
-    "count": 1,
+    "last_seen": "2026-10-12",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Levie reports agent token use at ~5x humans and up 14x in six months; Prime Intellect ran a 2,000+ agent swarm on 200B+ tokens \u2014 swarms scaling in practice regardless of Ord's coordination-overhead math."
+    ]
   },
   {
     "slug": "ai-driven-vulnerability-surge-displacing-engineering-capacity",
@@ -1018,20 +1022,23 @@
     "slug": "agent-observability-tools-as-attack-surface",
     "description": "Monitoring and transcript-review tools themselves being exploitable by the agents they watch (METR's Inspect viewer injection), so agent recording needs tamper-proof storage and untrusted-output handling.",
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-07",
-    "count": 1,
+    "last_seen": "2026-10-12",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Paradigm 3 roundup re-reports the Inspect transcript-tampering vulnerability \u2014 same incident as prior mentions, framed as a 'Potemkin village' risk for unmonitored agent copies."
+    ]
   },
   {
     "slug": "production-agents-converge-on-deterministic-code",
     "description": "Mature production agent workflows trending toward mostly hard-coded logic with narrow model judgment (Tunguz: 65% deterministic nodes vs 14% agentic; Vercel, Salesforce Agentforce).",
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-08",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-12",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Salesforce trust paper cites NVIDIA's thought-action disconnect (agent flags action unsafe, executes anyway) as the reason guardrails must be deterministic and outside the reasoning loop; AWS DevOps Agent remediation uses an allowlist of pre-approved tool functions."
+      "Salesforce trust paper cites NVIDIA's thought-action disconnect (agent flags action unsafe, executes anyway) as the reason guardrails must be deterministic and outside the reasoning loop; AWS DevOps Agent remediation uses an allowlist of pre-approved tool functions.",
+      "Separate occurrences of the same pattern: OpenAI Decisions API, TypeSafe's Jev, and AWS Strands Decider 2B all ship small typed-output decision models meant to be called from code, not chatted with."
     ]
   },
   {
@@ -1058,7 +1065,27 @@
     "slug": "corporate-work-archives-sold-as-agent-training-data",
     "description": "Company email/chat/document archives becoming a priced, sellable asset for agent training (Google's $10M bid for bankrupt Spirit Airlines' records), with worker pushback and no canon position on ownership.",
     "first_seen": "2026-10-09",
-    "last_seen": "2026-10-09",
+    "last_seen": "2026-10-12",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Separate, larger occurrence: micro1 commits $1B over 12 months (backed by Citi and Hercules) to acquire and license enterprise data for AI training, distinct from Google's Spirit Airlines bid."
+    ]
+  },
+  {
+    "slug": "model-switching-handoff-tax",
+    "description": "Switching models mid-task forces full context recomputation (KV cache can't transfer across models); the fixes (Nvidia cross-model cache transfer, Cache-to-Cache) require open weights \u2014 a hidden cost on multi-model routing that may favor model stickiness or open-weight stacks.",
+    "first_seen": "2026-10-12",
+    "last_seen": "2026-10-12",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "occupation-level-ai-employment-decline",
+    "description": "Global call-center employment turning sharply negative since ChatGPT, even in lower-middle-income countries, while US unemployment stays stable \u2014 first clean occupation-wide displacement data, worth watching for spread to other task-unit-heavy roles.",
+    "first_seen": "2026-10-12",
+    "last_seen": "2026-10-12",
     "count": 1,
     "status": "watching",
     "history": []

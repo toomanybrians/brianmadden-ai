@@ -1,13 +1,13 @@
 {
-  "run_utc": "2026-10-09T05:25:17.290665+00:00",
+  "run_utc": "2026-10-12T05:33:03.318504+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "ok",
-      "entries_in_window": 18,
-      "new_entries": 18
+      "entries_in_window": 41,
+      "new_entries": 41
     },
     {
       "id": "ethan-mollick",
@@ -21,9 +21,8 @@
       "id": "nate-b-jones",
       "name": "Nate B. Jones",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: 404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?playlist_id=UU0C-17n9iuUQPylguM1d-lQ"
     },
     {
       "id": "daniel-miessler",
@@ -39,7 +38,7 @@
       "method": "email",
       "status": "ok",
       "entries_in_window": 8,
-      "new_entries": 7
+      "new_entries": 8
     },
     {
       "id": "the-artificial-intelligence-show",
@@ -78,7 +77,7 @@
       "name": "Hard Fork",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 1,
       "new_entries": 0
     },
     {
@@ -86,7 +85,7 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 1,
       "new_entries": 0
     },
     {
@@ -94,16 +93,16 @@
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "no-priors",
       "name": "No Priors",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "80000-hours-podcast",
@@ -126,24 +125,24 @@
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "algorithmic-bridge",
       "name": "The Algorithmic Bridge",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "exponential-view",
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "ahead-of-ai",
@@ -166,16 +165,16 @@
       "name": "The AI Realist",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "david-shapiro",
       "name": "David Shapiro's Substack",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "emerging-ai",
@@ -205,8 +204,8 @@
       "name": "The Generalist",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "hyperdimensional",
@@ -237,8 +236,8 @@
       "name": "Interconnects AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "kinder-futures",
@@ -261,16 +260,16 @@
       "name": "Last Week in AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "marcus-on-ai",
       "name": "Marcus on AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "metatrends",
@@ -285,24 +284,24 @@
       "name": "Not Boring",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "prof-g-media",
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 3,
-      "new_entries": 3
+      "entries_in_window": 5,
+      "new_entries": 5
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "simon-willison",
@@ -333,16 +332,16 @@
       "name": "Center for Humane Technology",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "big-by-matt-stoller",
       "name": "BIG by Matt Stoller",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "rutger-bregman",
@@ -396,8 +395,8 @@
       "name": "Hard Reset",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "kuns-field-notes",
@@ -428,8 +427,8 @@
       "name": "After Babel",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "ai-as-normal-technology",
@@ -444,8 +443,8 @@
       "name": "AI Frontiers",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "chinai-newsletter",
@@ -484,8 +483,8 @@
       "name": "GuardRailNow",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "metr",
@@ -500,16 +499,16 @@
       "name": "The Prompt: Insights from OpenAI Global Affairs",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "quantum-of-solis",
       "name": "A Quantum of Solis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "planned-obsolescence",
@@ -532,32 +531,32 @@
       "name": "Linas's Newsletter",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "khe-hy",
       "name": "Future-Proof Your Career with AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "future-focused",
       "name": "Future-Focused",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ai-made-simple",
       "name": "Artificial Intelligence Made Simple",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "newcomer",
@@ -572,24 +571,24 @@
       "name": "Redwood Research blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "paradigm-3",
       "name": "Paradigm 3 (Humans on AI)",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "nita-farahany",
       "name": "Thinking Freely with Nita Farahany",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "andrew-morgan",
@@ -620,16 +619,16 @@
       "name": "Musings on Markets",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "pluralistic",
       "name": "Pluralistic (Cory Doctorow)",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "aaron-levie-linkedin",
@@ -967,16 +966,16 @@
       "name": "Ground Level AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "opinion-ai-2",
       "name": "Opinion AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 3,
+      "new_entries": 3
     },
     {
       "id": "azure-blog",
@@ -1031,8 +1030,8 @@
       "name": "Google Cloud Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "google-deepmind-blog",
@@ -1047,8 +1046,8 @@
       "name": "OpenAI News",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 3,
-      "new_entries": 3
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "salesforce-news",
@@ -1063,8 +1062,8 @@
       "name": "Hugging Face Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "anthropic-news",
@@ -1087,8 +1086,8 @@
       "name": "a16z",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 2,
+      "new_entries": 2
     }
   ]
 }
