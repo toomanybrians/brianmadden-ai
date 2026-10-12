@@ -4,6 +4,21 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-10-12 — Ingest: podcasts and videos extracted from the full transcript, depth set by relevance to Brian
+
+**What changed:**
+- `skills/ingest/prompt-longform.md` (new): the extraction prompt for any item whose transcript was obtained. It carries Brian's canon (active frameworks, `me/developing-thinking.md`, `me/published-thinking.md`) as the relevance lens, so `NOT_RELEVANT` means "nothing here bears on what Brian argues, develops or watches". The note opens with a Fit verdict (direct, partial, adjacent) and its depth follows from that, with no bullet quota. Articles and show-notes-only items keep the 3 to 6 bullet prompt.
+- `skills/ingest/ingest.py`: transcripts get their own cap (`TRANSCRIPT_MAX_CHARS`, 400k chars) instead of the 50k article cap, which cut every episode at about 75 minutes. New `transcript_mode: youtube` (video captions via `youtube-transcript-api`, now in `requirements.txt`; `nate-b-jones` uses it). Notes from sources that ask for a transcript carry `content_basis: transcript` or `show-notes-fallback` in frontmatter. Fallbacks and gate-dropped items are recorded in `ingest/.last_run_sources.json`; `skills/brief/brief.py` lists fallbacks under "Sources checked today". A soft warning fires when a long-form note runs past 25% of its transcript.
+- `skills/lib/llm.py`: prints a line when a call stops at `max_tokens`.
+
+**Why:** every podcast note was 5 to 7 bullets whatever the episode, and the relevance gate only asked whether the item was about AI, not whether it mattered to Brian. Brian's ask: depth should follow relevance, anywhere from zero bullets to dozens, with his point of view deciding.
+
+**Content and rule 2:** unchanged in kind. Audio and transcripts stay in memory or a temp file and are never written to the repo. The prompt requires own-words insights, quotes under 25 words (up to three, attributed), and a note far shorter than the transcript. The first real runs came out at 16 to 20% of transcript length for a 15-minute video and a 64-minute episode, above the roughly 10% the prompt asks for, so the length warning exists and the threshold is Brian's call. The canon block only informs relevance and the Fit section; the prompt bars it from supplying insights. Names are taken from titles and show notes, with unverified spellings marked.
+
+**Automated checks:** `scripts/check_public_safe.py` clean; `scripts/check_doc_accuracy.py` clean; `scripts/build_indexes.py --check` clean; real runs on a 64-minute episode (direct, 29 to 32 bullets), a 15-minute video (adjacent, 12 to 15), an off-topic interview (`NOT_RELEVANT`), and a `--dry-run` of `ingest.py --source nate-b-jones`. Not tested on a multi-hour episode.
+
+**Result: COMMITTED.** The first scheduled run with this prompt is the weekday run after the push.
+
 ## 2026-10-12 — Weekly ceremony becomes AI-files, Brian-reviews-by-exception (standing flow)
 
 **What changed:**

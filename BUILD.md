@@ -1057,3 +1057,23 @@ Findings worth keeping:
 - **Token budget gotcha.** With the default model, `llm.generate(..., max_tokens=5500)` returned no text on a long prompt because thinking used the whole budget; 16000 worked. Check `stop_reason` before assuming a call is empty.
 - **`gather.py` has no talks section**, so a new talk reaches the ceremony only if someone hand-flags a queue entry. The "Start here" overview in the 2026-10-11 prep doc was written by hand and would be overwritten by a re-run.
 - **Decided 2026-10-12:** AI-files, Brian-reviews-by-exception is the standing weekly flow. The weekly-update skill (steps 3, 4, 8, 9, 13 and a new "standing flow" section) and MAINTAINER.md (rule 4, two working conventions) were updated to match. Still open: a per-entry review marker (`status` is per file, so inline labels carry it for now), deepening podcast extraction, and whether to keep transcripts in a private store outside the repo.
+
+### 2026-10-12: podcasts and videos extracted from the full transcript, depth set by relevance
+
+Brian's ask: every podcast and video's full transcript should be analyzed, with no arbitrary bullet count (zero if irrelevant, dozens if it keeps landing on his ground), and his point of view should decide relevance. That closes the open item above ("deepen podcast extraction"). What the code showed:
+
+- **Truncation.** `MAX_CONTENT_CHARS` (50k, sized for articles) also capped transcripts, at about 75 minutes of speech (measured about 670 chars per minute). A longer episode never reached the model in full. Transcripts now use `TRANSCRIPT_MAX_CHARS` (400k).
+- **Thin notes.** All 39 podcast and video notes on disk had 5 to 7 bullets; the one 13-bullet note was the hand-run Ezra Klein episode. The relevance gate in `prompt.md` was topical ("about AI?"), and the prompt told the extractor not to use his canon.
+- **Videos.** The only YouTube source (`nate-b-jones`) had no `transcript_mode`, so its notes came from the video description alone. New `transcript_mode: youtube` pulls captions with `youtube-transcript-api` (added to `requirements.txt`). A captionless video would need an audio download plus Whisper, which isn't built.
+- **Silent fallbacks.** A failed transcript quietly fell back to show notes and the thin note then blocked a retry through dedupe. Notes now carry `content_basis` (`transcript` or `show-notes-fallback`), fallbacks and gate-dropped items go into `ingest/.last_run_sources.json`, and the brief's "Sources checked today" lists fallbacks.
+
+Built: `skills/ingest/prompt-longform.md`, used for any item with a real transcript. It carries the frameworks list plus full `me/developing-thinking.md` and `me/published-thinking.md` as the lens, and the note opens with a `Fit: direct | partial | adjacent` verdict that sets its depth. Articles keep the old prompt. `llm.py` now prints when a call stops at `max_tokens`. See the governance-log entry and `skills/ingest/README.md` ("Long-form extraction").
+
+Real runs: a 64-minute episode (direct, 29 to 32 bullets, against the 13 of the hand-run note), a 15-minute video (adjacent, 12 to 15), an off-topic interview (`NOT_RELEVANT`). Two things learned while tuning: with the relevance section last, a video the model itself called "adjacent" still got 28 bullets, so the verdict goes first now; and without an explicit "passing mentions fail" line, an interview that only touched AI in a few remarks got a 9-bullet note.
+
+Open for Brian:
+- **Note length vs. rule 2.** Long-form notes came out at 16 to 20% of transcript length; the prompt asks for about 10% and `LONGFORM_RATIO_WARN` warns at 25%. Whether that is the right ceiling is his call.
+- **Calibration.** Whether the Fit verdicts match his sense of what matters needs a few days of real notes. Untested on a multi-hour episode.
+- **Cost.** The canon block adds about 40k input tokens to each long-form item.
+- **Not covered:** a YouTube link flagged to brain@ still goes through the page-text fetch (description only), and the article prompt still caps at 3 to 6 bullets. Moving articles to the same fit-first prompt is a possible next step.
+- **Still open from before:** a private store for transcripts outside the repo.
