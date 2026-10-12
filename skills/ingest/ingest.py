@@ -40,6 +40,14 @@ USER_AGENT = "brianmadden-ai-ingest/0.1 (+https://brianmadden.ai)"
 # Interconnects all exceeded it). Raised with real headroom; still finite
 # as a safety valve against a malformed feed dumping something absurd.
 MAX_CONTENT_CHARS = 50000
+# Transcripts get their own, much higher cap. MAX_CONTENT_CHARS is right for
+# an article but cuts a transcript at about 75 minutes of speech (measured
+# 2026-10-12 at ~670 chars per minute), so a two- or three-hour episode lost
+# its back half before the model ever saw it. 400k chars is roughly ten
+# hours, which no source here comes near, and still fits one call alongside
+# the canon block that prompt-longform.md carries (~100k tokens of
+# transcript + ~40k of canon).
+TRANSCRIPT_MAX_CHARS = 400_000
 LAST_RUN_PATH = ROOT / "ingest" / ".last_run.json"
 SOURCE_RESULTS_PATH = ROOT / "ingest" / ".last_run_sources.json"
 DEFAULT_SINCE_DAYS = 7.0  # fallback when there's no recorded prior run
@@ -267,6 +275,10 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
             "content": content,
             "podcast_transcript_url": transcript_tag.get("url"),
             "audio_url": audio_url,
+            # YouTube feeds carry the video ID as yt:videoId, which
+            # feedparser surfaces as yt_videoid. Only read when the source's
+            # transcript_mode is "youtube".
+            "video_id": raw.get("yt_videoid"),
         })
 
     entries.sort(
@@ -321,7 +333,10 @@ def _split_audio_for_transcription(audio_path: Path, workdir: Path) -> list[Path
     return sorted(workdir.glob("chunk_*.mp3"))
 
 
-def enrich_with_transcript(entry: dict, source: dict) -> None:
+TRANSCRIPT_MODES = ("published", "transcribe", "youtube")
+
+
+def enrich_with_transcript(entry: dict, source: dict) -> bool:
     """Mutates entry['content'] in place with a real transcript, per the
     source's transcript_mode (docs/full-source-text-ingestion.md):
       - "published": fetch entry['podcast_transcript_url'] directly (the
@@ -331,39 +346,102 @@ def enrich_with_transcript(entry: dict, source: dict) -> None:
         (never the repo working tree — MAINTAINER.md rule 2 extended to
         audio, see the planning doc), transcribe it, delete the file
         immediately after, transcribed or not.
+      - "youtube": pull the video's captions (youtube-transcript-api).
       - anything else (unset, "none"): no-op, leaves show-notes content.
     Falls back to the existing show-notes content on any failure rather
     than crashing the run over one episode.
+
+    Records what the extraction will actually be based on in
+    entry['content_basis']: "transcript", or "show-notes-fallback" when the
+    source asked for a transcript and couldn't get one. Sources that don't
+    ask for one are left unmarked. The marker goes into the note's
+    frontmatter, so a podcast note that silently fell back to show notes is
+    findable after the fact, not just in the run log. Returns True only
+    when a transcript replaced the content.
     """
     mode = source.get("transcript_mode")
-    if mode not in ("published", "transcribe"):
-        return
+    if mode not in TRANSCRIPT_MODES:
+        return False
+
+    # The feed's own text (show notes, a video description) is about to be
+    # replaced by the transcript. Keep it: the long-form prompt uses it to
+    # spell guest and company names, which the speech-to-text mangles.
+    entry["show_notes"] = entry.get("content") or ""
+    got = _fetch_transcript(entry, source, mode)
+    entry["content_basis"] = "transcript" if got else "show-notes-fallback"
+    if not got:
+        print(f"    ! no transcript for '{entry.get('title')}' — extraction will rest on show notes only")
+    return got
+
+
+def _set_transcript(entry: dict, text: str) -> bool:
+    """Puts the transcript in entry['content']. False (entry untouched) when
+    the text is blank, so an empty transcription can't pass as a real one."""
+    if len(text.strip()) < 50:
+        print("    transcript came back empty — using show notes")
+        return False
+    truncated = len(text) > TRANSCRIPT_MAX_CHARS
+    entry["content"] = text[:TRANSCRIPT_MAX_CHARS] + (" […truncated…]" if truncated else "")
+    if truncated:
+        print(f"    ! transcript truncated to {TRANSCRIPT_MAX_CHARS} of {len(text)} chars")
+    return True
+
+
+def _fetch_youtube_captions(video_id: str) -> str | None:
+    """Plain-text captions for one video, or None when there are none or
+    YouTube refuses the request (captions disabled, age-restricted, or the
+    request IP blocked). The package is imported here, not at the top, so
+    the rest of ingest runs without it."""
+    try:
+        from youtube_transcript_api import YouTubeTranscriptApi, YouTubeTranscriptApiException
+    except ImportError:
+        print("    youtube-transcript-api is not installed — pip install -r requirements.txt")
+        return None
+    try:
+        fetched = YouTubeTranscriptApi().fetch(video_id, languages=["en", "en-US", "en-GB"])
+    except YouTubeTranscriptApiException as e:
+        print(f"    captions unavailable for {video_id} ({type(e).__name__})")
+        return None
+    return " ".join(s.text.replace("\n", " ") for s in fetched).strip() or None
+
+
+def _fetch_transcript(entry: dict, source: dict, mode: str) -> bool:
+    if mode == "youtube":
+        video_id = entry.get("video_id")
+        if not video_id:
+            print("    transcript_mode=youtube but no video ID on this entry — using description")
+            return False
+        text = _fetch_youtube_captions(video_id)
+        if not text or not _set_transcript(entry, text):
+            return False
+        print(f"    fetched captions ({len(text)} chars)")
+        return True
 
     if mode == "published":
         url = entry.get("podcast_transcript_url")
         if not url:
             print(f"    transcript_mode=published but no transcript URL on this episode — using show notes")
-            return
+            return False
         try:
             resp = requests.get(url, timeout=30, headers={"User-Agent": USER_AGENT})
             resp.raise_for_status()
         except requests.RequestException as e:
             print(f"    transcript fetch failed ({e}) — using show notes")
-            return
+            return False
         text = resp.text
-        truncated = len(text) > MAX_CONTENT_CHARS
-        entry["content"] = text[:MAX_CONTENT_CHARS] + (" […truncated…]" if truncated else "")
+        if not _set_transcript(entry, text):
+            return False
         print(f"    fetched published transcript ({len(text)} chars)")
-        return
+        return True
 
     # mode == "transcribe"
     audio_url = entry.get("audio_url")
     if not audio_url:
         print(f"    transcript_mode=transcribe but no audio enclosure on this episode — using show notes")
-        return
+        return False
     if not transcribe.is_configured():
         print(f"    {transcribe.required_env_var()} not set — using show notes instead of transcribing")
-        return
+        return False
 
     tmp_path = None
     try:
@@ -387,7 +465,7 @@ def enrich_with_transcript(entry: dict, source: dict) -> None:
                         tmp.write(chunk)
         except (requests.RequestException, ValueError) as e:
             print(f"    audio download failed ({e}) — using show notes")
-            return
+            return False
 
         # Stage 2: transcription. OpenAI's API caps uploads at 25MB (and
         # gpt-4o-transcribe separately caps duration at 25min) — confirmed
@@ -407,7 +485,7 @@ def enrich_with_transcript(entry: dict, source: dict) -> None:
                 chunks = [tmp_path]
             except RuntimeError as e:
                 print(f"    audio splitting failed ({e}) — using show notes")
-                return
+                return False
 
             print(f"    transcribing {len(chunks)} chunk(s) via {transcribe.current_provider()}/{transcribe.resolve_model()}...")
             texts = []
@@ -417,15 +495,16 @@ def enrich_with_transcript(entry: dict, source: dict) -> None:
                     print(f"      chunk {i}/{len(chunks)} done ({len(texts[-1])} chars)")
             except requests.RequestException as e:
                 print(f"    transcription API call failed on chunk {len(texts) + 1}/{len(chunks)} ({e}) — using show notes")
-                return
+                return False
             text = " ".join(texts)
         finally:
             if chunk_dir and chunk_dir.exists():
                 shutil.rmtree(chunk_dir, ignore_errors=True)
 
-        truncated = len(text) > MAX_CONTENT_CHARS
-        entry["content"] = text[:MAX_CONTENT_CHARS] + (" […truncated…]" if truncated else "")
+        if not _set_transcript(entry, text):
+            return False
         print(f"    transcribed ({len(text)} chars)")
+        return True
     finally:
         if tmp_path and tmp_path.exists():
             tmp_path.unlink()
@@ -1902,18 +1981,104 @@ def build_prompt(template: str, source: dict, entry: dict) -> str:
     return text
 
 
+_POV_CONTEXT: dict[str, str] = {}
+
+
+def load_frameworks_list() -> str:
+    """Active frameworks as title + one-liner. Archived ones stay on disk
+    for lineage but never inform new work (same rule as brief.py)."""
+    lines = []
+    for path in sorted((ROOT / "frameworks").glob("*.md")):
+        fm = read_frontmatter(path) or {}
+        if fm.get("status") == "archived":
+            continue
+        desc = (fm.get("description") or "").strip()
+        lines.append(f"- {fm.get('title', path.stem)}" + (f" — {desc}" if desc else ""))
+    return "\n".join(lines) or "(no frameworks on file)"
+
+
+def load_pov_context() -> dict[str, str]:
+    """Brian's canon as the relevance lens for long-form items, read once
+    per run. Full files, not excerpts: what counts as relevant to him is
+    spread across what he has published (settled positions, to confirm or
+    contradict) and what he is developing (the frontier, which is what makes
+    an item new rather than a repeat). brief.py loads the same two files for
+    the same reason."""
+    if not _POV_CONTEXT:
+        _POV_CONTEXT.update({
+            "{{FRAMEWORKS_LIST}}": load_frameworks_list(),
+            "{{DEVELOPING_THINKING}}": (ROOT / "me" / "developing-thinking.md").read_text(encoding="utf-8"),
+            "{{PUBLISHED_THINKING}}": (ROOT / "me" / "published-thinking.md").read_text(encoding="utf-8"),
+        })
+    return _POV_CONTEXT
+
+
+def build_longform_prompt(template: str, source: dict, entry: dict) -> str:
+    """Fills prompt-longform.md. One regex pass over the template rather than
+    successive str.replace(): the canon and the transcript are large and
+    could contain a literal {{TOKEN}} that a later replace would then
+    expand inside the inserted text."""
+    pov = (source.get("pov") or "").strip()
+    lens = (source.get("lens") or "").strip()
+    transcript = entry.get("content") or "(no transcript available)"
+    values = {
+        "{{SOURCE_NAME}}": source.get("name", source.get("id", "unknown")),
+        "{{SOURCE_TYPE}}": source.get("type", "source"),
+        "{{SOURCE_POV_BLOCK}}": f" Brian's read on this source: {pov}" if pov else "",
+        "{{ENTRY_TITLE}}": entry.get("title") or "(untitled)",
+        "{{ENTRY_AUTHOR}}": entry.get("author") or source.get("name", ""),
+        "{{ENTRY_DATE}}": entry.get("date_published") or "unknown",
+        "{{ENTRY_URL}}": entry.get("link", ""),
+        "{{TRANSCRIPT_WORDS}}": f"{len(transcript.split()):,}",
+        "{{SHOW_NOTES}}": (entry.get("show_notes") or "(none)")[:4000],
+        "{{ENTRY_CONTENT}}": transcript,
+        "{{LENS_INSTRUCTION}}": (
+            f'Brian\'s lens on this source is "{lens}". Let it inform what counts as relevant.'
+            if lens else ""
+        ),
+        **load_pov_context(),
+    }
+    return re.sub(r"\{\{[A-Z_]+\}\}", lambda m: values.get(m.group(0), m.group(0)), template)
+
+
+# Room for the model's thinking plus a note that can run to 50+ bullets.
+# 5500 returned no text at all on a long prompt (thinking used the whole
+# budget, found 2026-10-11) and 16000 worked, so this leaves margin above it.
+LONGFORM_MAX_TOKENS = 24000
+LONGFORM_RATIO_WARN = 0.25  # note words / transcript words, see the check in extract()
+LONGFORM_MIN_WORDS = 100    # matches the prompt's own "under 100 words of substance" rule
+
+
 def extract(
     template: str,
     source: dict,
     entry: dict,
     provider: str | None = None,
     model: str | None = None,
+    longform_template: str | None = None,
 ) -> str | None:
-    prompt_text = build_prompt(template, source, entry)
-    # 1024 wasn't enough headroom for longer pieces during the framework-
-    # aware prompt experiment (2026-08-11) — kept at 2048 even after
-    # reverting that experiment, since it's just a safer margin regardless.
-    text = llm.generate(prompt_text, provider=provider, model=model, max_tokens=2048)
+    # Items whose transcript was actually obtained go through the long-form
+    # prompt: Brian's canon as the relevance lens, depth set by how much of
+    # the item matters to him, no bullet quota. Everything else (articles,
+    # and a podcast that fell back to show notes) keeps the 3-6 bullet
+    # prompt, which is the right size for what it has to work with.
+    longform = longform_template is not None and entry.get("content_basis") == "transcript"
+    if longform:
+        if len((entry.get("content") or "").split()) < LONGFORM_MIN_WORDS:
+            # A YouTube Short or a trailer: the prompt's own sufficiency rule
+            # would reject it, and it would cost a ~50k-token call (canon
+            # block included) to hear that.
+            print(f"    skipped (transcript under {LONGFORM_MIN_WORDS} words): {entry.get('title')}")
+            return None
+        prompt_text = build_longform_prompt(longform_template, source, entry)
+        max_tokens = LONGFORM_MAX_TOKENS
+    else:
+        prompt_text = build_prompt(template, source, entry)
+        # 1024 wasn't enough headroom for longer pieces during the framework-
+        # aware prompt experiment (2026-08-11) — kept at 2048 even after
+        # reverting that experiment, since it's just a safer margin regardless.
+        max_tokens = 2048
+    text = llm.generate(prompt_text, provider=provider, model=model, max_tokens=max_tokens)
     text = text.strip()
 
     # Real failure modes seen in production (2026-08-19 daily run), not
@@ -1937,9 +2102,19 @@ def extract(
         return None
     if "NOT_RELEVANT" in text or "INSUFFICIENT_CONTENT" in text:
         return None
-    if not text.startswith("## Insights"):
+    # The long-form note opens with its fit verdict, so that header counts too.
+    if not text.startswith(("## Insights", "## Fit with Brian's work")):
         print(f"    ! malformed extraction response (no ## Insights header), skipped: {entry.get('title')}")
         return None
+    if longform:
+        # The long-form prompt has no bullet quota, so rule 2 (insights, not
+        # reprints) is guarded by length instead: the prompt asks for about a
+        # tenth of the transcript, and this flags a note that runs well past
+        # that. Warn only, since depth is meant to follow relevance. First
+        # real runs (2026-10-12) came out at 18-20%.
+        ratio = len(text.split()) / max(1, len((entry.get("content") or "").split()))
+        if ratio > LONGFORM_RATIO_WARN:
+            print(f"    ! note is {ratio:.0%} of the transcript's length, check it isn't a retelling: {entry.get('title')}")
     return text
 
 
@@ -1972,6 +2147,12 @@ def write_note(
         "ingest_method": ingest_method,
         "model": model,
     }
+    # Only present for sources that ask for a transcript: "transcript", or
+    # "show-notes-fallback" when it couldn't be had (see
+    # enrich_with_transcript()). Lets a thin podcast note be told apart from
+    # a thin episode after the fact.
+    if entry.get("content_basis"):
+        frontmatter["content_basis"] = entry["content_basis"]
     fm_yaml = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True).strip()
     full_text = f"---\n{fm_yaml}\n---\n\n# {entry['title'] or '(untitled)'}\n\n{body}\n"
 
@@ -2036,6 +2217,7 @@ def main() -> None:
         )
 
     template = (Path(__file__).parent / "prompt.md").read_text(encoding="utf-8")
+    longform_template = (Path(__file__).parent / "prompt-longform.md").read_text(encoding="utf-8")
 
     since_days, since_reason = resolve_since_days(args.since_days)
     print(f"window: {since_days:.2f} days ({since_reason})\n")
@@ -2135,11 +2317,12 @@ def main() -> None:
                 print(f"    skipped (already ingested via another route): {e['title']}")
                 gmail_apply_label(e["gmail_msg_id"], GMAIL_LABEL_SKIPPED)
         total_new += len(new_entries)
-        source_results.append({
+        result_row = {
             "id": source["id"], "name": source.get("name", source["id"]),
             "method": method, "status": "ok",
             "entries_in_window": len(entries), "new_entries": len(new_entries),
-        })
+        }
+        source_results.append(result_row)
 
         if not ready:
             for e in new_entries:
@@ -2158,12 +2341,22 @@ def main() -> None:
                 continue
 
             enrich_with_transcript(entry, source)
+            if entry.get("content_basis") == "show-notes-fallback":
+                # Surfaced in the brief's "Sources checked today" section,
+                # so an episode analysed from show notes alone is visible.
+                result_row.setdefault("transcript_fallbacks", []).append(entry["title"])
             body = extract(
                 template, source, entry,
                 provider=args.provider, model=args.llm_model,
+                longform_template=longform_template,
             )
             if body is None:
                 print(f"    skipped (not relevant): {entry['title']}")
+                if entry.get("content_basis") == "transcript":
+                    # A podcast or video the POV-based gate dropped leaves no
+                    # note, and cost a transcription. Recording the title in
+                    # ingest/.last_run_sources.json keeps the gate auditable.
+                    result_row.setdefault("long_form_skipped", []).append(entry["title"])
                 # Label it even when skipped — otherwise a not-relevant
                 # newsletter issue gets re-fetched and re-judged
                 # not-relevant every single run forever.

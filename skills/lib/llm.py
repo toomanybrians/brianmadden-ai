@@ -98,7 +98,14 @@ def _generate_anthropic(prompt: str, model: str, max_tokens: int, images: Option
         messages=[{"role": "user", "content": content}],
     ) as stream:
         message = stream.get_final_message()
-    return "".join(block.text for block in message.content if block.type == "text").strip()
+    text = "".join(block.text for block in message.content if block.type == "text").strip()
+    if message.stop_reason == "max_tokens":
+        # Thinking shares the max_tokens budget with the answer, so a call
+        # can come back cut off or with no text at all (found 2026-10-11:
+        # 5500 returned nothing on a long prompt, 16000 worked). Say so, or
+        # it reads downstream as the model having nothing to say.
+        print(f"    ! model hit max_tokens={max_tokens}; output is {'cut off' if text else 'empty'}")
+    return text
 
 
 def _generate_openrouter(prompt: str, model: str, max_tokens: int) -> str:

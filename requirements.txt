@@ -7,3 +7,4 @@ feedparser==6.0.12
 Markdown==3.10.2
 PyYAML==6.0.3
 requests==2.32.5
+youtube-transcript-api==1.2.4

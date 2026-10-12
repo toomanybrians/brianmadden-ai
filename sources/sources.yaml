@@ -51,12 +51,15 @@
 #               no automatable path — same human-in-the-loop shape as a
 #               brain@ personal flag, open decision #9, just via chat
 #               instead of email). Omit for normal RSS/Atom sources.
-#   transcript_mode — podcast sources only. "published" fetches a real
-#               transcript URL (currently only 80000-hours-podcast has one,
-#               via its feed's <podcast:transcript> tag). "transcribe"
+#   transcript_mode — podcast and video sources only. "published" fetches a
+#               real transcript URL (currently only 80000-hours-podcast has
+#               one, via its feed's <podcast:transcript> tag). "transcribe"
 #               downloads the audio enclosure and runs it through
-#               skills/lib/transcribe.py (OpenAI Whisper). Omit/unset for
-#               show-notes-only (the old behavior). See
+#               skills/lib/transcribe.py (OpenAI Whisper). "youtube" pulls
+#               the video's captions (YouTube feeds only). Omit/unset for
+#               show-notes-only (the old behavior). Any item that gets a
+#               real transcript is extracted with prompt-longform.md: depth
+#               follows relevance to Brian, no fixed bullet count. See
 #               docs/full-source-text-ingestion.md.
 #
 # lens/pov added Day 4 (2026-08-10), resolving BUILD.md open decision #6.
@@ -119,6 +122,7 @@ sources:
     type: person
     url: https://www.youtube.com/@NateBJones
     feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0C-17n9iuUQPylguM1d-lQ
+    transcript_mode: youtube
     priority: regular
     note: "Must-watch. Also has a Substack — natesnewsletter.substack.com/feed (verified live) — if the ingest skill wants the newsletter instead of/in addition to video."
 

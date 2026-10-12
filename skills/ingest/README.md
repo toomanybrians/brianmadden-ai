@@ -61,10 +61,12 @@ deliberately re-scanning further back, etc.).
    `prompt.md` as the template. The prompt carries the source's `lens`/`pov`
    from `sources.yaml` (if set) as framing instruction, and can return the
    sentinel `NOT_RELEVANT` for off-topic items — those are skipped, no note
-   written.
+   written. A podcast episode or video whose transcript was obtained uses
+   `prompt-longform.md` instead (see "Long-form extraction" below).
 5. Write `ingest/YYYY/MM/YYYY-MM-DD-<source-id>-<slug>.md` with frontmatter
    (`title, source, source_id, source_url, author, date_published,
-   date_captured, ingest_method, model`) per the shape in
+   date_captured, ingest_method, model`, plus `content_basis` for sources
+   that ask for a transcript) per the shape in
    [ingest/README.md](../../ingest/README.md).
 
 The raw entry content fetched from a feed is used only in memory to build
@@ -75,7 +77,8 @@ notes from ever becoming full-text reprints (MAINTAINER.md rule 2).
 
 Edit `prompt.md` directly — it's a plain-text template with `{{TOKENS}}`
 filled in by `build_prompt()` in `ingest.py`. No code changes needed to
-adjust tone, bullet count, relevance criteria, etc.
+adjust tone, bullet count, relevance criteria, etc. `prompt-longform.md` is
+the same idea for transcripts, filled in by `build_longform_prompt()`.
 
 ## Providers
 
@@ -194,7 +197,7 @@ auto-registration precedent as newsletters — and Substack reliably serves
 RSS at `/feed`, so this gets a working `feed_url` immediately), and queues
 a note for anything unfollowed (never auto-deleted).
 
-## Podcast transcripts
+## Podcast and video transcripts
 
 `enrich_with_transcript()` replaces show-notes content with a real
 transcript, per a podcast source's `transcript_mode` in `sources.yaml`
@@ -212,10 +215,61 @@ transcript, per a podcast source's `transcript_mode` in `sources.yaml`
   or fails) and transcribes it via `skills/lib/transcribe.py`
   (`OPENAI_API_KEY`, `gpt-4o-transcribe` by default). The other 10
   podcast sources use this.
+- **`youtube`** — pulls the video's captions with `youtube-transcript-api`
+  (a YouTube feed's `yt:videoId`). No audio download, no cost. Captions can
+  be missing, disabled, or refused to a blocked IP, and then it falls back
+  like the others. `nate-b-jones` is the only YouTube source today. A
+  captionless video would need an audio download plus `transcribe`, which
+  isn't built.
 
-Both fall back cleanly to the existing show-notes content on any failure
-(bad URL, download error, missing credential) rather than crashing the
-run over one episode.
+All three fall back to the existing show-notes content on any failure (bad
+URL, download error, missing credential) rather than crashing the run over
+one episode. The fallback is no longer silent. The entry is marked
+`content_basis: show-notes-fallback` in the note's frontmatter (a real
+transcript is `content_basis: transcript`), and the run lists it under
+`transcript_fallbacks` in `ingest/.last_run_sources.json`, which the brief
+prints in "Sources checked today".
+
+A transcript is capped at `TRANSCRIPT_MAX_CHARS` (400k chars, about ten
+hours of speech), not the 50k that fits an article. The 50k cap used to
+cut every episode over about 75 minutes before the model saw it.
+
+## Long-form extraction
+
+An item whose `content_basis` is `transcript` is extracted with
+`prompt-longform.md`, not `prompt.md`. Two differences:
+
+- **Brian's canon is the relevance lens.** The prompt carries the active
+  frameworks list plus the full `me/developing-thinking.md` and
+  `me/published-thinking.md` (loaded once per run by `load_pov_context()`),
+  so `NOT_RELEVANT` means "nothing here bears on what Brian argues,
+  develops or watches", not just "off-topic". The article prompt
+  deliberately has none of this, so its notes stay neutral raw material. The
+  canon is only a lens: it decides what to extract and fills the note's
+  `## Fit with Brian's work` section. It never supplies an insight.
+- **No bullet quota; the note opens with a fit verdict that sets its depth.**
+  The first section states `Fit: direct | partial | adjacent` and names the
+  framework or position it touches, then the insights follow from that. A
+  dense three-hour episode that keeps landing on his ground can produce 40
+  or 50 bullets (grouped under `###` themes), an episode with one relevant
+  stretch produces a few, an adjacent one produces a few, and an item that
+  doesn't bear on his work produces none (`NOT_RELEVANT`). The verdict is
+  written first on purpose: in a first test, a video whose own relevance
+  section called it adjacent still got 28 bullets, because the section came
+  last and didn't constrain the depth.
+  `LONGFORM_MAX_TOKENS` is 24000 because thinking shares the budget with the
+  answer. Anything past a model's `max_tokens` is now printed by
+  `llm.py`, since a short budget used to fail as an empty response.
+
+MAINTAINER.md rule 2 still binds: the note must stay far shorter than the
+transcript (the prompt says about a tenth for a long episode), quotes are
+under 25 words each and attributed, and the transcript is never written
+anywhere. Names in a machine transcript are guesses, so the prompt takes
+spellings from the title and show notes, and marks the rest unverified.
+
+The cost is the canon block (about 40k tokens) on every long-form item, on
+top of the transcript. At roughly a handful of episodes a day that is small
+next to the transcription itself.
 
 ## X (brianmaddenai home timeline)
 

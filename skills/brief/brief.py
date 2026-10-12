@@ -475,6 +475,13 @@ def render_sources_checked_section(data: dict | None) -> str:
     if errors:
         lines += ["", "**Failed to fetch:**", ""]
         lines += [f"- {r['name']} — {r['reason']}" for r in errors]
+    # A podcast or video the pipeline fetched but couldn't get a transcript
+    # for. Its note rests on show notes alone, which is the thin kind of
+    # note this section exists to make visible.
+    fallbacks = [(r["name"], t) for r in results for t in r.get("transcript_fallbacks", [])]
+    if fallbacks:
+        lines += ["", "**No transcript, summarized from show notes only:**", ""]
+        lines += [f"- {name} — {title}" for name, title in fallbacks]
     if skipped:
         lines += ["", "**Skipped:**", ""]
         lines += [f"- {r['name']} — {r['reason']}" for r in skipped]
