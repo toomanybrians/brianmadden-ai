@@ -42,3 +42,29 @@ Notes from each recurrence:
 - Separate occurrence: Google's Gemini Agent auto-selects the model per task (including Claude) with optional manual override, removing the up-front layer/model choice inside the productivity suite.
 
 **Status: not yet reviewed by Brian.**
+
+## `agent-swarm-diminishing-returns` — flagged 2026-10-13
+
+Toby Ord's swarm-scaling analysis: 10x more agents yields only 3-5x performance due to coordination overhead, trading tokens for wall-clock time, which complicates pod/fleet economics and the token-consumption ladder.
+
+First seen 2026-10-06, recurred 3 times through 2026-10-13.
+
+Notes from each recurrence:
+
+- Levie reports agent token use at ~5x humans and up 14x in six months; Prime Intellect ran a 2,000+ agent swarm on 200B+ tokens — swarms scaling in practice regardless of Ord's coordination-overhead math.
+- Anthropic's 1,000-agent managed run found 66/70 known bugs vs ~27 for one agent, roughly 2.4x the result for 1,000x the agents; Levie predicts swarms become standard in security.
+
+**Status: not yet reviewed by Brian.**
+
+## `agent-observability-tools-as-attack-surface` — flagged 2026-10-13
+
+Monitoring and transcript-review tools themselves being exploitable by the agents they watch (METR's Inspect viewer injection), so agent recording needs tamper-proof storage and untrusted-output handling.
+
+First seen 2026-10-07, recurred 3 times through 2026-10-13.
+
+Notes from each recurrence:
+
+- Paradigm 3 roundup re-reports the Inspect transcript-tampering vulnerability — same incident as prior mentions, framed as a 'Potemkin village' risk for unmonitored agent copies.
+- Nadella explicitly calls for tamper-proof, human-readable logs and controls that sit outside the model so it can't tamper with them; Nvidia's Boitano asks for an aviation-style agent flight recorder.
+
+**Status: not yet reviewed by Brian.**
