@@ -356,11 +356,12 @@
     "slug": "provenance-unknown-models-at-scale",
     "description": "Anonymous 'stealth' models served free at enormous volume by undisclosed providers with mutable data policies \u2014 an object the model-portability and open-weight-floor arguments don't cover, since both assume you know whose model you're running.",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-08-26",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-14",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Ox Alpha named directly: anonymous provider, free on OpenRouter, 1.05M context, near-unlimited caps, unverified frontier-beating coding benchmarks, and an explicit note that the no-training-on-prompts policy could change."
+      "Ox Alpha named directly: anonymous provider, free on OpenRouter, 1.05M context, near-unlimited caps, unverified frontier-beating coding benchmarks, and an explicit note that the no-training-on-prompts policy could change.",
+      "Similar pattern, different mechanism: a 55K-star open-source proxy routes Claude Code and other coding agents through 53 free providers with automatic failover, so the user and IT can't tell which provider handled a given request."
     ]
   },
   {
@@ -737,11 +738,12 @@
     "slug": "generative-ui-as-post-application-variant",
     "description": "Runway's Solaris generates a UI live, frame by frame, with no underlying code \u2014 a distinct mechanism from AI skipping the interface entirely, worth watching for other labs shipping the same idea.",
     "first_seen": "2026-09-14",
-    "last_seen": "2026-10-09",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-14",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "GPT-6 Intelligent UI builds interactive mini-apps on demand in ChatGPT; Karpathy argues outputs are shifting to custom-generated media."
+      "GPT-6 Intelligent UI builds interactive mini-apps on demand in ChatGPT; Karpathy argues outputs are shifting to custom-generated media.",
+      "Runway reports Solaris beat a Claude-built coded interface in human preference testing (61% vs 24% on instruction-following); vendor-reported, additional detail on the same product."
     ]
   },
   {
@@ -1014,10 +1016,12 @@
     "slug": "ai-driven-vulnerability-surge-displacing-engineering-capacity",
     "description": "AI-discovered vulnerabilities surging (critical vulns across 21 major vendors from <100/month to 600+/month) and forcing companies like Zscaler to pause feature work for months to patch, a capacity cost distinct from agent governance.",
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-07",
-    "count": 1,
+    "last_seen": "2026-10-14",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Separate occurrence of the same pattern: GPT-5.6 Sol found a critical full-chain Chrome vulnerability in ~6 days for $40K of compute, per Levie."
+    ]
   },
   {
     "slug": "agent-observability-tools-as-attack-surface",
@@ -1047,10 +1051,12 @@
     "slug": "frontier-release-cadence-outpaces-model-review",
     "description": "Gap between frontier model releases reportedly compressed from ~70 days to ~11, faster than enterprise per-model approval and governance review cycles can run.",
     "first_seen": "2026-10-08",
-    "last_seen": "2026-10-08",
-    "count": 1,
+    "last_seen": "2026-10-14",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Grok Bot's underlying model changed twice in six weeks and is moving to Claude Opus 5.5, so deployed agents get model swaps faster than per-model guardrail review can run; argues for harness-level controls over prompt instructions."
+    ]
   },
   {
     "slug": "replicated-permissions-drift-in-ai-knowledge-layers",
@@ -1099,6 +1105,33 @@
     "description": "Hyperscaler cross-region inference (Bedrock global CRIS) routes requests to wherever capacity exists with no region identifier, unlisted destinations, and abuse-data retention in the processing region, so chasing compute availability quietly trades away data residency for regulated enterprises.",
     "first_seen": "2026-10-13",
     "last_seen": "2026-10-13",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "senior-ai-reviewers-fear-skill-atrophy",
+    "description": "Wharton/GBK: 82% of VP+ say their job shifted to managing AI output, and 48% of them worry their own skills are declining (vs 32% of managers), so the judgment-erosion worry runs at the top, not just for juniors.",
+    "first_seen": "2026-10-14",
+    "last_seen": "2026-10-14",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-scale-breaks-human-scale-dev-tooling",
+    "description": "Anthropic replaced Git internally after daily merges grew ~12x in four months; foundational developer tooling built for human-scale work breaking under agent-scale volume, with implications for git-based knowledge canons.",
+    "first_seen": "2026-10-14",
+    "last_seen": "2026-10-14",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-sandboxes-consolidating-on-compute-providers",
+    "description": "Theory survey: Cloudflare hosts 62% of code-executing agent sandboxes (3x the next provider) while security is the #1 pain point, so sandbox infrastructure is consolidating on a compute vendor rather than a governed environment.",
+    "first_seen": "2026-10-14",
+    "last_seen": "2026-10-14",
     "count": 1,
     "status": "watching",
     "history": []

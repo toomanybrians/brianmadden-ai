@@ -68,3 +68,29 @@ Notes from each recurrence:
 - Nadella explicitly calls for tamper-proof, human-readable logs and controls that sit outside the model so it can't tamper with them; Nvidia's Boitano asks for an aviation-style agent flight recorder.
 
 **Status: not yet reviewed by Brian.**
+
+## `generative-ui-as-post-application-variant` — flagged 2026-10-14
+
+Runway's Solaris generates a UI live, frame by frame, with no underlying code — a distinct mechanism from AI skipping the interface entirely, worth watching for other labs shipping the same idea.
+
+First seen 2026-09-14, recurred 3 times through 2026-10-14.
+
+Notes from each recurrence:
+
+- GPT-6 Intelligent UI builds interactive mini-apps on demand in ChatGPT; Karpathy argues outputs are shifting to custom-generated media.
+- Runway reports Solaris beat a Claude-built coded interface in human preference testing (61% vs 24% on instruction-following); vendor-reported, additional detail on the same product.
+
+**Status: not yet reviewed by Brian.**
+
+## `provenance-unknown-models-at-scale` — flagged 2026-10-14
+
+Anonymous 'stealth' models served free at enormous volume by undisclosed providers with mutable data policies — an object the model-portability and open-weight-floor arguments don't cover, since both assume you know whose model you're running.
+
+First seen 2026-08-25, recurred 3 times through 2026-10-14.
+
+Notes from each recurrence:
+
+- Ox Alpha named directly: anonymous provider, free on OpenRouter, 1.05M context, near-unlimited caps, unverified frontier-beating coding benchmarks, and an explicit note that the no-training-on-prompts policy could change.
+- Similar pattern, different mechanism: a 55K-star open-source proxy routes Claude Code and other coding agents through 53 free providers with automatic failover, so the user and IT can't tell which provider handled a given request.
+
+**Status: not yet reviewed by Brian.**
