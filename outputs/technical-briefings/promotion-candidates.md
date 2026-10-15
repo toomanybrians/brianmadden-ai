@@ -94,3 +94,29 @@ Notes from each recurrence:
 - Similar pattern, different mechanism: a 55K-star open-source proxy routes Claude Code and other coding agents through 53 free providers with automatic failover, so the user and IT can't tell which provider handled a given request.
 
 **Status: not yet reviewed by Brian.**
+
+## `frontier-release-cadence-outpaces-model-review` — flagged 2026-10-15
+
+Gap between frontier model releases reportedly compressed from ~70 days to ~11, faster than enterprise per-model approval and governance review cycles can run.
+
+First seen 2026-10-08, recurred 3 times through 2026-10-15.
+
+Notes from each recurrence:
+
+- Grok Bot's underlying model changed twice in six weeks and is moving to Claude Opus 5.5, so deployed agents get model swaps faster than per-model guardrail review can run; argues for harness-level controls over prompt instructions.
+- Separate occurrence: Gemini 4 Argon launched broadly days after Haiku 5.5 and Opus 5.5, while Tamnoon shows the enterprise response of pinning dated model versions behind code review.
+
+**Status: not yet reviewed by Brian.**
+
+## `local-liability-pressure-on-agi-development` — flagged 2026-10-15
+
+Local government resolutions opposing unproven AGI development, using D&O insurance liability as the enforcement lever rather than direct regulation — a new governance mechanism worth watching for spread to other jurisdictions.
+
+First seen 2026-08-31, recurred 3 times through 2026-10-15.
+
+Notes from each recurrence:
+
+- Separate but similar local-government move: NYC Council legislation mandating third-party validation of AI models, with Gary Marcus testifying for an FDA-like regime; different mechanism from D&O liability.
+- Separate-but-similar: eight state AGs suing OpenAI under consumer-protection law also seek a court order barring recursive self-improvement work, a subnational legal lever on frontier development.
+
+**Status: not yet reviewed by Brian.**

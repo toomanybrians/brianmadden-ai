@@ -538,11 +538,12 @@
     "slug": "local-liability-pressure-on-agi-development",
     "description": "Local government resolutions opposing unproven AGI development, using D&O insurance liability as the enforcement lever rather than direct regulation \u2014 a new governance mechanism worth watching for spread to other jurisdictions.",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-10-05",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-15",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate but similar local-government move: NYC Council legislation mandating third-party validation of AI models, with Gary Marcus testifying for an FDA-like regime; different mechanism from D&O liability."
+      "Separate but similar local-government move: NYC Council legislation mandating third-party validation of AI models, with Gary Marcus testifying for an FDA-like regime; different mechanism from D&O liability.",
+      "Separate-but-similar: eight state AGs suing OpenAI under consumer-protection law also seek a court order barring recursive self-improvement work, a subnational legal lever on frontier development."
     ]
   },
   {
@@ -1051,11 +1052,12 @@
     "slug": "frontier-release-cadence-outpaces-model-review",
     "description": "Gap between frontier model releases reportedly compressed from ~70 days to ~11, faster than enterprise per-model approval and governance review cycles can run.",
     "first_seen": "2026-10-08",
-    "last_seen": "2026-10-14",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-15",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Grok Bot's underlying model changed twice in six weeks and is moving to Claude Opus 5.5, so deployed agents get model swaps faster than per-model guardrail review can run; argues for harness-level controls over prompt instructions."
+      "Grok Bot's underlying model changed twice in six weeks and is moving to Claude Opus 5.5, so deployed agents get model swaps faster than per-model guardrail review can run; argues for harness-level controls over prompt instructions.",
+      "Separate occurrence: Gemini 4 Argon launched broadly days after Haiku 5.5 and Opus 5.5, while Tamnoon shows the enterprise response of pinning dated model versions behind code review."
     ]
   },
   {
@@ -1104,10 +1106,12 @@
     "slug": "capacity-routing-erodes-data-residency",
     "description": "Hyperscaler cross-region inference (Bedrock global CRIS) routes requests to wherever capacity exists with no region identifier, unlisted destinations, and abuse-data retention in the processing region, so chasing compute availability quietly trades away data residency for regulated enterprises.",
     "first_seen": "2026-10-13",
-    "last_seen": "2026-10-13",
-    "count": 1,
+    "last_seen": "2026-10-15",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Separate occurrence: Tamnoon relies on Bedrock cross-region inference while claiming data stays inside the AWS trust boundary, which is not a regional guarantee."
+    ]
   },
   {
     "slug": "senior-ai-reviewers-fear-skill-atrophy",
@@ -1122,16 +1126,36 @@
     "slug": "agent-scale-breaks-human-scale-dev-tooling",
     "description": "Anthropic replaced Git internally after daily merges grew ~12x in four months; foundational developer tooling built for human-scale work breaking under agent-scale volume, with implications for git-based knowledge canons.",
     "first_seen": "2026-10-14",
-    "last_seen": "2026-10-14",
-    "count": 1,
+    "last_seen": "2026-10-15",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "New detail on the same Anthropic event: the replacement is named Scion, built by seven people in five months, cut CPU/memory about 200x, and Anthropic says it isn't a general Git replacement."
+    ]
   },
   {
     "slug": "agent-sandboxes-consolidating-on-compute-providers",
     "description": "Theory survey: Cloudflare hosts 62% of code-executing agent sandboxes (3x the next provider) while security is the #1 pain point, so sandbox infrastructure is consolidating on a compute vendor rather than a governed environment.",
     "first_seen": "2026-10-14",
     "last_seen": "2026-10-14",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-accessibility-as-distribution-channel",
+    "description": "Blocking outside agents carries a distribution cost: JPMorgan locks agents out while Mercury exposes a hosted MCP server and AI assistants recommend Mercury 5-to-1, making agent access a channel decision, not only a security one.",
+    "first_seen": "2026-10-15",
+    "last_seen": "2026-10-15",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "shared-vendor-ai-decisions-as-coordination-risk",
+    "description": "Competitors delegating the same decision to the same third-party algorithm (hotels accepting vendor pricing ~90% of the time) creating antitrust and coordination exposure without any explicit collusion.",
+    "first_seen": "2026-10-15",
+    "last_seen": "2026-10-15",
     "count": 1,
     "status": "watching",
     "history": []
