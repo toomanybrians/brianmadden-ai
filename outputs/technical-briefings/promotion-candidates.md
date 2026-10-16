@@ -42,3 +42,120 @@ Notes from each recurrence:
 - Separate occurrence: Google's Gemini Agent auto-selects the model per task (including Claude) with optional manual override, removing the up-front layer/model choice inside the productivity suite.
 
 **Status: not yet reviewed by Brian.**
+
+## `agent-swarm-diminishing-returns` — flagged 2026-10-13
+
+Toby Ord's swarm-scaling analysis: 10x more agents yields only 3-5x performance due to coordination overhead, trading tokens for wall-clock time, which complicates pod/fleet economics and the token-consumption ladder.
+
+First seen 2026-10-06, recurred 3 times through 2026-10-13.
+
+Notes from each recurrence:
+
+- Levie reports agent token use at ~5x humans and up 14x in six months; Prime Intellect ran a 2,000+ agent swarm on 200B+ tokens — swarms scaling in practice regardless of Ord's coordination-overhead math.
+- Anthropic's 1,000-agent managed run found 66/70 known bugs vs ~27 for one agent, roughly 2.4x the result for 1,000x the agents; Levie predicts swarms become standard in security.
+
+**Status: not yet reviewed by Brian.**
+
+## `agent-observability-tools-as-attack-surface` — flagged 2026-10-13
+
+Monitoring and transcript-review tools themselves being exploitable by the agents they watch (METR's Inspect viewer injection), so agent recording needs tamper-proof storage and untrusted-output handling.
+
+First seen 2026-10-07, recurred 3 times through 2026-10-13.
+
+Notes from each recurrence:
+
+- Paradigm 3 roundup re-reports the Inspect transcript-tampering vulnerability — same incident as prior mentions, framed as a 'Potemkin village' risk for unmonitored agent copies.
+- Nadella explicitly calls for tamper-proof, human-readable logs and controls that sit outside the model so it can't tamper with them; Nvidia's Boitano asks for an aviation-style agent flight recorder.
+
+**Status: not yet reviewed by Brian.**
+
+## `generative-ui-as-post-application-variant` — flagged 2026-10-14
+
+Runway's Solaris generates a UI live, frame by frame, with no underlying code — a distinct mechanism from AI skipping the interface entirely, worth watching for other labs shipping the same idea.
+
+First seen 2026-09-14, recurred 3 times through 2026-10-14.
+
+Notes from each recurrence:
+
+- GPT-6 Intelligent UI builds interactive mini-apps on demand in ChatGPT; Karpathy argues outputs are shifting to custom-generated media.
+- Runway reports Solaris beat a Claude-built coded interface in human preference testing (61% vs 24% on instruction-following); vendor-reported, additional detail on the same product.
+
+**Status: not yet reviewed by Brian.**
+
+## `provenance-unknown-models-at-scale` — flagged 2026-10-14
+
+Anonymous 'stealth' models served free at enormous volume by undisclosed providers with mutable data policies — an object the model-portability and open-weight-floor arguments don't cover, since both assume you know whose model you're running.
+
+First seen 2026-08-25, recurred 3 times through 2026-10-14.
+
+Notes from each recurrence:
+
+- Ox Alpha named directly: anonymous provider, free on OpenRouter, 1.05M context, near-unlimited caps, unverified frontier-beating coding benchmarks, and an explicit note that the no-training-on-prompts policy could change.
+- Similar pattern, different mechanism: a 55K-star open-source proxy routes Claude Code and other coding agents through 53 free providers with automatic failover, so the user and IT can't tell which provider handled a given request.
+
+**Status: not yet reviewed by Brian.**
+
+## `frontier-release-cadence-outpaces-model-review` — flagged 2026-10-15
+
+Gap between frontier model releases reportedly compressed from ~70 days to ~11, faster than enterprise per-model approval and governance review cycles can run.
+
+First seen 2026-10-08, recurred 3 times through 2026-10-15.
+
+Notes from each recurrence:
+
+- Grok Bot's underlying model changed twice in six weeks and is moving to Claude Opus 5.5, so deployed agents get model swaps faster than per-model guardrail review can run; argues for harness-level controls over prompt instructions.
+- Separate occurrence: Gemini 4 Argon launched broadly days after Haiku 5.5 and Opus 5.5, while Tamnoon shows the enterprise response of pinning dated model versions behind code review.
+
+**Status: not yet reviewed by Brian.**
+
+## `local-liability-pressure-on-agi-development` — flagged 2026-10-15
+
+Local government resolutions opposing unproven AGI development, using D&O insurance liability as the enforcement lever rather than direct regulation — a new governance mechanism worth watching for spread to other jurisdictions.
+
+First seen 2026-08-31, recurred 3 times through 2026-10-15.
+
+Notes from each recurrence:
+
+- Separate but similar local-government move: NYC Council legislation mandating third-party validation of AI models, with Gary Marcus testifying for an FDA-like regime; different mechanism from D&O liability.
+- Separate-but-similar: eight state AGs suing OpenAI under consumer-protection law also seek a court order barring recursive self-improvement work, a subnational legal lever on frontier development.
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-driven-vulnerability-surge-displacing-engineering-capacity` — flagged 2026-10-16
+
+AI-discovered vulnerabilities surging (critical vulns across 21 major vendors from <100/month to 600+/month) and forcing companies like Zscaler to pause feature work for months to patch, a capacity cost distinct from agent governance.
+
+First seen 2026-10-07, recurred 3 times through 2026-10-16.
+
+Notes from each recurrence:
+
+- Separate occurrence of the same pattern: GPT-5.6 Sol found a critical full-chain Chrome vulnerability in ~6 days for $40K of compute, per Levie.
+- Bank of America adding 1,000 contractors to 3,000 security staff to patch AI-found flaws; OpenAI pulling 25% of production engineers onto security per model release, per Brockman.
+
+**Status: not yet reviewed by Brian.**
+
+## `capacity-routing-erodes-data-residency` — flagged 2026-10-16
+
+Hyperscaler cross-region inference (Bedrock global CRIS) routes requests to wherever capacity exists with no region identifier, unlisted destinations, and abuse-data retention in the processing region, so chasing compute availability quietly trades away data residency for regulated enterprises.
+
+First seen 2026-10-13, recurred 3 times through 2026-10-16.
+
+Notes from each recurrence:
+
+- Separate occurrence: Tamnoon relies on Bedrock cross-region inference while claiming data stays inside the AWS trust boundary, which is not a regional guarantee.
+- Doctolib's 'hosted in France' claim doesn't cover US-model inference, and Bedrock has no Paris-only route for Opus; Starling's sovereign model routes through Google Cloud.
+
+**Status: not yet reviewed by Brian.**
+
+## `agent-scale-breaks-human-scale-dev-tooling` — flagged 2026-10-16
+
+Anthropic replaced Git internally after daily merges grew ~12x in four months; foundational developer tooling built for human-scale work breaking under agent-scale volume, with implications for git-based knowledge canons.
+
+First seen 2026-10-14, recurred 3 times through 2026-10-16.
+
+Notes from each recurrence:
+
+- New detail on the same Anthropic event: the replacement is named Scion, built by seven people in five months, cut CPU/memory about 200x, and Anthropic says it isn't a general Git replacement.
+- Same Anthropic Git-replacement event restated by Miessler (2,500 to 30,000+ merges/day); no new detail.
+
+**Status: not yet reviewed by Brian.**
