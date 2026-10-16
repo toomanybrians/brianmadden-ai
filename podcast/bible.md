@@ -19,6 +19,56 @@ repo after the fact (ep5 mirrored 2026-09-02, the session that wrote this
 file); starting with episode 6, drafting happens here from the first
 transcript onward. See `MAINTAINER.md`'s Working conventions.
 
+## Show format — as actually recorded (EPs 1–5)
+
+Added 2026-10-16. Until then this file covered production only; the format
+below is read off the five transcripts, not from any stated intent, so
+correct it where Brian's intent differs.
+
+- **Two voices.** Brian is the "where AI is heading" voice; Dave Brear is
+  the "what actually works inside a real enterprise today" voice. The
+  transcripts bear it out: Dave brings practitioner stories (the glass
+  ceiling, the reconciliation map, the account-review briefing) and is the
+  one who pushes back ("did not go well," "is the FDE market real?", "how
+  does new information get into canon?").
+- **Shape.** Cold open (date, "recording this on…"), then a catch-up beat
+  ("what have you been up to?" — the show began as their one-on-ones), then
+  **1–4 topics**. Brian announces the count up front ("three topics this
+  week," "four topics for July," "one main topic plus a bonus"). Hosts each
+  bring topics (EP1, EP4 alternate Brian/Dave; EP5 is one deep dive plus
+  Dave's FDE challenge plus a bonus news segment). EP2 is the only solo
+  episode (a keynote, not a conversation).
+- **Recurring beats.** (1) Brian admits he was wrong or that a prediction
+  was early (EP3 "off by a factor of three," EP5 "I was wrong" about
+  wiring second brains together).
+  (2) Callbacks to earlier episodes, with show-note links. (3) A closing
+  takeaway from each host. (4) "Where to find us": brianmadden.ai and
+  davebrear.ai as public second brains reachable over MCP (explicit in EP1
+  and EP3; dropped from EP4–EP5 closes). (5) A sign-off promising the next
+  one ("see you next month").
+- **Length is trending up.** About 41 min (EP1), 47 (EP3), 56 (EP4), 58
+  (EP5), from the last timestamp in each. `podcast/index.md` still says
+  "~45 minutes"; that was true of EP1–3 only. (Left alone: `index.md` is the
+  public show page, so Brian's call.)
+- **"Monthly" is aspirational.** Gaps between episodes: 26 days (EP1→EP2),
+  6 (EP2→EP3, solo special), 26 (EP3→EP4), 48 (EP4→EP5), then 45+ days to
+  EP6. EP5 closed promising "mid-September." Don't promise a date on air
+  unless the next recording is already booked.
+- **Open-promises ledger.** Check the last two episodes for "next episode"
+  commitments before outlining. Open as of 2026-10-16: *model routing — "we
+  should talk about that next episode"* (EP4, about 11:00; not covered in
+  EP5). EP3's promised org-level framework was delivered in EP4 (the
+  treehouse).
+- **Pre-record prep stays out of this repo** (Brian's call, 2026-10-16):
+  the repo is public and so is its history, and a prep guide holds
+  half-formed positions, unverified claims and notes from rooms that
+  aren't ours to publish. Keep it in a private doc. What the repo gets is
+  the finished episode file (`podcast/epNN.md`) and its show notes after
+  recording. EP6 is the first episode processed fully inside this repo.
+- **Known drift in the episode files.** EP1 has no `## Topics covered`; EP2
+  has no `## Chapters`; EP3's chapter list still carries a "to be verified
+  before YouTube upload" note. They predate the template below.
+
 ## Two canonical links, two audiences — not one either/or
 
 - **Substack (`brianmadden.ai/p/...`) is the canonical link for humans.**
@@ -193,28 +243,29 @@ Riverside" disclaimer even after publish, matching existing episodes.
 
 - `podcast/index.md` — new episode bullet; add any new recurring theme
   to the show's own frontmatter `tags`.
-- `_index.json` — new file entry inserted after the previous episode's
-  (keep the `podcast/` block contiguous), `total_files` +1, `total_words`
-  bumped by the new entry's `word_count`, `generated` date bumped. Edit
-  the JSON with targeted text edits, not a full rewrite/regeneration —
-  `json.dump` reformats every inline array in the file and produces
-  unrelated diff noise (hit this exact problem 2026-09-02; reverted and
-  redid it as surgical edits).
+- `python3 scripts/build_indexes.py --write` — regenerates `_index.json`,
+  `_relationships.json` and `llms-full.txt` from the files and updates the
+  hand-written repo-size numbers (README's "N-episode Citrix AI Hotsheet"
+  included). Don't hand-edit those files. (Until 2026-10-11 this bullet said
+  to hand-edit `_index.json` with surgical text edits; `build_indexes.py`
+  replaced that and would overwrite hand edits. MAINTAINER rule 8.)
 - `_content-index.json` — new entry inserted at its correct
   chronological position (the feed is reverse-chronological).
 - `COLLECTIONS.md` — add to whichever thematic sections the episode's
   actual *content* justifies. Check the content, don't just pattern-match
   the previous episode's placements.
-- `llms.txt` — bump the episode count in the `podcast/index.md` bullet;
-  nudge the summary header line's file/word counts (these were already
-  approximate before any of this — treat them as directionally honest,
-  not exactly reconciled, unless you're prepared to audit the whole
-  corpus).
+- `llms.txt` — bump the episode count in the `podcast/index.md` bullet
+  ("Show page plus N episode transcripts") by hand; `build_indexes.py` does
+  not manage that phrase. The summary header's file/word counts are handled
+  by the script.
 - If the episode is a deep dive on an existing framework (ep5 was, for
   `frameworks/knowledge-factory.md`), cross-reference it from that
-  framework's own text and add it to `_relationships.json`'s
-  `referenced_by_podcast` array (introduced 2026-09-02 — mirrors the
-  existing `referenced_by_talks` shape; no other framework has this yet).
+  framework's own text (EP5's link is in the knowledge-factory file's
+  opening note). The `_relationships.json` `referenced_by_podcast` array
+  this bullet used to require no longer exists: `build_indexes.py`
+  regenerates that file and doesn't emit it (removed in d8e07d9,
+  2026-10-11). Open question for Brian: teach the script to emit it, or
+  drop the idea.
 - Run `python3 scripts/check_doc_accuracy.py` — it won't catch
   podcast-specific drift (no count-checks exist for `podcast/` yet), but
   it does catch phantom framework references and general cross-file
@@ -235,4 +286,14 @@ Riverside" disclaimer even after publish, matching existing episodes.
   episodes 1-5 lived, since he needed it as pasteable HTML and didn't
   have it in hand. `scripts/render_substack_html.py` was built in
   response and run with `--all`, producing
-  `outputs/podcast/ep{1,2,3,4,5}-substack.html`.
+  `outputs/podcast/ep{1,2,3,4,5}-substack.html`. Those renders were
+  removed from the repo on 2026-09-16 and `outputs/podcast/**/*.html` is
+  now gitignored, so the directory is empty until a publishing doc is
+  drafted. Re-run the script when you need a render.
+- 2026-10-16: audited against the five episodes and the repo's current
+  state ahead of EP6. Added the "Show format" section; corrected the
+  index/stats checklist (`build_indexes.py` replaced hand-editing
+  `_index.json`; the `referenced_by_podcast` array is gone); noted the HTML
+  removal above. Not verified: Riverside's character limits, link-markup
+  cost and rich-text behavior (all dated 2026-09-01/02) — recheck against
+  the live editor before relying on them for EP6.

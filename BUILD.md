@@ -1088,3 +1088,15 @@ Decisions and findings:
 - **Restack permalinks.** The Substack profile feed's comment id gives `substack.com/@handle/note/c-<id>`; `gather.py` now puts it on each restack in the prep doc. Verified against the restack Brian linked by hand.
 - **Not decided here:** Brian's final drops the "written by AI, based on conversations" line from the takeaways intro that the weekly skill requires. Left for him (see the governance-log entry).
 - **Untested until the next weekday run:** the new workflow itself (only its git logic and `publish.py` were exercised locally).
+
+### 2026-10-16: podcast bible audited against EPs 1-5
+
+Brian's ask: before recording EP6 (about six weeks after EP5), check how accurate `podcast/bible.md` is, read the changes since the last episode, and propose a topic list and outline in the format of the first five.
+
+Decisions and findings:
+- **The bible covered production only, not format.** Added a "Show format" section derived from the five transcripts: two-voice structure, 1-4 announced topics, recurring beats, length trending from about 41 to 58 minutes (`podcast/index.md` still says about 45; left for Brian since it's the public show page), and cadence that slips past "monthly" (gaps of 26, 6, 26 and 48 days, then 45+ to EP6).
+- **Stale checklist items fixed.** The index/stats checklist told maintainers to hand-edit `_index.json` and maintain a `_relationships.json` `referenced_by_podcast` array. `build_indexes.py` (added 2026-10-11) regenerates both and doesn't emit that key, so the array is gone. The "HTML renders live in `outputs/podcast/`" history line was stale too (removed 2026-09-16, gitignored). Open: teach the script to emit the cross-reference, or drop the idea.
+- **Open-promises ledger.** EP4 promised model routing "next episode"; EP5 didn't cover it. Worth checking the last two episodes for promises before every outline.
+- **Not verified:** Riverside's character limits and markup costs (dated 2026-09-01/02); the bible now says to recheck against the live editor.
+- **The EP6 prep guide is deliberately not in this repo** (Brian's call). It lives in a private doc; the repo gets the actual show notes after recording. The bible now says pre-record prep stays out of the repo.
+- **Sync state:** the session started 1 commit ahead and 6 behind origin; Brian synced and merged mid-session, and the bible and this entry were committed afterward.
