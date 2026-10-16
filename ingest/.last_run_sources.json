@@ -1,13 +1,13 @@
 {
-  "run_utc": "2026-10-15T05:27:15.065547+00:00",
+  "run_utc": "2026-10-16T05:39:28.582117+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "ok",
-      "entries_in_window": 43,
-      "new_entries": 43
+      "entries_in_window": 53,
+      "new_entries": 53
     },
     {
       "id": "ethan-mollick",
@@ -21,8 +21,9 @@
       "id": "nate-b-jones",
       "name": "Nate B. Jones",
       "method": "feed",
-      "status": "error",
-      "reason": "fetch failed: 404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?playlist_id=UU0C-17n9iuUQPylguM1d-lQ"
+      "status": "ok",
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "daniel-miessler",
@@ -37,24 +38,24 @@
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 7,
-      "new_entries": 7
+      "entries_in_window": 9,
+      "new_entries": 9
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "moonshots",
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "dwarkesh",
@@ -69,8 +70,8 @@
       "name": "BG2",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "hard-fork",
@@ -85,8 +86,8 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "on-with-kara-swisher",
@@ -96,7 +97,7 @@
       "entries_in_window": 1,
       "new_entries": 1,
       "long_form_skipped": [
-        "High Stakes with HRC: The Affordability Episode"
+        "Keri Russell on \u2018The Diplomat,\u2019 Powerful Women, and Loving the Mess"
       ]
     },
     {
@@ -104,16 +105,19 @@
       "name": "No Priors",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "80000-hours-podcast",
       "name": "The 80,000 Hours Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1,
+      "long_form_skipped": [
+        "How to get into AI safety in 3 months (article reading by career advisor Matt Beard)"
+      ]
     },
     {
       "id": "lex-fridman",
@@ -136,16 +140,16 @@
       "name": "The Algorithmic Bridge",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "exponential-view",
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "ahead-of-ai",
@@ -168,8 +172,8 @@
       "name": "The AI Realist",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "david-shapiro",
@@ -271,16 +275,16 @@
       "name": "Marcus on AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "metatrends",
       "name": "Metatrends",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "not-boring",
@@ -303,8 +307,8 @@
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "simon-willison",
@@ -343,8 +347,8 @@
       "name": "BIG by Matt Stoller",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "rutger-bregman",
@@ -438,8 +442,8 @@
       "name": "AI as Normal Technology",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ai-frontiers",
@@ -486,16 +490,16 @@
       "name": "GuardRailNow",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "metr",
       "name": "METR",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "openai-global-affairs",
@@ -542,16 +546,16 @@
       "name": "Future-Proof Your Career with AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "future-focused",
       "name": "Future-Focused",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ai-made-simple",
@@ -566,8 +570,8 @@
       "name": "Newcomer",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "redwood-research",
@@ -590,8 +594,8 @@
       "name": "Thinking Freely with Nita Farahany",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "andrew-morgan",
@@ -606,8 +610,8 @@
       "name": "Discover AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "andrew-yang",
@@ -630,8 +634,8 @@
       "name": "Pluralistic (Cory Doctorow)",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "aaron-levie-linkedin",
@@ -681,8 +685,8 @@
       "name": "Nate\u2019s Substack",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "futurism",
@@ -969,16 +973,16 @@
       "name": "Ground Level AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "opinion-ai-2",
       "name": "Opinion AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "azure-blog",
@@ -1001,72 +1005,72 @@
       "name": "Microsoft Research Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "microsoft-ai-news",
       "name": "Microsoft AI (news.microsoft.com)",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "aws-news-blog",
       "name": "AWS News Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "aws-ml-blog",
       "name": "AWS Machine Learning Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "google-cloud-blog",
       "name": "Google Cloud Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 5,
+      "new_entries": 5
     },
     {
       "id": "google-deepmind-blog",
       "name": "Google DeepMind Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "openai-news",
       "name": "OpenAI News",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "salesforce-news",
       "name": "Salesforce News",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 3,
+      "new_entries": 3
     },
     {
       "id": "hugging-face-blog",
       "name": "Hugging Face Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "anthropic-news",
@@ -1081,16 +1085,16 @@
       "name": "Super Intelligence School",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "a16z",
       "name": "a16z",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 2,
+      "new_entries": 2
     },
     {
       "id": "the-google-workspace-team",

@@ -1017,11 +1017,12 @@
     "slug": "ai-driven-vulnerability-surge-displacing-engineering-capacity",
     "description": "AI-discovered vulnerabilities surging (critical vulns across 21 major vendors from <100/month to 600+/month) and forcing companies like Zscaler to pause feature work for months to patch, a capacity cost distinct from agent governance.",
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-14",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-16",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate occurrence of the same pattern: GPT-5.6 Sol found a critical full-chain Chrome vulnerability in ~6 days for $40K of compute, per Levie."
+      "Separate occurrence of the same pattern: GPT-5.6 Sol found a critical full-chain Chrome vulnerability in ~6 days for $40K of compute, per Levie.",
+      "Bank of America adding 1,000 contractors to 3,000 security staff to patch AI-found flaws; OpenAI pulling 25% of production engineers onto security per model release, per Brockman."
     ]
   },
   {
@@ -1106,11 +1107,12 @@
     "slug": "capacity-routing-erodes-data-residency",
     "description": "Hyperscaler cross-region inference (Bedrock global CRIS) routes requests to wherever capacity exists with no region identifier, unlisted destinations, and abuse-data retention in the processing region, so chasing compute availability quietly trades away data residency for regulated enterprises.",
     "first_seen": "2026-10-13",
-    "last_seen": "2026-10-15",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-16",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate occurrence: Tamnoon relies on Bedrock cross-region inference while claiming data stays inside the AWS trust boundary, which is not a regional guarantee."
+      "Separate occurrence: Tamnoon relies on Bedrock cross-region inference while claiming data stays inside the AWS trust boundary, which is not a regional guarantee.",
+      "Doctolib's 'hosted in France' claim doesn't cover US-model inference, and Bedrock has no Paris-only route for Opus; Starling's sovereign model routes through Google Cloud."
     ]
   },
   {
@@ -1126,21 +1128,24 @@
     "slug": "agent-scale-breaks-human-scale-dev-tooling",
     "description": "Anthropic replaced Git internally after daily merges grew ~12x in four months; foundational developer tooling built for human-scale work breaking under agent-scale volume, with implications for git-based knowledge canons.",
     "first_seen": "2026-10-14",
-    "last_seen": "2026-10-15",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-16",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "New detail on the same Anthropic event: the replacement is named Scion, built by seven people in five months, cut CPU/memory about 200x, and Anthropic says it isn't a general Git replacement."
+      "New detail on the same Anthropic event: the replacement is named Scion, built by seven people in five months, cut CPU/memory about 200x, and Anthropic says it isn't a general Git replacement.",
+      "Same Anthropic Git-replacement event restated by Miessler (2,500 to 30,000+ merges/day); no new detail."
     ]
   },
   {
     "slug": "agent-sandboxes-consolidating-on-compute-providers",
     "description": "Theory survey: Cloudflare hosts 62% of code-executing agent sandboxes (3x the next provider) while security is the #1 pain point, so sandbox infrastructure is consolidating on a compute vendor rather than a governed environment.",
     "first_seen": "2026-10-14",
-    "last_seen": "2026-10-14",
-    "count": 1,
+    "last_seen": "2026-10-16",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "AWS Trust in Depth (Strands Box, AgentCore gateway) and Nvidia's Open Shell show hyperscalers and chip vendors shipping the agent containment and enforcement layer themselves."
+    ]
   },
   {
     "slug": "agent-accessibility-as-distribution-channel",
@@ -1156,6 +1161,24 @@
     "description": "Competitors delegating the same decision to the same third-party algorithm (hotels accepting vendor pricing ~90% of the time) creating antitrust and coordination exposure without any explicit collusion.",
     "first_seen": "2026-10-15",
     "last_seen": "2026-10-15",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-recommendations-as-software-supply-chain-attack-surface",
+    "description": "Attackers manufacturing trust signals (fake stars, forks, commit histories) so AI assistants recommend malicious tools, e.g. a fake Shopify MCP server surfacing in ChatGPT and Google AI Overview on ordinary queries.",
+    "first_seen": "2026-10-16",
+    "last_seen": "2026-10-16",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "proof-of-execution-for-agent-policy-compliance",
+    "description": "Cryptographic proofs of execution (Microsoft's Magnetar zkVM) and formal automated reasoning (AWS) as a way to verify that bounded agent actions complied with policy, an alternative to watching behavior with other agents.",
+    "first_seen": "2026-10-16",
+    "last_seen": "2026-10-16",
     "count": 1,
     "status": "watching",
     "history": []

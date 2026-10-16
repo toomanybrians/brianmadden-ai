@@ -120,3 +120,42 @@ Notes from each recurrence:
 - Separate-but-similar: eight state AGs suing OpenAI under consumer-protection law also seek a court order barring recursive self-improvement work, a subnational legal lever on frontier development.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-driven-vulnerability-surge-displacing-engineering-capacity` — flagged 2026-10-16
+
+AI-discovered vulnerabilities surging (critical vulns across 21 major vendors from <100/month to 600+/month) and forcing companies like Zscaler to pause feature work for months to patch, a capacity cost distinct from agent governance.
+
+First seen 2026-10-07, recurred 3 times through 2026-10-16.
+
+Notes from each recurrence:
+
+- Separate occurrence of the same pattern: GPT-5.6 Sol found a critical full-chain Chrome vulnerability in ~6 days for $40K of compute, per Levie.
+- Bank of America adding 1,000 contractors to 3,000 security staff to patch AI-found flaws; OpenAI pulling 25% of production engineers onto security per model release, per Brockman.
+
+**Status: not yet reviewed by Brian.**
+
+## `capacity-routing-erodes-data-residency` — flagged 2026-10-16
+
+Hyperscaler cross-region inference (Bedrock global CRIS) routes requests to wherever capacity exists with no region identifier, unlisted destinations, and abuse-data retention in the processing region, so chasing compute availability quietly trades away data residency for regulated enterprises.
+
+First seen 2026-10-13, recurred 3 times through 2026-10-16.
+
+Notes from each recurrence:
+
+- Separate occurrence: Tamnoon relies on Bedrock cross-region inference while claiming data stays inside the AWS trust boundary, which is not a regional guarantee.
+- Doctolib's 'hosted in France' claim doesn't cover US-model inference, and Bedrock has no Paris-only route for Opus; Starling's sovereign model routes through Google Cloud.
+
+**Status: not yet reviewed by Brian.**
+
+## `agent-scale-breaks-human-scale-dev-tooling` — flagged 2026-10-16
+
+Anthropic replaced Git internally after daily merges grew ~12x in four months; foundational developer tooling built for human-scale work breaking under agent-scale volume, with implications for git-based knowledge canons.
+
+First seen 2026-10-14, recurred 3 times through 2026-10-16.
+
+Notes from each recurrence:
+
+- New detail on the same Anthropic event: the replacement is named Scion, built by seven people in five months, cut CPU/memory about 200x, and Anthropic says it isn't a general Git replacement.
+- Same Anthropic Git-replacement event restated by Miessler (2,500 to 30,000+ merges/day); no new detail.
+
+**Status: not yet reviewed by Brian.**
