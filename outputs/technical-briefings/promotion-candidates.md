@@ -159,3 +159,29 @@ Notes from each recurrence:
 - Same Anthropic Git-replacement event restated by Miessler (2,500 to 30,000+ merges/day); no new detail.
 
 **Status: not yet reviewed by Brian.**
+
+## `occupation-level-ai-employment-decline` — flagged 2026-10-19
+
+Global call-center employment turning sharply negative since ChatGPT, even in lower-middle-income countries, while US unemployment stays stable — first clean occupation-wide displacement data, worth watching for spread to other task-unit-heavy roles.
+
+First seen 2026-10-12, recurred 3 times through 2026-10-19.
+
+Notes from each recurrence:
+
+- Superintelligence repeats the a16z/Revelio call-center chart but adds that the decline began before ChatGPT alongside rising interest rates, weakening the clean-AI-displacement reading.
+- Levanon: white-collar finance/info/professional services jobs ~4% below trend outside a recession, with a historical case that routine-job cuts arrive in recessions.
+
+**Status: not yet reviewed by Brian.**
+
+## `multi-agent-consensus-destroys-minority-signal` — flagged 2026-10-19
+
+Anthropic's hidden-profile result: when correct answers depend on evidence held by few agents, multi-agent discussion converges on the shared-but-wrong consensus (17-36% vs near-100% for a single agent with all evidence), driven by low inter-agent output variance — undercutting adversarial-review-agent verification and the one-human-plus-agent-pod model.
+
+First seen 2026-08-24, recurred 3 times through 2026-10-19.
+
+Notes from each recurrence:
+
+- Separate-but-similar finding: AgentWorld benchmark shows the best agent team completes 52% of coordinated tasks (24% on harder ones), with under a third of actions contributing, another result undercutting the agent-pod model.
+- Naveen Rao: using agents to verify other agents' output makes the slop problem worse, not better, a practitioner echo of the verification failure.
+
+**Status: not yet reviewed by Brian.**
