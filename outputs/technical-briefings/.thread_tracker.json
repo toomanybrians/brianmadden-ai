@@ -871,11 +871,12 @@
     "slug": "bureaucratic-friction-as-ai-security-asymmetry",
     "description": "Argument that AI-enabled attackers hold a durable, structural advantage over defenders because effective organizations are embedded in change-control bureaucracy that slows response time, independent of any technology gap \u2014 complicates governance arguments that route enforcement through organizational process.",
     "first_seen": "2026-09-23",
-    "last_seen": "2026-10-01",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-20",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Citrix NetScaler case: AI accelerates vulnerability discovery, but patching critical infrastructure still requires planned downtime and humans judging 'unassessable' alarms."
+      "Citrix NetScaler case: AI accelerates vulnerability discovery, but patching critical infrastructure still requires planned downtime and humans judging 'unassessable' alarms.",
+      "BofA's Mythos-driven patching reportedly lags attackers despite ~1,000 contractors, while a single attacker breached ~100 sites at ~$50 per intrusion using a general agent orchestration tool."
     ]
   },
   {
@@ -1153,11 +1154,12 @@
     "slug": "agent-accessibility-as-distribution-channel",
     "description": "Blocking outside agents carries a distribution cost: JPMorgan locks agents out while Mercury exposes a hosted MCP server and AI assistants recommend Mercury 5-to-1, making agent access a channel decision, not only a security one.",
     "first_seen": "2026-10-15",
-    "last_seen": "2026-10-19",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-20",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "a16z: 403s to bots roughly doubled since summer 2025; Amazon blocking shopping agents while Shopify partners with Meta's Muse, a live test of opposite postures."
+      "a16z: 403s to bots roughly doubled since summer 2025; Amazon blocking shopping agents while Shopify partners with Meta's Muse, a live test of opposite postures.",
+      "Citi joins JPMorgan in blocking AI agents from customer accounts; Mercury, the MCP-exposing counterexample, crossed $1B annualized revenue and its CEO discussed agents spending money."
     ]
   },
   {
@@ -1182,10 +1184,12 @@
     "slug": "proof-of-execution-for-agent-policy-compliance",
     "description": "Cryptographic proofs of execution (Microsoft's Magnetar zkVM) and formal automated reasoning (AWS) as a way to verify that bounded agent actions complied with policy, an alternative to watching behavior with other agents.",
     "first_seen": "2026-10-16",
-    "last_seen": "2026-10-16",
-    "count": 1,
+    "last_seen": "2026-10-20",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "AWS weekly roundup pushes formal automated reasoning to verify agent policy rules, with limits enforced outside the agent at the AgentCore gateway."
+    ]
   },
   {
     "slug": "authority-propagating-through-agent-handoffs",
@@ -1201,6 +1205,24 @@
     "description": "Agent and bot access moving from one-time identity verification to ongoing, published behavioral trust scores (Cloudflare's trust bands) with customer-set thresholds, a reputation model rather than an enterprise provisioning model.",
     "first_seen": "2026-10-19",
     "last_seen": "2026-10-19",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "personal-agents-inflate-inbound-service-demand",
+    "description": "Consumer agents that retry persistently, call multiple vendors at once, and fall back to phone when APIs fail could raise enterprise contact-center and service load rather than lowering it (Salesforce claim).",
+    "first_seen": "2026-10-20",
+    "last_seen": "2026-10-20",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-defense-labor-hidden-from-headcount",
+    "description": "AI-driven security remediation staffed with contractors outside reported headcount (BofA's ~1,000 contractors patching Mythos-found flaws, with defense spend blended into AML), so published headcount cuts overstate AI efficiency gains.",
+    "first_seen": "2026-10-20",
+    "last_seen": "2026-10-20",
     "count": 1,
     "status": "watching",
     "history": []

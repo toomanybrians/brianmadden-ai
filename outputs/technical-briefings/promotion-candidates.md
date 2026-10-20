@@ -185,3 +185,29 @@ Notes from each recurrence:
 - Naveen Rao: using agents to verify other agents' output makes the slop problem worse, not better, a practitioner echo of the verification failure.
 
 **Status: not yet reviewed by Brian.**
+
+## `agent-accessibility-as-distribution-channel` — flagged 2026-10-20
+
+Blocking outside agents carries a distribution cost: JPMorgan locks agents out while Mercury exposes a hosted MCP server and AI assistants recommend Mercury 5-to-1, making agent access a channel decision, not only a security one.
+
+First seen 2026-10-15, recurred 3 times through 2026-10-20.
+
+Notes from each recurrence:
+
+- a16z: 403s to bots roughly doubled since summer 2025; Amazon blocking shopping agents while Shopify partners with Meta's Muse, a live test of opposite postures.
+- Citi joins JPMorgan in blocking AI agents from customer accounts; Mercury, the MCP-exposing counterexample, crossed $1B annualized revenue and its CEO discussed agents spending money.
+
+**Status: not yet reviewed by Brian.**
+
+## `bureaucratic-friction-as-ai-security-asymmetry` — flagged 2026-10-20
+
+Argument that AI-enabled attackers hold a durable, structural advantage over defenders because effective organizations are embedded in change-control bureaucracy that slows response time, independent of any technology gap — complicates governance arguments that route enforcement through organizational process.
+
+First seen 2026-09-23, recurred 3 times through 2026-10-20.
+
+Notes from each recurrence:
+
+- Citrix NetScaler case: AI accelerates vulnerability discovery, but patching critical infrastructure still requires planned downtime and humans judging 'unassessable' alarms.
+- BofA's Mythos-driven patching reportedly lags attackers despite ~1,000 contractors, while a single attacker breached ~100 sites at ~$50 per intrusion using a general agent orchestration tool.
+
+**Status: not yet reviewed by Brian.**
