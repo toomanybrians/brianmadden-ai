@@ -22,7 +22,7 @@ model: claude-sonnet-5-5
 
 - **Show home:** https://citrixaihotsheet.riverside.com/e/why-ai-agents-aren-t-in-the-enterprise-yet
 - **Apple Podcasts:** https://podcasts.apple.com/us/podcast/why-ai-agents-arent-in-the-enterprise-yet/id1896776524?i=1000797118103
-- **Spotify:** https://open.spotify.com/show/033jRLrUknFhvyEVCgzc3f
+- **Spotify:** https://open.spotify.com/episode/6fpxNJ8MSl6pCfUfQb6Rhy
 - **Amazon Music:** https://music.amazon.com/podcasts/c527d556-b9a1-42e9-b4f8-88062d81af4f/citrix-ai-hotsheet
 - **YouTube:** https://www.youtube.com/watch?v=79A2YHUAzfQ
 - **Substack show notes (canonical):** https://www.brianmadden.ai/p/citrix-ai-hotsheet-ep-6-why-enterprises
