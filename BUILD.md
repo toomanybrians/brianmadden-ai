@@ -1100,3 +1100,17 @@ Decisions and findings:
 - **Not verified:** Riverside's character limits and markup costs (dated 2026-09-01/02); the bible now says to recheck against the live editor.
 - **The EP6 prep guide is deliberately not in this repo** (Brian's call). It lives in a private doc; the repo gets the actual show notes after recording. The bible now says pre-record prep stays out of the repo.
 - **Sync state:** the session started 1 commit ahead and 6 behind origin; Brian synced and merged mid-session, and the bible and this entry were committed afterward.
+
+### 2026-10-20: EP6 processed into canon from the live Substack post
+
+Episode 6 (recorded Oct 16, released Oct 19) was live on Apple, YouTube and Substack. First native run of the bible's "processing happens in this repo" default.
+
+Decisions and findings:
+- **Source: the Substack post, not Riverside's transcript.** Brian's call: the Substack text started from Riverside's raw transcript and was corrected afterward, so it is the accurate one. Description, 41 chapters, links and transcript were extracted from the saved post's embedded data and assembled into `podcast/ep6.md` by script. Typographic quotes were normalized to straight ones to match EP1-5. The file is `not-reviewed-by-human` with the model recorded.
+- **Dates and titles.** `date` is the recording date (Oct 16), as for EP1-5; the release was Oct 19. The platforms title it "Why AI agents aren't in the enterprise yet"; the Substack post is titled "...Why enterprises aren't running AI agents". The file uses the platform title and links the Substack post as canonical.
+- **Index surfaces:** `podcast/index.md` (EP6 bullet, new tag), `_content-index.json`, `COLLECTIONS.md` (agents, governance, second brains, enterprise strategy), `llms.txt` episode count, then `build_indexes.py --write` for `_index.json` and the README count.
+- **Fixed a dead link:** the show page's RSS URL returned 410 Gone; the live feed is the one named in the feed's own `atom:link`.
+- **Spotify link:** the Substack post's "Spotify" link points at the Apple Podcasts URL. The repo file uses the Spotify show URL; the episode-level Spotify link isn't known.
+- **Colleague names** in the transcript (two Citrix colleagues) are kept as published; their spellings were not independently verified.
+- **Speaking page in the other repo:** `pages/bmad/speaking.md` in `brianmadden-ai-server` was missing EP5 as well as EP6; both were added there and left uncommitted for Brian.
+- **Not done here:** the episode's new positions (trust and judgment as the agent blocker, the second brain as a harness, IP in the harness) are candidates for the weekly review, not edits to `me/`.

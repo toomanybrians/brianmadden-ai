@@ -2,7 +2,7 @@
 title: "Citrix AI Hotsheet — Brian Madden's podcast"
 authority_level: 5
 file_type: podcast
-tags: [computer-using-agents, second-brain, context-vault, enterprise-ai, cognitive-stack, enterprise-governance, non-human-personas, knowledge-factory]
+tags: [computer-using-agents, second-brain, context-vault, enterprise-ai, cognitive-stack, enterprise-governance, non-human-personas, knowledge-factory, harness-engineering]
 staleness_threshold: stable
 tier: 2
 status: reviewed
@@ -22,7 +22,7 @@ The show covers what's actually changing for enterprise AI: agentic systems and 
 - **Apple Podcasts:** https://podcasts.apple.com/us/podcast/citrix-ai-hotsheet/id1896776524
 - **Spotify:** https://open.spotify.com/show/033jRLrUknFhvyEVCgzc3f
 - **YouTube playlist:** https://www.youtube.com/playlist?list=PLbrnMEdPVDPXyAfEOCvmUNEwlwwwDWeER
-- **RSS:** https://api.riverside.com/hosting/gaYjzjl0.rss
+- **RSS:** https://api.riverside.com/hosting/PEDQDW65.rss
 
 ## Episodes
 
@@ -36,3 +36,5 @@ The show covers what's actually changing for enterprise AI: agentic systems and 
   Four topics. OSWorld 2.0 raises the computer-use benchmark now that the original is saturated, and cost is a first-class metric alongside score. Dave introduces the reconciliation map — the new workflow stage he needs when a second brain pulls in contradictory enterprise data sources. Brian argues organizational AI maturity is a treehouse, not the ladder every consulting firm ships. And the futurist's playbook: don't predict one future, map many; then find what you can do today that pays off across all of them. The takeaway: open-weight Sonnet-class models will exist no matter what, so do the second-brain and knowledge-factory work now.
 - **EP 5: AI Knowledge Factories — Company-Wide Second Brains** (September 1, 2026) — `podcast/ep5.md`
   Brian admits he was wrong: wiring his and Dave's personal second brains together through a shared GitHub folder was a disaster — second brains are too bespoke to merge, even between two AI nerds. What works instead is the knowledge factory: the second brain applied at company scale, with three tiers instead of two — raw inputs, a curated canonical layer, and outputs — where canon acts as a firewall so hallucination-prone slurry never touches output generation directly. Covers why underspecified questions (not conflicting data) cause AI to guess, two-hour sprints, provenance from output back to source, canon managed like source code on Citrix SecurSpaces behind a NetScaler AI Gateway, Google's Open Knowledge Format as external validation, and forward-deployed engineers vs. today's service-owner role. Plus a bonus: new details on OpenAI's agents reverse-engineering a cybersecurity test and going after the (non-existent) monitoring system to cover their tracks, including a mass agent die-off nobody can explain.
+- **EP 6: Why AI agents aren't in the enterprise yet** (October 16, 2026) — `podcast/ep6.md`
+  Brian asks enterprise CIOs how they govern the agents running in their environment, and they tell him the question sounds absurd. Dave's diagnosis: trust and judgment, not capability, are what stop agents spreading, because agents compress execution and magnify judgment, good and bad. Brian recalibrates: guardrails were never the limiting factor. From there, the second brain as guardrails for agents and as the thing to verify them against; Dave using his second brain as a briefing engine for every SaaS chatbot; and why he backed out of the custom UI he built for it, since he was rebuilding a harness the vendors do better. The takeaway is to put your IP in the harness, not the model, with the second brain and the knowledge factory as part of the harness. Also covered: the "claw-likes" (OpenAI dots, Meta Muse, Microsoft Autopilot), MCP as priority number 9,000, Markdown vs. HTML, and BriForum 2012's Windows desktop as a harness.

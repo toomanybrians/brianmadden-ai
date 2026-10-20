@@ -1,5 +1,12 @@
 [
   {
+    "title": "Citrix AI Hotsheet EP 6: Why AI agents aren't in the enterprise yet",
+    "url": "https://youtu.be/79A2YHUAzfQ",
+    "date": "2026-10-16",
+    "type": "podcast",
+    "description": "Citrix AI Hotsheet, Episode 6. Enterprise CIOs told Brian that governing always-on agents sounds absurd; Dave's diagnosis is trust and judgment, and Brian says guardrails were never the limiting factor. Then the second brain as guardrails for agents, Dave's second brain as a briefing engine for SaaS chatbots, and why he backed out of his custom UI: he was rebuilding a harness the vendors do better. Put your IP in the harness, not the model."
+  },
+  {
     "title": "You can't transform the AI you can't see",
     "url": "https://www.citrix.com/blogs/2026-09/you-cant-transform-the-ai-you-cant-see",
     "date": "2026-09-14",

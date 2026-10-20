@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-10-12",
+  "generated": "2026-10-20",
   "description": "Machine-readable index of all files in the brianmadden.ai expert knowledge module. Designed for MCP server consumption.",
-  "total_files": 127,
-  "total_words": 287849,
+  "total_files": 128,
+  "total_words": 297157,
   "files": [
     {
       "path": "AGENTS.md",
@@ -38,7 +38,7 @@
       "authority_level": null,
       "file_type": null,
       "tags": [],
-      "word_count": 3757,
+      "word_count": 3833,
       "staleness_threshold": null
     },
     {
@@ -680,6 +680,39 @@
       ]
     },
     {
+      "path": "podcast/ep6.md",
+      "title": "EP 6: Why AI agents aren't in the enterprise yet",
+      "authority_level": 5,
+      "file_type": "podcast",
+      "tags": [
+        "ai-agents",
+        "enterprise-ai",
+        "trust-and-judgment",
+        "agent-governance",
+        "second-brain",
+        "harness",
+        "harness-engineering",
+        "knowledge-factory",
+        "always-on-agents",
+        "claw-likes",
+        "workspace",
+        "ai-bubble",
+        "open-weight-models",
+        "mcp",
+        "saas-chatbots",
+        "talent-pipeline"
+      ],
+      "word_count": 9060,
+      "staleness_threshold": "stable",
+      "date": "2026-10-16",
+      "format": "Podcast (Brian's own show)",
+      "show": "Citrix AI Hotsheet",
+      "hosts": [
+        "Brian Madden",
+        "Dave Brear"
+      ]
+    },
+    {
       "path": "podcast/index.md",
       "title": "Citrix AI Hotsheet — Brian Madden's podcast",
       "authority_level": 5,
@@ -692,9 +725,10 @@
         "cognitive-stack",
         "enterprise-governance",
         "non-human-personas",
-        "knowledge-factory"
+        "knowledge-factory",
+        "harness-engineering"
       ],
-      "word_count": 670,
+      "word_count": 842,
       "staleness_threshold": "stable"
     },
     {
