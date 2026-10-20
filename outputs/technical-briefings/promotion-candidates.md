@@ -211,3 +211,35 @@ Notes from each recurrence:
 - BofA's Mythos-driven patching reportedly lags attackers despite ~1,000 contractors, while a single attacker breached ~100 sites at ~$50 per intrusion using a general agent orchestration tool.
 
 **Status: not yet reviewed by Brian.**
+
+## `guardrails-were-never-the-limiting-factor-for-agents` — flagged 2026-10-20
+
+After talking with CIOs, CTOs and CISOs, Brian says he has recalibrated: he still believes agents can be governed like workers with the same guardrails, but "the limiting factor was never the guardrails." Even with every guardrail and a recording of the session, how do you know the agent shares the owner's intentions? Dave's diagnosis is trust and judgment: agents compress execution and magnify judgment, good and bad, so adoption starts where playbooks exist (HR and IT chatbots) and has to be proven at small scale first. Benchmarks measure capability (how well AI uses a computer), while a business cares about trustworthiness. This moves the published "agents are workers, govern them the same way" position (AI agents are the new insider threat, Aug 2025) from "guardrails are the answer" to "guardrails are the prerequisite, not the blocker." Dave adds a side effect: if agents do the junior work, where do the next leaders come from (touches the open question on how future experts develop judgment).
+
+Flagged by hand from podcast EP6 (recorded 2026-10-16; [podcast/ep6.md](../../podcast/ep6.md), chapters 4:44 to 14:31), not by the briefing skill.
+
+**Status: not yet reviewed by Brian.**
+
+## `second-brain-as-agent-guardrail-and-verifier` — flagged 2026-10-20
+
+On air, Brian extends the Sep 30 Scratchpad note (humans are the leading indicator for what agents will need). The second brain holds how the organization works: which applications to use, who to ask when something breaks, the requirements and guidelines. Agents could read it to learn how to do the job, and, one step further, be verified against it by comparing their outputs or a recorded session with what the second brain says. He credits the idea to a conversation with a Citrix colleague who works on knowledge factories, and adds that "we're not there" yet. It does not settle the open question in the Scratchpad note: whether the agent's layer is the same artifact as the human's brain, a governed subset, or something separate.
+
+Flagged by hand from podcast EP6 ([podcast/ep6.md](../../podcast/ep6.md), chapters 15:18 to 18:36), not by the briefing skill.
+
+**Status: not yet reviewed by Brian.**
+
+## `second-brain-as-briefing-engine-and-human-gateway` — flagged 2026-10-20
+
+Dave: every SaaS app now has a chatbot that knows its own data and nothing about the user. He plans in his second brain, which knows what lives in each tool, and it writes a chain of narrowing prompts he pastes into each tool's chatbot, pulling the results back to think with. Brian reverses his earlier instinct: he had been trying to give each sidebar chatbot more context, which is backwards and riskier because you don't know the model or data agreement behind it; better to take results into the second brain. Brian also argues that wiring everything together over MCP is solvable but is a project, and IT teams buried in patching and change velocity rank "connect AI to this application" around "priority number 9,000," so the human worker acting as the gateway between systems will last a while.
+
+Flagged by hand from podcast EP6 ([podcast/ep6.md](../../podcast/ep6.md), chapters 19:32 to 31:21), not by the briefing skill.
+
+**Status: not yet reviewed by Brian.**
+
+## `ip-in-the-harness-not-the-model` — flagged 2026-10-20
+
+Brian: the model is the brain and the harness is the body, and harness quality moves results with the same model. Dave widens the definition: the harness also includes the map of which data sources exist and are reachable, the environment, skills and a master prompt; the second brain and the knowledge factory are parts of the harness. Dave backed out of a custom UI he had built for his second brain after realizing he was rebuilding a harness that Claude Code and GitHub Copilot do far better, and now extends the vendor harness with his environment instead. Brian's conclusion: put your IP in the harness, not the model, so models can be swapped (Dave ran the same harness against Gemini 4 Argon, Opus and GPT-6), which ties back to the July bubble-pop invariants. Brian also floats harness engineering as its own segment and recasts the Windows desktop (his BriForum 2012 talk) as a harness connecting the worker to apps, data, security and policy. Dave's closing link: agents are not more prolific in enterprises because they lack the right harnesses to control them. Connects to the August 28 "harness" vocabulary note in the cognitive-stack entry, the bubble-pop planning floor, and workspace-as-control-plane.
+
+Flagged by hand from podcast EP6 ([podcast/ep6.md](../../podcast/ep6.md), chapters 25:45 to 50:17), not by the briefing skill.
+
+**Status: not yet reviewed by Brian.**
