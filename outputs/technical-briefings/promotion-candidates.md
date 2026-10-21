@@ -243,3 +243,16 @@ Brian: the model is the brain and the harness is the body, and harness quality m
 Flagged by hand from podcast EP6 ([podcast/ep6.md](../../podcast/ep6.md), chapters 25:45 to 50:17), not by the briefing skill.
 
 **Status: not yet reviewed by Brian.**
+
+## `corporate-work-archives-sold-as-agent-training-data` — flagged 2026-10-21
+
+Company email/chat/document archives becoming a priced, sellable asset for agent training (Google's $10M bid for bankrupt Spirit Airlines' records), with worker pushback and no canon position on ownership.
+
+First seen 2026-10-09, recurred 3 times through 2026-10-21.
+
+Notes from each recurrence:
+
+- Separate, larger occurrence: micro1 commits $1B over 12 months (backed by Citi and Hercules) to acquire and license enterprise data for AI training, distinct from Google's Spirit Airlines bid.
+- Separate deal, same pattern: micro1 reportedly spending ~$1B on bankrupt startups' Slack and document archives to train automation of those employees' work, after Google's Spirit Airlines bid.
+
+**Status: not yet reviewed by Brian.**

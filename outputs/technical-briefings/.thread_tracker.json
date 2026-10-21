@@ -1078,11 +1078,12 @@
     "slug": "corporate-work-archives-sold-as-agent-training-data",
     "description": "Company email/chat/document archives becoming a priced, sellable asset for agent training (Google's $10M bid for bankrupt Spirit Airlines' records), with worker pushback and no canon position on ownership.",
     "first_seen": "2026-10-09",
-    "last_seen": "2026-10-12",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-21",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate, larger occurrence: micro1 commits $1B over 12 months (backed by Citi and Hercules) to acquire and license enterprise data for AI training, distinct from Google's Spirit Airlines bid."
+      "Separate, larger occurrence: micro1 commits $1B over 12 months (backed by Citi and Hercules) to acquire and license enterprise data for AI training, distinct from Google's Spirit Airlines bid.",
+      "Separate deal, same pattern: micro1 reportedly spending ~$1B on bankrupt startups' Slack and document archives to train automation of those employees' work, after Google's Spirit Airlines bid."
     ]
   },
   {
@@ -1223,6 +1224,15 @@
     "description": "AI-driven security remediation staffed with contractors outside reported headcount (BofA's ~1,000 contractors patching Mythos-found flaws, with defense spend blended into AML), so published headcount cuts overstate AI efficiency gains.",
     "first_seen": "2026-10-20",
     "last_seen": "2026-10-20",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "version-control-breaking-at-agent-change-volume",
+    "description": "Agent-driven change volume outgrowing standard version control (Anthropic replaced Git after merged changes rose ~12x in four months), a possible limit for git-based knowledge canons at scale.",
+    "first_seen": "2026-10-21",
+    "last_seen": "2026-10-21",
     "count": 1,
     "status": "watching",
     "history": []
