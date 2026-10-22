@@ -1144,11 +1144,12 @@
     "slug": "agent-sandboxes-consolidating-on-compute-providers",
     "description": "Theory survey: Cloudflare hosts 62% of code-executing agent sandboxes (3x the next provider) while security is the #1 pain point, so sandbox infrastructure is consolidating on a compute vendor rather than a governed environment.",
     "first_seen": "2026-10-14",
-    "last_seen": "2026-10-16",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-22",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "AWS Trust in Depth (Strands Box, AgentCore gateway) and Nvidia's Open Shell show hyperscalers and chip vendors shipping the agent containment and enforcement layer themselves."
+      "AWS Trust in Depth (Strands Box, AgentCore gateway) and Nvidia's Open Shell show hyperscalers and chip vendors shipping the agent containment and enforcement layer themselves.",
+      "Nvidia's OpenShell, an open-source kernel-level agent runtime backed by 100+ partners including the major labs, is a counter-signal: sandboxing standardizing as an open runtime enterprises could run themselves rather than consolidating on one compute host."
     ]
   },
   {
@@ -1223,16 +1224,27 @@
     "slug": "ai-defense-labor-hidden-from-headcount",
     "description": "AI-driven security remediation staffed with contractors outside reported headcount (BofA's ~1,000 contractors patching Mythos-found flaws, with defense spend blended into AML), so published headcount cuts overstate AI efficiency gains.",
     "first_seen": "2026-10-20",
-    "last_seen": "2026-10-20",
-    "count": 1,
+    "last_seen": "2026-10-22",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Mollick reports companies struggling with the patch rate as AI defensive tools surface flaws faster (PHP RCE bugs leaked pre-patch), which shows the remediation workload behind AI-found vulnerabilities spreading beyond BofA."
+    ]
   },
   {
     "slug": "version-control-breaking-at-agent-change-volume",
     "description": "Agent-driven change volume outgrowing standard version control (Anthropic replaced Git after merged changes rose ~12x in four months), a possible limit for git-based knowledge canons at scale.",
     "first_seen": "2026-10-21",
     "last_seen": "2026-10-21",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-demand-inflating-conventional-it-hardware-costs",
+    "description": "AI datacenter demand driving price inflation in ordinary IT hardware (Gartner: conventional servers up ~120% by 2027, plus PCs and phones), repricing non-AI enterprise budgets like VDI hosts and laptop refreshes.",
+    "first_seen": "2026-10-22",
+    "last_seen": "2026-10-22",
     "count": 1,
     "status": "watching",
     "history": []

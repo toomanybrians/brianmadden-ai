@@ -256,3 +256,16 @@ Notes from each recurrence:
 - Separate deal, same pattern: micro1 reportedly spending ~$1B on bankrupt startups' Slack and document archives to train automation of those employees' work, after Google's Spirit Airlines bid.
 
 **Status: not yet reviewed by Brian.**
+
+## `agent-sandboxes-consolidating-on-compute-providers` — flagged 2026-10-22
+
+Theory survey: Cloudflare hosts 62% of code-executing agent sandboxes (3x the next provider) while security is the #1 pain point, so sandbox infrastructure is consolidating on a compute vendor rather than a governed environment.
+
+First seen 2026-10-14, recurred 3 times through 2026-10-22.
+
+Notes from each recurrence:
+
+- AWS Trust in Depth (Strands Box, AgentCore gateway) and Nvidia's Open Shell show hyperscalers and chip vendors shipping the agent containment and enforcement layer themselves.
+- Nvidia's OpenShell, an open-source kernel-level agent runtime backed by 100+ partners including the major labs, is a counter-signal: sandboxing standardizing as an open runtime enterprises could run themselves rather than consolidating on one compute host.
+
+**Status: not yet reviewed by Brian.**
