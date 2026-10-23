@@ -883,10 +883,12 @@
     "slug": "frontier-labs-insourcing-gpu-infra",
     "description": "Frontier labs building their own GPU cluster scheduler/control-plane infrastructure in-house rather than renting from neoclouds, producing a bifurcated market where the largest labs get preferential financing and pricing and smaller labs get worse terms \u2014 a compute-access stratification axis distinct from the neocloud security-baseline gap already tracked.",
     "first_seen": "2026-09-24",
-    "last_seen": "2026-09-24",
-    "count": 1,
+    "last_seen": "2026-10-23",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Same stratification at the fab level: Intel describes hyperscalers big enough to consume and fund a whole fab, and Musk building his own fab to guarantee supply."
+    ]
   },
   {
     "slug": "ai-labs-conceal-agent-security-incidents",
@@ -1067,11 +1069,12 @@
     "slug": "replicated-permissions-drift-in-ai-knowledge-layers",
     "description": "Permissions copied or derived into AI retrieval and knowledge layers go stale relative to source systems (AWS: synced ACLs drift, Confluence emits no group-change events), complicating any canon built from multiple permissioned sources.",
     "first_seen": "2026-10-08",
-    "last_seen": "2026-10-09",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-23",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Box Mount applies Box's own permissions at the source to agent file access instead of copying them, one answer to drift on the read path."
+      "Box Mount applies Box's own permissions at the source to agent file access instead of copying them, one answer to drift on the read path.",
+      "IskayPet's Bedrock deployment claims SharePoint permission changes propagate at retrieval with no app changes\u2014a counterexample suggesting drift is mainly a multi-source problem, though it's a vendor case study."
     ]
   },
   {
@@ -1244,7 +1247,18 @@
     "slug": "ai-demand-inflating-conventional-it-hardware-costs",
     "description": "AI datacenter demand driving price inflation in ordinary IT hardware (Gartner: conventional servers up ~120% by 2027, plus PCs and phones), repricing non-AI enterprise budgets like VDI hosts and laptop refreshes.",
     "first_seen": "2026-10-22",
-    "last_seen": "2026-10-22",
+    "last_seen": "2026-10-23",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Intel's CTO says memory faces an even bigger supply crunch than leading-edge logic, with meaningful new fab capacity not until 2028-2030."
+    ]
+  },
+  {
+    "slug": "worker-surveillance-law-limits-work-observation",
+    "description": "State laws (California SB 947, AB 1883, etc.) restricting AI monitoring of human workers, constraining the instrument-the-estate-to-see-how-work-happens payoff that applies freely to agents but not to people.",
+    "first_seen": "2026-10-23",
+    "last_seen": "2026-10-23",
     "count": 1,
     "status": "watching",
     "history": []

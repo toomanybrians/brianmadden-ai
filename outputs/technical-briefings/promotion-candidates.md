@@ -269,3 +269,16 @@ Notes from each recurrence:
 - Nvidia's OpenShell, an open-source kernel-level agent runtime backed by 100+ partners including the major labs, is a counter-signal: sandboxing standardizing as an open runtime enterprises could run themselves rather than consolidating on one compute host.
 
 **Status: not yet reviewed by Brian.**
+
+## `replicated-permissions-drift-in-ai-knowledge-layers` — flagged 2026-10-23
+
+Permissions copied or derived into AI retrieval and knowledge layers go stale relative to source systems (AWS: synced ACLs drift, Confluence emits no group-change events), complicating any canon built from multiple permissioned sources.
+
+First seen 2026-10-08, recurred 3 times through 2026-10-23.
+
+Notes from each recurrence:
+
+- Box Mount applies Box's own permissions at the source to agent file access instead of copying them, one answer to drift on the read path.
+- IskayPet's Bedrock deployment claims SharePoint permission changes propagate at retrieval with no app changes—a counterexample suggesting drift is mainly a multi-source problem, though it's a vendor case study.
+
+**Status: not yet reviewed by Brian.**
