@@ -883,11 +883,12 @@
     "slug": "frontier-labs-insourcing-gpu-infra",
     "description": "Frontier labs building their own GPU cluster scheduler/control-plane infrastructure in-house rather than renting from neoclouds, producing a bifurcated market where the largest labs get preferential financing and pricing and smaller labs get worse terms \u2014 a compute-access stratification axis distinct from the neocloud security-baseline gap already tracked.",
     "first_seen": "2026-09-24",
-    "last_seen": "2026-10-23",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-26",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Same stratification at the fab level: Intel describes hyperscalers big enough to consume and fund a whole fab, and Musk building his own fab to guarantee supply."
+      "Same stratification at the fab level: Intel describes hyperscalers big enough to consume and fund a whole fab, and Musk building his own fab to guarantee supply.",
+      "Musk claim (via Marcus) that debt markets have closed to AI-only infrastructure firms while SpaceX borrowed at investment grade on non-AI revenue\u2014another sign of financing stratifying by who has diversified revenue."
     ]
   },
   {
@@ -1258,7 +1259,27 @@
     "slug": "worker-surveillance-law-limits-work-observation",
     "description": "State laws (California SB 947, AB 1883, etc.) restricting AI monitoring of human workers, constraining the instrument-the-estate-to-see-how-work-happens payoff that applies freely to agents but not to people.",
     "first_seen": "2026-10-23",
-    "last_seen": "2026-10-23",
+    "last_seen": "2026-10-26",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Mollick reports AI expanding senior management's direct monitoring of whole firms, the human-observation use these state laws constrain."
+    ]
+  },
+  {
+    "slug": "ai-expands-senior-management-span-of-control",
+    "description": "AI used by executives to monitor the whole firm directly, as an easier alternative to org redesign\u2014visibility feeding centralization rather than the knowledge factory.",
+    "first_seen": "2026-10-26",
+    "last_seen": "2026-10-26",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "stolen-ai-provider-keys-as-billable-compute",
+    "description": "AI provider keys stolen (e.g., via a compromised LiteLLM gateway release) to buy model usage billed to the victim, with keys still working against the provider after the victim's app is offline\u2014gateways as targets, not just control points.",
+    "first_seen": "2026-10-26",
+    "last_seen": "2026-10-26",
     "count": 1,
     "status": "watching",
     "history": []

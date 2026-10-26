@@ -282,3 +282,16 @@ Notes from each recurrence:
 - IskayPet's Bedrock deployment claims SharePoint permission changes propagate at retrieval with no app changes—a counterexample suggesting drift is mainly a multi-source problem, though it's a vendor case study.
 
 **Status: not yet reviewed by Brian.**
+
+## `frontier-labs-insourcing-gpu-infra` — flagged 2026-10-26
+
+Frontier labs building their own GPU cluster scheduler/control-plane infrastructure in-house rather than renting from neoclouds, producing a bifurcated market where the largest labs get preferential financing and pricing and smaller labs get worse terms — a compute-access stratification axis distinct from the neocloud security-baseline gap already tracked.
+
+First seen 2026-09-24, recurred 3 times through 2026-10-26.
+
+Notes from each recurrence:
+
+- Same stratification at the fab level: Intel describes hyperscalers big enough to consume and fund a whole fab, and Musk building his own fab to guarantee supply.
+- Musk claim (via Marcus) that debt markets have closed to AI-only infrastructure firms while SpaceX borrowed at investment grade on non-AI revenue—another sign of financing stratifying by who has diversified revenue.
+
+**Status: not yet reviewed by Brian.**
