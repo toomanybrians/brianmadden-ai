@@ -1094,10 +1094,12 @@
     "slug": "model-switching-handoff-tax",
     "description": "Switching models mid-task forces full context recomputation (KV cache can't transfer across models); the fixes (Nvidia cross-model cache transfer, Cache-to-Cache) require open weights \u2014 a hidden cost on multi-model routing that may favor model stickiness or open-weight stacks.",
     "first_seen": "2026-10-12",
-    "last_seen": "2026-10-12",
-    "count": 1,
+    "last_seen": "2026-10-27",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "AWS prompt-caching guide: ~60% input savings require byte-identical prefixes on the same model, so routing switches forfeit cache gains\u2014another hidden cost favoring model stickiness."
+    ]
   },
   {
     "slug": "occupation-level-ai-employment-decline",
@@ -1279,7 +1281,18 @@
     "slug": "stolen-ai-provider-keys-as-billable-compute",
     "description": "AI provider keys stolen (e.g., via a compromised LiteLLM gateway release) to buy model usage billed to the victim, with keys still working against the provider after the victim's app is offline\u2014gateways as targets, not just control points.",
     "first_seen": "2026-10-26",
-    "last_seen": "2026-10-26",
+    "last_seen": "2026-10-27",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Gartner predicts 80% of companies with public-facing AI will face 'cost exhaustion' attacks inflating their AI bills by 2030\u2014the AI bill as attack target, a separate mechanism from stolen keys."
+    ]
+  },
+  {
+    "slug": "defensive-ai-spend-as-protection-cost",
+    "description": "AI spend shifting from optional value purchase to non-discretionary defense against AI-enabled attacks (Marcus's 'protection racket' framing, Gartner cost-exhaustion attacks), which would exempt part of the AI bill from budget rationalization.",
+    "first_seen": "2026-10-27",
+    "last_seen": "2026-10-27",
     "count": 1,
     "status": "watching",
     "history": []
