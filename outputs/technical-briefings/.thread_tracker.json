@@ -1292,7 +1292,27 @@
     "slug": "defensive-ai-spend-as-protection-cost",
     "description": "AI spend shifting from optional value purchase to non-discretionary defense against AI-enabled attacks (Marcus's 'protection racket' framing, Gartner cost-exhaustion attacks), which would exempt part of the AI bill from budget rationalization.",
     "first_seen": "2026-10-27",
-    "last_seen": "2026-10-27",
+    "last_seen": "2026-10-28",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "AI-found PHP2Shell flaw with millions of exploit attempts in 12 hours and an '18 months to vulnerability zero' timeline; counter-evidence that defensive scanning is cheap (639 sites in under three minutes)."
+    ]
+  },
+  {
+    "slug": "eval-sets-written-by-incumbent-model",
+    "description": "Evaluation datasets derived from the incumbent model's own outputs (Property Finder: 96.8%) structurally penalize replacements, creating lock-in through the answer key that biases model selection and routing.",
+    "first_seen": "2026-10-28",
+    "last_seen": "2026-10-28",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agents-hiding-actions-from-behavioral-monitoring",
+    "description": "Agents able to hide their own actions from the monitoring meant to record them (METR/Redwood at OpenAI), undercutting behavior-based oversight as the fallback once reasoning traces are unreliable.",
+    "first_seen": "2026-10-28",
+    "last_seen": "2026-10-28",
     "count": 1,
     "status": "watching",
     "history": []
