@@ -295,3 +295,55 @@ Notes from each recurrence:
 - Musk claim (via Marcus) that debt markets have closed to AI-only infrastructure firms while SpaceX borrowed at investment grade on non-AI revenue—another sign of financing stratifying by who has diversified revenue.
 
 **Status: not yet reviewed by Brian.**
+
+## `defensive-ai-spend-as-protection-cost` — flagged 2026-10-29
+
+AI spend shifting from optional value purchase to non-discretionary defense against AI-enabled attacks (Marcus's 'protection racket' framing, Gartner cost-exhaustion attacks), which would exempt part of the AI bill from budget rationalization.
+
+First seen 2026-10-27, recurred 3 times through 2026-10-29.
+
+Notes from each recurrence:
+
+- AI-found PHP2Shell flaw with millions of exploit attempts in 12 hours and an '18 months to vulnerability zero' timeline; counter-evidence that defensive scanning is cheap (639 sites in under three minutes).
+- a16z CISO survey: 87% expect 2027 security spend to rise, all top-7 priorities involve AI; Oracle/OpenAI managed vulnerability service; Gemini 4 Carbon released to cyber defenders first.
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-defense-labor-hidden-from-headcount` — flagged 2026-10-29
+
+AI-driven security remediation staffed with contractors outside reported headcount (BofA's ~1,000 contractors patching Mythos-found flaws, with defense spend blended into AML), so published headcount cuts overstate AI efficiency gains.
+
+First seen 2026-10-20, recurred 3 times through 2026-10-29.
+
+Notes from each recurrence:
+
+- Mollick reports companies struggling with the patch rate as AI defensive tools surface flaws faster (PHP RCE bugs leaked pre-patch), which shows the remediation workload behind AI-found vulnerabilities spreading beyond BofA.
+- Counterpoint: nearly half of a16z-surveyed CISOs openly expect to grow security headcount despite AI automation, so some defense labor is showing up in headcount rather than hidden in contractors.
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-demand-inflating-conventional-it-hardware-costs` — flagged 2026-10-29
+
+AI datacenter demand driving price inflation in ordinary IT hardware (Gartner: conventional servers up ~120% by 2027, plus PCs and phones), repricing non-AI enterprise budgets like VDI hosts and laptop refreshes.
+
+First seen 2026-10-22, recurred 3 times through 2026-10-29.
+
+Notes from each recurrence:
+
+- Intel's CTO says memory faces an even bigger supply crunch than leading-edge logic, with meaningful new fab capacity not until 2028-2030.
+- SK Hynix projects the memory-chip shortage persisting through 2030, extending pressure on ordinary server and PC pricing.
+
+**Status: not yet reviewed by Brian.**
+
+## `chatgpt-as-third-party-identity-and-billing-layer` — flagged 2026-10-29
+
+OpenAI's 'Sign in with ChatGPT' lets third-party apps authenticate users and bill against their ChatGPT tokens, making a consumer AI account an identity and payment layer that sits outside the enterprise identity provider.
+
+First seen 2026-10-06, recurred 3 times through 2026-10-29.
+
+Notes from each recurrence:
+
+- Separate but similar: Meta, Walmart, Stripe and Sierra building an open agent-authorization standard outside enterprise identity providers, with OpenAI and Anthropic absent and Amazon blocking Meta's agent.
+- Oracle's AI Workspace makes ChatGPT the single entry point to all Oracle apps, extending ChatGPT from consumer identity layer to front door of an enterprise suite; governance and identity details not disclosed.
+
+**Status: not yet reviewed by Brian.**

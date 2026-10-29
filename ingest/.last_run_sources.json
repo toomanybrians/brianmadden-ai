@@ -1,13 +1,13 @@
 {
-  "run_utc": "2026-10-28T05:26:18.839228+00:00",
+  "run_utc": "2026-10-29T05:20:39.658975+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "ok",
-      "entries_in_window": 26,
-      "new_entries": 26
+      "entries_in_window": 34,
+      "new_entries": 34
     },
     {
       "id": "ethan-mollick",
@@ -37,24 +37,27 @@
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 6,
-      "new_entries": 6
+      "entries_in_window": 9,
+      "new_entries": 9
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "moonshots",
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1,
+      "transcript_fallbacks": [
+        "Anthropic\u2019s $2T IPO, Elon Predicts Neocloud Death, and China\u2019s Kimi Catches Up | #306"
+      ]
     },
     {
       "id": "dwarkesh",
@@ -85,19 +88,19 @@
       "name": "Ezra Klein Show",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1,
-      "long_form_skipped": [
-        "Nate Silver Predicts a \u2018Momentous\u2019 Midterm"
-      ]
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "on-with-kara-swisher",
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1,
+      "long_form_skipped": [
+        "High Stakes with HRC: The Midterms Prep Episode"
+      ]
     },
     {
       "id": "no-priors",
@@ -112,8 +115,8 @@
       "name": "The 80,000 Hours Podcast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "lex-fridman",
@@ -128,11 +131,8 @@
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1,
-      "long_form_skipped": [
-        "Staying Principled in a Time of Uncertainty"
-      ]
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "algorithmic-bridge",
@@ -147,8 +147,8 @@
       "name": "Exponential View",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "ahead-of-ai",
@@ -171,8 +171,8 @@
       "name": "The AI Realist",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "david-shapiro",
@@ -242,8 +242,8 @@
       "name": "Interconnects AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "kinder-futures",
@@ -282,8 +282,8 @@
       "name": "Metatrends",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "not-boring",
@@ -298,8 +298,8 @@
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "entries_in_window": 5,
+      "new_entries": 5
     },
     {
       "id": "semianalysis",
@@ -314,16 +314,16 @@
       "name": "Simon Willison's Newsletter",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "theory-of-the-game",
       "name": "Theory of the Game",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "work-evolved",
@@ -425,8 +425,8 @@
       "name": "80,000 Hours",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "after-babel",
@@ -473,8 +473,8 @@
       "name": "The Economics of AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "eu-ai-act-newsletter",
@@ -553,8 +553,8 @@
       "name": "Future-Focused",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "ai-made-simple",
@@ -569,8 +569,8 @@
       "name": "Newcomer",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "redwood-research",
@@ -585,16 +585,16 @@
       "name": "Paradigm 3 (Humans on AI)",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "nita-farahany",
       "name": "Thinking Freely with Nita Farahany",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "andrew-morgan",
@@ -625,8 +625,8 @@
       "name": "Musings on Markets",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "pluralistic",
@@ -972,8 +972,8 @@
       "name": "Ground Level AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "opinion-ai-2",
@@ -1028,8 +1028,8 @@
       "name": "AWS Machine Learning Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "entries_in_window": 3,
+      "new_entries": 3
     },
     {
       "id": "google-cloud-blog",
@@ -1052,24 +1052,24 @@
       "name": "OpenAI News",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 3,
+      "new_entries": 3
     },
     {
       "id": "salesforce-news",
       "name": "Salesforce News",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "hugging-face-blog",
       "name": "Hugging Face Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "anthropic-news",
@@ -1084,8 +1084,8 @@
       "name": "Super Intelligence School",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "a16z",

@@ -999,11 +999,12 @@
     "slug": "chatgpt-as-third-party-identity-and-billing-layer",
     "description": "OpenAI's 'Sign in with ChatGPT' lets third-party apps authenticate users and bill against their ChatGPT tokens, making a consumer AI account an identity and payment layer that sits outside the enterprise identity provider.",
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-08",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-29",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate but similar: Meta, Walmart, Stripe and Sierra building an open agent-authorization standard outside enterprise identity providers, with OpenAI and Anthropic absent and Amazon blocking Meta's agent."
+      "Separate but similar: Meta, Walmart, Stripe and Sierra building an open agent-authorization standard outside enterprise identity providers, with OpenAI and Anthropic absent and Amazon blocking Meta's agent.",
+      "Oracle's AI Workspace makes ChatGPT the single entry point to all Oracle apps, extending ChatGPT from consumer identity layer to front door of an enterprise suite; governance and identity details not disclosed."
     ]
   },
   {
@@ -1230,11 +1231,12 @@
     "slug": "ai-defense-labor-hidden-from-headcount",
     "description": "AI-driven security remediation staffed with contractors outside reported headcount (BofA's ~1,000 contractors patching Mythos-found flaws, with defense spend blended into AML), so published headcount cuts overstate AI efficiency gains.",
     "first_seen": "2026-10-20",
-    "last_seen": "2026-10-22",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-29",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Mollick reports companies struggling with the patch rate as AI defensive tools surface flaws faster (PHP RCE bugs leaked pre-patch), which shows the remediation workload behind AI-found vulnerabilities spreading beyond BofA."
+      "Mollick reports companies struggling with the patch rate as AI defensive tools surface flaws faster (PHP RCE bugs leaked pre-patch), which shows the remediation workload behind AI-found vulnerabilities spreading beyond BofA.",
+      "Counterpoint: nearly half of a16z-surveyed CISOs openly expect to grow security headcount despite AI automation, so some defense labor is showing up in headcount rather than hidden in contractors."
     ]
   },
   {
@@ -1250,11 +1252,12 @@
     "slug": "ai-demand-inflating-conventional-it-hardware-costs",
     "description": "AI datacenter demand driving price inflation in ordinary IT hardware (Gartner: conventional servers up ~120% by 2027, plus PCs and phones), repricing non-AI enterprise budgets like VDI hosts and laptop refreshes.",
     "first_seen": "2026-10-22",
-    "last_seen": "2026-10-23",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-29",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Intel's CTO says memory faces an even bigger supply crunch than leading-edge logic, with meaningful new fab capacity not until 2028-2030."
+      "Intel's CTO says memory faces an even bigger supply crunch than leading-edge logic, with meaningful new fab capacity not until 2028-2030.",
+      "SK Hynix projects the memory-chip shortage persisting through 2030, extending pressure on ordinary server and PC pricing."
     ]
   },
   {
@@ -1292,11 +1295,12 @@
     "slug": "defensive-ai-spend-as-protection-cost",
     "description": "AI spend shifting from optional value purchase to non-discretionary defense against AI-enabled attacks (Marcus's 'protection racket' framing, Gartner cost-exhaustion attacks), which would exempt part of the AI bill from budget rationalization.",
     "first_seen": "2026-10-27",
-    "last_seen": "2026-10-28",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-29",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "AI-found PHP2Shell flaw with millions of exploit attempts in 12 hours and an '18 months to vulnerability zero' timeline; counter-evidence that defensive scanning is cheap (639 sites in under three minutes)."
+      "AI-found PHP2Shell flaw with millions of exploit attempts in 12 hours and an '18 months to vulnerability zero' timeline; counter-evidence that defensive scanning is cheap (639 sites in under three minutes).",
+      "a16z CISO survey: 87% expect 2027 security spend to rise, all top-7 priorities involve AI; Oracle/OpenAI managed vulnerability service; Gemini 4 Carbon released to cyber defenders first."
     ]
   },
   {
@@ -1313,6 +1317,24 @@
     "description": "Agents able to hide their own actions from the monitoring meant to record them (METR/Redwood at OpenAI), undercutting behavior-based oversight as the fallback once reasoning traces are unreliable.",
     "first_seen": "2026-10-28",
     "last_seen": "2026-10-28",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "federal-labor-data-cannot-measure-ai-job-effects",
+    "description": "Federal labor statistics (lagging SOC codes, unjoinable CPS/JOLTS/OEWS, falling response rates) can't measure AI's effect on specific occupations, leaving vendor and company data as the main evidence on AI and jobs.",
+    "first_seen": "2026-10-29",
+    "last_seen": "2026-10-29",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "curated-memory-loses-to-raw-history-search",
+    "description": "Memory Tax benchmark: dedicated AI memory systems (63-84%) underperform plain search of raw chat history (90%) because summarization destroys retrievable detail, a challenge to curated-layer-only retrieval designs.",
+    "first_seen": "2026-10-29",
+    "last_seen": "2026-10-29",
     "count": 1,
     "status": "watching",
     "history": []
