@@ -1243,10 +1243,12 @@
     "slug": "version-control-breaking-at-agent-change-volume",
     "description": "Agent-driven change volume outgrowing standard version control (Anthropic replaced Git after merged changes rose ~12x in four months), a possible limit for git-based knowledge canons at scale.",
     "first_seen": "2026-10-21",
-    "last_seen": "2026-10-21",
-    "count": 1,
+    "last_seen": "2026-10-30",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Separate occurrence: GitHub rebuilt Git architecture to sustain 7,200 writes/sec from 5,000 coding agents on one repo, after Anthropic's earlier Git replacement."
+    ]
   },
   {
     "slug": "ai-demand-inflating-conventional-it-hardware-costs",
@@ -1264,11 +1266,12 @@
     "slug": "worker-surveillance-law-limits-work-observation",
     "description": "State laws (California SB 947, AB 1883, etc.) restricting AI monitoring of human workers, constraining the instrument-the-estate-to-see-how-work-happens payoff that applies freely to agents but not to people.",
     "first_seen": "2026-10-23",
-    "last_seen": "2026-10-26",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-10-30",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Mollick reports AI expanding senior management's direct monitoring of whole firms, the human-observation use these state laws constrain."
+      "Mollick reports AI expanding senior management's direct monitoring of whole firms, the human-observation use these state laws constrain.",
+      "Salesforce cites head-mounted cameras recording service workers as a way to capture tacit knowledge for AI, the kind of worker observation these state laws constrain."
     ]
   },
   {
@@ -1335,6 +1338,24 @@
     "description": "Memory Tax benchmark: dedicated AI memory systems (63-84%) underperform plain search of raw chat history (90%) because summarization destroys retrievable detail, a challenge to curated-layer-only retrieval designs.",
     "first_seen": "2026-10-29",
     "last_seen": "2026-10-29",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-output-convergence-erodes-differentiation",
+    "description": "Competent-but-generic AI output in hard-to-verify work (marketing, strategy) causes competitors using the same models to converge, a competitive cost distinct from output quality.",
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-payment-directories-as-identity-layer",
+    "description": "Payments companies building verified business registries agents can pay by name (Stripe Pay handles), a commercial agent-identity layer separate from enterprise provisioning and consumer agent identities.",
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
     "count": 1,
     "status": "watching",
     "history": []

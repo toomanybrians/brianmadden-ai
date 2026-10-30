@@ -347,3 +347,16 @@ Notes from each recurrence:
 - Oracle's AI Workspace makes ChatGPT the single entry point to all Oracle apps, extending ChatGPT from consumer identity layer to front door of an enterprise suite; governance and identity details not disclosed.
 
 **Status: not yet reviewed by Brian.**
+
+## `worker-surveillance-law-limits-work-observation` — flagged 2026-10-30
+
+State laws (California SB 947, AB 1883, etc.) restricting AI monitoring of human workers, constraining the instrument-the-estate-to-see-how-work-happens payoff that applies freely to agents but not to people.
+
+First seen 2026-10-23, recurred 3 times through 2026-10-30.
+
+Notes from each recurrence:
+
+- Mollick reports AI expanding senior management's direct monitoring of whole firms, the human-observation use these state laws constrain.
+- Salesforce cites head-mounted cameras recording service workers as a way to capture tacit knowledge for AI, the kind of worker observation these state laws constrain.
+
+**Status: not yet reviewed by Brian.**
