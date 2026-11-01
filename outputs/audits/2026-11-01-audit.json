@@ -1,0 +1,22 @@
+{
+  "canon_files": 132,
+  "broken_links": 0,
+  "frontmatter_problems": 0,
+  "indexed_files": 128,
+  "unindexed_files": 0,
+  "stale_generated_surfaces": 0,
+  "old_format_citrix_links": 0,
+  "public_safe_findings": 0,
+  "quarantine_leaks": 0,
+  "stale_me_frameworks_files": 0,
+  "developing_thinking_age_days": 19,
+  "files_over_500_lines": 2,
+  "orphans": 0,
+  "skill_problems": 0,
+  "claude_skills": 5,
+  "pipeline_runs_14d": 10,
+  "pipeline_missing_weekdays_14d": 0,
+  "repo_pack_size": "6.49 MiB",
+  "possible_secrets": 0,
+  "stale_remote_branches": 0
+}
