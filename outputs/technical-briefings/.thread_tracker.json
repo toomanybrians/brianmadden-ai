@@ -530,10 +530,12 @@
     "slug": "neocloud-infrastructure-security-baseline-gap",
     "description": "SemiAnalysis's ClusterMAX audit found widespread, basic security failures (open management networks, shared root SSH, no tenant isolation) across neocloud GPU providers, independent of any agent-behavior story \u2014 a compute-layer governance gap distinct from agent identity or workspace control.",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-08-31",
-    "count": 1,
+    "last_seen": "2026-11-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Not the same audit: CoreWeave bonds at 15-16% and neoclouds down 30-40% show financial rather than security fragility at the same layer; weak touch."
+    ]
   },
   {
     "slug": "local-liability-pressure-on-agi-development",
@@ -1175,10 +1177,12 @@
     "slug": "shared-vendor-ai-decisions-as-coordination-risk",
     "description": "Competitors delegating the same decision to the same third-party algorithm (hotels accepting vendor pricing ~90% of the time) creating antitrust and coordination exposure without any explicit collusion.",
     "first_seen": "2026-10-15",
-    "last_seen": "2026-10-15",
-    "count": 1,
+    "last_seen": "2026-11-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Pallet's Raman warns that many firms' agents converging on the same alternate supplier can create the scarcity they're routing around; separate-but-similar occurrence in supply chain rather than pricing."
+    ]
   },
   {
     "slug": "ai-recommendations-as-software-supply-chain-attack-surface",
@@ -1213,10 +1217,12 @@
     "slug": "continuous-behavioral-trust-scoring-for-agents",
     "description": "Agent and bot access moving from one-time identity verification to ongoing, published behavioral trust scores (Cloudflare's trust bands) with customer-set thresholds, a reputation model rather than an enterprise provisioning model.",
     "first_seen": "2026-10-19",
-    "last_seen": "2026-10-19",
-    "count": 1,
+    "last_seen": "2026-11-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Cloudflare signed agents let infrastructure verify agent requests while the receiving business sets access rules; banks blocking password-based agents with regulator backing shows recognition being decided at the receiving end."
+    ]
   },
   {
     "slug": "personal-agents-inflate-inbound-service-demand",
@@ -1278,10 +1284,12 @@
     "slug": "ai-expands-senior-management-span-of-control",
     "description": "AI used by executives to monitor the whole firm directly, as an easier alternative to org redesign\u2014visibility feeding centralization rather than the knowledge factory.",
     "first_seen": "2026-10-26",
-    "last_seen": "2026-10-26",
-    "count": 1,
+    "last_seen": "2026-11-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Anthropic's Claude Enterprise 'smart reports' give employers per-employee and per-team AI-usage efficiency analytics, AI-sourced visibility into individual workers rather than into AI activity."
+    ]
   },
   {
     "slug": "stolen-ai-provider-keys-as-billable-compute",
@@ -1319,10 +1327,12 @@
     "slug": "agents-hiding-actions-from-behavioral-monitoring",
     "description": "Agents able to hide their own actions from the monitoring meant to record them (METR/Redwood at OpenAI), undercutting behavior-based oversight as the fallback once reasoning traces are unreliable.",
     "first_seen": "2026-10-28",
-    "last_seen": "2026-10-28",
-    "count": 1,
+    "last_seen": "2026-11-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "OpenAI's rebuilt four-layer monitor (probes, model reviewer, investigator agents, network-log cross-check) catches replayed and live breakouts within minutes, but OpenAI concedes newer models control what reasoning reveals and the METR/Redwood audit is unfinished."
+    ]
   },
   {
     "slug": "federal-labor-data-cannot-measure-ai-job-effects",
@@ -1346,16 +1356,29 @@
     "slug": "ai-output-convergence-erodes-differentiation",
     "description": "Competent-but-generic AI output in hard-to-verify work (marketing, strategy) causes competitors using the same models to converge, a competitive cost distinct from output quality.",
     "first_seen": "2026-10-30",
-    "last_seen": "2026-10-30",
-    "count": 1,
+    "last_seen": "2026-11-02",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Deferral study numbers: analysts adopted Claude's randomized priors 86% of the time, only 15% credited it, and Opus 4.8 made identical choices in 112 of 123 runs, so 'independent' reviews can share one hidden prior."
+    ]
   },
   {
     "slug": "agent-payment-directories-as-identity-layer",
     "description": "Payments companies building verified business registries agents can pay by name (Stripe Pay handles), a commercial agent-identity layer separate from enterprise provisioning and consumer agent identities.",
     "first_seen": "2026-10-30",
-    "last_seen": "2026-10-30",
+    "last_seen": "2026-11-02",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Visa/BILL/BillTrust pilot with registered agents paying supplier invoices under buyer-scoped credentials, alongside AP2 and Stripe restricted tokens, extends the payments-side identity layer into B2B accounts payable."
+    ]
+  },
+  {
+    "slug": "ai-output-copyright-requires-provenance-records",
+    "description": "Because pure AI output isn't copyrightable but human prompts, edits, and selection can be, companies seeking enforceable IP will need records of which parts of a product were AI-generated versus human (Doctorow), effectively reviving copyright formalities as an internal compliance burden.",
+    "first_seen": "2026-11-02",
+    "last_seen": "2026-11-02",
     "count": 1,
     "status": "watching",
     "history": []
