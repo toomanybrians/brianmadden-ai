@@ -237,3 +237,11 @@ No longer in the brianmaddenai account's live follows: claudemythos. Correspondi
 
 ---
 
+## 2026-11-03 — substack unfollow
+
+**1 publication(s) no longer followed**
+
+No longer in the brianmaddenai account's live follows: profgmedia. Corresponding sources.yaml entries (if any) were left as-is — review whether to keep or archive them.
+
+---
+

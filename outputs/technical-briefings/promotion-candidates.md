@@ -360,3 +360,29 @@ Notes from each recurrence:
 - Salesforce cites head-mounted cameras recording service workers as a way to capture tacit knowledge for AI, the kind of worker observation these state laws constrain.
 
 **Status: not yet reviewed by Brian.**
+
+## `protocol-layer-neutrality-vs-hosting-layer-consolidation` — flagged 2026-11-03
+
+The same week Nvidia moves to acquire Hugging Face, MCP and A2A converge under a new neutral Linux Foundation body (AAIF) — worth watching whether protocol-layer neutrality holds even as hosting/infrastructure-layer neutrality keeps failing.
+
+First seen 2026-09-01, recurred 3 times through 2026-11-03.
+
+Notes from each recurrence:
+
+- Sharon Goldman's piece on AI-stack blurring (Nvidia buying Hugging Face, building its own model family) reinforces consolidation, while OpenCode surviving Anthropic's five-month access-restriction attempt is a counter-data-point complicating the 'neutrality keeps failing' read.
+- Open Responses joined the Linux Foundation's Agentic AI Foundation alongside MCP, but Anthropic hasn't committed to it and Google keeps its own format (Andrew Morgan).
+
+**Status: not yet reviewed by Brian.**
+
+## `model-switching-handoff-tax` — flagged 2026-11-03
+
+Switching models mid-task forces full context recomputation (KV cache can't transfer across models); the fixes (Nvidia cross-model cache transfer, Cache-to-Cache) require open weights — a hidden cost on multi-model routing that may favor model stickiness or open-weight stacks.
+
+First seen 2026-10-12, recurred 3 times through 2026-11-03.
+
+Notes from each recurrence:
+
+- AWS prompt-caching guide: ~60% input savings require byte-identical prefixes on the same model, so routing switches forfeit cache gains—another hidden cost favoring model stickiness.
+- A second hidden switching cost: translating between provider APIs silently drops reasoning items and tool-call semantics, separate from the KV-cache recomputation cost.
+
+**Status: not yet reviewed by Brian.**

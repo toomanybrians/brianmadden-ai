@@ -564,11 +564,12 @@
     "slug": "protocol-layer-neutrality-vs-hosting-layer-consolidation",
     "description": "The same week Nvidia moves to acquire Hugging Face, MCP and A2A converge under a new neutral Linux Foundation body (AAIF) \u2014 worth watching whether protocol-layer neutrality holds even as hosting/infrastructure-layer neutrality keeps failing.",
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-10",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-03",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Sharon Goldman's piece on AI-stack blurring (Nvidia buying Hugging Face, building its own model family) reinforces consolidation, while OpenCode surviving Anthropic's five-month access-restriction attempt is a counter-data-point complicating the 'neutrality keeps failing' read."
+      "Sharon Goldman's piece on AI-stack blurring (Nvidia buying Hugging Face, building its own model family) reinforces consolidation, while OpenCode surviving Anthropic's five-month access-restriction attempt is a counter-data-point complicating the 'neutrality keeps failing' read.",
+      "Open Responses joined the Linux Foundation's Agentic AI Foundation alongside MCP, but Anthropic hasn't committed to it and Google keeps its own format (Andrew Morgan)."
     ]
   },
   {
@@ -622,10 +623,12 @@
     "slug": "training-data-priced-as-inference-discount",
     "description": "Meta formalizing a two-tier API price where steep discounts are traded explicitly for rights to train on customer prompts/completions \u2014 turning subsidized token pricing into a named, quantified data-currency mechanism.",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
-    "count": 1,
+    "last_seen": "2026-11-03",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Sara Hooker frames enterprise data and customer interactions as what labs most want, and warns that giving it up trains a future competitor; this is the customer-side view of the same trade."
+    ]
   },
   {
     "slug": "internal-agent-authority-corporate-coup-risk",
@@ -1097,11 +1100,12 @@
     "slug": "model-switching-handoff-tax",
     "description": "Switching models mid-task forces full context recomputation (KV cache can't transfer across models); the fixes (Nvidia cross-model cache transfer, Cache-to-Cache) require open weights \u2014 a hidden cost on multi-model routing that may favor model stickiness or open-weight stacks.",
     "first_seen": "2026-10-12",
-    "last_seen": "2026-10-27",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-03",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "AWS prompt-caching guide: ~60% input savings require byte-identical prefixes on the same model, so routing switches forfeit cache gains\u2014another hidden cost favoring model stickiness."
+      "AWS prompt-caching guide: ~60% input savings require byte-identical prefixes on the same model, so routing switches forfeit cache gains\u2014another hidden cost favoring model stickiness.",
+      "A second hidden switching cost: translating between provider APIs silently drops reasoning items and tool-call semantics, separate from the KV-cache recomputation cost."
     ]
   },
   {
@@ -1318,10 +1322,12 @@
     "slug": "eval-sets-written-by-incumbent-model",
     "description": "Evaluation datasets derived from the incumbent model's own outputs (Property Finder: 96.8%) structurally penalize replacements, creating lock-in through the answer key that biases model selection and routing.",
     "first_seen": "2026-10-28",
-    "last_seen": "2026-10-28",
-    "count": 1,
+    "last_seen": "2026-11-03",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Related evaluation bias: AWS's AgentCore evaluator scored correct safety refusals as goal failures, and Stanford finds self-preference bias in LLM-as-judge persists in current models."
+    ]
   },
   {
     "slug": "agents-hiding-actions-from-behavioral-monitoring",
@@ -1379,6 +1385,24 @@
     "description": "Because pure AI output isn't copyrightable but human prompts, edits, and selection can be, companies seeking enforceable IP will need records of which parts of a product were AI-generated versus human (Doctorow), effectively reviving copyright formalities as an internal compliance burden.",
     "first_seen": "2026-11-02",
     "last_seen": "2026-11-02",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "model-harness-pairing-limits-portability",
+    "description": "Model performance depends on the harness it runs in (models score higher in Cursor's harness than their own; Mistral's gains appear only in its own agent; no shared API format), so the portable unit is a model-harness pair, not the model alone.",
+    "first_seen": "2026-11-03",
+    "last_seen": "2026-11-03",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "oversight-relevant-model-biases-persist-while-capability-failures-fade",
+    "description": "Capability failures like citation fabrication are disappearing fast, while sycophancy, self-preference bias as a grader, and score-seeking (including helping peer agents) persist or strengthen, which matters for agents grading and monitoring other agents.",
+    "first_seen": "2026-11-03",
+    "last_seen": "2026-11-03",
     "count": 1,
     "status": "watching",
     "history": []
