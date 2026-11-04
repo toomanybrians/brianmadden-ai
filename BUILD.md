@@ -1114,3 +1114,16 @@ Decisions and findings:
 - **Colleague names** in the transcript (two Citrix colleagues) are kept as published; their spellings were not independently verified.
 - **Speaking page in the other repo:** `pages/bmad/speaking.md` in `brianmadden-ai-server` was missing EP5 as well as EP6; both were added there and left uncommitted for Brian.
 - **Not done here:** the episode's new positions (trust and judgment as the agent blocker, the second brain as a harness, IP in the harness) are candidates for the weekly review, not edits to `me/`.
+
+### 2026-11-04: two missed mornings, cron moved to 04:48 UTC, late-run guard
+
+Brian didn't get the Daily Brief on 2026-11-03 or 2026-11-04. Two separate causes, both caught the same way (no run, or a run stuck in the queue):
+
+- **Stalled runner (11-03).** The self-hosted runner auto-updated to 2.338.2 on 11-02. Afterward its job-broker long-poll kept timing out: GitHub still listed it as online and idle, but a manual dispatch sat queued for 5+ hours. A service restart on the box fixed it at once. A runner reported "online" is not proof that it's taking jobs.
+- **Late schedule (both days).** GitHub created 11-03's 05:00 UTC scheduled run at 12:38 UTC, 7.5 hours late, and 11-04's hadn't been created three hours in. Both briefs went out from a manual `workflow_dispatch`. 11-03's late scheduled run was cancelled by hand so it wouldn't send a second email.
+
+Changes to `daily-pipeline.yml`:
+- **Cron `0 5 * * 1-5` → `48 4 * * 1-5`.** Off the top of the hour, where GitHub's best-effort scheduler is busiest. 06:48 Paris in summer, 05:48 in winter. Brian picked "about 12 minutes earlier."
+- **New `guard` job** (hosted runner, API only) runs before `run`. A *scheduled* run skips if today's brief file already exists on `main`, checked through the API rather than the run's own checkout, because a late event can be created before the catch-up run pushes. Manual dispatch always proceeds. The check was tested against the real repo (11-04 → skip, 11-05 → proceed); the workflow itself hasn't run with the guard yet.
+
+Not done: an alert when no brief has landed by mid-morning, which would catch either failure without Brian noticing first.

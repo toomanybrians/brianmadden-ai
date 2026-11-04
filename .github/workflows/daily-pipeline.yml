@@ -11,18 +11,23 @@
 # Substack itself remains manual — nothing here can do that (no posting
 # API exists yet, D7).
 #
-# WHY 05:00 UTC
+# WHY 04:48 UTC
 # -------------
-# Target is 07:00 Paris time. Moved up from 08:00 on 2026-10-07 because
-# Brian is getting up earlier and the brief wasn't always ready (BUILD.md
-# open decision #3 has the original 08:00 reasoning). GitHub Actions cron
-# is always UTC and doesn't observe DST. 05:00 UTC matches 07:00 Paris
-# exactly under CEST (summer, UTC+2). Under CET (winter, UTC+1, from
-# 2026-10-25) it drifts to 06:00 Paris, an hour early, not late.
-# Deliberately not solved with a second seasonal cron entry: "not much
-# breaks overnight," so an hour of early drift doesn't matter enough to
-# double the schedule complexity. If winter's 06:00 is too early, change
-# this to 06:00 UTC then.
+# Target is 07:00 Paris time or a little before. Moved up from 08:00 on
+# 2026-10-07 because Brian is getting up earlier and the brief wasn't
+# always ready (BUILD.md open decision #3 has the original 08:00
+# reasoning). GitHub Actions cron is always UTC and doesn't observe DST:
+# 04:48 UTC is 06:48 Paris under CEST (summer, UTC+2) and 05:48 under CET
+# (winter, UTC+1). Deliberately not solved with a second seasonal cron
+# entry: "not much breaks overnight," so an hour of early drift doesn't
+# matter enough to double the schedule complexity.
+#
+# Off the top of the hour on purpose (2026-11-04). The cron was
+# "0 5 * * 1-5" until GitHub's scheduler, which is best-effort and
+# busiest on the hour, delivered 2026-11-03's run 7.5 hours late and
+# hadn't delivered 2026-11-04's three hours in. Both days' briefs went
+# out from a manual workflow_dispatch instead. The `guard` job below
+# makes a late scheduled run a no-op once that day's brief exists.
 #
 # WHY SELF-HOSTED (2026-09-25)
 # ----------------------------
@@ -86,7 +91,7 @@ name: Daily ingest + brief + publish
 
 on:
   schedule:
-    - cron: "0 5 * * 1-5"
+    - cron: "48 4 * * 1-5"
   workflow_dispatch:
 
 concurrency:
@@ -98,7 +103,39 @@ permissions:
   actions: write
 
 jobs:
+  # Skips a scheduled run when today's brief is already on main, so a
+  # late-delivered schedule event (see WHY 04:48 UTC above) can't send a
+  # second email after a manual catch-up run. Checks origin's main through
+  # the API rather than this run's own checkout: a delayed event can be
+  # created before the catch-up run pushes, and its checkout would predate
+  # the brief. Manual workflow_dispatch runs always proceed, so a rerun
+  # can still be forced. Runs on a hosted runner because it only talks to
+  # the GitHub API, and a stalled beelink then still leaves a visible
+  # guard result.
+  guard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      skip: ${{ steps.check.outputs.skip }}
+    steps:
+      - name: Skip if today's brief already exists on main
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRIEF_PATH="outputs/technical-briefings/$(date -u +%Y/%m/%Y-%m-%d).md"
+          if [ "${{ github.event_name }}" = "schedule" ] && \
+             gh api "repos/${{ github.repository }}/contents/$BRIEF_PATH?ref=main" --silent 2>/dev/null; then
+            echo "$BRIEF_PATH already on main; skipping this scheduled run"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
   run:
+    needs: guard
+    if: needs.guard.outputs.skip != 'true'
     runs-on: [self-hosted, beelink]
     steps:
       - uses: actions/checkout@v5
