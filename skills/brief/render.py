@@ -140,26 +140,47 @@ def find_batch_commit(dense_path: Path) -> str | None:
     return shas[-1] if shas else None
 
 
-READ_COUNT_RE = re.compile(r"^(I read )(\d[\d,]*)(?: posts| items)( today\b)", re.MULTILINE)
+# The brief's own first line ("I read 57 posts today — here's what's
+# relevant to your work:") plus the section heading right after it.
+READ_COUNT_RE = re.compile(
+    r"^I read (\d[\d,]*) (?:posts|items) today\b[^\n]*\n+(?:#{1,6} [^\n]*\n+)?",
+    re.MULTILINE,
+)
+OPENER_START = "I'm brianmadden.ai ("
 
 
-def link_read_count(body: str, dense_path: Path) -> str:
-    """Links the opener's count: "I read 57 posts today" becomes "I read
-    [57 posts](...) today" (Brian's ask, 2026-10-12), pointing at the batch
-    commit, whose diff is the notes behind the number (see
-    find_batch_commit()). Falls back to the dense brief's history page when
-    the batch isn't committed yet, so a manual run before committing still
-    gets a working link (one click further). The count is the number of
-    ingest notes the brief was built from, so it can differ by a few from
-    the commit's file count when a note was filed by hand outside the daily
-    run. Only the first line that starts with the opener is touched; a body
-    with no such line comes back unchanged."""
+def rewrite_opener(body: str, dense_path: Path) -> str:
+    """Replaces the brief's "I read N posts today" line, and the section
+    heading right after it, with the published opener (Brian's wording,
+    2026-11-04): "I'm brianmadden.ai (Brian Madden's AI second brain) and I
+    generated this post, based on N sources today. Here's what's relevant
+    to your work:", rolling straight into the first section's prose. This
+    line is now the post's disclosure too, so render_to_html() skips the
+    separate italic disclosure_line() for any body that starts with it.
+
+    "N sources" links to the batch commit, whose diff is the notes behind
+    the number and the full dense brief (see find_batch_commit()), so it
+    also covers the old disclosure's "raw ingest notes" link. Falls back to
+    the dense brief's history page when the batch isn't committed yet. N
+    is the count of ingest notes the brief was built from, so it can differ
+    by a few from the commit's file count when a note was filed by hand
+    outside the daily run. Only the first match is touched; a body with no
+    such line comes back unchanged. Replaced link_read_count() (2026-10-12),
+    which only linked the count in place."""
     commit_sha = find_batch_commit(dense_path)
     if commit_sha:
         url = f"{GITHUB_REPO}/commit/{commit_sha}"
     else:
         url = f"{GITHUB_REPO}/commits/main/{dense_path.relative_to(ROOT).as_posix()}"
-    return READ_COUNT_RE.sub(lambda m: f"{m.group(1)}[{m.group(2)} posts]({url}){m.group(3)}", body, count=1)
+
+    def opener(m: re.Match) -> str:
+        return (
+            f"{OPENER_START}[Brian Madden's AI second brain](https://brianmadden.ai)) "
+            f"and I generated this post, based on [{m.group(1)} sources]({url}) today. "
+            "Here's what's relevant to your work:\n\n"
+        )
+
+    return READ_COUNT_RE.sub(opener, body, count=1)
 
 
 REVIEW_CLAUSES = {
@@ -223,7 +244,10 @@ def render_to_html(md_path: Path) -> Path:
     separate re-render."""
     fm, body = read_frontmatter_and_body(md_path)
     body = normalize_body(body)
-    body = disclosure_line(fm) + "\n\n" + body
+    # Posts published since 2026-11-04 open with rewrite_opener()'s line,
+    # which already is the disclosure. Older posts still get the italic one.
+    if not body.startswith(OPENER_START):
+        body = disclosure_line(fm) + "\n\n" + body
     html_body = markdown.markdown(body, extensions=["extra"])
     fields_block = render_fields_block(fm.get("substack_title", ""), fm.get("substack_subtitle", ""))
     full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{fields_block}\n{html_body}\n</body>\n</html>\n"

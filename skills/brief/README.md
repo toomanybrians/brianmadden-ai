@@ -126,13 +126,18 @@ committing the batch and the disclosure line falls back to a plain
 `main`-branch blob link instead (still works, just not permalinked — the
 same trade every other GITHUB_BASE link in this pipeline already makes).
 
-The same commit is where the opener's count points: the brief's first line
-is "I read N posts today", and `publish.py` turns "N posts" into a link to
-the batch commit (`link_read_count()` in `render.py`), so a reader can click
-through to the notes behind the number. N is the count of ingest notes the
-brief was built from, so it can differ by a few from the commit's file
-count when a note was filed by hand outside the daily run. With no batch
-commit yet, the link goes to the dense brief's history page instead.
+The same commit is where the opener's count points. The brief's first line
+is "I read N posts today", and `publish.py` swaps it, along with the
+section heading right after it, for the published opener (Brian's wording,
+2026-11-04): "I'm brianmadden.ai (Brian Madden's AI second brain) and I
+generated this post, based on N sources today. Here's what's relevant to
+your work:", with "N sources" linked to the batch commit
+(`rewrite_opener()` in `render.py`). That line is the post's AI disclosure,
+so the renderer drops the separate italic disclosure line for any post
+that opens with it. N is the count of ingest notes the brief was built
+from, so it can differ by a few from the commit's file count when a note
+was filed by hand outside the daily run. With no batch commit yet, the
+link goes to the dense brief's history page instead.
 
 `daily-pipeline.yml` makes the permalink available in CI by committing the
 batch locally (without pushing) before `publish.py`, then making a second
