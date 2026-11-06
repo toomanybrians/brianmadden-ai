@@ -482,6 +482,10 @@ def render_sources_checked_section(data: dict | None) -> str:
     if fallbacks:
         lines += ["", "**No transcript, summarized from show notes only:**", ""]
         lines += [f"- {name} — {title}" for name, title in fallbacks]
+    failures = [(r["name"], t) for r in results for t in r.get("extraction_failures", [])]
+    if failures:
+        lines += ["", "**Extraction failed (no note written):**", ""]
+        lines += [f"- {name} — {title}" for name, title in failures]
     if skipped:
         lines += ["", "**Skipped:**", ""]
         lines += [f"- {r['name']} — {r['reason']}" for r in skipped]

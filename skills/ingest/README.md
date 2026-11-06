@@ -234,6 +234,12 @@ A transcript is capped at `TRANSCRIPT_MAX_CHARS` (400k chars, about ten
 hours of speech), not the 50k that fits an article. The 50k cap used to
 cut every episode over about 75 minutes before the model saw it.
 
+The audio download has its own cap, `TRANSCRIPT_MAX_BYTES` (1GB). It was
+300MB until 2026-11-06, when Moonshots' 334, 329 and 347MB episodes (about
+two hours at a high bitrate) kept hitting it and falling back to show notes.
+Those files run 275-350MB, so the new cap leaves a wide margin. A download
+that still exceeds it shows up as a transcript fallback, same as any other.
+
 ## Long-form extraction
 
 An item whose `content_basis` is `transcript` is extracted with
@@ -258,8 +264,26 @@ An item whose `content_basis` is `transcript` is extracted with
   section called it adjacent still got 28 bullets, because the section came
   last and didn't constrain the depth.
   `LONGFORM_MAX_TOKENS` is 24000 because thinking shares the budget with the
-  answer. Anything past a model's `max_tokens` is now printed by
-  `llm.py`, since a short budget used to fail as an empty response.
+  answer.
+
+**Short transcripts take the standard prompt.** Under `LONGFORM_MIN_WORDS`
+(600 words, about four minutes of speech) a transcript is a Short or a
+trailer. In the first three weeks three such clips came back as long-form
+notes 93-102% of their source's length, which is a full paraphrase, so
+anything this short goes through `prompt.md` (3-6 bullets, its own
+too-thin sentinel) even though a transcript was obtained.
+
+**A token-limit stop is a failure, not a note.** `llm.generate()` raises
+`llm.OutputTruncated` on a `max_tokens` stop when called with
+`raise_on_truncation=True` (the default still just prints a warning, which
+suits callers that can use partial text). `extract()` uses it: one retry at
+double the budget (capped at `TRUNCATION_RETRY_MAX_TOKENS`, 32000), then it
+gives up. A failed item writes no note, is left unlabeled if it came from
+email (so the next run retries it), and is listed under `extraction_failures`
+in `ingest/.last_run_sources.json` and in the brief's "Sources checked
+today". Before this, a 2026-10-28 newsletter note was saved cut off
+mid-list, and an empty reply from a thinking-heavy call read as "nothing to
+say".
 
 MAINTAINER.md rule 2 still binds: the note must stay far shorter than the
 transcript (the prompt says about a tenth for a long episode), quotes are

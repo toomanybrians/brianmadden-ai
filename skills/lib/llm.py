@@ -51,30 +51,45 @@ def resolve_model(provider: Optional[str] = None, model: Optional[str] = None) -
     return model or os.environ.get("LLM_MODEL") or DEFAULT_MODELS.get(provider, "")
 
 
+class OutputTruncated(RuntimeError):
+    """The call stopped at max_tokens, so its text is cut off or empty
+    (thinking shares that budget). Only raised when the caller asks for it
+    with raise_on_truncation=True."""
+
+
 def generate(
     prompt: str,
     provider: Optional[str] = None,
     model: Optional[str] = None,
     max_tokens: int = 1024,
     images: Optional[list[dict]] = None,
+    raise_on_truncation: bool = False,
 ) -> str:
     """images, when given, is [{"media_type": "image/png", "data": <base64
     str>}, ...] — used by ingest.py's brain@ screenshot-attachment handling
     (open decision #9). Anthropic-only for now; nothing in this pipeline
-    needs vision through the openrouter path."""
+    needs vision through the openrouter path.
+
+    A call that stops at max_tokens prints a warning and returns what it
+    has, which suits callers that can use partial text. A caller that can't
+    (ingest writes the text to disk as a note) passes
+    raise_on_truncation=True and gets OutputTruncated instead."""
     provider = provider or current_provider()
     model = resolve_model(provider, model)
 
     if provider == "anthropic":
-        return _generate_anthropic(prompt, model, max_tokens, images)
+        return _generate_anthropic(prompt, model, max_tokens, images, raise_on_truncation)
     if provider == "openrouter":
         if images:
             raise ValueError("image input isn't supported for provider 'openrouter'")
-        return _generate_openrouter(prompt, model, max_tokens)
+        return _generate_openrouter(prompt, model, max_tokens, raise_on_truncation)
     raise ValueError(f"unknown LLM provider: {provider!r} (known: {sorted(REQUIRED_ENV_VARS)})")
 
 
-def _generate_anthropic(prompt: str, model: str, max_tokens: int, images: Optional[list[dict]] = None) -> str:
+def _generate_anthropic(
+    prompt: str, model: str, max_tokens: int, images: Optional[list[dict]] = None,
+    raise_on_truncation: bool = False,
+) -> str:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY not set")
@@ -105,10 +120,12 @@ def _generate_anthropic(prompt: str, model: str, max_tokens: int, images: Option
         # 5500 returned nothing on a long prompt, 16000 worked). Say so, or
         # it reads downstream as the model having nothing to say.
         print(f"    ! model hit max_tokens={max_tokens}; output is {'cut off' if text else 'empty'}")
+        if raise_on_truncation:
+            raise OutputTruncated(f"stopped at max_tokens={max_tokens}")
     return text
 
 
-def _generate_openrouter(prompt: str, model: str, max_tokens: int) -> str:
+def _generate_openrouter(prompt: str, model: str, max_tokens: int, raise_on_truncation: bool = False) -> str:
     api_key = os.environ.get("OPENROUTER_API_KEY")
     if not api_key:
         raise RuntimeError("OPENROUTER_API_KEY not set")
@@ -127,4 +144,7 @@ def _generate_openrouter(prompt: str, model: str, max_tokens: int) -> str:
         timeout=60,
     )
     resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"].strip()
+    choice = resp.json()["choices"][0]
+    if raise_on_truncation and choice.get("finish_reason") == "length":
+        raise OutputTruncated(f"stopped at max_tokens={max_tokens}")
+    return choice["message"]["content"].strip()

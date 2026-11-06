@@ -4,6 +4,21 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-11-06 — Ingest: three fixes found in three weeks of pipeline logs
+
+**What changed:**
+- `skills/ingest/ingest.py`: the audio download cap is 1GB (was 300MB). Moonshots' 334, 329 and 347MB episodes had hit it and fallen back to show notes (10-26, 10-29, 11-02). The first real run past the old cap produced a transcript and a note.
+- `skills/ingest/ingest.py`: a transcript under 600 words (a Short or trailer) uses the standard 3 to 6 bullet prompt instead of the long-form one. Three such clips had come back as notes 93 to 102% of their source's length.
+- `skills/lib/llm.py`, `skills/ingest/ingest.py`, `skills/brief/brief.py`: a stop at `max_tokens` is now a failure for ingest, not a note. One retry at double the budget, then no note is written, the item is listed under `extraction_failures` in `ingest/.last_run_sources.json` and in the brief's "Sources checked today", and an email item is left unlabeled so the next run retries it. A 2026-10-28 newsletter note had been saved cut off mid-list. `llm.generate()` keeps its warn-only default for other callers.
+
+**Why:** all three came out of scanning CI logs for the 18 full runs since 2026-10-12.
+
+**Content and rule 2:** unchanged in kind. Nothing new is stored; the short-clip change moves the shortest items under the more compact prompt, which lowers the paraphrase-length risk.
+
+**Automated checks:** `check_public_safe.py`, `check_doc_accuracy.py` and `build_indexes.py --check` clean; a stub test of the retry and routing cases; one real API call confirming `OutputTruncated` fires on a genuine `max_tokens` stop; and a real run on Moonshots #307 (333.7MB, 10 chunks, 15,199 words, a 19-bullet "partial" note, nothing written to the repo).
+
+**Result: COMMITTED.**
+
 ## 2026-10-12 — Daily Brief: the post count links to the day's commit; weekly drafts link what Brian did
 
 **What changed:**

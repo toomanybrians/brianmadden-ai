@@ -1127,3 +1127,15 @@ Changes to `daily-pipeline.yml`:
 - **New `guard` job** (hosted runner, API only) runs before `run`. A *scheduled* run skips if today's brief file already exists on `main`, checked through the API rather than the run's own checkout, because a late event can be created before the catch-up run pushes. Manual dispatch always proceeds. The check was tested against the real repo (11-04 → skip, 11-05 → proceed); the workflow itself hasn't run with the guard yet.
 
 Not done: an alert when no brief has landed by mid-morning, which would catch either failure without Brian noticing first.
+
+### 2026-11-06: three ingest fixes from the pipeline logs
+
+Scanned the CI logs for the 18 full runs since 2026-10-12 (the new long-form prompt has run on 57 transcripts: 3 fallbacks, 1 token-limit stop, 6 length warnings, no truncations). The longest episode so far was about 3.5 hours (15 chunks) and went through cleanly. Three fixes, details in the governance-log entry and `skills/ingest/README.md`:
+
+- **Audio cap 300MB to 1GB.** Moonshots files run 275 to 350MB, so about half its episodes were falling back to show notes. Verified on Moonshots #307.
+- **Short transcripts (under 600 words) take the standard prompt.** The long-form prompt had produced paraphrase-length notes for Shorts.
+- **A `max_tokens` stop is a failure.** One retry at double the budget, then no note, recorded in `.last_run_sources.json` and the brief.
+
+Evidence gathered for Brian's open decisions: across three weeks the relevance gate dropped 22 long-form items, all plainly off-topic by title (politics, novelists, workplace soft skills, a biography). Fit verdicts on kept notes: 12 direct, 19 partial, 3 adjacent. Partial notes run a median of 16 bullets and the "partial" Ezra Klein episode on AI companions got 16 even though its own fit line says the subject sits outside his focus, so partial and adjacent depth may be heavier than he wants.
+
+Still open (his calls): the AI-authorship line in the weekly skill, whether to cap note length, a "hold from brief" flag, and the overdue Weekly Wrap Up. Not built: an alert when no brief has landed by mid-morning.

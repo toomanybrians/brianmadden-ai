@@ -288,7 +288,12 @@ def fetch_entries(source: dict, since_days: float, max_per_source: int):
     return entries[:max_per_source], None
 
 
-TRANSCRIPT_MAX_BYTES = 300 * 1024 * 1024  # ~300MB safety valve against a malformed enclosure
+# Safety valve against a malformed enclosure. Was 300MB until 2026-11-06, when
+# the logs showed Moonshots' 334, 329 and 347MB episodes (about two hours at a
+# high bitrate) all hitting it and falling back to show notes. The real files
+# run 275-350MB, so 1GB leaves a wide margin; the temp file is deleted right
+# after chunking either way.
+TRANSCRIPT_MAX_BYTES = 1024 * 1024 * 1024
 # OpenAI's transcription API caps uploads at 25MB (whisper-1 and
 # gpt-4o-transcribe alike) and gpt-4o-transcribe additionally caps
 # duration at 1500s/25min regardless of file size — confirmed 2026-08-12
@@ -2046,7 +2051,15 @@ def build_longform_prompt(template: str, source: dict, entry: dict) -> str:
 # budget, found 2026-10-11) and 16000 worked, so this leaves margin above it.
 LONGFORM_MAX_TOKENS = 24000
 LONGFORM_RATIO_WARN = 0.25  # note words / transcript words, see the check in extract()
-LONGFORM_MIN_WORDS = 100    # matches the prompt's own "under 100 words of substance" rule
+# Below this a transcript is a Short or a trailer, and the long-form prompt has
+# nothing to be proportionate to: in the first three weeks, three clips of
+# 100-250 words came back as notes 93-102% of their source's length (a full
+# paraphrase). They go to the standard 3-6 bullet prompt instead, which has
+# its own too-thin sentinel. 600 words is about four minutes of speech.
+LONGFORM_MIN_WORDS = 600
+# One retry after a max_tokens stop, at double the budget up to this cap (the
+# brief's synthesis call already runs at 32000).
+TRUNCATION_RETRY_MAX_TOKENS = 32000
 
 
 def extract(
@@ -2062,14 +2075,14 @@ def extract(
     # the item matters to him, no bullet quota. Everything else (articles,
     # and a podcast that fell back to show notes) keeps the 3-6 bullet
     # prompt, which is the right size for what it has to work with.
-    longform = longform_template is not None and entry.get("content_basis") == "transcript"
+    # A transcript under LONGFORM_MIN_WORDS (a Short, a trailer) counts as
+    # ordinary short content and takes the standard prompt too.
+    longform = (
+        longform_template is not None
+        and entry.get("content_basis") == "transcript"
+        and len((entry.get("content") or "").split()) >= LONGFORM_MIN_WORDS
+    )
     if longform:
-        if len((entry.get("content") or "").split()) < LONGFORM_MIN_WORDS:
-            # A YouTube Short or a trailer: the prompt's own sufficiency rule
-            # would reject it, and it would cost a ~50k-token call (canon
-            # block included) to hear that.
-            print(f"    skipped (transcript under {LONGFORM_MIN_WORDS} words): {entry.get('title')}")
-            return None
         prompt_text = build_longform_prompt(longform_template, source, entry)
         max_tokens = LONGFORM_MAX_TOKENS
     else:
@@ -2078,8 +2091,23 @@ def extract(
         # aware prompt experiment (2026-08-11) — kept at 2048 even after
         # reverting that experiment, since it's just a safer margin regardless.
         max_tokens = 2048
-    text = llm.generate(prompt_text, provider=provider, model=model, max_tokens=max_tokens)
-    text = text.strip()
+    # A note is written to disk, so text cut off at max_tokens is worse than
+    # no text: one 2026-10-28 newsletter note was saved mid-list. Retry once
+    # with a bigger budget, then give up loudly rather than write a partial
+    # note (or read an empty one as "nothing to say").
+    text = None
+    for budget in (max_tokens, min(max_tokens * 2, TRUNCATION_RETRY_MAX_TOKENS)):
+        try:
+            text = llm.generate(prompt_text, provider=provider, model=model, max_tokens=budget,
+                                raise_on_truncation=True).strip()
+            break
+        except llm.OutputTruncated:
+            if budget == max_tokens and max_tokens < TRUNCATION_RETRY_MAX_TOKENS:
+                print(f"    retrying with a larger token budget: {entry.get('title')}")
+    if text is None:
+        print(f"    ! extraction hit the token limit twice, no note written: {entry.get('title')}")
+        entry["extraction_failed"] = "max_tokens"
+        return None
 
     # Real failure modes seen in production (2026-08-19 daily run), not
     # hypothetical: (1) an empty completion for a perfectly good article —
@@ -2350,9 +2378,15 @@ def main() -> None:
                 provider=args.provider, model=args.llm_model,
                 longform_template=longform_template,
             )
+            if body is None and entry.get("extraction_failed"):
+                # Not a relevance call: the model ran out of tokens twice. Kept
+                # separate from the not-relevant list so a failure isn't read
+                # as a verdict, and surfaced in the brief's sources section.
+                result_row.setdefault("extraction_failures", []).append(entry["title"])
             if body is None:
-                print(f"    skipped (not relevant): {entry['title']}")
-                if entry.get("content_basis") == "transcript":
+                verdict = "extraction failed" if entry.get("extraction_failed") else "not relevant"
+                print(f"    skipped ({verdict}): {entry['title']}")
+                if entry.get("content_basis") == "transcript" and not entry.get("extraction_failed"):
                     # A podcast or video the POV-based gate dropped leaves no
                     # note, and cost a transcription. Recording the title in
                     # ingest/.last_run_sources.json keeps the gate auditable.
@@ -2360,7 +2394,8 @@ def main() -> None:
                 # Label it even when skipped — otherwise a not-relevant
                 # newsletter issue gets re-fetched and re-judged
                 # not-relevant every single run forever.
-                if is_email and not args.dry_run:
+                # A failed extraction is left unlabeled so the next run retries it.
+                if is_email and not args.dry_run and not entry.get("extraction_failed"):
                     gmail_apply_label(entry.get("gmail_msg_id"), GMAIL_LABEL_SKIPPED)
                 continue
             write_note(
