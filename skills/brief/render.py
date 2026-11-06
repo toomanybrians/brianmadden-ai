@@ -50,6 +50,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "skills"))
 
 from brief import GITHUB_BASE, GITHUB_REPO, PUBLISHED_ROOT, read_frontmatter_and_body  # noqa: E402
+from lib import paste_html  # noqa: E402
 
 STYLE = """<meta name="color-scheme" content="light">
 <style>
@@ -248,7 +249,7 @@ def render_to_html(md_path: Path) -> Path:
     # which already is the disclosure. Older posts still get the italic one.
     if not body.startswith(OPENER_START):
         body = disclosure_line(fm) + "\n\n" + body
-    html_body = markdown.markdown(body, extensions=["extra"])
+    html_body = paste_html.keep_space_after_links(markdown.markdown(body, extensions=["extra"]))
     fields_block = render_fields_block(fm.get("substack_title", ""), fm.get("substack_subtitle", ""))
     full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{fields_block}\n{html_body}\n</body>\n</html>\n"
 

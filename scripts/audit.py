@@ -268,9 +268,14 @@ def check_skills():
 
 def check_pipeline():
     """Did the daily pipeline actually commit on recent weekdays?"""
-    log = git("log", "--since=14 days ago", "--format=%ad|%s", "--date=short").splitlines()
-    ran = {l.split("|")[0] for l in log if "[automated]" in l}
     today = dt.date.today()
+    # Midnight of a date, not "14 days ago" (a timestamp cutoff; git also fills a
+    # bare date with the current time of day): a run earlier in
+    # the day than the audit's own run time fell outside it and the weekday 14
+    # days back was flagged as missed (a false alarm on 2026-11-06).
+    since = (today - dt.timedelta(days=14)).isoformat()
+    log = git("log", f"--since={since} 00:00", "--format=%ad|%s", "--date=short").splitlines()
+    ran = {l.split("|")[0] for l in log if "[automated]" in l}
     missing = []
     for i in range(1, 15):
         d = today - dt.timedelta(days=i)

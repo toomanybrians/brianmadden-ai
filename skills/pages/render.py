@@ -25,7 +25,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent.parent
 PAGES_DIR = ROOT / "pages"
 sys.path.insert(0, str(ROOT / "skills"))
-from lib import gmail_send  # noqa: E402
+from lib import gmail_send, paste_html  # noqa: E402
 
 
 def load_dotenv(root: Path) -> None:
@@ -68,7 +68,7 @@ def frontmatter_title(raw: str) -> str | None:
 def render_to_html(md_path: Path) -> Path:
     raw = md_path.read_text(encoding="utf-8")
     body = strip_frontmatter(raw)
-    html_body = markdown.markdown(body, extensions=["extra"])
+    html_body = paste_html.keep_space_after_links(markdown.markdown(body, extensions=["extra"]))
     full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{html_body}\n</body>\n</html>\n"
 
     out_path = md_path.with_suffix(".html")

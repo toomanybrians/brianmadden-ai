@@ -31,6 +31,7 @@ sys.path.insert(0, str(ROOT / "skills"))
 sys.path.insert(0, str(ROOT / "skills" / "brief"))
 
 from brief import read_frontmatter_and_body  # noqa: E402
+from lib import paste_html  # noqa: E402
 from render import STYLE, normalize_body, render_fields_block  # noqa: E402 — reuse, don't duplicate
 
 WEEKLY_ROOT = ROOT / "outputs" / "weekly-updates"
@@ -47,7 +48,7 @@ def find_weekly(date: str) -> Path:
 def render_to_html(md_path: Path) -> Path:
     fm, body = read_frontmatter_and_body(md_path)
     body = normalize_body(body)
-    html_body = markdown.markdown(body, extensions=["extra"])
+    html_body = paste_html.keep_space_after_links(markdown.markdown(body, extensions=["extra"]))
     fields_block = render_fields_block(fm.get("substack_title", ""), fm.get("substack_subtitle", ""))
     full_html = f"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n{STYLE}\n</head>\n<body>\n{fields_block}\n{html_body}\n</body>\n</html>\n"
 
