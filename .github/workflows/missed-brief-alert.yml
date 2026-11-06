@@ -1,0 +1,59 @@
+name: Missed-brief alert
+
+# Emails Brian if no Daily Brief is on main by mid-morning. Why: on
+# 2026-11-03 and 11-04 the brief never arrived and he found out himself;
+# the guard job in daily-pipeline.yml only stops a duplicate, nothing
+# reported silence. The check itself is scripts/check_brief_published.py.
+#
+# WHEN IT RUNS: A TIMER ON THE BOX, GITHUB'S CRON AS BACKUP
+# ------------------------------------------------------------
+# An alert that depends on GitHub's cron fails in exactly the situation it
+# exists for: the cron missed 11-04 and 11-06 outright and ran 7 to 8 hours
+# late on 11-03 and 11-05 (see "WHEN IT RUNS" atop daily-pipeline.yml). So
+# the primary trigger is the same kind as the pipeline's, a systemd timer on
+# the home box (scripts/beelink/dispatch-alert.sh, weekdays 08:15 Paris)
+# that sends a workflow_dispatch. This job still runs on a hosted runner,
+# so a stalled self-hosted runner can't take the alert down with it. The
+# cron below is only a backup for a day the box is down, and it can't
+# double-alert: the check exits quietly once a brief is on main.
+#
+# Needs the same secrets the daily pipeline already uses to send email:
+# GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET / GMAIL_REFRESH_TOKEN, BRIAN_EMAIL.
+
+on:
+  schedule:
+    - cron: "30 7 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Send a labelled test email even if today's brief exists"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install requests
+        run: |
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install -q requests
+      - name: Check for today's brief
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          BRIAN_EMAIL: ${{ secrets.BRIAN_EMAIL }}
+          TEST_MODE: ${{ inputs.test }}
+        run: |
+          if [ "$TEST_MODE" = "true" ]; then
+            "$RUNNER_TEMP/venv/bin/python" scripts/check_brief_published.py --test
+          else
+            "$RUNNER_TEMP/venv/bin/python" scripts/check_brief_published.py
+          fi
