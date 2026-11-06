@@ -11,23 +11,26 @@
 # Substack itself remains manual — nothing here can do that (no posting
 # API exists yet, D7).
 #
-# WHY 04:48 UTC
-# -------------
-# Target is 07:00 Paris time or a little before. Moved up from 08:00 on
-# 2026-10-07 because Brian is getting up earlier and the brief wasn't
-# always ready (BUILD.md open decision #3 has the original 08:00
-# reasoning). GitHub Actions cron is always UTC and doesn't observe DST:
-# 04:48 UTC is 06:48 Paris under CEST (summer, UTC+2) and 05:48 under CET
-# (winter, UTC+1). Deliberately not solved with a second seasonal cron
-# entry: "not much breaks overnight," so an hour of early drift doesn't
-# matter enough to double the schedule complexity.
+# WHEN IT RUNS: A TIMER ON THE BOX, GITHUB'S CRON AS BACKUP (2026-11-06)
+# ------------------------------------------------------------------------
+# The primary trigger is a systemd timer on the beelink
+# (scripts/beelink/, installed there) that sends a workflow_dispatch with
+# `source: timer` at 06:30 Paris time on weekdays. The box keeps Paris
+# time, so this follows DST, which GitHub's UTC-only cron can't. Target
+# is a brief in Brian's inbox before 07:00 Paris (BUILD.md open decision
+# #3; moved up from 08:00 on 2026-10-07).
 #
-# Off the top of the hour on purpose (2026-11-04). The cron was
-# "0 5 * * 1-5" until GitHub's scheduler, which is best-effort and
-# busiest on the hour, delivered 2026-11-03's run 7.5 hours late and
-# hadn't delivered 2026-11-04's three hours in. Both days' briefs went
-# out from a manual workflow_dispatch instead. The `guard` job below
-# makes a late scheduled run a no-op once that day's brief exists.
+# Why not GitHub's cron alone: it ran on time, within about 15 minutes,
+# from launch through 2026-11-02. Then it stopped being usable: 11-03's
+# run arrived 7.5 hours late, 11-04's never arrived, 11-05's was 8 hours
+# late, and 11-06's never arrived. Nothing in the repo changed, and other
+# public repos reported the same thing that week. Every manual dispatch
+# in that stretch started at once.
+#
+# The cron below is now only a backup for a day the box is down, set
+# after the timer's normal finish (06:15 UTC is 07:15 Paris in winter,
+# 08:15 in summer). The `guard` job makes whichever of the two arrives
+# second a no-op.
 #
 # WHY SELF-HOSTED (2026-09-25)
 # ----------------------------
@@ -91,8 +94,14 @@ name: Daily ingest + brief + publish
 
 on:
   schedule:
-    - cron: "48 4 * * 1-5"
+    - cron: "15 6 * * 1-5"
   workflow_dispatch:
+    inputs:
+      source:
+        description: "Who started this run. The box's timer sends `timer`; leave as `manual` to force a run."
+        type: choice
+        options: [manual, timer]
+        default: manual
 
 concurrency:
   group: daily-pipeline
@@ -103,15 +112,16 @@ permissions:
   actions: write
 
 jobs:
-  # Skips a scheduled run when today's brief is already on main, so a
-  # late-delivered schedule event (see WHY 04:48 UTC above) can't send a
-  # second email after a manual catch-up run. Checks origin's main through
-  # the API rather than this run's own checkout: a delayed event can be
-  # created before the catch-up run pushes, and its checkout would predate
-  # the brief. Manual workflow_dispatch runs always proceed, so a rerun
-  # can still be forced. Runs on a hosted runner because it only talks to
-  # the GitHub API, and a stalled beelink then still leaves a visible
-  # guard result.
+  # Skips an automatic run (GitHub's cron, or the box's timer with
+  # `source: timer`) when today's brief is already on main, so the second
+  # of the two, or a cron event delivered hours late, can't send a second
+  # email. Checks origin's main through the API rather than this run's own
+  # checkout: a late event can be created before the earlier run pushes,
+  # and its checkout would predate the brief. The concurrency group holds
+  # an overlapping run, guard included, until the first one finishes.
+  # Manual dispatches always proceed, so a rerun can still be forced. Runs
+  # on a hosted runner because it only talks to the GitHub API, and a
+  # stalled beelink then still leaves a visible guard result.
   guard:
     runs-on: ubuntu-latest
     permissions:
@@ -125,9 +135,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           BRIEF_PATH="outputs/technical-briefings/$(date -u +%Y/%m/%Y-%m-%d).md"
-          if [ "${{ github.event_name }}" = "schedule" ] && \
+          if { [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.source }}" = "timer" ]; } && \
              gh api "repos/${{ github.repository }}/contents/$BRIEF_PATH?ref=main" --silent 2>/dev/null; then
-            echo "$BRIEF_PATH already on main; skipping this scheduled run"
+            echo "$BRIEF_PATH already on main; skipping this automatic run"
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
