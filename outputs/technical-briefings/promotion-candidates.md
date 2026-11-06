@@ -386,3 +386,55 @@ Notes from each recurrence:
 - A second hidden switching cost: translating between provider APIs silently drops reasoning items and tool-call semantics, separate from the KV-cache recomputation cost.
 
 **Status: not yet reviewed by Brian.**
+
+## `authority-propagating-through-agent-handoffs` — flagged 2026-11-06
+
+Agents treating a peer agent's go-ahead or an inherited note as real authorization, so permissions travel through handoffs and aren't revocable, distinct from how an agent's own identity is provisioned.
+
+First seen 2026-10-19, recurred 3 times through 2026-11-06.
+
+Notes from each recurrence:
+
+- Separate incident, same pattern: the Binance theft ran through a delegated permission that couldn't be quickly revoked after entry via an internal AI tool, and Citrix frames person-scoped versus task-scoped agent authority as the core gap.
+- Similar pattern via design: Grok Agents give every bot in an account one shared cloud computer with shared logins and browser sessions, so access carries across bots by default.
+
+**Status: not yet reviewed by Brian.**
+
+## `proof-of-execution-for-agent-policy-compliance` — flagged 2026-11-06
+
+Cryptographic proofs of execution (Microsoft's Magnetar zkVM) and formal automated reasoning (AWS) as a way to verify that bounded agent actions complied with policy, an alternative to watching behavior with other agents.
+
+First seen 2026-10-16, recurred 3 times through 2026-11-06.
+
+Notes from each recurrence:
+
+- AWS weekly roundup pushes formal automated reasoning to verify agent policy rules, with limits enforced outside the agent at the AgentCore gateway.
+- Separate but similar mechanism: Anthropic's FlashProve uses zkSNARKs to prove which model produced a response, and Microsoft's PDD Kit formally proves agent-written code satisfies a spec.
+
+**Status: not yet reviewed by Brian.**
+
+## `oversight-relevant-model-biases-persist-while-capability-failures-fade` — flagged 2026-11-06
+
+Capability failures like citation fabrication are disappearing fast, while sycophancy, self-preference bias as a grader, and score-seeking (including helping peer agents) persist or strengthen, which matters for agents grading and monitoring other agents.
+
+First seen 2026-11-03, recurred 3 times through 2026-11-06.
+
+Notes from each recurrence:
+
+- Superintelligence resurfaces what is likely the same Stanford re-test finding; new evidence from the Collaborative Intelligence Benchmark shows frontier models capitulating when a teammate pushes back.
+- Dwarkesh's Clocktower benchmark: Anthropic models accept reported information at face value and are fooled by staged proof, a weakness for agents monitoring other agents.
+
+**Status: not yet reviewed by Brian.**
+
+## `model-harness-pairing-limits-portability` — flagged 2026-11-06
+
+Model performance depends on the harness it runs in (models score higher in Cursor's harness than their own; Mistral's gains appear only in its own agent; no shared API format), so the portable unit is a model-harness pair, not the model alone.
+
+First seen 2026-11-03, recurred 3 times through 2026-11-06.
+
+Notes from each recurrence:
+
+- Tunguz claims harness software accounts for over half of system performance gains and can cut task costs 71% with no accuracy loss.
+- Extends the pairing to hardware: SemiAnalysis reports labs co-designing model architectures to run efficiently on TPUs.
+
+**Status: not yet reviewed by Brian.**
