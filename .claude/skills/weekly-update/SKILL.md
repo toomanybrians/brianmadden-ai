@@ -232,6 +232,20 @@ Rules of the flow:
    dropping off doesn't mean it was resolved; say so if Brian seems to be
    treating it that way.
 
+7a. **Check `me/predictions.md` against the week** (added 2026-11-06, when
+   Brian made the predictions file a living one; runs in `quick` mode too).
+   Read its table and the 2026 scorecard, then ask of the week's briefs,
+   the queues and Brian's takeaways: did anything support, undercut or
+   resolve a prediction? If so, add a dated line to the file's `## Update
+   log` (newest first) naming the prediction by number, the evidence and a
+   link, and move its odds by a small step with the reason, or leave the
+   odds and say the evidence was noted. These are machine edits: label them
+   as AI-filed and handle review state per step 8. **Never score a call
+   (move it into the scorecard), retire one, or add a new one without
+   Brian**; put those on the exception list. A week where nothing moved
+   leaves the file untouched; don't log "no change." Run `build_indexes.py
+   --write` after any edit.
+
 8. **Handle review state honestly.** Machine-applied edits don't earn a
    `reviewed*` status (MAINTAINER rule 4). When a file whose `status` is
    `reviewed` or `reviewed-and-updated` gets machine-filed edits, set its
@@ -271,14 +285,19 @@ Rules of the flow:
 
    - **Opening paragraph** — what Weekly Wrap Up is, in plain terms,
      varies naturally issue to issue rather than being a fixed
-     boilerplate string. First issue's version: "the daily is fast... this
-     is slow, on purpose." **Set this whole paragraph in italics** (Brian
-     did this by hand on the Sep 5–11 issue — it reads as the framing note
-     it is), and **name brianmadden.ai as "the AI" explicitly** the first
-     time it appears — Brian's edit: "me (brianmadden.ai, the AI) reading
-     everything overnight...". The brain-vs-AI distinction has to be
-     unambiguous from the first line; the same rule runs through the next
-     bullet and the takeaways explainer.
+     boilerplate string. **Current wording, from Brian's Oct 10 edit
+     (replaces the Sep 5–11 version, which was italic and spoke as the
+     AI: "me (brianmadden.ai, the AI) reading everything overnight..."):**
+     plain text, not italics, third person, linking the Daily Briefings:
+     "The Weekly Wrap Up is the slow version of the [Daily
+     Briefings](https://www.brianmadden.ai/) (written each weekday by AI),
+     where we slow down and Brian (the human) reviews everything since the
+     last wrap up and decides what it all means. This one covers two
+     weeks, and the thing he most wanted to talk about wasn't in any single
+     story. ..." Keep the AI-vs-human distinction unambiguous from the
+     first line (it says "written each weekday by AI" and "Brian (the
+     human)"); the same rule runs through the next bullet and the
+     takeaways explainer.
    - **Where Brian's head is at right now** — moved to lead, right after
      the opener (was near the end in issue 1). **Title it "Where Brian's
      head is at right now," not "Where my head's at"** (Brian's Sep 5–11
@@ -310,15 +329,22 @@ Rules of the flow:
      each day's "what this changes" list, not stories Brian hand-selected
      — don't overclaim his personal curation of each one.
    - **Brian's takeaways** — Brian's thinking from step 5, rendered in his
-     voice. **Be honest in the explainer that this section is still
-     AI-written from the conversation, not typed verbatim by Brian** —
-     Brian's Sep 5–11 edit rewrote the explainer to: "Everything above is
-     the pipeline's (the AI's) work. This part is Brian (the human),
-     reacting to the week. (Though to be clear this was written by AI,
-     based on conversations with Brian.)" Don't claim "unprompted,
-     unedited," and don't say Brian "gives the takeaways live" (the footer
-     used to) — both overclaim human authorship. Label the pipeline "(the
-     AI)" and Brian "(the human)" here too, same discipline as the opener.
+     voice. **The explainer says who wrote the section, and the right
+     wording depends on whether Brian rewrote it** (Brian's call,
+     2026-11-06; his Oct 10 published version dropped the disclosure after
+     he rewrote the takeaways himself). Every version carries: "Everything
+     above is the pipeline's (the AI's) work. This part is Brian (the
+     human), reacting to the week." **A draft the AI wrote from the
+     conversation also carries the parenthetical** "(Though to be clear
+     this was written by AI, based on conversations with Brian.)" — it is
+     the AI's text, so say so. **When Brian substantively rewrites the
+     takeaways in his own words (status `reviewed-and-updated`), drop the
+     parenthetical when syncing his final**, since the section then really
+     is his. If he only trims or approves the AI's draft, keep it. Either
+     way, don't claim "unprompted, unedited," and don't say Brian "gives
+     the takeaways live" (the footer used to) — both overclaim human
+     authorship. Label the pipeline "(the AI)" and Brian "(the human)"
+     here too, same discipline as the opener.
    - **What moved in the thinking** — moved later in the order 2026-08-28
      (was earlier; this is pipeline bookkeeping, not the broad-appeal
      material). Promotions, cuts, framework revisions — **2026-08-28

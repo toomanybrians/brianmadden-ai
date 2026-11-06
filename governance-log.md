@@ -4,6 +4,23 @@ Audit trail for all content synced to brianmadden.ai. Every commit gets an entry
 
 ---
 
+## 2026-11-06 (later) — Missed-brief alert, paste-spacing fix, living predictions file, weekly skill updates
+
+**What changed:**
+- **Missed-brief alert.** New `scripts/check_brief_published.py` and `.github/workflows/missed-brief-alert.yml`: if today's brief isn't on `main` by about 08:15 Paris, an email goes to Brian saying what the daily pipeline did (not started, queued, failed) and how to start one. The primary trigger is a timer on the home box (`scripts/beelink/dispatch-alert.sh`), because the alert can't depend on GitHub's cron, which is what has been missing runs; the workflow itself runs on a hosted runner so a stalled self-hosted runner can't silence it, and a cron backup exists. The box timer still has to be installed there once.
+- **Spaces after links.** New `skills/lib/paste_html.py`, used by the daily, weekly and pages renderers: a non-breaking space after each link, so the space survives being pasted into Substack. The generated markdown, HTML and email encoding were all checked and were correct, so the loss is at paste time and the fix is a guard for a known editor behavior, not a confirmed diagnosis.
+- **New canon file `me/predictions.md`.** Running 2027 forecasts with rough odds and a 2026 scorecard, restructured from a working draft into a standing file with an update log. `status: not-reviewed-by-human`, `authority_level: 5` (forecasts, not positions). Registered in `CLAUDE.md` and `AGENTS.md` (kept identical), `COLLECTIONS.md` and the generated indexes. It stays unpushed until Brian approves it.
+- **Weekly skill** (`.claude/skills/weekly-update/SKILL.md`): the takeaways explainer's "written by AI" line is now conditional (kept for an AI draft, dropped when Brian substantively rewrites the section, as he did on Oct 10); the opener wording follows his Oct 10 edit; a new step 7a checks `me/predictions.md` against the week's evidence and never scores, retires or adds a prediction without him.
+- `scripts/audit.py`: the pipeline-health check used a timestamp cutoff, so it flagged a weekday 14 days back as missed whenever the audit ran later in the day than the pipeline. It now cuts off at midnight.
+
+**Decisions recorded (Brian, 2026-11-06):** no hard cap on long-form note length (keep the warning); leave the depth of "partial" and "adjacent" notes as is for now, and review five samples; do not build a "hold from brief" flag until a real case needs one.
+
+**Content and rule 2:** unchanged in kind. The predictions file contains no new third-party text beyond short cited claims and links already in the canon and ingest notes.
+
+**Automated checks:** `check_public_safe.py`, `check_doc_accuracy.py` and `build_indexes.py --check` clean; the alert script dry-run against the live GitHub API for a present brief, a weekend and a missing brief; the paste fix checked on 2026-11-06's rendered HTML (21 of 21 links). Not yet exercised: the alert's email send and the box timer (a one-time install and a test dispatch are Brian's call), and the paste fix in Substack's editor itself.
+
+**Result: COMMITTED** (predictions file committed locally, not pushed).
+
 ## 2026-11-06 — Ingest: three fixes found in three weeks of pipeline logs
 
 **What changed:**
