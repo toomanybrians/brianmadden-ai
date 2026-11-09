@@ -438,3 +438,16 @@ Notes from each recurrence:
 - Extends the pairing to hardware: SemiAnalysis reports labs co-designing model architectures to run efficiently on TPUs.
 
 **Status: not yet reviewed by Brian.**
+
+## `version-control-breaking-at-agent-change-volume` — flagged 2026-11-09
+
+Agent-driven change volume outgrowing standard version control (Anthropic replaced Git after merged changes rose ~12x in four months), a possible limit for git-based knowledge canons at scale.
+
+First seen 2026-10-21, recurred 3 times through 2026-11-09.
+
+Notes from each recurrence:
+
+- Separate occurrence: GitHub rebuilt Git architecture to sustain 7,200 writes/sec from 5,000 coding agents on one repo, after Anthropic's earlier Git replacement.
+- Separate occurrence: OpenAI built Pando, a new Git backend for agent traffic on its monorepo (~80% lower median push latency), after Anthropic replaced Git.
+
+**Status: not yet reviewed by Brian.**

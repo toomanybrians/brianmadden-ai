@@ -691,10 +691,12 @@
     "slug": "ai-cryptanalysis-threatens-public-key-encryption",
     "description": "AI models beginning to find real cryptanalytic attacks against post-quantum and legacy algorithms, raising the possibility of a fundamental break in public-key encryption's underlying hardness assumptions rather than a single broken implementation \u2014 a risk category with no home in current governance or workspace frameworks.",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-09-10",
-    "count": 1,
+    "last_seen": "2026-11-09",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Google DeepMind's human-guided AI agents found two significant weaknesses in legacy 1024-bit RSA; 2048-bit unaffected, but DeepMind says historical hardness assumptions can no longer be relied on."
+    ]
   },
   {
     "slug": "large-scale-agent-swarms-claim-open-problem-breakthroughs",
@@ -1259,11 +1261,12 @@
     "slug": "version-control-breaking-at-agent-change-volume",
     "description": "Agent-driven change volume outgrowing standard version control (Anthropic replaced Git after merged changes rose ~12x in four months), a possible limit for git-based knowledge canons at scale.",
     "first_seen": "2026-10-21",
-    "last_seen": "2026-10-30",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-09",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate occurrence: GitHub rebuilt Git architecture to sustain 7,200 writes/sec from 5,000 coding agents on one repo, after Anthropic's earlier Git replacement."
+      "Separate occurrence: GitHub rebuilt Git architecture to sustain 7,200 writes/sec from 5,000 coding agents on one repo, after Anthropic's earlier Git replacement.",
+      "Separate occurrence: OpenAI built Pando, a new Git backend for agent traffic on its monorepo (~80% lower median push latency), after Anthropic replaced Git."
     ]
   },
   {
@@ -1443,7 +1446,27 @@
     "slug": "ai-exploit-generation-erodes-least-privilege",
     "description": "AI exploit pipelines (OpenAI's 948 Linux root exploits at ~$1,279 each) making low-privilege access on unpatched systems functionally equivalent to root, weakening restricted-rights agent identity as a standalone control.",
     "first_seen": "2026-11-06",
-    "last_seen": "2026-11-06",
+    "last_seen": "2026-11-09",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Tunguz: a full simulated corporate break-in fell 99% in cost to ~$90 using open-weight GLM-5.3; a16z argues patching speed can't close the gap and protection must move off the device."
+    ]
+  },
+  {
+    "slug": "ai-displacement-deferred-to-next-recession",
+    "description": "AI-driven productivity gains with flat hours and record-low labor share suggest labor displacement will be locked in during the next downturn rather than appearing gradually (Labor Matters), tying the bubble-pop timing to workforce cuts.",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "skill-workflow-crystallization",
+    "description": "Agent platforms formalizing two-way conversion between flexible skills and deterministic, auditable workflows (Amazon Quick's crystallization/dissolution, 'confidence contract') as a design choice per task.",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
     "count": 1,
     "status": "watching",
     "history": []
