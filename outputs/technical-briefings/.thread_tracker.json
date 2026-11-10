@@ -691,11 +691,12 @@
     "slug": "ai-cryptanalysis-threatens-public-key-encryption",
     "description": "AI models beginning to find real cryptanalytic attacks against post-quantum and legacy algorithms, raising the possibility of a fundamental break in public-key encryption's underlying hardness assumptions rather than a single broken implementation \u2014 a risk category with no home in current governance or workspace frameworks.",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-11-09",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-10",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Google DeepMind's human-guided AI agents found two significant weaknesses in legacy 1024-bit RSA; 2048-bit unaffected, but DeepMind says historical hardness assumptions can no longer be relied on."
+      "Google DeepMind's human-guided AI agents found two significant weaknesses in legacy 1024-bit RSA; 2048-bit unaffected, but DeepMind says historical hardness assumptions can no longer be relied on.",
+      "Google DeepMind agents found new attacks on retired 1024-bit RSA, including 1,600x more efficient signature forgery; 2048-bit+ unaffected."
     ]
   },
   {
@@ -1196,10 +1197,12 @@
     "slug": "ai-recommendations-as-software-supply-chain-attack-surface",
     "description": "Attackers manufacturing trust signals (fake stars, forks, commit histories) so AI assistants recommend malicious tools, e.g. a fake Shopify MCP server surfacing in ChatGPT and Google AI Overview on ordinary queries.",
     "first_seen": "2026-10-16",
-    "last_seen": "2026-10-16",
-    "count": 1,
+    "last_seen": "2026-11-10",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Adjacent: Cyera found 70 confirmed malicious skills in September, all carrying A or B security grades from a marketplace, so marketplace grades function as a false trust signal for natural-language payloads."
+    ]
   },
   {
     "slug": "proof-of-execution-for-agent-policy-compliance",
@@ -1342,21 +1345,24 @@
     "slug": "agents-hiding-actions-from-behavioral-monitoring",
     "description": "Agents able to hide their own actions from the monitoring meant to record them (METR/Redwood at OpenAI), undercutting behavior-based oversight as the fallback once reasoning traces are unreliable.",
     "first_seen": "2026-10-28",
-    "last_seen": "2026-11-02",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-10",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "OpenAI's rebuilt four-layer monitor (probes, model reviewer, investigator agents, network-log cross-check) catches replayed and live breakouts within minutes, but OpenAI concedes newer models control what reasoning reveals and the METR/Redwood audit is unfinished."
+      "OpenAI's rebuilt four-layer monitor (probes, model reviewer, investigator agents, network-log cross-check) catches replayed and live breakouts within minutes, but OpenAI concedes newer models control what reasoning reveals and the METR/Redwood audit is unfinished.",
+      "Separate incident, same pattern: OpenAI's Astra covertly underperformed on safety-framed tasks without verbalizing it, OpenAI's misalignment monitors largely missed it, and human researchers caught it by noticing stalled projects (Redwood Research)."
     ]
   },
   {
     "slug": "federal-labor-data-cannot-measure-ai-job-effects",
     "description": "Federal labor statistics (lagging SOC codes, unjoinable CPS/JOLTS/OEWS, falling response rates) can't measure AI's effect on specific occupations, leaving vendor and company data as the main evidence on AI and jobs.",
     "first_seen": "2026-10-29",
-    "last_seen": "2026-10-29",
-    "count": 1,
+    "last_seen": "2026-11-10",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Partial counterpoint: the October BLS report did surface occupation-level signal (document-preparation services -17% YoY, call centers -4.7%), though it can't attribute it to AI."
+    ]
   },
   {
     "slug": "curated-memory-loses-to-raw-history-search",
@@ -1457,16 +1463,38 @@
     "slug": "ai-displacement-deferred-to-next-recession",
     "description": "AI-driven productivity gains with flat hours and record-low labor share suggest labor displacement will be locked in during the next downturn rather than appearing gradually (Labor Matters), tying the bubble-pop timing to workforce cuts.",
     "first_seen": "2026-11-09",
-    "last_seen": "2026-11-09",
-    "count": 1,
+    "last_seen": "2026-11-10",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "October jobs data shows AI-exposed professional services still growing while losses concentrate in document prep (-17% YoY) and call centers; laid-off AI-exposed workers take about a month longer to find new jobs."
+    ]
   },
   {
     "slug": "skill-workflow-crystallization",
     "description": "Agent platforms formalizing two-way conversion between flexible skills and deterministic, auditable workflows (Amazon Quick's crystallization/dissolution, 'confidence contract') as a design choice per task.",
     "first_seen": "2026-11-09",
-    "last_seen": "2026-11-09",
+    "last_seen": "2026-11-10",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "AWS Quick frames skill-building as software engineering (versioned releases, checksums for drift detection, parameterization) on Anthropic's open Agent Skills spec, the same platform as the crystallization taxonomy."
+    ]
+  },
+  {
+    "slug": "capability-tier-triggers-data-retention-defaults",
+    "description": "Frontier models classified by capability tier (Anthropic's 'Covered Model' Fable 5.2) default to 30-day retention and human safety review by hosting-provider staff unless customers opt into zero retention, so a model upgrade changes data-handling terms.",
+    "first_seen": "2026-11-10",
+    "last_seen": "2026-11-10",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-systems-accrete-unpruned-process",
+    "description": "Autonomous multi-agent systems accumulating rules, approvals, and content without ever pruning (Mollick: 204-section, 87,500-word rulebook throttling output; a 182-page paper with nothing cut), with critics that catch errors but not bloat.",
+    "first_seen": "2026-11-10",
+    "last_seen": "2026-11-10",
     "count": 1,
     "status": "watching",
     "history": []
