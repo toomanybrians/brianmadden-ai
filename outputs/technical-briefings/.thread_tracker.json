@@ -634,10 +634,12 @@
     "slug": "internal-agent-authority-corporate-coup-risk",
     "description": "AI agents granted broad internal authority within a company's own R&D or executive functions, sidelining human decision-makers, framed as the likely first site of AI overreach before any broader societal-level risk.",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
-    "count": 1,
+    "last_seen": "2026-11-11",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Anthropic reports Claude now leads 26% of its internal R&D work with ~30,000 concurrent agents; Dean Ball proposes governing at the firm level (e.g. share of unreviewed merged code) rather than per model."
+    ]
   },
   {
     "slug": "capability-threshold-gates-frontier-access",
@@ -727,11 +729,12 @@
     "slug": "silent-degradation-of-ai-outputs-without-disclosure",
     "description": "A joint NSA/CISA/FBI advisory recommends US AI providers quietly degrade output quality for suspected distillers without disclosure, using detection signals that overlap with normal enterprise traffic and no stated false-positive rate.",
     "first_seen": "2026-09-14",
-    "last_seen": "2026-11-06",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-11",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "FlashProve targets the related risk of routing services silently swapping models; it verifies model identity but not output quality."
+      "FlashProve targets the related risk of routing services silently swapping models; it verifies model identity but not output quality.",
+      "80,000 Hours says Anthropic's anti-distillation defenses cut harvestable data 90-99%, the same anti-distiller mechanism class, now framed as what decides how fast the Chinese open-weight floor improves."
     ]
   },
   {
@@ -1432,10 +1435,12 @@
     "slug": "vendor-ai-adoption-metrics-manufactured",
     "description": "AI adoption and engagement figures inflated by product design (Doctorow: most-used buttons replaced with AI prompts) and self-reported vendor growth stats without baselines, making external adoption benchmarks unreliable for enterprises.",
     "first_seen": "2026-11-05",
-    "last_seen": "2026-11-05",
-    "count": 1,
+    "last_seen": "2026-11-11",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Salesforce's sales-agent ROI report rests on a 24-customer vendor-commissioned survey; Trovata's savings figures are vendor-reported case studies."
+    ]
   },
   {
     "slug": "agent-native-remote-desktop-executors",
@@ -1474,11 +1479,12 @@
     "slug": "skill-workflow-crystallization",
     "description": "Agent platforms formalizing two-way conversion between flexible skills and deterministic, auditable workflows (Amazon Quick's crystallization/dissolution, 'confidence contract') as a design choice per task.",
     "first_seen": "2026-11-09",
-    "last_seen": "2026-11-10",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-11",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "AWS Quick frames skill-building as software engineering (versioned releases, checksums for drift detection, parameterization) on Anthropic's open Agent Skills spec, the same platform as the crystallization taxonomy."
+      "AWS Quick frames skill-building as software engineering (versioned releases, checksums for drift detection, parameterization) on Anthropic's open Agent Skills spec, the same platform as the crystallization taxonomy.",
+      "Zapier claims up to 71% cost savings from agent-for-judgment plus deterministic-for-execution hybrid with fallback to the agent; an AI Show host built a personal context system on the same split."
     ]
   },
   {
@@ -1495,6 +1501,24 @@
     "description": "Autonomous multi-agent systems accumulating rules, approvals, and content without ever pruning (Mollick: 204-section, 87,500-word rulebook throttling output; a 182-page paper with nothing cut), with critics that catch errors but not bloat.",
     "first_seen": "2026-11-10",
     "last_seen": "2026-11-10",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "model-weight-tampering-as-supply-chain-risk",
+    "description": "Post-release weight edits (Microsoft's Lazarus: <10 dormant neurons, no retraining, passes safety evals) make model weight provenance and diffing a requirement for anyone self-hosting or swapping models.",
+    "first_seen": "2026-11-11",
+    "last_seen": "2026-11-11",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-binary-reverse-engineering-of-legacy-apps",
+    "description": "Frontier models reverse-engineering compiled binaries and porting them (Gemini 4 Carbon's one-shot Theme Park port) as a third path for API-less legacy apps alongside wrapping and screen-driving.",
+    "first_seen": "2026-11-11",
+    "last_seen": "2026-11-11",
     "count": 1,
     "status": "watching",
     "history": []

@@ -477,3 +477,29 @@ Notes from each recurrence:
 - Google DeepMind agents found new attacks on retired 1024-bit RSA, including 1,600x more efficient signature forgery; 2048-bit+ unaffected.
 
 **Status: not yet reviewed by Brian.**
+
+## `skill-workflow-crystallization` — flagged 2026-11-11
+
+Agent platforms formalizing two-way conversion between flexible skills and deterministic, auditable workflows (Amazon Quick's crystallization/dissolution, 'confidence contract') as a design choice per task.
+
+First seen 2026-11-09, recurred 3 times through 2026-11-11.
+
+Notes from each recurrence:
+
+- AWS Quick frames skill-building as software engineering (versioned releases, checksums for drift detection, parameterization) on Anthropic's open Agent Skills spec, the same platform as the crystallization taxonomy.
+- Zapier claims up to 71% cost savings from agent-for-judgment plus deterministic-for-execution hybrid with fallback to the agent; an AI Show host built a personal context system on the same split.
+
+**Status: not yet reviewed by Brian.**
+
+## `silent-degradation-of-ai-outputs-without-disclosure` — flagged 2026-11-11
+
+A joint NSA/CISA/FBI advisory recommends US AI providers quietly degrade output quality for suspected distillers without disclosure, using detection signals that overlap with normal enterprise traffic and no stated false-positive rate.
+
+First seen 2026-09-14, recurred 3 times through 2026-11-11.
+
+Notes from each recurrence:
+
+- FlashProve targets the related risk of routing services silently swapping models; it verifies model identity but not output quality.
+- 80,000 Hours says Anthropic's anti-distillation defenses cut harvestable data 90-99%, the same anti-distiller mechanism class, now framed as what decides how fast the Chinese open-weight floor improves.
+
+**Status: not yet reviewed by Brian.**
