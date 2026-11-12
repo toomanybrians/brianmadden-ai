@@ -634,11 +634,12 @@
     "slug": "internal-agent-authority-corporate-coup-risk",
     "description": "AI agents granted broad internal authority within a company's own R&D or executive functions, sidelining human decision-makers, framed as the likely first site of AI overreach before any broader societal-level risk.",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-11-11",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-12",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Anthropic reports Claude now leads 26% of its internal R&D work with ~30,000 concurrent agents; Dean Ball proposes governing at the firm level (e.g. share of unreviewed merged code) rather than per model."
+      "Anthropic reports Claude now leads 26% of its internal R&D work with ~30,000 concurrent agents; Dean Ball proposes governing at the firm level (e.g. share of unreviewed merged code) rather than per model.",
+      "Anthropic's S-1/A warns it may imminently meet its RSI threshold; Salesforce's SFR-AutoR&D shows the bounded version, with humans setting goal, compute budget, and eval criteria for autonomous R&D agents."
     ]
   },
   {
@@ -1371,10 +1372,12 @@
     "slug": "curated-memory-loses-to-raw-history-search",
     "description": "Memory Tax benchmark: dedicated AI memory systems (63-84%) underperform plain search of raw chat history (90%) because summarization destroys retrievable detail, a challenge to curated-layer-only retrieval designs.",
     "first_seen": "2026-10-29",
-    "last_seen": "2026-10-29",
-    "count": 1,
+    "last_seen": "2026-11-12",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Counter-evidence: Opinion AI reports an Anthropic test where adding connected notes raised accuracy over 350K files from 53% (file search alone) to 61%; secondhand and paywalled."
+    ]
   },
   {
     "slug": "ai-output-convergence-erodes-differentiation",
@@ -1391,11 +1394,12 @@
     "slug": "agent-payment-directories-as-identity-layer",
     "description": "Payments companies building verified business registries agents can pay by name (Stripe Pay handles), a commercial agent-identity layer separate from enterprise provisioning and consumer agent identities.",
     "first_seen": "2026-10-30",
-    "last_seen": "2026-11-02",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-12",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Visa/BILL/BillTrust pilot with registered agents paying supplier invoices under buyer-scoped credentials, alongside AP2 and Stripe restricted tokens, extends the payments-side identity layer into B2B accounts payable."
+      "Visa/BILL/BillTrust pilot with registered agents paying supplier invoices under buyer-scoped credentials, alongside AP2 and Stripe restricted tokens, extends the payments-side identity layer into B2B accounts payable.",
+      "Major North American banks blocked agents from initiating transactions starting Oct 13, while Fifth Third backs Stripe Treasury, which lets ChatGPT/Claude pay invoices\u2014agent access to money routing through payment processors."
     ]
   },
   {
@@ -1509,16 +1513,36 @@
     "slug": "model-weight-tampering-as-supply-chain-risk",
     "description": "Post-release weight edits (Microsoft's Lazarus: <10 dormant neurons, no retraining, passes safety evals) make model weight provenance and diffing a requirement for anyone self-hosting or swapping models.",
     "first_seen": "2026-11-11",
-    "last_seen": "2026-11-11",
-    "count": 1,
+    "last_seen": "2026-11-12",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Separate occurrence of a similar pattern: GuardRailNow reports a hobbyist turning an open Qwen model into a hostile persona by manipulating two neurons directly, without retraining."
+    ]
   },
   {
     "slug": "ai-binary-reverse-engineering-of-legacy-apps",
     "description": "Frontier models reverse-engineering compiled binaries and porting them (Gemini 4 Carbon's one-shot Theme Park port) as a third path for API-less legacy apps alongside wrapping and screen-driving.",
     "first_seen": "2026-11-11",
     "last_seen": "2026-11-11",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "board-oversight-cadence-lags-agent-autonomy",
+    "description": "Board-level oversight running on a quarterly cadence while agents act continuously (CIO Journal directors on stale board materials; Salim Ismail on who runs the company when agent horizons outpace board meetings).",
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "public-benchmark-records-silently-edited",
+    "description": "Public benchmark results used for model selection being deleted or relabeled after publication without a changelog (Artificial Analysis removing Mistral Large 4's 41% Terminal-Bench row), while the vendor keeps citing the vanished number.",
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
     "count": 1,
     "status": "watching",
     "history": []

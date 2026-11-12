@@ -503,3 +503,29 @@ Notes from each recurrence:
 - 80,000 Hours says Anthropic's anti-distillation defenses cut harvestable data 90-99%, the same anti-distiller mechanism class, now framed as what decides how fast the Chinese open-weight floor improves.
 
 **Status: not yet reviewed by Brian.**
+
+## `agent-payment-directories-as-identity-layer` — flagged 2026-11-12
+
+Payments companies building verified business registries agents can pay by name (Stripe Pay handles), a commercial agent-identity layer separate from enterprise provisioning and consumer agent identities.
+
+First seen 2026-10-30, recurred 3 times through 2026-11-12.
+
+Notes from each recurrence:
+
+- Visa/BILL/BillTrust pilot with registered agents paying supplier invoices under buyer-scoped credentials, alongside AP2 and Stripe restricted tokens, extends the payments-side identity layer into B2B accounts payable.
+- Major North American banks blocked agents from initiating transactions starting Oct 13, while Fifth Third backs Stripe Treasury, which lets ChatGPT/Claude pay invoices—agent access to money routing through payment processors.
+
+**Status: not yet reviewed by Brian.**
+
+## `internal-agent-authority-corporate-coup-risk` — flagged 2026-11-12
+
+AI agents granted broad internal authority within a company's own R&D or executive functions, sidelining human decision-makers, framed as the likely first site of AI overreach before any broader societal-level risk.
+
+First seen 2026-09-04, recurred 3 times through 2026-11-12.
+
+Notes from each recurrence:
+
+- Anthropic reports Claude now leads 26% of its internal R&D work with ~30,000 concurrent agents; Dean Ball proposes governing at the firm level (e.g. share of unreviewed merged code) rather than per model.
+- Anthropic's S-1/A warns it may imminently meet its RSI threshold; Salesforce's SFR-AutoR&D shows the bounded version, with humans setting goal, compute budget, and eval criteria for autonomous R&D agents.
+
+**Status: not yet reviewed by Brian.**
