@@ -529,3 +529,16 @@ Notes from each recurrence:
 - Anthropic's S-1/A warns it may imminently meet its RSI threshold; Salesforce's SFR-AutoR&D shows the bounded version, with humans setting goal, compute budget, and eval criteria for autonomous R&D agents.
 
 **Status: not yet reviewed by Brian.**
+
+## `vendor-ai-adoption-metrics-manufactured` — flagged 2026-11-13
+
+AI adoption and engagement figures inflated by product design (Doctorow: most-used buttons replaced with AI prompts) and self-reported vendor growth stats without baselines, making external adoption benchmarks unreliable for enterprises.
+
+First seen 2026-11-05, recurred 3 times through 2026-11-13.
+
+Notes from each recurrence:
+
+- Salesforce's sales-agent ROI report rests on a 24-customer vendor-commissioned survey; Trovata's savings figures are vendor-reported case studies.
+- Anthropic's IPO prospectus carries customer self-reported figures with no baselines (Lilly 85%+ active engagement, Salesforce 151% effective output per developer), the same unbaselined vendor-stat pattern now inside a securities filing.
+
+**Status: not yet reviewed by Brian.**

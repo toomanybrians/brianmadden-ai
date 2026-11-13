@@ -1,13 +1,13 @@
 {
-  "run_utc": "2026-11-12T05:49:17.976394+00:00",
+  "run_utc": "2026-11-13T05:33:40.059933+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "ok",
-      "entries_in_window": 120,
-      "new_entries": 120
+      "entries_in_window": 84,
+      "new_entries": 84
     },
     {
       "id": "ethan-mollick",
@@ -22,162 +22,140 @@
       "name": "Nate B. Jones",
       "method": "feed",
       "status": "error",
-      "reason": "fetch failed: 404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?playlist_id=UU0C-17n9iuUQPylguM1d-lQ"
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /feeds/videos.xml?playlist_id=UU0C-17n9iuUQPylguM1d-lQ (Caused by NameResolutionError(\"HTTPSConnection(host='www.youtube.com', port=443): Failed to resolve 'www.youtube.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "daniel-miessler",
       "name": "Daniel Miessler",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='danielmiessler.com', port=443): Max retries exceeded with url: /feed.rss (Caused by NameResolutionError(\"HTTPSConnection(host='danielmiessler.com', port=443): Failed to resolve 'danielmiessler.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "brain-inbox",
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
-      "status": "ok",
-      "entries_in_window": 8,
-      "new_entries": 8
+      "status": "error",
+      "reason": "gmail auth failed: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError(\"HTTPSConnection(host='oauth2.googleapis.com', port=443): Failed to resolve 'oauth2.googleapis.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "the-artificial-intelligence-show",
       "name": "The Artificial Intelligence Show",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='feeds.megaphone.fm', port=443): Max retries exceeded with url: /marketingai (Caused by NameResolutionError(\"HTTPSConnection(host='feeds.megaphone.fm', port=443): Failed to resolve 'feeds.megaphone.fm' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "moonshots",
       "name": "Moonshots",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='feeds.megaphone.fm', port=443): Max retries exceeded with url: /DVVTS2890392624 (Caused by NameResolutionError(\"HTTPSConnection(host='feeds.megaphone.fm', port=443): Failed to resolve 'feeds.megaphone.fm' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "dwarkesh",
       "name": "Dwarkesh",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='apple.dwarkesh-podcast.workers.dev', port=443): Max retries exceeded with url: /feed.rss (Caused by NameResolutionError(\"HTTPSConnection(host='apple.dwarkesh-podcast.workers.dev', port=443): Failed to resolve 'apple.dwarkesh-podcast.workers.dev' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "bg2",
       "name": "BG2",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='anchor.fm', port=443): Max retries exceeded with url: /s/f06c2370/podcast/rss (Caused by NameResolutionError(\"HTTPSConnection(host='anchor.fm', port=443): Failed to resolve 'anchor.fm' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "hard-fork",
       "name": "Hard Fork",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='feeds.simplecast.com', port=443): Max retries exceeded with url: /6HKOhNgS (Caused by NameResolutionError(\"HTTPSConnection(host='feeds.simplecast.com', port=443): Failed to resolve 'feeds.simplecast.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "ezra-klein-show",
       "name": "Ezra Klein Show",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='feeds.simplecast.com', port=443): Max retries exceeded with url: /kEKXbjuJ (Caused by NameResolutionError(\"HTTPSConnection(host='feeds.simplecast.com', port=443): Failed to resolve 'feeds.simplecast.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "on-with-kara-swisher",
       "name": "On with Kara Swisher",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1,
-      "long_form_skipped": [
-        "High Stakes with HRC: The \u201cWhat\u2019s Next?\u201d Episode"
-      ]
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='feeds.megaphone.fm', port=443): Max retries exceeded with url: /VMP1684715893 (Caused by NameResolutionError(\"HTTPSConnection(host='feeds.megaphone.fm', port=443): Failed to resolve 'feeds.megaphone.fm' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "no-priors",
       "name": "No Priors",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='feeds.megaphone.fm', port=443): Max retries exceeded with url: /nopriors (Caused by NameResolutionError(\"HTTPSConnection(host='feeds.megaphone.fm', port=443): Failed to resolve 'feeds.megaphone.fm' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "80000-hours-podcast",
       "name": "The 80,000 Hours Podcast",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='feeds.transistor.fm', port=443): Max retries exceeded with url: /80000-hours-podcast (Caused by NameResolutionError(\"HTTPSConnection(host='feeds.transistor.fm', port=443): Failed to resolve 'feeds.transistor.fm' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "lex-fridman",
       "name": "Lex Fridman",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='lexfridman.com', port=443): Max retries exceeded with url: /feed/podcast/ (Caused by NameResolutionError(\"HTTPSConnection(host='lexfridman.com', port=443): Failed to resolve 'lexfridman.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "hbr-ideacast",
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPConnectionPool(host='feeds.harvardbusiness.org', port=80): Max retries exceeded with url: /harvardbusiness/ideacast (Caused by NameResolutionError(\"HTTPConnection(host='feeds.harvardbusiness.org', port=80): Failed to resolve 'feeds.harvardbusiness.org' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "algorithmic-bridge",
       "name": "The Algorithmic Bridge",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.thealgorithmicbridge.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.thealgorithmicbridge.com', port=443): Failed to resolve 'www.thealgorithmicbridge.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "exponential-view",
       "name": "Exponential View",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.exponentialview.co', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.exponentialview.co', port=443): Failed to resolve 'www.exponentialview.co' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "ahead-of-ai",
       "name": "Ahead of AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='magazine.sebastianraschka.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='magazine.sebastianraschka.com', port=443): Failed to resolve 'magazine.sebastianraschka.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "ai-futures-project",
       "name": "AI Futures Project",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='blog.aifutures.org', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='blog.aifutures.org', port=443): Failed to resolve 'blog.aifutures.org' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "ai-realist",
       "name": "The AI Realist",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.airealist.ai', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.airealist.ai', port=443): Failed to resolve 'www.airealist.ai' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "david-shapiro",
       "name": "David Shapiro's Substack",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='daveshap.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='daveshap.substack.com', port=443): Failed to resolve 'daveshap.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "emerging-ai",
@@ -190,448 +168,393 @@
       "id": "extended-brain",
       "name": "Extended_Brain",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='extendedbrain.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='extendedbrain.substack.com', port=443): Failed to resolve 'extendedbrain.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "forked-lightning",
       "name": "Forked Lightning",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='forklightning.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='forklightning.substack.com', port=443): Failed to resolve 'forklightning.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "the-generalist",
       "name": "The Generalist",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.generalist.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.generalist.com', port=443): Failed to resolve 'www.generalist.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "hyperdimensional",
       "name": "Hyperdimensional",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.hyperdimensional.co', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.hyperdimensional.co', port=443): Failed to resolve 'www.hyperdimensional.co' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "import-ai",
       "name": "Import AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='importai.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='importai.substack.com', port=443): Failed to resolve 'importai.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "esther-dyson",
       "name": "In the pool with Esther",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='estherdyson.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='estherdyson.substack.com', port=443): Failed to resolve 'estherdyson.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "interconnects-ai",
       "name": "Interconnects AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.interconnects.ai', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.interconnects.ai', port=443): Failed to resolve 'www.interconnects.ai' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "kinder-futures",
       "name": "Kinder Futures: Dispatches on AI, Work & What Comes Next",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='mollykinder2.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='mollykinder2.substack.com', port=443): Failed to resolve 'mollykinder2.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "labor-matters",
       "name": "Labor Matters",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='gadlevanon.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='gadlevanon.substack.com', port=443): Failed to resolve 'gadlevanon.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "last-week-in-ai",
       "name": "Last Week in AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='lastweekin.ai', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='lastweekin.ai', port=443): Failed to resolve 'lastweekin.ai' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "marcus-on-ai",
       "name": "Marcus on AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='garymarcus.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='garymarcus.substack.com', port=443): Failed to resolve 'garymarcus.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "metatrends",
       "name": "Metatrends",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='metatrends.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='metatrends.substack.com', port=443): Failed to resolve 'metatrends.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "not-boring",
       "name": "Not Boring",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.notboring.co', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.notboring.co', port=443): Failed to resolve 'www.notboring.co' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "prof-g-media",
       "name": "Prof G Media",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 4,
-      "new_entries": 4
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.profgmedia.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.profgmedia.com', port=443): Failed to resolve 'www.profgmedia.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='newsletter.semianalysis.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='newsletter.semianalysis.com', port=443): Failed to resolve 'newsletter.semianalysis.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "simon-willison",
       "name": "Simon Willison's Newsletter",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='simonw.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='simonw.substack.com', port=443): Failed to resolve 'simonw.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "theory-of-the-game",
       "name": "Theory of the Game",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='reidhoffman.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='reidhoffman.substack.com', port=443): Failed to resolve 'reidhoffman.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "work-evolved",
       "name": "Work Evolved",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='workevolved.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='workevolved.substack.com', port=443): Failed to resolve 'workevolved.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "center-for-humane-technology",
       "name": "Center for Humane Technology",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='centerforhumanetechnology.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='centerforhumanetechnology.substack.com', port=443): Failed to resolve 'centerforhumanetechnology.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "big-by-matt-stoller",
       "name": "BIG by Matt Stoller",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.thebignewsletter.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.thebignewsletter.com', port=443): Failed to resolve 'www.thebignewsletter.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "rutger-bregman",
       "name": "Rutger Bregman",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='rutgerbregman.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='rutgerbregman.substack.com', port=443): Failed to resolve 'rutgerbregman.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "forecasting-research-institute",
       "name": "Forecasting Research Institute",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='forecastingresearch.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='forecastingresearch.substack.com', port=443): Failed to resolve 'forecastingresearch.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "claude-cowork",
       "name": "Claude Cowork",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.coworkoperator.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.coworkoperator.com', port=443): Failed to resolve 'www.coworkoperator.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "claude-mythos",
       "name": "Claude Mythos",
       "method": "feed",
       "status": "error",
-      "reason": "fetch failed: 404 Client Error: Not Found for url: https://claudemythos.substack.com/feed"
+      "reason": "fetch failed: HTTPSConnectionPool(host='claudemythos.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='claudemythos.substack.com', port=443): Failed to resolve 'claudemythos.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "jasmine-sun",
       "name": "@jasmine's substack",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='jasmi.news', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='jasmi.news', port=443): Failed to resolve 'jasmi.news' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "ghosts-of-electricity",
       "name": "Ghosts of Electricity",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='aleximas.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='aleximas.substack.com', port=443): Failed to resolve 'aleximas.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "hard-reset",
       "name": "Hard Reset",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.hardresetmedia.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.hardresetmedia.com', port=443): Failed to resolve 'www.hardresetmedia.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "kuns-field-notes",
       "name": "Kun's Field Notes",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='blog.kunchenguid.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='blog.kunchenguid.com', port=443): Failed to resolve 'blog.kunchenguid.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "the-wake-up-call",
       "name": "The Wake Up Call",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='thewakeupcallnewsletter.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='thewakeupcallnewsletter.substack.com', port=443): Failed to resolve 'thewakeupcallnewsletter.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "80000-hours-substack",
       "name": "80,000 Hours",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='80000hours.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='80000hours.substack.com', port=443): Failed to resolve '80000hours.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "after-babel",
       "name": "After Babel",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.afterbabel.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.afterbabel.com', port=443): Failed to resolve 'www.afterbabel.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "ai-as-normal-technology",
       "name": "AI as Normal Technology",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.normaltech.ai', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.normaltech.ai', port=443): Failed to resolve 'www.normaltech.ai' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "ai-frontiers",
       "name": "AI Frontiers",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='newsletter.ai-frontiers.org', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='newsletter.ai-frontiers.org', port=443): Failed to resolve 'newsletter.ai-frontiers.org' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "chinai-newsletter",
       "name": "ChinAI Newsletter",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='chinai.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='chinai.substack.com', port=443): Failed to resolve 'chinai.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "asimovs-addendum",
       "name": "Asimov's Addendum",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='asimovaddendum.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='asimovaddendum.substack.com', port=443): Failed to resolve 'asimovaddendum.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "economics-of-ai",
       "name": "The Economics of AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='economicsofai.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='economicsofai.substack.com', port=443): Failed to resolve 'economicsofai.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "eu-ai-act-newsletter",
       "name": "The EU AI Act Newsletter",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='artificialintelligenceact.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='artificialintelligenceact.substack.com', port=443): Failed to resolve 'artificialintelligenceact.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "guardrailnow",
       "name": "GuardRailNow",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='guardrailnow.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='guardrailnow.substack.com', port=443): Failed to resolve 'guardrailnow.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "metr",
       "name": "METR",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='metr.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='metr.substack.com', port=443): Failed to resolve 'metr.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "openai-global-affairs",
       "name": "The Prompt: Insights from OpenAI Global Affairs",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='openaiglobalaffairs.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='openaiglobalaffairs.substack.com', port=443): Failed to resolve 'openaiglobalaffairs.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "quantum-of-solis",
       "name": "A Quantum of Solis",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='briansolis.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='briansolis.substack.com', port=443): Failed to resolve 'briansolis.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "planned-obsolescence",
       "name": "Planned Obsolescence",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.planned-obsolescence.org', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.planned-obsolescence.org', port=443): Failed to resolve 'www.planned-obsolescence.org' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "edith-yeung",
       "name": "Edith Yeung",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='edithyeung.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='edithyeung.substack.com', port=443): Failed to resolve 'edithyeung.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "linas-newsletter",
       "name": "Linas's Newsletter",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='linas.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='linas.substack.com', port=443): Failed to resolve 'linas.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "khe-hy",
       "name": "Future-Proof Your Career with AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='khemaridh.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='khemaridh.substack.com', port=443): Failed to resolve 'khemaridh.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "future-focused",
       "name": "Future-Focused",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='christopherlind.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='christopherlind.substack.com', port=443): Failed to resolve 'christopherlind.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "ai-made-simple",
       "name": "Artificial Intelligence Made Simple",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.artificialintelligencemadesimple.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.artificialintelligencemadesimple.com', port=443): Failed to resolve 'www.artificialintelligencemadesimple.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "newcomer",
       "name": "Newcomer",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.newcomer.co', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.newcomer.co', port=443): Failed to resolve 'www.newcomer.co' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "redwood-research",
       "name": "Redwood Research blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='blog.redwoodresearch.org', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='blog.redwoodresearch.org', port=443): Failed to resolve 'blog.redwoodresearch.org' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "paradigm-3",
       "name": "Paradigm 3 (Humans on AI)",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='p3humansonai.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='p3humansonai.substack.com', port=443): Failed to resolve 'p3humansonai.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "nita-farahany",
       "name": "Thinking Freely with Nita Farahany",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='nitafarahany.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='nitafarahany.substack.com', port=443): Failed to resolve 'nitafarahany.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "andrew-morgan",
       "name": "Andrew Morgan",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='andrewmorgan.ai', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='andrewmorgan.ai', port=443): Failed to resolve 'andrewmorgan.ai' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "discover-ai",
       "name": "Discover AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='aidiscover.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='aidiscover.substack.com', port=443): Failed to resolve 'aidiscover.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "andrew-yang",
       "name": "Andrew Yang Newsletter",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='blog.andrewyang.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='blog.andrewyang.com', port=443): Failed to resolve 'blog.andrewyang.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "musings-on-markets",
       "name": "Musings on Markets",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='aswathdamodaran.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='aswathdamodaran.substack.com', port=443): Failed to resolve 'aswathdamodaran.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "pluralistic",
       "name": "Pluralistic (Cory Doctorow)",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='pluralistic.net', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolutionError(\"HTTPSConnection(host='pluralistic.net', port=443): Failed to resolve 'pluralistic.net' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "aaron-levie-linkedin",
@@ -672,17 +595,15 @@
       "id": "dwarkesh-podcast",
       "name": "Dwarkesh Podcast",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.dwarkesh.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.dwarkesh.com', port=443): Failed to resolve 'www.dwarkesh.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "nate-s-substack",
       "name": "Nate\u2019s Substack",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='natesnewsletter.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='natesnewsletter.substack.com', port=443): Failed to resolve 'natesnewsletter.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "futurism",
@@ -968,129 +889,113 @@
       "id": "ground-level-ai",
       "name": "Ground Level AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.groundlevel-ai.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.groundlevel-ai.com', port=443): Failed to resolve 'www.groundlevel-ai.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "opinion-ai-2",
       "name": "Opinion AI",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='opinionai.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='opinionai.substack.com', port=443): Failed to resolve 'opinionai.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "azure-blog",
       "name": "Azure Blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='azure.microsoft.com', port=443): Max retries exceeded with url: /en-us/blog/feed/ (Caused by NameResolutionError(\"HTTPSConnection(host='azure.microsoft.com', port=443): Failed to resolve 'azure.microsoft.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "microsoft-365-copilot-blog",
       "name": "Microsoft 365 Copilot Blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.microsoft.com', port=443): Max retries exceeded with url: /en-us/microsoft-365/blog/feed/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.microsoft.com', port=443): Failed to resolve 'www.microsoft.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "microsoft-research-blog",
       "name": "Microsoft Research Blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.microsoft.com', port=443): Max retries exceeded with url: /en-us/research/feed/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.microsoft.com', port=443): Failed to resolve 'www.microsoft.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "microsoft-ai-news",
       "name": "Microsoft AI (news.microsoft.com)",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='news.microsoft.com', port=443): Max retries exceeded with url: /source/topics/ai/feed/ (Caused by NameResolutionError(\"HTTPSConnection(host='news.microsoft.com', port=443): Failed to resolve 'news.microsoft.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "aws-news-blog",
       "name": "AWS News Blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='aws.amazon.com', port=443): Max retries exceeded with url: /blogs/aws/feed/ (Caused by NameResolutionError(\"HTTPSConnection(host='aws.amazon.com', port=443): Failed to resolve 'aws.amazon.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "aws-ml-blog",
       "name": "AWS Machine Learning Blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 5,
-      "new_entries": 5
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='aws.amazon.com', port=443): Max retries exceeded with url: /blogs/machine-learning/feed/ (Caused by NameResolutionError(\"HTTPSConnection(host='aws.amazon.com', port=443): Failed to resolve 'aws.amazon.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "google-cloud-blog",
       "name": "Google Cloud Blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 3,
-      "new_entries": 3
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='cloudblog.withgoogle.com', port=443): Max retries exceeded with url: /rss/ (Caused by NameResolutionError(\"HTTPSConnection(host='cloudblog.withgoogle.com', port=443): Failed to resolve 'cloudblog.withgoogle.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "google-deepmind-blog",
       "name": "Google DeepMind Blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='deepmind.google', port=443): Max retries exceeded with url: /blog/rss.xml (Caused by NameResolutionError(\"HTTPSConnection(host='deepmind.google', port=443): Failed to resolve 'deepmind.google' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "openai-news",
       "name": "OpenAI News",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 2,
-      "new_entries": 2
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='openai.com', port=443): Max retries exceeded with url: /news/rss.xml (Caused by NameResolutionError(\"HTTPSConnection(host='openai.com', port=443): Failed to resolve 'openai.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "salesforce-news",
       "name": "Salesforce News",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.salesforce.com', port=443): Max retries exceeded with url: /news/rss/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.salesforce.com', port=443): Failed to resolve 'www.salesforce.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "hugging-face-blog",
       "name": "Hugging Face Blog",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /blog/feed.xml (Caused by NameResolutionError(\"HTTPSConnection(host='huggingface.co', port=443): Failed to resolve 'huggingface.co' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "anthropic-news",
       "name": "Anthropic News (unofficial mirror)",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='rsshub.bestblogs.dev', port=443): Max retries exceeded with url: /anthropic/news (Caused by NameResolutionError(\"HTTPSConnection(host='rsshub.bestblogs.dev', port=443): Failed to resolve 'rsshub.bestblogs.dev' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "super-intelligence-school",
       "name": "Super Intelligence School",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='sischool.substack.com', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='sischool.substack.com', port=443): Failed to resolve 'sischool.substack.com' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "a16z",
       "name": "a16z",
       "method": "feed",
-      "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "status": "error",
+      "reason": "fetch failed: HTTPSConnectionPool(host='www.a16z.news', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.a16z.news', port=443): Failed to resolve 'www.a16z.news' ([Errno -3] Temporary failure in name resolution)\"))"
     },
     {
       "id": "the-google-workspace-team",

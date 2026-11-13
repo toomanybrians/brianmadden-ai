@@ -1439,11 +1439,12 @@
     "slug": "vendor-ai-adoption-metrics-manufactured",
     "description": "AI adoption and engagement figures inflated by product design (Doctorow: most-used buttons replaced with AI prompts) and self-reported vendor growth stats without baselines, making external adoption benchmarks unreliable for enterprises.",
     "first_seen": "2026-11-05",
-    "last_seen": "2026-11-11",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-13",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Salesforce's sales-agent ROI report rests on a 24-customer vendor-commissioned survey; Trovata's savings figures are vendor-reported case studies."
+      "Salesforce's sales-agent ROI report rests on a 24-customer vendor-commissioned survey; Trovata's savings figures are vendor-reported case studies.",
+      "Anthropic's IPO prospectus carries customer self-reported figures with no baselines (Lilly 85%+ active engagement, Salesforce 151% effective output per developer), the same unbaselined vendor-stat pattern now inside a securities filing."
     ]
   },
   {
@@ -1543,6 +1544,15 @@
     "description": "Public benchmark results used for model selection being deleted or relabeled after publication without a changelog (Artificial Analysis removing Mistral Large 4's 41% Terminal-Bench row), while the vendor keeps citing the vanished number.",
     "first_seen": "2026-11-12",
     "last_seen": "2026-11-12",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-built-code-license-attribution-gaps",
+    "description": "Large multi-agent builds pulling in unlicensed or under-credited third-party code that their own quality gates and notices files miss (Mollick's Portals audit), a license-compliance exposure for agent-built internal software.",
+    "first_seen": "2026-11-13",
+    "last_seen": "2026-11-13",
     "count": 1,
     "status": "watching",
     "history": []
