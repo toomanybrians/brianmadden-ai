@@ -1247,10 +1247,12 @@
     "slug": "personal-agents-inflate-inbound-service-demand",
     "description": "Consumer agents that retry persistently, call multiple vendors at once, and fall back to phone when APIs fail could raise enterprise contact-center and service load rather than lowering it (Salesforce claim).",
     "first_seen": "2026-10-20",
-    "last_seen": "2026-10-20",
-    "count": 1,
+    "last_seen": "2026-11-16",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Separate occurrence of the same pattern from the other side: United bans agents and can cancel bot-made bookings, Amazon blocks shopping agents, agent request volume up 16x since February (Tunguz citing Cloudflare); companies are refusing inbound agent traffic rather than absorbing it."
+    ]
   },
   {
     "slug": "ai-defense-labor-hidden-from-headcount",
@@ -1372,11 +1374,12 @@
     "slug": "curated-memory-loses-to-raw-history-search",
     "description": "Memory Tax benchmark: dedicated AI memory systems (63-84%) underperform plain search of raw chat history (90%) because summarization destroys retrievable detail, a challenge to curated-layer-only retrieval designs.",
     "first_seen": "2026-10-29",
-    "last_seen": "2026-11-12",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-16",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Counter-evidence: Opinion AI reports an Anthropic test where adding connected notes raised accuracy over 350K files from 53% (file search alone) to 61%; secondhand and paywalled."
+      "Counter-evidence: Opinion AI reports an Anthropic test where adding connected notes raised accuracy over 350K files from 53% (file search alone) to 61%; secondhand and paywalled.",
+      "Counterpoint in a different setting: Nvidia research finds aggressive compaction of agent working state into a structured forward-looking briefing nearly matches full-history accuracy on SWE-bench while cutting context to ~7-9K tokens. That covers within-task state, not cross-session retrieval."
     ]
   },
   {
@@ -1462,11 +1465,12 @@
     "slug": "ai-exploit-generation-erodes-least-privilege",
     "description": "AI exploit pipelines (OpenAI's 948 Linux root exploits at ~$1,279 each) making low-privilege access on unpatched systems functionally equivalent to root, weakening restricted-rights agent identity as a standalone control.",
     "first_seen": "2026-11-06",
-    "last_seen": "2026-11-09",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-16",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Tunguz: a full simulated corporate break-in fell 99% in cost to ~$90 using open-weight GLM-5.3; a16z argues patching speed can't close the gap and protection must move off the device."
+      "Tunguz: a full simulated corporate break-in fell 99% in cost to ~$90 using open-weight GLM-5.3; a16z argues patching speed can't close the gap and protection must move off the device.",
+      "Related but distinct: the FBI ARTEX alert describes agent frameworks chaining known weaknesses to privileged access in under three hours, and credential revocation taking up to 60-90 minutes to propagate, so restricted-rights identity alone can't contain machine-speed abuse."
     ]
   },
   {
@@ -1525,10 +1529,12 @@
     "slug": "ai-binary-reverse-engineering-of-legacy-apps",
     "description": "Frontier models reverse-engineering compiled binaries and porting them (Gemini 4 Carbon's one-shot Theme Park port) as a third path for API-less legacy apps alongside wrapping and screen-driving.",
     "first_seen": "2026-11-11",
-    "last_seen": "2026-11-11",
-    "count": 1,
+    "last_seen": "2026-11-16",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Separate occurrence of a related pattern: Fable 5.2 used to reverse-engineer and rebuild individual SaaS features from screenshots and screen recordings, so a subscription kept for one feature can be replaced by a custom rebuild."
+    ]
   },
   {
     "slug": "board-oversight-cadence-lags-agent-autonomy",
@@ -1543,16 +1549,36 @@
     "slug": "public-benchmark-records-silently-edited",
     "description": "Public benchmark results used for model selection being deleted or relabeled after publication without a changelog (Artificial Analysis removing Mistral Large 4's 41% Terminal-Bench row), while the vendor keeps citing the vanished number.",
     "first_seen": "2026-11-12",
-    "last_seen": "2026-11-12",
-    "count": 1,
+    "last_seen": "2026-11-16",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Adjacent evidence that public benchmarks are an unreliable selection tool: SatBench finds 63% of lab-cited benchmarks saturated on self-reported scores but only 24% on independently verified ones."
+    ]
   },
   {
     "slug": "agent-built-code-license-attribution-gaps",
     "description": "Large multi-agent builds pulling in unlicensed or under-credited third-party code that their own quality gates and notices files miss (Mollick's Portals audit), a license-compliance exposure for agent-built internal software.",
     "first_seen": "2026-11-13",
     "last_seen": "2026-11-13",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "agent-access-blocked-to-protect-upsell-margins",
+    "description": "Consumer businesses (United, Amazon) blocking customers' AI agents because agents skip upsells, ads, and add-ons, while flat-fee platforms (Shopify) open to them; whether to admit agents becomes a pricing and business-model decision, not just a security one.",
+    "first_seen": "2026-11-16",
+    "last_seen": "2026-11-16",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "independent-per-user-agents-coordinate-worse",
+    "description": "Anthropic study: when each person's agent acts independently instead of one shared agent serving the team, groups stall, misallocate shared resources, and make unsupported claims about each other 2-3x more often, early evidence against everyone-brings-their-own-agent setups.",
+    "first_seen": "2026-11-16",
+    "last_seen": "2026-11-16",
     "count": 1,
     "status": "watching",
     "history": []

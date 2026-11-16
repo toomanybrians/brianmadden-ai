@@ -542,3 +542,29 @@ Notes from each recurrence:
 - Anthropic's IPO prospectus carries customer self-reported figures with no baselines (Lilly 85%+ active engagement, Salesforce 151% effective output per developer), the same unbaselined vendor-stat pattern now inside a securities filing.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-exploit-generation-erodes-least-privilege` — flagged 2026-11-16
+
+AI exploit pipelines (OpenAI's 948 Linux root exploits at ~$1,279 each) making low-privilege access on unpatched systems functionally equivalent to root, weakening restricted-rights agent identity as a standalone control.
+
+First seen 2026-11-06, recurred 3 times through 2026-11-16.
+
+Notes from each recurrence:
+
+- Tunguz: a full simulated corporate break-in fell 99% in cost to ~$90 using open-weight GLM-5.3; a16z argues patching speed can't close the gap and protection must move off the device.
+- Related but distinct: the FBI ARTEX alert describes agent frameworks chaining known weaknesses to privileged access in under three hours, and credential revocation taking up to 60-90 minutes to propagate, so restricted-rights identity alone can't contain machine-speed abuse.
+
+**Status: not yet reviewed by Brian.**
+
+## `curated-memory-loses-to-raw-history-search` — flagged 2026-11-16
+
+Memory Tax benchmark: dedicated AI memory systems (63-84%) underperform plain search of raw chat history (90%) because summarization destroys retrievable detail, a challenge to curated-layer-only retrieval designs.
+
+First seen 2026-10-29, recurred 3 times through 2026-11-16.
+
+Notes from each recurrence:
+
+- Counter-evidence: Opinion AI reports an Anthropic test where adding connected notes raised accuracy over 350K files from 53% (file search alone) to 61%; secondhand and paywalled.
+- Counterpoint in a different setting: Nvidia research finds aggressive compaction of agent working state into a structured forward-looking briefing nearly matches full-history accuracy on SWE-bench while cutting context to ~7-9K tokens. That covers within-task state, not cross-session retrieval.
+
+**Status: not yet reviewed by Brian.**
