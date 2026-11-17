@@ -568,3 +568,42 @@ Notes from each recurrence:
 - Counterpoint in a different setting: Nvidia research finds aggressive compaction of agent working state into a structured forward-looking briefing nearly matches full-history accuracy on SWE-bench while cutting context to ~7-9K tokens. That covers within-task state, not cross-session retrieval.
 
 **Status: not yet reviewed by Brian.**
+
+## `stolen-ai-provider-keys-as-billable-compute` — flagged 2026-11-17
+
+AI provider keys stolen (e.g., via a compromised LiteLLM gateway release) to buy model usage billed to the victim, with keys still working against the provider after the victim's app is offline—gateways as targets, not just control points.
+
+First seen 2026-10-26, recurred 3 times through 2026-11-17.
+
+Notes from each recurrence:
+
+- Gartner predicts 80% of companies with public-facing AI will face 'cost exhaustion' attacks inflating their AI bills by 2030—the AI bill as attack target, a separate mechanism from stolen keys.
+- Separate occurrences of the same pattern: a16z predicts commercial worms built to steal AI inference API keys, and AWS honeypots saw ARTEX agents stealing keys to compromise more AI model access.
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-binary-reverse-engineering-of-legacy-apps` — flagged 2026-11-17
+
+Frontier models reverse-engineering compiled binaries and porting them (Gemini 4 Carbon's one-shot Theme Park port) as a third path for API-less legacy apps alongside wrapping and screen-driving.
+
+First seen 2026-11-11, recurred 3 times through 2026-11-17.
+
+Notes from each recurrence:
+
+- Separate occurrence of a related pattern: Fable 5.2 used to reverse-engineer and rebuild individual SaaS features from screenshots and screen recordings, so a subscription kept for one feature can be replaced by a custom rebuild.
+- A related but distinct path for legacy systems: AWS's mainframe Assembler-to-COBOL-to-Java method with AI-extracted business rules and SME review at each phase.
+
+**Status: not yet reviewed by Brian.**
+
+## `training-data-priced-as-inference-discount` — flagged 2026-11-17
+
+Meta formalizing a two-tier API price where steep discounts are traded explicitly for rights to train on customer prompts/completions — turning subsidized token pricing into a named, quantified data-currency mechanism.
+
+First seen 2026-09-04, recurred 3 times through 2026-11-17.
+
+Notes from each recurrence:
+
+- Sara Hooker frames enterprise data and customer interactions as what labs most want, and warns that giving it up trains a future competitor; this is the customer-side view of the same trade.
+- Karnofsky proposes usage or rate-limit bonuses for customers who opt into data retention, another way to trade price for data rights.
+
+**Status: not yet reviewed by Brian.**

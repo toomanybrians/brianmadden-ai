@@ -623,11 +623,12 @@
     "slug": "training-data-priced-as-inference-discount",
     "description": "Meta formalizing a two-tier API price where steep discounts are traded explicitly for rights to train on customer prompts/completions \u2014 turning subsidized token pricing into a named, quantified data-currency mechanism.",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-11-03",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-17",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Sara Hooker frames enterprise data and customer interactions as what labs most want, and warns that giving it up trains a future competitor; this is the customer-side view of the same trade."
+      "Sara Hooker frames enterprise data and customer interactions as what labs most want, and warns that giving it up trains a future competitor; this is the customer-side view of the same trade.",
+      "Karnofsky proposes usage or rate-limit bonuses for customers who opt into data retention, another way to trade price for data rights."
     ]
   },
   {
@@ -1317,11 +1318,12 @@
     "slug": "stolen-ai-provider-keys-as-billable-compute",
     "description": "AI provider keys stolen (e.g., via a compromised LiteLLM gateway release) to buy model usage billed to the victim, with keys still working against the provider after the victim's app is offline\u2014gateways as targets, not just control points.",
     "first_seen": "2026-10-26",
-    "last_seen": "2026-10-27",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-17",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Gartner predicts 80% of companies with public-facing AI will face 'cost exhaustion' attacks inflating their AI bills by 2030\u2014the AI bill as attack target, a separate mechanism from stolen keys."
+      "Gartner predicts 80% of companies with public-facing AI will face 'cost exhaustion' attacks inflating their AI bills by 2030\u2014the AI bill as attack target, a separate mechanism from stolen keys.",
+      "Separate occurrences of the same pattern: a16z predicts commercial worms built to steal AI inference API keys, and AWS honeypots saw ARTEX agents stealing keys to compromise more AI model access."
     ]
   },
   {
@@ -1500,10 +1502,12 @@
     "slug": "capability-tier-triggers-data-retention-defaults",
     "description": "Frontier models classified by capability tier (Anthropic's 'Covered Model' Fable 5.2) default to 30-day retention and human safety review by hosting-provider staff unless customers opt into zero retention, so a model upgrade changes data-handling terms.",
     "first_seen": "2026-11-10",
-    "last_seen": "2026-11-10",
-    "count": 1,
+    "last_seen": "2026-11-17",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "Adjacent angle: Karnofsky argues enterprise zero-retention terms leave AI incidents unattributable and proposes mandatory retention in secure environments."
+    ]
   },
   {
     "slug": "agent-systems-accrete-unpruned-process",
@@ -1529,11 +1533,12 @@
     "slug": "ai-binary-reverse-engineering-of-legacy-apps",
     "description": "Frontier models reverse-engineering compiled binaries and porting them (Gemini 4 Carbon's one-shot Theme Park port) as a third path for API-less legacy apps alongside wrapping and screen-driving.",
     "first_seen": "2026-11-11",
-    "last_seen": "2026-11-16",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-17",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate occurrence of a related pattern: Fable 5.2 used to reverse-engineer and rebuild individual SaaS features from screenshots and screen recordings, so a subscription kept for one feature can be replaced by a custom rebuild."
+      "Separate occurrence of a related pattern: Fable 5.2 used to reverse-engineer and rebuild individual SaaS features from screenshots and screen recordings, so a subscription kept for one feature can be replaced by a custom rebuild.",
+      "A related but distinct path for legacy systems: AWS's mainframe Assembler-to-COBOL-to-Java method with AI-extracted business rules and SME review at each phase."
     ]
   },
   {
@@ -1578,7 +1583,27 @@
     "slug": "independent-per-user-agents-coordinate-worse",
     "description": "Anthropic study: when each person's agent acts independently instead of one shared agent serving the team, groups stall, misallocate shared resources, and make unsupported claims about each other 2-3x more often, early evidence against everyone-brings-their-own-agent setups.",
     "first_seen": "2026-11-16",
-    "last_seen": "2026-11-16",
+    "last_seen": "2026-11-17",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Separate but related: AWS's multi-agent guide cites Stanford HAI work showing two models can perform worse together than alone, and documents meaning drift across plain-language agent handoffs."
+    ]
+  },
+  {
+    "slug": "zero-data-retention-blinds-incident-attribution",
+    "description": "Enterprise zero-data-retention terms delete every AI interaction log, so a serious AI-caused incident could be impossible to attribute (Karnofsky), setting privacy against incident forensics.",
+    "first_seen": "2026-11-17",
+    "last_seen": "2026-11-17",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "natural-language-agent-handoffs-drift-meaning",
+    "description": "Plain-language handoffs between agents shift meaning at each step ('could indicate wear' becoming 'confirmed wear'), an argument for structured contracts between agents.",
+    "first_seen": "2026-11-17",
+    "last_seen": "2026-11-17",
     "count": 1,
     "status": "watching",
     "history": []
