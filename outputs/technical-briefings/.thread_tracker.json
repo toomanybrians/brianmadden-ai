@@ -1342,11 +1342,12 @@
     "slug": "eval-sets-written-by-incumbent-model",
     "description": "Evaluation datasets derived from the incumbent model's own outputs (Property Finder: 96.8%) structurally penalize replacements, creating lock-in through the answer key that biases model selection and routing.",
     "first_seen": "2026-10-28",
-    "last_seen": "2026-11-03",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-18",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Related evaluation bias: AWS's AgentCore evaluator scored correct safety refusals as goal failures, and Stanford finds self-preference bias in LLM-as-judge persists in current models."
+      "Related evaluation bias: AWS's AgentCore evaluator scored correct safety refusals as goal failures, and Stanford finds self-preference bias in LLM-as-judge persists in current models.",
+      "Separate-but-similar: Nubank found a simpler frontier-model-built customer simulator ranked the best agent version last, another case of the evaluation instrument biasing model selection."
     ]
   },
   {
@@ -1456,11 +1457,12 @@
     "slug": "agent-native-remote-desktop-executors",
     "description": "Venture-funded remote desktop products built from the start for agents as well as humans (a16z's Phaze), competing for the governed agent-execution environment.",
     "first_seen": "2026-11-05",
-    "last_seen": "2026-11-06",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-18",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate occurrence: Citrix's SecurSpaces positions itself as the governed execution environment for humans and agents, with a collaboration letting managed Claude agent workflows run inside it; Grok and Robinhood show consumer alternatives."
+      "Separate occurrence: Citrix's SecurSpaces positions itself as the governed execution environment for humans and agents, with a collaboration letting managed Claude agent workflows run inside it; Grok and Robinhood show consumer alternatives.",
+      "Separate-but-similar: Azure Agent Sandbox and Agent Grid (VM isolation, default-deny networking, runs on customer AKS) and Simon Willison's external sandbox with allow-list proxy compete for the governed agent-execution environment."
     ]
   },
   {
@@ -1583,11 +1585,12 @@
     "slug": "independent-per-user-agents-coordinate-worse",
     "description": "Anthropic study: when each person's agent acts independently instead of one shared agent serving the team, groups stall, misallocate shared resources, and make unsupported claims about each other 2-3x more often, early evidence against everyone-brings-their-own-agent setups.",
     "first_seen": "2026-11-16",
-    "last_seen": "2026-11-17",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-18",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Separate but related: AWS's multi-agent guide cites Stanford HAI work showing two models can perform worse together than alone, and documents meaning drift across plain-language agent handoffs."
+      "Separate but related: AWS's multi-agent guide cites Stanford HAI work showing two models can perform worse together than alone, and documents meaning drift across plain-language agent handoffs.",
+      "Separate-but-similar: Anthropic argues one agent often beats a sprawl of specialized subagents built by different teams, a third source against fragmented agent setups."
     ]
   },
   {
@@ -1604,6 +1607,24 @@
     "description": "Plain-language handoffs between agents shift meaning at each step ('could indicate wear' becoming 'confirmed wear'), an argument for structured contracts between agents.",
     "first_seen": "2026-11-17",
     "last_seen": "2026-11-17",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-vuln-discovery-patch-rush-causes-outages",
+    "description": "AI-accelerated vulnerability discovery and patch-diff exploitation forcing rushed patching that itself breaks production systems (execs/NSA to Congress on November outages), the security response becoming the outage.",
+    "first_seen": "2026-11-18",
+    "last_seen": "2026-11-18",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "llm-api-traffic-as-intrusion-indicator",
+    "description": "FBI listing LLM API endpoints as indicators of compromise, making unexpected outbound AI API calls a SOC hunting target and raising the value of knowing which AI traffic is sanctioned.",
+    "first_seen": "2026-11-18",
+    "last_seen": "2026-11-18",
     "count": 1,
     "status": "watching",
     "history": []

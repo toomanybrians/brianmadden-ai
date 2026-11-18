@@ -607,3 +607,42 @@ Notes from each recurrence:
 - Karnofsky proposes usage or rate-limit bonuses for customers who opt into data retention, another way to trade price for data rights.
 
 **Status: not yet reviewed by Brian.**
+
+## `independent-per-user-agents-coordinate-worse` — flagged 2026-11-18
+
+Anthropic study: when each person's agent acts independently instead of one shared agent serving the team, groups stall, misallocate shared resources, and make unsupported claims about each other 2-3x more often, early evidence against everyone-brings-their-own-agent setups.
+
+First seen 2026-11-16, recurred 3 times through 2026-11-18.
+
+Notes from each recurrence:
+
+- Separate but related: AWS's multi-agent guide cites Stanford HAI work showing two models can perform worse together than alone, and documents meaning drift across plain-language agent handoffs.
+- Separate-but-similar: Anthropic argues one agent often beats a sprawl of specialized subagents built by different teams, a third source against fragmented agent setups.
+
+**Status: not yet reviewed by Brian.**
+
+## `agent-native-remote-desktop-executors` — flagged 2026-11-18
+
+Venture-funded remote desktop products built from the start for agents as well as humans (a16z's Phaze), competing for the governed agent-execution environment.
+
+First seen 2026-11-05, recurred 3 times through 2026-11-18.
+
+Notes from each recurrence:
+
+- Separate occurrence: Citrix's SecurSpaces positions itself as the governed execution environment for humans and agents, with a collaboration letting managed Claude agent workflows run inside it; Grok and Robinhood show consumer alternatives.
+- Separate-but-similar: Azure Agent Sandbox and Agent Grid (VM isolation, default-deny networking, runs on customer AKS) and Simon Willison's external sandbox with allow-list proxy compete for the governed agent-execution environment.
+
+**Status: not yet reviewed by Brian.**
+
+## `eval-sets-written-by-incumbent-model` — flagged 2026-11-18
+
+Evaluation datasets derived from the incumbent model's own outputs (Property Finder: 96.8%) structurally penalize replacements, creating lock-in through the answer key that biases model selection and routing.
+
+First seen 2026-10-28, recurred 3 times through 2026-11-18.
+
+Notes from each recurrence:
+
+- Related evaluation bias: AWS's AgentCore evaluator scored correct safety refusals as goal failures, and Stanford finds self-preference bias in LLM-as-judge persists in current models.
+- Separate-but-similar: Nubank found a simpler frontier-model-built customer simulator ranked the best agent version last, another case of the evaluation instrument biasing model selection.
+
+**Status: not yet reviewed by Brian.**
