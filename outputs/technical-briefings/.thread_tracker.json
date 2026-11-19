@@ -1576,10 +1576,12 @@
     "slug": "agent-access-blocked-to-protect-upsell-margins",
     "description": "Consumer businesses (United, Amazon) blocking customers' AI agents because agents skip upsells, ads, and add-ons, while flat-fee platforms (Shopify) open to them; whether to admit agents becomes a pricing and business-model decision, not just a security one.",
     "first_seen": "2026-11-16",
-    "last_seen": "2026-11-16",
-    "count": 1,
+    "last_seen": "2026-11-19",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "United banned personal AI agents from completing transactions, framed as data protection, transaction control, and losing sales to agent intermediaries (TechTarget)."
+    ]
   },
   {
     "slug": "independent-per-user-agents-coordinate-worse",
@@ -1615,16 +1617,29 @@
     "slug": "ai-vuln-discovery-patch-rush-causes-outages",
     "description": "AI-accelerated vulnerability discovery and patch-diff exploitation forcing rushed patching that itself breaks production systems (execs/NSA to Congress on November outages), the security response becoming the outage.",
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-18",
-    "count": 1,
+    "last_seen": "2026-11-19",
+    "count": 2,
     "status": "watching",
-    "history": []
+    "history": [
+      "CIO Journal quantifies the patch surge (Microsoft ~170 flaws/month a year ago to ~1,400 last month); Cybersecurity Dive repeats the bank CEO/NSA testimony to Congress."
+    ]
   },
   {
     "slug": "llm-api-traffic-as-intrusion-indicator",
     "description": "FBI listing LLM API endpoints as indicators of compromise, making unexpected outbound AI API calls a SOC hunting target and raising the value of knowing which AI traffic is sanctioned.",
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-18",
+    "last_seen": "2026-11-19",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "NY Post mainstream pickup of the same FBI ARTEX FLASH advisory covered yesterday; no new indicator detail."
+    ]
+  },
+  {
+    "slug": "agent-purchase-errors-settle-silently",
+    "description": "Agent purchasing mistakes (Visa benchmark: 23.1% wrong-item buys, not fixed by pricier models) authenticate and settle as normal transactions, so payment systems can't detect them and dispute liability is unassigned.",
+    "first_seen": "2026-11-19",
+    "last_seen": "2026-11-19",
     "count": 1,
     "status": "watching",
     "history": []
