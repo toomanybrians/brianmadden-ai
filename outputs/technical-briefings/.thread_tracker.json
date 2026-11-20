@@ -1639,7 +1639,18 @@
     "slug": "agent-purchase-errors-settle-silently",
     "description": "Agent purchasing mistakes (Visa benchmark: 23.1% wrong-item buys, not fixed by pricier models) authenticate and settle as normal transactions, so payment systems can't detect them and dispute liability is unassigned.",
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-19",
+    "last_seen": "2026-11-20",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Liability getting assigned: Klarna carries bad-purchase risk itself, ChatGPT Wallet leaves it with merchants/issuers; AWS AgentCore IAM role separation caps spend but not intent; Salesforce survey shows 73% won't give agents payment credentials."
+    ]
+  },
+  {
+    "slug": "os-vendors-gate-third-party-computer-use-agents",
+    "description": "Operating-system owners adding friction for third-party computer-use agents while building their own (Apple: macOS 27.3 ChatGPT agent setup went from 4 to 14 steps, framed as security), making the OS vendor a non-neutral gatekeeper for endpoint agents.",
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
     "count": 1,
     "status": "watching",
     "history": []
