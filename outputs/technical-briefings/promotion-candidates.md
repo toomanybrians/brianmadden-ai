@@ -646,3 +646,42 @@ Notes from each recurrence:
 - Separate-but-similar: Nubank found a simpler frontier-model-built customer simulator ranked the best agent version last, another case of the evaluation instrument biasing model selection.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-vuln-discovery-patch-rush-causes-outages` — flagged 2026-11-23
+
+AI-accelerated vulnerability discovery and patch-diff exploitation forcing rushed patching that itself breaks production systems (execs/NSA to Congress on November outages), the security response becoming the outage.
+
+First seen 2026-11-18, recurred 3 times through 2026-11-23.
+
+Notes from each recurrence:
+
+- CIO Journal quantifies the patch surge (Microsoft ~170 flaws/month a year ago to ~1,400 last month); Cybersecurity Dive repeats the bank CEO/NSA testimony to Congress.
+- CoreWeave's CISO and Humans on AI both attribute the November outage wave (Microsoft 365, FAA, banks, NSA) to rushed AI-driven patching; Microsoft's own recovery reroute extended its outage.
+
+**Status: not yet reviewed by Brian.**
+
+## `agent-purchase-errors-settle-silently` — flagged 2026-11-23
+
+Agent purchasing mistakes (Visa benchmark: 23.1% wrong-item buys, not fixed by pricier models) authenticate and settle as normal transactions, so payment systems can't detect them and dispute liability is unassigned.
+
+First seen 2026-11-19, recurred 3 times through 2026-11-23.
+
+Notes from each recurrence:
+
+- Liability getting assigned: Klarna carries bad-purchase risk itself, ChatGPT Wallet leaves it with merchants/issuers; AWS AgentCore IAM role separation caps spend but not intent; Salesforce survey shows 73% won't give agents payment credentials.
+- Visa benchmark detail: agents fail by not asking clarifying questions; liability splits with Amex covering registered-agent errors while JPMorgan and Wells Fargo shift risk to customers.
+
+**Status: not yet reviewed by Brian.**
+
+## `continuous-behavioral-trust-scoring-for-agents` — flagged 2026-11-23
+
+Agent and bot access moving from one-time identity verification to ongoing, published behavioral trust scores (Cloudflare's trust bands) with customer-set thresholds, a reputation model rather than an enterprise provisioning model.
+
+First seen 2026-10-19, recurred 3 times through 2026-11-23.
+
+Notes from each recurrence:
+
+- Cloudflare signed agents let infrastructure verify agent requests while the receiving business sets access rules; banks blocking password-based agents with regulator backing shows recognition being decided at the receiving end.
+- Deep View sponsor piece proposes tiered agent trust (Signed/Verified/Unknown/Spoofed) via Web Bot Auth, replacing binary bot blocking; adoption of signing still inconsistent.
+
+**Status: not yet reviewed by Brian.**

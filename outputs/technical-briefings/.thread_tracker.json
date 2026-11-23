@@ -1237,11 +1237,12 @@
     "slug": "continuous-behavioral-trust-scoring-for-agents",
     "description": "Agent and bot access moving from one-time identity verification to ongoing, published behavioral trust scores (Cloudflare's trust bands) with customer-set thresholds, a reputation model rather than an enterprise provisioning model.",
     "first_seen": "2026-10-19",
-    "last_seen": "2026-11-02",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-23",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Cloudflare signed agents let infrastructure verify agent requests while the receiving business sets access rules; banks blocking password-based agents with regulator backing shows recognition being decided at the receiving end."
+      "Cloudflare signed agents let infrastructure verify agent requests while the receiving business sets access rules; banks blocking password-based agents with regulator backing shows recognition being decided at the receiving end.",
+      "Deep View sponsor piece proposes tiered agent trust (Signed/Verified/Unknown/Spoofed) via Web Bot Auth, replacing binary bot blocking; adoption of signing still inconsistent."
     ]
   },
   {
@@ -1617,11 +1618,12 @@
     "slug": "ai-vuln-discovery-patch-rush-causes-outages",
     "description": "AI-accelerated vulnerability discovery and patch-diff exploitation forcing rushed patching that itself breaks production systems (execs/NSA to Congress on November outages), the security response becoming the outage.",
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-19",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-23",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "CIO Journal quantifies the patch surge (Microsoft ~170 flaws/month a year ago to ~1,400 last month); Cybersecurity Dive repeats the bank CEO/NSA testimony to Congress."
+      "CIO Journal quantifies the patch surge (Microsoft ~170 flaws/month a year ago to ~1,400 last month); Cybersecurity Dive repeats the bank CEO/NSA testimony to Congress.",
+      "CoreWeave's CISO and Humans on AI both attribute the November outage wave (Microsoft 365, FAA, banks, NSA) to rushed AI-driven patching; Microsoft's own recovery reroute extended its outage."
     ]
   },
   {
@@ -1639,11 +1641,12 @@
     "slug": "agent-purchase-errors-settle-silently",
     "description": "Agent purchasing mistakes (Visa benchmark: 23.1% wrong-item buys, not fixed by pricier models) authenticate and settle as normal transactions, so payment systems can't detect them and dispute liability is unassigned.",
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-20",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-23",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "Liability getting assigned: Klarna carries bad-purchase risk itself, ChatGPT Wallet leaves it with merchants/issuers; AWS AgentCore IAM role separation caps spend but not intent; Salesforce survey shows 73% won't give agents payment credentials."
+      "Liability getting assigned: Klarna carries bad-purchase risk itself, ChatGPT Wallet leaves it with merchants/issuers; AWS AgentCore IAM role separation caps spend but not intent; Salesforce survey shows 73% won't give agents payment credentials.",
+      "Visa benchmark detail: agents fail by not asking clarifying questions; liability splits with Amex covering registered-agent errors while JPMorgan and Wells Fargo shift risk to customers."
     ]
   },
   {
@@ -1651,6 +1654,24 @@
     "description": "Operating-system owners adding friction for third-party computer-use agents while building their own (Apple: macOS 27.3 ChatGPT agent setup went from 4 to 14 steps, framed as security), making the OS vendor a non-neutral gatekeeper for endpoint agents.",
     "first_seen": "2026-11-20",
     "last_seen": "2026-11-20",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-memory-demand-raises-endpoint-hardware-costs",
+    "description": "DRAM makers diverting output to HBM for AI accelerators (700% DRAM price rise, 40% of output locked to OpenAI) adds 8-15% to laptop and phone prices, cutting against local/endpoint AI economics.",
+    "first_seen": "2026-11-23",
+    "last_seen": "2026-11-23",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "non-human-identity-revoke-fast-restore-slow",
+    "description": "Compromised app/agent identities can be disabled in hours but restoration takes weeks (ConnectWise: per-tenant re-authorization across Microsoft 365 customers), an incident-recovery asymmetry in non-human identity.",
+    "first_seen": "2026-11-23",
+    "last_seen": "2026-11-23",
     "count": 1,
     "status": "watching",
     "history": []
