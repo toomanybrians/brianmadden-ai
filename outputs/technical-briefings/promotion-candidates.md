@@ -685,3 +685,68 @@ Notes from each recurrence:
 - Deep View sponsor piece proposes tiered agent trust (Signed/Verified/Unknown/Spoofed) via Web Bot Auth, replacing binary bot blocking; adoption of signing still inconsistent.
 
 **Status: not yet reviewed by Brian.**
+
+## `capability-tier-triggers-data-retention-defaults` — flagged 2026-11-24
+
+Frontier models classified by capability tier (Anthropic's 'Covered Model' Fable 5.2) default to 30-day retention and human safety review by hosting-provider staff unless customers opt into zero retention, so a model upgrade changes data-handling terms.
+
+First seen 2026-11-10, recurred 3 times through 2026-11-24.
+
+Notes from each recurrence:
+
+- Adjacent angle: Karnofsky argues enterprise zero-retention terms leave AI incidents unattributable and proposes mandatory retention in secure environments.
+- Same Bedrock launch: Fable, Mythos, and Opus/Sonnet 5.5 move from ZDR exceptions to retained, misuse-scanned data with a customer-reviewed Safety Case, a further step in capability-tier-driven retention terms.
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-displacement-deferred-to-next-recession` — flagged 2026-11-24
+
+AI-driven productivity gains with flat hours and record-low labor share suggest labor displacement will be locked in during the next downturn rather than appearing gradually (Labor Matters), tying the bubble-pop timing to workforce cuts.
+
+First seen 2026-11-09, recurred 3 times through 2026-11-24.
+
+Notes from each recurrence:
+
+- October jobs data shows AI-exposed professional services still growing while losses concentrate in document prep (-17% YoY) and call centers; laid-off AI-exposed workers take about a month longer to find new jobs.
+- Andrew Yang argues a recession gives employers cover for deferred AI cuts; Anthropic's 58-company study finds rare direct layoffs but reduced hiring at two-thirds of companies, consistent with deferral.
+
+**Status: not yet reviewed by Brian.**
+
+## `augmentation-dividend-failure-admissions` — flagged 2026-11-24
+
+AI-industry insiders (starting with Clara Shih) going on record that the 'automate rote work, redeploy staff to higher-value work' thesis they built products on hasn't actually materialized.
+
+First seen 2026-08-28, recurred 3 times through 2026-11-24.
+
+Notes from each recurrence:
+
+- Counterexample: Vercel's SDRs who supervised its inbound agent were promoted to outbound roles early, a documented case of redeployment actually happening.
+- Counterevidence: Anthropic's study finds deliberate reorganization that redeploys staff to AI bottleneck tasks delivered the highest value, though only about a tenth of uses gave employees reduced workload.
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-output-convergence-erodes-differentiation` — flagged 2026-11-24
+
+Competent-but-generic AI output in hard-to-verify work (marketing, strategy) causes competitors using the same models to converge, a competitive cost distinct from output quality.
+
+First seen 2026-10-30, recurred 3 times through 2026-11-24.
+
+Notes from each recurrence:
+
+- Deferral study numbers: analysts adopted Claude's randomized priors 86% of the time, only 15% credited it, and Opus 4.8 made identical choices in 112 of 123 runs, so 'independent' reviews can share one hidden prior.
+- a16z finds consumer shopping agents pick the same product 73% of the time and all four converge in about 25% of cases.
+
+**Status: not yet reviewed by Brian.**
+
+## `ai-recommendations-as-software-supply-chain-attack-surface` — flagged 2026-11-24
+
+Attackers manufacturing trust signals (fake stars, forks, commit histories) so AI assistants recommend malicious tools, e.g. a fake Shopify MCP server surfacing in ChatGPT and Google AI Overview on ordinary queries.
+
+First seen 2026-10-16, recurred 3 times through 2026-11-24.
+
+Notes from each recurrence:
+
+- Adjacent: Cyera found 70 confirmed malicious skills in September, all carrying A or B security grades from a marketplace, so marketplace grades function as a false trust signal for natural-language payloads.
+- Wharton's 26,000 tests: one outside source or one injected memory sentence redirects most models' picks, and tool-call bundling changes outcomes, widening the manipulable surface beyond fake trust signals.
+
+**Status: not yet reviewed by Brian.**
