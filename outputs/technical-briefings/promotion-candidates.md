@@ -750,3 +750,16 @@ Notes from each recurrence:
 - Wharton's 26,000 tests: one outside source or one injected memory sentence redirects most models' picks, and tool-call bundling changes outcomes, widening the manipulable surface beyond fake trust signals.
 
 **Status: not yet reviewed by Brian.**
+
+## `agent-access-blocked-to-protect-upsell-margins` — flagged 2026-11-25
+
+Consumer businesses (United, Amazon) blocking customers' AI agents because agents skip upsells, ads, and add-ons, while flat-fee platforms (Shopify) open to them; whether to admit agents becomes a pricing and business-model decision, not just a security one.
+
+First seen 2026-11-16, recurred 3 times through 2026-11-25.
+
+Notes from each recurrence:
+
+- United banned personal AI agents from completing transactions, framed as data protection, transaction control, and losing sales to agent intermediaries (TechTarget).
+- Google makes agent access to Workspace a metered, MCP-only channel with a paid Scaled tier, and Amazon's World Product Graph plus Meta's Muse routing shoppers to Walmart continue the consumer block-and-counterblock fight; admitting agents is a pricing decision at platform scale too.
+
+**Status: not yet reviewed by Brian.**

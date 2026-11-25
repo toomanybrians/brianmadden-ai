@@ -1582,11 +1582,12 @@
     "slug": "agent-access-blocked-to-protect-upsell-margins",
     "description": "Consumer businesses (United, Amazon) blocking customers' AI agents because agents skip upsells, ads, and add-ons, while flat-fee platforms (Shopify) open to them; whether to admit agents becomes a pricing and business-model decision, not just a security one.",
     "first_seen": "2026-11-16",
-    "last_seen": "2026-11-19",
-    "count": 2,
-    "status": "watching",
+    "last_seen": "2026-11-25",
+    "count": 3,
+    "status": "promoted-candidate",
     "history": [
-      "United banned personal AI agents from completing transactions, framed as data protection, transaction control, and losing sales to agent intermediaries (TechTarget)."
+      "United banned personal AI agents from completing transactions, framed as data protection, transaction control, and losing sales to agent intermediaries (TechTarget).",
+      "Google makes agent access to Workspace a metered, MCP-only channel with a paid Scaled tier, and Amazon's World Product Graph plus Meta's Muse routing shoppers to Walmart continue the consumer block-and-counterblock fight; admitting agents is a pricing decision at platform scale too."
     ]
   },
   {
@@ -1689,7 +1690,27 @@
     "slug": "security-vendors-consolidating-agent-traffic-governance",
     "description": "Network/endpoint security incumbents buying their way into agent governance (CrowdStrike-Zscaler $43.9B pitched at agent-to-data traffic, Palo Alto-Applied Compute $4.5B), with proxy-centric architectures claiming a layer Brian argues can't see content.",
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Cybersecurity Dive repeats the CrowdStrike-Zscaler $43.9B deal amid AI-enabled campaigns; no new detail on architecture."
+    ]
+  },
+  {
+    "slug": "proactive-agents-monitor-coworkers-shared-work",
+    "description": "Always-on personal agents with shared-document access continuously watching colleagues' in-progress work without their knowledge or consent, turning read permissions into ambient coworker monitoring.",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
+    "count": 1,
+    "status": "watching",
+    "history": []
+  },
+  {
+    "slug": "ai-paced-patching-causes-self-inflicted-outages",
+    "description": "AI-compressed discovery-to-exploit timelines forcing rushed patches that break production systems (reported FAA, Outlook, iCloud, Chase outages) while incident-response capacity runs out.",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
     "count": 1,
     "status": "watching",
     "history": []
