@@ -763,3 +763,16 @@ Notes from each recurrence:
 - Google makes agent access to Workspace a metered, MCP-only channel with a paid Scaled tier, and Amazon's World Product Graph plus Meta's Muse routing shoppers to Walmart continue the consumer block-and-counterblock fight; admitting agents is a pricing decision at platform scale too.
 
 **Status: not yet reviewed by Brian.**
+
+## `ai-memory-demand-raises-endpoint-hardware-costs` — flagged 2026-11-26
+
+DRAM makers diverting output to HBM for AI accelerators (700% DRAM price rise, 40% of output locked to OpenAI) adds 8-15% to laptop and phone prices, cutting against local/endpoint AI economics.
+
+First seen 2026-11-23, recurred 3 times through 2026-11-26.
+
+Notes from each recurrence:
+
+- Spreads to servers: Dell, HPE, Lenovo, and Supermicro raising AI server prices 25-45% on existing contracts as memory costs rise 400%+ since 2024 (CIO Journal); counterpoint is 128GB MacBook Pros running 70B-class models locally.
+- Nate B. Jones adds the mechanism (agent workloads consume DDR5/LPDDR server memory, competing with consumer devices), DDR5 contract price $8.70 to $48 in 11 months, memory at 54% of budget-phone parts cost, Gartner +17% PC prices, Micron expecting tighter supply through 2028.
+
+**Status: not yet reviewed by Brian.**
