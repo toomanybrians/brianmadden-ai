@@ -1,13 +1,13 @@
 {
-  "run_utc": "2026-11-26T05:39:49.357967+00:00",
+  "run_utc": "2026-11-27T05:37:47.282250+00:00",
   "results": [
     {
       "id": "x-timeline",
       "name": "X (brianmaddenai home timeline)",
       "method": "x",
       "status": "ok",
-      "entries_in_window": 110,
-      "new_entries": 110
+      "entries_in_window": 55,
+      "new_entries": 55
     },
     {
       "id": "ethan-mollick",
@@ -30,16 +30,16 @@
       "name": "Daniel Miessler",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "brain-inbox",
       "name": "brain@ inbox (curated newsletters)",
       "method": "email",
       "status": "ok",
-      "entries_in_window": 20,
-      "new_entries": 20
+      "entries_in_window": 4,
+      "new_entries": 4
     },
     {
       "id": "the-artificial-intelligence-show",
@@ -54,8 +54,11 @@
       "name": "Moonshots",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1,
+      "long_form_skipped": [
+        "Thanksgiving Special: The Moments That Almost Ended Us (And Why We\u2019re Grateful) | EP #316"
+      ]
     },
     {
       "id": "dwarkesh",
@@ -94,8 +97,11 @@
       "name": "On with Kara Swisher",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1,
+      "long_form_skipped": [
+        "Best of Luck with Kyla Scanlon: Can You Still Get Lucky in Your Career? (ft. Kai Ryssdal)"
+      ]
     },
     {
       "id": "no-priors",
@@ -126,15 +132,15 @@
       "name": "Harvard Business Review IdeaCast",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "algorithmic-bridge",
       "name": "The Algorithmic Bridge",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -253,8 +259,8 @@
       "name": "Labor Matters",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "last-week-in-ai",
@@ -277,7 +283,7 @@
       "name": "Metatrends",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -293,16 +299,16 @@
       "name": "Prof G Media",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 3,
-      "new_entries": 3
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "semianalysis",
       "name": "SemiAnalysis",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "simon-willison",
@@ -341,7 +347,7 @@
       "name": "BIG by Matt Stoller",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -396,7 +402,7 @@
       "name": "Hard Reset",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -420,7 +426,7 @@
       "name": "80,000 Hours",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -484,7 +490,7 @@
       "name": "GuardRailNow",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
+      "entries_in_window": 1,
       "new_entries": 0
     },
     {
@@ -564,8 +570,8 @@
       "name": "Newcomer",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
-      "new_entries": 1
+      "entries_in_window": 0,
+      "new_entries": 0
     },
     {
       "id": "redwood-research",
@@ -588,8 +594,8 @@
       "name": "Thinking Freely with Nita Farahany",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "andrew-morgan",
@@ -611,8 +617,8 @@
       "name": "Andrew Yang Newsletter",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 0,
-      "new_entries": 0
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "musings-on-markets",
@@ -678,7 +684,7 @@
       "name": "Nate\u2019s Substack",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -966,7 +972,7 @@
       "name": "Ground Level AI",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 1,
+      "entries_in_window": 0,
       "new_entries": 0
     },
     {
@@ -1062,8 +1068,8 @@
       "name": "Hugging Face Blog",
       "method": "feed",
       "status": "ok",
-      "entries_in_window": 3,
-      "new_entries": 3
+      "entries_in_window": 1,
+      "new_entries": 1
     },
     {
       "id": "anthropic-news",

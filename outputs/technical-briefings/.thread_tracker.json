@@ -1722,7 +1722,18 @@
     "slug": "document-extraction-silently-breaks-structure",
     "description": "PDF/document extraction preserving every word while scrambling structural pairings (table rows, line items), so completeness checks pass while AI-ingested knowledge is wrong, an ingestion-fidelity failure mode for knowledge layers.",
     "first_seen": "2026-11-26",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-27",
+    "count": 2,
+    "status": "watching",
+    "history": [
+      "Separate development, not the same incident: NVIDIA's Nemotron Parse 2.0 outputs reading order, coordinates, and chart-to-table structure, a possible mitigation, but its published gains measure text accuracy rather than whether row pairings survive."
+    ]
+  },
+  {
+    "slug": "ai-client-hosts-apps-invisible-to-os-controls",
+    "description": "AI clients hosting user-generated apps inside their own process (Claude artifacts installed as desktop apps), so OS permission controls and app-store review see only the AI client, not the individual apps running in it.",
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
     "count": 1,
     "status": "watching",
     "history": []
